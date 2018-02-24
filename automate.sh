@@ -14,5 +14,8 @@ echo 'Git work now'
 git add .
 git commit -m 'commit $date'
 git push
-
+expect \"ser"\
+send $GUSER
+expect \"assword:\"
+send \"$mypassword\r\"
 echo 'Git is updated'
