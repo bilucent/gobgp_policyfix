@@ -1,19 +1,18 @@
 #!/bin/bash
 
 GUSER="bilucent"
-GPASS='Gaghbij12'
+NOW=$(date +"%Y-%m-%d-%H-%M")
+echo 'time is $NOW'
 
+echo 'your commit message?'
+read COMMITMESSAGE
+echo $COMMITMESSAGE
 
+read -s -p "Enter GIT Password: " mypassword
 
-suffix=$(date +%s)
-echo $suffix
-set date [clock format $now -format {%b-%d}]
-echo $date
-
-
-
+echo 'Git work now'
 git add .
-git commit -m 'commit $data'
+git commit -m 'commit $date'
 git push
 
-
+echo 'Git is updated'
