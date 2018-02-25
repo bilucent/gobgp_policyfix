@@ -16,6 +16,7 @@
 package zebra
 
 import (
+  "fmt"
 	"encoding/binary"
 	"fmt"
 	"io"

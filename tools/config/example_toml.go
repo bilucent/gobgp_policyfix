@@ -1,6 +1,7 @@
 package main
 
 import (
+  "fmt"
 	"bytes"
 	"fmt"
 	"github.com/BurntSushi/toml"

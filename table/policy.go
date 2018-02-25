@@ -16,6 +16,7 @@
 package table
 
 import (
+  "fmt"
 	"bytes"
 	"encoding/json"
 	"fmt"

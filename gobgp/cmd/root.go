@@ -16,6 +16,7 @@
 package cmd
 
 import (
+  "fmt"
 	"fmt"
 	"net/http"
 	_ "net/http/pprof"

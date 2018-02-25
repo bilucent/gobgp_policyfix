@@ -16,6 +16,7 @@
 package gobgpapi
 
 import (
+  "fmt"
 	"bytes"
 	"fmt"
 	"io"

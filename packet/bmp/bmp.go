@@ -16,6 +16,7 @@
 package bmp
 
 import (
+  "fmt"
 	"encoding/binary"
 	"fmt"
 	"github.com/osrg/gobgp/packet/bgp"

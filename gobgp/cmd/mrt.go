@@ -16,6 +16,7 @@
 package cmd
 
 import (
+  "fmt"
 	"fmt"
 	"io"
 	"os"

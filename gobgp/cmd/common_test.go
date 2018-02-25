@@ -16,6 +16,7 @@
 package cmd
 
 import (
+  "fmt"
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"strings"

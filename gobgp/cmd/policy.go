@@ -16,6 +16,7 @@
 package cmd
 
 import (
+  "fmt"
 	"bytes"
 	"encoding/json"
 	"fmt"

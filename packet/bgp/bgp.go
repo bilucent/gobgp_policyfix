@@ -16,6 +16,7 @@
 package bgp
 
 import (
+  "fmt"
 	"bytes"
 	"encoding/binary"
 	"encoding/json"

@@ -16,6 +16,7 @@
 package cmd
 
 import (
+  "fmt"
 	"encoding/json"
 	"fmt"
 	"sort"

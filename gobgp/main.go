@@ -16,6 +16,7 @@
 package main
 
 import (
+  "fmt"
 	"fmt"
 	"github.com/osrg/gobgp/gobgp/cmd"
 	"google.golang.org/grpc"

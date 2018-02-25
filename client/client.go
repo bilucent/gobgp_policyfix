@@ -17,6 +17,7 @@
 package client
 
 import (
+  "fmt"
 	"fmt"
 	"io"
 	"net"

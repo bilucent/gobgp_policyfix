@@ -16,6 +16,7 @@
 package mrt
 
 import (
+  "fmt"
 	"bytes"
 	"encoding/binary"
 	"fmt"

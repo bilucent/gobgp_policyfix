@@ -18,6 +18,7 @@
 package zebra
 
 import (
+  "fmt"
 	"strings"
 	"syscall"
 )

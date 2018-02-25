@@ -16,6 +16,7 @@
 package mrt
 
 import (
+  "fmt"
 	"bufio"
 	"bytes"
 	"github.com/osrg/gobgp/packet/bgp"

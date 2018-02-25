@@ -16,6 +16,7 @@
 package table
 
 import (
+  "fmt"
 	"fmt"
 
 	"github.com/osrg/gobgp/packet/bgp"

@@ -19,6 +19,7 @@
 package config
 
 import (
+  "fmt"
 	"fmt"
 
 	"github.com/osrg/gobgp/packet/bgp"
@@ -1798,6 +1799,7 @@ type PeerGroup struct {
 	// Anchor point for routing policies in the model.
 	// Import and export policies are with respect to the local
 	// routing table, i.e., export (send) and import (receive),
+  "fmt"
 	// depending on the context.
 	ApplyPolicy ApplyPolicy `mapstructure:"apply-policy" json:"apply-policy,omitempty"`
 	// original -> bgp-mp:use-multiple-paths
@@ -3180,6 +3182,7 @@ type Neighbor struct {
 	// Anchor point for routing policies in the model.
 	// Import and export policies are with respect to the local
 	// routing table, i.e., export (send) and import (receive),
+  "fmt"
 	// depending on the context.
 	ApplyPolicy ApplyPolicy `mapstructure:"apply-policy" json:"apply-policy,omitempty"`
 	// original -> bgp-mp:use-multiple-paths
@@ -3845,6 +3848,7 @@ func (lhs *ApplyPolicyConfig) Equal(rhs *ApplyPolicyConfig) bool {
 // Anchor point for routing policies in the model.
 // Import and export policies are with respect to the local
 // routing table, i.e., export (send) and import (receive),
+  "fmt"
 // depending on the context.
 type ApplyPolicy struct {
 	// original -> rpol:apply-policy-config
@@ -4003,6 +4007,7 @@ type AfiSafi struct {
 	// Anchor point for routing policies in the model.
 	// Import and export policies are with respect to the local
 	// routing table, i.e., export (send) and import (receive),
+  "fmt"
 	// depending on the context.
 	ApplyPolicy ApplyPolicy `mapstructure:"apply-policy" json:"apply-policy,omitempty"`
 	// original -> bgp-mp:ipv4-unicast
@@ -4854,6 +4859,7 @@ type Global struct {
 	// Anchor point for routing policies in the model.
 	// Import and export policies are with respect to the local
 	// routing table, i.e., export (send) and import (receive),
+  "fmt"
 	// depending on the context.
 	ApplyPolicy ApplyPolicy `mapstructure:"apply-policy" json:"apply-policy,omitempty"`
 }
