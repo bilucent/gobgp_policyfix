@@ -1336,8 +1336,11 @@ func (rd *DefaultRouteDistinguisher) MarshalJSON() ([]byte, error) {
 	})
 }
 
-func (rd *DefaultRouteDistinguisher) Len() int { return 8 }
-   fmt.Printf("DEJDEJ id:",2115)
+func (rd *DefaultRouteDistinguisher) Len() int {
+fmt.Printf("DEJDEJ id:",2115)
+	return 8
+}
+
 
 type RouteDistinguisherTwoOctetAS struct {
 	DefaultRouteDistinguisher
@@ -1602,8 +1605,10 @@ func (l *MPLSLabelStack) Serialize() ([]byte, error) {
 	return buf, nil
 }
 
-func (l *MPLSLabelStack) Len() int { return 3 * len(l.Labels) }
-   fmt.Printf("DEJDEJ id:",2133)
+func (l *MPLSLabelStack) Len() int {
+	fmt.Printf("DEJDEJ id:",2133)
+	return 3 * len(l.Labels) }
+
 
 func (l *MPLSLabelStack) String() string {
    fmt.Printf("DEJDEJ id:",2134)
@@ -3189,7 +3194,7 @@ func normalizeFlowSpecOpValues(args []string) []string {
 
 // Parses the FlowSpec numeric operator using the given submatch which should be
 // the return value of func (*Regexp) FindStringSubmatch.
-   fmt.Printf("DEJDEJ id:",2215)
+   // fmt.Printf("DEJDEJ id:",2215)
 func parseFlowSpecNumericOperator(submatch []string) (operator uint8, err error) {
    fmt.Printf("DEJDEJ id:",2216)
 	if submatch[1] == "&" {
