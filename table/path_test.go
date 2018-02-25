@@ -2,6 +2,7 @@
 package table
 
 import (
+  "fmt"
 	"testing"
 	"time"
 

@@ -16,6 +16,7 @@
 package client
 
 import (
+  "fmt"
 	"testing"
 	"time"
 
