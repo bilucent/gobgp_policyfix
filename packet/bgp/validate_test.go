@@ -9,6 +9,7 @@ import (
 )
 
 func bgpupdate() *BGPMessage {
+   fmt.Printf("DEJDEJ id:",2019)
 	aspath := []AsPathParamInterface{
 		NewAsPathParam(2, []uint16{65001}),
 	}
@@ -24,6 +25,7 @@ func bgpupdate() *BGPMessage {
 }
 
 func bgpupdateV6() *BGPMessage {
+   fmt.Printf("DEJDEJ id:",2020)
 	aspath := []AsPathParamInterface{
 		NewAsPathParam(2, []uint16{65001}),
 	}
@@ -40,6 +42,7 @@ func bgpupdateV6() *BGPMessage {
 }
 
 func Test_Validate_CapV4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2021)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv6_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -51,6 +54,7 @@ func Test_Validate_CapV4(t *testing.T) {
 }
 
 func Test_Validate_CapV6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2022)
 	assert := assert.New(t)
 	message := bgpupdateV6().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv6_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -62,6 +66,7 @@ func Test_Validate_CapV6(t *testing.T) {
 }
 
 func Test_Validate_OK(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2023)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv4_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -71,6 +76,7 @@ func Test_Validate_OK(t *testing.T) {
 }
 
 // func Test_Validate_wellknown_but_nontransitive(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2024)
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -89,6 +95,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 // func Test_Validate_wellknown_but_partial(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2025)
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -107,6 +114,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 // func Test_Validate_optional_nontransitive_but_partial(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2026)
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 // 	f := BGP_ATTR_FLAG_OPTIONAL | BGP_ATTR_FLAG_PARTIAL
@@ -125,6 +133,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 // func Test_Validate_flag_mismatch(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2027)
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 // 	f := BGP_ATTR_FLAG_OPTIONAL
@@ -144,6 +153,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 func Test_Validate_duplicate_attribute(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2028)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	// duplicate origin path attribute
@@ -163,6 +173,7 @@ func Test_Validate_duplicate_attribute(t *testing.T) {
 }
 
 func Test_Validate_mandatory_missing(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2029)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	message.PathAttributes = message.PathAttributes[1:]
@@ -178,6 +189,7 @@ func Test_Validate_mandatory_missing(t *testing.T) {
 }
 
 func Test_Validate_mandatory_missing_nocheck(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2030)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	message.PathAttributes = message.PathAttributes[1:]
@@ -189,6 +201,7 @@ func Test_Validate_mandatory_missing_nocheck(t *testing.T) {
 }
 
 func Test_Validate_invalid_origin(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2031)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	// origin needs to be well-known
@@ -208,6 +221,7 @@ func Test_Validate_invalid_origin(t *testing.T) {
 }
 
 func Test_Validate_invalid_nexthop_zero(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2032)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -230,6 +244,7 @@ func Test_Validate_invalid_nexthop_zero(t *testing.T) {
 }
 
 func Test_Validate_invalid_nexthop_lo(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2033)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -252,6 +267,7 @@ func Test_Validate_invalid_nexthop_lo(t *testing.T) {
 }
 
 func Test_Validate_invalid_nexthop_de(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2034)
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -275,6 +291,7 @@ func Test_Validate_invalid_nexthop_de(t *testing.T) {
 }
 
 func Test_Validate_unrecognized_well_known(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2035)
 
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
@@ -295,6 +312,7 @@ func Test_Validate_unrecognized_well_known(t *testing.T) {
 }
 
 func Test_Validate_aspath(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2036)
 
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
@@ -364,6 +382,7 @@ func Test_Validate_aspath(t *testing.T) {
 }
 
 func Test_Validate_flowspec(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2037)
 	assert := assert.New(t)
 	cmp := make([]FlowSpecComponentInterface, 0)
 	cmp = append(cmp, NewFlowSpecDestinationPrefix(NewIPAddrPrefix(24, "10.0.0.0")))
@@ -404,6 +423,7 @@ func Test_Validate_flowspec(t *testing.T) {
 }
 
 func TestValidateLargeCommunities(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2038)
 	assert := assert.New(t)
 	c1, err := ParseLargeCommunity("10:10:10")
 	assert.Nil(err)

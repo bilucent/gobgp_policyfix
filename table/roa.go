@@ -26,6 +26,7 @@ type IPPrefix struct {
 }
 
 func (p *IPPrefix) String() string {
+   fmt.Printf("DEJDEJ id:",2815)
 	return fmt.Sprintf("%s/%d", p.Prefix, p.Length)
 }
 
@@ -38,6 +39,7 @@ type ROA struct {
 }
 
 func NewROA(family int, prefixByte []byte, prefixLen uint8, maxLen uint8, as uint32, src string) *ROA {
+   fmt.Printf("DEJDEJ id:",2816)
 	p := make([]byte, len(prefixByte))
 	copy(p, prefixByte)
 	return &ROA{
@@ -53,6 +55,7 @@ func NewROA(family int, prefixByte []byte, prefixLen uint8, maxLen uint8, as uin
 }
 
 func (r *ROA) Equal(roa *ROA) bool {
+   fmt.Printf("DEJDEJ id:",2817)
 	if r.MaxLen == roa.MaxLen && r.Src == roa.Src && r.AS == roa.AS {
 		return true
 	}

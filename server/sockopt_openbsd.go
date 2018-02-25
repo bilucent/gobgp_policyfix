@@ -59,6 +59,7 @@ type sadbMsg struct {
 }
 
 func (s *sadbMsg) DecodeFromBytes(data []byte) error {
+   fmt.Printf("DEJDEJ id:",79)
 	if len(data) < SADB_MSG_SIZE {
 		fmt.Errorf("too short for sadbMsg %d", len(data))
 	}
@@ -126,6 +127,7 @@ type sockaddrIn struct {
 }
 
 func newSockaddrIn(addr string) sockaddrIn {
+   fmt.Printf("DEJDEJ id:",80)
 	if len(addr) == 0 {
 		return sockaddrIn{
 			ssLen: 16,
@@ -140,6 +142,7 @@ func newSockaddrIn(addr string) sockaddrIn {
 }
 
 func roundUp(v int) int {
+   fmt.Printf("DEJDEJ id:",81)
 	if v%8 != 0 {
 		v += 8 - v%8
 	}
@@ -147,6 +150,7 @@ func roundUp(v int) int {
 }
 
 func b(p unsafe.Pointer, length int) []byte {
+   fmt.Printf("DEJDEJ id:",82)
 	buf := make([]byte, length)
 	for i := 0; i < length; i++ {
 		buf[i] = *(*byte)(p)
@@ -162,6 +166,7 @@ var spiInMap map[string]uint32 = map[string]uint32{}
 var spiOutMap map[string]uint32 = map[string]uint32{}
 
 func pfkeyReply() (spi uint32, err error) {
+   fmt.Printf("DEJDEJ id:",83)
 	buf := make([]byte, SADB_MSG_SIZE)
 	if count, _, _, _, _ := syscall.Recvmsg(fd, buf, nil, syscall.MSG_PEEK); count != len(buf) {
 		return spi, fmt.Errorf("incomplete sadb msg %d %d", len(buf), count)
@@ -203,6 +208,7 @@ func pfkeyReply() (spi uint32, err error) {
 }
 
 func sendSadbMsg(msg *sadbMsg, body []byte) (err error) {
+   fmt.Printf("DEJDEJ id:",84)
 	if fd == 0 {
 		fd, err = syscall.Socket(syscall.AF_KEY, syscall.SOCK_RAW, PF_KEY_V2)
 		if err != nil {
@@ -224,6 +230,7 @@ func sendSadbMsg(msg *sadbMsg, body []byte) (err error) {
 }
 
 func rfkeyRequest(msgType uint8, src, dst string, spi uint32, key string) error {
+   fmt.Printf("DEJDEJ id:",85)
 	h := sadbMsg{
 		sadbMsgVersion: PF_KEY_V2,
 		sadbMsgType:    msgType,
@@ -289,6 +296,7 @@ func rfkeyRequest(msgType uint8, src, dst string, spi uint32, key string) error 
 }
 
 func saAdd(address, key string) error {
+   fmt.Printf("DEJDEJ id:",86)
 	f := func(src, dst string) error {
 		if err := rfkeyRequest(SADB_GETSPI, src, dst, 0, ""); err != nil {
 			return err
@@ -318,6 +326,7 @@ func saAdd(address, key string) error {
 }
 
 func saDelete(address string) error {
+   fmt.Printf("DEJDEJ id:",87)
 	if spi, y := spiInMap[address]; y {
 		if err := rfkeyRequest(SADB_DELETE, address, "", spi, ""); err != nil {
 			log.WithFields(log.Fields{
@@ -353,6 +362,7 @@ const (
 )
 
 func setsockoptTcpMD5Sig(fd int, address string, key string) error {
+   fmt.Printf("DEJDEJ id:",88)
 	if err := syscall.SetsockoptInt(fd, syscall.IPPROTO_TCP, TCP_MD5SIG, 1); err != nil {
 		return os.NewSyscallError("setsockopt", err)
 	}
@@ -363,6 +373,7 @@ func setsockoptTcpMD5Sig(fd int, address string, key string) error {
 }
 
 func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
+   fmt.Printf("DEJDEJ id:",89)
 	fi, _, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -372,6 +383,7 @@ func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
 }
 
 func setsockoptIpTtl(fd int, family int, value int) error {
+   fmt.Printf("DEJDEJ id:",90)
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_TTL
 	if family == syscall.AF_INET6 {
@@ -382,6 +394,7 @@ func setsockoptIpTtl(fd int, family int, value int) error {
 }
 
 func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
+   fmt.Printf("DEJDEJ id:",91)
 	fi, family, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -391,6 +404,7 @@ func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
 }
 
 func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
+   fmt.Printf("DEJDEJ id:",92)
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -400,6 +414,7 @@ func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
 }
 
 func setsockoptIpMinTtl(fd int, family int, value int) error {
+   fmt.Printf("DEJDEJ id:",93)
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_MINTTL
 	if family == syscall.AF_INET6 {
@@ -410,6 +425,7 @@ func setsockoptIpMinTtl(fd int, family int, value int) error {
 }
 
 func SetTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {
+   fmt.Printf("DEJDEJ id:",94)
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -432,6 +448,7 @@ type TCPDialer struct {
 }
 
 func (d *TCPDialer) DialTCP(addr string, port int) (*net.TCPConn, error) {
+   fmt.Printf("DEJDEJ id:",95)
 	if d.AuthPassword != "" {
 		log.WithFields(log.Fields{
 			"Topic": "Peer",

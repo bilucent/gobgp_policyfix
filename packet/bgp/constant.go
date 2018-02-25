@@ -71,6 +71,7 @@ var ProtocolNameMap = map[Protocol]string{
 }
 
 func (p Protocol) String() string {
+   fmt.Printf("DEJDEJ id:",2667)
 	name, ok := ProtocolNameMap[p]
 	if !ok {
 		return fmt.Sprintf("%d", p)
@@ -117,6 +118,7 @@ var TCPSortedFlags = []TCPFlag{
 }
 
 func (f TCPFlag) String() string {
+   fmt.Printf("DEJDEJ id:",2668)
 	flags := make([]string, 0, len(TCPSortedFlags))
 	for _, v := range TCPSortedFlags {
 		if f&v > 0 {
@@ -161,6 +163,7 @@ var BitmaskFlagOpValueMap = map[string]BitmaskFlagOp{
 }
 
 func (f BitmaskFlagOp) String() string {
+   fmt.Printf("DEJDEJ id:",2669)
 	ops := make([]string, 0)
 	if f&BITMASK_FLAG_OP_AND > 0 {
 		ops = append(ops, BitmaskFlagOpNameMap[BITMASK_FLAG_OP_AND])
@@ -205,6 +208,7 @@ var FragmentSortedFlags = []FragmentFlag{
 }
 
 func (f FragmentFlag) String() string {
+   fmt.Printf("DEJDEJ id:",2670)
 	flags := make([]string, 0, len(FragmentSortedFlags))
 	for _, v := range FragmentSortedFlags {
 		if f&v > 0 {
@@ -264,6 +268,7 @@ var DECNumOpValueMap = map[string]DECNumOp{
 }
 
 func (f DECNumOp) String() string {
+   fmt.Printf("DEJDEJ id:",2671)
 	ops := make([]string, 0)
 	logicFlag := DECNumOp(f & 0xc0) // higher 2 bits
 	if logicFlag&DEC_NUM_OP_AND > 0 {
@@ -320,6 +325,7 @@ var EthernetTypeNameMap = map[EthernetType]string{
 }
 
 func (t EthernetType) String() string {
+   fmt.Printf("DEJDEJ id:",2672)
 	if name, ok := EthernetTypeNameMap[t]; ok {
 		return name
 	}

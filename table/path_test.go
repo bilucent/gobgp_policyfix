@@ -11,6 +11,7 @@ import (
 )
 
 func TestPathNewIPv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2756)
 	peerP := PathCreatePeer()
 	pathP := PathCreatePath(peerP)
 	ipv4p := NewPath(pathP[0].GetSource(), pathP[0].GetNlri(), true, pathP[0].GetPathAttrs(), time.Now(), false)
@@ -18,6 +19,7 @@ func TestPathNewIPv4(t *testing.T) {
 }
 
 func TestPathNewIPv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2757)
 	peerP := PathCreatePeer()
 	pathP := PathCreatePath(peerP)
 	ipv6p := NewPath(pathP[0].GetSource(), pathP[0].GetNlri(), true, pathP[0].GetPathAttrs(), time.Now(), false)
@@ -25,6 +27,7 @@ func TestPathNewIPv6(t *testing.T) {
 }
 
 func TestPathGetNlri(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2758)
 	nlri := bgp.NewIPAddrPrefix(24, "13.2.3.2")
 	pd := &Path{
 		info: &originInfo{
@@ -36,6 +39,7 @@ func TestPathGetNlri(t *testing.T) {
 }
 
 func TestPathCreatePath(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2759)
 	peerP := PathCreatePeer()
 	msg := updateMsgP1()
 	updateMsgP := msg.Body.(*bgp.BGPUpdate)
@@ -48,6 +52,7 @@ func TestPathCreatePath(t *testing.T) {
 }
 
 func TestPathGetPrefix(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2760)
 	peerP := PathCreatePeer()
 	pathP := PathCreatePath(peerP)
 	prefix := "10.10.10.0/24"
@@ -56,6 +61,7 @@ func TestPathGetPrefix(t *testing.T) {
 }
 
 func TestPathGetAttribute(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2761)
 	peerP := PathCreatePeer()
 	pathP := PathCreatePath(peerP)
 	nh := "192.168.50.1"
@@ -65,6 +71,7 @@ func TestPathGetAttribute(t *testing.T) {
 }
 
 func TestASPathLen(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2762)
 	assert := assert.New(t)
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{
@@ -93,6 +100,7 @@ func TestASPathLen(t *testing.T) {
 }
 
 func TestPathPrependAsnToExistingSeqAttr(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2763)
 	assert := assert.New(t)
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{
@@ -121,6 +129,7 @@ func TestPathPrependAsnToExistingSeqAttr(t *testing.T) {
 }
 
 func TestPathPrependAsnToNewAsPathAttr(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2764)
 	assert := assert.New(t)
 	origin := bgp.NewPathAttributeOrigin(0)
 	nexthop := bgp.NewPathAttributeNextHop("192.168.50.1")
@@ -143,6 +152,7 @@ func TestPathPrependAsnToNewAsPathAttr(t *testing.T) {
 }
 
 func TestPathPrependAsnToNewAsPathSeq(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2765)
 	assert := assert.New(t)
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{
@@ -171,6 +181,7 @@ func TestPathPrependAsnToNewAsPathSeq(t *testing.T) {
 }
 
 func TestPathPrependAsnToEmptyAsPathAttr(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2766)
 	assert := assert.New(t)
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{
@@ -200,6 +211,7 @@ func TestPathPrependAsnToEmptyAsPathAttr(t *testing.T) {
 }
 
 func TestPathPrependAsnToFullPathAttr(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2767)
 	assert := assert.New(t)
 	origin := bgp.NewPathAttributeOrigin(0)
 
@@ -238,6 +250,7 @@ func TestPathPrependAsnToFullPathAttr(t *testing.T) {
 }
 
 func TestGetPathAttrs(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2768)
 	paths := PathCreatePath(PathCreatePeer())
 	path0 := paths[0]
 	path1 := path0.Clone(false)
@@ -248,6 +261,7 @@ func TestGetPathAttrs(t *testing.T) {
 }
 
 func PathCreatePeer() []*PeerInfo {
+   fmt.Printf("DEJDEJ id:",2769)
 	peerP1 := &PeerInfo{AS: 65000}
 	peerP2 := &PeerInfo{AS: 65001}
 	peerP3 := &PeerInfo{AS: 65002}
@@ -256,6 +270,7 @@ func PathCreatePeer() []*PeerInfo {
 }
 
 func PathCreatePath(peerP []*PeerInfo) []*Path {
+   fmt.Printf("DEJDEJ id:",2770)
 	bgpMsgP1 := updateMsgP1()
 	bgpMsgP2 := updateMsgP2()
 	bgpMsgP3 := updateMsgP3()
@@ -271,6 +286,7 @@ func PathCreatePath(peerP []*PeerInfo) []*Path {
 }
 
 func updateMsgP1() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2771)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65000})}
@@ -290,6 +306,7 @@ func updateMsgP1() *bgp.BGPMessage {
 }
 
 func updateMsgP2() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2772)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
@@ -309,6 +326,7 @@ func updateMsgP2() *bgp.BGPMessage {
 }
 
 func updateMsgP3() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2773)
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -329,6 +347,7 @@ func updateMsgP3() *bgp.BGPMessage {
 }
 
 func TestRemovePrivateAS(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2774)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{64512, 64513, 1, 2})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
 	nlri := bgp.NewIPAddrPrefix(24, "30.30.30.0")
@@ -350,6 +369,7 @@ func TestRemovePrivateAS(t *testing.T) {
 }
 
 func TestReplaceAS(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2775)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{64512, 64513, 1, 2})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
 	nlri := bgp.NewIPAddrPrefix(24, "30.30.30.0")

@@ -21,6 +21,7 @@ import (
 )
 
 func intfflag2string(flag uint64) string {
+   fmt.Printf("DEJDEJ id:",3500)
 	ss := make([]string, 0, 10)
 	if flag&syscall.IFF_UP > 0 {
 		ss = append(ss, "UP")

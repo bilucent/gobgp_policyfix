@@ -28,6 +28,7 @@ import (
 )
 
 func makeMonitorRouteArgs(p *table.Path, showIdentifier bgp.BGPAddPathMode) []interface{} {
+   fmt.Printf("DEJDEJ id:",3590)
 	pathStr := make([]interface{}, 0)
 
 	// Title
@@ -62,6 +63,7 @@ func makeMonitorRouteArgs(p *table.Path, showIdentifier bgp.BGPAddPathMode) []in
 }
 
 func monitorRoute(pathList []*table.Path, showIdentifier bgp.BGPAddPathMode) {
+   fmt.Printf("DEJDEJ id:",3591)
 	var pathStrs [][]interface{}
 
 	for _, p := range pathList {
@@ -78,6 +80,7 @@ func monitorRoute(pathList []*table.Path, showIdentifier bgp.BGPAddPathMode) {
 }
 
 func NewMonitorCmd() *cobra.Command {
+   fmt.Printf("DEJDEJ id:",3592)
 
 	var current bool
 

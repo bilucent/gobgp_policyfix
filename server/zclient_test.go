@@ -25,6 +25,7 @@ import (
 )
 
 func Test_createPathFromIPRouteMessage(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",324)
 	assert := assert.New(t)
 
 	// IPv4 Route Add

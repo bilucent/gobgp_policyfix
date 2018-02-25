@@ -34,6 +34,7 @@ type ToNativeOption struct {
 }
 
 func (t *Table) ToNativeTable(option ...ToNativeOption) (*table.Table, error) {
+   fmt.Printf("DEJDEJ id:",1721)
 	dsts := make([]*table.Destination, 0, len(t.Destinations))
 	for _, d := range t.Destinations {
 		dst, err := d.ToNativeDestination(option...)
@@ -46,6 +47,7 @@ func (t *Table) ToNativeTable(option ...ToNativeOption) (*table.Table, error) {
 }
 
 func getNLRI(family bgp.RouteFamily, buf []byte) (bgp.AddrPrefixInterface, error) {
+   fmt.Printf("DEJDEJ id:",1722)
 	afi, safi := bgp.RouteFamilyToAfiSafi(family)
 	nlri, err := bgp.NewPrefixFromRouteFamily(afi, safi)
 	if err != nil {
@@ -58,6 +60,7 @@ func getNLRI(family bgp.RouteFamily, buf []byte) (bgp.AddrPrefixInterface, error
 }
 
 func (d *Destination) ToNativeDestination(option ...ToNativeOption) (*table.Destination, error) {
+   fmt.Printf("DEJDEJ id:",1723)
 	if len(d.Paths) == 0 {
 		return nil, fmt.Errorf("no path in destination")
 	}
@@ -86,10 +89,12 @@ func (d *Destination) ToNativeDestination(option ...ToNativeOption) (*table.Dest
 }
 
 func (p *Path) GetNativeNlri() (bgp.AddrPrefixInterface, error) {
+   fmt.Printf("DEJDEJ id:",1724)
 	return getNLRI(bgp.RouteFamily(p.Family), p.Nlri)
 }
 
 func (p *Path) ToNativePath(option ...ToNativeOption) (*table.Path, error) {
+   fmt.Printf("DEJDEJ id:",1725)
 	info := &table.PeerInfo{
 		AS:      p.SourceAsn,
 		ID:      net.ParseIP(p.SourceId),
@@ -143,6 +148,7 @@ func (p *Path) ToNativePath(option ...ToNativeOption) (*table.Path, error) {
 }
 
 func NewROAListFromApiStructList(l []*Roa) []*table.ROA {
+   fmt.Printf("DEJDEJ id:",1726)
 	roas := make([]*table.ROA, 0, len(l))
 	for _, r := range l {
 		ip := net.ParseIP(r.Prefix)
@@ -162,6 +168,7 @@ func NewROAListFromApiStructList(l []*Roa) []*table.ROA {
 }
 
 func extractFamilyFromConfigAfiSafi(c *config.AfiSafi) uint32 {
+   fmt.Printf("DEJDEJ id:",1727)
 	if c == nil {
 		return 0
 	}

@@ -28,6 +28,7 @@ import (
 // Returns config file type by retrieving extension from the given path.
 // If no corresponding type found, returns the given def as the default value.
 func detectConfigFileType(path, def string) string {
+   fmt.Printf("DEJDEJ id:",3473)
 	switch ext := filepath.Ext(path); ext {
 	case ".toml":
 		return "toml"
@@ -45,6 +46,7 @@ func detectConfigFileType(path, def string) string {
 // currently, viper can't hide this difference.
 // handle the difference here.
 func extractArray(intf interface{}) ([]interface{}, error) {
+   fmt.Printf("DEJDEJ id:",3474)
 	if intf != nil {
 		list, ok := intf.([]interface{})
 		if ok {
@@ -64,6 +66,7 @@ func extractArray(intf interface{}) ([]interface{}, error) {
 }
 
 func getIPv6LinkLocalAddress(ifname string) (string, error) {
+   fmt.Printf("DEJDEJ id:",3475)
 	ifi, err := net.InterfaceByName(ifname)
 	if err != nil {
 		return "", err
@@ -82,6 +85,7 @@ func getIPv6LinkLocalAddress(ifname string) (string, error) {
 }
 
 func isLocalLinkLocalAddress(ifindex int, addr net.IP) (bool, error) {
+   fmt.Printf("DEJDEJ id:",3476)
 	ifi, err := net.InterfaceByIndex(ifindex)
 	if err != nil {
 		return false, err
@@ -99,6 +103,7 @@ func isLocalLinkLocalAddress(ifindex int, addr net.IP) (bool, error) {
 }
 
 func (b *BgpConfigSet) getPeerGroup(n string) (*PeerGroup, error) {
+   fmt.Printf("DEJDEJ id:",3477)
 	if n == "" {
 		return nil, nil
 	}
@@ -111,6 +116,7 @@ func (b *BgpConfigSet) getPeerGroup(n string) (*PeerGroup, error) {
 }
 
 func (d *DynamicNeighbor) validate(b *BgpConfigSet) error {
+   fmt.Printf("DEJDEJ id:",3478)
 	if d.Config.PeerGroup == "" {
 		return fmt.Errorf("dynamic neighbor requires the peer group config")
 	}
@@ -125,6 +131,7 @@ func (d *DynamicNeighbor) validate(b *BgpConfigSet) error {
 }
 
 func (n *Neighbor) IsConfederationMember(g *Global) bool {
+   fmt.Printf("DEJDEJ id:",3479)
 	for _, member := range g.Confederation.Config.MemberAsList {
 		if member == n.Config.PeerAs {
 			return true
@@ -134,6 +141,7 @@ func (n *Neighbor) IsConfederationMember(g *Global) bool {
 }
 
 func (n *Neighbor) IsConfederation(g *Global) bool {
+   fmt.Printf("DEJDEJ id:",3480)
 	if n.Config.PeerAs == g.Config.As {
 		return true
 	}
@@ -141,10 +149,12 @@ func (n *Neighbor) IsConfederation(g *Global) bool {
 }
 
 func (n *Neighbor) IsEBGPPeer(g *Global) bool {
+   fmt.Printf("DEJDEJ id:",3481)
 	return n.Config.PeerAs != g.Config.As
 }
 
 func (n *Neighbor) CreateRfMap() map[bgp.RouteFamily]bgp.BGPAddPathMode {
+   fmt.Printf("DEJDEJ id:",3482)
 	rfMap := make(map[bgp.RouteFamily]bgp.BGPAddPathMode)
 	for _, af := range n.AfiSafis {
 		mode := bgp.BGP_ADD_PATH_NONE
@@ -160,6 +170,7 @@ func (n *Neighbor) CreateRfMap() map[bgp.RouteFamily]bgp.BGPAddPathMode {
 }
 
 func (n *Neighbor) GetAfiSafi(family bgp.RouteFamily) *AfiSafi {
+   fmt.Printf("DEJDEJ id:",3483)
 	for _, a := range n.AfiSafis {
 		if string(a.Config.AfiSafiName) == family.String() {
 			return &a
@@ -169,6 +180,7 @@ func (n *Neighbor) GetAfiSafi(family bgp.RouteFamily) *AfiSafi {
 }
 
 func (n *Neighbor) ExtractNeighborAddress() (string, error) {
+   fmt.Printf("DEJDEJ id:",3484)
 	addr := n.State.NeighborAddress
 	if addr == "" {
 		addr = n.Config.NeighborAddress
@@ -180,6 +192,7 @@ func (n *Neighbor) ExtractNeighborAddress() (string, error) {
 }
 
 func (n *Neighbor) IsAddPathReceiveEnabled(family bgp.RouteFamily) bool {
+   fmt.Printf("DEJDEJ id:",3485)
 	for _, af := range n.AfiSafis {
 		if af.State.Family == family {
 			return af.AddPaths.State.Receive
@@ -191,6 +204,7 @@ func (n *Neighbor) IsAddPathReceiveEnabled(family bgp.RouteFamily) bool {
 type AfiSafis []AfiSafi
 
 func (c AfiSafis) ToRfList() ([]bgp.RouteFamily, error) {
+   fmt.Printf("DEJDEJ id:",3486)
 	rfs := make([]bgp.RouteFamily, 0, len(c))
 	for _, af := range c {
 		rfs = append(rfs, af.State.Family)
@@ -199,6 +213,7 @@ func (c AfiSafis) ToRfList() ([]bgp.RouteFamily, error) {
 }
 
 func inSlice(n Neighbor, b []Neighbor) int {
+   fmt.Printf("DEJDEJ id:",3487)
 	for i, nb := range b {
 		if nb.State.NeighborAddress == n.State.NeighborAddress {
 			return i
@@ -208,6 +223,7 @@ func inSlice(n Neighbor, b []Neighbor) int {
 }
 
 func existPeerGroup(n string, b []PeerGroup) int {
+   fmt.Printf("DEJDEJ id:",3488)
 	for i, nb := range b {
 		if nb.Config.PeerGroupName == n {
 			return i
@@ -217,6 +233,7 @@ func existPeerGroup(n string, b []PeerGroup) int {
 }
 
 func CheckAfiSafisChange(x, y []AfiSafi) bool {
+   fmt.Printf("DEJDEJ id:",3489)
 	if len(x) != len(y) {
 		return true
 	}
@@ -233,6 +250,7 @@ func CheckAfiSafisChange(x, y []AfiSafi) bool {
 }
 
 func ParseMaskLength(prefix, mask string) (int, int, error) {
+   fmt.Printf("DEJDEJ id:",3490)
 	_, ipNet, err := net.ParseCIDR(prefix)
 	if err != nil {
 		return 0, 0, fmt.Errorf("invalid prefix: %s", prefix)

@@ -15,6 +15,7 @@ var (
 )
 
 func (i BGPAttrType) String() string {
+   fmt.Printf("DEJDEJ id:",2664)
 	switch {
 	case 1 <= i && i <= 10:
 		i -= 1

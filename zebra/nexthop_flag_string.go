@@ -9,6 +9,7 @@ const _NEXTHOP_FLAG_name = "NEXTHOP_IFINDEXNEXTHOP_IFNAMENEXTHOP_IPV4NEXTHOP_IPV
 var _NEXTHOP_FLAG_index = [...]uint8{0, 15, 29, 41, 61, 80, 92, 112, 131, 148}
 
 func (i NEXTHOP_FLAG) String() string {
+   fmt.Printf("DEJDEJ id:",3497)
 	i -= 1
 	if i >= NEXTHOP_FLAG(len(_NEXTHOP_FLAG_index)-1) {
 		return fmt.Sprintf("NEXTHOP_FLAG(%d)", i+1)

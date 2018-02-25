@@ -21,5 +21,6 @@ import (
 )
 
 func GetIPv6LinkLocalNeighborAddress(ifname string) (string, error) {
+   fmt.Printf("DEJDEJ id:",3462)
 	return "", fmt.Errorf("unnumbered peering is not supported")
 }

@@ -59,6 +59,7 @@ const (
 )
 
 func (t RouteType) String() string {
+   fmt.Printf("DEJDEJ id:",3051)
 	switch t {
 	case ROUTE_TYPE_NONE:
 		return "continue"
@@ -80,6 +81,7 @@ const (
 )
 
 func (d PolicyDirection) String() string {
+   fmt.Printf("DEJDEJ id:",3052)
 	switch d {
 	case POLICY_DIRECTION_IN:
 		return "in"
@@ -100,6 +102,7 @@ const (
 )
 
 func (o MatchOption) String() string {
+   fmt.Printf("DEJDEJ id:",3053)
 	switch o {
 	case MATCH_OPTION_ANY:
 		return "any"
@@ -113,6 +116,7 @@ func (o MatchOption) String() string {
 }
 
 func (o MatchOption) ConvertToMatchSetOptionsRestrictedType() config.MatchSetOptionsRestrictedType {
+   fmt.Printf("DEJDEJ id:",3054)
 	switch o {
 	case MATCH_OPTION_ANY:
 		return config.MATCH_SET_OPTIONS_RESTRICTED_TYPE_ANY
@@ -169,6 +173,7 @@ const (
 )
 
 func NewMatchOption(c interface{}) (MatchOption, error) {
+   fmt.Printf("DEJDEJ id:",3055)
 	switch t := c.(type) {
 	case config.MatchSetOptionsType:
 		t = t.DefaultAsNeeded()
@@ -204,6 +209,7 @@ const (
 )
 
 func (c AttributeComparison) String() string {
+   fmt.Printf("DEJDEJ id:",3056)
 	switch c {
 	case ATTRIBUTE_EQ:
 		return "="
@@ -234,14 +240,17 @@ type DefinedSetMap map[DefinedType]map[string]DefinedSet
 type DefinedSetList []DefinedSet
 
 func (l DefinedSetList) Len() int {
+   fmt.Printf("DEJDEJ id:",3057)
 	return len(l)
 }
 
 func (l DefinedSetList) Swap(i, j int) {
+   fmt.Printf("DEJDEJ id:",3058)
 	l[i], l[j] = l[j], l[i]
 }
 
 func (l DefinedSetList) Less(i, j int) bool {
+   fmt.Printf("DEJDEJ id:",3059)
 	if l[i].Type() != l[j].Type() {
 		return l[i].Type() < l[j].Type()
 	}
@@ -256,6 +265,7 @@ type Prefix struct {
 }
 
 func (p *Prefix) Match(path *Path) bool {
+   fmt.Printf("DEJDEJ id:",3060)
 	rf := path.GetRouteFamily()
 	if rf != p.AddressFamily {
 		return false
@@ -278,6 +288,7 @@ func (p *Prefix) Match(path *Path) bool {
 }
 
 func (lhs *Prefix) Equal(rhs *Prefix) bool {
+   fmt.Printf("DEJDEJ id:",3061)
 	if lhs == rhs {
 		return true
 	}
@@ -288,6 +299,7 @@ func (lhs *Prefix) Equal(rhs *Prefix) bool {
 }
 
 func (p *Prefix) PrefixString() string {
+   fmt.Printf("DEJDEJ id:",3062)
 	isZeros := func(p net.IP) bool {
 		for i := 0; i < len(p); i++ {
 			if p[i] != 0 {
@@ -306,6 +318,7 @@ func (p *Prefix) PrefixString() string {
 }
 
 func NewPrefix(c config.Prefix) (*Prefix, error) {
+   fmt.Printf("DEJDEJ id:",3063)
 	_, prefix, err := net.ParseCIDR(c.IpPrefix)
 	if err != nil {
 		return nil, err
@@ -352,14 +365,17 @@ type PrefixSet struct {
 }
 
 func (s *PrefixSet) Name() string {
+   fmt.Printf("DEJDEJ id:",3064)
 	return s.name
 }
 
 func (s *PrefixSet) Type() DefinedType {
+   fmt.Printf("DEJDEJ id:",3065)
 	return DEFINED_TYPE_PREFIX
 }
 
 func (lhs *PrefixSet) Append(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3066)
 	rhs, ok := arg.(*PrefixSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -391,6 +407,7 @@ func (lhs *PrefixSet) Append(arg DefinedSet) error {
 }
 
 func (lhs *PrefixSet) Remove(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3067)
 	rhs, ok := arg.(*PrefixSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -426,6 +443,7 @@ func (lhs *PrefixSet) Remove(arg DefinedSet) error {
 }
 
 func (lhs *PrefixSet) Replace(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3068)
 	rhs, ok := arg.(*PrefixSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -436,6 +454,7 @@ func (lhs *PrefixSet) Replace(arg DefinedSet) error {
 }
 
 func (s *PrefixSet) List() []string {
+   fmt.Printf("DEJDEJ id:",3069)
 	var list []string
 	s.tree.Walk(func(s string, v interface{}) bool {
 		ps := v.([]*Prefix)
@@ -448,6 +467,7 @@ func (s *PrefixSet) List() []string {
 }
 
 func (s *PrefixSet) ToConfig() *config.PrefixSet {
+   fmt.Printf("DEJDEJ id:",3070)
 	list := make([]config.Prefix, 0, s.tree.Len())
 	s.tree.Walk(func(s string, v interface{}) bool {
 		ps := v.([]*Prefix)
@@ -463,14 +483,17 @@ func (s *PrefixSet) ToConfig() *config.PrefixSet {
 }
 
 func (s *PrefixSet) String() string {
+   fmt.Printf("DEJDEJ id:",3071)
 	return strings.Join(s.List(), "\n")
 }
 
 func (s *PrefixSet) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3072)
 	return json.Marshal(s.ToConfig())
 }
 
 func NewPrefixSetFromApiStruct(name string, prefixes []*Prefix) (*PrefixSet, error) {
+   fmt.Printf("DEJDEJ id:",3073)
 	if name == "" {
 		return nil, fmt.Errorf("empty prefix set name")
 	}
@@ -499,6 +522,7 @@ func NewPrefixSetFromApiStruct(name string, prefixes []*Prefix) (*PrefixSet, err
 }
 
 func NewPrefixSet(c config.PrefixSet) (*PrefixSet, error) {
+   fmt.Printf("DEJDEJ id:",3074)
 	name := c.PrefixSetName
 	if name == "" {
 		if len(c.PrefixList) == 0 {
@@ -540,14 +564,17 @@ type NeighborSet struct {
 }
 
 func (s *NeighborSet) Name() string {
+   fmt.Printf("DEJDEJ id:",3075)
 	return s.name
 }
 
 func (s *NeighborSet) Type() DefinedType {
+   fmt.Printf("DEJDEJ id:",3076)
 	return DEFINED_TYPE_NEIGHBOR
 }
 
 func (lhs *NeighborSet) Append(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3077)
 	rhs, ok := arg.(*NeighborSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -557,6 +584,7 @@ func (lhs *NeighborSet) Append(arg DefinedSet) error {
 }
 
 func (lhs *NeighborSet) Remove(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3078)
 	rhs, ok := arg.(*NeighborSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -579,6 +607,7 @@ func (lhs *NeighborSet) Remove(arg DefinedSet) error {
 }
 
 func (lhs *NeighborSet) Replace(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3079)
 	rhs, ok := arg.(*NeighborSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -588,6 +617,7 @@ func (lhs *NeighborSet) Replace(arg DefinedSet) error {
 }
 
 func (s *NeighborSet) List() []string {
+   fmt.Printf("DEJDEJ id:",3080)
 	list := make([]string, 0, len(s.list))
 	for _, n := range s.list {
 		list = append(list, n.String())
@@ -596,6 +626,7 @@ func (s *NeighborSet) List() []string {
 }
 
 func (s *NeighborSet) ToConfig() *config.NeighborSet {
+   fmt.Printf("DEJDEJ id:",3081)
 	return &config.NeighborSet{
 		NeighborSetName:  s.name,
 		NeighborInfoList: s.List(),
@@ -603,14 +634,17 @@ func (s *NeighborSet) ToConfig() *config.NeighborSet {
 }
 
 func (s *NeighborSet) String() string {
+   fmt.Printf("DEJDEJ id:",3082)
 	return strings.Join(s.List(), "\n")
 }
 
 func (s *NeighborSet) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3083)
 	return json.Marshal(s.ToConfig())
 }
 
 func NewNeighborSetFromApiStruct(name string, list []net.IPNet) (*NeighborSet, error) {
+   fmt.Printf("DEJDEJ id:",3084)
 	return &NeighborSet{
 		name: name,
 		list: list,
@@ -618,6 +652,7 @@ func NewNeighborSetFromApiStruct(name string, list []net.IPNet) (*NeighborSet, e
 }
 
 func NewNeighborSet(c config.NeighborSet) (*NeighborSet, error) {
+   fmt.Printf("DEJDEJ id:",3085)
 	name := c.NeighborSetName
 	if name == "" {
 		if len(c.NeighborInfoList) == 0 {
@@ -665,10 +700,12 @@ type singleAsPathMatch struct {
 }
 
 func (lhs *singleAsPathMatch) Equal(rhs *singleAsPathMatch) bool {
+   fmt.Printf("DEJDEJ id:",3086)
 	return lhs.asn == rhs.asn && lhs.mode == rhs.mode
 }
 
 func (lhs *singleAsPathMatch) String() string {
+   fmt.Printf("DEJDEJ id:",3087)
 	switch lhs.mode {
 	case INCLUDE:
 		return fmt.Sprintf("_%d_", lhs.asn)
@@ -683,6 +720,7 @@ func (lhs *singleAsPathMatch) String() string {
 }
 
 func (m *singleAsPathMatch) Match(aspath []uint32) bool {
+   fmt.Printf("DEJDEJ id:",3088)
 	if len(aspath) == 0 {
 		return false
 	}
@@ -710,6 +748,7 @@ func (m *singleAsPathMatch) Match(aspath []uint32) bool {
 }
 
 func NewSingleAsPathMatch(arg string) *singleAsPathMatch {
+   fmt.Printf("DEJDEJ id:",3089)
 	leftMostRe := regexp.MustCompile("$\\^([0-9]+)_^")
 	originRe := regexp.MustCompile("^_([0-9]+)\\$$")
 	includeRe := regexp.MustCompile("^_([0-9]+)_$")
@@ -751,14 +790,17 @@ type AsPathSet struct {
 }
 
 func (s *AsPathSet) Name() string {
+   fmt.Printf("DEJDEJ id:",3090)
 	return s.name
 }
 
 func (s *AsPathSet) Type() DefinedType {
+   fmt.Printf("DEJDEJ id:",3091)
 	return s.typ
 }
 
 func (lhs *AsPathSet) Append(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3092)
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -768,6 +810,7 @@ func (lhs *AsPathSet) Append(arg DefinedSet) error {
 }
 
 func (lhs *AsPathSet) Remove(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3093)
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -803,6 +846,7 @@ func (lhs *AsPathSet) Remove(arg DefinedSet) error {
 }
 
 func (lhs *AsPathSet) Replace(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3094)
 	rhs, ok := arg.(*AsPathSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -813,6 +857,7 @@ func (lhs *AsPathSet) Replace(arg DefinedSet) error {
 }
 
 func (s *AsPathSet) List() []string {
+   fmt.Printf("DEJDEJ id:",3095)
 	list := make([]string, 0, len(s.list)+len(s.singleList))
 	for _, exp := range s.singleList {
 		list = append(list, exp.String())
@@ -824,6 +869,7 @@ func (s *AsPathSet) List() []string {
 }
 
 func (s *AsPathSet) ToConfig() *config.AsPathSet {
+   fmt.Printf("DEJDEJ id:",3096)
 	return &config.AsPathSet{
 		AsPathSetName: s.name,
 		AsPathList:    s.List(),
@@ -831,14 +877,17 @@ func (s *AsPathSet) ToConfig() *config.AsPathSet {
 }
 
 func (s *AsPathSet) String() string {
+   fmt.Printf("DEJDEJ id:",3097)
 	return strings.Join(s.List(), "\n")
 }
 
 func (s *AsPathSet) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3098)
 	return json.Marshal(s.ToConfig())
 }
 
 func NewAsPathSet(c config.AsPathSet) (*AsPathSet, error) {
+   fmt.Printf("DEJDEJ id:",3099)
 	name := c.AsPathSetName
 	if name == "" {
 		if len(c.AsPathList) == 0 {
@@ -874,14 +923,17 @@ type regExpSet struct {
 }
 
 func (s *regExpSet) Name() string {
+   fmt.Printf("DEJDEJ id:",3100)
 	return s.name
 }
 
 func (s *regExpSet) Type() DefinedType {
+   fmt.Printf("DEJDEJ id:",3101)
 	return s.typ
 }
 
 func (lhs *regExpSet) Append(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3102)
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -903,6 +955,7 @@ func (lhs *regExpSet) Append(arg DefinedSet) error {
 }
 
 func (lhs *regExpSet) Remove(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3103)
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -937,6 +990,7 @@ func (lhs *regExpSet) Remove(arg DefinedSet) error {
 }
 
 func (lhs *regExpSet) Replace(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3104)
 	switch c := arg.(type) {
 	case *CommunitySet:
 		lhs.list = c.list
@@ -955,6 +1009,7 @@ type CommunitySet struct {
 }
 
 func (s *CommunitySet) List() []string {
+   fmt.Printf("DEJDEJ id:",3105)
 	list := make([]string, 0, len(s.list))
 	for _, exp := range s.list {
 		list = append(list, exp.String())
@@ -963,6 +1018,7 @@ func (s *CommunitySet) List() []string {
 }
 
 func (s *CommunitySet) ToConfig() *config.CommunitySet {
+   fmt.Printf("DEJDEJ id:",3106)
 	return &config.CommunitySet{
 		CommunitySetName: s.name,
 		CommunityList:    s.List(),
@@ -970,14 +1026,17 @@ func (s *CommunitySet) ToConfig() *config.CommunitySet {
 }
 
 func (s *CommunitySet) String() string {
+   fmt.Printf("DEJDEJ id:",3107)
 	return strings.Join(s.List(), "\n")
 }
 
 func (s *CommunitySet) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3108)
 	return json.Marshal(s.ToConfig())
 }
 
 func ParseCommunity(arg string) (uint32, error) {
+   fmt.Printf("DEJDEJ id:",3109)
 	i, err := strconv.ParseUint(arg, 10, 32)
 	if err == nil {
 		return uint32(i), nil
@@ -998,6 +1057,7 @@ func ParseCommunity(arg string) (uint32, error) {
 }
 
 func ParseExtCommunity(arg string) (bgp.ExtendedCommunityInterface, error) {
+   fmt.Printf("DEJDEJ id:",3110)
 	var subtype bgp.ExtendedCommunityAttrSubType
 	var value string
 	elems := strings.SplitN(arg, ":", 2)
@@ -1029,6 +1089,7 @@ func ParseExtCommunity(arg string) (bgp.ExtendedCommunityInterface, error) {
 }
 
 func ParseCommunityRegexp(arg string) (*regexp.Regexp, error) {
+   fmt.Printf("DEJDEJ id:",3111)
 	i, err := strconv.ParseUint(arg, 10, 32)
 	if err == nil {
 		return regexp.MustCompile(fmt.Sprintf("^%d:%d$", i>>16, i&0x0000ffff)), nil
@@ -1049,6 +1110,7 @@ func ParseCommunityRegexp(arg string) (*regexp.Regexp, error) {
 }
 
 func ParseExtCommunityRegexp(arg string) (bgp.ExtendedCommunityAttrSubType, *regexp.Regexp, error) {
+   fmt.Printf("DEJDEJ id:",3112)
 	var subtype bgp.ExtendedCommunityAttrSubType
 	elems := strings.SplitN(arg, ":", 2)
 	if len(elems) < 2 {
@@ -1067,6 +1129,7 @@ func ParseExtCommunityRegexp(arg string) (bgp.ExtendedCommunityAttrSubType, *reg
 }
 
 func NewCommunitySet(c config.CommunitySet) (*CommunitySet, error) {
+   fmt.Printf("DEJDEJ id:",3113)
 	name := c.CommunitySetName
 	if name == "" {
 		if len(c.CommunityList) == 0 {
@@ -1097,6 +1160,7 @@ type ExtCommunitySet struct {
 }
 
 func (s *ExtCommunitySet) List() []string {
+   fmt.Printf("DEJDEJ id:",3114)
 	list := make([]string, 0, len(s.list))
 	f := func(idx int, arg string) string {
 		switch s.subtypeList[idx] {
@@ -1117,6 +1181,7 @@ func (s *ExtCommunitySet) List() []string {
 }
 
 func (s *ExtCommunitySet) ToConfig() *config.ExtCommunitySet {
+   fmt.Printf("DEJDEJ id:",3115)
 	return &config.ExtCommunitySet{
 		ExtCommunitySetName: s.name,
 		ExtCommunityList:    s.List(),
@@ -1124,14 +1189,17 @@ func (s *ExtCommunitySet) ToConfig() *config.ExtCommunitySet {
 }
 
 func (s *ExtCommunitySet) String() string {
+   fmt.Printf("DEJDEJ id:",3116)
 	return strings.Join(s.List(), "\n")
 }
 
 func (s *ExtCommunitySet) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3117)
 	return json.Marshal(s.ToConfig())
 }
 
 func NewExtCommunitySet(c config.ExtCommunitySet) (*ExtCommunitySet, error) {
+   fmt.Printf("DEJDEJ id:",3118)
 	name := c.ExtCommunitySetName
 	if name == "" {
 		if len(c.ExtCommunityList) == 0 {
@@ -1160,6 +1228,7 @@ func NewExtCommunitySet(c config.ExtCommunitySet) (*ExtCommunitySet, error) {
 }
 
 func (s *ExtCommunitySet) Append(arg DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3119)
 	err := s.regExpSet.Append(arg)
 	if err != nil {
 		return err
@@ -1174,6 +1243,7 @@ type LargeCommunitySet struct {
 }
 
 func (s *LargeCommunitySet) List() []string {
+   fmt.Printf("DEJDEJ id:",3120)
 	list := make([]string, 0, len(s.list))
 	for _, exp := range s.list {
 		list = append(list, exp.String())
@@ -1182,6 +1252,7 @@ func (s *LargeCommunitySet) List() []string {
 }
 
 func (s *LargeCommunitySet) ToConfig() *config.LargeCommunitySet {
+   fmt.Printf("DEJDEJ id:",3121)
 	return &config.LargeCommunitySet{
 		LargeCommunitySetName: s.name,
 		LargeCommunityList:    s.List(),
@@ -1189,14 +1260,17 @@ func (s *LargeCommunitySet) ToConfig() *config.LargeCommunitySet {
 }
 
 func (s *LargeCommunitySet) String() string {
+   fmt.Printf("DEJDEJ id:",3122)
 	return strings.Join(s.List(), "\n")
 }
 
 func (s *LargeCommunitySet) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3123)
 	return json.Marshal(s.ToConfig())
 }
 
 func ParseLargeCommunityRegexp(arg string) (*regexp.Regexp, error) {
+   fmt.Printf("DEJDEJ id:",3124)
 	if regexp.MustCompile("\\d+:\\d+:\\d+").MatchString(arg) {
 		return regexp.MustCompile(fmt.Sprintf("^%s$", arg)), nil
 	}
@@ -1208,6 +1282,7 @@ func ParseLargeCommunityRegexp(arg string) (*regexp.Regexp, error) {
 }
 
 func NewLargeCommunitySet(c config.LargeCommunitySet) (*LargeCommunitySet, error) {
+   fmt.Printf("DEJDEJ id:",3125)
 	name := c.LargeCommunitySetName
 	if name == "" {
 		if len(c.LargeCommunityList) == 0 {
@@ -1245,14 +1320,17 @@ type PrefixCondition struct {
 }
 
 func (c *PrefixCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3126)
 	return CONDITION_PREFIX
 }
 
 func (c *PrefixCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3127)
 	return c.set
 }
 
 func (c *PrefixCondition) Option() MatchOption {
+   fmt.Printf("DEJDEJ id:",3128)
 	return c.option
 }
 
@@ -1260,6 +1338,7 @@ func (c *PrefixCondition) Option() MatchOption {
 // subsequent comparison is skipped if that matches the conditions.
 // If PrefixList's length is zero, return true.
 func (c *PrefixCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3129)
 	var key string
 	var masklen uint8
 	keyf := func(ip net.IP, ones int) string {
@@ -1303,8 +1382,10 @@ func (c *PrefixCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 }
 
 func (c *PrefixCondition) Name() string { return c.set.name }
+   fmt.Printf("DEJDEJ id:",3130)
 
 func NewPrefixCondition(c config.MatchPrefixSet) (*PrefixCondition, error) {
+   fmt.Printf("DEJDEJ id:",3131)
 	if c.PrefixSet == "" {
 		return nil, nil
 	}
@@ -1326,14 +1407,17 @@ type NeighborCondition struct {
 }
 
 func (c *NeighborCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3132)
 	return CONDITION_NEIGHBOR
 }
 
 func (c *NeighborCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3133)
 	return c.set
 }
 
 func (c *NeighborCondition) Option() MatchOption {
+   fmt.Printf("DEJDEJ id:",3134)
 	return c.option
 }
 
@@ -1341,6 +1425,7 @@ func (c *NeighborCondition) Option() MatchOption {
 // and, subsequent comparisons are skipped if that matches the conditions.
 // If NeighborList's length is zero, return true.
 func (c *NeighborCondition) Evaluate(path *Path, options *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3135)
 	if len(c.set.list) == 0 {
 		log.WithFields(log.Fields{
 			"Topic": "Policy",
@@ -1372,8 +1457,10 @@ func (c *NeighborCondition) Evaluate(path *Path, options *PolicyOptions) bool {
 }
 
 func (c *NeighborCondition) Name() string { return c.set.name }
+   fmt.Printf("DEJDEJ id:",3136)
 
 func NewNeighborCondition(c config.MatchNeighborSet) (*NeighborCondition, error) {
+   fmt.Printf("DEJDEJ id:",3137)
 	if c.NeighborSet == "" {
 		return nil, nil
 	}
@@ -1395,18 +1482,22 @@ type AsPathCondition struct {
 }
 
 func (c *AsPathCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3138)
 	return CONDITION_AS_PATH
 }
 
 func (c *AsPathCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3139)
 	return c.set
 }
 
 func (c *AsPathCondition) Option() MatchOption {
+   fmt.Printf("DEJDEJ id:",3140)
 	return c.option
 }
 
 func (c *AsPathCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3141)
 	if len(c.set.singleList) > 0 {
 		aspath := path.GetAsSeqList()
 		for _, m := range c.set.singleList {
@@ -1444,8 +1535,10 @@ func (c *AsPathCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 }
 
 func (c *AsPathCondition) Name() string { return c.set.name }
+   fmt.Printf("DEJDEJ id:",3142)
 
 func NewAsPathCondition(c config.MatchAsPathSet) (*AsPathCondition, error) {
+   fmt.Printf("DEJDEJ id:",3143)
 	if c.AsPathSet == "" {
 		return nil, nil
 	}
@@ -1467,18 +1560,22 @@ type CommunityCondition struct {
 }
 
 func (c *CommunityCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3144)
 	return CONDITION_COMMUNITY
 }
 
 func (c *CommunityCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3145)
 	return c.set
 }
 
 func (c *CommunityCondition) Option() MatchOption {
+   fmt.Printf("DEJDEJ id:",3146)
 	return c.option
 }
 
 func (c *CommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3147)
 	cs := path.GetCommunities()
 	result := false
 	for _, x := range c.set.list {
@@ -1503,8 +1600,10 @@ func (c *CommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 }
 
 func (c *CommunityCondition) Name() string { return c.set.name }
+   fmt.Printf("DEJDEJ id:",3148)
 
 func NewCommunityCondition(c config.MatchCommunitySet) (*CommunityCondition, error) {
+   fmt.Printf("DEJDEJ id:",3149)
 	if c.CommunitySet == "" {
 		return nil, nil
 	}
@@ -1528,18 +1627,22 @@ type ExtCommunityCondition struct {
 }
 
 func (c *ExtCommunityCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3150)
 	return CONDITION_EXT_COMMUNITY
 }
 
 func (c *ExtCommunityCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3151)
 	return c.set
 }
 
 func (c *ExtCommunityCondition) Option() MatchOption {
+   fmt.Printf("DEJDEJ id:",3152)
 	return c.option
 }
 
 func (c *ExtCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3153)
 	es := path.GetExtCommunities()
 	result := false
 	for _, x := range es {
@@ -1569,8 +1672,10 @@ func (c *ExtCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 }
 
 func (c *ExtCommunityCondition) Name() string { return c.set.name }
+   fmt.Printf("DEJDEJ id:",3154)
 
 func NewExtCommunityCondition(c config.MatchExtCommunitySet) (*ExtCommunityCondition, error) {
+   fmt.Printf("DEJDEJ id:",3155)
 	if c.ExtCommunitySet == "" {
 		return nil, nil
 	}
@@ -1594,18 +1699,22 @@ type LargeCommunityCondition struct {
 }
 
 func (c *LargeCommunityCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3156)
 	return CONDITION_LARGE_COMMUNITY
 }
 
 func (c *LargeCommunityCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3157)
 	return c.set
 }
 
 func (c *LargeCommunityCondition) Option() MatchOption {
+   fmt.Printf("DEJDEJ id:",3158)
 	return c.option
 }
 
 func (c *LargeCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3159)
 	result := false
 	cs := path.GetLargeCommunities()
 	for _, x := range c.set.list {
@@ -1630,8 +1739,10 @@ func (c *LargeCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 }
 
 func (c *LargeCommunityCondition) Name() string { return c.set.name }
+   fmt.Printf("DEJDEJ id:",3160)
 
 func NewLargeCommunityCondition(c config.MatchLargeCommunitySet) (*LargeCommunityCondition, error) {
+   fmt.Printf("DEJDEJ id:",3161)
 	if c.LargeCommunitySet == "" {
 		return nil, nil
 	}
@@ -1655,12 +1766,14 @@ type AsPathLengthCondition struct {
 }
 
 func (c *AsPathLengthCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3162)
 	return CONDITION_AS_PATH_LENGTH
 }
 
 // compare AS_PATH length in the message's AS_PATH attribute with
 // the one in condition.
 func (c *AsPathLengthCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3163)
 
 	length := uint32(path.GetAsPathLen())
 	result := false
@@ -1677,16 +1790,20 @@ func (c *AsPathLengthCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 }
 
 func (c *AsPathLengthCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3164)
 	return nil
 }
 
 func (c *AsPathLengthCondition) Name() string { return "" }
+   fmt.Printf("DEJDEJ id:",3165)
 
 func (c *AsPathLengthCondition) String() string {
+   fmt.Printf("DEJDEJ id:",3166)
 	return fmt.Sprintf("%s%d", c.operator, c.length)
 }
 
 func NewAsPathLengthCondition(c config.AsPathLength) (*AsPathLengthCondition, error) {
+   fmt.Printf("DEJDEJ id:",3167)
 	if c.Value == 0 && c.Operator == "" {
 		return nil, nil
 	}
@@ -1709,24 +1826,30 @@ type RpkiValidationCondition struct {
 }
 
 func (c *RpkiValidationCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3168)
 	return CONDITION_RPKI
 }
 
 func (c *RpkiValidationCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3169)
 	return c.result == path.ValidationStatus()
 }
 
 func (c *RpkiValidationCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3170)
 	return nil
 }
 
 func (c *RpkiValidationCondition) Name() string { return "" }
+   fmt.Printf("DEJDEJ id:",3171)
 
 func (c *RpkiValidationCondition) String() string {
+   fmt.Printf("DEJDEJ id:",3172)
 	return string(c.result)
 }
 
 func NewRpkiValidationCondition(c config.RpkiValidationResultType) (*RpkiValidationCondition, error) {
+   fmt.Printf("DEJDEJ id:",3173)
 	if c == config.RpkiValidationResultType("") || c == config.RPKI_VALIDATION_RESULT_TYPE_NONE {
 		return nil, nil
 	}
@@ -1740,10 +1863,12 @@ type RouteTypeCondition struct {
 }
 
 func (c *RouteTypeCondition) Type() ConditionType {
+   fmt.Printf("DEJDEJ id:",3174)
 	return CONDITION_ROUTE_TYPE
 }
 
 func (c *RouteTypeCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3175)
 	switch c.typ {
 	case config.ROUTE_TYPE_LOCAL:
 		return path.IsLocal()
@@ -1756,16 +1881,20 @@ func (c *RouteTypeCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 }
 
 func (c *RouteTypeCondition) Set() DefinedSet {
+   fmt.Printf("DEJDEJ id:",3176)
 	return nil
 }
 
 func (c *RouteTypeCondition) Name() string { return "" }
+   fmt.Printf("DEJDEJ id:",3177)
 
 func (c *RouteTypeCondition) String() string {
+   fmt.Printf("DEJDEJ id:",3178)
 	return string(c.typ)
 }
 
 func NewRouteTypeCondition(c config.RouteType) (*RouteTypeCondition, error) {
+   fmt.Printf("DEJDEJ id:",3179)
 	if string(c) == "" || c == config.ROUTE_TYPE_NONE {
 		return nil, nil
 	}
@@ -1788,10 +1917,12 @@ type RoutingAction struct {
 }
 
 func (a *RoutingAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3180)
 	return ACTION_ROUTING
 }
 
 func (a *RoutingAction) Apply(path *Path, _ *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3181)
 	if a.AcceptRoute {
 		return path
 	}
@@ -1799,6 +1930,7 @@ func (a *RoutingAction) Apply(path *Path, _ *PolicyOptions) *Path {
 }
 
 func (a *RoutingAction) String() string {
+   fmt.Printf("DEJDEJ id:",3182)
 	action := "reject"
 	if a.AcceptRoute {
 		action = "accept"
@@ -1807,6 +1939,7 @@ func (a *RoutingAction) String() string {
 }
 
 func NewRoutingAction(c config.RouteDisposition) (*RoutingAction, error) {
+   fmt.Printf("DEJDEJ id:",3183)
 	var accept bool
 	switch c {
 	case config.RouteDisposition(""), config.ROUTE_DISPOSITION_NONE:
@@ -1830,6 +1963,7 @@ type CommunityAction struct {
 }
 
 func RegexpRemoveCommunities(path *Path, exps []*regexp.Regexp) {
+   fmt.Printf("DEJDEJ id:",3184)
 	comms := path.GetCommunities()
 	newComms := make([]uint32, 0, len(comms))
 	for _, comm := range comms {
@@ -1849,6 +1983,7 @@ func RegexpRemoveCommunities(path *Path, exps []*regexp.Regexp) {
 }
 
 func RegexpRemoveExtCommunities(path *Path, exps []*regexp.Regexp, subtypes []bgp.ExtendedCommunityAttrSubType) {
+   fmt.Printf("DEJDEJ id:",3185)
 	comms := path.GetExtCommunities()
 	newComms := make([]bgp.ExtendedCommunityInterface, 0, len(comms))
 	for _, comm := range comms {
@@ -1872,6 +2007,7 @@ func RegexpRemoveExtCommunities(path *Path, exps []*regexp.Regexp, subtypes []bg
 }
 
 func RegexpRemoveLargeCommunities(path *Path, exps []*regexp.Regexp) {
+   fmt.Printf("DEJDEJ id:",3186)
 	comms := path.GetLargeCommunities()
 	newComms := make([]*bgp.LargeCommunity, 0, len(comms))
 	for _, comm := range comms {
@@ -1891,10 +2027,12 @@ func RegexpRemoveLargeCommunities(path *Path, exps []*regexp.Regexp) {
 }
 
 func (a *CommunityAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3187)
 	return ACTION_COMMUNITY
 }
 
 func (a *CommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3188)
 	switch a.action {
 	case config.BGP_SET_COMMUNITY_OPTION_TYPE_ADD:
 		path.SetCommunities(a.list, false)
@@ -1907,6 +2045,7 @@ func (a *CommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
 }
 
 func (a *CommunityAction) ToConfig() *config.SetCommunity {
+   fmt.Printf("DEJDEJ id:",3189)
 	cs := make([]string, 0, len(a.list)+len(a.removeList))
 	for _, comm := range a.list {
 		c := fmt.Sprintf("%d:%d", comm>>16, comm&0x0000ffff)
@@ -1922,10 +2061,12 @@ func (a *CommunityAction) ToConfig() *config.SetCommunity {
 }
 
 func (a *CommunityAction) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3190)
 	return json.Marshal(a.ToConfig())
 }
 
 func (a *CommunityAction) String() string {
+   fmt.Printf("DEJDEJ id:",3191)
 	list := a.ToConfig().SetCommunityMethod.CommunitiesList
 	exp := regexp.MustCompile("[\\^\\$]")
 	l := exp.ReplaceAllString(strings.Join(list, ", "), "")
@@ -1933,6 +2074,7 @@ func (a *CommunityAction) String() string {
 }
 
 func NewCommunityAction(c config.SetCommunity) (*CommunityAction, error) {
+   fmt.Printf("DEJDEJ id:",3192)
 	a, ok := CommunityOptionValueMap[strings.ToLower(c.Options)]
 	if !ok {
 		if len(c.SetCommunityMethod.CommunitiesList) == 0 {
@@ -1977,10 +2119,12 @@ type ExtCommunityAction struct {
 }
 
 func (a *ExtCommunityAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3193)
 	return ACTION_EXT_COMMUNITY
 }
 
 func (a *ExtCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3194)
 	switch a.action {
 	case config.BGP_SET_COMMUNITY_OPTION_TYPE_ADD:
 		path.SetExtCommunities(a.list, false)
@@ -1993,6 +2137,7 @@ func (a *ExtCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
 }
 
 func (a *ExtCommunityAction) ToConfig() *config.SetExtCommunity {
+   fmt.Printf("DEJDEJ id:",3195)
 	cs := make([]string, 0, len(a.list)+len(a.removeList))
 	f := func(idx int, arg string) string {
 		switch a.subtypeList[idx] {
@@ -2021,6 +2166,7 @@ func (a *ExtCommunityAction) ToConfig() *config.SetExtCommunity {
 }
 
 func (a *ExtCommunityAction) String() string {
+   fmt.Printf("DEJDEJ id:",3196)
 	list := a.ToConfig().SetExtCommunityMethod.CommunitiesList
 	exp := regexp.MustCompile("[\\^\\$]")
 	l := exp.ReplaceAllString(strings.Join(list, ", "), "")
@@ -2028,10 +2174,12 @@ func (a *ExtCommunityAction) String() string {
 }
 
 func (a *ExtCommunityAction) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3197)
 	return json.Marshal(a.ToConfig())
 }
 
 func NewExtCommunityAction(c config.SetExtCommunity) (*ExtCommunityAction, error) {
+   fmt.Printf("DEJDEJ id:",3198)
 	a, ok := CommunityOptionValueMap[strings.ToLower(c.Options)]
 	if !ok {
 		if len(c.SetExtCommunityMethod.CommunitiesList) == 0 {
@@ -2080,10 +2228,12 @@ type LargeCommunityAction struct {
 }
 
 func (a *LargeCommunityAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3199)
 	return ACTION_LARGE_COMMUNITY
 }
 
 func (a *LargeCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3200)
 	switch a.action {
 	case config.BGP_SET_COMMUNITY_OPTION_TYPE_ADD:
 		path.SetLargeCommunities(a.list, false)
@@ -2096,6 +2246,7 @@ func (a *LargeCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
 }
 
 func (a *LargeCommunityAction) ToConfig() *config.SetLargeCommunity {
+   fmt.Printf("DEJDEJ id:",3201)
 	cs := make([]string, 0, len(a.list)+len(a.removeList))
 	for _, comm := range a.list {
 		cs = append(cs, comm.String())
@@ -2110,6 +2261,7 @@ func (a *LargeCommunityAction) ToConfig() *config.SetLargeCommunity {
 }
 
 func (a *LargeCommunityAction) String() string {
+   fmt.Printf("DEJDEJ id:",3202)
 	list := a.ToConfig().SetLargeCommunityMethod.CommunitiesList
 	exp := regexp.MustCompile("[\\^\\$]")
 	l := exp.ReplaceAllString(strings.Join(list, ", "), "")
@@ -2117,10 +2269,12 @@ func (a *LargeCommunityAction) String() string {
 }
 
 func (a *LargeCommunityAction) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3203)
 	return json.Marshal(a.ToConfig())
 }
 
 func NewLargeCommunityAction(c config.SetLargeCommunity) (*LargeCommunityAction, error) {
+   fmt.Printf("DEJDEJ id:",3204)
 	a, ok := CommunityOptionValueMap[strings.ToLower(string(c.Options))]
 	if !ok {
 		if len(c.SetLargeCommunityMethod.CommunitiesList) == 0 {
@@ -2164,10 +2318,12 @@ type MedAction struct {
 }
 
 func (a *MedAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3205)
 	return ACTION_MED
 }
 
 func (a *MedAction) Apply(path *Path, _ *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3206)
 	var err error
 	switch a.action {
 	case MED_ACTION_MOD:
@@ -2187,6 +2343,7 @@ func (a *MedAction) Apply(path *Path, _ *PolicyOptions) *Path {
 }
 
 func (a *MedAction) ToConfig() config.BgpSetMedType {
+   fmt.Printf("DEJDEJ id:",3207)
 	if a.action == MED_ACTION_MOD && a.value > 0 {
 		return config.BgpSetMedType(fmt.Sprintf("+%d", a.value))
 	}
@@ -2194,14 +2351,17 @@ func (a *MedAction) ToConfig() config.BgpSetMedType {
 }
 
 func (a *MedAction) String() string {
+   fmt.Printf("DEJDEJ id:",3208)
 	return string(a.ToConfig())
 }
 
 func (a *MedAction) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3209)
 	return json.Marshal(a.ToConfig())
 }
 
 func NewMedAction(c config.BgpSetMedType) (*MedAction, error) {
+   fmt.Printf("DEJDEJ id:",3210)
 	if string(c) == "" {
 		return nil, nil
 	}
@@ -2223,6 +2383,7 @@ func NewMedAction(c config.BgpSetMedType) (*MedAction, error) {
 }
 
 func NewMedActionFromApiStruct(action MedActionType, value int64) *MedAction {
+   fmt.Printf("DEJDEJ id:",3211)
 	return &MedAction{action: action, value: value}
 }
 
@@ -2231,27 +2392,33 @@ type LocalPrefAction struct {
 }
 
 func (a *LocalPrefAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3212)
 	return ACTION_LOCAL_PREF
 }
 
 func (a *LocalPrefAction) Apply(path *Path, _ *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3213)
 	path.setPathAttr(bgp.NewPathAttributeLocalPref(a.value))
 	return path
 }
 
 func (a *LocalPrefAction) ToConfig() uint32 {
+   fmt.Printf("DEJDEJ id:",3214)
 	return a.value
 }
 
 func (a *LocalPrefAction) String() string {
+   fmt.Printf("DEJDEJ id:",3215)
 	return fmt.Sprintf("%d", a.value)
 }
 
 func (a *LocalPrefAction) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3216)
 	return json.Marshal(a.ToConfig())
 }
 
 func NewLocalPrefAction(value uint32) (*LocalPrefAction, error) {
+   fmt.Printf("DEJDEJ id:",3217)
 	if value == 0 {
 		return nil, nil
 	}
@@ -2267,10 +2434,12 @@ type AsPathPrependAction struct {
 }
 
 func (a *AsPathPrependAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3218)
 	return ACTION_AS_PATH_PREPEND
 }
 
 func (a *AsPathPrependAction) Apply(path *Path, option *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3219)
 	var asn uint32
 	if a.useLeftMost {
 		aspath := path.GetAsSeqList()
@@ -2300,6 +2469,7 @@ func (a *AsPathPrependAction) Apply(path *Path, option *PolicyOptions) *Path {
 }
 
 func (a *AsPathPrependAction) ToConfig() *config.SetAsPathPrepend {
+   fmt.Printf("DEJDEJ id:",3220)
 	return &config.SetAsPathPrepend{
 		RepeatN: uint8(a.repeat),
 		As: func() string {
@@ -2312,17 +2482,20 @@ func (a *AsPathPrependAction) ToConfig() *config.SetAsPathPrepend {
 }
 
 func (a *AsPathPrependAction) String() string {
+   fmt.Printf("DEJDEJ id:",3221)
 	c := a.ToConfig()
 	return fmt.Sprintf("prepend %s %d times", c.As, c.RepeatN)
 }
 
 func (a *AsPathPrependAction) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3222)
 	return json.Marshal(a.ToConfig())
 }
 
 // NewAsPathPrependAction creates AsPathPrependAction object.
 // If ASN cannot be parsed, nil will be returned.
 func NewAsPathPrependAction(action config.SetAsPathPrepend) (*AsPathPrependAction, error) {
+   fmt.Printf("DEJDEJ id:",3223)
 	a := &AsPathPrependAction{
 		repeat: action.RepeatN,
 	}
@@ -2350,10 +2523,12 @@ type NexthopAction struct {
 }
 
 func (a *NexthopAction) Type() ActionType {
+   fmt.Printf("DEJDEJ id:",3224)
 	return ACTION_NEXTHOP
 }
 
 func (a *NexthopAction) Apply(path *Path, options *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3225)
 	if a.self {
 		if options != nil && options.Info != nil && options.Info.LocalAddress != nil {
 			path.SetNexthop(options.Info.LocalAddress)
@@ -2365,6 +2540,7 @@ func (a *NexthopAction) Apply(path *Path, options *PolicyOptions) *Path {
 }
 
 func (a *NexthopAction) ToConfig() config.BgpNextHopType {
+   fmt.Printf("DEJDEJ id:",3226)
 	if a.self {
 		return config.BgpNextHopType("self")
 	}
@@ -2372,14 +2548,17 @@ func (a *NexthopAction) ToConfig() config.BgpNextHopType {
 }
 
 func (a *NexthopAction) String() string {
+   fmt.Printf("DEJDEJ id:",3227)
 	return string(a.ToConfig())
 }
 
 func (a *NexthopAction) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3228)
 	return json.Marshal(a.ToConfig())
 }
 
 func NewNexthopAction(c config.BgpNextHopType) (*NexthopAction, error) {
+   fmt.Printf("DEJDEJ id:",3229)
 	switch strings.ToLower(string(c)) {
 	case "":
 		return nil, nil
@@ -2406,6 +2585,7 @@ type Statement struct {
 
 // evaluate each condition in the statement according to MatchSetOptions
 func (s *Statement) Evaluate(p *Path, options *PolicyOptions) bool {
+   fmt.Printf("DEJDEJ id:",3230)
 	for _, c := range s.Conditions {
 		if !c.Evaluate(p, options) {
 			return false
@@ -2415,6 +2595,7 @@ func (s *Statement) Evaluate(p *Path, options *PolicyOptions) bool {
 }
 
 func (s *Statement) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) {
+   fmt.Printf("DEJDEJ id:",3231)
 	result := s.Evaluate(path, options)
 	if result {
 		if len(s.ModActions) != 0 {
@@ -2438,6 +2619,7 @@ func (s *Statement) Apply(path *Path, options *PolicyOptions) (RouteType, *Path)
 }
 
 func (s *Statement) ToConfig() *config.Statement {
+   fmt.Printf("DEJDEJ id:",3232)
 	return &config.Statement{
 		Name: s.Name,
 		Conditions: func() config.Conditions {
@@ -2511,6 +2693,7 @@ func (s *Statement) ToConfig() *config.Statement {
 }
 
 func (s *Statement) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3233)
 	return json.Marshal(s.ToConfig())
 }
 
@@ -2523,6 +2706,7 @@ const (
 )
 
 func (lhs *Statement) mod(op opType, rhs *Statement) error {
+   fmt.Printf("DEJDEJ id:",3234)
 	cs := make([]Condition, len(lhs.Conditions))
 	copy(cs, lhs.Conditions)
 	ra := lhs.RouteAction
@@ -2622,18 +2806,22 @@ func (lhs *Statement) mod(op opType, rhs *Statement) error {
 }
 
 func (lhs *Statement) Add(rhs *Statement) error {
+   fmt.Printf("DEJDEJ id:",3235)
 	return lhs.mod(ADD, rhs)
 }
 
 func (lhs *Statement) Remove(rhs *Statement) error {
+   fmt.Printf("DEJDEJ id:",3236)
 	return lhs.mod(REMOVE, rhs)
 }
 
 func (lhs *Statement) Replace(rhs *Statement) error {
+   fmt.Printf("DEJDEJ id:",3237)
 	return lhs.mod(REPLACE, rhs)
 }
 
 func NewStatement(c config.Statement) (*Statement, error) {
+   fmt.Printf("DEJDEJ id:",3238)
 	if c.Name == "" {
 		return nil, fmt.Errorf("empty statement name")
 	}
@@ -2734,6 +2922,7 @@ type Policy struct {
 // If a condition match, then this function stops evaluation and
 // subsequent conditions are skipped.
 func (p *Policy) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) {
+   fmt.Printf("DEJDEJ id:",3239)
 	for _, stmt := range p.Statements {
 		var result RouteType
 		result, path = stmt.Apply(path, options)
@@ -2745,6 +2934,7 @@ func (p *Policy) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) {
 }
 
 func (p *Policy) ToConfig() *config.PolicyDefinition {
+   fmt.Printf("DEJDEJ id:",3240)
 	ss := make([]config.Statement, 0, len(p.Statements))
 	for _, s := range p.Statements {
 		ss = append(ss, *s.ToConfig())
@@ -2756,6 +2946,7 @@ func (p *Policy) ToConfig() *config.PolicyDefinition {
 }
 
 func (p *Policy) FillUp(m map[string]*Statement) error {
+   fmt.Printf("DEJDEJ id:",3241)
 	stmts := make([]*Statement, 0, len(p.Statements))
 	for _, x := range p.Statements {
 		y, ok := m[x.Name]
@@ -2769,11 +2960,13 @@ func (p *Policy) FillUp(m map[string]*Statement) error {
 }
 
 func (lhs *Policy) Add(rhs *Policy) error {
+   fmt.Printf("DEJDEJ id:",3242)
 	lhs.Statements = append(lhs.Statements, rhs.Statements...)
 	return nil
 }
 
 func (lhs *Policy) Remove(rhs *Policy) error {
+   fmt.Printf("DEJDEJ id:",3243)
 	stmts := make([]*Statement, 0, len(lhs.Statements))
 	for _, x := range lhs.Statements {
 		found := false
@@ -2792,15 +2985,18 @@ func (lhs *Policy) Remove(rhs *Policy) error {
 }
 
 func (lhs *Policy) Replace(rhs *Policy) error {
+   fmt.Printf("DEJDEJ id:",3244)
 	lhs.Statements = rhs.Statements
 	return nil
 }
 
 func (p *Policy) MarshalJSON() ([]byte, error) {
+   fmt.Printf("DEJDEJ id:",3245)
 	return json.Marshal(p.ToConfig())
 }
 
 func NewPolicy(c config.PolicyDefinition) (*Policy, error) {
+   fmt.Printf("DEJDEJ id:",3246)
 	if c.Name == "" {
 		return nil, fmt.Errorf("empty policy name")
 	}
@@ -2828,14 +3024,17 @@ func NewPolicy(c config.PolicyDefinition) (*Policy, error) {
 type Policies []*Policy
 
 func (p Policies) Len() int {
+   fmt.Printf("DEJDEJ id:",3247)
 	return len(p)
 }
 
 func (p Policies) Swap(i, j int) {
+   fmt.Printf("DEJDEJ id:",3248)
 	p[i], p[j] = p[j], p[i]
 }
 
 func (p Policies) Less(i, j int) bool {
+   fmt.Printf("DEJDEJ id:",3249)
 	return p[i].Name < p[j].Name
 }
 
@@ -2857,6 +3056,7 @@ type RoutingPolicy struct {
 }
 
 func (r *RoutingPolicy) ApplyPolicy(id string, dir PolicyDirection, before *Path, options *PolicyOptions) *Path {
+   fmt.Printf("DEJDEJ id:",3250)
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -2889,6 +3089,7 @@ func (r *RoutingPolicy) ApplyPolicy(id string, dir PolicyDirection, before *Path
 }
 
 func (r *RoutingPolicy) getPolicy(id string, dir PolicyDirection) []*Policy {
+   fmt.Printf("DEJDEJ id:",3251)
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		return nil
@@ -2906,6 +3107,7 @@ func (r *RoutingPolicy) getPolicy(id string, dir PolicyDirection) []*Policy {
 }
 
 func (r *RoutingPolicy) getDefaultPolicy(id string, dir PolicyDirection) RouteType {
+   fmt.Printf("DEJDEJ id:",3252)
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		return ROUTE_TYPE_NONE
@@ -2924,6 +3126,7 @@ func (r *RoutingPolicy) getDefaultPolicy(id string, dir PolicyDirection) RouteTy
 }
 
 func (r *RoutingPolicy) setPolicy(id string, dir PolicyDirection, policies []*Policy) error {
+   fmt.Printf("DEJDEJ id:",3253)
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		a = &Assignment{}
@@ -2941,6 +3144,7 @@ func (r *RoutingPolicy) setPolicy(id string, dir PolicyDirection, policies []*Po
 }
 
 func (r *RoutingPolicy) setDefaultPolicy(id string, dir PolicyDirection, typ RouteType) error {
+   fmt.Printf("DEJDEJ id:",3254)
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		a = &Assignment{}
@@ -2958,6 +3162,7 @@ func (r *RoutingPolicy) setDefaultPolicy(id string, dir PolicyDirection, typ Rou
 }
 
 func (r *RoutingPolicy) getAssignmentFromConfig(dir PolicyDirection, a config.ApplyPolicy) ([]*Policy, RouteType, error) {
+   fmt.Printf("DEJDEJ id:",3255)
 	var names []string
 	var cdef config.DefaultPolicyType
 	def := ROUTE_TYPE_ACCEPT
@@ -2995,6 +3200,7 @@ func (r *RoutingPolicy) getAssignmentFromConfig(dir PolicyDirection, a config.Ap
 }
 
 func (r *RoutingPolicy) validateCondition(v Condition) (err error) {
+   fmt.Printf("DEJDEJ id:",3256)
 	switch v.Type() {
 	case CONDITION_PREFIX:
 		m := r.definedSetMap[DEFINED_TYPE_PREFIX]
@@ -3051,6 +3257,7 @@ func (r *RoutingPolicy) validateCondition(v Condition) (err error) {
 }
 
 func (r *RoutingPolicy) inUse(d DefinedSet) bool {
+   fmt.Printf("DEJDEJ id:",3257)
 	name := d.Name()
 	for _, p := range r.policyMap {
 		for _, s := range p.Statements {
@@ -3065,6 +3272,7 @@ func (r *RoutingPolicy) inUse(d DefinedSet) bool {
 }
 
 func (r *RoutingPolicy) statementInUse(x *Statement) bool {
+   fmt.Printf("DEJDEJ id:",3258)
 	for _, p := range r.policyMap {
 		for _, y := range p.Statements {
 			if x.Name == y.Name {
@@ -3076,6 +3284,7 @@ func (r *RoutingPolicy) statementInUse(x *Statement) bool {
 }
 
 func (r *RoutingPolicy) reload(c config.RoutingPolicy) error {
+   fmt.Printf("DEJDEJ id:",3259)
 	dmap := make(map[DefinedType]map[string]DefinedSet)
 	dmap[DEFINED_TYPE_PREFIX] = make(map[string]DefinedSet)
 	d := c.DefinedSets
@@ -3198,6 +3407,7 @@ func (r *RoutingPolicy) reload(c config.RoutingPolicy) error {
 }
 
 func (r *RoutingPolicy) GetDefinedSet(typ DefinedType, name string) (*config.DefinedSets, error) {
+   fmt.Printf("DEJDEJ id:",3260)
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3238,6 +3448,7 @@ func (r *RoutingPolicy) GetDefinedSet(typ DefinedType, name string) (*config.Def
 }
 
 func (r *RoutingPolicy) AddDefinedSet(s DefinedSet) error {
+   fmt.Printf("DEJDEJ id:",3261)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3256,6 +3467,7 @@ func (r *RoutingPolicy) AddDefinedSet(s DefinedSet) error {
 }
 
 func (r *RoutingPolicy) DeleteDefinedSet(a DefinedSet, all bool) (err error) {
+   fmt.Printf("DEJDEJ id:",3262)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3280,6 +3492,7 @@ func (r *RoutingPolicy) DeleteDefinedSet(a DefinedSet, all bool) (err error) {
 }
 
 func (r *RoutingPolicy) ReplaceDefinedSet(a DefinedSet) (err error) {
+   fmt.Printf("DEJDEJ id:",3263)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3296,6 +3509,7 @@ func (r *RoutingPolicy) ReplaceDefinedSet(a DefinedSet) (err error) {
 }
 
 func (r *RoutingPolicy) GetStatement() []*config.Statement {
+   fmt.Printf("DEJDEJ id:",3264)
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3307,6 +3521,7 @@ func (r *RoutingPolicy) GetStatement() []*config.Statement {
 }
 
 func (r *RoutingPolicy) AddStatement(st *Statement) (err error) {
+   fmt.Printf("DEJDEJ id:",3265)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3327,6 +3542,7 @@ func (r *RoutingPolicy) AddStatement(st *Statement) (err error) {
 }
 
 func (r *RoutingPolicy) DeleteStatement(st *Statement, all bool) (err error) {
+   fmt.Printf("DEJDEJ id:",3266)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3349,6 +3565,7 @@ func (r *RoutingPolicy) DeleteStatement(st *Statement, all bool) (err error) {
 }
 
 func (r *RoutingPolicy) ReplaceStatement(st *Statement) (err error) {
+   fmt.Printf("DEJDEJ id:",3267)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3363,6 +3580,7 @@ func (r *RoutingPolicy) ReplaceStatement(st *Statement) (err error) {
 }
 
 func (r *RoutingPolicy) GetAllPolicy() []*config.PolicyDefinition {
+   fmt.Printf("DEJDEJ id:",3268)
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3374,6 +3592,7 @@ func (r *RoutingPolicy) GetAllPolicy() []*config.PolicyDefinition {
 }
 
 func (r *RoutingPolicy) AddPolicy(x *Policy, refer bool) (err error) {
+   fmt.Printf("DEJDEJ id:",3269)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3410,6 +3629,7 @@ func (r *RoutingPolicy) AddPolicy(x *Policy, refer bool) (err error) {
 }
 
 func (r *RoutingPolicy) DeletePolicy(x *Policy, all, preserve bool, activeId []string) (err error) {
+   fmt.Printf("DEJDEJ id:",3270)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3462,6 +3682,7 @@ func (r *RoutingPolicy) DeletePolicy(x *Policy, all, preserve bool, activeId []s
 }
 
 func (r *RoutingPolicy) ReplacePolicy(x *Policy, refer, preserve bool) (err error) {
+   fmt.Printf("DEJDEJ id:",3271)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3512,6 +3733,7 @@ func (r *RoutingPolicy) ReplacePolicy(x *Policy, refer, preserve bool) (err erro
 }
 
 func (r *RoutingPolicy) GetPolicyAssignment(id string, dir PolicyDirection) (RouteType, []*config.PolicyDefinition, error) {
+   fmt.Printf("DEJDEJ id:",3272)
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3526,6 +3748,7 @@ func (r *RoutingPolicy) GetPolicyAssignment(id string, dir PolicyDirection) (Rou
 }
 
 func (r *RoutingPolicy) AddPolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, def RouteType) (err error) {
+   fmt.Printf("DEJDEJ id:",3273)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3566,6 +3789,7 @@ func (r *RoutingPolicy) AddPolicyAssignment(id string, dir PolicyDirection, poli
 }
 
 func (r *RoutingPolicy) DeletePolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, all bool) (err error) {
+   fmt.Printf("DEJDEJ id:",3274)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3617,6 +3841,7 @@ func (r *RoutingPolicy) DeletePolicyAssignment(id string, dir PolicyDirection, p
 }
 
 func (r *RoutingPolicy) ReplacePolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, def RouteType) (err error) {
+   fmt.Printf("DEJDEJ id:",3275)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3644,6 +3869,7 @@ func (r *RoutingPolicy) ReplacePolicyAssignment(id string, dir PolicyDirection, 
 }
 
 func (r *RoutingPolicy) Reset(rp *config.RoutingPolicy, ap map[string]config.ApplyPolicy) error {
+   fmt.Printf("DEJDEJ id:",3276)
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3674,6 +3900,7 @@ func (r *RoutingPolicy) Reset(rp *config.RoutingPolicy, ap map[string]config.App
 }
 
 func NewRoutingPolicy() *RoutingPolicy {
+   fmt.Printf("DEJDEJ id:",3277)
 	return &RoutingPolicy{
 		definedSetMap: make(map[DefinedType]map[string]DefinedSet),
 		policyMap:     make(map[string]*Policy),
@@ -3683,6 +3910,7 @@ func NewRoutingPolicy() *RoutingPolicy {
 }
 
 func CanImportToVrf(v *Vrf, path *Path) bool {
+   fmt.Printf("DEJDEJ id:",3278)
 	f := func(arg []bgp.ExtendedCommunityInterface) []string {
 		ret := make([]string, 0, len(arg))
 		for _, a := range arg {

@@ -23,6 +23,7 @@ import (
 )
 
 func TestTableDeleteDestByNlri(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2746)
 	peerT := TableCreatePeer()
 	pathT := TableCreatePath(peerT)
 	ipv4t := NewTable(bgp.RF_IPv4_UC)
@@ -38,6 +39,7 @@ func TestTableDeleteDestByNlri(t *testing.T) {
 }
 
 func TestTableDeleteDest(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2747)
 	peerT := TableCreatePeer()
 	pathT := TableCreatePath(peerT)
 	ipv4t := NewTable(bgp.RF_IPv4_UC)
@@ -55,12 +57,14 @@ func TestTableDeleteDest(t *testing.T) {
 }
 
 func TestTableGetRouteFamily(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2748)
 	ipv4t := NewTable(bgp.RF_IPv4_UC)
 	rf := ipv4t.GetRoutefamily()
 	assert.Equal(t, rf, bgp.RF_IPv4_UC)
 }
 
 func TestTableSetDestinations(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2749)
 	peerT := TableCreatePeer()
 	pathT := TableCreatePath(peerT)
 	ipv4t := NewTable(bgp.RF_IPv4_UC)
@@ -75,6 +79,7 @@ func TestTableSetDestinations(t *testing.T) {
 	assert.Equal(t, ds, destinations)
 }
 func TestTableGetDestinations(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2750)
 	peerT := DestCreatePeer()
 	pathT := DestCreatePath(peerT)
 	ipv4t := NewTable(bgp.RF_IPv4_UC)
@@ -90,6 +95,7 @@ func TestTableGetDestinations(t *testing.T) {
 }
 
 func TableCreatePeer() []*PeerInfo {
+   fmt.Printf("DEJDEJ id:",2751)
 	peerT1 := &PeerInfo{AS: 65000}
 	peerT2 := &PeerInfo{AS: 65001}
 	peerT3 := &PeerInfo{AS: 65002}
@@ -98,6 +104,7 @@ func TableCreatePeer() []*PeerInfo {
 }
 
 func TableCreatePath(peerT []*PeerInfo) []*Path {
+   fmt.Printf("DEJDEJ id:",2752)
 	bgpMsgT1 := updateMsgT1()
 	bgpMsgT2 := updateMsgT2()
 	bgpMsgT3 := updateMsgT3()
@@ -113,6 +120,7 @@ func TableCreatePath(peerT []*PeerInfo) []*Path {
 }
 
 func updateMsgT1() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2753)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65000})}
@@ -132,6 +140,7 @@ func updateMsgT1() *bgp.BGPMessage {
 }
 
 func updateMsgT2() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2754)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
@@ -150,6 +159,7 @@ func updateMsgT2() *bgp.BGPMessage {
 	return bgp.NewBGPUpdateMessage(nil, pathAttributes, nlri)
 }
 func updateMsgT3() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2755)
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)

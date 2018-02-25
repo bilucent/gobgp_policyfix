@@ -32,6 +32,7 @@ const (
 )
 
 func ProcessMessage(m *bgp.BGPMessage, peerInfo *PeerInfo, timestamp time.Time) []*Path {
+   fmt.Printf("DEJDEJ id:",2818)
 	update := m.Body.(*bgp.BGPUpdate)
 
 	if y, f := update.IsEndOfRib(); y {
@@ -113,6 +114,7 @@ type TableManager struct {
 }
 
 func NewTableManager(rfList []bgp.RouteFamily) *TableManager {
+   fmt.Printf("DEJDEJ id:",2819)
 	t := &TableManager{
 		Tables: make(map[bgp.RouteFamily]*Table),
 		Vrfs:   make(map[string]*Vrf),
@@ -125,10 +127,12 @@ func NewTableManager(rfList []bgp.RouteFamily) *TableManager {
 }
 
 func (manager *TableManager) GetRFlist() []bgp.RouteFamily {
+   fmt.Printf("DEJDEJ id:",2820)
 	return manager.rfList
 }
 
 func (manager *TableManager) AddVrf(name string, id uint32, rd bgp.RouteDistinguisherInterface, importRt, exportRt []bgp.ExtendedCommunityInterface, info *PeerInfo) ([]*Path, error) {
+   fmt.Printf("DEJDEJ id:",2821)
 	if _, ok := manager.Vrfs[name]; ok {
 		return nil, fmt.Errorf("vrf %s already exists", name)
 	}
@@ -159,6 +163,7 @@ func (manager *TableManager) AddVrf(name string, id uint32, rd bgp.RouteDistingu
 }
 
 func (manager *TableManager) DeleteVrf(name string) ([]*Path, error) {
+   fmt.Printf("DEJDEJ id:",2822)
 	if _, ok := manager.Vrfs[name]; !ok {
 		return nil, fmt.Errorf("vrf %s not found", name)
 	}
@@ -181,6 +186,7 @@ func (manager *TableManager) DeleteVrf(name string) ([]*Path, error) {
 }
 
 func (manager *TableManager) calculate(dsts []*Destination) []*Destination {
+   fmt.Printf("DEJDEJ id:",2823)
 	emptyDsts := make([]*Destination, 0, len(dsts))
 	clonedDsts := make([]*Destination, 0, len(dsts))
 
@@ -205,6 +211,7 @@ func (manager *TableManager) calculate(dsts []*Destination) []*Destination {
 }
 
 func (manager *TableManager) DeletePathsByPeer(info *PeerInfo, rf bgp.RouteFamily) []*Destination {
+   fmt.Printf("DEJDEJ id:",2824)
 	if t, ok := manager.Tables[rf]; ok {
 		dsts := t.DeleteDestByPeer(info)
 		return manager.calculate(dsts)
@@ -213,6 +220,7 @@ func (manager *TableManager) DeletePathsByPeer(info *PeerInfo, rf bgp.RouteFamil
 }
 
 func (manager *TableManager) ProcessPaths(pathList []*Path) []*Destination {
+   fmt.Printf("DEJDEJ id:",2825)
 	m := make(map[string]bool, len(pathList))
 	dsts := make([]*Destination, 0, len(pathList))
 	for _, path := range pathList {
@@ -250,6 +258,7 @@ func (manager *TableManager) ProcessPaths(pathList []*Path) []*Destination {
 // than that which it had previously advertised withdraws its MAC/IP
 // Advertisement route.
 func (manager *TableManager) handleMacMobility(path *Path) []*Destination {
+   fmt.Printf("DEJDEJ id:",2826)
 	dsts := make([]*Destination, 0)
 	nlri := path.GetNlri().(*bgp.EVPNNLRI)
 	if path.IsWithdraw || path.IsLocal() || nlri.RouteType != bgp.EVPN_ROUTE_TYPE_MAC_IP_ADVERTISEMENT {
@@ -284,6 +293,7 @@ func (manager *TableManager) handleMacMobility(path *Path) []*Destination {
 }
 
 func (manager *TableManager) tables(list ...bgp.RouteFamily) []*Table {
+   fmt.Printf("DEJDEJ id:",2827)
 	l := make([]*Table, 0, len(manager.Tables))
 	if len(list) == 0 {
 		for _, v := range manager.Tables {
@@ -300,6 +310,7 @@ func (manager *TableManager) tables(list ...bgp.RouteFamily) []*Table {
 }
 
 func (manager *TableManager) getDestinationCount(rfList []bgp.RouteFamily) int {
+   fmt.Printf("DEJDEJ id:",2828)
 	count := 0
 	for _, t := range manager.tables(rfList...) {
 		count += len(t.GetDestinations())
@@ -308,6 +319,7 @@ func (manager *TableManager) getDestinationCount(rfList []bgp.RouteFamily) int {
 }
 
 func (manager *TableManager) GetBestPathList(id string, rfList []bgp.RouteFamily) []*Path {
+   fmt.Printf("DEJDEJ id:",2829)
 	if SelectionOptions.DisableBestPathSelection {
 		// Note: If best path selection disabled, there is no best path.
 		return nil
@@ -320,6 +332,7 @@ func (manager *TableManager) GetBestPathList(id string, rfList []bgp.RouteFamily
 }
 
 func (manager *TableManager) GetBestMultiPathList(id string, rfList []bgp.RouteFamily) [][]*Path {
+   fmt.Printf("DEJDEJ id:",2830)
 	if !UseMultiplePaths.Enabled || SelectionOptions.DisableBestPathSelection {
 		// Note: If multi path not enabled or best path selection disabled,
 		// there is no best multi path.
@@ -333,6 +346,7 @@ func (manager *TableManager) GetBestMultiPathList(id string, rfList []bgp.RouteF
 }
 
 func (manager *TableManager) GetPathList(id string, rfList []bgp.RouteFamily) []*Path {
+   fmt.Printf("DEJDEJ id:",2831)
 	paths := make([]*Path, 0, manager.getDestinationCount(rfList))
 	for _, t := range manager.tables(rfList...) {
 		paths = append(paths, t.GetKnownPathList(id)...)
@@ -341,6 +355,7 @@ func (manager *TableManager) GetPathList(id string, rfList []bgp.RouteFamily) []
 }
 
 func (manager *TableManager) GetPathListWithNexthop(id string, rfList []bgp.RouteFamily, nexthop net.IP) []*Path {
+   fmt.Printf("DEJDEJ id:",2832)
 	paths := make([]*Path, 0, manager.getDestinationCount(rfList))
 	for _, rf := range rfList {
 		if t, ok := manager.Tables[rf]; ok {
@@ -355,6 +370,7 @@ func (manager *TableManager) GetPathListWithNexthop(id string, rfList []bgp.Rout
 }
 
 func (manager *TableManager) GetDestination(path *Path) *Destination {
+   fmt.Printf("DEJDEJ id:",2833)
 	if path == nil {
 		return nil
 	}
@@ -367,6 +383,7 @@ func (manager *TableManager) GetDestination(path *Path) *Destination {
 }
 
 func (manager *TableManager) TableInfo(id string, family bgp.RouteFamily) (*TableInfo, error) {
+   fmt.Printf("DEJDEJ id:",2834)
 	t, ok := manager.Tables[family]
 	if !ok {
 		return nil, fmt.Errorf("address family %s is not configured", family)

@@ -28,6 +28,7 @@ import (
 )
 
 func TestEqual(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",3283)
 	assert := assert.New(t)
 	p1 := Prefix{
 		IpPrefix:        "192.168.0.0",
@@ -62,6 +63,7 @@ func TestEqual(t *testing.T) {
 }
 
 func extractTomlFromMarkdown(fileMd string, fileToml string) error {
+   fmt.Printf("DEJDEJ id:",3284)
 	fMd, err := os.Open(fileMd)
 	if err != nil {
 		return err
@@ -97,6 +99,7 @@ func extractTomlFromMarkdown(fileMd string, fileToml string) error {
 }
 
 func TestConfigExample(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",3285)
 	assert := assert.New(t)
 
 	_, f, _, _ := runtime.Caller(0)

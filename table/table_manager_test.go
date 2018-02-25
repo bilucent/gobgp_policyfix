@@ -30,6 +30,7 @@ import (
 // process BGPUpdate message
 // this function processes only BGPUpdate
 func (manager *TableManager) ProcessUpdate(fromPeer *PeerInfo, message *bgp.BGPMessage) ([]*Path, error) {
+   fmt.Printf("DEJDEJ id:",2776)
 	pathList := make([]*Path, 0)
 	for _, d := range manager.ProcessPaths(ProcessMessage(message, fromPeer, time.Now())) {
 		b, _, _ := d.GetChanges(GLOBAL_RIB_NAME, false)
@@ -39,6 +40,7 @@ func (manager *TableManager) ProcessUpdate(fromPeer *PeerInfo, message *bgp.BGPM
 }
 
 func getLogger(lv log.Level) *log.Logger {
+   fmt.Printf("DEJDEJ id:",2777)
 	var l *log.Logger = &log.Logger{
 		Out:       os.Stderr,
 		Formatter: new(log.JSONFormatter),
@@ -49,6 +51,7 @@ func getLogger(lv log.Level) *log.Logger {
 }
 
 func peerR1() *PeerInfo {
+   fmt.Printf("DEJDEJ id:",2778)
 	peer := &PeerInfo{
 		AS:      65000,
 		LocalAS: 65000,
@@ -60,6 +63,7 @@ func peerR1() *PeerInfo {
 }
 
 func peerR2() *PeerInfo {
+   fmt.Printf("DEJDEJ id:",2779)
 	peer := &PeerInfo{
 		AS:      65100,
 		LocalAS: 65000,
@@ -69,6 +73,7 @@ func peerR2() *PeerInfo {
 }
 
 func peerR3() *PeerInfo {
+   fmt.Printf("DEJDEJ id:",2780)
 	peer := &PeerInfo{
 		AS:      65000,
 		LocalAS: 65000,
@@ -81,6 +86,7 @@ func peerR3() *PeerInfo {
 
 // test best path calculation and check the result path is from R1
 func TestProcessBGPUpdate_0_select_onlypath_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2781)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -131,6 +137,7 @@ func TestProcessBGPUpdate_0_select_onlypath_ipv4(t *testing.T) {
 
 // test best path calculation and check the result path is from R1
 func TestProcessBGPUpdate_0_select_onlypath_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2782)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -182,6 +189,7 @@ func TestProcessBGPUpdate_0_select_onlypath_ipv6(t *testing.T) {
 
 // test: compare localpref
 func TestProcessBGPUpdate_1_select_high_localpref_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2783)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -262,6 +270,7 @@ func TestProcessBGPUpdate_1_select_high_localpref_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_1_select_high_localpref_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2784)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -344,6 +353,7 @@ func TestProcessBGPUpdate_1_select_high_localpref_ipv6(t *testing.T) {
 
 // test: compare localOrigin
 func TestProcessBGPUpdate_2_select_local_origin_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2785)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -426,6 +436,7 @@ func TestProcessBGPUpdate_2_select_local_origin_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_2_select_local_origin_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2786)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -511,6 +522,7 @@ func TestProcessBGPUpdate_2_select_local_origin_ipv6(t *testing.T) {
 
 // test: compare AS_PATH
 func TestProcessBGPUpdate_3_select_aspath_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2787)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -566,6 +578,7 @@ func TestProcessBGPUpdate_3_select_aspath_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_3_select_aspath_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2788)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -623,6 +636,7 @@ func TestProcessBGPUpdate_3_select_aspath_ipv6(t *testing.T) {
 
 // test: compare Origin
 func TestProcessBGPUpdate_4_select_low_origin_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2789)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -703,6 +717,7 @@ func TestProcessBGPUpdate_4_select_low_origin_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_4_select_low_origin_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2790)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -785,6 +800,7 @@ func TestProcessBGPUpdate_4_select_low_origin_ipv6(t *testing.T) {
 
 // test: compare MED
 func TestProcessBGPUpdate_5_select_low_med_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2791)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -865,6 +881,7 @@ func TestProcessBGPUpdate_5_select_low_med_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_5_select_low_med_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2792)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -947,6 +964,7 @@ func TestProcessBGPUpdate_5_select_low_med_ipv6(t *testing.T) {
 
 // test: compare AS_NUMBER(prefer eBGP path)
 func TestProcessBGPUpdate_6_select_ebgp_path_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2793)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -1027,6 +1045,7 @@ func TestProcessBGPUpdate_6_select_ebgp_path_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_6_select_ebgp_path_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2794)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -1111,6 +1130,7 @@ func TestProcessBGPUpdate_6_select_ebgp_path_ipv6(t *testing.T) {
 
 // test: compare Router ID
 func TestProcessBGPUpdate_7_select_low_routerid_path_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2795)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 	SelectionOptions.ExternalCompareRouterId = true
@@ -1192,6 +1212,7 @@ func TestProcessBGPUpdate_7_select_low_routerid_path_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_7_select_low_routerid_path_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2796)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -1274,6 +1295,7 @@ func TestProcessBGPUpdate_7_select_low_routerid_path_ipv6(t *testing.T) {
 
 // test: withdraw and mpunreach path
 func TestProcessBGPUpdate_8_withdraw_path_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2797)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -1377,6 +1399,7 @@ func TestProcessBGPUpdate_8_withdraw_path_ipv4(t *testing.T) {
 
 // TODO MP_UNREACH
 func TestProcessBGPUpdate_8_mpunreach_path_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2798)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -1505,6 +1528,7 @@ func TestProcessBGPUpdate_8_mpunreach_path_ipv6(t *testing.T) {
 
 // handle bestpath lost
 func TestProcessBGPUpdate_bestpath_lost_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2799)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -1575,6 +1599,7 @@ func TestProcessBGPUpdate_bestpath_lost_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_bestpath_lost_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2800)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -1646,6 +1671,7 @@ func TestProcessBGPUpdate_bestpath_lost_ipv6(t *testing.T) {
 
 // test: implicit withdrawal case
 func TestProcessBGPUpdate_implicit_withdrwal_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2801)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -1727,6 +1753,7 @@ func TestProcessBGPUpdate_implicit_withdrwal_ipv4(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_implicit_withdrwal_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2802)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -1834,6 +1861,7 @@ func TestProcessBGPUpdate_implicit_withdrwal_ipv6(t *testing.T) {
 
 // check multiple paths
 func TestProcessBGPUpdate_multiple_nlri_ipv4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2803)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 
@@ -1967,6 +1995,7 @@ func TestProcessBGPUpdate_multiple_nlri_ipv4(t *testing.T) {
 
 // check multiple paths
 func TestProcessBGPUpdate_multiple_nlri_ipv6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2804)
 
 	tm := NewTableManager([]bgp.RouteFamily{bgp.RF_IPv6_UC})
 
@@ -2110,6 +2139,7 @@ func TestProcessBGPUpdate_multiple_nlri_ipv6(t *testing.T) {
 }
 
 func TestProcessBGPUpdate_Timestamp(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",2805)
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65000})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -2162,6 +2192,7 @@ func TestProcessBGPUpdate_Timestamp(t *testing.T) {
 }
 
 func update_fromR1() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2806)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65000})}
@@ -2182,6 +2213,7 @@ func update_fromR1() *bgp.BGPMessage {
 }
 
 func update_fromR1_ipv6() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2807)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65000})}
@@ -2201,6 +2233,7 @@ func update_fromR1_ipv6() *bgp.BGPMessage {
 }
 
 func update_fromR2() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2808)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65100})}
@@ -2220,6 +2253,7 @@ func update_fromR2() *bgp.BGPMessage {
 }
 
 func update_fromR2_ipv6() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2809)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspath := createAsPathAttribute([]uint32{65100})
@@ -2237,23 +2271,27 @@ func update_fromR2_ipv6() *bgp.BGPMessage {
 }
 
 func createAsPathAttribute(ases []uint32) *bgp.PathAttributeAsPath {
+   fmt.Printf("DEJDEJ id:",2810)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, ases)}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
 	return aspath
 }
 
 func createMpReach(nexthop string, prefix []bgp.AddrPrefixInterface) *bgp.PathAttributeMpReachNLRI {
+   fmt.Printf("DEJDEJ id:",2811)
 	mp_reach := bgp.NewPathAttributeMpReachNLRI(nexthop, prefix)
 	return mp_reach
 }
 
 func createMpUNReach(nlri string, len uint8) *bgp.PathAttributeMpUnreachNLRI {
+   fmt.Printf("DEJDEJ id:",2812)
 	mp_nlri := []bgp.AddrPrefixInterface{bgp.NewIPv6AddrPrefix(len, nlri)}
 	mp_unreach := bgp.NewPathAttributeMpUnreachNLRI(mp_nlri)
 	return mp_unreach
 }
 
 func update_fromR2viaR1() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2813)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65000, 65100})}
@@ -2271,6 +2309,7 @@ func update_fromR2viaR1() *bgp.BGPMessage {
 }
 
 func update_fromR2viaR1_ipv6() *bgp.BGPMessage {
+   fmt.Printf("DEJDEJ id:",2814)
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspath := createAsPathAttribute([]uint32{65000, 65100})

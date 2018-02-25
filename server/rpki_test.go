@@ -31,6 +31,7 @@ import (
 )
 
 func strToASParam(str string) *bgp.PathAttributeAsPath {
+   fmt.Printf("DEJDEJ id:",66)
 	toList := func(asstr, sep string) []uint32 {
 		as := make([]uint32, 0)
 		l := strings.Split(asstr, sep)
@@ -57,11 +58,13 @@ func strToASParam(str string) *bgp.PathAttributeAsPath {
 }
 
 func validateOne(tree *radix.Tree, cidr, aspathStr string) config.RpkiValidationResultType {
+   fmt.Printf("DEJDEJ id:",67)
 	r := ValidatePath(65500, tree, cidr, strToASParam(aspathStr))
 	return r.Status
 }
 
 func TestValidate0(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",68)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -91,6 +94,7 @@ func TestValidate0(t *testing.T) {
 }
 
 func TestValidate1(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",69)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -107,6 +111,7 @@ func TestValidate1(t *testing.T) {
 }
 
 func TestValidate2(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",70)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -122,6 +127,7 @@ func TestValidate2(t *testing.T) {
 }
 
 func TestValidate3(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",71)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -145,6 +151,7 @@ func TestValidate3(t *testing.T) {
 }
 
 func TestValidate4(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",72)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -161,6 +168,7 @@ func TestValidate4(t *testing.T) {
 }
 
 func TestValidate5(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",73)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -174,6 +182,7 @@ func TestValidate5(t *testing.T) {
 }
 
 func TestValidate6(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",74)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -192,6 +201,7 @@ func TestValidate6(t *testing.T) {
 }
 
 func TestValidate7(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",75)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -210,6 +220,7 @@ func TestValidate7(t *testing.T) {
 }
 
 func TestValidate8(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",76)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -226,6 +237,7 @@ func TestValidate8(t *testing.T) {
 }
 
 func TestValidate9(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",77)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -242,6 +254,7 @@ func TestValidate9(t *testing.T) {
 }
 
 func TestValidate10(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",78)
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)

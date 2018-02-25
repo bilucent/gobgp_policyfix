@@ -30,6 +30,7 @@ import (
 )
 
 func TestModPolicyAssign(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",313)
 	assert := assert.New(t)
 	s := NewBgpServer()
 	go s.Serve()
@@ -65,6 +66,7 @@ func TestModPolicyAssign(t *testing.T) {
 }
 
 func TestMonitor(test *testing.T) {
+   fmt.Printf("DEJDEJ id:",314)
 	assert := assert.New(test)
 	s := NewBgpServer()
 	go s.Serve()
@@ -211,6 +213,7 @@ func TestMonitor(test *testing.T) {
 }
 
 func TestNumGoroutineWithAddDeleteNeighbor(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",315)
 	assert := assert.New(t)
 	s := NewBgpServer()
 	go s.Serve()
@@ -252,6 +255,7 @@ func TestNumGoroutineWithAddDeleteNeighbor(t *testing.T) {
 }
 
 func newPeerandInfo(myAs, as uint32, address string, rib *table.TableManager) (*Peer, *table.PeerInfo) {
+   fmt.Printf("DEJDEJ id:",316)
 	nConf := &config.Neighbor{Config: config.NeighborConfig{PeerAs: as, NeighborAddress: address}}
 	gConf := &config.Global{Config: config.GlobalConfig{As: myAs}}
 	config.SetDefaultNeighborConfigValues(nConf, nil, gConf)
@@ -269,6 +273,7 @@ func newPeerandInfo(myAs, as uint32, address string, rib *table.TableManager) (*
 }
 
 func process(rib *table.TableManager, l []*table.Path) (*table.Path, *table.Path) {
+   fmt.Printf("DEJDEJ id:",317)
 	news, olds, _ := dstsToPaths(table.GLOBAL_RIB_NAME, rib.ProcessPaths(l), false)
 	if len(news) != 1 {
 		panic("can't handle multiple paths")
@@ -284,6 +289,7 @@ func process(rib *table.TableManager, l []*table.Path) (*table.Path, *table.Path
 }
 
 func TestFilterpathWitheBGP(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",318)
 	as := uint32(65000)
 	p1As := uint32(65001)
 	p2As := uint32(65002)
@@ -325,6 +331,7 @@ func TestFilterpathWitheBGP(t *testing.T) {
 }
 
 func TestFilterpathWithiBGP(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",319)
 	as := uint32(65000)
 
 	rib := table.NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
@@ -355,6 +362,7 @@ func TestFilterpathWithiBGP(t *testing.T) {
 }
 
 func TestFilterpathWithRejectPolicy(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",320)
 	rib1 := table.NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
 	_, pi1 := newPeerandInfo(1, 2, "192.168.0.1", rib1)
 	rib2 := table.NewTableManager([]bgp.RouteFamily{bgp.RF_IPv4_UC})
@@ -413,6 +421,7 @@ func TestFilterpathWithRejectPolicy(t *testing.T) {
 }
 
 func TestPeerGroup(test *testing.T) {
+   fmt.Printf("DEJDEJ id:",321)
 	assert := assert.New(test)
 	log.SetLevel(log.DebugLevel)
 	s := NewBgpServer()
@@ -497,6 +506,7 @@ func TestPeerGroup(test *testing.T) {
 }
 
 func TestDynamicNeighbor(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",322)
 	assert := assert.New(t)
 	log.SetLevel(log.DebugLevel)
 	s1 := NewBgpServer()
@@ -565,6 +575,7 @@ func TestDynamicNeighbor(t *testing.T) {
 }
 
 func TestGracefulRestartTimerExpired(t *testing.T) {
+   fmt.Printf("DEJDEJ id:",323)
 	assert := assert.New(t)
 	s1 := NewBgpServer()
 	go s1.Serve()
