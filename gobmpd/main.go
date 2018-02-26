@@ -26,7 +26,8 @@ import (
 	"strconv"
 )
 
-func connLoop(conn *net.TCPConn) {
+func connLoop(conn *net.TCPConn) {    fmt.Printf("DEJDEJ id:",3704)
+
 	addr := conn.RemoteAddr()
 	scanner := bufio.NewScanner(bufio.NewReader(conn))
 	scanner.Split(bmp.SplitBMP)
@@ -43,7 +44,8 @@ func connLoop(conn *net.TCPConn) {
 	log.Info("conn was closed ", addr)
 }
 
-func main() {
+func main() {    fmt.Printf("DEJDEJ id:",3705)
+
 	service := ":" + strconv.Itoa(bmp.BMP_DEFAULT_PORT)
 	addr, _ := net.ResolveTCPAddr("tcp", service)
 

@@ -14,7 +14,8 @@ var (
 	_BGPAttrType_index_1 = [...]uint8{0, 27, 56, 90, 112, 140}
 )
 
-func (i BGPAttrType) String() string {
+func (i BGPAttrType) String() string {    fmt.Printf("DEJDEJ id:",2664)
+
 	switch {
 	case 1 <= i && i <= 10:
 		i -= 1

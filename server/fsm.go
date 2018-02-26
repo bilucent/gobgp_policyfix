@@ -92,7 +92,8 @@ const (
 	ADMIN_STATE_PFX_CT
 )
 
-func (s AdminState) String() string {
+func (s AdminState) String() string {    fmt.Printf("DEJDEJ id:",18)
+
 	switch s {
 	case ADMIN_STATE_UP:
 		return "ADMIN_STATE_UP"
@@ -137,7 +138,8 @@ type FSM struct {
 	marshallingOptions   *bgp.MarshallingOption
 }
 
-func (fsm *FSM) bgpMessageStateUpdate(MessageType uint8, isIn bool) {
+func (fsm *FSM) bgpMessageStateUpdate(MessageType uint8, isIn bool) {    fmt.Printf("DEJDEJ id:",19)
+
 	state := &fsm.pConf.State.Messages
 	timer := &fsm.pConf.Timers
 	if isIn {
@@ -186,7 +188,8 @@ func (fsm *FSM) bgpMessageStateUpdate(MessageType uint8, isIn bool) {
 	}
 }
 
-func (fsm *FSM) bmpStatsUpdate(statType uint16, increment int) {
+func (fsm *FSM) bmpStatsUpdate(statType uint16, increment int) {    fmt.Printf("DEJDEJ id:",20)
+
 	stats := &fsm.pConf.State.Messages.Received
 	switch statType {
 	// TODO
@@ -198,7 +201,8 @@ func (fsm *FSM) bmpStatsUpdate(statType uint16, increment int) {
 	}
 }
 
-func NewFSM(gConf *config.Global, pConf *config.Neighbor, policy *table.RoutingPolicy) *FSM {
+func NewFSM(gConf *config.Global, pConf *config.Neighbor, policy *table.RoutingPolicy) *FSM {    fmt.Printf("DEJDEJ id:",21)
+
 	adminState := ADMIN_STATE_UP
 	if pConf.Config.AdminDown {
 		adminState = ADMIN_STATE_DOWN
@@ -227,7 +231,8 @@ func NewFSM(gConf *config.Global, pConf *config.Neighbor, policy *table.RoutingP
 	return fsm
 }
 
-func (fsm *FSM) StateChange(nextState bgp.FSMState) {
+func (fsm *FSM) StateChange(nextState bgp.FSMState) {    fmt.Printf("DEJDEJ id:",22)
+
 	log.WithFields(log.Fields{
 		"Topic":  "Peer",
 		"Key":    fsm.pConf.State.NeighborAddress,
@@ -268,7 +273,8 @@ func (fsm *FSM) StateChange(nextState bgp.FSMState) {
 	}
 }
 
-func hostport(addr net.Addr) (string, uint16) {
+func hostport(addr net.Addr) (string, uint16) {    fmt.Printf("DEJDEJ id:",23)
+
 	if addr != nil {
 		host, port, err := net.SplitHostPort(addr.String())
 		if err != nil {
@@ -280,16 +286,19 @@ func hostport(addr net.Addr) (string, uint16) {
 	return "", 0
 }
 
-func (fsm *FSM) RemoteHostPort() (string, uint16) {
+func (fsm *FSM) RemoteHostPort() (string, uint16) {    fmt.Printf("DEJDEJ id:",24)
+
 	return hostport(fsm.conn.RemoteAddr())
 
 }
 
-func (fsm *FSM) LocalHostPort() (string, uint16) {
+func (fsm *FSM) LocalHostPort() (string, uint16) {    fmt.Printf("DEJDEJ id:",25)
+
 	return hostport(fsm.conn.LocalAddr())
 }
 
-func (fsm *FSM) sendNotificationFromErrorMsg(e *bgp.MessageError) error {
+func (fsm *FSM) sendNotificationFromErrorMsg(e *bgp.MessageError) error {    fmt.Printf("DEJDEJ id:",26)
+
 	if fsm.h != nil && fsm.h.conn != nil {
 		m := bgp.NewBGPNotificationMessage(e.TypeCode, e.SubTypeCode, e.Data)
 		b, _ := m.Serialize()
@@ -309,12 +318,14 @@ func (fsm *FSM) sendNotificationFromErrorMsg(e *bgp.MessageError) error {
 	return fmt.Errorf("can't send notification to %s since TCP connection is not established", fsm.pConf.State.NeighborAddress)
 }
 
-func (fsm *FSM) sendNotification(code, subType uint8, data []byte, msg string) error {
+func (fsm *FSM) sendNotification(code, subType uint8, data []byte, msg string) error {    fmt.Printf("DEJDEJ id:",27)
+
 	e := bgp.NewMessageError(code, subType, data, msg)
 	return fsm.sendNotificationFromErrorMsg(e.(*bgp.MessageError))
 }
 
-func (fsm *FSM) connectLoop() error {
+func (fsm *FSM) connectLoop() error {    fmt.Printf("DEJDEJ id:",28)
+
 	tick := int(fsm.pConf.Timers.Config.ConnectRetry)
 	if tick < MIN_CONNECT_RETRY {
 		tick = MIN_CONNECT_RETRY
@@ -411,7 +422,8 @@ type FSMHandler struct {
 	sentNotification string
 }
 
-func NewFSMHandler(fsm *FSM, incoming *channels.InfiniteChannel, stateCh chan *FsmMsg, outgoing *channels.InfiniteChannel) *FSMHandler {
+func NewFSMHandler(fsm *FSM, incoming *channels.InfiniteChannel, stateCh chan *FsmMsg, outgoing *channels.InfiniteChannel) *FSMHandler {    fmt.Printf("DEJDEJ id:",29)
+
 	h := &FSMHandler{
 		fsm:              fsm,
 		errorCh:          make(chan FsmStateReason, 2),
@@ -424,7 +436,8 @@ func NewFSMHandler(fsm *FSM, incoming *channels.InfiniteChannel, stateCh chan *F
 	return h
 }
 
-func (h *FSMHandler) idle() (bgp.FSMState, FsmStateReason) {
+func (h *FSMHandler) idle() (bgp.FSMState, FsmStateReason) {    fmt.Printf("DEJDEJ id:",30)
+
 	fsm := h.fsm
 
 	idleHoldTimer := time.NewTimer(time.Second * time.Duration(fsm.idleHoldTime))
@@ -483,7 +496,8 @@ func (h *FSMHandler) idle() (bgp.FSMState, FsmStateReason) {
 	}
 }
 
-func (h *FSMHandler) active() (bgp.FSMState, FsmStateReason) {
+func (h *FSMHandler) active() (bgp.FSMState, FsmStateReason) {    fmt.Printf("DEJDEJ id:",31)
+
 	fsm := h.fsm
 	for {
 		select {
@@ -561,7 +575,8 @@ func (h *FSMHandler) active() (bgp.FSMState, FsmStateReason) {
 	}
 }
 
-func capAddPathFromConfig(pConf *config.Neighbor) bgp.ParameterCapabilityInterface {
+func capAddPathFromConfig(pConf *config.Neighbor) bgp.ParameterCapabilityInterface {    fmt.Printf("DEJDEJ id:",32)
+
 	tuples := make([]*bgp.CapAddPathTuple, 0, len(pConf.AfiSafis))
 	for _, af := range pConf.AfiSafis {
 		var mode bgp.BGPAddPathMode
@@ -581,7 +596,8 @@ func capAddPathFromConfig(pConf *config.Neighbor) bgp.ParameterCapabilityInterfa
 	return bgp.NewCapAddPath(tuples)
 }
 
-func capabilitiesFromConfig(pConf *config.Neighbor) []bgp.ParameterCapabilityInterface {
+func capabilitiesFromConfig(pConf *config.Neighbor) []bgp.ParameterCapabilityInterface {    fmt.Printf("DEJDEJ id:",33)
+
 	caps := make([]bgp.ParameterCapabilityInterface, 0, 4)
 	caps = append(caps, bgp.NewCapRouteRefresh())
 	for _, af := range pConf.AfiSafis {
@@ -647,7 +663,8 @@ func capabilitiesFromConfig(pConf *config.Neighbor) []bgp.ParameterCapabilityInt
 	return caps
 }
 
-func buildopen(gConf *config.Global, pConf *config.Neighbor) *bgp.BGPMessage {
+func buildopen(gConf *config.Global, pConf *config.Neighbor) *bgp.BGPMessage {    fmt.Printf("DEJDEJ id:",34)
+
 	caps := capabilitiesFromConfig(pConf)
 	opt := bgp.NewOptionParameterCapability(caps)
 	holdTime := uint16(pConf.Timers.Config.HoldTime)
@@ -659,7 +676,8 @@ func buildopen(gConf *config.Global, pConf *config.Neighbor) *bgp.BGPMessage {
 		[]bgp.OptionParameterInterface{opt})
 }
 
-func readAll(conn net.Conn, length int) ([]byte, error) {
+func readAll(conn net.Conn, length int) ([]byte, error) {    fmt.Printf("DEJDEJ id:",35)
+
 	buf := make([]byte, length)
 	_, err := io.ReadFull(conn, buf)
 	if err != nil {
@@ -668,7 +686,8 @@ func readAll(conn net.Conn, length int) ([]byte, error) {
 	return buf, nil
 }
 
-func getPathAttrFromBGPUpdate(m *bgp.BGPUpdate, typ bgp.BGPAttrType) bgp.PathAttributeInterface {
+func getPathAttrFromBGPUpdate(m *bgp.BGPUpdate, typ bgp.BGPAttrType) bgp.PathAttributeInterface {    fmt.Printf("DEJDEJ id:",36)
+
 	for _, a := range m.PathAttributes {
 		if a.GetType() == typ {
 			return a
@@ -677,7 +696,8 @@ func getPathAttrFromBGPUpdate(m *bgp.BGPUpdate, typ bgp.BGPAttrType) bgp.PathAtt
 	return nil
 }
 
-func hasOwnASLoop(ownAS uint32, limit int, aspath *bgp.PathAttributeAsPath) bool {
+func hasOwnASLoop(ownAS uint32, limit int, aspath *bgp.PathAttributeAsPath) bool {    fmt.Printf("DEJDEJ id:",37)
+
 	cnt := 0
 	for _, i := range aspath.Value {
 		for _, as := range i.(*bgp.As4PathParam).AS {
@@ -692,7 +712,8 @@ func hasOwnASLoop(ownAS uint32, limit int, aspath *bgp.PathAttributeAsPath) bool
 	return false
 }
 
-func extractRouteFamily(p *bgp.PathAttributeInterface) *bgp.RouteFamily {
+func extractRouteFamily(p *bgp.PathAttributeInterface) *bgp.RouteFamily {    fmt.Printf("DEJDEJ id:",38)
+
 	attr := *p
 
 	var afi uint16
@@ -713,7 +734,8 @@ func extractRouteFamily(p *bgp.PathAttributeInterface) *bgp.RouteFamily {
 	return &rf
 }
 
-func (h *FSMHandler) afiSafiDisable(rf bgp.RouteFamily) string {
+func (h *FSMHandler) afiSafiDisable(rf bgp.RouteFamily) string {    fmt.Printf("DEJDEJ id:",39)
+
 	n := bgp.AddressFamilyNameMap[rf]
 
 	for i, a := range h.fsm.pConf.AfiSafis {
@@ -733,7 +755,8 @@ func (h *FSMHandler) afiSafiDisable(rf bgp.RouteFamily) string {
 	return n
 }
 
-func (h *FSMHandler) handlingError(m *bgp.BGPMessage, e error, useRevisedError bool) bgp.ErrorHandling {
+func (h *FSMHandler) handlingError(m *bgp.BGPMessage, e error, useRevisedError bool) bgp.ErrorHandling {    fmt.Printf("DEJDEJ id:",40)
+
 	handling := bgp.ERROR_HANDLING_NONE
 	if m.Header.Type == bgp.BGP_MSG_UPDATE && useRevisedError {
 		factor := e.(*bgp.MessageError)
@@ -778,7 +801,8 @@ func (h *FSMHandler) handlingError(m *bgp.BGPMessage, e error, useRevisedError b
 	return handling
 }
 
-func (h *FSMHandler) recvMessageWithError() (*FsmMsg, error) {
+func (h *FSMHandler) recvMessageWithError() (*FsmMsg, error) {    fmt.Printf("DEJDEJ id:",41)
+
 	sendToErrorCh := func(reason FsmStateReason) {
 		// probably doesn't happen but be cautious
 		select {
@@ -962,7 +986,8 @@ func (h *FSMHandler) recvMessageWithError() (*FsmMsg, error) {
 	return fmsg, nil
 }
 
-func (h *FSMHandler) recvMessage() error {
+func (h *FSMHandler) recvMessage() error {    fmt.Printf("DEJDEJ id:",42)
+
 	defer h.msgCh.Close()
 	fmsg, _ := h.recvMessageWithError()
 	if fmsg != nil {
@@ -971,7 +996,8 @@ func (h *FSMHandler) recvMessage() error {
 	return nil
 }
 
-func open2Cap(open *bgp.BGPOpen, n *config.Neighbor) (map[bgp.BGPCapabilityCode][]bgp.ParameterCapabilityInterface, map[bgp.RouteFamily]bgp.BGPAddPathMode) {
+func open2Cap(open *bgp.BGPOpen, n *config.Neighbor) (map[bgp.BGPCapabilityCode][]bgp.ParameterCapabilityInterface, map[bgp.RouteFamily]bgp.BGPAddPathMode) {    fmt.Printf("DEJDEJ id:",43)
+
 	capMap := make(map[bgp.BGPCapabilityCode][]bgp.ParameterCapabilityInterface)
 	for _, p := range open.OptParams {
 		if paramCap, y := p.(*bgp.OptionParameterCapability); y {
@@ -1030,7 +1056,8 @@ func open2Cap(open *bgp.BGPOpen, n *config.Neighbor) (map[bgp.BGPCapabilityCode]
 	return capMap, negotiated
 }
 
-func (h *FSMHandler) opensent() (bgp.FSMState, FsmStateReason) {
+func (h *FSMHandler) opensent() (bgp.FSMState, FsmStateReason) {    fmt.Printf("DEJDEJ id:",44)
+
 	fsm := h.fsm
 	m := buildopen(fsm.gConf, fsm.pConf)
 	b, _ := m.Serialize()
@@ -1236,7 +1263,8 @@ func (h *FSMHandler) opensent() (bgp.FSMState, FsmStateReason) {
 	}
 }
 
-func keepaliveTicker(fsm *FSM) *time.Ticker {
+func keepaliveTicker(fsm *FSM) *time.Ticker {    fmt.Printf("DEJDEJ id:",45)
+
 	negotiatedTime := fsm.pConf.Timers.State.NegotiatedHoldTime
 	if negotiatedTime == 0 {
 		return &time.Ticker{}
@@ -1248,7 +1276,8 @@ func keepaliveTicker(fsm *FSM) *time.Ticker {
 	return time.NewTicker(sec)
 }
 
-func (h *FSMHandler) openconfirm() (bgp.FSMState, FsmStateReason) {
+func (h *FSMHandler) openconfirm() (bgp.FSMState, FsmStateReason) {    fmt.Printf("DEJDEJ id:",46)
+
 	fsm := h.fsm
 	ticker := keepaliveTicker(fsm)
 	h.msgCh = channels.NewInfiniteChannel()
@@ -1348,7 +1377,8 @@ func (h *FSMHandler) openconfirm() (bgp.FSMState, FsmStateReason) {
 	}
 }
 
-func (h *FSMHandler) sendMessageloop() error {
+func (h *FSMHandler) sendMessageloop() error {    fmt.Printf("DEJDEJ id:",47)
+
 	conn := h.conn
 	fsm := h.fsm
 	ticker := keepaliveTicker(fsm)
@@ -1470,7 +1500,8 @@ func (h *FSMHandler) sendMessageloop() error {
 	}
 }
 
-func (h *FSMHandler) recvMessageloop() error {
+func (h *FSMHandler) recvMessageloop() error {    fmt.Printf("DEJDEJ id:",48)
+
 	for {
 		fmsg, err := h.recvMessageWithError()
 		if fmsg != nil {
@@ -1482,7 +1513,8 @@ func (h *FSMHandler) recvMessageloop() error {
 	}
 }
 
-func (h *FSMHandler) established() (bgp.FSMState, FsmStateReason) {
+func (h *FSMHandler) established() (bgp.FSMState, FsmStateReason) {    fmt.Printf("DEJDEJ id:",49)
+
 	fsm := h.fsm
 	h.conn = fsm.conn
 	h.t.Go(h.sendMessageloop)
@@ -1551,7 +1583,8 @@ func (h *FSMHandler) established() (bgp.FSMState, FsmStateReason) {
 	}
 }
 
-func (h *FSMHandler) loop() error {
+func (h *FSMHandler) loop() error {    fmt.Printf("DEJDEJ id:",50)
+
 	fsm := h.fsm
 	ch := make(chan bgp.FSMState)
 	oldState := fsm.state
@@ -1624,7 +1657,8 @@ func (h *FSMHandler) loop() error {
 	return nil
 }
 
-func (h *FSMHandler) changeAdminState(s AdminState) error {
+func (h *FSMHandler) changeAdminState(s AdminState) error {    fmt.Printf("DEJDEJ id:",51)
+
 	fsm := h.fsm
 	if fsm.adminState != s {
 		log.WithFields(log.Fields{

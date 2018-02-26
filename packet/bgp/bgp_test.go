@@ -27,19 +27,23 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func keepalive() *BGPMessage {
+func keepalive() *BGPMessage {    fmt.Printf("DEJDEJ id:",1986)
+
 	return NewBGPKeepAliveMessage()
 }
 
-func notification() *BGPMessage {
+func notification() *BGPMessage {    fmt.Printf("DEJDEJ id:",1987)
+
 	return NewBGPNotificationMessage(1, 2, nil)
 }
 
-func refresh() *BGPMessage {
+func refresh() *BGPMessage {    fmt.Printf("DEJDEJ id:",1988)
+
 	return NewBGPRouteRefreshMessage(1, 2, 10)
 }
 
-func Test_Message(t *testing.T) {
+func Test_Message(t *testing.T) {    fmt.Printf("DEJDEJ id:",1989)
+
 	l := []*BGPMessage{keepalive(), notification(), refresh(), NewTestBGPOpenMessage(), NewTestBGPUpdateMessage()}
 	for _, m1 := range l {
 		buf1, _ := m1.Serialize()
@@ -61,7 +65,8 @@ func Test_Message(t *testing.T) {
 	}
 }
 
-func Test_IPAddrPrefixString(t *testing.T) {
+func Test_IPAddrPrefixString(t *testing.T) {    fmt.Printf("DEJDEJ id:",1990)
+
 	ipv4 := NewIPAddrPrefix(24, "129.6.10.0")
 	assert.Equal(t, "129.6.10.0/24", ipv4.String())
 	ipv6 := NewIPv6AddrPrefix(18, "3343:faba:3903::1")
@@ -70,7 +75,8 @@ func Test_IPAddrPrefixString(t *testing.T) {
 	assert.Equal(t, "3343:faba:3903::/18", ipv6.String())
 }
 
-func Test_RouteTargetMembershipNLRIString(t *testing.T) {
+func Test_RouteTargetMembershipNLRIString(t *testing.T) {    fmt.Printf("DEJDEJ id:",1991)
+
 	assert := assert.New(t)
 
 	// TwoOctetAsSpecificExtended
@@ -156,7 +162,8 @@ func Test_RouteTargetMembershipNLRIString(t *testing.T) {
 
 }
 
-func Test_MalformedUpdateMsg(t *testing.T) {
+func Test_MalformedUpdateMsg(t *testing.T) {    fmt.Printf("DEJDEJ id:",1992)
+
 	assert := assert.New(t)
 
 	// Invalid AGGREGATOR
@@ -234,7 +241,8 @@ func Test_MalformedUpdateMsg(t *testing.T) {
 	assert.Equal(ERROR_HANDLING_TREAT_AS_WITHDRAW, err.(*MessageError).ErrorHandling)
 }
 
-func Test_RFC5512(t *testing.T) {
+func Test_RFC5512(t *testing.T) {    fmt.Printf("DEJDEJ id:",1993)
+
 	assert := assert.New(t)
 
 	buf := make([]byte, 8)
@@ -294,7 +302,8 @@ func Test_RFC5512(t *testing.T) {
 	assert.Equal("2001::1", n4.String())
 }
 
-func Test_ASLen(t *testing.T) {
+func Test_ASLen(t *testing.T) {    fmt.Printf("DEJDEJ id:",1994)
+
 	assert := assert.New(t)
 
 	aspath := AsPathParam{
@@ -331,7 +340,8 @@ func Test_ASLen(t *testing.T) {
 
 }
 
-func Test_MPLSLabelStack(t *testing.T) {
+func Test_MPLSLabelStack(t *testing.T) {    fmt.Printf("DEJDEJ id:",1995)
+
 	assert := assert.New(t)
 	mpls := NewMPLSLabelStack()
 	buf, err := mpls.Serialize()
@@ -354,7 +364,8 @@ func Test_MPLSLabelStack(t *testing.T) {
 	assert.Equal(WITHDRAW_LABEL, mpls.Labels[0])
 }
 
-func Test_FlowSpecNlri(t *testing.T) {
+func Test_FlowSpecNlri(t *testing.T) {    fmt.Printf("DEJDEJ id:",1996)
+
 	assert := assert.New(t)
 	cmp := make([]FlowSpecComponentInterface, 0)
 	cmp = append(cmp, NewFlowSpecDestinationPrefix(NewIPAddrPrefix(24, "10.0.0.0")))
@@ -397,7 +408,8 @@ func Test_FlowSpecNlri(t *testing.T) {
 	}
 }
 
-func Test_FlowSpecExtended(t *testing.T) {
+func Test_FlowSpecExtended(t *testing.T) {    fmt.Printf("DEJDEJ id:",1997)
+
 	assert := assert.New(t)
 	exts := make([]ExtendedCommunityInterface, 0)
 	exts = append(exts, NewTrafficRateExtended(100, 9600.0))
@@ -422,7 +434,8 @@ func Test_FlowSpecExtended(t *testing.T) {
 	}
 }
 
-func Test_IP6FlowSpecExtended(t *testing.T) {
+func Test_IP6FlowSpecExtended(t *testing.T) {    fmt.Printf("DEJDEJ id:",1998)
+
 	assert := assert.New(t)
 	exts := make([]ExtendedCommunityInterface, 0)
 	exts = append(exts, NewRedirectIPv6AddressSpecificExtended("2001:db8::68", 1000))
@@ -442,7 +455,8 @@ func Test_IP6FlowSpecExtended(t *testing.T) {
 	}
 }
 
-func Test_FlowSpecNlriv6(t *testing.T) {
+func Test_FlowSpecNlriv6(t *testing.T) {    fmt.Printf("DEJDEJ id:",1999)
+
 	assert := assert.New(t)
 	cmp := make([]FlowSpecComponentInterface, 0)
 	cmp = append(cmp, NewFlowSpecDestinationPrefix6(NewIPv6AddrPrefix(64, "2001::"), 12))
@@ -484,7 +498,8 @@ func Test_FlowSpecNlriv6(t *testing.T) {
 	}
 }
 
-func Test_Aigp(t *testing.T) {
+func Test_Aigp(t *testing.T) {    fmt.Printf("DEJDEJ id:",2000)
+
 	assert := assert.New(t)
 	m := NewAigpTLVIgpMetric(1000)
 	a1 := NewPathAttributeAigp([]AigpTLVInterface{m})
@@ -504,7 +519,8 @@ func Test_Aigp(t *testing.T) {
 	}
 }
 
-func Test_FlowSpecNlriL2(t *testing.T) {
+func Test_FlowSpecNlriL2(t *testing.T) {    fmt.Printf("DEJDEJ id:",2001)
+
 	assert := assert.New(t)
 	mac, _ := net.ParseMAC("01:23:45:67:89:ab")
 	cmp := make([]FlowSpecComponentInterface, 0)
@@ -531,7 +547,8 @@ func Test_FlowSpecNlriL2(t *testing.T) {
 	}
 }
 
-func Test_NotificationErrorCode(t *testing.T) {
+func Test_NotificationErrorCode(t *testing.T) {    fmt.Printf("DEJDEJ id:",2002)
+
 	// boundary check
 	t.Log(NewNotificationErrorCode(BGP_ERROR_MESSAGE_HEADER_ERROR, BGP_ERROR_SUB_BAD_MESSAGE_TYPE).String())
 	t.Log(NewNotificationErrorCode(BGP_ERROR_MESSAGE_HEADER_ERROR, BGP_ERROR_SUB_BAD_MESSAGE_TYPE+1).String())
@@ -540,7 +557,8 @@ func Test_NotificationErrorCode(t *testing.T) {
 	t.Log(NewNotificationErrorCode(BGP_ERROR_ROUTE_REFRESH_MESSAGE_ERROR+1, 0).String())
 }
 
-func Test_FlowSpecNlriVPN(t *testing.T) {
+func Test_FlowSpecNlriVPN(t *testing.T) {    fmt.Printf("DEJDEJ id:",2003)
+
 	assert := assert.New(t)
 	cmp := make([]FlowSpecComponentInterface, 0)
 	cmp = append(cmp, NewFlowSpecDestinationPrefix(NewIPAddrPrefix(24, "10.0.0.0")))
@@ -564,7 +582,8 @@ func Test_FlowSpecNlriVPN(t *testing.T) {
 	}
 }
 
-func Test_EVPNIPPrefixRoute(t *testing.T) {
+func Test_EVPNIPPrefixRoute(t *testing.T) {    fmt.Printf("DEJDEJ id:",2004)
+
 	assert := assert.New(t)
 	rd, _ := ParseRouteDistinguisher("100:100")
 	r := &EVPNIPPrefixRoute{
@@ -599,7 +618,8 @@ func Test_EVPNIPPrefixRoute(t *testing.T) {
 	}
 }
 
-func Test_CapExtendedNexthop(t *testing.T) {
+func Test_CapExtendedNexthop(t *testing.T) {    fmt.Printf("DEJDEJ id:",2005)
+
 	assert := assert.New(t)
 	tuple := NewCapExtendedNexthopTuple(RF_IPv4_UC, AFI_IP6)
 	n1 := NewCapExtendedNexthop([]*CapExtendedNexthopTuple{tuple})
@@ -618,7 +638,8 @@ func Test_CapExtendedNexthop(t *testing.T) {
 	}
 }
 
-func Test_AddPath(t *testing.T) {
+func Test_AddPath(t *testing.T) {    fmt.Printf("DEJDEJ id:",2006)
+
 	assert := assert.New(t)
 	opt := &MarshallingOption{AddPath: map[RouteFamily]BGPAddPathMode{RF_IPv4_UC: BGP_ADD_PATH_BOTH}}
 	{
@@ -763,7 +784,8 @@ func Test_AddPath(t *testing.T) {
 
 }
 
-func Test_CompareFlowSpecNLRI(t *testing.T) {
+func Test_CompareFlowSpecNLRI(t *testing.T) {    fmt.Printf("DEJDEJ id:",2007)
+
 	assert := assert.New(t)
 	cmp, err := ParseFlowSpecComponents(RF_FS_IPv4_UC, "destination 10.0.0.2/32 source 10.0.0.1/32 destination-port ==3128 protocol tcp")
 	assert.Nil(err)
@@ -786,7 +808,8 @@ func Test_CompareFlowSpecNLRI(t *testing.T) {
 	assert.True(r < 0)
 }
 
-func Test_MpReachNLRIWithIPv4MappedIPv6Prefix(t *testing.T) {
+func Test_MpReachNLRIWithIPv4MappedIPv6Prefix(t *testing.T) {    fmt.Printf("DEJDEJ id:",2008)
+
 	assert := assert.New(t)
 	n1 := NewIPv6AddrPrefix(120, "::ffff:10.0.0.1")
 	buf1, err := n1.Serialize()
@@ -826,7 +849,8 @@ func Test_MpReachNLRIWithIPv4MappedIPv6Prefix(t *testing.T) {
 	}
 }
 
-func Test_MpReachNLRIWithIPv6PrefixWithIPv4Peering(t *testing.T) {
+func Test_MpReachNLRIWithIPv6PrefixWithIPv4Peering(t *testing.T) {    fmt.Printf("DEJDEJ id:",2009)
+
 	assert := assert.New(t)
 	bufin := []byte{
 		0x80, 0x0e, 0x1e, // flags(1), type(1), length(1)
@@ -865,7 +889,8 @@ func Test_MpReachNLRIWithIPv6PrefixWithIPv4Peering(t *testing.T) {
 	assert.Equal(bufin, bufout)
 }
 
-func Test_MpReachNLRIWithIPv6(t *testing.T) {
+func Test_MpReachNLRIWithIPv6(t *testing.T) {    fmt.Printf("DEJDEJ id:",2010)
+
 	assert := assert.New(t)
 	bufin := []byte{
 		0x90, 0x0e, 0x00, 0x1e, // flags(1), type(1), length(2),
@@ -896,7 +921,8 @@ func Test_MpReachNLRIWithIPv6(t *testing.T) {
 	assert.Equal(value, p.Value)
 }
 
-func Test_MpUnreachNLRIWithIPv6(t *testing.T) {
+func Test_MpUnreachNLRIWithIPv6(t *testing.T) {    fmt.Printf("DEJDEJ id:",2011)
+
 	assert := assert.New(t)
 	bufin := []byte{
 		0x90, 0x0f, 0x00, 0x0c, // flags(1), type(1), length(2),
@@ -921,7 +947,8 @@ func Test_MpUnreachNLRIWithIPv6(t *testing.T) {
 	assert.Equal(value, p.Value)
 }
 
-func Test_MpReachNLRIWithIPv6PrefixWithLinkLocalNexthop(t *testing.T) {
+func Test_MpReachNLRIWithIPv6PrefixWithLinkLocalNexthop(t *testing.T) {    fmt.Printf("DEJDEJ id:",2012)
+
 	assert := assert.New(t)
 	bufin := []byte{
 		0x80, 0x0e, 0x2c, // flags(1), type(1), length(1)
@@ -961,7 +988,8 @@ func Test_MpReachNLRIWithIPv6PrefixWithLinkLocalNexthop(t *testing.T) {
 	assert.Equal(bufin, bufout)
 }
 
-func Test_MpReachNLRIWithVPNv4Prefix(t *testing.T) {
+func Test_MpReachNLRIWithVPNv4Prefix(t *testing.T) {    fmt.Printf("DEJDEJ id:",2013)
+
 	assert := assert.New(t)
 	bufin := []byte{
 		0x80, 0x0e, 0x20, // flags(1), type(1), length(1)
@@ -999,7 +1027,8 @@ func Test_MpReachNLRIWithVPNv4Prefix(t *testing.T) {
 	assert.Equal(bufin, bufout)
 }
 
-func Test_MpReachNLRIWithVPNv6Prefix(t *testing.T) {
+func Test_MpReachNLRIWithVPNv6Prefix(t *testing.T) {    fmt.Printf("DEJDEJ id:",2014)
+
 	assert := assert.New(t)
 	bufin := []byte{
 		0x80, 0x0e, 0x39, // flags(1), type(1), length(1)
@@ -1043,7 +1072,8 @@ func Test_MpReachNLRIWithVPNv6Prefix(t *testing.T) {
 	assert.Equal(bufin, bufout)
 }
 
-func Test_MpReachNLRIWithIPv4PrefixWithIPv6Nexthop(t *testing.T) {
+func Test_MpReachNLRIWithIPv4PrefixWithIPv6Nexthop(t *testing.T) {    fmt.Printf("DEJDEJ id:",2015)
+
 	assert := assert.New(t)
 	bufin := []byte{
 		0x80, 0x0e, 0x19, // flags(1), type(1), length(1)
@@ -1077,7 +1107,8 @@ func Test_MpReachNLRIWithIPv4PrefixWithIPv6Nexthop(t *testing.T) {
 	assert.Equal(bufin, bufout)
 }
 
-func Test_ParseRouteDistinguisher(t *testing.T) {
+func Test_ParseRouteDistinguisher(t *testing.T) {    fmt.Printf("DEJDEJ id:",2016)
+
 	assert := assert.New(t)
 
 	rd, _ := ParseRouteDistinguisher("100:1000")
@@ -1108,7 +1139,8 @@ func Test_ParseRouteDistinguisher(t *testing.T) {
 	assert.Equal(uint16(10000), rdType2.Assigned)
 }
 
-func Test_ParseEthernetSegmentIdentifier(t *testing.T) {
+func Test_ParseEthernetSegmentIdentifier(t *testing.T) {    fmt.Printf("DEJDEJ id:",2017)
+
 	assert := assert.New(t)
 
 	// "single-homed"

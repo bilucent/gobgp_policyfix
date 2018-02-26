@@ -26,39 +26,45 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDestinationNewIPv4(t *testing.T) {
+func TestDestinationNewIPv4(t *testing.T) {    fmt.Printf("DEJDEJ id:",2712)
+
 	peerD := DestCreatePeer()
 	pathD := DestCreatePath(peerD)
 	ipv4d := NewDestination(pathD[0].GetNlri(), 0)
 	assert.NotNil(t, ipv4d)
 }
-func TestDestinationNewIPv6(t *testing.T) {
+func TestDestinationNewIPv6(t *testing.T) {    fmt.Printf("DEJDEJ id:",2713)
+
 	peerD := DestCreatePeer()
 	pathD := DestCreatePath(peerD)
 	ipv6d := NewDestination(pathD[0].GetNlri(), 0)
 	assert.NotNil(t, ipv6d)
 }
 
-func TestDestinationSetRouteFamily(t *testing.T) {
+func TestDestinationSetRouteFamily(t *testing.T) {    fmt.Printf("DEJDEJ id:",2714)
+
 	dd := &Destination{}
 	dd.setRouteFamily(bgp.RF_IPv4_UC)
 	rf := dd.Family()
 	assert.Equal(t, rf, bgp.RF_IPv4_UC)
 }
-func TestDestinationGetRouteFamily(t *testing.T) {
+func TestDestinationGetRouteFamily(t *testing.T) {    fmt.Printf("DEJDEJ id:",2715)
+
 	dd := &Destination{}
 	dd.setRouteFamily(bgp.RF_IPv6_UC)
 	rf := dd.Family()
 	assert.Equal(t, rf, bgp.RF_IPv6_UC)
 }
-func TestDestinationSetNlri(t *testing.T) {
+func TestDestinationSetNlri(t *testing.T) {    fmt.Printf("DEJDEJ id:",2716)
+
 	dd := &Destination{}
 	nlri := bgp.NewIPAddrPrefix(24, "13.2.3.1")
 	dd.setNlri(nlri)
 	r_nlri := dd.GetNlri()
 	assert.Equal(t, r_nlri, nlri)
 }
-func TestDestinationGetNlri(t *testing.T) {
+func TestDestinationGetNlri(t *testing.T) {    fmt.Printf("DEJDEJ id:",2717)
+
 	dd := &Destination{}
 	nlri := bgp.NewIPAddrPrefix(24, "10.110.123.1")
 	dd.setNlri(nlri)
@@ -66,7 +72,8 @@ func TestDestinationGetNlri(t *testing.T) {
 	assert.Equal(t, r_nlri, nlri)
 }
 
-func TestCalculate(t *testing.T) {
+func TestCalculate(t *testing.T) {    fmt.Printf("DEJDEJ id:",2718)
+
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -107,7 +114,8 @@ func TestCalculate(t *testing.T) {
 	assert.Equal(t, len(d.knownPathList), 0)
 }
 
-func TestCalculate2(t *testing.T) {
+func TestCalculate2(t *testing.T) {    fmt.Printf("DEJDEJ id:",2719)
+
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
@@ -162,7 +170,8 @@ func TestCalculate2(t *testing.T) {
 	assert.Equal(t, len(d.knownPathList), 3)
 }
 
-func TestImplicitWithdrawCalculate(t *testing.T) {
+func TestImplicitWithdrawCalculate(t *testing.T) {    fmt.Printf("DEJDEJ id:",2720)
+
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -219,7 +228,8 @@ func TestImplicitWithdrawCalculate(t *testing.T) {
 	assert.Equal(t, len(d.knownPathList), 1)
 }
 
-func TestMedTieBreaker(t *testing.T) {
+func TestMedTieBreaker(t *testing.T) {    fmt.Printf("DEJDEJ id:",2721)
+
 	nlri := bgp.NewIPAddrPrefix(24, "10.10.0.0")
 
 	p0 := func() *Path {
@@ -275,7 +285,8 @@ func TestMedTieBreaker(t *testing.T) {
 	assert.Equal(t, compareByMED(p5, p6), p5)
 }
 
-func TestTimeTieBreaker(t *testing.T) {
+func TestTimeTieBreaker(t *testing.T) {    fmt.Printf("DEJDEJ id:",2722)
+
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -311,7 +322,8 @@ func TestTimeTieBreaker(t *testing.T) {
 	assert.Equal(t, true, d.GetBestPath("").GetSource().ID.Equal(net.IP{1, 1, 1, 1})) // path from peer1 win
 }
 
-func DestCreatePeer() []*PeerInfo {
+func DestCreatePeer() []*PeerInfo {    fmt.Printf("DEJDEJ id:",2723)
+
 	peerD1 := &PeerInfo{AS: 65000}
 	peerD2 := &PeerInfo{AS: 65001}
 	peerD3 := &PeerInfo{AS: 65002}
@@ -319,7 +331,8 @@ func DestCreatePeer() []*PeerInfo {
 	return peerD
 }
 
-func DestCreatePath(peerD []*PeerInfo) []*Path {
+func DestCreatePath(peerD []*PeerInfo) []*Path {    fmt.Printf("DEJDEJ id:",2724)
+
 	bgpMsgD1 := updateMsgD1()
 	bgpMsgD2 := updateMsgD2()
 	bgpMsgD3 := updateMsgD3()
@@ -334,7 +347,8 @@ func DestCreatePath(peerD []*PeerInfo) []*Path {
 	return pathD
 }
 
-func updateMsgD1() *bgp.BGPMessage {
+func updateMsgD1() *bgp.BGPMessage {    fmt.Printf("DEJDEJ id:",2725)
+
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65000})}
@@ -355,7 +369,8 @@ func updateMsgD1() *bgp.BGPMessage {
 	return updateMsg
 }
 
-func updateMsgD2() *bgp.BGPMessage {
+func updateMsgD2() *bgp.BGPMessage {    fmt.Printf("DEJDEJ id:",2726)
+
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
@@ -375,7 +390,8 @@ func updateMsgD2() *bgp.BGPMessage {
 	UpdatePathAttrs4ByteAs(updateMsg.Body.(*bgp.BGPUpdate))
 	return updateMsg
 }
-func updateMsgD3() *bgp.BGPMessage {
+func updateMsgD3() *bgp.BGPMessage {    fmt.Printf("DEJDEJ id:",2727)
+
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -397,14 +413,16 @@ func updateMsgD3() *bgp.BGPMessage {
 	return updateMsg
 }
 
-func TestRadixkey(t *testing.T) {
+func TestRadixkey(t *testing.T) {    fmt.Printf("DEJDEJ id:",2728)
+
 	assert.Equal(t, "000010100000001100100000", CidrToRadixkey("10.3.32.0/24"))
 	assert.Equal(t, "000010100000001100100000", IpToRadixkey(net.ParseIP("10.3.32.0").To4(), 24))
 	assert.Equal(t, "000010100000001100100000", IpToRadixkey(net.ParseIP("10.3.32.0").To4(), 24))
 	assert.Equal(t, CidrToRadixkey("::ffff:0.0.0.0/96")+"000010100000001100100000", CidrToRadixkey("::ffff:10.3.32.0/120"))
 }
 
-func TestIpToRadixkey(t *testing.T) {
+func TestIpToRadixkey(t *testing.T) {    fmt.Printf("DEJDEJ id:",2729)
+
 	for i := byte(0); i < 255; i += 3 {
 		for y := byte(1); y < 128; y *= 2 {
 			ip := net.IPv4(i, i+2, i+3, i-y)
@@ -426,7 +444,8 @@ func TestIpToRadixkey(t *testing.T) {
 	}
 }
 
-func TestMultipath(t *testing.T) {
+func TestMultipath(t *testing.T) {    fmt.Printf("DEJDEJ id:",2730)
+
 	UseMultiplePaths.Enabled = true
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65000})}
@@ -514,7 +533,8 @@ func TestMultipath(t *testing.T) {
 	UseMultiplePaths.Enabled = false
 }
 
-func TestIdMap(t *testing.T) {
+func TestIdMap(t *testing.T) {    fmt.Printf("DEJDEJ id:",2731)
+
 	d := NewDestination(bgp.NewIPAddrPrefix(24, "10.10.0.101"), 64)
 	for i := 0; ; i++ {
 		if id, err := d.localIdMap.FindandSetZeroBit(); err == nil {

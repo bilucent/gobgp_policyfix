@@ -20,7 +20,8 @@ import (
 	"net"
 )
 
-func NewTestBGPOpenMessage() *BGPMessage {
+func NewTestBGPOpenMessage() *BGPMessage {    fmt.Printf("DEJDEJ id:",2665)
+
 	p1 := NewOptionParameterCapability(
 		[]ParameterCapabilityInterface{NewCapRouteRefresh()})
 	p2 := NewOptionParameterCapability(
@@ -37,7 +38,8 @@ func NewTestBGPOpenMessage() *BGPMessage {
 		[]OptionParameterInterface{p1, p2, p3, p4, p5})
 }
 
-func NewTestBGPUpdateMessage() *BGPMessage {
+func NewTestBGPUpdateMessage() *BGPMessage {    fmt.Printf("DEJDEJ id:",2666)
+
 	w1 := NewIPAddrPrefix(23, "121.1.3.2")
 	w2 := NewIPAddrPrefix(17, "100.33.3.0")
 	w := []*IPAddrPrefix{w1, w2}

@@ -27,7 +27,8 @@ import (
 	"github.com/osrg/gobgp/packet/bgp"
 )
 
-func cleanInfiniteChannel(ch *channels.InfiniteChannel) {
+func cleanInfiniteChannel(ch *channels.InfiniteChannel) {    fmt.Printf("DEJDEJ id:",368)
+
 	ch.Close()
 	// drain all remaining items
 	for range ch.Out() {
@@ -36,7 +37,8 @@ func cleanInfiniteChannel(ch *channels.InfiniteChannel) {
 
 // Returns the binary formatted Administrative Shutdown Communication from the
 // given string value.
-func newAdministrativeCommunication(communication string) (data []byte) {
+func newAdministrativeCommunication(communication string) (data []byte) {    fmt.Printf("DEJDEJ id:",369)
+
 	if communication == "" {
 		return nil
 	}
@@ -53,7 +55,8 @@ func newAdministrativeCommunication(communication string) (data []byte) {
 
 // Parses the given NOTIFICATION message data as a binary value and returns
 // the Administrative Shutdown Communication in string and the rest binary.
-func decodeAdministrativeCommunication(data []byte) (string, []byte) {
+func decodeAdministrativeCommunication(data []byte) (string, []byte) {    fmt.Printf("DEJDEJ id:",370)
+
 	if len(data) == 0 {
 		return "", data
 	}
@@ -67,7 +70,8 @@ func decodeAdministrativeCommunication(data []byte) (string, []byte) {
 	return string(data[1 : communicationLen+1]), data[communicationLen+1:]
 }
 
-func extractFileAndFamilyFromTCPListener(l *net.TCPListener) (*os.File, int, error) {
+func extractFileAndFamilyFromTCPListener(l *net.TCPListener) (*os.File, int, error) {    fmt.Printf("DEJDEJ id:",371)
+
 	// Note #1: TCPListener.File() has the unexpected side-effect of putting
 	// the original socket into blocking mode. See Note #2.
 	fi, err := l.File()
@@ -92,7 +96,8 @@ func extractFileAndFamilyFromTCPListener(l *net.TCPListener) (*os.File, int, err
 	return fi, family, nil
 }
 
-func extractFileAndFamilyFromTCPConn(conn *net.TCPConn) (*os.File, int, error) {
+func extractFileAndFamilyFromTCPConn(conn *net.TCPConn) (*os.File, int, error) {    fmt.Printf("DEJDEJ id:",372)
+
 	// Note #1: TCPConn.File() has the unexpected side-effect of putting
 	// the original socket into blocking mode. See Note #2.
 	fi, err := conn.File()

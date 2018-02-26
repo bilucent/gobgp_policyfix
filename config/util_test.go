@@ -21,7 +21,8 @@ import (
 	"testing"
 )
 
-func TestDetectConfigFileType(t *testing.T) {
+func TestDetectConfigFileType(t *testing.T) {    fmt.Printf("DEJDEJ id:",3282)
+
 	assert := assert.New(t)
 
 	assert.Equal("toml", detectConfigFileType("bgpd.conf", "toml"))

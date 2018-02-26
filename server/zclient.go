@@ -43,7 +43,8 @@ type nexthopTrackingManager struct {
 	pathListCh        chan pathList
 }
 
-func newNexthopTrackingManager(server *BgpServer, delay int) *nexthopTrackingManager {
+func newNexthopTrackingManager(server *BgpServer, delay int) *nexthopTrackingManager {    fmt.Printf("DEJDEJ id:",230)
+
 	return &nexthopTrackingManager{
 		dead:              make(chan struct{}),
 		nexthopCache:      make(map[string]struct{}),
@@ -55,19 +56,22 @@ func newNexthopTrackingManager(server *BgpServer, delay int) *nexthopTrackingMan
 	}
 }
 
-func (m *nexthopTrackingManager) stop() {
+func (m *nexthopTrackingManager) stop() {    fmt.Printf("DEJDEJ id:",231)
+
 	close(m.pathListCh)
 	close(m.trigger)
 	close(m.dead)
 }
 
-func (m *nexthopTrackingManager) isRegisteredNexthop(nexthop net.IP) bool {
+func (m *nexthopTrackingManager) isRegisteredNexthop(nexthop net.IP) bool {    fmt.Printf("DEJDEJ id:",232)
+
 	key := nexthop.String()
 	_, ok := m.nexthopCache[key]
 	return ok
 }
 
-func (m *nexthopTrackingManager) registerNexthop(nexthop net.IP) bool {
+func (m *nexthopTrackingManager) registerNexthop(nexthop net.IP) bool {    fmt.Printf("DEJDEJ id:",233)
+
 	key := nexthop.String()
 	if _, ok := m.nexthopCache[key]; ok {
 		return false
@@ -76,12 +80,14 @@ func (m *nexthopTrackingManager) registerNexthop(nexthop net.IP) bool {
 	return true
 }
 
-func (m *nexthopTrackingManager) unregisterNexthop(nexthop net.IP) {
+func (m *nexthopTrackingManager) unregisterNexthop(nexthop net.IP) {    fmt.Printf("DEJDEJ id:",234)
+
 	key := nexthop.String()
 	delete(m.nexthopCache, key)
 }
 
-func (m *nexthopTrackingManager) appendPathList(paths pathList) {
+func (m *nexthopTrackingManager) appendPathList(paths pathList) {    fmt.Printf("DEJDEJ id:",235)
+
 	if len(paths) == 0 {
 		return
 	}
@@ -90,7 +96,8 @@ func (m *nexthopTrackingManager) appendPathList(paths pathList) {
 	m.scheduledPathList[path.GetNexthop().String()] = paths
 }
 
-func (m *nexthopTrackingManager) calculateDelay(penalty int) int {
+func (m *nexthopTrackingManager) calculateDelay(penalty int) int {    fmt.Printf("DEJDEJ id:",236)
+
 	if penalty <= 950 {
 		return m.delay
 	}
@@ -103,13 +110,15 @@ func (m *nexthopTrackingManager) calculateDelay(penalty int) int {
 	return delay
 }
 
-func (m *nexthopTrackingManager) triggerUpdatePathAfter(delay int) {
+func (m *nexthopTrackingManager) triggerUpdatePathAfter(delay int) {    fmt.Printf("DEJDEJ id:",237)
+
 	time.Sleep(time.Duration(delay) * time.Second)
 
 	m.trigger <- struct{}{}
 }
 
-func (m *nexthopTrackingManager) loop() {
+func (m *nexthopTrackingManager) loop() {    fmt.Printf("DEJDEJ id:",238)
+
 	t := time.NewTicker(8 * time.Second)
 	defer t.Stop()
 
@@ -175,14 +184,16 @@ func (m *nexthopTrackingManager) loop() {
 	}
 }
 
-func (m *nexthopTrackingManager) scheduleUpdate(paths pathList) {
+func (m *nexthopTrackingManager) scheduleUpdate(paths pathList) {    fmt.Printf("DEJDEJ id:",239)
+
 	if len(paths) == 0 {
 		return
 	}
 	m.pathListCh <- paths
 }
 
-func (m *nexthopTrackingManager) filterPathToRegister(paths pathList) pathList {
+func (m *nexthopTrackingManager) filterPathToRegister(paths pathList) pathList {    fmt.Printf("DEJDEJ id:",240)
+
 	filteredPaths := make(pathList, 0, len(paths))
 	for _, path := range paths {
 		if path == nil || path.IsFromExternal() {
@@ -207,7 +218,8 @@ func (m *nexthopTrackingManager) filterPathToRegister(paths pathList) pathList {
 	return filteredPaths
 }
 
-func filterOutExternalPath(paths pathList) pathList {
+func filterOutExternalPath(paths pathList) pathList {    fmt.Printf("DEJDEJ id:",241)
+
 	filteredPaths := make(pathList, 0, len(paths))
 	for _, path := range paths {
 		if path == nil || path.IsFromExternal() {
@@ -218,7 +230,8 @@ func filterOutExternalPath(paths pathList) pathList {
 	return filteredPaths
 }
 
-func newIPRouteBody(dst pathList) (body *zebra.IPRouteBody, isWithdraw bool) {
+func newIPRouteBody(dst pathList) (body *zebra.IPRouteBody, isWithdraw bool) {    fmt.Printf("DEJDEJ id:",242)
+
 	paths := filterOutExternalPath(dst)
 	if len(paths) == 0 {
 		return nil, false
@@ -275,7 +288,8 @@ func newIPRouteBody(dst pathList) (body *zebra.IPRouteBody, isWithdraw bool) {
 	}, path.IsWithdraw
 }
 
-func newNexthopRegisterBody(dst pathList, nhtManager *nexthopTrackingManager) (body *zebra.NexthopRegisterBody, isWithdraw bool) {
+func newNexthopRegisterBody(dst pathList, nhtManager *nexthopTrackingManager) (body *zebra.NexthopRegisterBody, isWithdraw bool) {    fmt.Printf("DEJDEJ id:",243)
+
 	if nhtManager == nil {
 		return nil, false
 	}
@@ -327,7 +341,8 @@ func newNexthopRegisterBody(dst pathList, nhtManager *nexthopTrackingManager) (b
 	}, path.IsWithdraw
 }
 
-func createPathFromIPRouteMessage(m *zebra.Message) *table.Path {
+func createPathFromIPRouteMessage(m *zebra.Message) *table.Path {    fmt.Printf("DEJDEJ id:",244)
+
 	header := m.Header
 	body := m.Body.(*zebra.IPRouteBody)
 	family := body.RouteFamily()
@@ -381,7 +396,8 @@ func createPathFromIPRouteMessage(m *zebra.Message) *table.Path {
 	return path
 }
 
-func rfListFromNexthopUpdateBody(body *zebra.NexthopUpdateBody) (rfList []bgp.RouteFamily) {
+func rfListFromNexthopUpdateBody(body *zebra.NexthopUpdateBody) (rfList []bgp.RouteFamily) {    fmt.Printf("DEJDEJ id:",245)
+
 	switch body.Family {
 	case uint16(syscall.AF_INET):
 		return []bgp.RouteFamily{bgp.RF_IPv4_UC, bgp.RF_IPv4_VPN}
@@ -391,7 +407,8 @@ func rfListFromNexthopUpdateBody(body *zebra.NexthopUpdateBody) (rfList []bgp.Ro
 	return nil
 }
 
-func createPathListFromNexthopUpdateMessage(body *zebra.NexthopUpdateBody, manager *table.TableManager, nhtManager *nexthopTrackingManager) (pathList, *zebra.NexthopRegisterBody, error) {
+func createPathListFromNexthopUpdateMessage(body *zebra.NexthopUpdateBody, manager *table.TableManager, nhtManager *nexthopTrackingManager) (pathList, *zebra.NexthopRegisterBody, error) {    fmt.Printf("DEJDEJ id:",246)
+
 	isNexthopInvalid := len(body.Nexthops) == 0
 	paths := manager.GetPathListWithNexthop(table.GLOBAL_RIB_NAME, rfListFromNexthopUpdateBody(body), body.Prefix)
 	pathsLen := len(paths)
@@ -435,11 +452,13 @@ type zebraClient struct {
 	nhtManager *nexthopTrackingManager
 }
 
-func (z *zebraClient) stop() {
+func (z *zebraClient) stop() {    fmt.Printf("DEJDEJ id:",247)
+
 	close(z.dead)
 }
 
-func (z *zebraClient) loop() {
+func (z *zebraClient) loop() {    fmt.Printf("DEJDEJ id:",248)
+
 	w := z.server.Watch([]WatchOption{
 		WatchBestPath(true),
 		WatchPostUpdate(true),
@@ -529,7 +548,8 @@ func (z *zebraClient) loop() {
 	}
 }
 
-func newZebraClient(s *BgpServer, url string, protos []string, version uint8, nhtEnable bool, nhtDelay uint8) (*zebraClient, error) {
+func newZebraClient(s *BgpServer, url string, protos []string, version uint8, nhtEnable bool, nhtDelay uint8) (*zebraClient, error) {    fmt.Printf("DEJDEJ id:",249)
+
 	l := strings.SplitN(url, ":", 2)
 	if len(l) != 2 {
 		return nil, fmt.Errorf("unsupported url: %s", url)

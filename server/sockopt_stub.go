@@ -21,18 +21,22 @@ import (
 	"net"
 )
 
-func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
+func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {    fmt.Printf("DEJDEJ id:",325)
+
 	return fmt.Errorf("setting md5 is not supported")
 }
 
-func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
+func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {    fmt.Printf("DEJDEJ id:",326)
+
 	return fmt.Errorf("setting ttl is not supported")
 }
 
-func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
+func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {    fmt.Printf("DEJDEJ id:",327)
+
 	return fmt.Errorf("setting ttl is not supported")
 }
 
-func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {
+func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {    fmt.Printf("DEJDEJ id:",328)
+
 	return fmt.Errorf("setting min ttl is not supported")
 }
