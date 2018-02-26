@@ -44,7 +44,6 @@ type MockConnection struct {
 }
 
 func NewMockConnection(t *testing.T) *MockConnection { 
-   fmt.Printf("DEJDEJ id:",96)
 	m := &MockConnection{
 		T:        t,
 		recvCh:   make(chan chan byte, 128),
@@ -55,12 +54,10 @@ func NewMockConnection(t *testing.T) *MockConnection {
 }
 
 func (m *MockConnection) SetWriteDeadline(t time.Time) error { 
-   fmt.Printf("DEJDEJ id:",97)
 	return nil
 }
 
 func (m *MockConnection) setData(data []byte) int { 
-   fmt.Printf("DEJDEJ id:",98)
 	dataChan := make(chan byte, 4096)
 	for _, b := range data {
 		dataChan <- b
@@ -70,7 +67,6 @@ func (m *MockConnection) setData(data []byte) int {
 }
 
 func (m *MockConnection) Read(buf []byte) (int, error) { 
-   fmt.Printf("DEJDEJ id:",99)
 	m.mtx.Lock()
 	closed := m.isClosed
 	m.mtx.Unlock()
@@ -100,7 +96,6 @@ func (m *MockConnection) Read(buf []byte) (int, error) {
 }
 
 func (m *MockConnection) Write(buf []byte) (int, error) { 
-   fmt.Printf("DEJDEJ id:",100)
 	time.Sleep(time.Duration(m.wait) * time.Millisecond)
 	m.sendBuf = append(m.sendBuf, buf)
 	msg, _ := bgp.ParseBGPMessage(buf)
@@ -110,7 +105,6 @@ func (m *MockConnection) Write(buf []byte) (int, error) {
 }
 
 func showMessageType(t uint8) string { 
-   fmt.Printf("DEJDEJ id:",101)
 	switch t {
 	case bgp.BGP_MSG_KEEPALIVE:
 		return "BGP_MSG_KEEPALIVE"
@@ -127,7 +121,6 @@ func showMessageType(t uint8) string {
 }
 
 func (m *MockConnection) Close() error { 
-   fmt.Printf("DEJDEJ id:",102)
 	m.mtx.Lock()
 	defer m.mtx.Unlock()
 	if !m.isClosed {
@@ -138,14 +131,12 @@ func (m *MockConnection) Close() error {
 }
 
 func (m *MockConnection) LocalAddr() net.Addr { 
-   fmt.Printf("DEJDEJ id:",103)
 	return &net.TCPAddr{
 		IP:   net.ParseIP("10.10.10.10"),
 		Port: bgp.BGP_PORT}
 }
 
 func TestReadAll(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",104)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 	msg := open()
@@ -175,7 +166,6 @@ func TestReadAll(t *testing.T) {
 }
 
 func TestFSMHandlerOpensent_HoldTimerExpired(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",105)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 
@@ -202,7 +192,6 @@ func TestFSMHandlerOpensent_HoldTimerExpired(t *testing.T) {
 }
 
 func TestFSMHandlerOpenconfirm_HoldTimerExpired(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",106)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 
@@ -228,7 +217,6 @@ func TestFSMHandlerOpenconfirm_HoldTimerExpired(t *testing.T) {
 }
 
 func TestFSMHandlerEstablish_HoldTimerExpired(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",107)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 
@@ -268,7 +256,6 @@ func TestFSMHandlerEstablish_HoldTimerExpired(t *testing.T) {
 }
 
 func TestFSMHandlerOpenconfirm_HoldtimeZero(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",108)
 	log.SetLevel(log.DebugLevel)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
@@ -292,7 +279,6 @@ func TestFSMHandlerOpenconfirm_HoldtimeZero(t *testing.T) {
 }
 
 func TestFSMHandlerEstablished_HoldtimeZero(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",109)
 	log.SetLevel(log.DebugLevel)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
@@ -314,7 +300,6 @@ func TestFSMHandlerEstablished_HoldtimeZero(t *testing.T) {
 }
 
 func TestCheckOwnASLoop(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",110)
 	assert := assert.New(t)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65100})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -324,7 +309,6 @@ func TestCheckOwnASLoop(t *testing.T) {
 }
 
 func makePeerAndHandler() (*Peer, *FSMHandler) { 
-   fmt.Printf("DEJDEJ id:",111)
 	p := &Peer{
 		fsm:      NewFSM(&config.Global{}, &config.Neighbor{}, table.NewRoutingPolicy()),
 		outgoing: channels.NewInfiniteChannel(),
@@ -342,7 +326,6 @@ func makePeerAndHandler() (*Peer, *FSMHandler) {
 }
 
 func open() *bgp.BGPMessage { 
-   fmt.Printf("DEJDEJ id:",112)
 	p1 := bgp.NewOptionParameterCapability(
 		[]bgp.ParameterCapabilityInterface{bgp.NewCapRouteRefresh()})
 	p2 := bgp.NewOptionParameterCapability(
@@ -358,6 +341,5 @@ func open() *bgp.BGPMessage {
 }
 
 func keepalive() *bgp.BGPMessage { 
-   fmt.Printf("DEJDEJ id:",113)
 	return bgp.NewBGPKeepAliveMessage()
 }

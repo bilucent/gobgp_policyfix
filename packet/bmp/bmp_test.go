@@ -24,7 +24,6 @@ import (
 )
 
 func verify(t *testing.T, m1 *BMPMessage) { 
-   fmt.Printf("DEJDEJ id:",1914)
 	buf1, _ := m1.Serialize()
 	m2, err := ParseBMPMessage(buf1)
 	if err != nil {
@@ -42,7 +41,6 @@ func verify(t *testing.T, m1 *BMPMessage) {
 }
 
 func Test_Initiation(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1915)
 	verify(t, NewBMPInitiation(nil))
 	m := NewBMPInitiation([]BMPInfoTLVInterface{
 		NewBMPInfoTLVString(BMP_INIT_TLV_TYPE_STRING, "free-form UTF-8 string"),
@@ -52,7 +50,6 @@ func Test_Initiation(t *testing.T) {
 }
 
 func Test_Termination(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1916)
 	verify(t, NewBMPTermination(nil))
 	m := NewBMPTermination([]BMPTermTLVInterface{
 		NewBMPTermTLVString(BMP_TERM_TLV_TYPE_STRING, "free-form UTF-8 string"),
@@ -63,7 +60,6 @@ func Test_Termination(t *testing.T) {
 }
 
 func Test_PeerUpNotification(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1917)
 	m := bgp.NewTestBGPOpenMessage()
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	verify(t, NewBMPPeerUpNotification(*p0, "10.0.0.3", 10, 100, m, m))
@@ -72,7 +68,6 @@ func Test_PeerUpNotification(t *testing.T) {
 }
 
 func Test_PeerDownNotification(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1918)
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	verify(t, NewBMPPeerDownNotification(*p0, BMP_PEER_DOWN_REASON_UNKNOWN, nil, []byte{0x3, 0xb}))
 	m := bgp.NewBGPNotificationMessage(1, 2, nil)
@@ -80,14 +75,12 @@ func Test_PeerDownNotification(t *testing.T) {
 }
 
 func Test_RouteMonitoring(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1919)
 	m := bgp.NewTestBGPUpdateMessage()
 	p0 := NewBMPPeerHeader(0, 0, 1000, "fe80::6e40:8ff:feab:2c2a", 70000, "10.0.0.2", 1)
 	verify(t, NewBMPRouteMonitoring(*p0, m))
 }
 
 func Test_StatisticsReport(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1920)
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	s0 := NewBMPStatisticsReport(
 		*p0,
@@ -101,7 +94,6 @@ func Test_StatisticsReport(t *testing.T) {
 }
 
 func Test_RouteMirroring(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1921)
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	s0 := NewBMPRouteMirroring(
 		*p0,
@@ -116,7 +108,6 @@ func Test_RouteMirroring(t *testing.T) {
 }
 
 func Test_BogusHeader(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",1922)
 	h, err := ParseBMPMessage(make([]byte, 10))
 	assert.Nil(t, h)
 	assert.NotNil(t, err)

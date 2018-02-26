@@ -279,10 +279,8 @@ var Family_value = map[string]int32{
 }
 
 func (x Family) String() string { 
-   fmt.Printf("DEJDEJ id:",490)
 	return proto.EnumName(Family_name, int32(x))
 }
-func (Family) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",491)
 return fileDescriptor0, []int{0} }
 
 type Resource int32
@@ -311,10 +309,8 @@ var Resource_value = map[string]int32{
 }
 
 func (x Resource) String() string { 
-   fmt.Printf("DEJDEJ id:",492)
 	return proto.EnumName(Resource_name, int32(x))
 }
-func (Resource) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",493)
 return fileDescriptor0, []int{1} }
 
 // API representation of table.LookupOption
@@ -338,10 +334,8 @@ var TableLookupOption_value = map[string]int32{
 }
 
 func (x TableLookupOption) String() string { 
-   fmt.Printf("DEJDEJ id:",494)
 	return proto.EnumName(TableLookupOption_name, int32(x))
 }
-func (TableLookupOption) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",495)
 return fileDescriptor0, []int{2} }
 
 type DefinedType int32
@@ -376,10 +370,8 @@ var DefinedType_value = map[string]int32{
 }
 
 func (x DefinedType) String() string { 
-   fmt.Printf("DEJDEJ id:",496)
 	return proto.EnumName(DefinedType_name, int32(x))
 }
-func (DefinedType) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",497)
 return fileDescriptor0, []int{3} }
 
 type MatchType int32
@@ -402,10 +394,8 @@ var MatchType_value = map[string]int32{
 }
 
 func (x MatchType) String() string { 
-   fmt.Printf("DEJDEJ id:",498)
 	return proto.EnumName(MatchType_name, int32(x))
 }
-func (MatchType) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",499)
 return fileDescriptor0, []int{4} }
 
 type AsPathLengthType int32
@@ -428,10 +418,8 @@ var AsPathLengthType_value = map[string]int32{
 }
 
 func (x AsPathLengthType) String() string { 
-   fmt.Printf("DEJDEJ id:",500)
 	return proto.EnumName(AsPathLengthType_name, int32(x))
 }
-func (AsPathLengthType) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",501)
 return fileDescriptor0, []int{5} }
 
 type RouteAction int32
@@ -454,10 +442,8 @@ var RouteAction_value = map[string]int32{
 }
 
 func (x RouteAction) String() string { 
-   fmt.Printf("DEJDEJ id:",502)
 	return proto.EnumName(RouteAction_name, int32(x))
 }
-func (RouteAction) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",503)
 return fileDescriptor0, []int{6} }
 
 type CommunityActionType int32
@@ -480,10 +466,8 @@ var CommunityActionType_value = map[string]int32{
 }
 
 func (x CommunityActionType) String() string { 
-   fmt.Printf("DEJDEJ id:",504)
 	return proto.EnumName(CommunityActionType_name, int32(x))
 }
-func (CommunityActionType) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",505)
 return fileDescriptor0, []int{7} }
 
 type MedActionType int32
@@ -503,10 +487,8 @@ var MedActionType_value = map[string]int32{
 }
 
 func (x MedActionType) String() string { 
-   fmt.Printf("DEJDEJ id:",506)
 	return proto.EnumName(MedActionType_name, int32(x))
 }
-func (MedActionType) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",507)
 return fileDescriptor0, []int{8} }
 
 type PolicyType int32
@@ -529,10 +511,8 @@ var PolicyType_value = map[string]int32{
 }
 
 func (x PolicyType) String() string { 
-   fmt.Printf("DEJDEJ id:",508)
 	return proto.EnumName(PolicyType_name, int32(x))
 }
-func (PolicyType) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",509)
 return fileDescriptor0, []int{9} }
 
 type SoftResetNeighborRequest_SoftResetDirection int32
@@ -555,11 +535,9 @@ var SoftResetNeighborRequest_SoftResetDirection_value = map[string]int32{
 }
 
 func (x SoftResetNeighborRequest_SoftResetDirection) String() string { 
-   fmt.Printf("DEJDEJ id:",510)
 	return proto.EnumName(SoftResetNeighborRequest_SoftResetDirection_name, int32(x))
 }
 func (SoftResetNeighborRequest_SoftResetDirection) EnumDescriptor() ([]byte, []int) { 
-   fmt.Printf("DEJDEJ id:",511)
 	return fileDescriptor0, []int{13, 0}
 }
 
@@ -589,11 +567,9 @@ var AddBmpRequest_MonitoringPolicy_value = map[string]int32{
 }
 
 func (x AddBmpRequest_MonitoringPolicy) String() string { 
-   fmt.Printf("DEJDEJ id:",512)
 	return proto.EnumName(AddBmpRequest_MonitoringPolicy_name, int32(x))
 }
 func (AddBmpRequest_MonitoringPolicy) EnumDescriptor() ([]byte, []int) { 
-   fmt.Printf("DEJDEJ id:",513)
 	return fileDescriptor0, []int{27, 0}
 }
 
@@ -620,10 +596,8 @@ var RPKIValidation_State_value = map[string]int32{
 }
 
 func (x RPKIValidation_State) String() string { 
-   fmt.Printf("DEJDEJ id:",514)
 	return proto.EnumName(RPKIValidation_State_name, int32(x))
 }
-func (RPKIValidation_State) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",515)
 return fileDescriptor0, []int{95, 0} }
 
 type RPKIValidation_Reason int32
@@ -646,10 +620,8 @@ var RPKIValidation_Reason_value = map[string]int32{
 }
 
 func (x RPKIValidation_Reason) String() string { 
-   fmt.Printf("DEJDEJ id:",516)
 	return proto.EnumName(RPKIValidation_Reason_name, int32(x))
 }
-func (RPKIValidation_Reason) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",517)
 return fileDescriptor0, []int{95, 1} }
 
 type PeerConf_RemovePrivateAs int32
@@ -672,11 +644,9 @@ var PeerConf_RemovePrivateAs_value = map[string]int32{
 }
 
 func (x PeerConf_RemovePrivateAs) String() string { 
-   fmt.Printf("DEJDEJ id:",518)
 	return proto.EnumName(PeerConf_RemovePrivateAs_name, int32(x))
 }
 func (PeerConf_RemovePrivateAs) EnumDescriptor() ([]byte, []int) { 
-   fmt.Printf("DEJDEJ id:",519)
 	return fileDescriptor0, []int{108, 0}
 }
 
@@ -700,10 +670,8 @@ var PeerState_AdminState_value = map[string]int32{
 }
 
 func (x PeerState_AdminState) String() string { 
-   fmt.Printf("DEJDEJ id:",520)
 	return proto.EnumName(PeerState_AdminState_name, int32(x))
 }
-func (PeerState_AdminState) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",521)
 return fileDescriptor0, []int{111, 0} }
 
 type Conditions_RouteType int32
@@ -729,10 +697,8 @@ var Conditions_RouteType_value = map[string]int32{
 }
 
 func (x Conditions_RouteType) String() string { 
-   fmt.Printf("DEJDEJ id:",522)
 	return proto.EnumName(Conditions_RouteType_name, int32(x))
 }
-func (Conditions_RouteType) EnumDescriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",523)
 return fileDescriptor0, []int{152, 0} }
 
 type GetNeighborRequest struct {
@@ -740,16 +706,12 @@ type GetNeighborRequest struct {
 	Address          string `protobuf:"bytes,2,opt,name=address" json:"address,omitempty"`
 }
 
-func (m *GetNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",524)
 *m = GetNeighborRequest{} }
-func (m *GetNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",525)
 return proto.CompactTextString(m) }
 func (*GetNeighborRequest) ProtoMessage()               {}
-func (*GetNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",527)
 return fileDescriptor0, []int{0} }
 
 func (m *GetNeighborRequest) GetEnableAdvertised() bool { 
-   fmt.Printf("DEJDEJ id:",528)
 	if m != nil {
 		return m.EnableAdvertised
 	}
@@ -757,7 +719,6 @@ func (m *GetNeighborRequest) GetEnableAdvertised() bool {
 }
 
 func (m *GetNeighborRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",529)
 	if m != nil {
 		return m.Address
 	}
@@ -768,16 +729,12 @@ type GetNeighborResponse struct {
 	Peers []*Peer `protobuf:"bytes,1,rep,name=peers" json:"peers,omitempty"`
 }
 
-func (m *GetNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",530)
 *m = GetNeighborResponse{} }
-func (m *GetNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",531)
 return proto.CompactTextString(m) }
 func (*GetNeighborResponse) ProtoMessage()               {}
-func (*GetNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",533)
 return fileDescriptor0, []int{1} }
 
 func (m *GetNeighborResponse) GetPeers() []*Peer { 
-   fmt.Printf("DEJDEJ id:",534)
 	if m != nil {
 		return m.Peers
 	}
@@ -791,16 +748,12 @@ type Arguments struct {
 	Current  bool     `protobuf:"varint,4,opt,name=current" json:"current,omitempty"`
 }
 
-func (m *Arguments) Reset()                    {    fmt.Printf("DEJDEJ id:",535)
 *m = Arguments{} }
-func (m *Arguments) String() string            {    fmt.Printf("DEJDEJ id:",536)
 return proto.CompactTextString(m) }
 func (*Arguments) ProtoMessage()               {}
-func (*Arguments) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",538)
 return fileDescriptor0, []int{2} }
 
 func (m *Arguments) GetResource() Resource { 
-   fmt.Printf("DEJDEJ id:",539)
 	if m != nil {
 		return m.Resource
 	}
@@ -808,7 +761,6 @@ func (m *Arguments) GetResource() Resource {
 }
 
 func (m *Arguments) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",540)
 	if m != nil {
 		return m.Family
 	}
@@ -816,7 +768,6 @@ func (m *Arguments) GetFamily() uint32 {
 }
 
 func (m *Arguments) GetName() string { 
-   fmt.Printf("DEJDEJ id:",541)
 	if m != nil {
 		return m.Name
 	}
@@ -824,7 +775,6 @@ func (m *Arguments) GetName() string {
 }
 
 func (m *Arguments) GetCurrent() bool { 
-   fmt.Printf("DEJDEJ id:",542)
 	if m != nil {
 		return m.Current
 	}
@@ -837,16 +787,12 @@ type AddPathRequest struct {
 	Path     *Path    `protobuf:"bytes,3,opt,name=path" json:"path,omitempty"`
 }
 
-func (m *AddPathRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",543)
 *m = AddPathRequest{} }
-func (m *AddPathRequest) String() string            {    fmt.Printf("DEJDEJ id:",544)
 return proto.CompactTextString(m) }
 func (*AddPathRequest) ProtoMessage()               {}
-func (*AddPathRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",546)
 return fileDescriptor0, []int{3} }
 
 func (m *AddPathRequest) GetResource() Resource { 
-   fmt.Printf("DEJDEJ id:",547)
 	if m != nil {
 		return m.Resource
 	}
@@ -854,7 +800,6 @@ func (m *AddPathRequest) GetResource() Resource {
 }
 
 func (m *AddPathRequest) GetVrfId() string { 
-   fmt.Printf("DEJDEJ id:",548)
 	if m != nil {
 		return m.VrfId
 	}
@@ -862,7 +807,6 @@ func (m *AddPathRequest) GetVrfId() string {
 }
 
 func (m *AddPathRequest) GetPath() *Path { 
-   fmt.Printf("DEJDEJ id:",549)
 	if m != nil {
 		return m.Path
 	}
@@ -873,16 +817,12 @@ type AddPathResponse struct {
 	Uuid []byte `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
 }
 
-func (m *AddPathResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",550)
 *m = AddPathResponse{} }
-func (m *AddPathResponse) String() string            {    fmt.Printf("DEJDEJ id:",551)
 return proto.CompactTextString(m) }
 func (*AddPathResponse) ProtoMessage()               {}
-func (*AddPathResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",553)
 return fileDescriptor0, []int{4} }
 
 func (m *AddPathResponse) GetUuid() []byte { 
-   fmt.Printf("DEJDEJ id:",554)
 	if m != nil {
 		return m.Uuid
 	}
@@ -897,16 +837,12 @@ type DeletePathRequest struct {
 	Uuid     []byte   `protobuf:"bytes,5,opt,name=uuid,proto3" json:"uuid,omitempty"`
 }
 
-func (m *DeletePathRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",555)
 *m = DeletePathRequest{} }
-func (m *DeletePathRequest) String() string            {    fmt.Printf("DEJDEJ id:",556)
 return proto.CompactTextString(m) }
 func (*DeletePathRequest) ProtoMessage()               {}
-func (*DeletePathRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",558)
 return fileDescriptor0, []int{5} }
 
 func (m *DeletePathRequest) GetResource() Resource { 
-   fmt.Printf("DEJDEJ id:",559)
 	if m != nil {
 		return m.Resource
 	}
@@ -914,7 +850,6 @@ func (m *DeletePathRequest) GetResource() Resource {
 }
 
 func (m *DeletePathRequest) GetVrfId() string { 
-   fmt.Printf("DEJDEJ id:",560)
 	if m != nil {
 		return m.VrfId
 	}
@@ -922,7 +857,6 @@ func (m *DeletePathRequest) GetVrfId() string {
 }
 
 func (m *DeletePathRequest) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",561)
 	if m != nil {
 		return m.Family
 	}
@@ -930,7 +864,6 @@ func (m *DeletePathRequest) GetFamily() uint32 {
 }
 
 func (m *DeletePathRequest) GetPath() *Path { 
-   fmt.Printf("DEJDEJ id:",562)
 	if m != nil {
 		return m.Path
 	}
@@ -938,7 +871,6 @@ func (m *DeletePathRequest) GetPath() *Path {
 }
 
 func (m *DeletePathRequest) GetUuid() []byte { 
-   fmt.Printf("DEJDEJ id:",563)
 	if m != nil {
 		return m.Uuid
 	}
@@ -948,28 +880,21 @@ func (m *DeletePathRequest) GetUuid() []byte {
 type DeletePathResponse struct {
 }
 
-func (m *DeletePathResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",564)
 *m = DeletePathResponse{} }
-func (m *DeletePathResponse) String() string            {    fmt.Printf("DEJDEJ id:",565)
 return proto.CompactTextString(m) }
 func (*DeletePathResponse) ProtoMessage()               {}
-func (*DeletePathResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",567)
 return fileDescriptor0, []int{6} }
 
 type AddNeighborRequest struct {
 	Peer *Peer `protobuf:"bytes,1,opt,name=peer" json:"peer,omitempty"`
 }
 
-func (m *AddNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",568)
 *m = AddNeighborRequest{} }
-func (m *AddNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",569)
 return proto.CompactTextString(m) }
 func (*AddNeighborRequest) ProtoMessage()               {}
-func (*AddNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",571)
 return fileDescriptor0, []int{7} }
 
 func (m *AddNeighborRequest) GetPeer() *Peer { 
-   fmt.Printf("DEJDEJ id:",572)
 	if m != nil {
 		return m.Peer
 	}
@@ -979,28 +904,21 @@ func (m *AddNeighborRequest) GetPeer() *Peer {
 type AddNeighborResponse struct {
 }
 
-func (m *AddNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",573)
 *m = AddNeighborResponse{} }
-func (m *AddNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",574)
 return proto.CompactTextString(m) }
 func (*AddNeighborResponse) ProtoMessage()               {}
-func (*AddNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",576)
 return fileDescriptor0, []int{8} }
 
 type DeleteNeighborRequest struct {
 	Peer *Peer `protobuf:"bytes,1,opt,name=peer" json:"peer,omitempty"`
 }
 
-func (m *DeleteNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",577)
 *m = DeleteNeighborRequest{} }
-func (m *DeleteNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",578)
 return proto.CompactTextString(m) }
 func (*DeleteNeighborRequest) ProtoMessage()               {}
-func (*DeleteNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",580)
 return fileDescriptor0, []int{9} }
 
 func (m *DeleteNeighborRequest) GetPeer() *Peer { 
-   fmt.Printf("DEJDEJ id:",581)
 	if m != nil {
 		return m.Peer
 	}
@@ -1010,12 +928,9 @@ func (m *DeleteNeighborRequest) GetPeer() *Peer {
 type DeleteNeighborResponse struct {
 }
 
-func (m *DeleteNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",582)
 *m = DeleteNeighborResponse{} }
-func (m *DeleteNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",583)
 return proto.CompactTextString(m) }
 func (*DeleteNeighborResponse) ProtoMessage()               {}
-func (*DeleteNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",585)
 return fileDescriptor0, []int{10} }
 
 type ResetNeighborRequest struct {
@@ -1023,16 +938,12 @@ type ResetNeighborRequest struct {
 	Communication string `protobuf:"bytes,2,opt,name=communication" json:"communication,omitempty"`
 }
 
-func (m *ResetNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",586)
 *m = ResetNeighborRequest{} }
-func (m *ResetNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",587)
 return proto.CompactTextString(m) }
 func (*ResetNeighborRequest) ProtoMessage()               {}
-func (*ResetNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",589)
 return fileDescriptor0, []int{11} }
 
 func (m *ResetNeighborRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",590)
 	if m != nil {
 		return m.Address
 	}
@@ -1040,7 +951,6 @@ func (m *ResetNeighborRequest) GetAddress() string {
 }
 
 func (m *ResetNeighborRequest) GetCommunication() string { 
-   fmt.Printf("DEJDEJ id:",591)
 	if m != nil {
 		return m.Communication
 	}
@@ -1050,12 +960,9 @@ func (m *ResetNeighborRequest) GetCommunication() string {
 type ResetNeighborResponse struct {
 }
 
-func (m *ResetNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",592)
 *m = ResetNeighborResponse{} }
-func (m *ResetNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",593)
 return proto.CompactTextString(m) }
 func (*ResetNeighborResponse) ProtoMessage()               {}
-func (*ResetNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",595)
 return fileDescriptor0, []int{12} }
 
 type SoftResetNeighborRequest struct {
@@ -1063,16 +970,12 @@ type SoftResetNeighborRequest struct {
 	Direction SoftResetNeighborRequest_SoftResetDirection `protobuf:"varint,2,opt,name=direction,enum=gobgpapi.SoftResetNeighborRequest_SoftResetDirection" json:"direction,omitempty"`
 }
 
-func (m *SoftResetNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",596)
 *m = SoftResetNeighborRequest{} }
-func (m *SoftResetNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",597)
 return proto.CompactTextString(m) }
 func (*SoftResetNeighborRequest) ProtoMessage()               {}
-func (*SoftResetNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",599)
 return fileDescriptor0, []int{13} }
 
 func (m *SoftResetNeighborRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",600)
 	if m != nil {
 		return m.Address
 	}
@@ -1080,7 +983,6 @@ func (m *SoftResetNeighborRequest) GetAddress() string {
 }
 
 func (m *SoftResetNeighborRequest) GetDirection() SoftResetNeighborRequest_SoftResetDirection { 
-   fmt.Printf("DEJDEJ id:",601)
 	if m != nil {
 		return m.Direction
 	}
@@ -1090,12 +992,9 @@ func (m *SoftResetNeighborRequest) GetDirection() SoftResetNeighborRequest_SoftR
 type SoftResetNeighborResponse struct {
 }
 
-func (m *SoftResetNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",602)
 *m = SoftResetNeighborResponse{} }
-func (m *SoftResetNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",603)
 return proto.CompactTextString(m) }
 func (*SoftResetNeighborResponse) ProtoMessage()               {}
-func (*SoftResetNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",605)
 return fileDescriptor0, []int{14} }
 
 type ShutdownNeighborRequest struct {
@@ -1103,16 +1002,12 @@ type ShutdownNeighborRequest struct {
 	Communication string `protobuf:"bytes,2,opt,name=communication" json:"communication,omitempty"`
 }
 
-func (m *ShutdownNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",606)
 *m = ShutdownNeighborRequest{} }
-func (m *ShutdownNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",607)
 return proto.CompactTextString(m) }
 func (*ShutdownNeighborRequest) ProtoMessage()               {}
-func (*ShutdownNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",609)
 return fileDescriptor0, []int{15} }
 
 func (m *ShutdownNeighborRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",610)
 	if m != nil {
 		return m.Address
 	}
@@ -1120,7 +1015,6 @@ func (m *ShutdownNeighborRequest) GetAddress() string {
 }
 
 func (m *ShutdownNeighborRequest) GetCommunication() string { 
-   fmt.Printf("DEJDEJ id:",611)
 	if m != nil {
 		return m.Communication
 	}
@@ -1130,28 +1024,21 @@ func (m *ShutdownNeighborRequest) GetCommunication() string {
 type ShutdownNeighborResponse struct {
 }
 
-func (m *ShutdownNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",612)
 *m = ShutdownNeighborResponse{} }
-func (m *ShutdownNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",613)
 return proto.CompactTextString(m) }
 func (*ShutdownNeighborResponse) ProtoMessage()               {}
-func (*ShutdownNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",615)
 return fileDescriptor0, []int{16} }
 
 type EnableNeighborRequest struct {
 	Address string `protobuf:"bytes,1,opt,name=address" json:"address,omitempty"`
 }
 
-func (m *EnableNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",616)
 *m = EnableNeighborRequest{} }
-func (m *EnableNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",617)
 return proto.CompactTextString(m) }
 func (*EnableNeighborRequest) ProtoMessage()               {}
-func (*EnableNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",619)
 return fileDescriptor0, []int{17} }
 
 func (m *EnableNeighborRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",620)
 	if m != nil {
 		return m.Address
 	}
@@ -1161,12 +1048,9 @@ func (m *EnableNeighborRequest) GetAddress() string {
 type EnableNeighborResponse struct {
 }
 
-func (m *EnableNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",621)
 *m = EnableNeighborResponse{} }
-func (m *EnableNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",622)
 return proto.CompactTextString(m) }
 func (*EnableNeighborResponse) ProtoMessage()               {}
-func (*EnableNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",624)
 return fileDescriptor0, []int{18} }
 
 type DisableNeighborRequest struct {
@@ -1174,16 +1058,12 @@ type DisableNeighborRequest struct {
 	Communication string `protobuf:"bytes,2,opt,name=communication" json:"communication,omitempty"`
 }
 
-func (m *DisableNeighborRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",625)
 *m = DisableNeighborRequest{} }
-func (m *DisableNeighborRequest) String() string            {    fmt.Printf("DEJDEJ id:",626)
 return proto.CompactTextString(m) }
 func (*DisableNeighborRequest) ProtoMessage()               {}
-func (*DisableNeighborRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",628)
 return fileDescriptor0, []int{19} }
 
 func (m *DisableNeighborRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",629)
 	if m != nil {
 		return m.Address
 	}
@@ -1191,7 +1071,6 @@ func (m *DisableNeighborRequest) GetAddress() string {
 }
 
 func (m *DisableNeighborRequest) GetCommunication() string { 
-   fmt.Printf("DEJDEJ id:",630)
 	if m != nil {
 		return m.Communication
 	}
@@ -1201,12 +1080,9 @@ func (m *DisableNeighborRequest) GetCommunication() string {
 type DisableNeighborResponse struct {
 }
 
-func (m *DisableNeighborResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",631)
 *m = DisableNeighborResponse{} }
-func (m *DisableNeighborResponse) String() string            {    fmt.Printf("DEJDEJ id:",632)
 return proto.CompactTextString(m) }
 func (*DisableNeighborResponse) ProtoMessage()               {}
-func (*DisableNeighborResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",634)
 return fileDescriptor0, []int{20} }
 
 type EnableMrtRequest struct {
@@ -1215,16 +1091,12 @@ type EnableMrtRequest struct {
 	Interval uint64 `protobuf:"varint,3,opt,name=interval" json:"interval,omitempty"`
 }
 
-func (m *EnableMrtRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",635)
 *m = EnableMrtRequest{} }
-func (m *EnableMrtRequest) String() string            {    fmt.Printf("DEJDEJ id:",636)
 return proto.CompactTextString(m) }
 func (*EnableMrtRequest) ProtoMessage()               {}
-func (*EnableMrtRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",638)
 return fileDescriptor0, []int{21} }
 
 func (m *EnableMrtRequest) GetDumpType() int32 { 
-   fmt.Printf("DEJDEJ id:",639)
 	if m != nil {
 		return m.DumpType
 	}
@@ -1232,7 +1104,6 @@ func (m *EnableMrtRequest) GetDumpType() int32 {
 }
 
 func (m *EnableMrtRequest) GetFilename() string { 
-   fmt.Printf("DEJDEJ id:",640)
 	if m != nil {
 		return m.Filename
 	}
@@ -1240,7 +1111,6 @@ func (m *EnableMrtRequest) GetFilename() string {
 }
 
 func (m *EnableMrtRequest) GetInterval() uint64 { 
-   fmt.Printf("DEJDEJ id:",641)
 	if m != nil {
 		return m.Interval
 	}
@@ -1250,34 +1120,25 @@ func (m *EnableMrtRequest) GetInterval() uint64 {
 type EnableMrtResponse struct {
 }
 
-func (m *EnableMrtResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",642)
 *m = EnableMrtResponse{} }
-func (m *EnableMrtResponse) String() string            {    fmt.Printf("DEJDEJ id:",643)
 return proto.CompactTextString(m) }
 func (*EnableMrtResponse) ProtoMessage()               {}
-func (*EnableMrtResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",645)
 return fileDescriptor0, []int{22} }
 
 type DisableMrtRequest struct {
 }
 
-func (m *DisableMrtRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",646)
 *m = DisableMrtRequest{} }
-func (m *DisableMrtRequest) String() string            {    fmt.Printf("DEJDEJ id:",647)
 return proto.CompactTextString(m) }
 func (*DisableMrtRequest) ProtoMessage()               {}
-func (*DisableMrtRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",649)
 return fileDescriptor0, []int{23} }
 
 type DisableMrtResponse struct {
 }
 
-func (m *DisableMrtResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",650)
 *m = DisableMrtResponse{} }
-func (m *DisableMrtResponse) String() string            {    fmt.Printf("DEJDEJ id:",651)
 return proto.CompactTextString(m) }
 func (*DisableMrtResponse) ProtoMessage()               {}
-func (*DisableMrtResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",653)
 return fileDescriptor0, []int{24} }
 
 type InjectMrtRequest struct {
@@ -1286,16 +1147,12 @@ type InjectMrtRequest struct {
 	Paths    []*Path  `protobuf:"bytes,3,rep,name=paths" json:"paths,omitempty"`
 }
 
-func (m *InjectMrtRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",654)
 *m = InjectMrtRequest{} }
-func (m *InjectMrtRequest) String() string            {    fmt.Printf("DEJDEJ id:",655)
 return proto.CompactTextString(m) }
 func (*InjectMrtRequest) ProtoMessage()               {}
-func (*InjectMrtRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",657)
 return fileDescriptor0, []int{25} }
 
 func (m *InjectMrtRequest) GetResource() Resource { 
-   fmt.Printf("DEJDEJ id:",658)
 	if m != nil {
 		return m.Resource
 	}
@@ -1303,7 +1160,6 @@ func (m *InjectMrtRequest) GetResource() Resource {
 }
 
 func (m *InjectMrtRequest) GetVrfId() string { 
-   fmt.Printf("DEJDEJ id:",659)
 	if m != nil {
 		return m.VrfId
 	}
@@ -1311,7 +1167,6 @@ func (m *InjectMrtRequest) GetVrfId() string {
 }
 
 func (m *InjectMrtRequest) GetPaths() []*Path { 
-   fmt.Printf("DEJDEJ id:",660)
 	if m != nil {
 		return m.Paths
 	}
@@ -1321,12 +1176,9 @@ func (m *InjectMrtRequest) GetPaths() []*Path {
 type InjectMrtResponse struct {
 }
 
-func (m *InjectMrtResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",661)
 *m = InjectMrtResponse{} }
-func (m *InjectMrtResponse) String() string            {    fmt.Printf("DEJDEJ id:",662)
 return proto.CompactTextString(m) }
 func (*InjectMrtResponse) ProtoMessage()               {}
-func (*InjectMrtResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",664)
 return fileDescriptor0, []int{26} }
 
 type AddBmpRequest struct {
@@ -1335,16 +1187,12 @@ type AddBmpRequest struct {
 	Type    AddBmpRequest_MonitoringPolicy `protobuf:"varint,3,opt,name=type,enum=gobgpapi.AddBmpRequest_MonitoringPolicy" json:"type,omitempty"`
 }
 
-func (m *AddBmpRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",665)
 *m = AddBmpRequest{} }
-func (m *AddBmpRequest) String() string            {    fmt.Printf("DEJDEJ id:",666)
 return proto.CompactTextString(m) }
 func (*AddBmpRequest) ProtoMessage()               {}
-func (*AddBmpRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",668)
 return fileDescriptor0, []int{27} }
 
 func (m *AddBmpRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",669)
 	if m != nil {
 		return m.Address
 	}
@@ -1352,7 +1200,6 @@ func (m *AddBmpRequest) GetAddress() string {
 }
 
 func (m *AddBmpRequest) GetPort() uint32 { 
-   fmt.Printf("DEJDEJ id:",670)
 	if m != nil {
 		return m.Port
 	}
@@ -1360,7 +1207,6 @@ func (m *AddBmpRequest) GetPort() uint32 {
 }
 
 func (m *AddBmpRequest) GetType() AddBmpRequest_MonitoringPolicy { 
-   fmt.Printf("DEJDEJ id:",671)
 	if m != nil {
 		return m.Type
 	}
@@ -1370,12 +1216,9 @@ func (m *AddBmpRequest) GetType() AddBmpRequest_MonitoringPolicy {
 type AddBmpResponse struct {
 }
 
-func (m *AddBmpResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",672)
 *m = AddBmpResponse{} }
-func (m *AddBmpResponse) String() string            {    fmt.Printf("DEJDEJ id:",673)
 return proto.CompactTextString(m) }
 func (*AddBmpResponse) ProtoMessage()               {}
-func (*AddBmpResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",675)
 return fileDescriptor0, []int{28} }
 
 type DeleteBmpRequest struct {
@@ -1383,16 +1226,12 @@ type DeleteBmpRequest struct {
 	Port    uint32 `protobuf:"varint,2,opt,name=port" json:"port,omitempty"`
 }
 
-func (m *DeleteBmpRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",676)
 *m = DeleteBmpRequest{} }
-func (m *DeleteBmpRequest) String() string            {    fmt.Printf("DEJDEJ id:",677)
 return proto.CompactTextString(m) }
 func (*DeleteBmpRequest) ProtoMessage()               {}
-func (*DeleteBmpRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",679)
 return fileDescriptor0, []int{29} }
 
 func (m *DeleteBmpRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",680)
 	if m != nil {
 		return m.Address
 	}
@@ -1400,7 +1239,6 @@ func (m *DeleteBmpRequest) GetAddress() string {
 }
 
 func (m *DeleteBmpRequest) GetPort() uint32 { 
-   fmt.Printf("DEJDEJ id:",681)
 	if m != nil {
 		return m.Port
 	}
@@ -1410,12 +1248,9 @@ func (m *DeleteBmpRequest) GetPort() uint32 {
 type DeleteBmpResponse struct {
 }
 
-func (m *DeleteBmpResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",682)
 *m = DeleteBmpResponse{} }
-func (m *DeleteBmpResponse) String() string            {    fmt.Printf("DEJDEJ id:",683)
 return proto.CompactTextString(m) }
 func (*DeleteBmpResponse) ProtoMessage()               {}
-func (*DeleteBmpResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",685)
 return fileDescriptor0, []int{30} }
 
 type MonitorRibRequest struct {
@@ -1423,16 +1258,12 @@ type MonitorRibRequest struct {
 	Current bool   `protobuf:"varint,2,opt,name=current" json:"current,omitempty"`
 }
 
-func (m *MonitorRibRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",686)
 *m = MonitorRibRequest{} }
-func (m *MonitorRibRequest) String() string            {    fmt.Printf("DEJDEJ id:",687)
 return proto.CompactTextString(m) }
 func (*MonitorRibRequest) ProtoMessage()               {}
-func (*MonitorRibRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",689)
 return fileDescriptor0, []int{31} }
 
 func (m *MonitorRibRequest) GetTable() *Table { 
-   fmt.Printf("DEJDEJ id:",690)
 	if m != nil {
 		return m.Table
 	}
@@ -1440,7 +1271,6 @@ func (m *MonitorRibRequest) GetTable() *Table {
 }
 
 func (m *MonitorRibRequest) GetCurrent() bool { 
-   fmt.Printf("DEJDEJ id:",691)
 	if m != nil {
 		return m.Current
 	}
@@ -1452,16 +1282,12 @@ type RPKIConf struct {
 	RemotePort string `protobuf:"bytes,2,opt,name=remote_port,json=remotePort" json:"remote_port,omitempty"`
 }
 
-func (m *RPKIConf) Reset()                    {    fmt.Printf("DEJDEJ id:",692)
 *m = RPKIConf{} }
-func (m *RPKIConf) String() string            {    fmt.Printf("DEJDEJ id:",693)
 return proto.CompactTextString(m) }
 func (*RPKIConf) ProtoMessage()               {}
-func (*RPKIConf) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",695)
 return fileDescriptor0, []int{32} }
 
 func (m *RPKIConf) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",696)
 	if m != nil {
 		return m.Address
 	}
@@ -1469,7 +1295,6 @@ func (m *RPKIConf) GetAddress() string {
 }
 
 func (m *RPKIConf) GetRemotePort() string { 
-   fmt.Printf("DEJDEJ id:",697)
 	if m != nil {
 		return m.RemotePort
 	}
@@ -1496,16 +1321,12 @@ type RPKIState struct {
 	ResetQuery    int64  `protobuf:"varint,17,opt,name=reset_query,json=resetQuery" json:"reset_query,omitempty"`
 }
 
-func (m *RPKIState) Reset()                    {    fmt.Printf("DEJDEJ id:",698)
 *m = RPKIState{} }
-func (m *RPKIState) String() string            {    fmt.Printf("DEJDEJ id:",699)
 return proto.CompactTextString(m) }
 func (*RPKIState) ProtoMessage()               {}
-func (*RPKIState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",701)
 return fileDescriptor0, []int{33} }
 
 func (m *RPKIState) GetUptime() int64 { 
-   fmt.Printf("DEJDEJ id:",702)
 	if m != nil {
 		return m.Uptime
 	}
@@ -1513,7 +1334,6 @@ func (m *RPKIState) GetUptime() int64 {
 }
 
 func (m *RPKIState) GetDowntime() int64 { 
-   fmt.Printf("DEJDEJ id:",703)
 	if m != nil {
 		return m.Downtime
 	}
@@ -1521,7 +1341,6 @@ func (m *RPKIState) GetDowntime() int64 {
 }
 
 func (m *RPKIState) GetUp() bool { 
-   fmt.Printf("DEJDEJ id:",704)
 	if m != nil {
 		return m.Up
 	}
@@ -1529,7 +1348,6 @@ func (m *RPKIState) GetUp() bool {
 }
 
 func (m *RPKIState) GetRecordIpv4() uint32 { 
-   fmt.Printf("DEJDEJ id:",705)
 	if m != nil {
 		return m.RecordIpv4
 	}
@@ -1537,7 +1355,6 @@ func (m *RPKIState) GetRecordIpv4() uint32 {
 }
 
 func (m *RPKIState) GetRecordIpv6() uint32 { 
-   fmt.Printf("DEJDEJ id:",706)
 	if m != nil {
 		return m.RecordIpv6
 	}
@@ -1545,7 +1362,6 @@ func (m *RPKIState) GetRecordIpv6() uint32 {
 }
 
 func (m *RPKIState) GetPrefixIpv4() uint32 { 
-   fmt.Printf("DEJDEJ id:",707)
 	if m != nil {
 		return m.PrefixIpv4
 	}
@@ -1553,7 +1369,6 @@ func (m *RPKIState) GetPrefixIpv4() uint32 {
 }
 
 func (m *RPKIState) GetPrefixIpv6() uint32 { 
-   fmt.Printf("DEJDEJ id:",708)
 	if m != nil {
 		return m.PrefixIpv6
 	}
@@ -1561,7 +1376,6 @@ func (m *RPKIState) GetPrefixIpv6() uint32 {
 }
 
 func (m *RPKIState) GetSerial() uint32 { 
-   fmt.Printf("DEJDEJ id:",709)
 	if m != nil {
 		return m.Serial
 	}
@@ -1569,7 +1383,6 @@ func (m *RPKIState) GetSerial() uint32 {
 }
 
 func (m *RPKIState) GetReceivedIpv4() int64 { 
-   fmt.Printf("DEJDEJ id:",710)
 	if m != nil {
 		return m.ReceivedIpv4
 	}
@@ -1577,7 +1390,6 @@ func (m *RPKIState) GetReceivedIpv4() int64 {
 }
 
 func (m *RPKIState) GetReceivedIpv6() int64 { 
-   fmt.Printf("DEJDEJ id:",711)
 	if m != nil {
 		return m.ReceivedIpv6
 	}
@@ -1585,7 +1397,6 @@ func (m *RPKIState) GetReceivedIpv6() int64 {
 }
 
 func (m *RPKIState) GetSerialNotify() int64 { 
-   fmt.Printf("DEJDEJ id:",712)
 	if m != nil {
 		return m.SerialNotify
 	}
@@ -1593,7 +1404,6 @@ func (m *RPKIState) GetSerialNotify() int64 {
 }
 
 func (m *RPKIState) GetCacheReset() int64 { 
-   fmt.Printf("DEJDEJ id:",713)
 	if m != nil {
 		return m.CacheReset
 	}
@@ -1601,7 +1411,6 @@ func (m *RPKIState) GetCacheReset() int64 {
 }
 
 func (m *RPKIState) GetCacheResponse() int64 { 
-   fmt.Printf("DEJDEJ id:",714)
 	if m != nil {
 		return m.CacheResponse
 	}
@@ -1609,7 +1418,6 @@ func (m *RPKIState) GetCacheResponse() int64 {
 }
 
 func (m *RPKIState) GetEndOfData() int64 { 
-   fmt.Printf("DEJDEJ id:",715)
 	if m != nil {
 		return m.EndOfData
 	}
@@ -1617,7 +1425,6 @@ func (m *RPKIState) GetEndOfData() int64 {
 }
 
 func (m *RPKIState) GetError() int64 { 
-   fmt.Printf("DEJDEJ id:",716)
 	if m != nil {
 		return m.Error
 	}
@@ -1625,7 +1432,6 @@ func (m *RPKIState) GetError() int64 {
 }
 
 func (m *RPKIState) GetSerialQuery() int64 { 
-   fmt.Printf("DEJDEJ id:",717)
 	if m != nil {
 		return m.SerialQuery
 	}
@@ -1633,7 +1439,6 @@ func (m *RPKIState) GetSerialQuery() int64 {
 }
 
 func (m *RPKIState) GetResetQuery() int64 { 
-   fmt.Printf("DEJDEJ id:",718)
 	if m != nil {
 		return m.ResetQuery
 	}
@@ -1645,16 +1450,12 @@ type Rpki struct {
 	State *RPKIState `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *Rpki) Reset()                    {    fmt.Printf("DEJDEJ id:",719)
 *m = Rpki{} }
-func (m *Rpki) String() string            {    fmt.Printf("DEJDEJ id:",720)
 return proto.CompactTextString(m) }
 func (*Rpki) ProtoMessage()               {}
-func (*Rpki) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",722)
 return fileDescriptor0, []int{34} }
 
 func (m *Rpki) GetConf() *RPKIConf { 
-   fmt.Printf("DEJDEJ id:",723)
 	if m != nil {
 		return m.Conf
 	}
@@ -1662,7 +1463,6 @@ func (m *Rpki) GetConf() *RPKIConf {
 }
 
 func (m *Rpki) GetState() *RPKIState { 
-   fmt.Printf("DEJDEJ id:",724)
 	if m != nil {
 		return m.State
 	}
@@ -1673,16 +1473,12 @@ type GetRpkiRequest struct {
 	Family uint32 `protobuf:"varint,1,opt,name=family" json:"family,omitempty"`
 }
 
-func (m *GetRpkiRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",725)
 *m = GetRpkiRequest{} }
-func (m *GetRpkiRequest) String() string            {    fmt.Printf("DEJDEJ id:",726)
 return proto.CompactTextString(m) }
 func (*GetRpkiRequest) ProtoMessage()               {}
-func (*GetRpkiRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",728)
 return fileDescriptor0, []int{35} }
 
 func (m *GetRpkiRequest) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",729)
 	if m != nil {
 		return m.Family
 	}
@@ -1693,16 +1489,12 @@ type GetRpkiResponse struct {
 	Servers []*Rpki `protobuf:"bytes,1,rep,name=servers" json:"servers,omitempty"`
 }
 
-func (m *GetRpkiResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",730)
 *m = GetRpkiResponse{} }
-func (m *GetRpkiResponse) String() string            {    fmt.Printf("DEJDEJ id:",731)
 return proto.CompactTextString(m) }
 func (*GetRpkiResponse) ProtoMessage()               {}
-func (*GetRpkiResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",733)
 return fileDescriptor0, []int{36} }
 
 func (m *GetRpkiResponse) GetServers() []*Rpki { 
-   fmt.Printf("DEJDEJ id:",734)
 	if m != nil {
 		return m.Servers
 	}
@@ -1715,16 +1507,12 @@ type AddRpkiRequest struct {
 	Lifetime int64  `protobuf:"varint,3,opt,name=lifetime" json:"lifetime,omitempty"`
 }
 
-func (m *AddRpkiRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",735)
 *m = AddRpkiRequest{} }
-func (m *AddRpkiRequest) String() string            {    fmt.Printf("DEJDEJ id:",736)
 return proto.CompactTextString(m) }
 func (*AddRpkiRequest) ProtoMessage()               {}
-func (*AddRpkiRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",738)
 return fileDescriptor0, []int{37} }
 
 func (m *AddRpkiRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",739)
 	if m != nil {
 		return m.Address
 	}
@@ -1732,7 +1520,6 @@ func (m *AddRpkiRequest) GetAddress() string {
 }
 
 func (m *AddRpkiRequest) GetPort() uint32 { 
-   fmt.Printf("DEJDEJ id:",740)
 	if m != nil {
 		return m.Port
 	}
@@ -1740,7 +1527,6 @@ func (m *AddRpkiRequest) GetPort() uint32 {
 }
 
 func (m *AddRpkiRequest) GetLifetime() int64 { 
-   fmt.Printf("DEJDEJ id:",741)
 	if m != nil {
 		return m.Lifetime
 	}
@@ -1750,12 +1536,9 @@ func (m *AddRpkiRequest) GetLifetime() int64 {
 type AddRpkiResponse struct {
 }
 
-func (m *AddRpkiResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",742)
 *m = AddRpkiResponse{} }
-func (m *AddRpkiResponse) String() string            {    fmt.Printf("DEJDEJ id:",743)
 return proto.CompactTextString(m) }
 func (*AddRpkiResponse) ProtoMessage()               {}
-func (*AddRpkiResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",745)
 return fileDescriptor0, []int{38} }
 
 type DeleteRpkiRequest struct {
@@ -1763,16 +1546,12 @@ type DeleteRpkiRequest struct {
 	Port    uint32 `protobuf:"varint,2,opt,name=port" json:"port,omitempty"`
 }
 
-func (m *DeleteRpkiRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",746)
 *m = DeleteRpkiRequest{} }
-func (m *DeleteRpkiRequest) String() string            {    fmt.Printf("DEJDEJ id:",747)
 return proto.CompactTextString(m) }
 func (*DeleteRpkiRequest) ProtoMessage()               {}
-func (*DeleteRpkiRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",749)
 return fileDescriptor0, []int{39} }
 
 func (m *DeleteRpkiRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",750)
 	if m != nil {
 		return m.Address
 	}
@@ -1780,7 +1559,6 @@ func (m *DeleteRpkiRequest) GetAddress() string {
 }
 
 func (m *DeleteRpkiRequest) GetPort() uint32 { 
-   fmt.Printf("DEJDEJ id:",751)
 	if m != nil {
 		return m.Port
 	}
@@ -1790,28 +1568,21 @@ func (m *DeleteRpkiRequest) GetPort() uint32 {
 type DeleteRpkiResponse struct {
 }
 
-func (m *DeleteRpkiResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",752)
 *m = DeleteRpkiResponse{} }
-func (m *DeleteRpkiResponse) String() string            {    fmt.Printf("DEJDEJ id:",753)
 return proto.CompactTextString(m) }
 func (*DeleteRpkiResponse) ProtoMessage()               {}
-func (*DeleteRpkiResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",755)
 return fileDescriptor0, []int{40} }
 
 type EnableRpkiRequest struct {
 	Address string `protobuf:"bytes,1,opt,name=address" json:"address,omitempty"`
 }
 
-func (m *EnableRpkiRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",756)
 *m = EnableRpkiRequest{} }
-func (m *EnableRpkiRequest) String() string            {    fmt.Printf("DEJDEJ id:",757)
 return proto.CompactTextString(m) }
 func (*EnableRpkiRequest) ProtoMessage()               {}
-func (*EnableRpkiRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",759)
 return fileDescriptor0, []int{41} }
 
 func (m *EnableRpkiRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",760)
 	if m != nil {
 		return m.Address
 	}
@@ -1821,28 +1592,21 @@ func (m *EnableRpkiRequest) GetAddress() string {
 type EnableRpkiResponse struct {
 }
 
-func (m *EnableRpkiResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",761)
 *m = EnableRpkiResponse{} }
-func (m *EnableRpkiResponse) String() string            {    fmt.Printf("DEJDEJ id:",762)
 return proto.CompactTextString(m) }
 func (*EnableRpkiResponse) ProtoMessage()               {}
-func (*EnableRpkiResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",764)
 return fileDescriptor0, []int{42} }
 
 type DisableRpkiRequest struct {
 	Address string `protobuf:"bytes,1,opt,name=address" json:"address,omitempty"`
 }
 
-func (m *DisableRpkiRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",765)
 *m = DisableRpkiRequest{} }
-func (m *DisableRpkiRequest) String() string            {    fmt.Printf("DEJDEJ id:",766)
 return proto.CompactTextString(m) }
 func (*DisableRpkiRequest) ProtoMessage()               {}
-func (*DisableRpkiRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",768)
 return fileDescriptor0, []int{43} }
 
 func (m *DisableRpkiRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",769)
 	if m != nil {
 		return m.Address
 	}
@@ -1852,28 +1616,21 @@ func (m *DisableRpkiRequest) GetAddress() string {
 type DisableRpkiResponse struct {
 }
 
-func (m *DisableRpkiResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",770)
 *m = DisableRpkiResponse{} }
-func (m *DisableRpkiResponse) String() string            {    fmt.Printf("DEJDEJ id:",771)
 return proto.CompactTextString(m) }
 func (*DisableRpkiResponse) ProtoMessage()               {}
-func (*DisableRpkiResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",773)
 return fileDescriptor0, []int{44} }
 
 type ResetRpkiRequest struct {
 	Address string `protobuf:"bytes,1,opt,name=address" json:"address,omitempty"`
 }
 
-func (m *ResetRpkiRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",774)
 *m = ResetRpkiRequest{} }
-func (m *ResetRpkiRequest) String() string            {    fmt.Printf("DEJDEJ id:",775)
 return proto.CompactTextString(m) }
 func (*ResetRpkiRequest) ProtoMessage()               {}
-func (*ResetRpkiRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",777)
 return fileDescriptor0, []int{45} }
 
 func (m *ResetRpkiRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",778)
 	if m != nil {
 		return m.Address
 	}
@@ -1883,28 +1640,21 @@ func (m *ResetRpkiRequest) GetAddress() string {
 type ResetRpkiResponse struct {
 }
 
-func (m *ResetRpkiResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",779)
 *m = ResetRpkiResponse{} }
-func (m *ResetRpkiResponse) String() string            {    fmt.Printf("DEJDEJ id:",780)
 return proto.CompactTextString(m) }
 func (*ResetRpkiResponse) ProtoMessage()               {}
-func (*ResetRpkiResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",782)
 return fileDescriptor0, []int{46} }
 
 type SoftResetRpkiRequest struct {
 	Address string `protobuf:"bytes,1,opt,name=address" json:"address,omitempty"`
 }
 
-func (m *SoftResetRpkiRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",783)
 *m = SoftResetRpkiRequest{} }
-func (m *SoftResetRpkiRequest) String() string            {    fmt.Printf("DEJDEJ id:",784)
 return proto.CompactTextString(m) }
 func (*SoftResetRpkiRequest) ProtoMessage()               {}
-func (*SoftResetRpkiRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",786)
 return fileDescriptor0, []int{47} }
 
 func (m *SoftResetRpkiRequest) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",787)
 	if m != nil {
 		return m.Address
 	}
@@ -1914,12 +1664,9 @@ func (m *SoftResetRpkiRequest) GetAddress() string {
 type SoftResetRpkiResponse struct {
 }
 
-func (m *SoftResetRpkiResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",788)
 *m = SoftResetRpkiResponse{} }
-func (m *SoftResetRpkiResponse) String() string            {    fmt.Printf("DEJDEJ id:",789)
 return proto.CompactTextString(m) }
 func (*SoftResetRpkiResponse) ProtoMessage()               {}
-func (*SoftResetRpkiResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",791)
 return fileDescriptor0, []int{48} }
 
 type EnableZebraRequest struct {
@@ -1930,16 +1677,12 @@ type EnableZebraRequest struct {
 	NexthopTriggerDelay  uint32   `protobuf:"varint,5,opt,name=nexthop_trigger_delay,json=nexthopTriggerDelay" json:"nexthop_trigger_delay,omitempty"`
 }
 
-func (m *EnableZebraRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",792)
 *m = EnableZebraRequest{} }
-func (m *EnableZebraRequest) String() string            {    fmt.Printf("DEJDEJ id:",793)
 return proto.CompactTextString(m) }
 func (*EnableZebraRequest) ProtoMessage()               {}
-func (*EnableZebraRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",795)
 return fileDescriptor0, []int{49} }
 
 func (m *EnableZebraRequest) GetUrl() string { 
-   fmt.Printf("DEJDEJ id:",796)
 	if m != nil {
 		return m.Url
 	}
@@ -1947,7 +1690,6 @@ func (m *EnableZebraRequest) GetUrl() string {
 }
 
 func (m *EnableZebraRequest) GetRouteTypes() []string { 
-   fmt.Printf("DEJDEJ id:",797)
 	if m != nil {
 		return m.RouteTypes
 	}
@@ -1955,7 +1697,6 @@ func (m *EnableZebraRequest) GetRouteTypes() []string {
 }
 
 func (m *EnableZebraRequest) GetVersion() uint32 { 
-   fmt.Printf("DEJDEJ id:",798)
 	if m != nil {
 		return m.Version
 	}
@@ -1963,7 +1704,6 @@ func (m *EnableZebraRequest) GetVersion() uint32 {
 }
 
 func (m *EnableZebraRequest) GetNexthopTriggerEnable() bool { 
-   fmt.Printf("DEJDEJ id:",799)
 	if m != nil {
 		return m.NexthopTriggerEnable
 	}
@@ -1971,7 +1711,6 @@ func (m *EnableZebraRequest) GetNexthopTriggerEnable() bool {
 }
 
 func (m *EnableZebraRequest) GetNexthopTriggerDelay() uint32 { 
-   fmt.Printf("DEJDEJ id:",800)
 	if m != nil {
 		return m.NexthopTriggerDelay
 	}
@@ -1981,39 +1720,29 @@ func (m *EnableZebraRequest) GetNexthopTriggerDelay() uint32 {
 type EnableZebraResponse struct {
 }
 
-func (m *EnableZebraResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",801)
 *m = EnableZebraResponse{} }
-func (m *EnableZebraResponse) String() string            {    fmt.Printf("DEJDEJ id:",802)
 return proto.CompactTextString(m) }
 func (*EnableZebraResponse) ProtoMessage()               {}
-func (*EnableZebraResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",804)
 return fileDescriptor0, []int{50} }
 
 type GetVrfRequest struct {
 }
 
-func (m *GetVrfRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",805)
 *m = GetVrfRequest{} }
-func (m *GetVrfRequest) String() string            {    fmt.Printf("DEJDEJ id:",806)
 return proto.CompactTextString(m) }
 func (*GetVrfRequest) ProtoMessage()               {}
-func (*GetVrfRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",808)
 return fileDescriptor0, []int{51} }
 
 type GetVrfResponse struct {
 	Vrfs []*Vrf `protobuf:"bytes,1,rep,name=vrfs" json:"vrfs,omitempty"`
 }
 
-func (m *GetVrfResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",809)
 *m = GetVrfResponse{} }
-func (m *GetVrfResponse) String() string            {    fmt.Printf("DEJDEJ id:",810)
 return proto.CompactTextString(m) }
 func (*GetVrfResponse) ProtoMessage()               {}
-func (*GetVrfResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",812)
 return fileDescriptor0, []int{52} }
 
 func (m *GetVrfResponse) GetVrfs() []*Vrf { 
-   fmt.Printf("DEJDEJ id:",813)
 	if m != nil {
 		return m.Vrfs
 	}
@@ -2024,16 +1753,12 @@ type AddVrfRequest struct {
 	Vrf *Vrf `protobuf:"bytes,1,opt,name=vrf" json:"vrf,omitempty"`
 }
 
-func (m *AddVrfRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",814)
 *m = AddVrfRequest{} }
-func (m *AddVrfRequest) String() string            {    fmt.Printf("DEJDEJ id:",815)
 return proto.CompactTextString(m) }
 func (*AddVrfRequest) ProtoMessage()               {}
-func (*AddVrfRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",817)
 return fileDescriptor0, []int{53} }
 
 func (m *AddVrfRequest) GetVrf() *Vrf { 
-   fmt.Printf("DEJDEJ id:",818)
 	if m != nil {
 		return m.Vrf
 	}
@@ -2043,28 +1768,21 @@ func (m *AddVrfRequest) GetVrf() *Vrf {
 type AddVrfResponse struct {
 }
 
-func (m *AddVrfResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",819)
 *m = AddVrfResponse{} }
-func (m *AddVrfResponse) String() string            {    fmt.Printf("DEJDEJ id:",820)
 return proto.CompactTextString(m) }
 func (*AddVrfResponse) ProtoMessage()               {}
-func (*AddVrfResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",822)
 return fileDescriptor0, []int{54} }
 
 type DeleteVrfRequest struct {
 	Vrf *Vrf `protobuf:"bytes,1,opt,name=vrf" json:"vrf,omitempty"`
 }
 
-func (m *DeleteVrfRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",823)
 *m = DeleteVrfRequest{} }
-func (m *DeleteVrfRequest) String() string            {    fmt.Printf("DEJDEJ id:",824)
 return proto.CompactTextString(m) }
 func (*DeleteVrfRequest) ProtoMessage()               {}
-func (*DeleteVrfRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",826)
 return fileDescriptor0, []int{55} }
 
 func (m *DeleteVrfRequest) GetVrf() *Vrf { 
-   fmt.Printf("DEJDEJ id:",827)
 	if m != nil {
 		return m.Vrf
 	}
@@ -2074,12 +1792,9 @@ func (m *DeleteVrfRequest) GetVrf() *Vrf {
 type DeleteVrfResponse struct {
 }
 
-func (m *DeleteVrfResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",828)
 *m = DeleteVrfResponse{} }
-func (m *DeleteVrfResponse) String() string            {    fmt.Printf("DEJDEJ id:",829)
 return proto.CompactTextString(m) }
 func (*DeleteVrfResponse) ProtoMessage()               {}
-func (*DeleteVrfResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",831)
 return fileDescriptor0, []int{56} }
 
 type GetDefinedSetRequest struct {
@@ -2087,16 +1802,12 @@ type GetDefinedSetRequest struct {
 	Name string      `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
 }
 
-func (m *GetDefinedSetRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",832)
 *m = GetDefinedSetRequest{} }
-func (m *GetDefinedSetRequest) String() string            {    fmt.Printf("DEJDEJ id:",833)
 return proto.CompactTextString(m) }
 func (*GetDefinedSetRequest) ProtoMessage()               {}
-func (*GetDefinedSetRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",835)
 return fileDescriptor0, []int{57} }
 
 func (m *GetDefinedSetRequest) GetType() DefinedType { 
-   fmt.Printf("DEJDEJ id:",836)
 	if m != nil {
 		return m.Type
 	}
@@ -2104,7 +1815,6 @@ func (m *GetDefinedSetRequest) GetType() DefinedType {
 }
 
 func (m *GetDefinedSetRequest) GetName() string { 
-   fmt.Printf("DEJDEJ id:",837)
 	if m != nil {
 		return m.Name
 	}
@@ -2115,16 +1825,12 @@ type GetDefinedSetResponse struct {
 	Sets []*DefinedSet `protobuf:"bytes,1,rep,name=sets" json:"sets,omitempty"`
 }
 
-func (m *GetDefinedSetResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",838)
 *m = GetDefinedSetResponse{} }
-func (m *GetDefinedSetResponse) String() string            {    fmt.Printf("DEJDEJ id:",839)
 return proto.CompactTextString(m) }
 func (*GetDefinedSetResponse) ProtoMessage()               {}
-func (*GetDefinedSetResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",841)
 return fileDescriptor0, []int{58} }
 
 func (m *GetDefinedSetResponse) GetSets() []*DefinedSet { 
-   fmt.Printf("DEJDEJ id:",842)
 	if m != nil {
 		return m.Sets
 	}
@@ -2135,16 +1841,12 @@ type AddDefinedSetRequest struct {
 	Set *DefinedSet `protobuf:"bytes,1,opt,name=set" json:"set,omitempty"`
 }
 
-func (m *AddDefinedSetRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",843)
 *m = AddDefinedSetRequest{} }
-func (m *AddDefinedSetRequest) String() string            {    fmt.Printf("DEJDEJ id:",844)
 return proto.CompactTextString(m) }
 func (*AddDefinedSetRequest) ProtoMessage()               {}
-func (*AddDefinedSetRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",846)
 return fileDescriptor0, []int{59} }
 
 func (m *AddDefinedSetRequest) GetSet() *DefinedSet { 
-   fmt.Printf("DEJDEJ id:",847)
 	if m != nil {
 		return m.Set
 	}
@@ -2154,12 +1856,9 @@ func (m *AddDefinedSetRequest) GetSet() *DefinedSet {
 type AddDefinedSetResponse struct {
 }
 
-func (m *AddDefinedSetResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",848)
 *m = AddDefinedSetResponse{} }
-func (m *AddDefinedSetResponse) String() string            {    fmt.Printf("DEJDEJ id:",849)
 return proto.CompactTextString(m) }
 func (*AddDefinedSetResponse) ProtoMessage()               {}
-func (*AddDefinedSetResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",851)
 return fileDescriptor0, []int{60} }
 
 type DeleteDefinedSetRequest struct {
@@ -2167,16 +1866,12 @@ type DeleteDefinedSetRequest struct {
 	All bool        `protobuf:"varint,2,opt,name=all" json:"all,omitempty"`
 }
 
-func (m *DeleteDefinedSetRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",852)
 *m = DeleteDefinedSetRequest{} }
-func (m *DeleteDefinedSetRequest) String() string            {    fmt.Printf("DEJDEJ id:",853)
 return proto.CompactTextString(m) }
 func (*DeleteDefinedSetRequest) ProtoMessage()               {}
-func (*DeleteDefinedSetRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",855)
 return fileDescriptor0, []int{61} }
 
 func (m *DeleteDefinedSetRequest) GetSet() *DefinedSet { 
-   fmt.Printf("DEJDEJ id:",856)
 	if m != nil {
 		return m.Set
 	}
@@ -2184,7 +1879,6 @@ func (m *DeleteDefinedSetRequest) GetSet() *DefinedSet {
 }
 
 func (m *DeleteDefinedSetRequest) GetAll() bool { 
-   fmt.Printf("DEJDEJ id:",857)
 	if m != nil {
 		return m.All
 	}
@@ -2194,28 +1888,21 @@ func (m *DeleteDefinedSetRequest) GetAll() bool {
 type DeleteDefinedSetResponse struct {
 }
 
-func (m *DeleteDefinedSetResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",858)
 *m = DeleteDefinedSetResponse{} }
-func (m *DeleteDefinedSetResponse) String() string            {    fmt.Printf("DEJDEJ id:",859)
 return proto.CompactTextString(m) }
 func (*DeleteDefinedSetResponse) ProtoMessage()               {}
-func (*DeleteDefinedSetResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",861)
 return fileDescriptor0, []int{62} }
 
 type ReplaceDefinedSetRequest struct {
 	Set *DefinedSet `protobuf:"bytes,1,opt,name=set" json:"set,omitempty"`
 }
 
-func (m *ReplaceDefinedSetRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",862)
 *m = ReplaceDefinedSetRequest{} }
-func (m *ReplaceDefinedSetRequest) String() string            {    fmt.Printf("DEJDEJ id:",863)
 return proto.CompactTextString(m) }
 func (*ReplaceDefinedSetRequest) ProtoMessage()               {}
-func (*ReplaceDefinedSetRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",865)
 return fileDescriptor0, []int{63} }
 
 func (m *ReplaceDefinedSetRequest) GetSet() *DefinedSet { 
-   fmt.Printf("DEJDEJ id:",866)
 	if m != nil {
 		return m.Set
 	}
@@ -2225,39 +1912,29 @@ func (m *ReplaceDefinedSetRequest) GetSet() *DefinedSet {
 type ReplaceDefinedSetResponse struct {
 }
 
-func (m *ReplaceDefinedSetResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",867)
 *m = ReplaceDefinedSetResponse{} }
-func (m *ReplaceDefinedSetResponse) String() string            {    fmt.Printf("DEJDEJ id:",868)
 return proto.CompactTextString(m) }
 func (*ReplaceDefinedSetResponse) ProtoMessage()               {}
-func (*ReplaceDefinedSetResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",870)
 return fileDescriptor0, []int{64} }
 
 type GetStatementRequest struct {
 }
 
-func (m *GetStatementRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",871)
 *m = GetStatementRequest{} }
-func (m *GetStatementRequest) String() string            {    fmt.Printf("DEJDEJ id:",872)
 return proto.CompactTextString(m) }
 func (*GetStatementRequest) ProtoMessage()               {}
-func (*GetStatementRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",874)
 return fileDescriptor0, []int{65} }
 
 type GetStatementResponse struct {
 	Statements []*Statement `protobuf:"bytes,1,rep,name=statements" json:"statements,omitempty"`
 }
 
-func (m *GetStatementResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",875)
 *m = GetStatementResponse{} }
-func (m *GetStatementResponse) String() string            {    fmt.Printf("DEJDEJ id:",876)
 return proto.CompactTextString(m) }
 func (*GetStatementResponse) ProtoMessage()               {}
-func (*GetStatementResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",878)
 return fileDescriptor0, []int{66} }
 
 func (m *GetStatementResponse) GetStatements() []*Statement { 
-   fmt.Printf("DEJDEJ id:",879)
 	if m != nil {
 		return m.Statements
 	}
@@ -2268,16 +1945,12 @@ type AddStatementRequest struct {
 	Statement *Statement `protobuf:"bytes,1,opt,name=statement" json:"statement,omitempty"`
 }
 
-func (m *AddStatementRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",880)
 *m = AddStatementRequest{} }
-func (m *AddStatementRequest) String() string            {    fmt.Printf("DEJDEJ id:",881)
 return proto.CompactTextString(m) }
 func (*AddStatementRequest) ProtoMessage()               {}
-func (*AddStatementRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",883)
 return fileDescriptor0, []int{67} }
 
 func (m *AddStatementRequest) GetStatement() *Statement { 
-   fmt.Printf("DEJDEJ id:",884)
 	if m != nil {
 		return m.Statement
 	}
@@ -2287,12 +1960,9 @@ func (m *AddStatementRequest) GetStatement() *Statement {
 type AddStatementResponse struct {
 }
 
-func (m *AddStatementResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",885)
 *m = AddStatementResponse{} }
-func (m *AddStatementResponse) String() string            {    fmt.Printf("DEJDEJ id:",886)
 return proto.CompactTextString(m) }
 func (*AddStatementResponse) ProtoMessage()               {}
-func (*AddStatementResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",888)
 return fileDescriptor0, []int{68} }
 
 type DeleteStatementRequest struct {
@@ -2300,16 +1970,12 @@ type DeleteStatementRequest struct {
 	All       bool       `protobuf:"varint,2,opt,name=all" json:"all,omitempty"`
 }
 
-func (m *DeleteStatementRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",889)
 *m = DeleteStatementRequest{} }
-func (m *DeleteStatementRequest) String() string            {    fmt.Printf("DEJDEJ id:",890)
 return proto.CompactTextString(m) }
 func (*DeleteStatementRequest) ProtoMessage()               {}
-func (*DeleteStatementRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",892)
 return fileDescriptor0, []int{69} }
 
 func (m *DeleteStatementRequest) GetStatement() *Statement { 
-   fmt.Printf("DEJDEJ id:",893)
 	if m != nil {
 		return m.Statement
 	}
@@ -2317,7 +1983,6 @@ func (m *DeleteStatementRequest) GetStatement() *Statement {
 }
 
 func (m *DeleteStatementRequest) GetAll() bool { 
-   fmt.Printf("DEJDEJ id:",894)
 	if m != nil {
 		return m.All
 	}
@@ -2327,28 +1992,21 @@ func (m *DeleteStatementRequest) GetAll() bool {
 type DeleteStatementResponse struct {
 }
 
-func (m *DeleteStatementResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",895)
 *m = DeleteStatementResponse{} }
-func (m *DeleteStatementResponse) String() string            {    fmt.Printf("DEJDEJ id:",896)
 return proto.CompactTextString(m) }
 func (*DeleteStatementResponse) ProtoMessage()               {}
-func (*DeleteStatementResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",898)
 return fileDescriptor0, []int{70} }
 
 type ReplaceStatementRequest struct {
 	Statement *Statement `protobuf:"bytes,1,opt,name=statement" json:"statement,omitempty"`
 }
 
-func (m *ReplaceStatementRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",899)
 *m = ReplaceStatementRequest{} }
-func (m *ReplaceStatementRequest) String() string            {    fmt.Printf("DEJDEJ id:",900)
 return proto.CompactTextString(m) }
 func (*ReplaceStatementRequest) ProtoMessage()               {}
-func (*ReplaceStatementRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",902)
 return fileDescriptor0, []int{71} }
 
 func (m *ReplaceStatementRequest) GetStatement() *Statement { 
-   fmt.Printf("DEJDEJ id:",903)
 	if m != nil {
 		return m.Statement
 	}
@@ -2358,39 +2016,29 @@ func (m *ReplaceStatementRequest) GetStatement() *Statement {
 type ReplaceStatementResponse struct {
 }
 
-func (m *ReplaceStatementResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",904)
 *m = ReplaceStatementResponse{} }
-func (m *ReplaceStatementResponse) String() string            {    fmt.Printf("DEJDEJ id:",905)
 return proto.CompactTextString(m) }
 func (*ReplaceStatementResponse) ProtoMessage()               {}
-func (*ReplaceStatementResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",907)
 return fileDescriptor0, []int{72} }
 
 type GetPolicyRequest struct {
 }
 
-func (m *GetPolicyRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",908)
 *m = GetPolicyRequest{} }
-func (m *GetPolicyRequest) String() string            {    fmt.Printf("DEJDEJ id:",909)
 return proto.CompactTextString(m) }
 func (*GetPolicyRequest) ProtoMessage()               {}
-func (*GetPolicyRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",911)
 return fileDescriptor0, []int{73} }
 
 type GetPolicyResponse struct {
 	Policies []*Policy `protobuf:"bytes,1,rep,name=policies" json:"policies,omitempty"`
 }
 
-func (m *GetPolicyResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",912)
 *m = GetPolicyResponse{} }
-func (m *GetPolicyResponse) String() string            {    fmt.Printf("DEJDEJ id:",913)
 return proto.CompactTextString(m) }
 func (*GetPolicyResponse) ProtoMessage()               {}
-func (*GetPolicyResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",915)
 return fileDescriptor0, []int{74} }
 
 func (m *GetPolicyResponse) GetPolicies() []*Policy { 
-   fmt.Printf("DEJDEJ id:",916)
 	if m != nil {
 		return m.Policies
 	}
@@ -2404,16 +2052,12 @@ type AddPolicyRequest struct {
 	ReferExistingStatements bool `protobuf:"varint,2,opt,name=refer_existing_statements,json=referExistingStatements" json:"refer_existing_statements,omitempty"`
 }
 
-func (m *AddPolicyRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",917)
 *m = AddPolicyRequest{} }
-func (m *AddPolicyRequest) String() string            {    fmt.Printf("DEJDEJ id:",918)
 return proto.CompactTextString(m) }
 func (*AddPolicyRequest) ProtoMessage()               {}
-func (*AddPolicyRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",920)
 return fileDescriptor0, []int{75} }
 
 func (m *AddPolicyRequest) GetPolicy() *Policy { 
-   fmt.Printf("DEJDEJ id:",921)
 	if m != nil {
 		return m.Policy
 	}
@@ -2421,7 +2065,6 @@ func (m *AddPolicyRequest) GetPolicy() *Policy {
 }
 
 func (m *AddPolicyRequest) GetReferExistingStatements() bool { 
-   fmt.Printf("DEJDEJ id:",922)
 	if m != nil {
 		return m.ReferExistingStatements
 	}
@@ -2431,12 +2074,9 @@ func (m *AddPolicyRequest) GetReferExistingStatements() bool {
 type AddPolicyResponse struct {
 }
 
-func (m *AddPolicyResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",923)
 *m = AddPolicyResponse{} }
-func (m *AddPolicyResponse) String() string            {    fmt.Printf("DEJDEJ id:",924)
 return proto.CompactTextString(m) }
 func (*AddPolicyResponse) ProtoMessage()               {}
-func (*AddPolicyResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",926)
 return fileDescriptor0, []int{76} }
 
 type DeletePolicyRequest struct {
@@ -2447,16 +2087,12 @@ type DeletePolicyRequest struct {
 	All                bool `protobuf:"varint,3,opt,name=all" json:"all,omitempty"`
 }
 
-func (m *DeletePolicyRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",927)
 *m = DeletePolicyRequest{} }
-func (m *DeletePolicyRequest) String() string            {    fmt.Printf("DEJDEJ id:",928)
 return proto.CompactTextString(m) }
 func (*DeletePolicyRequest) ProtoMessage()               {}
-func (*DeletePolicyRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",930)
 return fileDescriptor0, []int{77} }
 
 func (m *DeletePolicyRequest) GetPolicy() *Policy { 
-   fmt.Printf("DEJDEJ id:",931)
 	if m != nil {
 		return m.Policy
 	}
@@ -2464,7 +2100,6 @@ func (m *DeletePolicyRequest) GetPolicy() *Policy {
 }
 
 func (m *DeletePolicyRequest) GetPreserveStatements() bool { 
-   fmt.Printf("DEJDEJ id:",932)
 	if m != nil {
 		return m.PreserveStatements
 	}
@@ -2472,7 +2107,6 @@ func (m *DeletePolicyRequest) GetPreserveStatements() bool {
 }
 
 func (m *DeletePolicyRequest) GetAll() bool { 
-   fmt.Printf("DEJDEJ id:",933)
 	if m != nil {
 		return m.All
 	}
@@ -2482,12 +2116,9 @@ func (m *DeletePolicyRequest) GetAll() bool {
 type DeletePolicyResponse struct {
 }
 
-func (m *DeletePolicyResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",934)
 *m = DeletePolicyResponse{} }
-func (m *DeletePolicyResponse) String() string            {    fmt.Printf("DEJDEJ id:",935)
 return proto.CompactTextString(m) }
 func (*DeletePolicyResponse) ProtoMessage()               {}
-func (*DeletePolicyResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",937)
 return fileDescriptor0, []int{78} }
 
 type ReplacePolicyRequest struct {
@@ -2500,16 +2131,12 @@ type ReplacePolicyRequest struct {
 	PreserveStatements bool `protobuf:"varint,3,opt,name=preserve_statements,json=preserveStatements" json:"preserve_statements,omitempty"`
 }
 
-func (m *ReplacePolicyRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",938)
 *m = ReplacePolicyRequest{} }
-func (m *ReplacePolicyRequest) String() string            {    fmt.Printf("DEJDEJ id:",939)
 return proto.CompactTextString(m) }
 func (*ReplacePolicyRequest) ProtoMessage()               {}
-func (*ReplacePolicyRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",941)
 return fileDescriptor0, []int{79} }
 
 func (m *ReplacePolicyRequest) GetPolicy() *Policy { 
-   fmt.Printf("DEJDEJ id:",942)
 	if m != nil {
 		return m.Policy
 	}
@@ -2517,7 +2144,6 @@ func (m *ReplacePolicyRequest) GetPolicy() *Policy {
 }
 
 func (m *ReplacePolicyRequest) GetReferExistingStatements() bool { 
-   fmt.Printf("DEJDEJ id:",943)
 	if m != nil {
 		return m.ReferExistingStatements
 	}
@@ -2525,7 +2151,6 @@ func (m *ReplacePolicyRequest) GetReferExistingStatements() bool {
 }
 
 func (m *ReplacePolicyRequest) GetPreserveStatements() bool { 
-   fmt.Printf("DEJDEJ id:",944)
 	if m != nil {
 		return m.PreserveStatements
 	}
@@ -2535,28 +2160,21 @@ func (m *ReplacePolicyRequest) GetPreserveStatements() bool {
 type ReplacePolicyResponse struct {
 }
 
-func (m *ReplacePolicyResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",945)
 *m = ReplacePolicyResponse{} }
-func (m *ReplacePolicyResponse) String() string            {    fmt.Printf("DEJDEJ id:",946)
 return proto.CompactTextString(m) }
 func (*ReplacePolicyResponse) ProtoMessage()               {}
-func (*ReplacePolicyResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",948)
 return fileDescriptor0, []int{80} }
 
 type GetPolicyAssignmentRequest struct {
 	Assignment *PolicyAssignment `protobuf:"bytes,1,opt,name=assignment" json:"assignment,omitempty"`
 }
 
-func (m *GetPolicyAssignmentRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",949)
 *m = GetPolicyAssignmentRequest{} }
-func (m *GetPolicyAssignmentRequest) String() string            {    fmt.Printf("DEJDEJ id:",950)
 return proto.CompactTextString(m) }
 func (*GetPolicyAssignmentRequest) ProtoMessage()               {}
-func (*GetPolicyAssignmentRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",952)
 return fileDescriptor0, []int{81} }
 
 func (m *GetPolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",953)
 	if m != nil {
 		return m.Assignment
 	}
@@ -2567,16 +2185,12 @@ type GetPolicyAssignmentResponse struct {
 	Assignment *PolicyAssignment `protobuf:"bytes,1,opt,name=assignment" json:"assignment,omitempty"`
 }
 
-func (m *GetPolicyAssignmentResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",954)
 *m = GetPolicyAssignmentResponse{} }
-func (m *GetPolicyAssignmentResponse) String() string            {    fmt.Printf("DEJDEJ id:",955)
 return proto.CompactTextString(m) }
 func (*GetPolicyAssignmentResponse) ProtoMessage()               {}
-func (*GetPolicyAssignmentResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",957)
 return fileDescriptor0, []int{82} }
 
 func (m *GetPolicyAssignmentResponse) GetAssignment() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",958)
 	if m != nil {
 		return m.Assignment
 	}
@@ -2587,16 +2201,12 @@ type AddPolicyAssignmentRequest struct {
 	Assignment *PolicyAssignment `protobuf:"bytes,1,opt,name=assignment" json:"assignment,omitempty"`
 }
 
-func (m *AddPolicyAssignmentRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",959)
 *m = AddPolicyAssignmentRequest{} }
-func (m *AddPolicyAssignmentRequest) String() string            {    fmt.Printf("DEJDEJ id:",960)
 return proto.CompactTextString(m) }
 func (*AddPolicyAssignmentRequest) ProtoMessage()               {}
-func (*AddPolicyAssignmentRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",962)
 return fileDescriptor0, []int{83} }
 
 func (m *AddPolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",963)
 	if m != nil {
 		return m.Assignment
 	}
@@ -2606,12 +2216,9 @@ func (m *AddPolicyAssignmentRequest) GetAssignment() *PolicyAssignment {
 type AddPolicyAssignmentResponse struct {
 }
 
-func (m *AddPolicyAssignmentResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",964)
 *m = AddPolicyAssignmentResponse{} }
-func (m *AddPolicyAssignmentResponse) String() string            {    fmt.Printf("DEJDEJ id:",965)
 return proto.CompactTextString(m) }
 func (*AddPolicyAssignmentResponse) ProtoMessage()               {}
-func (*AddPolicyAssignmentResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",967)
 return fileDescriptor0, []int{84} }
 
 type DeletePolicyAssignmentRequest struct {
@@ -2619,16 +2226,12 @@ type DeletePolicyAssignmentRequest struct {
 	All        bool              `protobuf:"varint,2,opt,name=all" json:"all,omitempty"`
 }
 
-func (m *DeletePolicyAssignmentRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",968)
 *m = DeletePolicyAssignmentRequest{} }
-func (m *DeletePolicyAssignmentRequest) String() string            {    fmt.Printf("DEJDEJ id:",969)
 return proto.CompactTextString(m) }
 func (*DeletePolicyAssignmentRequest) ProtoMessage()               {}
-func (*DeletePolicyAssignmentRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",971)
 return fileDescriptor0, []int{85} }
 
 func (m *DeletePolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",972)
 	if m != nil {
 		return m.Assignment
 	}
@@ -2636,7 +2239,6 @@ func (m *DeletePolicyAssignmentRequest) GetAssignment() *PolicyAssignment {
 }
 
 func (m *DeletePolicyAssignmentRequest) GetAll() bool { 
-   fmt.Printf("DEJDEJ id:",973)
 	if m != nil {
 		return m.All
 	}
@@ -2646,28 +2248,21 @@ func (m *DeletePolicyAssignmentRequest) GetAll() bool {
 type DeletePolicyAssignmentResponse struct {
 }
 
-func (m *DeletePolicyAssignmentResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",974)
 *m = DeletePolicyAssignmentResponse{} }
-func (m *DeletePolicyAssignmentResponse) String() string            {    fmt.Printf("DEJDEJ id:",975)
 return proto.CompactTextString(m) }
 func (*DeletePolicyAssignmentResponse) ProtoMessage()               {}
-func (*DeletePolicyAssignmentResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",977)
 return fileDescriptor0, []int{86} }
 
 type ReplacePolicyAssignmentRequest struct {
 	Assignment *PolicyAssignment `protobuf:"bytes,1,opt,name=assignment" json:"assignment,omitempty"`
 }
 
-func (m *ReplacePolicyAssignmentRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",978)
 *m = ReplacePolicyAssignmentRequest{} }
-func (m *ReplacePolicyAssignmentRequest) String() string            {    fmt.Printf("DEJDEJ id:",979)
 return proto.CompactTextString(m) }
 func (*ReplacePolicyAssignmentRequest) ProtoMessage()               {}
-func (*ReplacePolicyAssignmentRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",981)
 return fileDescriptor0, []int{87} }
 
 func (m *ReplacePolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",982)
 	if m != nil {
 		return m.Assignment
 	}
@@ -2677,41 +2272,31 @@ func (m *ReplacePolicyAssignmentRequest) GetAssignment() *PolicyAssignment {
 type ReplacePolicyAssignmentResponse struct {
 }
 
-func (m *ReplacePolicyAssignmentResponse) Reset()         {    fmt.Printf("DEJDEJ id:",983)
 *m = ReplacePolicyAssignmentResponse{} }
-func (m *ReplacePolicyAssignmentResponse) String() string {    fmt.Printf("DEJDEJ id:",984)
 return proto.CompactTextString(m) }
 func (*ReplacePolicyAssignmentResponse) ProtoMessage()    {}
 func (*ReplacePolicyAssignmentResponse) Descriptor() ([]byte, []int) { 
-   fmt.Printf("DEJDEJ id:",986)
 	return fileDescriptor0, []int{88}
 }
 
 type GetServerRequest struct {
 }
 
-func (m *GetServerRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",987)
 *m = GetServerRequest{} }
-func (m *GetServerRequest) String() string            {    fmt.Printf("DEJDEJ id:",988)
 return proto.CompactTextString(m) }
 func (*GetServerRequest) ProtoMessage()               {}
-func (*GetServerRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",990)
 return fileDescriptor0, []int{89} }
 
 type GetServerResponse struct {
 	Global *Global `protobuf:"bytes,1,opt,name=global" json:"global,omitempty"`
 }
 
-func (m *GetServerResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",991)
 *m = GetServerResponse{} }
-func (m *GetServerResponse) String() string            {    fmt.Printf("DEJDEJ id:",992)
 return proto.CompactTextString(m) }
 func (*GetServerResponse) ProtoMessage()               {}
-func (*GetServerResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",994)
 return fileDescriptor0, []int{90} }
 
 func (m *GetServerResponse) GetGlobal() *Global { 
-   fmt.Printf("DEJDEJ id:",995)
 	if m != nil {
 		return m.Global
 	}
@@ -2722,16 +2307,12 @@ type StartServerRequest struct {
 	Global *Global `protobuf:"bytes,1,opt,name=global" json:"global,omitempty"`
 }
 
-func (m *StartServerRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",996)
 *m = StartServerRequest{} }
-func (m *StartServerRequest) String() string            {    fmt.Printf("DEJDEJ id:",997)
 return proto.CompactTextString(m) }
 func (*StartServerRequest) ProtoMessage()               {}
-func (*StartServerRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",999)
 return fileDescriptor0, []int{91} }
 
 func (m *StartServerRequest) GetGlobal() *Global { 
-   fmt.Printf("DEJDEJ id:",1000)
 	if m != nil {
 		return m.Global
 	}
@@ -2741,34 +2322,25 @@ func (m *StartServerRequest) GetGlobal() *Global {
 type StartServerResponse struct {
 }
 
-func (m *StartServerResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",1001)
 *m = StartServerResponse{} }
-func (m *StartServerResponse) String() string            {    fmt.Printf("DEJDEJ id:",1002)
 return proto.CompactTextString(m) }
 func (*StartServerResponse) ProtoMessage()               {}
-func (*StartServerResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1004)
 return fileDescriptor0, []int{92} }
 
 type StopServerRequest struct {
 }
 
-func (m *StopServerRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",1005)
 *m = StopServerRequest{} }
-func (m *StopServerRequest) String() string            {    fmt.Printf("DEJDEJ id:",1006)
 return proto.CompactTextString(m) }
 func (*StopServerRequest) ProtoMessage()               {}
-func (*StopServerRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1008)
 return fileDescriptor0, []int{93} }
 
 type StopServerResponse struct {
 }
 
-func (m *StopServerResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",1009)
 *m = StopServerResponse{} }
-func (m *StopServerResponse) String() string            {    fmt.Printf("DEJDEJ id:",1010)
 return proto.CompactTextString(m) }
 func (*StopServerResponse) ProtoMessage()               {}
-func (*StopServerResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1012)
 return fileDescriptor0, []int{94} }
 
 type RPKIValidation struct {
@@ -2779,16 +2351,12 @@ type RPKIValidation struct {
 	UnmatchedLength []*Roa                `protobuf:"bytes,5,rep,name=unmatched_length,json=unmatchedLength" json:"unmatched_length,omitempty"`
 }
 
-func (m *RPKIValidation) Reset()                    {    fmt.Printf("DEJDEJ id:",1013)
 *m = RPKIValidation{} }
-func (m *RPKIValidation) String() string            {    fmt.Printf("DEJDEJ id:",1014)
 return proto.CompactTextString(m) }
 func (*RPKIValidation) ProtoMessage()               {}
-func (*RPKIValidation) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1016)
 return fileDescriptor0, []int{95} }
 
 func (m *RPKIValidation) GetState() RPKIValidation_State { 
-   fmt.Printf("DEJDEJ id:",1017)
 	if m != nil {
 		return m.State
 	}
@@ -2796,7 +2364,6 @@ func (m *RPKIValidation) GetState() RPKIValidation_State {
 }
 
 func (m *RPKIValidation) GetReason() RPKIValidation_Reason { 
-   fmt.Printf("DEJDEJ id:",1018)
 	if m != nil {
 		return m.Reason
 	}
@@ -2804,7 +2371,6 @@ func (m *RPKIValidation) GetReason() RPKIValidation_Reason {
 }
 
 func (m *RPKIValidation) GetMatched() []*Roa { 
-   fmt.Printf("DEJDEJ id:",1019)
 	if m != nil {
 		return m.Matched
 	}
@@ -2812,7 +2378,6 @@ func (m *RPKIValidation) GetMatched() []*Roa {
 }
 
 func (m *RPKIValidation) GetUnmatchedAs() []*Roa { 
-   fmt.Printf("DEJDEJ id:",1020)
 	if m != nil {
 		return m.UnmatchedAs
 	}
@@ -2820,7 +2385,6 @@ func (m *RPKIValidation) GetUnmatchedAs() []*Roa {
 }
 
 func (m *RPKIValidation) GetUnmatchedLength() []*Roa { 
-   fmt.Printf("DEJDEJ id:",1021)
 	if m != nil {
 		return m.UnmatchedLength
 	}
@@ -2849,16 +2413,12 @@ type Path struct {
 	LocalIdentifier    uint32          `protobuf:"varint,19,opt,name=local_identifier,json=localIdentifier" json:"local_identifier,omitempty"`
 }
 
-func (m *Path) Reset()                    {    fmt.Printf("DEJDEJ id:",1022)
 *m = Path{} }
-func (m *Path) String() string            {    fmt.Printf("DEJDEJ id:",1023)
 return proto.CompactTextString(m) }
 func (*Path) ProtoMessage()               {}
-func (*Path) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1025)
 return fileDescriptor0, []int{96} }
 
 func (m *Path) GetNlri() []byte { 
-   fmt.Printf("DEJDEJ id:",1026)
 	if m != nil {
 		return m.Nlri
 	}
@@ -2866,7 +2426,6 @@ func (m *Path) GetNlri() []byte {
 }
 
 func (m *Path) GetPattrs() [][]byte { 
-   fmt.Printf("DEJDEJ id:",1027)
 	if m != nil {
 		return m.Pattrs
 	}
@@ -2874,7 +2433,6 @@ func (m *Path) GetPattrs() [][]byte {
 }
 
 func (m *Path) GetAge() int64 { 
-   fmt.Printf("DEJDEJ id:",1028)
 	if m != nil {
 		return m.Age
 	}
@@ -2882,7 +2440,6 @@ func (m *Path) GetAge() int64 {
 }
 
 func (m *Path) GetBest() bool { 
-   fmt.Printf("DEJDEJ id:",1029)
 	if m != nil {
 		return m.Best
 	}
@@ -2890,7 +2447,6 @@ func (m *Path) GetBest() bool {
 }
 
 func (m *Path) GetIsWithdraw() bool { 
-   fmt.Printf("DEJDEJ id:",1030)
 	if m != nil {
 		return m.IsWithdraw
 	}
@@ -2898,7 +2454,6 @@ func (m *Path) GetIsWithdraw() bool {
 }
 
 func (m *Path) GetValidation() int32 { 
-   fmt.Printf("DEJDEJ id:",1031)
 	if m != nil {
 		return m.Validation
 	}
@@ -2906,7 +2461,6 @@ func (m *Path) GetValidation() int32 {
 }
 
 func (m *Path) GetValidationDetail() *RPKIValidation { 
-   fmt.Printf("DEJDEJ id:",1032)
 	if m != nil {
 		return m.ValidationDetail
 	}
@@ -2914,7 +2468,6 @@ func (m *Path) GetValidationDetail() *RPKIValidation {
 }
 
 func (m *Path) GetNoImplicitWithdraw() bool { 
-   fmt.Printf("DEJDEJ id:",1033)
 	if m != nil {
 		return m.NoImplicitWithdraw
 	}
@@ -2922,7 +2475,6 @@ func (m *Path) GetNoImplicitWithdraw() bool {
 }
 
 func (m *Path) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1034)
 	if m != nil {
 		return m.Family
 	}
@@ -2930,7 +2482,6 @@ func (m *Path) GetFamily() uint32 {
 }
 
 func (m *Path) GetSourceAsn() uint32 { 
-   fmt.Printf("DEJDEJ id:",1035)
 	if m != nil {
 		return m.SourceAsn
 	}
@@ -2938,7 +2489,6 @@ func (m *Path) GetSourceAsn() uint32 {
 }
 
 func (m *Path) GetSourceId() string { 
-   fmt.Printf("DEJDEJ id:",1036)
 	if m != nil {
 		return m.SourceId
 	}
@@ -2946,7 +2496,6 @@ func (m *Path) GetSourceId() string {
 }
 
 func (m *Path) GetFiltered() bool { 
-   fmt.Printf("DEJDEJ id:",1037)
 	if m != nil {
 		return m.Filtered
 	}
@@ -2954,7 +2503,6 @@ func (m *Path) GetFiltered() bool {
 }
 
 func (m *Path) GetStale() bool { 
-   fmt.Printf("DEJDEJ id:",1038)
 	if m != nil {
 		return m.Stale
 	}
@@ -2962,7 +2510,6 @@ func (m *Path) GetStale() bool {
 }
 
 func (m *Path) GetIsFromExternal() bool { 
-   fmt.Printf("DEJDEJ id:",1039)
 	if m != nil {
 		return m.IsFromExternal
 	}
@@ -2970,7 +2517,6 @@ func (m *Path) GetIsFromExternal() bool {
 }
 
 func (m *Path) GetNeighborIp() string { 
-   fmt.Printf("DEJDEJ id:",1040)
 	if m != nil {
 		return m.NeighborIp
 	}
@@ -2978,7 +2524,6 @@ func (m *Path) GetNeighborIp() string {
 }
 
 func (m *Path) GetUuid() []byte { 
-   fmt.Printf("DEJDEJ id:",1041)
 	if m != nil {
 		return m.Uuid
 	}
@@ -2986,7 +2531,6 @@ func (m *Path) GetUuid() []byte {
 }
 
 func (m *Path) GetIsNexthopInvalid() bool { 
-   fmt.Printf("DEJDEJ id:",1042)
 	if m != nil {
 		return m.IsNexthopInvalid
 	}
@@ -2994,7 +2538,6 @@ func (m *Path) GetIsNexthopInvalid() bool {
 }
 
 func (m *Path) GetIdentifier() uint32 { 
-   fmt.Printf("DEJDEJ id:",1043)
 	if m != nil {
 		return m.Identifier
 	}
@@ -3002,7 +2545,6 @@ func (m *Path) GetIdentifier() uint32 {
 }
 
 func (m *Path) GetLocalIdentifier() uint32 { 
-   fmt.Printf("DEJDEJ id:",1044)
 	if m != nil {
 		return m.LocalIdentifier
 	}
@@ -3016,16 +2558,12 @@ type Destination struct {
 	ShorterPrefixes bool    `protobuf:"varint,4,opt,name=shorter_prefixes,json=shorterPrefixes" json:"shorter_prefixes,omitempty"`
 }
 
-func (m *Destination) Reset()                    {    fmt.Printf("DEJDEJ id:",1045)
 *m = Destination{} }
-func (m *Destination) String() string            {    fmt.Printf("DEJDEJ id:",1046)
 return proto.CompactTextString(m) }
 func (*Destination) ProtoMessage()               {}
-func (*Destination) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1048)
 return fileDescriptor0, []int{97} }
 
 func (m *Destination) GetPrefix() string { 
-   fmt.Printf("DEJDEJ id:",1049)
 	if m != nil {
 		return m.Prefix
 	}
@@ -3033,7 +2571,6 @@ func (m *Destination) GetPrefix() string {
 }
 
 func (m *Destination) GetPaths() []*Path { 
-   fmt.Printf("DEJDEJ id:",1050)
 	if m != nil {
 		return m.Paths
 	}
@@ -3041,7 +2578,6 @@ func (m *Destination) GetPaths() []*Path {
 }
 
 func (m *Destination) GetLongerPrefixes() bool { 
-   fmt.Printf("DEJDEJ id:",1051)
 	if m != nil {
 		return m.LongerPrefixes
 	}
@@ -3049,7 +2585,6 @@ func (m *Destination) GetLongerPrefixes() bool {
 }
 
 func (m *Destination) GetShorterPrefixes() bool { 
-   fmt.Printf("DEJDEJ id:",1052)
 	if m != nil {
 		return m.ShorterPrefixes
 	}
@@ -3064,16 +2599,12 @@ type Table struct {
 	PostPolicy   bool           `protobuf:"varint,5,opt,name=post_policy,json=postPolicy" json:"post_policy,omitempty"`
 }
 
-func (m *Table) Reset()                    {    fmt.Printf("DEJDEJ id:",1053)
 *m = Table{} }
-func (m *Table) String() string            {    fmt.Printf("DEJDEJ id:",1054)
 return proto.CompactTextString(m) }
 func (*Table) ProtoMessage()               {}
-func (*Table) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1056)
 return fileDescriptor0, []int{98} }
 
 func (m *Table) GetType() Resource { 
-   fmt.Printf("DEJDEJ id:",1057)
 	if m != nil {
 		return m.Type
 	}
@@ -3081,7 +2612,6 @@ func (m *Table) GetType() Resource {
 }
 
 func (m *Table) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1058)
 	if m != nil {
 		return m.Name
 	}
@@ -3089,7 +2619,6 @@ func (m *Table) GetName() string {
 }
 
 func (m *Table) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1059)
 	if m != nil {
 		return m.Family
 	}
@@ -3097,7 +2626,6 @@ func (m *Table) GetFamily() uint32 {
 }
 
 func (m *Table) GetDestinations() []*Destination { 
-   fmt.Printf("DEJDEJ id:",1060)
 	if m != nil {
 		return m.Destinations
 	}
@@ -3105,7 +2633,6 @@ func (m *Table) GetDestinations() []*Destination {
 }
 
 func (m *Table) GetPostPolicy() bool { 
-   fmt.Printf("DEJDEJ id:",1061)
 	if m != nil {
 		return m.PostPolicy
 	}
@@ -3116,16 +2643,12 @@ type GetRibRequest struct {
 	Table *Table `protobuf:"bytes,1,opt,name=table" json:"table,omitempty"`
 }
 
-func (m *GetRibRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",1062)
 *m = GetRibRequest{} }
-func (m *GetRibRequest) String() string            {    fmt.Printf("DEJDEJ id:",1063)
 return proto.CompactTextString(m) }
 func (*GetRibRequest) ProtoMessage()               {}
-func (*GetRibRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1065)
 return fileDescriptor0, []int{99} }
 
 func (m *GetRibRequest) GetTable() *Table { 
-   fmt.Printf("DEJDEJ id:",1066)
 	if m != nil {
 		return m.Table
 	}
@@ -3136,16 +2659,12 @@ type GetRibResponse struct {
 	Table *Table `protobuf:"bytes,1,opt,name=table" json:"table,omitempty"`
 }
 
-func (m *GetRibResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",1067)
 *m = GetRibResponse{} }
-func (m *GetRibResponse) String() string            {    fmt.Printf("DEJDEJ id:",1068)
 return proto.CompactTextString(m) }
 func (*GetRibResponse) ProtoMessage()               {}
-func (*GetRibResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1070)
 return fileDescriptor0, []int{100} }
 
 func (m *GetRibResponse) GetTable() *Table { 
-   fmt.Printf("DEJDEJ id:",1071)
 	if m != nil {
 		return m.Table
 	}
@@ -3158,16 +2677,12 @@ type TableLookupPrefix struct {
 	LookupOption TableLookupOption `protobuf:"varint,2,opt,name=lookup_option,json=lookupOption,enum=gobgpapi.TableLookupOption" json:"lookup_option,omitempty"`
 }
 
-func (m *TableLookupPrefix) Reset()                    {    fmt.Printf("DEJDEJ id:",1072)
 *m = TableLookupPrefix{} }
-func (m *TableLookupPrefix) String() string            {    fmt.Printf("DEJDEJ id:",1073)
 return proto.CompactTextString(m) }
 func (*TableLookupPrefix) ProtoMessage()               {}
-func (*TableLookupPrefix) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1075)
 return fileDescriptor0, []int{101} }
 
 func (m *TableLookupPrefix) GetPrefix() string { 
-   fmt.Printf("DEJDEJ id:",1076)
 	if m != nil {
 		return m.Prefix
 	}
@@ -3175,7 +2690,6 @@ func (m *TableLookupPrefix) GetPrefix() string {
 }
 
 func (m *TableLookupPrefix) GetLookupOption() TableLookupOption { 
-   fmt.Printf("DEJDEJ id:",1077)
 	if m != nil {
 		return m.LookupOption
 	}
@@ -3189,16 +2703,12 @@ type GetPathRequest struct {
 	Prefixes []*TableLookupPrefix `protobuf:"bytes,4,rep,name=prefixes" json:"prefixes,omitempty"`
 }
 
-func (m *GetPathRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",1078)
 *m = GetPathRequest{} }
-func (m *GetPathRequest) String() string            {    fmt.Printf("DEJDEJ id:",1079)
 return proto.CompactTextString(m) }
 func (*GetPathRequest) ProtoMessage()               {}
-func (*GetPathRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1081)
 return fileDescriptor0, []int{102} }
 
 func (m *GetPathRequest) GetType() Resource { 
-   fmt.Printf("DEJDEJ id:",1082)
 	if m != nil {
 		return m.Type
 	}
@@ -3206,7 +2716,6 @@ func (m *GetPathRequest) GetType() Resource {
 }
 
 func (m *GetPathRequest) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1083)
 	if m != nil {
 		return m.Name
 	}
@@ -3214,7 +2723,6 @@ func (m *GetPathRequest) GetName() string {
 }
 
 func (m *GetPathRequest) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1084)
 	if m != nil {
 		return m.Family
 	}
@@ -3222,7 +2730,6 @@ func (m *GetPathRequest) GetFamily() uint32 {
 }
 
 func (m *GetPathRequest) GetPrefixes() []*TableLookupPrefix { 
-   fmt.Printf("DEJDEJ id:",1085)
 	if m != nil {
 		return m.Prefixes
 	}
@@ -3235,16 +2742,12 @@ type ValidateRibRequest struct {
 	Prefix string   `protobuf:"bytes,3,opt,name=prefix" json:"prefix,omitempty"`
 }
 
-func (m *ValidateRibRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",1086)
 *m = ValidateRibRequest{} }
-func (m *ValidateRibRequest) String() string            {    fmt.Printf("DEJDEJ id:",1087)
 return proto.CompactTextString(m) }
 func (*ValidateRibRequest) ProtoMessage()               {}
-func (*ValidateRibRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1089)
 return fileDescriptor0, []int{103} }
 
 func (m *ValidateRibRequest) GetType() Resource { 
-   fmt.Printf("DEJDEJ id:",1090)
 	if m != nil {
 		return m.Type
 	}
@@ -3252,7 +2755,6 @@ func (m *ValidateRibRequest) GetType() Resource {
 }
 
 func (m *ValidateRibRequest) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1091)
 	if m != nil {
 		return m.Family
 	}
@@ -3260,7 +2762,6 @@ func (m *ValidateRibRequest) GetFamily() uint32 {
 }
 
 func (m *ValidateRibRequest) GetPrefix() string { 
-   fmt.Printf("DEJDEJ id:",1092)
 	if m != nil {
 		return m.Prefix
 	}
@@ -3270,12 +2771,9 @@ func (m *ValidateRibRequest) GetPrefix() string {
 type ValidateRibResponse struct {
 }
 
-func (m *ValidateRibResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",1093)
 *m = ValidateRibResponse{} }
-func (m *ValidateRibResponse) String() string            {    fmt.Printf("DEJDEJ id:",1094)
 return proto.CompactTextString(m) }
 func (*ValidateRibResponse) ProtoMessage()               {}
-func (*ValidateRibResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1096)
 return fileDescriptor0, []int{104} }
 
 type Peer struct {
@@ -3296,16 +2794,12 @@ type Peer struct {
 	AddPaths        *AddPaths        `protobuf:"bytes,12,opt,name=add_paths,json=addPaths" json:"add_paths,omitempty"`
 }
 
-func (m *Peer) Reset()                    {    fmt.Printf("DEJDEJ id:",1097)
 *m = Peer{} }
-func (m *Peer) String() string            {    fmt.Printf("DEJDEJ id:",1098)
 return proto.CompactTextString(m) }
 func (*Peer) ProtoMessage()               {}
-func (*Peer) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1100)
 return fileDescriptor0, []int{105} }
 
 func (m *Peer) GetFamilies() []uint32 { 
-   fmt.Printf("DEJDEJ id:",1101)
 	if m != nil {
 		return m.Families
 	}
@@ -3313,7 +2807,6 @@ func (m *Peer) GetFamilies() []uint32 {
 }
 
 func (m *Peer) GetApplyPolicy() *ApplyPolicy { 
-   fmt.Printf("DEJDEJ id:",1102)
 	if m != nil {
 		return m.ApplyPolicy
 	}
@@ -3321,7 +2814,6 @@ func (m *Peer) GetApplyPolicy() *ApplyPolicy {
 }
 
 func (m *Peer) GetConf() *PeerConf { 
-   fmt.Printf("DEJDEJ id:",1103)
 	if m != nil {
 		return m.Conf
 	}
@@ -3329,7 +2821,6 @@ func (m *Peer) GetConf() *PeerConf {
 }
 
 func (m *Peer) GetEbgpMultihop() *EbgpMultihop { 
-   fmt.Printf("DEJDEJ id:",1104)
 	if m != nil {
 		return m.EbgpMultihop
 	}
@@ -3337,7 +2828,6 @@ func (m *Peer) GetEbgpMultihop() *EbgpMultihop {
 }
 
 func (m *Peer) GetRouteReflector() *RouteReflector { 
-   fmt.Printf("DEJDEJ id:",1105)
 	if m != nil {
 		return m.RouteReflector
 	}
@@ -3345,7 +2835,6 @@ func (m *Peer) GetRouteReflector() *RouteReflector {
 }
 
 func (m *Peer) GetInfo() *PeerState { 
-   fmt.Printf("DEJDEJ id:",1106)
 	if m != nil {
 		return m.Info
 	}
@@ -3353,7 +2842,6 @@ func (m *Peer) GetInfo() *PeerState {
 }
 
 func (m *Peer) GetTimers() *Timers { 
-   fmt.Printf("DEJDEJ id:",1107)
 	if m != nil {
 		return m.Timers
 	}
@@ -3361,7 +2849,6 @@ func (m *Peer) GetTimers() *Timers {
 }
 
 func (m *Peer) GetTransport() *Transport { 
-   fmt.Printf("DEJDEJ id:",1108)
 	if m != nil {
 		return m.Transport
 	}
@@ -3369,7 +2856,6 @@ func (m *Peer) GetTransport() *Transport {
 }
 
 func (m *Peer) GetRouteServer() *RouteServer { 
-   fmt.Printf("DEJDEJ id:",1109)
 	if m != nil {
 		return m.RouteServer
 	}
@@ -3377,7 +2863,6 @@ func (m *Peer) GetRouteServer() *RouteServer {
 }
 
 func (m *Peer) GetGracefulRestart() *GracefulRestart { 
-   fmt.Printf("DEJDEJ id:",1110)
 	if m != nil {
 		return m.GracefulRestart
 	}
@@ -3385,7 +2870,6 @@ func (m *Peer) GetGracefulRestart() *GracefulRestart {
 }
 
 func (m *Peer) GetAfiSafis() []*AfiSafi { 
-   fmt.Printf("DEJDEJ id:",1111)
 	if m != nil {
 		return m.AfiSafis
 	}
@@ -3393,7 +2877,6 @@ func (m *Peer) GetAfiSafis() []*AfiSafi {
 }
 
 func (m *Peer) GetAddPaths() *AddPaths { 
-   fmt.Printf("DEJDEJ id:",1112)
 	if m != nil {
 		return m.AddPaths
 	}
@@ -3406,16 +2889,12 @@ type ApplyPolicy struct {
 	ImportPolicy *PolicyAssignment `protobuf:"bytes,3,opt,name=import_policy,json=importPolicy" json:"import_policy,omitempty"`
 }
 
-func (m *ApplyPolicy) Reset()                    {    fmt.Printf("DEJDEJ id:",1113)
 *m = ApplyPolicy{} }
-func (m *ApplyPolicy) String() string            {    fmt.Printf("DEJDEJ id:",1114)
 return proto.CompactTextString(m) }
 func (*ApplyPolicy) ProtoMessage()               {}
-func (*ApplyPolicy) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1116)
 return fileDescriptor0, []int{106} }
 
 func (m *ApplyPolicy) GetInPolicy() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",1117)
 	if m != nil {
 		return m.InPolicy
 	}
@@ -3423,7 +2902,6 @@ func (m *ApplyPolicy) GetInPolicy() *PolicyAssignment {
 }
 
 func (m *ApplyPolicy) GetExportPolicy() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",1118)
 	if m != nil {
 		return m.ExportPolicy
 	}
@@ -3431,7 +2909,6 @@ func (m *ApplyPolicy) GetExportPolicy() *PolicyAssignment {
 }
 
 func (m *ApplyPolicy) GetImportPolicy() *PolicyAssignment { 
-   fmt.Printf("DEJDEJ id:",1119)
 	if m != nil {
 		return m.ImportPolicy
 	}
@@ -3444,16 +2921,12 @@ type PrefixLimit struct {
 	ShutdownThresholdPct uint32 `protobuf:"varint,3,opt,name=shutdown_threshold_pct,json=shutdownThresholdPct" json:"shutdown_threshold_pct,omitempty"`
 }
 
-func (m *PrefixLimit) Reset()                    {    fmt.Printf("DEJDEJ id:",1120)
 *m = PrefixLimit{} }
-func (m *PrefixLimit) String() string            {    fmt.Printf("DEJDEJ id:",1121)
 return proto.CompactTextString(m) }
 func (*PrefixLimit) ProtoMessage()               {}
-func (*PrefixLimit) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1123)
 return fileDescriptor0, []int{107} }
 
 func (m *PrefixLimit) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1124)
 	if m != nil {
 		return m.Family
 	}
@@ -3461,7 +2934,6 @@ func (m *PrefixLimit) GetFamily() uint32 {
 }
 
 func (m *PrefixLimit) GetMaxPrefixes() uint32 { 
-   fmt.Printf("DEJDEJ id:",1125)
 	if m != nil {
 		return m.MaxPrefixes
 	}
@@ -3469,7 +2941,6 @@ func (m *PrefixLimit) GetMaxPrefixes() uint32 {
 }
 
 func (m *PrefixLimit) GetShutdownThresholdPct() uint32 { 
-   fmt.Printf("DEJDEJ id:",1126)
 	if m != nil {
 		return m.ShutdownThresholdPct
 	}
@@ -3501,16 +2972,12 @@ type PeerConf struct {
 	ReplacePeerAs     bool           `protobuf:"varint,19,opt,name=replace_peer_as,json=replacePeerAs" json:"replace_peer_as,omitempty"`
 }
 
-func (m *PeerConf) Reset()                    {    fmt.Printf("DEJDEJ id:",1127)
 *m = PeerConf{} }
-func (m *PeerConf) String() string            {    fmt.Printf("DEJDEJ id:",1128)
 return proto.CompactTextString(m) }
 func (*PeerConf) ProtoMessage()               {}
-func (*PeerConf) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1130)
 return fileDescriptor0, []int{108} }
 
 func (m *PeerConf) GetAuthPassword() string { 
-   fmt.Printf("DEJDEJ id:",1131)
 	if m != nil {
 		return m.AuthPassword
 	}
@@ -3518,7 +2985,6 @@ func (m *PeerConf) GetAuthPassword() string {
 }
 
 func (m *PeerConf) GetDescription() string { 
-   fmt.Printf("DEJDEJ id:",1132)
 	if m != nil {
 		return m.Description
 	}
@@ -3526,7 +2992,6 @@ func (m *PeerConf) GetDescription() string {
 }
 
 func (m *PeerConf) GetLocalAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1133)
 	if m != nil {
 		return m.LocalAs
 	}
@@ -3534,7 +2999,6 @@ func (m *PeerConf) GetLocalAs() uint32 {
 }
 
 func (m *PeerConf) GetNeighborAddress() string { 
-   fmt.Printf("DEJDEJ id:",1134)
 	if m != nil {
 		return m.NeighborAddress
 	}
@@ -3542,7 +3006,6 @@ func (m *PeerConf) GetNeighborAddress() string {
 }
 
 func (m *PeerConf) GetPeerAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1135)
 	if m != nil {
 		return m.PeerAs
 	}
@@ -3550,7 +3013,6 @@ func (m *PeerConf) GetPeerAs() uint32 {
 }
 
 func (m *PeerConf) GetPeerGroup() string { 
-   fmt.Printf("DEJDEJ id:",1136)
 	if m != nil {
 		return m.PeerGroup
 	}
@@ -3558,7 +3020,6 @@ func (m *PeerConf) GetPeerGroup() string {
 }
 
 func (m *PeerConf) GetPeerType() uint32 { 
-   fmt.Printf("DEJDEJ id:",1137)
 	if m != nil {
 		return m.PeerType
 	}
@@ -3566,7 +3027,6 @@ func (m *PeerConf) GetPeerType() uint32 {
 }
 
 func (m *PeerConf) GetRemovePrivateAs() PeerConf_RemovePrivateAs { 
-   fmt.Printf("DEJDEJ id:",1138)
 	if m != nil {
 		return m.RemovePrivateAs
 	}
@@ -3574,7 +3034,6 @@ func (m *PeerConf) GetRemovePrivateAs() PeerConf_RemovePrivateAs {
 }
 
 func (m *PeerConf) GetRouteFlapDamping() bool { 
-   fmt.Printf("DEJDEJ id:",1139)
 	if m != nil {
 		return m.RouteFlapDamping
 	}
@@ -3582,7 +3041,6 @@ func (m *PeerConf) GetRouteFlapDamping() bool {
 }
 
 func (m *PeerConf) GetSendCommunity() uint32 { 
-   fmt.Printf("DEJDEJ id:",1140)
 	if m != nil {
 		return m.SendCommunity
 	}
@@ -3590,7 +3048,6 @@ func (m *PeerConf) GetSendCommunity() uint32 {
 }
 
 func (m *PeerConf) GetRemoteCap() [][]byte { 
-   fmt.Printf("DEJDEJ id:",1141)
 	if m != nil {
 		return m.RemoteCap
 	}
@@ -3598,7 +3055,6 @@ func (m *PeerConf) GetRemoteCap() [][]byte {
 }
 
 func (m *PeerConf) GetLocalCap() [][]byte { 
-   fmt.Printf("DEJDEJ id:",1142)
 	if m != nil {
 		return m.LocalCap
 	}
@@ -3606,7 +3062,6 @@ func (m *PeerConf) GetLocalCap() [][]byte {
 }
 
 func (m *PeerConf) GetId() string { 
-   fmt.Printf("DEJDEJ id:",1143)
 	if m != nil {
 		return m.Id
 	}
@@ -3614,7 +3069,6 @@ func (m *PeerConf) GetId() string {
 }
 
 func (m *PeerConf) GetPrefixLimits() []*PrefixLimit { 
-   fmt.Printf("DEJDEJ id:",1144)
 	if m != nil {
 		return m.PrefixLimits
 	}
@@ -3622,7 +3076,6 @@ func (m *PeerConf) GetPrefixLimits() []*PrefixLimit {
 }
 
 func (m *PeerConf) GetLocalAddress() string { 
-   fmt.Printf("DEJDEJ id:",1145)
 	if m != nil {
 		return m.LocalAddress
 	}
@@ -3630,7 +3083,6 @@ func (m *PeerConf) GetLocalAddress() string {
 }
 
 func (m *PeerConf) GetNeighborInterface() string { 
-   fmt.Printf("DEJDEJ id:",1146)
 	if m != nil {
 		return m.NeighborInterface
 	}
@@ -3638,7 +3090,6 @@ func (m *PeerConf) GetNeighborInterface() string {
 }
 
 func (m *PeerConf) GetVrf() string { 
-   fmt.Printf("DEJDEJ id:",1147)
 	if m != nil {
 		return m.Vrf
 	}
@@ -3646,7 +3097,6 @@ func (m *PeerConf) GetVrf() string {
 }
 
 func (m *PeerConf) GetAllowOwnAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1148)
 	if m != nil {
 		return m.AllowOwnAs
 	}
@@ -3654,7 +3104,6 @@ func (m *PeerConf) GetAllowOwnAs() uint32 {
 }
 
 func (m *PeerConf) GetReplacePeerAs() bool { 
-   fmt.Printf("DEJDEJ id:",1149)
 	if m != nil {
 		return m.ReplacePeerAs
 	}
@@ -3666,16 +3115,12 @@ type EbgpMultihop struct {
 	MultihopTtl uint32 `protobuf:"varint,2,opt,name=multihop_ttl,json=multihopTtl" json:"multihop_ttl,omitempty"`
 }
 
-func (m *EbgpMultihop) Reset()                    {    fmt.Printf("DEJDEJ id:",1150)
 *m = EbgpMultihop{} }
-func (m *EbgpMultihop) String() string            {    fmt.Printf("DEJDEJ id:",1151)
 return proto.CompactTextString(m) }
 func (*EbgpMultihop) ProtoMessage()               {}
-func (*EbgpMultihop) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1153)
 return fileDescriptor0, []int{109} }
 
 func (m *EbgpMultihop) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1154)
 	if m != nil {
 		return m.Enabled
 	}
@@ -3683,7 +3128,6 @@ func (m *EbgpMultihop) GetEnabled() bool {
 }
 
 func (m *EbgpMultihop) GetMultihopTtl() uint32 { 
-   fmt.Printf("DEJDEJ id:",1155)
 	if m != nil {
 		return m.MultihopTtl
 	}
@@ -3695,16 +3139,12 @@ type RouteReflector struct {
 	RouteReflectorClusterId string `protobuf:"bytes,2,opt,name=route_reflector_cluster_id,json=routeReflectorClusterId" json:"route_reflector_cluster_id,omitempty"`
 }
 
-func (m *RouteReflector) Reset()                    {    fmt.Printf("DEJDEJ id:",1156)
 *m = RouteReflector{} }
-func (m *RouteReflector) String() string            {    fmt.Printf("DEJDEJ id:",1157)
 return proto.CompactTextString(m) }
 func (*RouteReflector) ProtoMessage()               {}
-func (*RouteReflector) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1159)
 return fileDescriptor0, []int{110} }
 
 func (m *RouteReflector) GetRouteReflectorClient() bool { 
-   fmt.Printf("DEJDEJ id:",1160)
 	if m != nil {
 		return m.RouteReflectorClient
 	}
@@ -3712,7 +3152,6 @@ func (m *RouteReflector) GetRouteReflectorClient() bool {
 }
 
 func (m *RouteReflector) GetRouteReflectorClusterId() string { 
-   fmt.Printf("DEJDEJ id:",1161)
 	if m != nil {
 		return m.RouteReflectorClusterId
 	}
@@ -3743,16 +3182,12 @@ type PeerState struct {
 	Flops                 uint32               `protobuf:"varint,21,opt,name=flops" json:"flops,omitempty"`
 }
 
-func (m *PeerState) Reset()                    {    fmt.Printf("DEJDEJ id:",1162)
 *m = PeerState{} }
-func (m *PeerState) String() string            {    fmt.Printf("DEJDEJ id:",1163)
 return proto.CompactTextString(m) }
 func (*PeerState) ProtoMessage()               {}
-func (*PeerState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1165)
 return fileDescriptor0, []int{111} }
 
 func (m *PeerState) GetAuthPassword() string { 
-   fmt.Printf("DEJDEJ id:",1166)
 	if m != nil {
 		return m.AuthPassword
 	}
@@ -3760,7 +3195,6 @@ func (m *PeerState) GetAuthPassword() string {
 }
 
 func (m *PeerState) GetDescription() string { 
-   fmt.Printf("DEJDEJ id:",1167)
 	if m != nil {
 		return m.Description
 	}
@@ -3768,7 +3202,6 @@ func (m *PeerState) GetDescription() string {
 }
 
 func (m *PeerState) GetLocalAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1168)
 	if m != nil {
 		return m.LocalAs
 	}
@@ -3776,7 +3209,6 @@ func (m *PeerState) GetLocalAs() uint32 {
 }
 
 func (m *PeerState) GetMessages() *Messages { 
-   fmt.Printf("DEJDEJ id:",1169)
 	if m != nil {
 		return m.Messages
 	}
@@ -3784,7 +3216,6 @@ func (m *PeerState) GetMessages() *Messages {
 }
 
 func (m *PeerState) GetNeighborAddress() string { 
-   fmt.Printf("DEJDEJ id:",1170)
 	if m != nil {
 		return m.NeighborAddress
 	}
@@ -3792,7 +3223,6 @@ func (m *PeerState) GetNeighborAddress() string {
 }
 
 func (m *PeerState) GetPeerAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1171)
 	if m != nil {
 		return m.PeerAs
 	}
@@ -3800,7 +3230,6 @@ func (m *PeerState) GetPeerAs() uint32 {
 }
 
 func (m *PeerState) GetPeerGroup() string { 
-   fmt.Printf("DEJDEJ id:",1172)
 	if m != nil {
 		return m.PeerGroup
 	}
@@ -3808,7 +3237,6 @@ func (m *PeerState) GetPeerGroup() string {
 }
 
 func (m *PeerState) GetPeerType() uint32 { 
-   fmt.Printf("DEJDEJ id:",1173)
 	if m != nil {
 		return m.PeerType
 	}
@@ -3816,7 +3244,6 @@ func (m *PeerState) GetPeerType() uint32 {
 }
 
 func (m *PeerState) GetQueues() *Queues { 
-   fmt.Printf("DEJDEJ id:",1174)
 	if m != nil {
 		return m.Queues
 	}
@@ -3824,7 +3251,6 @@ func (m *PeerState) GetQueues() *Queues {
 }
 
 func (m *PeerState) GetRemovePrivateAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1175)
 	if m != nil {
 		return m.RemovePrivateAs
 	}
@@ -3832,7 +3258,6 @@ func (m *PeerState) GetRemovePrivateAs() uint32 {
 }
 
 func (m *PeerState) GetRouteFlapDamping() bool { 
-   fmt.Printf("DEJDEJ id:",1176)
 	if m != nil {
 		return m.RouteFlapDamping
 	}
@@ -3840,7 +3265,6 @@ func (m *PeerState) GetRouteFlapDamping() bool {
 }
 
 func (m *PeerState) GetSendCommunity() uint32 { 
-   fmt.Printf("DEJDEJ id:",1177)
 	if m != nil {
 		return m.SendCommunity
 	}
@@ -3848,7 +3272,6 @@ func (m *PeerState) GetSendCommunity() uint32 {
 }
 
 func (m *PeerState) GetSessionState() uint32 { 
-   fmt.Printf("DEJDEJ id:",1178)
 	if m != nil {
 		return m.SessionState
 	}
@@ -3856,7 +3279,6 @@ func (m *PeerState) GetSessionState() uint32 {
 }
 
 func (m *PeerState) GetSupportedCapabilities() []string { 
-   fmt.Printf("DEJDEJ id:",1179)
 	if m != nil {
 		return m.SupportedCapabilities
 	}
@@ -3864,7 +3286,6 @@ func (m *PeerState) GetSupportedCapabilities() []string {
 }
 
 func (m *PeerState) GetBgpState() string { 
-   fmt.Printf("DEJDEJ id:",1180)
 	if m != nil {
 		return m.BgpState
 	}
@@ -3872,7 +3293,6 @@ func (m *PeerState) GetBgpState() string {
 }
 
 func (m *PeerState) GetAdminState() PeerState_AdminState { 
-   fmt.Printf("DEJDEJ id:",1181)
 	if m != nil {
 		return m.AdminState
 	}
@@ -3880,7 +3300,6 @@ func (m *PeerState) GetAdminState() PeerState_AdminState {
 }
 
 func (m *PeerState) GetReceived() uint32 { 
-   fmt.Printf("DEJDEJ id:",1182)
 	if m != nil {
 		return m.Received
 	}
@@ -3888,7 +3307,6 @@ func (m *PeerState) GetReceived() uint32 {
 }
 
 func (m *PeerState) GetAccepted() uint32 { 
-   fmt.Printf("DEJDEJ id:",1183)
 	if m != nil {
 		return m.Accepted
 	}
@@ -3896,7 +3314,6 @@ func (m *PeerState) GetAccepted() uint32 {
 }
 
 func (m *PeerState) GetAdvertised() uint32 { 
-   fmt.Printf("DEJDEJ id:",1184)
 	if m != nil {
 		return m.Advertised
 	}
@@ -3904,7 +3321,6 @@ func (m *PeerState) GetAdvertised() uint32 {
 }
 
 func (m *PeerState) GetOutQ() uint32 { 
-   fmt.Printf("DEJDEJ id:",1185)
 	if m != nil {
 		return m.OutQ
 	}
@@ -3912,7 +3328,6 @@ func (m *PeerState) GetOutQ() uint32 {
 }
 
 func (m *PeerState) GetFlops() uint32 { 
-   fmt.Printf("DEJDEJ id:",1186)
 	if m != nil {
 		return m.Flops
 	}
@@ -3924,16 +3339,12 @@ type Messages struct {
 	Sent     *Message `protobuf:"bytes,2,opt,name=sent" json:"sent,omitempty"`
 }
 
-func (m *Messages) Reset()                    {    fmt.Printf("DEJDEJ id:",1187)
 *m = Messages{} }
-func (m *Messages) String() string            {    fmt.Printf("DEJDEJ id:",1188)
 return proto.CompactTextString(m) }
 func (*Messages) ProtoMessage()               {}
-func (*Messages) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1190)
 return fileDescriptor0, []int{112} }
 
 func (m *Messages) GetReceived() *Message { 
-   fmt.Printf("DEJDEJ id:",1191)
 	if m != nil {
 		return m.Received
 	}
@@ -3941,7 +3352,6 @@ func (m *Messages) GetReceived() *Message {
 }
 
 func (m *Messages) GetSent() *Message { 
-   fmt.Printf("DEJDEJ id:",1192)
 	if m != nil {
 		return m.Sent
 	}
@@ -3958,16 +3368,12 @@ type Message struct {
 	TOTAL        uint64 `protobuf:"varint,7,opt,name=TOTAL" json:"TOTAL,omitempty"`
 }
 
-func (m *Message) Reset()                    {    fmt.Printf("DEJDEJ id:",1193)
 *m = Message{} }
-func (m *Message) String() string            {    fmt.Printf("DEJDEJ id:",1194)
 return proto.CompactTextString(m) }
 func (*Message) ProtoMessage()               {}
-func (*Message) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1196)
 return fileDescriptor0, []int{113} }
 
 func (m *Message) GetNOTIFICATION() uint64 { 
-   fmt.Printf("DEJDEJ id:",1197)
 	if m != nil {
 		return m.NOTIFICATION
 	}
@@ -3975,7 +3381,6 @@ func (m *Message) GetNOTIFICATION() uint64 {
 }
 
 func (m *Message) GetUPDATE() uint64 { 
-   fmt.Printf("DEJDEJ id:",1198)
 	if m != nil {
 		return m.UPDATE
 	}
@@ -3983,7 +3388,6 @@ func (m *Message) GetUPDATE() uint64 {
 }
 
 func (m *Message) GetOPEN() uint64 { 
-   fmt.Printf("DEJDEJ id:",1199)
 	if m != nil {
 		return m.OPEN
 	}
@@ -3991,7 +3395,6 @@ func (m *Message) GetOPEN() uint64 {
 }
 
 func (m *Message) GetKEEPALIVE() uint64 { 
-   fmt.Printf("DEJDEJ id:",1200)
 	if m != nil {
 		return m.KEEPALIVE
 	}
@@ -3999,7 +3402,6 @@ func (m *Message) GetKEEPALIVE() uint64 {
 }
 
 func (m *Message) GetREFRESH() uint64 { 
-   fmt.Printf("DEJDEJ id:",1201)
 	if m != nil {
 		return m.REFRESH
 	}
@@ -4007,7 +3409,6 @@ func (m *Message) GetREFRESH() uint64 {
 }
 
 func (m *Message) GetDISCARDED() uint64 { 
-   fmt.Printf("DEJDEJ id:",1202)
 	if m != nil {
 		return m.DISCARDED
 	}
@@ -4015,7 +3416,6 @@ func (m *Message) GetDISCARDED() uint64 {
 }
 
 func (m *Message) GetTOTAL() uint64 { 
-   fmt.Printf("DEJDEJ id:",1203)
 	if m != nil {
 		return m.TOTAL
 	}
@@ -4027,16 +3427,12 @@ type Queues struct {
 	Output uint32 `protobuf:"varint,2,opt,name=output" json:"output,omitempty"`
 }
 
-func (m *Queues) Reset()                    {    fmt.Printf("DEJDEJ id:",1204)
 *m = Queues{} }
-func (m *Queues) String() string            {    fmt.Printf("DEJDEJ id:",1205)
 return proto.CompactTextString(m) }
 func (*Queues) ProtoMessage()               {}
-func (*Queues) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1207)
 return fileDescriptor0, []int{114} }
 
 func (m *Queues) GetInput() uint32 { 
-   fmt.Printf("DEJDEJ id:",1208)
 	if m != nil {
 		return m.Input
 	}
@@ -4044,7 +3440,6 @@ func (m *Queues) GetInput() uint32 {
 }
 
 func (m *Queues) GetOutput() uint32 { 
-   fmt.Printf("DEJDEJ id:",1209)
 	if m != nil {
 		return m.Output
 	}
@@ -4056,16 +3451,12 @@ type Timers struct {
 	State  *TimersState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *Timers) Reset()                    {    fmt.Printf("DEJDEJ id:",1210)
 *m = Timers{} }
-func (m *Timers) String() string            {    fmt.Printf("DEJDEJ id:",1211)
 return proto.CompactTextString(m) }
 func (*Timers) ProtoMessage()               {}
-func (*Timers) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1213)
 return fileDescriptor0, []int{115} }
 
 func (m *Timers) GetConfig() *TimersConfig { 
-   fmt.Printf("DEJDEJ id:",1214)
 	if m != nil {
 		return m.Config
 	}
@@ -4073,7 +3464,6 @@ func (m *Timers) GetConfig() *TimersConfig {
 }
 
 func (m *Timers) GetState() *TimersState { 
-   fmt.Printf("DEJDEJ id:",1215)
 	if m != nil {
 		return m.State
 	}
@@ -4087,16 +3477,12 @@ type TimersConfig struct {
 	MinimumAdvertisementInterval uint64 `protobuf:"varint,4,opt,name=minimum_advertisement_interval,json=minimumAdvertisementInterval" json:"minimum_advertisement_interval,omitempty"`
 }
 
-func (m *TimersConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1216)
 *m = TimersConfig{} }
-func (m *TimersConfig) String() string            {    fmt.Printf("DEJDEJ id:",1217)
 return proto.CompactTextString(m) }
 func (*TimersConfig) ProtoMessage()               {}
-func (*TimersConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1219)
 return fileDescriptor0, []int{116} }
 
 func (m *TimersConfig) GetConnectRetry() uint64 { 
-   fmt.Printf("DEJDEJ id:",1220)
 	if m != nil {
 		return m.ConnectRetry
 	}
@@ -4104,7 +3490,6 @@ func (m *TimersConfig) GetConnectRetry() uint64 {
 }
 
 func (m *TimersConfig) GetHoldTime() uint64 { 
-   fmt.Printf("DEJDEJ id:",1221)
 	if m != nil {
 		return m.HoldTime
 	}
@@ -4112,7 +3497,6 @@ func (m *TimersConfig) GetHoldTime() uint64 {
 }
 
 func (m *TimersConfig) GetKeepaliveInterval() uint64 { 
-   fmt.Printf("DEJDEJ id:",1222)
 	if m != nil {
 		return m.KeepaliveInterval
 	}
@@ -4120,7 +3504,6 @@ func (m *TimersConfig) GetKeepaliveInterval() uint64 {
 }
 
 func (m *TimersConfig) GetMinimumAdvertisementInterval() uint64 { 
-   fmt.Printf("DEJDEJ id:",1223)
 	if m != nil {
 		return m.MinimumAdvertisementInterval
 	}
@@ -4137,16 +3520,12 @@ type TimersState struct {
 	Downtime                     uint64 `protobuf:"varint,7,opt,name=downtime" json:"downtime,omitempty"`
 }
 
-func (m *TimersState) Reset()                    {    fmt.Printf("DEJDEJ id:",1224)
 *m = TimersState{} }
-func (m *TimersState) String() string            {    fmt.Printf("DEJDEJ id:",1225)
 return proto.CompactTextString(m) }
 func (*TimersState) ProtoMessage()               {}
-func (*TimersState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1227)
 return fileDescriptor0, []int{117} }
 
 func (m *TimersState) GetConnectRetry() uint64 { 
-   fmt.Printf("DEJDEJ id:",1228)
 	if m != nil {
 		return m.ConnectRetry
 	}
@@ -4154,7 +3533,6 @@ func (m *TimersState) GetConnectRetry() uint64 {
 }
 
 func (m *TimersState) GetHoldTime() uint64 { 
-   fmt.Printf("DEJDEJ id:",1229)
 	if m != nil {
 		return m.HoldTime
 	}
@@ -4162,7 +3540,6 @@ func (m *TimersState) GetHoldTime() uint64 {
 }
 
 func (m *TimersState) GetKeepaliveInterval() uint64 { 
-   fmt.Printf("DEJDEJ id:",1230)
 	if m != nil {
 		return m.KeepaliveInterval
 	}
@@ -4170,7 +3547,6 @@ func (m *TimersState) GetKeepaliveInterval() uint64 {
 }
 
 func (m *TimersState) GetMinimumAdvertisementInterval() uint64 { 
-   fmt.Printf("DEJDEJ id:",1231)
 	if m != nil {
 		return m.MinimumAdvertisementInterval
 	}
@@ -4178,7 +3554,6 @@ func (m *TimersState) GetMinimumAdvertisementInterval() uint64 {
 }
 
 func (m *TimersState) GetNegotiatedHoldTime() uint64 { 
-   fmt.Printf("DEJDEJ id:",1232)
 	if m != nil {
 		return m.NegotiatedHoldTime
 	}
@@ -4186,7 +3561,6 @@ func (m *TimersState) GetNegotiatedHoldTime() uint64 {
 }
 
 func (m *TimersState) GetUptime() uint64 { 
-   fmt.Printf("DEJDEJ id:",1233)
 	if m != nil {
 		return m.Uptime
 	}
@@ -4194,7 +3568,6 @@ func (m *TimersState) GetUptime() uint64 {
 }
 
 func (m *TimersState) GetDowntime() uint64 { 
-   fmt.Printf("DEJDEJ id:",1234)
 	if m != nil {
 		return m.Downtime
 	}
@@ -4211,16 +3584,12 @@ type Transport struct {
 	TcpMss        uint32 `protobuf:"varint,7,opt,name=tcp_mss,json=tcpMss" json:"tcp_mss,omitempty"`
 }
 
-func (m *Transport) Reset()                    {    fmt.Printf("DEJDEJ id:",1235)
 *m = Transport{} }
-func (m *Transport) String() string            {    fmt.Printf("DEJDEJ id:",1236)
 return proto.CompactTextString(m) }
 func (*Transport) ProtoMessage()               {}
-func (*Transport) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1238)
 return fileDescriptor0, []int{118} }
 
 func (m *Transport) GetLocalAddress() string { 
-   fmt.Printf("DEJDEJ id:",1239)
 	if m != nil {
 		return m.LocalAddress
 	}
@@ -4228,7 +3597,6 @@ func (m *Transport) GetLocalAddress() string {
 }
 
 func (m *Transport) GetLocalPort() uint32 { 
-   fmt.Printf("DEJDEJ id:",1240)
 	if m != nil {
 		return m.LocalPort
 	}
@@ -4236,7 +3604,6 @@ func (m *Transport) GetLocalPort() uint32 {
 }
 
 func (m *Transport) GetMtuDiscovery() bool { 
-   fmt.Printf("DEJDEJ id:",1241)
 	if m != nil {
 		return m.MtuDiscovery
 	}
@@ -4244,7 +3611,6 @@ func (m *Transport) GetMtuDiscovery() bool {
 }
 
 func (m *Transport) GetPassiveMode() bool { 
-   fmt.Printf("DEJDEJ id:",1242)
 	if m != nil {
 		return m.PassiveMode
 	}
@@ -4252,7 +3618,6 @@ func (m *Transport) GetPassiveMode() bool {
 }
 
 func (m *Transport) GetRemoteAddress() string { 
-   fmt.Printf("DEJDEJ id:",1243)
 	if m != nil {
 		return m.RemoteAddress
 	}
@@ -4260,7 +3625,6 @@ func (m *Transport) GetRemoteAddress() string {
 }
 
 func (m *Transport) GetRemotePort() uint32 { 
-   fmt.Printf("DEJDEJ id:",1244)
 	if m != nil {
 		return m.RemotePort
 	}
@@ -4268,7 +3632,6 @@ func (m *Transport) GetRemotePort() uint32 {
 }
 
 func (m *Transport) GetTcpMss() uint32 { 
-   fmt.Printf("DEJDEJ id:",1245)
 	if m != nil {
 		return m.TcpMss
 	}
@@ -4279,16 +3642,12 @@ type RouteServer struct {
 	RouteServerClient bool `protobuf:"varint,1,opt,name=route_server_client,json=routeServerClient" json:"route_server_client,omitempty"`
 }
 
-func (m *RouteServer) Reset()                    {    fmt.Printf("DEJDEJ id:",1246)
 *m = RouteServer{} }
-func (m *RouteServer) String() string            {    fmt.Printf("DEJDEJ id:",1247)
 return proto.CompactTextString(m) }
 func (*RouteServer) ProtoMessage()               {}
-func (*RouteServer) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1249)
 return fileDescriptor0, []int{119} }
 
 func (m *RouteServer) GetRouteServerClient() bool { 
-   fmt.Printf("DEJDEJ id:",1250)
 	if m != nil {
 		return m.RouteServerClient
 	}
@@ -4304,16 +3663,12 @@ type GracefulRestart struct {
 	LonglivedEnabled    bool   `protobuf:"varint,6,opt,name=longlived_enabled,json=longlivedEnabled" json:"longlived_enabled,omitempty"`
 }
 
-func (m *GracefulRestart) Reset()                    {    fmt.Printf("DEJDEJ id:",1251)
 *m = GracefulRestart{} }
-func (m *GracefulRestart) String() string            {    fmt.Printf("DEJDEJ id:",1252)
 return proto.CompactTextString(m) }
 func (*GracefulRestart) ProtoMessage()               {}
-func (*GracefulRestart) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1254)
 return fileDescriptor0, []int{120} }
 
 func (m *GracefulRestart) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1255)
 	if m != nil {
 		return m.Enabled
 	}
@@ -4321,7 +3676,6 @@ func (m *GracefulRestart) GetEnabled() bool {
 }
 
 func (m *GracefulRestart) GetRestartTime() uint32 { 
-   fmt.Printf("DEJDEJ id:",1256)
 	if m != nil {
 		return m.RestartTime
 	}
@@ -4329,7 +3683,6 @@ func (m *GracefulRestart) GetRestartTime() uint32 {
 }
 
 func (m *GracefulRestart) GetHelperOnly() bool { 
-   fmt.Printf("DEJDEJ id:",1257)
 	if m != nil {
 		return m.HelperOnly
 	}
@@ -4337,7 +3690,6 @@ func (m *GracefulRestart) GetHelperOnly() bool {
 }
 
 func (m *GracefulRestart) GetDeferralTime() uint32 { 
-   fmt.Printf("DEJDEJ id:",1258)
 	if m != nil {
 		return m.DeferralTime
 	}
@@ -4345,7 +3697,6 @@ func (m *GracefulRestart) GetDeferralTime() uint32 {
 }
 
 func (m *GracefulRestart) GetNotificationEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1259)
 	if m != nil {
 		return m.NotificationEnabled
 	}
@@ -4353,7 +3704,6 @@ func (m *GracefulRestart) GetNotificationEnabled() bool {
 }
 
 func (m *GracefulRestart) GetLonglivedEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1260)
 	if m != nil {
 		return m.LonglivedEnabled
 	}
@@ -4364,16 +3714,12 @@ type MpGracefulRestartConfig struct {
 	Enabled bool `protobuf:"varint,1,opt,name=enabled" json:"enabled,omitempty"`
 }
 
-func (m *MpGracefulRestartConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1261)
 *m = MpGracefulRestartConfig{} }
-func (m *MpGracefulRestartConfig) String() string            {    fmt.Printf("DEJDEJ id:",1262)
 return proto.CompactTextString(m) }
 func (*MpGracefulRestartConfig) ProtoMessage()               {}
-func (*MpGracefulRestartConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1264)
 return fileDescriptor0, []int{121} }
 
 func (m *MpGracefulRestartConfig) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1265)
 	if m != nil {
 		return m.Enabled
 	}
@@ -4388,16 +3734,12 @@ type MpGracefulRestartState struct {
 	EndOfRibSent     bool `protobuf:"varint,5,opt,name=end_of_rib_sent,json=endOfRibSent" json:"end_of_rib_sent,omitempty"`
 }
 
-func (m *MpGracefulRestartState) Reset()                    {    fmt.Printf("DEJDEJ id:",1266)
 *m = MpGracefulRestartState{} }
-func (m *MpGracefulRestartState) String() string            {    fmt.Printf("DEJDEJ id:",1267)
 return proto.CompactTextString(m) }
 func (*MpGracefulRestartState) ProtoMessage()               {}
-func (*MpGracefulRestartState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1269)
 return fileDescriptor0, []int{122} }
 
 func (m *MpGracefulRestartState) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1270)
 	if m != nil {
 		return m.Enabled
 	}
@@ -4405,7 +3747,6 @@ func (m *MpGracefulRestartState) GetEnabled() bool {
 }
 
 func (m *MpGracefulRestartState) GetReceived() bool { 
-   fmt.Printf("DEJDEJ id:",1271)
 	if m != nil {
 		return m.Received
 	}
@@ -4413,7 +3754,6 @@ func (m *MpGracefulRestartState) GetReceived() bool {
 }
 
 func (m *MpGracefulRestartState) GetAdvertised() bool { 
-   fmt.Printf("DEJDEJ id:",1272)
 	if m != nil {
 		return m.Advertised
 	}
@@ -4421,7 +3761,6 @@ func (m *MpGracefulRestartState) GetAdvertised() bool {
 }
 
 func (m *MpGracefulRestartState) GetEndOfRibReceived() bool { 
-   fmt.Printf("DEJDEJ id:",1273)
 	if m != nil {
 		return m.EndOfRibReceived
 	}
@@ -4429,7 +3768,6 @@ func (m *MpGracefulRestartState) GetEndOfRibReceived() bool {
 }
 
 func (m *MpGracefulRestartState) GetEndOfRibSent() bool { 
-   fmt.Printf("DEJDEJ id:",1274)
 	if m != nil {
 		return m.EndOfRibSent
 	}
@@ -4441,16 +3779,12 @@ type MpGracefulRestart struct {
 	State  *MpGracefulRestartState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *MpGracefulRestart) Reset()                    {    fmt.Printf("DEJDEJ id:",1275)
 *m = MpGracefulRestart{} }
-func (m *MpGracefulRestart) String() string            {    fmt.Printf("DEJDEJ id:",1276)
 return proto.CompactTextString(m) }
 func (*MpGracefulRestart) ProtoMessage()               {}
-func (*MpGracefulRestart) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1278)
 return fileDescriptor0, []int{123} }
 
 func (m *MpGracefulRestart) GetConfig() *MpGracefulRestartConfig { 
-   fmt.Printf("DEJDEJ id:",1279)
 	if m != nil {
 		return m.Config
 	}
@@ -4458,7 +3792,6 @@ func (m *MpGracefulRestart) GetConfig() *MpGracefulRestartConfig {
 }
 
 func (m *MpGracefulRestart) GetState() *MpGracefulRestartState { 
-   fmt.Printf("DEJDEJ id:",1280)
 	if m != nil {
 		return m.State
 	}
@@ -4470,16 +3803,12 @@ type AfiSafiConfig struct {
 	Enabled bool   `protobuf:"varint,2,opt,name=enabled" json:"enabled,omitempty"`
 }
 
-func (m *AfiSafiConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1281)
 *m = AfiSafiConfig{} }
-func (m *AfiSafiConfig) String() string            {    fmt.Printf("DEJDEJ id:",1282)
 return proto.CompactTextString(m) }
 func (*AfiSafiConfig) ProtoMessage()               {}
-func (*AfiSafiConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1284)
 return fileDescriptor0, []int{124} }
 
 func (m *AfiSafiConfig) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1285)
 	if m != nil {
 		return m.Family
 	}
@@ -4487,7 +3816,6 @@ func (m *AfiSafiConfig) GetFamily() uint32 {
 }
 
 func (m *AfiSafiConfig) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1286)
 	if m != nil {
 		return m.Enabled
 	}
@@ -4501,16 +3829,12 @@ type AfiSafiState struct {
 	TotalPrefixes uint32 `protobuf:"varint,4,opt,name=total_prefixes,json=totalPrefixes" json:"total_prefixes,omitempty"`
 }
 
-func (m *AfiSafiState) Reset()                    {    fmt.Printf("DEJDEJ id:",1287)
 *m = AfiSafiState{} }
-func (m *AfiSafiState) String() string            {    fmt.Printf("DEJDEJ id:",1288)
 return proto.CompactTextString(m) }
 func (*AfiSafiState) ProtoMessage()               {}
-func (*AfiSafiState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1290)
 return fileDescriptor0, []int{125} }
 
 func (m *AfiSafiState) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1291)
 	if m != nil {
 		return m.Family
 	}
@@ -4518,7 +3842,6 @@ func (m *AfiSafiState) GetFamily() uint32 {
 }
 
 func (m *AfiSafiState) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1292)
 	if m != nil {
 		return m.Enabled
 	}
@@ -4526,7 +3849,6 @@ func (m *AfiSafiState) GetEnabled() bool {
 }
 
 func (m *AfiSafiState) GetTotalPaths() uint32 { 
-   fmt.Printf("DEJDEJ id:",1293)
 	if m != nil {
 		return m.TotalPaths
 	}
@@ -4534,7 +3856,6 @@ func (m *AfiSafiState) GetTotalPaths() uint32 {
 }
 
 func (m *AfiSafiState) GetTotalPrefixes() uint32 { 
-   fmt.Printf("DEJDEJ id:",1294)
 	if m != nil {
 		return m.TotalPrefixes
 	}
@@ -4550,16 +3871,12 @@ type RouteSelectionOptionsConfig struct {
 	IgnoreNextHopIgpMetric  bool `protobuf:"varint,6,opt,name=ignore_next_hop_igp_metric,json=ignoreNextHopIgpMetric" json:"ignore_next_hop_igp_metric,omitempty"`
 }
 
-func (m *RouteSelectionOptionsConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1295)
 *m = RouteSelectionOptionsConfig{} }
-func (m *RouteSelectionOptionsConfig) String() string            {    fmt.Printf("DEJDEJ id:",1296)
 return proto.CompactTextString(m) }
 func (*RouteSelectionOptionsConfig) ProtoMessage()               {}
-func (*RouteSelectionOptionsConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1298)
 return fileDescriptor0, []int{126} }
 
 func (m *RouteSelectionOptionsConfig) GetAlwaysCompareMed() bool { 
-   fmt.Printf("DEJDEJ id:",1299)
 	if m != nil {
 		return m.AlwaysCompareMed
 	}
@@ -4567,7 +3884,6 @@ func (m *RouteSelectionOptionsConfig) GetAlwaysCompareMed() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetIgnoreAsPathLength() bool { 
-   fmt.Printf("DEJDEJ id:",1300)
 	if m != nil {
 		return m.IgnoreAsPathLength
 	}
@@ -4575,7 +3891,6 @@ func (m *RouteSelectionOptionsConfig) GetIgnoreAsPathLength() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetExternalCompareRouterId() bool { 
-   fmt.Printf("DEJDEJ id:",1301)
 	if m != nil {
 		return m.ExternalCompareRouterId
 	}
@@ -4583,7 +3898,6 @@ func (m *RouteSelectionOptionsConfig) GetExternalCompareRouterId() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetAdvertiseInactiveRoutes() bool { 
-   fmt.Printf("DEJDEJ id:",1302)
 	if m != nil {
 		return m.AdvertiseInactiveRoutes
 	}
@@ -4591,7 +3905,6 @@ func (m *RouteSelectionOptionsConfig) GetAdvertiseInactiveRoutes() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetEnableAigp() bool { 
-   fmt.Printf("DEJDEJ id:",1303)
 	if m != nil {
 		return m.EnableAigp
 	}
@@ -4599,7 +3912,6 @@ func (m *RouteSelectionOptionsConfig) GetEnableAigp() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetIgnoreNextHopIgpMetric() bool { 
-   fmt.Printf("DEJDEJ id:",1304)
 	if m != nil {
 		return m.IgnoreNextHopIgpMetric
 	}
@@ -4615,16 +3927,12 @@ type RouteSelectionOptionsState struct {
 	IgnoreNextHopIgpMetric  bool `protobuf:"varint,6,opt,name=ignore_next_hop_igp_metric,json=ignoreNextHopIgpMetric" json:"ignore_next_hop_igp_metric,omitempty"`
 }
 
-func (m *RouteSelectionOptionsState) Reset()                    {    fmt.Printf("DEJDEJ id:",1305)
 *m = RouteSelectionOptionsState{} }
-func (m *RouteSelectionOptionsState) String() string            {    fmt.Printf("DEJDEJ id:",1306)
 return proto.CompactTextString(m) }
 func (*RouteSelectionOptionsState) ProtoMessage()               {}
-func (*RouteSelectionOptionsState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1308)
 return fileDescriptor0, []int{127} }
 
 func (m *RouteSelectionOptionsState) GetAlwaysCompareMed() bool { 
-   fmt.Printf("DEJDEJ id:",1309)
 	if m != nil {
 		return m.AlwaysCompareMed
 	}
@@ -4632,7 +3940,6 @@ func (m *RouteSelectionOptionsState) GetAlwaysCompareMed() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetIgnoreAsPathLength() bool { 
-   fmt.Printf("DEJDEJ id:",1310)
 	if m != nil {
 		return m.IgnoreAsPathLength
 	}
@@ -4640,7 +3947,6 @@ func (m *RouteSelectionOptionsState) GetIgnoreAsPathLength() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetExternalCompareRouterId() bool { 
-   fmt.Printf("DEJDEJ id:",1311)
 	if m != nil {
 		return m.ExternalCompareRouterId
 	}
@@ -4648,7 +3954,6 @@ func (m *RouteSelectionOptionsState) GetExternalCompareRouterId() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetAdvertiseInactiveRoutes() bool { 
-   fmt.Printf("DEJDEJ id:",1312)
 	if m != nil {
 		return m.AdvertiseInactiveRoutes
 	}
@@ -4656,7 +3961,6 @@ func (m *RouteSelectionOptionsState) GetAdvertiseInactiveRoutes() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetEnableAigp() bool { 
-   fmt.Printf("DEJDEJ id:",1313)
 	if m != nil {
 		return m.EnableAigp
 	}
@@ -4664,7 +3968,6 @@ func (m *RouteSelectionOptionsState) GetEnableAigp() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetIgnoreNextHopIgpMetric() bool { 
-   fmt.Printf("DEJDEJ id:",1314)
 	if m != nil {
 		return m.IgnoreNextHopIgpMetric
 	}
@@ -4676,16 +3979,12 @@ type RouteSelectionOptions struct {
 	State  *RouteSelectionOptionsState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *RouteSelectionOptions) Reset()                    {    fmt.Printf("DEJDEJ id:",1315)
 *m = RouteSelectionOptions{} }
-func (m *RouteSelectionOptions) String() string            {    fmt.Printf("DEJDEJ id:",1316)
 return proto.CompactTextString(m) }
 func (*RouteSelectionOptions) ProtoMessage()               {}
-func (*RouteSelectionOptions) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1318)
 return fileDescriptor0, []int{128} }
 
 func (m *RouteSelectionOptions) GetConfig() *RouteSelectionOptionsConfig { 
-   fmt.Printf("DEJDEJ id:",1319)
 	if m != nil {
 		return m.Config
 	}
@@ -4693,7 +3992,6 @@ func (m *RouteSelectionOptions) GetConfig() *RouteSelectionOptionsConfig {
 }
 
 func (m *RouteSelectionOptions) GetState() *RouteSelectionOptionsState { 
-   fmt.Printf("DEJDEJ id:",1320)
 	if m != nil {
 		return m.State
 	}
@@ -4704,16 +4002,12 @@ type UseMultiplePathsConfig struct {
 	Enabled bool `protobuf:"varint,1,opt,name=enabled" json:"enabled,omitempty"`
 }
 
-func (m *UseMultiplePathsConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1321)
 *m = UseMultiplePathsConfig{} }
-func (m *UseMultiplePathsConfig) String() string            {    fmt.Printf("DEJDEJ id:",1322)
 return proto.CompactTextString(m) }
 func (*UseMultiplePathsConfig) ProtoMessage()               {}
-func (*UseMultiplePathsConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1324)
 return fileDescriptor0, []int{129} }
 
 func (m *UseMultiplePathsConfig) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1325)
 	if m != nil {
 		return m.Enabled
 	}
@@ -4724,16 +4018,12 @@ type UseMultiplePathsState struct {
 	Enabled bool `protobuf:"varint,1,opt,name=enabled" json:"enabled,omitempty"`
 }
 
-func (m *UseMultiplePathsState) Reset()                    {    fmt.Printf("DEJDEJ id:",1326)
 *m = UseMultiplePathsState{} }
-func (m *UseMultiplePathsState) String() string            {    fmt.Printf("DEJDEJ id:",1327)
 return proto.CompactTextString(m) }
 func (*UseMultiplePathsState) ProtoMessage()               {}
-func (*UseMultiplePathsState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1329)
 return fileDescriptor0, []int{130} }
 
 func (m *UseMultiplePathsState) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1330)
 	if m != nil {
 		return m.Enabled
 	}
@@ -4745,16 +4035,12 @@ type EbgpConfig struct {
 	MaximumPaths    uint32 `protobuf:"varint,2,opt,name=maximum_paths,json=maximumPaths" json:"maximum_paths,omitempty"`
 }
 
-func (m *EbgpConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1331)
 *m = EbgpConfig{} }
-func (m *EbgpConfig) String() string            {    fmt.Printf("DEJDEJ id:",1332)
 return proto.CompactTextString(m) }
 func (*EbgpConfig) ProtoMessage()               {}
-func (*EbgpConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1334)
 return fileDescriptor0, []int{131} }
 
 func (m *EbgpConfig) GetAllowMultipleAs() bool { 
-   fmt.Printf("DEJDEJ id:",1335)
 	if m != nil {
 		return m.AllowMultipleAs
 	}
@@ -4762,7 +4048,6 @@ func (m *EbgpConfig) GetAllowMultipleAs() bool {
 }
 
 func (m *EbgpConfig) GetMaximumPaths() uint32 { 
-   fmt.Printf("DEJDEJ id:",1336)
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4774,16 +4059,12 @@ type EbgpState struct {
 	MaximumPaths    uint32 `protobuf:"varint,2,opt,name=maximum_paths,json=maximumPaths" json:"maximum_paths,omitempty"`
 }
 
-func (m *EbgpState) Reset()                    {    fmt.Printf("DEJDEJ id:",1337)
 *m = EbgpState{} }
-func (m *EbgpState) String() string            {    fmt.Printf("DEJDEJ id:",1338)
 return proto.CompactTextString(m) }
 func (*EbgpState) ProtoMessage()               {}
-func (*EbgpState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1340)
 return fileDescriptor0, []int{132} }
 
 func (m *EbgpState) GetAllowMultipleAs() bool { 
-   fmt.Printf("DEJDEJ id:",1341)
 	if m != nil {
 		return m.AllowMultipleAs
 	}
@@ -4791,7 +4072,6 @@ func (m *EbgpState) GetAllowMultipleAs() bool {
 }
 
 func (m *EbgpState) GetMaximumPaths() uint32 { 
-   fmt.Printf("DEJDEJ id:",1342)
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4803,16 +4083,12 @@ type Ebgp struct {
 	State  *EbgpState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *Ebgp) Reset()                    {    fmt.Printf("DEJDEJ id:",1343)
 *m = Ebgp{} }
-func (m *Ebgp) String() string            {    fmt.Printf("DEJDEJ id:",1344)
 return proto.CompactTextString(m) }
 func (*Ebgp) ProtoMessage()               {}
-func (*Ebgp) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1346)
 return fileDescriptor0, []int{133} }
 
 func (m *Ebgp) GetConfig() *EbgpConfig { 
-   fmt.Printf("DEJDEJ id:",1347)
 	if m != nil {
 		return m.Config
 	}
@@ -4820,7 +4096,6 @@ func (m *Ebgp) GetConfig() *EbgpConfig {
 }
 
 func (m *Ebgp) GetState() *EbgpState { 
-   fmt.Printf("DEJDEJ id:",1348)
 	if m != nil {
 		return m.State
 	}
@@ -4831,16 +4106,12 @@ type IbgpConfig struct {
 	MaximumPaths uint32 `protobuf:"varint,1,opt,name=maximum_paths,json=maximumPaths" json:"maximum_paths,omitempty"`
 }
 
-func (m *IbgpConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1349)
 *m = IbgpConfig{} }
-func (m *IbgpConfig) String() string            {    fmt.Printf("DEJDEJ id:",1350)
 return proto.CompactTextString(m) }
 func (*IbgpConfig) ProtoMessage()               {}
-func (*IbgpConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1352)
 return fileDescriptor0, []int{134} }
 
 func (m *IbgpConfig) GetMaximumPaths() uint32 { 
-   fmt.Printf("DEJDEJ id:",1353)
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4851,16 +4122,12 @@ type IbgpState struct {
 	MaximumPaths uint32 `protobuf:"varint,1,opt,name=maximum_paths,json=maximumPaths" json:"maximum_paths,omitempty"`
 }
 
-func (m *IbgpState) Reset()                    {    fmt.Printf("DEJDEJ id:",1354)
 *m = IbgpState{} }
-func (m *IbgpState) String() string            {    fmt.Printf("DEJDEJ id:",1355)
 return proto.CompactTextString(m) }
 func (*IbgpState) ProtoMessage()               {}
-func (*IbgpState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1357)
 return fileDescriptor0, []int{135} }
 
 func (m *IbgpState) GetMaximumPaths() uint32 { 
-   fmt.Printf("DEJDEJ id:",1358)
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4872,16 +4139,12 @@ type Ibgp struct {
 	State  *IbgpState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *Ibgp) Reset()                    {    fmt.Printf("DEJDEJ id:",1359)
 *m = Ibgp{} }
-func (m *Ibgp) String() string            {    fmt.Printf("DEJDEJ id:",1360)
 return proto.CompactTextString(m) }
 func (*Ibgp) ProtoMessage()               {}
-func (*Ibgp) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1362)
 return fileDescriptor0, []int{136} }
 
 func (m *Ibgp) GetConfig() *IbgpConfig { 
-   fmt.Printf("DEJDEJ id:",1363)
 	if m != nil {
 		return m.Config
 	}
@@ -4889,7 +4152,6 @@ func (m *Ibgp) GetConfig() *IbgpConfig {
 }
 
 func (m *Ibgp) GetState() *IbgpState { 
-   fmt.Printf("DEJDEJ id:",1364)
 	if m != nil {
 		return m.State
 	}
@@ -4903,16 +4165,12 @@ type UseMultiplePaths struct {
 	Ibgp   *Ibgp                   `protobuf:"bytes,4,opt,name=ibgp" json:"ibgp,omitempty"`
 }
 
-func (m *UseMultiplePaths) Reset()                    {    fmt.Printf("DEJDEJ id:",1365)
 *m = UseMultiplePaths{} }
-func (m *UseMultiplePaths) String() string            {    fmt.Printf("DEJDEJ id:",1366)
 return proto.CompactTextString(m) }
 func (*UseMultiplePaths) ProtoMessage()               {}
-func (*UseMultiplePaths) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1368)
 return fileDescriptor0, []int{137} }
 
 func (m *UseMultiplePaths) GetConfig() *UseMultiplePathsConfig { 
-   fmt.Printf("DEJDEJ id:",1369)
 	if m != nil {
 		return m.Config
 	}
@@ -4920,7 +4178,6 @@ func (m *UseMultiplePaths) GetConfig() *UseMultiplePathsConfig {
 }
 
 func (m *UseMultiplePaths) GetState() *UseMultiplePathsState { 
-   fmt.Printf("DEJDEJ id:",1370)
 	if m != nil {
 		return m.State
 	}
@@ -4928,7 +4185,6 @@ func (m *UseMultiplePaths) GetState() *UseMultiplePathsState {
 }
 
 func (m *UseMultiplePaths) GetEbgp() *Ebgp { 
-   fmt.Printf("DEJDEJ id:",1371)
 	if m != nil {
 		return m.Ebgp
 	}
@@ -4936,7 +4192,6 @@ func (m *UseMultiplePaths) GetEbgp() *Ebgp {
 }
 
 func (m *UseMultiplePaths) GetIbgp() *Ibgp { 
-   fmt.Printf("DEJDEJ id:",1372)
 	if m != nil {
 		return m.Ibgp
 	}
@@ -4947,16 +4202,12 @@ type RouteTargetMembershipConfig struct {
 	DeferralTime uint32 `protobuf:"varint,1,opt,name=deferral_time,json=deferralTime" json:"deferral_time,omitempty"`
 }
 
-func (m *RouteTargetMembershipConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1373)
 *m = RouteTargetMembershipConfig{} }
-func (m *RouteTargetMembershipConfig) String() string            {    fmt.Printf("DEJDEJ id:",1374)
 return proto.CompactTextString(m) }
 func (*RouteTargetMembershipConfig) ProtoMessage()               {}
-func (*RouteTargetMembershipConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1376)
 return fileDescriptor0, []int{138} }
 
 func (m *RouteTargetMembershipConfig) GetDeferralTime() uint32 { 
-   fmt.Printf("DEJDEJ id:",1377)
 	if m != nil {
 		return m.DeferralTime
 	}
@@ -4967,16 +4218,12 @@ type RouteTargetMembershipState struct {
 	DeferralTime uint32 `protobuf:"varint,1,opt,name=deferral_time,json=deferralTime" json:"deferral_time,omitempty"`
 }
 
-func (m *RouteTargetMembershipState) Reset()                    {    fmt.Printf("DEJDEJ id:",1378)
 *m = RouteTargetMembershipState{} }
-func (m *RouteTargetMembershipState) String() string            {    fmt.Printf("DEJDEJ id:",1379)
 return proto.CompactTextString(m) }
 func (*RouteTargetMembershipState) ProtoMessage()               {}
-func (*RouteTargetMembershipState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1381)
 return fileDescriptor0, []int{139} }
 
 func (m *RouteTargetMembershipState) GetDeferralTime() uint32 { 
-   fmt.Printf("DEJDEJ id:",1382)
 	if m != nil {
 		return m.DeferralTime
 	}
@@ -4988,16 +4235,12 @@ type RouteTargetMembership struct {
 	State  *RouteTargetMembershipState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *RouteTargetMembership) Reset()                    {    fmt.Printf("DEJDEJ id:",1383)
 *m = RouteTargetMembership{} }
-func (m *RouteTargetMembership) String() string            {    fmt.Printf("DEJDEJ id:",1384)
 return proto.CompactTextString(m) }
 func (*RouteTargetMembership) ProtoMessage()               {}
-func (*RouteTargetMembership) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1386)
 return fileDescriptor0, []int{140} }
 
 func (m *RouteTargetMembership) GetConfig() *RouteTargetMembershipConfig { 
-   fmt.Printf("DEJDEJ id:",1387)
 	if m != nil {
 		return m.Config
 	}
@@ -5005,7 +4248,6 @@ func (m *RouteTargetMembership) GetConfig() *RouteTargetMembershipConfig {
 }
 
 func (m *RouteTargetMembership) GetState() *RouteTargetMembershipState { 
-   fmt.Printf("DEJDEJ id:",1388)
 	if m != nil {
 		return m.State
 	}
@@ -5017,18 +4259,14 @@ type LongLivedGracefulRestartConfig struct {
 	RestartTime uint32 `protobuf:"varint,2,opt,name=restart_time,json=restartTime" json:"restart_time,omitempty"`
 }
 
-func (m *LongLivedGracefulRestartConfig) Reset()         {    fmt.Printf("DEJDEJ id:",1389)
 *m = LongLivedGracefulRestartConfig{} }
-func (m *LongLivedGracefulRestartConfig) String() string {    fmt.Printf("DEJDEJ id:",1390)
 return proto.CompactTextString(m) }
 func (*LongLivedGracefulRestartConfig) ProtoMessage()    {}
 func (*LongLivedGracefulRestartConfig) Descriptor() ([]byte, []int) { 
-   fmt.Printf("DEJDEJ id:",1392)
 	return fileDescriptor0, []int{141}
 }
 
 func (m *LongLivedGracefulRestartConfig) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1393)
 	if m != nil {
 		return m.Enabled
 	}
@@ -5036,7 +4274,6 @@ func (m *LongLivedGracefulRestartConfig) GetEnabled() bool {
 }
 
 func (m *LongLivedGracefulRestartConfig) GetRestartTime() uint32 { 
-   fmt.Printf("DEJDEJ id:",1394)
 	if m != nil {
 		return m.RestartTime
 	}
@@ -5051,16 +4288,12 @@ type LongLivedGracefulRestartState struct {
 	PeerRestartTimerExpired bool   `protobuf:"varint,5,opt,name=peer_restart_timer_expired,json=peerRestartTimerExpired" json:"peer_restart_timer_expired,omitempty"`
 }
 
-func (m *LongLivedGracefulRestartState) Reset()                    {    fmt.Printf("DEJDEJ id:",1395)
 *m = LongLivedGracefulRestartState{} }
-func (m *LongLivedGracefulRestartState) String() string            {    fmt.Printf("DEJDEJ id:",1396)
 return proto.CompactTextString(m) }
 func (*LongLivedGracefulRestartState) ProtoMessage()               {}
-func (*LongLivedGracefulRestartState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1398)
 return fileDescriptor0, []int{142} }
 
 func (m *LongLivedGracefulRestartState) GetEnabled() bool { 
-   fmt.Printf("DEJDEJ id:",1399)
 	if m != nil {
 		return m.Enabled
 	}
@@ -5068,7 +4301,6 @@ func (m *LongLivedGracefulRestartState) GetEnabled() bool {
 }
 
 func (m *LongLivedGracefulRestartState) GetReceived() bool { 
-   fmt.Printf("DEJDEJ id:",1400)
 	if m != nil {
 		return m.Received
 	}
@@ -5076,7 +4308,6 @@ func (m *LongLivedGracefulRestartState) GetReceived() bool {
 }
 
 func (m *LongLivedGracefulRestartState) GetAdvertised() bool { 
-   fmt.Printf("DEJDEJ id:",1401)
 	if m != nil {
 		return m.Advertised
 	}
@@ -5084,7 +4315,6 @@ func (m *LongLivedGracefulRestartState) GetAdvertised() bool {
 }
 
 func (m *LongLivedGracefulRestartState) GetPeerRestartTime() uint32 { 
-   fmt.Printf("DEJDEJ id:",1402)
 	if m != nil {
 		return m.PeerRestartTime
 	}
@@ -5092,7 +4322,6 @@ func (m *LongLivedGracefulRestartState) GetPeerRestartTime() uint32 {
 }
 
 func (m *LongLivedGracefulRestartState) GetPeerRestartTimerExpired() bool { 
-   fmt.Printf("DEJDEJ id:",1403)
 	if m != nil {
 		return m.PeerRestartTimerExpired
 	}
@@ -5104,16 +4333,12 @@ type LongLivedGracefulRestart struct {
 	State  *LongLivedGracefulRestartState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *LongLivedGracefulRestart) Reset()                    {    fmt.Printf("DEJDEJ id:",1404)
 *m = LongLivedGracefulRestart{} }
-func (m *LongLivedGracefulRestart) String() string            {    fmt.Printf("DEJDEJ id:",1405)
 return proto.CompactTextString(m) }
 func (*LongLivedGracefulRestart) ProtoMessage()               {}
-func (*LongLivedGracefulRestart) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1407)
 return fileDescriptor0, []int{143} }
 
 func (m *LongLivedGracefulRestart) GetConfig() *LongLivedGracefulRestartConfig { 
-   fmt.Printf("DEJDEJ id:",1408)
 	if m != nil {
 		return m.Config
 	}
@@ -5121,7 +4346,6 @@ func (m *LongLivedGracefulRestart) GetConfig() *LongLivedGracefulRestartConfig {
 }
 
 func (m *LongLivedGracefulRestart) GetState() *LongLivedGracefulRestartState { 
-   fmt.Printf("DEJDEJ id:",1409)
 	if m != nil {
 		return m.State
 	}
@@ -5152,16 +4376,12 @@ type AfiSafi struct {
 	AddPaths                 *AddPaths                 `protobuf:"bytes,9,opt,name=add_paths,json=addPaths" json:"add_paths,omitempty"`
 }
 
-func (m *AfiSafi) Reset()                    {    fmt.Printf("DEJDEJ id:",1410)
 *m = AfiSafi{} }
-func (m *AfiSafi) String() string            {    fmt.Printf("DEJDEJ id:",1411)
 return proto.CompactTextString(m) }
 func (*AfiSafi) ProtoMessage()               {}
-func (*AfiSafi) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1413)
 return fileDescriptor0, []int{144} }
 
 func (m *AfiSafi) GetMpGracefulRestart() *MpGracefulRestart { 
-   fmt.Printf("DEJDEJ id:",1414)
 	if m != nil {
 		return m.MpGracefulRestart
 	}
@@ -5169,7 +4389,6 @@ func (m *AfiSafi) GetMpGracefulRestart() *MpGracefulRestart {
 }
 
 func (m *AfiSafi) GetConfig() *AfiSafiConfig { 
-   fmt.Printf("DEJDEJ id:",1415)
 	if m != nil {
 		return m.Config
 	}
@@ -5177,7 +4396,6 @@ func (m *AfiSafi) GetConfig() *AfiSafiConfig {
 }
 
 func (m *AfiSafi) GetApplyPolicy() *ApplyPolicy { 
-   fmt.Printf("DEJDEJ id:",1416)
 	if m != nil {
 		return m.ApplyPolicy
 	}
@@ -5185,7 +4403,6 @@ func (m *AfiSafi) GetApplyPolicy() *ApplyPolicy {
 }
 
 func (m *AfiSafi) GetRouteSelectionOptions() *RouteSelectionOptions { 
-   fmt.Printf("DEJDEJ id:",1417)
 	if m != nil {
 		return m.RouteSelectionOptions
 	}
@@ -5193,7 +4410,6 @@ func (m *AfiSafi) GetRouteSelectionOptions() *RouteSelectionOptions {
 }
 
 func (m *AfiSafi) GetUseMultiplePaths() *UseMultiplePaths { 
-   fmt.Printf("DEJDEJ id:",1418)
 	if m != nil {
 		return m.UseMultiplePaths
 	}
@@ -5201,7 +4417,6 @@ func (m *AfiSafi) GetUseMultiplePaths() *UseMultiplePaths {
 }
 
 func (m *AfiSafi) GetPrefixLimits() *PrefixLimit { 
-   fmt.Printf("DEJDEJ id:",1419)
 	if m != nil {
 		return m.PrefixLimits
 	}
@@ -5209,7 +4424,6 @@ func (m *AfiSafi) GetPrefixLimits() *PrefixLimit {
 }
 
 func (m *AfiSafi) GetRouteTargetMembership() *RouteTargetMembership { 
-   fmt.Printf("DEJDEJ id:",1420)
 	if m != nil {
 		return m.RouteTargetMembership
 	}
@@ -5217,7 +4431,6 @@ func (m *AfiSafi) GetRouteTargetMembership() *RouteTargetMembership {
 }
 
 func (m *AfiSafi) GetLongLivedGracefulRestart() *LongLivedGracefulRestart { 
-   fmt.Printf("DEJDEJ id:",1421)
 	if m != nil {
 		return m.LongLivedGracefulRestart
 	}
@@ -5225,7 +4438,6 @@ func (m *AfiSafi) GetLongLivedGracefulRestart() *LongLivedGracefulRestart {
 }
 
 func (m *AfiSafi) GetAddPaths() *AddPaths { 
-   fmt.Printf("DEJDEJ id:",1422)
 	if m != nil {
 		return m.AddPaths
 	}
@@ -5237,16 +4449,12 @@ type AddPathsConfig struct {
 	SendMax uint32 `protobuf:"varint,2,opt,name=send_max,json=sendMax" json:"send_max,omitempty"`
 }
 
-func (m *AddPathsConfig) Reset()                    {    fmt.Printf("DEJDEJ id:",1423)
 *m = AddPathsConfig{} }
-func (m *AddPathsConfig) String() string            {    fmt.Printf("DEJDEJ id:",1424)
 return proto.CompactTextString(m) }
 func (*AddPathsConfig) ProtoMessage()               {}
-func (*AddPathsConfig) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1426)
 return fileDescriptor0, []int{145} }
 
 func (m *AddPathsConfig) GetReceive() bool { 
-   fmt.Printf("DEJDEJ id:",1427)
 	if m != nil {
 		return m.Receive
 	}
@@ -5254,7 +4462,6 @@ func (m *AddPathsConfig) GetReceive() bool {
 }
 
 func (m *AddPathsConfig) GetSendMax() uint32 { 
-   fmt.Printf("DEJDEJ id:",1428)
 	if m != nil {
 		return m.SendMax
 	}
@@ -5266,16 +4473,12 @@ type AddPathsState struct {
 	SendMax uint32 `protobuf:"varint,2,opt,name=send_max,json=sendMax" json:"send_max,omitempty"`
 }
 
-func (m *AddPathsState) Reset()                    {    fmt.Printf("DEJDEJ id:",1429)
 *m = AddPathsState{} }
-func (m *AddPathsState) String() string            {    fmt.Printf("DEJDEJ id:",1430)
 return proto.CompactTextString(m) }
 func (*AddPathsState) ProtoMessage()               {}
-func (*AddPathsState) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1432)
 return fileDescriptor0, []int{146} }
 
 func (m *AddPathsState) GetReceive() bool { 
-   fmt.Printf("DEJDEJ id:",1433)
 	if m != nil {
 		return m.Receive
 	}
@@ -5283,7 +4486,6 @@ func (m *AddPathsState) GetReceive() bool {
 }
 
 func (m *AddPathsState) GetSendMax() uint32 { 
-   fmt.Printf("DEJDEJ id:",1434)
 	if m != nil {
 		return m.SendMax
 	}
@@ -5295,16 +4497,12 @@ type AddPaths struct {
 	State  *AddPathsState  `protobuf:"bytes,2,opt,name=state" json:"state,omitempty"`
 }
 
-func (m *AddPaths) Reset()                    {    fmt.Printf("DEJDEJ id:",1435)
 *m = AddPaths{} }
-func (m *AddPaths) String() string            {    fmt.Printf("DEJDEJ id:",1436)
 return proto.CompactTextString(m) }
 func (*AddPaths) ProtoMessage()               {}
-func (*AddPaths) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1438)
 return fileDescriptor0, []int{147} }
 
 func (m *AddPaths) GetConfig() *AddPathsConfig { 
-   fmt.Printf("DEJDEJ id:",1439)
 	if m != nil {
 		return m.Config
 	}
@@ -5312,7 +4510,6 @@ func (m *AddPaths) GetConfig() *AddPathsConfig {
 }
 
 func (m *AddPaths) GetState() *AddPathsState { 
-   fmt.Printf("DEJDEJ id:",1440)
 	if m != nil {
 		return m.State
 	}
@@ -5325,16 +4522,12 @@ type Prefix struct {
 	MaskLengthMax uint32 `protobuf:"varint,3,opt,name=mask_length_max,json=maskLengthMax" json:"mask_length_max,omitempty"`
 }
 
-func (m *Prefix) Reset()                    {    fmt.Printf("DEJDEJ id:",1441)
 *m = Prefix{} }
-func (m *Prefix) String() string            {    fmt.Printf("DEJDEJ id:",1442)
 return proto.CompactTextString(m) }
 func (*Prefix) ProtoMessage()               {}
-func (*Prefix) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1444)
 return fileDescriptor0, []int{148} }
 
 func (m *Prefix) GetIpPrefix() string { 
-   fmt.Printf("DEJDEJ id:",1445)
 	if m != nil {
 		return m.IpPrefix
 	}
@@ -5342,7 +4535,6 @@ func (m *Prefix) GetIpPrefix() string {
 }
 
 func (m *Prefix) GetMaskLengthMin() uint32 { 
-   fmt.Printf("DEJDEJ id:",1446)
 	if m != nil {
 		return m.MaskLengthMin
 	}
@@ -5350,7 +4542,6 @@ func (m *Prefix) GetMaskLengthMin() uint32 {
 }
 
 func (m *Prefix) GetMaskLengthMax() uint32 { 
-   fmt.Printf("DEJDEJ id:",1447)
 	if m != nil {
 		return m.MaskLengthMax
 	}
@@ -5364,16 +4555,12 @@ type DefinedSet struct {
 	Prefixes []*Prefix   `protobuf:"bytes,4,rep,name=prefixes" json:"prefixes,omitempty"`
 }
 
-func (m *DefinedSet) Reset()                    {    fmt.Printf("DEJDEJ id:",1448)
 *m = DefinedSet{} }
-func (m *DefinedSet) String() string            {    fmt.Printf("DEJDEJ id:",1449)
 return proto.CompactTextString(m) }
 func (*DefinedSet) ProtoMessage()               {}
-func (*DefinedSet) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1451)
 return fileDescriptor0, []int{149} }
 
 func (m *DefinedSet) GetType() DefinedType { 
-   fmt.Printf("DEJDEJ id:",1452)
 	if m != nil {
 		return m.Type
 	}
@@ -5381,7 +4568,6 @@ func (m *DefinedSet) GetType() DefinedType {
 }
 
 func (m *DefinedSet) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1453)
 	if m != nil {
 		return m.Name
 	}
@@ -5389,7 +4575,6 @@ func (m *DefinedSet) GetName() string {
 }
 
 func (m *DefinedSet) GetList() []string { 
-   fmt.Printf("DEJDEJ id:",1454)
 	if m != nil {
 		return m.List
 	}
@@ -5397,7 +4582,6 @@ func (m *DefinedSet) GetList() []string {
 }
 
 func (m *DefinedSet) GetPrefixes() []*Prefix { 
-   fmt.Printf("DEJDEJ id:",1455)
 	if m != nil {
 		return m.Prefixes
 	}
@@ -5409,16 +4593,12 @@ type MatchSet struct {
 	Name string    `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
 }
 
-func (m *MatchSet) Reset()                    {    fmt.Printf("DEJDEJ id:",1456)
 *m = MatchSet{} }
-func (m *MatchSet) String() string            {    fmt.Printf("DEJDEJ id:",1457)
 return proto.CompactTextString(m) }
 func (*MatchSet) ProtoMessage()               {}
-func (*MatchSet) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1459)
 return fileDescriptor0, []int{150} }
 
 func (m *MatchSet) GetType() MatchType { 
-   fmt.Printf("DEJDEJ id:",1460)
 	if m != nil {
 		return m.Type
 	}
@@ -5426,7 +4606,6 @@ func (m *MatchSet) GetType() MatchType {
 }
 
 func (m *MatchSet) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1461)
 	if m != nil {
 		return m.Name
 	}
@@ -5438,16 +4617,12 @@ type AsPathLength struct {
 	Length uint32           `protobuf:"varint,2,opt,name=length" json:"length,omitempty"`
 }
 
-func (m *AsPathLength) Reset()                    {    fmt.Printf("DEJDEJ id:",1462)
 *m = AsPathLength{} }
-func (m *AsPathLength) String() string            {    fmt.Printf("DEJDEJ id:",1463)
 return proto.CompactTextString(m) }
 func (*AsPathLength) ProtoMessage()               {}
-func (*AsPathLength) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1465)
 return fileDescriptor0, []int{151} }
 
 func (m *AsPathLength) GetType() AsPathLengthType { 
-   fmt.Printf("DEJDEJ id:",1466)
 	if m != nil {
 		return m.Type
 	}
@@ -5455,7 +4630,6 @@ func (m *AsPathLength) GetType() AsPathLengthType {
 }
 
 func (m *AsPathLength) GetLength() uint32 { 
-   fmt.Printf("DEJDEJ id:",1467)
 	if m != nil {
 		return m.Length
 	}
@@ -5474,16 +4648,12 @@ type Conditions struct {
 	LargeCommunitySet *MatchSet            `protobuf:"bytes,9,opt,name=large_community_set,json=largeCommunitySet" json:"large_community_set,omitempty"`
 }
 
-func (m *Conditions) Reset()                    {    fmt.Printf("DEJDEJ id:",1468)
 *m = Conditions{} }
-func (m *Conditions) String() string            {    fmt.Printf("DEJDEJ id:",1469)
 return proto.CompactTextString(m) }
 func (*Conditions) ProtoMessage()               {}
-func (*Conditions) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1471)
 return fileDescriptor0, []int{152} }
 
 func (m *Conditions) GetPrefixSet() *MatchSet { 
-   fmt.Printf("DEJDEJ id:",1472)
 	if m != nil {
 		return m.PrefixSet
 	}
@@ -5491,7 +4661,6 @@ func (m *Conditions) GetPrefixSet() *MatchSet {
 }
 
 func (m *Conditions) GetNeighborSet() *MatchSet { 
-   fmt.Printf("DEJDEJ id:",1473)
 	if m != nil {
 		return m.NeighborSet
 	}
@@ -5499,7 +4668,6 @@ func (m *Conditions) GetNeighborSet() *MatchSet {
 }
 
 func (m *Conditions) GetAsPathLength() *AsPathLength { 
-   fmt.Printf("DEJDEJ id:",1474)
 	if m != nil {
 		return m.AsPathLength
 	}
@@ -5507,7 +4675,6 @@ func (m *Conditions) GetAsPathLength() *AsPathLength {
 }
 
 func (m *Conditions) GetAsPathSet() *MatchSet { 
-   fmt.Printf("DEJDEJ id:",1475)
 	if m != nil {
 		return m.AsPathSet
 	}
@@ -5515,7 +4682,6 @@ func (m *Conditions) GetAsPathSet() *MatchSet {
 }
 
 func (m *Conditions) GetCommunitySet() *MatchSet { 
-   fmt.Printf("DEJDEJ id:",1476)
 	if m != nil {
 		return m.CommunitySet
 	}
@@ -5523,7 +4689,6 @@ func (m *Conditions) GetCommunitySet() *MatchSet {
 }
 
 func (m *Conditions) GetExtCommunitySet() *MatchSet { 
-   fmt.Printf("DEJDEJ id:",1477)
 	if m != nil {
 		return m.ExtCommunitySet
 	}
@@ -5531,7 +4696,6 @@ func (m *Conditions) GetExtCommunitySet() *MatchSet {
 }
 
 func (m *Conditions) GetRpkiResult() int32 { 
-   fmt.Printf("DEJDEJ id:",1478)
 	if m != nil {
 		return m.RpkiResult
 	}
@@ -5539,7 +4703,6 @@ func (m *Conditions) GetRpkiResult() int32 {
 }
 
 func (m *Conditions) GetRouteType() Conditions_RouteType { 
-   fmt.Printf("DEJDEJ id:",1479)
 	if m != nil {
 		return m.RouteType
 	}
@@ -5547,7 +4710,6 @@ func (m *Conditions) GetRouteType() Conditions_RouteType {
 }
 
 func (m *Conditions) GetLargeCommunitySet() *MatchSet { 
-   fmt.Printf("DEJDEJ id:",1480)
 	if m != nil {
 		return m.LargeCommunitySet
 	}
@@ -5559,16 +4721,12 @@ type CommunityAction struct {
 	Communities []string            `protobuf:"bytes,2,rep,name=communities" json:"communities,omitempty"`
 }
 
-func (m *CommunityAction) Reset()                    {    fmt.Printf("DEJDEJ id:",1481)
 *m = CommunityAction{} }
-func (m *CommunityAction) String() string            {    fmt.Printf("DEJDEJ id:",1482)
 return proto.CompactTextString(m) }
 func (*CommunityAction) ProtoMessage()               {}
-func (*CommunityAction) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1484)
 return fileDescriptor0, []int{153} }
 
 func (m *CommunityAction) GetType() CommunityActionType { 
-   fmt.Printf("DEJDEJ id:",1485)
 	if m != nil {
 		return m.Type
 	}
@@ -5576,7 +4734,6 @@ func (m *CommunityAction) GetType() CommunityActionType {
 }
 
 func (m *CommunityAction) GetCommunities() []string { 
-   fmt.Printf("DEJDEJ id:",1486)
 	if m != nil {
 		return m.Communities
 	}
@@ -5588,16 +4745,12 @@ type MedAction struct {
 	Value int64         `protobuf:"varint,2,opt,name=value" json:"value,omitempty"`
 }
 
-func (m *MedAction) Reset()                    {    fmt.Printf("DEJDEJ id:",1487)
 *m = MedAction{} }
-func (m *MedAction) String() string            {    fmt.Printf("DEJDEJ id:",1488)
 return proto.CompactTextString(m) }
 func (*MedAction) ProtoMessage()               {}
-func (*MedAction) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1490)
 return fileDescriptor0, []int{154} }
 
 func (m *MedAction) GetType() MedActionType { 
-   fmt.Printf("DEJDEJ id:",1491)
 	if m != nil {
 		return m.Type
 	}
@@ -5605,7 +4758,6 @@ func (m *MedAction) GetType() MedActionType {
 }
 
 func (m *MedAction) GetValue() int64 { 
-   fmt.Printf("DEJDEJ id:",1492)
 	if m != nil {
 		return m.Value
 	}
@@ -5618,16 +4770,12 @@ type AsPrependAction struct {
 	UseLeftMost bool   `protobuf:"varint,3,opt,name=use_left_most,json=useLeftMost" json:"use_left_most,omitempty"`
 }
 
-func (m *AsPrependAction) Reset()                    {    fmt.Printf("DEJDEJ id:",1493)
 *m = AsPrependAction{} }
-func (m *AsPrependAction) String() string            {    fmt.Printf("DEJDEJ id:",1494)
 return proto.CompactTextString(m) }
 func (*AsPrependAction) ProtoMessage()               {}
-func (*AsPrependAction) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1496)
 return fileDescriptor0, []int{155} }
 
 func (m *AsPrependAction) GetAsn() uint32 { 
-   fmt.Printf("DEJDEJ id:",1497)
 	if m != nil {
 		return m.Asn
 	}
@@ -5635,7 +4783,6 @@ func (m *AsPrependAction) GetAsn() uint32 {
 }
 
 func (m *AsPrependAction) GetRepeat() uint32 { 
-   fmt.Printf("DEJDEJ id:",1498)
 	if m != nil {
 		return m.Repeat
 	}
@@ -5643,7 +4790,6 @@ func (m *AsPrependAction) GetRepeat() uint32 {
 }
 
 func (m *AsPrependAction) GetUseLeftMost() bool { 
-   fmt.Printf("DEJDEJ id:",1499)
 	if m != nil {
 		return m.UseLeftMost
 	}
@@ -5655,16 +4801,12 @@ type NexthopAction struct {
 	Self    bool   `protobuf:"varint,2,opt,name=self" json:"self,omitempty"`
 }
 
-func (m *NexthopAction) Reset()                    {    fmt.Printf("DEJDEJ id:",1500)
 *m = NexthopAction{} }
-func (m *NexthopAction) String() string            {    fmt.Printf("DEJDEJ id:",1501)
 return proto.CompactTextString(m) }
 func (*NexthopAction) ProtoMessage()               {}
-func (*NexthopAction) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1503)
 return fileDescriptor0, []int{156} }
 
 func (m *NexthopAction) GetAddress() string { 
-   fmt.Printf("DEJDEJ id:",1504)
 	if m != nil {
 		return m.Address
 	}
@@ -5672,7 +4814,6 @@ func (m *NexthopAction) GetAddress() string {
 }
 
 func (m *NexthopAction) GetSelf() bool { 
-   fmt.Printf("DEJDEJ id:",1505)
 	if m != nil {
 		return m.Self
 	}
@@ -5683,16 +4824,12 @@ type LocalPrefAction struct {
 	Value uint32 `protobuf:"varint,1,opt,name=value" json:"value,omitempty"`
 }
 
-func (m *LocalPrefAction) Reset()                    {    fmt.Printf("DEJDEJ id:",1506)
 *m = LocalPrefAction{} }
-func (m *LocalPrefAction) String() string            {    fmt.Printf("DEJDEJ id:",1507)
 return proto.CompactTextString(m) }
 func (*LocalPrefAction) ProtoMessage()               {}
-func (*LocalPrefAction) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1509)
 return fileDescriptor0, []int{157} }
 
 func (m *LocalPrefAction) GetValue() uint32 { 
-   fmt.Printf("DEJDEJ id:",1510)
 	if m != nil {
 		return m.Value
 	}
@@ -5710,16 +4847,12 @@ type Actions struct {
 	LargeCommunity *CommunityAction `protobuf:"bytes,8,opt,name=large_community,json=largeCommunity" json:"large_community,omitempty"`
 }
 
-func (m *Actions) Reset()                    {    fmt.Printf("DEJDEJ id:",1511)
 *m = Actions{} }
-func (m *Actions) String() string            {    fmt.Printf("DEJDEJ id:",1512)
 return proto.CompactTextString(m) }
 func (*Actions) ProtoMessage()               {}
-func (*Actions) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1514)
 return fileDescriptor0, []int{158} }
 
 func (m *Actions) GetRouteAction() RouteAction { 
-   fmt.Printf("DEJDEJ id:",1515)
 	if m != nil {
 		return m.RouteAction
 	}
@@ -5727,7 +4860,6 @@ func (m *Actions) GetRouteAction() RouteAction {
 }
 
 func (m *Actions) GetCommunity() *CommunityAction { 
-   fmt.Printf("DEJDEJ id:",1516)
 	if m != nil {
 		return m.Community
 	}
@@ -5735,7 +4867,6 @@ func (m *Actions) GetCommunity() *CommunityAction {
 }
 
 func (m *Actions) GetMed() *MedAction { 
-   fmt.Printf("DEJDEJ id:",1517)
 	if m != nil {
 		return m.Med
 	}
@@ -5743,7 +4874,6 @@ func (m *Actions) GetMed() *MedAction {
 }
 
 func (m *Actions) GetAsPrepend() *AsPrependAction { 
-   fmt.Printf("DEJDEJ id:",1518)
 	if m != nil {
 		return m.AsPrepend
 	}
@@ -5751,7 +4881,6 @@ func (m *Actions) GetAsPrepend() *AsPrependAction {
 }
 
 func (m *Actions) GetExtCommunity() *CommunityAction { 
-   fmt.Printf("DEJDEJ id:",1519)
 	if m != nil {
 		return m.ExtCommunity
 	}
@@ -5759,7 +4888,6 @@ func (m *Actions) GetExtCommunity() *CommunityAction {
 }
 
 func (m *Actions) GetNexthop() *NexthopAction { 
-   fmt.Printf("DEJDEJ id:",1520)
 	if m != nil {
 		return m.Nexthop
 	}
@@ -5767,7 +4895,6 @@ func (m *Actions) GetNexthop() *NexthopAction {
 }
 
 func (m *Actions) GetLocalPref() *LocalPrefAction { 
-   fmt.Printf("DEJDEJ id:",1521)
 	if m != nil {
 		return m.LocalPref
 	}
@@ -5775,7 +4902,6 @@ func (m *Actions) GetLocalPref() *LocalPrefAction {
 }
 
 func (m *Actions) GetLargeCommunity() *CommunityAction { 
-   fmt.Printf("DEJDEJ id:",1522)
 	if m != nil {
 		return m.LargeCommunity
 	}
@@ -5788,16 +4914,12 @@ type Statement struct {
 	Actions    *Actions    `protobuf:"bytes,3,opt,name=actions" json:"actions,omitempty"`
 }
 
-func (m *Statement) Reset()                    {    fmt.Printf("DEJDEJ id:",1523)
 *m = Statement{} }
-func (m *Statement) String() string            {    fmt.Printf("DEJDEJ id:",1524)
 return proto.CompactTextString(m) }
 func (*Statement) ProtoMessage()               {}
-func (*Statement) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1526)
 return fileDescriptor0, []int{159} }
 
 func (m *Statement) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1527)
 	if m != nil {
 		return m.Name
 	}
@@ -5805,7 +4927,6 @@ func (m *Statement) GetName() string {
 }
 
 func (m *Statement) GetConditions() *Conditions { 
-   fmt.Printf("DEJDEJ id:",1528)
 	if m != nil {
 		return m.Conditions
 	}
@@ -5813,7 +4934,6 @@ func (m *Statement) GetConditions() *Conditions {
 }
 
 func (m *Statement) GetActions() *Actions { 
-   fmt.Printf("DEJDEJ id:",1529)
 	if m != nil {
 		return m.Actions
 	}
@@ -5825,16 +4945,12 @@ type Policy struct {
 	Statements []*Statement `protobuf:"bytes,2,rep,name=statements" json:"statements,omitempty"`
 }
 
-func (m *Policy) Reset()                    {    fmt.Printf("DEJDEJ id:",1530)
 *m = Policy{} }
-func (m *Policy) String() string            {    fmt.Printf("DEJDEJ id:",1531)
 return proto.CompactTextString(m) }
 func (*Policy) ProtoMessage()               {}
-func (*Policy) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1533)
 return fileDescriptor0, []int{160} }
 
 func (m *Policy) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1534)
 	if m != nil {
 		return m.Name
 	}
@@ -5842,7 +4958,6 @@ func (m *Policy) GetName() string {
 }
 
 func (m *Policy) GetStatements() []*Statement { 
-   fmt.Printf("DEJDEJ id:",1535)
 	if m != nil {
 		return m.Statements
 	}
@@ -5857,16 +4972,12 @@ type PolicyAssignment struct {
 	Default  RouteAction `protobuf:"varint,5,opt,name=default,enum=gobgpapi.RouteAction" json:"default,omitempty"`
 }
 
-func (m *PolicyAssignment) Reset()                    {    fmt.Printf("DEJDEJ id:",1536)
 *m = PolicyAssignment{} }
-func (m *PolicyAssignment) String() string            {    fmt.Printf("DEJDEJ id:",1537)
 return proto.CompactTextString(m) }
 func (*PolicyAssignment) ProtoMessage()               {}
-func (*PolicyAssignment) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1539)
 return fileDescriptor0, []int{161} }
 
 func (m *PolicyAssignment) GetType() PolicyType { 
-   fmt.Printf("DEJDEJ id:",1540)
 	if m != nil {
 		return m.Type
 	}
@@ -5874,7 +4985,6 @@ func (m *PolicyAssignment) GetType() PolicyType {
 }
 
 func (m *PolicyAssignment) GetResource() Resource { 
-   fmt.Printf("DEJDEJ id:",1541)
 	if m != nil {
 		return m.Resource
 	}
@@ -5882,7 +4992,6 @@ func (m *PolicyAssignment) GetResource() Resource {
 }
 
 func (m *PolicyAssignment) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1542)
 	if m != nil {
 		return m.Name
 	}
@@ -5890,7 +4999,6 @@ func (m *PolicyAssignment) GetName() string {
 }
 
 func (m *PolicyAssignment) GetPolicies() []*Policy { 
-   fmt.Printf("DEJDEJ id:",1543)
 	if m != nil {
 		return m.Policies
 	}
@@ -5898,7 +5006,6 @@ func (m *PolicyAssignment) GetPolicies() []*Policy {
 }
 
 func (m *PolicyAssignment) GetDefault() RouteAction { 
-   fmt.Printf("DEJDEJ id:",1544)
 	if m != nil {
 		return m.Default
 	}
@@ -5913,16 +5020,12 @@ type Roa struct {
 	Conf      *RPKIConf `protobuf:"bytes,5,opt,name=conf" json:"conf,omitempty"`
 }
 
-func (m *Roa) Reset()                    {    fmt.Printf("DEJDEJ id:",1545)
 *m = Roa{} }
-func (m *Roa) String() string            {    fmt.Printf("DEJDEJ id:",1546)
 return proto.CompactTextString(m) }
 func (*Roa) ProtoMessage()               {}
-func (*Roa) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1548)
 return fileDescriptor0, []int{162} }
 
 func (m *Roa) GetAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1549)
 	if m != nil {
 		return m.As
 	}
@@ -5930,7 +5033,6 @@ func (m *Roa) GetAs() uint32 {
 }
 
 func (m *Roa) GetPrefixlen() uint32 { 
-   fmt.Printf("DEJDEJ id:",1550)
 	if m != nil {
 		return m.Prefixlen
 	}
@@ -5938,7 +5040,6 @@ func (m *Roa) GetPrefixlen() uint32 {
 }
 
 func (m *Roa) GetMaxlen() uint32 { 
-   fmt.Printf("DEJDEJ id:",1551)
 	if m != nil {
 		return m.Maxlen
 	}
@@ -5946,7 +5047,6 @@ func (m *Roa) GetMaxlen() uint32 {
 }
 
 func (m *Roa) GetPrefix() string { 
-   fmt.Printf("DEJDEJ id:",1552)
 	if m != nil {
 		return m.Prefix
 	}
@@ -5954,7 +5054,6 @@ func (m *Roa) GetPrefix() string {
 }
 
 func (m *Roa) GetConf() *RPKIConf { 
-   fmt.Printf("DEJDEJ id:",1553)
 	if m != nil {
 		return m.Conf
 	}
@@ -5965,16 +5064,12 @@ type GetRoaRequest struct {
 	Family uint32 `protobuf:"varint,1,opt,name=family" json:"family,omitempty"`
 }
 
-func (m *GetRoaRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",1554)
 *m = GetRoaRequest{} }
-func (m *GetRoaRequest) String() string            {    fmt.Printf("DEJDEJ id:",1555)
 return proto.CompactTextString(m) }
 func (*GetRoaRequest) ProtoMessage()               {}
-func (*GetRoaRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1557)
 return fileDescriptor0, []int{163} }
 
 func (m *GetRoaRequest) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1558)
 	if m != nil {
 		return m.Family
 	}
@@ -5985,16 +5080,12 @@ type GetRoaResponse struct {
 	Roas []*Roa `protobuf:"bytes,1,rep,name=roas" json:"roas,omitempty"`
 }
 
-func (m *GetRoaResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",1559)
 *m = GetRoaResponse{} }
-func (m *GetRoaResponse) String() string            {    fmt.Printf("DEJDEJ id:",1560)
 return proto.CompactTextString(m) }
 func (*GetRoaResponse) ProtoMessage()               {}
-func (*GetRoaResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1562)
 return fileDescriptor0, []int{164} }
 
 func (m *GetRoaResponse) GetRoas() []*Roa { 
-   fmt.Printf("DEJDEJ id:",1563)
 	if m != nil {
 		return m.Roas
 	}
@@ -6009,16 +5100,12 @@ type Vrf struct {
 	Id       uint32   `protobuf:"varint,5,opt,name=id" json:"id,omitempty"`
 }
 
-func (m *Vrf) Reset()                    {    fmt.Printf("DEJDEJ id:",1564)
 *m = Vrf{} }
-func (m *Vrf) String() string            {    fmt.Printf("DEJDEJ id:",1565)
 return proto.CompactTextString(m) }
 func (*Vrf) ProtoMessage()               {}
-func (*Vrf) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1567)
 return fileDescriptor0, []int{165} }
 
 func (m *Vrf) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1568)
 	if m != nil {
 		return m.Name
 	}
@@ -6026,7 +5113,6 @@ func (m *Vrf) GetName() string {
 }
 
 func (m *Vrf) GetRd() []byte { 
-   fmt.Printf("DEJDEJ id:",1569)
 	if m != nil {
 		return m.Rd
 	}
@@ -6034,7 +5120,6 @@ func (m *Vrf) GetRd() []byte {
 }
 
 func (m *Vrf) GetImportRt() [][]byte { 
-   fmt.Printf("DEJDEJ id:",1570)
 	if m != nil {
 		return m.ImportRt
 	}
@@ -6042,7 +5127,6 @@ func (m *Vrf) GetImportRt() [][]byte {
 }
 
 func (m *Vrf) GetExportRt() [][]byte { 
-   fmt.Printf("DEJDEJ id:",1571)
 	if m != nil {
 		return m.ExportRt
 	}
@@ -6050,7 +5134,6 @@ func (m *Vrf) GetExportRt() [][]byte {
 }
 
 func (m *Vrf) GetId() uint32 { 
-   fmt.Printf("DEJDEJ id:",1572)
 	if m != nil {
 		return m.Id
 	}
@@ -6066,16 +5149,12 @@ type Global struct {
 	UseMultiplePaths bool     `protobuf:"varint,6,opt,name=use_multiple_paths,json=useMultiplePaths" json:"use_multiple_paths,omitempty"`
 }
 
-func (m *Global) Reset()                    {    fmt.Printf("DEJDEJ id:",1573)
 *m = Global{} }
-func (m *Global) String() string            {    fmt.Printf("DEJDEJ id:",1574)
 return proto.CompactTextString(m) }
 func (*Global) ProtoMessage()               {}
-func (*Global) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1576)
 return fileDescriptor0, []int{166} }
 
 func (m *Global) GetAs() uint32 { 
-   fmt.Printf("DEJDEJ id:",1577)
 	if m != nil {
 		return m.As
 	}
@@ -6083,7 +5162,6 @@ func (m *Global) GetAs() uint32 {
 }
 
 func (m *Global) GetRouterId() string { 
-   fmt.Printf("DEJDEJ id:",1578)
 	if m != nil {
 		return m.RouterId
 	}
@@ -6091,7 +5169,6 @@ func (m *Global) GetRouterId() string {
 }
 
 func (m *Global) GetListenPort() int32 { 
-   fmt.Printf("DEJDEJ id:",1579)
 	if m != nil {
 		return m.ListenPort
 	}
@@ -6099,7 +5176,6 @@ func (m *Global) GetListenPort() int32 {
 }
 
 func (m *Global) GetListenAddresses() []string { 
-   fmt.Printf("DEJDEJ id:",1580)
 	if m != nil {
 		return m.ListenAddresses
 	}
@@ -6107,7 +5183,6 @@ func (m *Global) GetListenAddresses() []string {
 }
 
 func (m *Global) GetFamilies() []uint32 { 
-   fmt.Printf("DEJDEJ id:",1581)
 	if m != nil {
 		return m.Families
 	}
@@ -6115,7 +5190,6 @@ func (m *Global) GetFamilies() []uint32 {
 }
 
 func (m *Global) GetUseMultiplePaths() bool { 
-   fmt.Printf("DEJDEJ id:",1582)
 	if m != nil {
 		return m.UseMultiplePaths
 	}
@@ -6131,16 +5205,12 @@ type TableInfo struct {
 	NumAccepted    uint64   `protobuf:"varint,6,opt,name=num_accepted,json=numAccepted" json:"num_accepted,omitempty"`
 }
 
-func (m *TableInfo) Reset()                    {    fmt.Printf("DEJDEJ id:",1583)
 *m = TableInfo{} }
-func (m *TableInfo) String() string            {    fmt.Printf("DEJDEJ id:",1584)
 return proto.CompactTextString(m) }
 func (*TableInfo) ProtoMessage()               {}
-func (*TableInfo) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1586)
 return fileDescriptor0, []int{167} }
 
 func (m *TableInfo) GetType() Resource { 
-   fmt.Printf("DEJDEJ id:",1587)
 	if m != nil {
 		return m.Type
 	}
@@ -6148,7 +5218,6 @@ func (m *TableInfo) GetType() Resource {
 }
 
 func (m *TableInfo) GetName() string { 
-   fmt.Printf("DEJDEJ id:",1588)
 	if m != nil {
 		return m.Name
 	}
@@ -6156,7 +5225,6 @@ func (m *TableInfo) GetName() string {
 }
 
 func (m *TableInfo) GetFamily() uint32 { 
-   fmt.Printf("DEJDEJ id:",1589)
 	if m != nil {
 		return m.Family
 	}
@@ -6164,7 +5232,6 @@ func (m *TableInfo) GetFamily() uint32 {
 }
 
 func (m *TableInfo) GetNumDestination() uint64 { 
-   fmt.Printf("DEJDEJ id:",1590)
 	if m != nil {
 		return m.NumDestination
 	}
@@ -6172,7 +5239,6 @@ func (m *TableInfo) GetNumDestination() uint64 {
 }
 
 func (m *TableInfo) GetNumPath() uint64 { 
-   fmt.Printf("DEJDEJ id:",1591)
 	if m != nil {
 		return m.NumPath
 	}
@@ -6180,7 +5246,6 @@ func (m *TableInfo) GetNumPath() uint64 {
 }
 
 func (m *TableInfo) GetNumAccepted() uint64 { 
-   fmt.Printf("DEJDEJ id:",1592)
 	if m != nil {
 		return m.NumAccepted
 	}
@@ -6191,16 +5256,12 @@ type GetRibInfoRequest struct {
 	Info *TableInfo `protobuf:"bytes,1,opt,name=info" json:"info,omitempty"`
 }
 
-func (m *GetRibInfoRequest) Reset()                    {    fmt.Printf("DEJDEJ id:",1593)
 *m = GetRibInfoRequest{} }
-func (m *GetRibInfoRequest) String() string            {    fmt.Printf("DEJDEJ id:",1594)
 return proto.CompactTextString(m) }
 func (*GetRibInfoRequest) ProtoMessage()               {}
-func (*GetRibInfoRequest) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1596)
 return fileDescriptor0, []int{168} }
 
 func (m *GetRibInfoRequest) GetInfo() *TableInfo { 
-   fmt.Printf("DEJDEJ id:",1597)
 	if m != nil {
 		return m.Info
 	}
@@ -6211,16 +5272,12 @@ type GetRibInfoResponse struct {
 	Info *TableInfo `protobuf:"bytes,1,opt,name=info" json:"info,omitempty"`
 }
 
-func (m *GetRibInfoResponse) Reset()                    {    fmt.Printf("DEJDEJ id:",1598)
 *m = GetRibInfoResponse{} }
-func (m *GetRibInfoResponse) String() string            {    fmt.Printf("DEJDEJ id:",1599)
 return proto.CompactTextString(m) }
 func (*GetRibInfoResponse) ProtoMessage()               {}
-func (*GetRibInfoResponse) Descriptor() ([]byte, []int) {    fmt.Printf("DEJDEJ id:",1601)
 return fileDescriptor0, []int{169} }
 
 func (m *GetRibInfoResponse) GetInfo() *TableInfo { 
-   fmt.Printf("DEJDEJ id:",1602)
 	if m != nil {
 		return m.Info
 	}
@@ -6228,7 +5285,6 @@ func (m *GetRibInfoResponse) GetInfo() *TableInfo {
 }
 
 func init() { 
-   fmt.Printf("DEJDEJ id:",1603)
 	proto.RegisterType((*GetNeighborRequest)(nil), "gobgpapi.GetNeighborRequest")
 	proto.RegisterType((*GetNeighborResponse)(nil), "gobgpapi.GetNeighborResponse")
 	proto.RegisterType((*Arguments)(nil), "gobgpapi.Arguments")
@@ -6488,12 +5544,10 @@ type gobgpApiClient struct {
 }
 
 func NewGobgpApiClient(cc *grpc.ClientConn) GobgpApiClient { 
-   fmt.Printf("DEJDEJ id:",1604)
 	return &gobgpApiClient{cc}
 }
 
 func (c *gobgpApiClient) StartServer(ctx context.Context, in *StartServerRequest, opts ...grpc.CallOption) (*StartServerResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1605)
 	out := new(StartServerResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/StartServer", in, out, c.cc, opts...)
 	if err != nil {
@@ -6503,7 +5557,6 @@ func (c *gobgpApiClient) StartServer(ctx context.Context, in *StartServerRequest
 }
 
 func (c *gobgpApiClient) StopServer(ctx context.Context, in *StopServerRequest, opts ...grpc.CallOption) (*StopServerResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1606)
 	out := new(StopServerResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/StopServer", in, out, c.cc, opts...)
 	if err != nil {
@@ -6513,7 +5566,6 @@ func (c *gobgpApiClient) StopServer(ctx context.Context, in *StopServerRequest, 
 }
 
 func (c *gobgpApiClient) GetServer(ctx context.Context, in *GetServerRequest, opts ...grpc.CallOption) (*GetServerResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1607)
 	out := new(GetServerResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetServer", in, out, c.cc, opts...)
 	if err != nil {
@@ -6523,7 +5575,6 @@ func (c *gobgpApiClient) GetServer(ctx context.Context, in *GetServerRequest, op
 }
 
 func (c *gobgpApiClient) AddNeighbor(ctx context.Context, in *AddNeighborRequest, opts ...grpc.CallOption) (*AddNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1608)
 	out := new(AddNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6533,7 +5584,6 @@ func (c *gobgpApiClient) AddNeighbor(ctx context.Context, in *AddNeighborRequest
 }
 
 func (c *gobgpApiClient) DeleteNeighbor(ctx context.Context, in *DeleteNeighborRequest, opts ...grpc.CallOption) (*DeleteNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1609)
 	out := new(DeleteNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6543,7 +5593,6 @@ func (c *gobgpApiClient) DeleteNeighbor(ctx context.Context, in *DeleteNeighborR
 }
 
 func (c *gobgpApiClient) GetNeighbor(ctx context.Context, in *GetNeighborRequest, opts ...grpc.CallOption) (*GetNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1610)
 	out := new(GetNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6553,7 +5602,6 @@ func (c *gobgpApiClient) GetNeighbor(ctx context.Context, in *GetNeighborRequest
 }
 
 func (c *gobgpApiClient) ResetNeighbor(ctx context.Context, in *ResetNeighborRequest, opts ...grpc.CallOption) (*ResetNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1611)
 	out := new(ResetNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ResetNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6563,7 +5611,6 @@ func (c *gobgpApiClient) ResetNeighbor(ctx context.Context, in *ResetNeighborReq
 }
 
 func (c *gobgpApiClient) SoftResetNeighbor(ctx context.Context, in *SoftResetNeighborRequest, opts ...grpc.CallOption) (*SoftResetNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1612)
 	out := new(SoftResetNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/SoftResetNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6573,7 +5620,6 @@ func (c *gobgpApiClient) SoftResetNeighbor(ctx context.Context, in *SoftResetNei
 }
 
 func (c *gobgpApiClient) ShutdownNeighbor(ctx context.Context, in *ShutdownNeighborRequest, opts ...grpc.CallOption) (*ShutdownNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1613)
 	out := new(ShutdownNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ShutdownNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6583,7 +5629,6 @@ func (c *gobgpApiClient) ShutdownNeighbor(ctx context.Context, in *ShutdownNeigh
 }
 
 func (c *gobgpApiClient) EnableNeighbor(ctx context.Context, in *EnableNeighborRequest, opts ...grpc.CallOption) (*EnableNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1614)
 	out := new(EnableNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6593,7 +5638,6 @@ func (c *gobgpApiClient) EnableNeighbor(ctx context.Context, in *EnableNeighborR
 }
 
 func (c *gobgpApiClient) DisableNeighbor(ctx context.Context, in *DisableNeighborRequest, opts ...grpc.CallOption) (*DisableNeighborResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1615)
 	out := new(DisableNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DisableNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -6603,7 +5647,6 @@ func (c *gobgpApiClient) DisableNeighbor(ctx context.Context, in *DisableNeighbo
 }
 
 func (c *gobgpApiClient) GetRib(ctx context.Context, in *GetRibRequest, opts ...grpc.CallOption) (*GetRibResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1616)
 	out := new(GetRibResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRib", in, out, c.cc, opts...)
 	if err != nil {
@@ -6613,7 +5656,6 @@ func (c *gobgpApiClient) GetRib(ctx context.Context, in *GetRibRequest, opts ...
 }
 
 func (c *gobgpApiClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (GobgpApi_GetPathClient, error) { 
-   fmt.Printf("DEJDEJ id:",1617)
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[0], c.cc, "/gobgpapi.GobgpApi/GetPath", opts...)
 	if err != nil {
 		return nil, err
@@ -6638,7 +5680,6 @@ type gobgpApiGetPathClient struct {
 }
 
 func (x *gobgpApiGetPathClient) Recv() (*Path, error) { 
-   fmt.Printf("DEJDEJ id:",1618)
 	m := new(Path)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -6647,7 +5688,6 @@ func (x *gobgpApiGetPathClient) Recv() (*Path, error) {
 }
 
 func (c *gobgpApiClient) ValidateRib(ctx context.Context, in *ValidateRibRequest, opts ...grpc.CallOption) (*ValidateRibResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1619)
 	out := new(ValidateRibResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ValidateRib", in, out, c.cc, opts...)
 	if err != nil {
@@ -6657,7 +5697,6 @@ func (c *gobgpApiClient) ValidateRib(ctx context.Context, in *ValidateRibRequest
 }
 
 func (c *gobgpApiClient) AddPath(ctx context.Context, in *AddPathRequest, opts ...grpc.CallOption) (*AddPathResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1620)
 	out := new(AddPathResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddPath", in, out, c.cc, opts...)
 	if err != nil {
@@ -6667,7 +5706,6 @@ func (c *gobgpApiClient) AddPath(ctx context.Context, in *AddPathRequest, opts .
 }
 
 func (c *gobgpApiClient) DeletePath(ctx context.Context, in *DeletePathRequest, opts ...grpc.CallOption) (*DeletePathResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1621)
 	out := new(DeletePathResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeletePath", in, out, c.cc, opts...)
 	if err != nil {
@@ -6677,7 +5715,6 @@ func (c *gobgpApiClient) DeletePath(ctx context.Context, in *DeletePathRequest, 
 }
 
 func (c *gobgpApiClient) MonitorRib(ctx context.Context, in *MonitorRibRequest, opts ...grpc.CallOption) (GobgpApi_MonitorRibClient, error) { 
-   fmt.Printf("DEJDEJ id:",1622)
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[1], c.cc, "/gobgpapi.GobgpApi/MonitorRib", opts...)
 	if err != nil {
 		return nil, err
@@ -6702,7 +5739,6 @@ type gobgpApiMonitorRibClient struct {
 }
 
 func (x *gobgpApiMonitorRibClient) Recv() (*Destination, error) { 
-   fmt.Printf("DEJDEJ id:",1623)
 	m := new(Destination)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -6711,7 +5747,6 @@ func (x *gobgpApiMonitorRibClient) Recv() (*Destination, error) {
 }
 
 func (c *gobgpApiClient) MonitorPeerState(ctx context.Context, in *Arguments, opts ...grpc.CallOption) (GobgpApi_MonitorPeerStateClient, error) { 
-   fmt.Printf("DEJDEJ id:",1624)
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[2], c.cc, "/gobgpapi.GobgpApi/MonitorPeerState", opts...)
 	if err != nil {
 		return nil, err
@@ -6736,7 +5771,6 @@ type gobgpApiMonitorPeerStateClient struct {
 }
 
 func (x *gobgpApiMonitorPeerStateClient) Recv() (*Peer, error) { 
-   fmt.Printf("DEJDEJ id:",1625)
 	m := new(Peer)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -6745,7 +5779,6 @@ func (x *gobgpApiMonitorPeerStateClient) Recv() (*Peer, error) {
 }
 
 func (c *gobgpApiClient) EnableMrt(ctx context.Context, in *EnableMrtRequest, opts ...grpc.CallOption) (*EnableMrtResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1626)
 	out := new(EnableMrtResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableMrt", in, out, c.cc, opts...)
 	if err != nil {
@@ -6755,7 +5788,6 @@ func (c *gobgpApiClient) EnableMrt(ctx context.Context, in *EnableMrtRequest, op
 }
 
 func (c *gobgpApiClient) DisableMrt(ctx context.Context, in *DisableMrtRequest, opts ...grpc.CallOption) (*DisableMrtResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1627)
 	out := new(DisableMrtResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DisableMrt", in, out, c.cc, opts...)
 	if err != nil {
@@ -6765,7 +5797,6 @@ func (c *gobgpApiClient) DisableMrt(ctx context.Context, in *DisableMrtRequest, 
 }
 
 func (c *gobgpApiClient) InjectMrt(ctx context.Context, opts ...grpc.CallOption) (GobgpApi_InjectMrtClient, error) { 
-   fmt.Printf("DEJDEJ id:",1628)
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[3], c.cc, "/gobgpapi.GobgpApi/InjectMrt", opts...)
 	if err != nil {
 		return nil, err
@@ -6785,12 +5816,10 @@ type gobgpApiInjectMrtClient struct {
 }
 
 func (x *gobgpApiInjectMrtClient) Send(m *InjectMrtRequest) error { 
-   fmt.Printf("DEJDEJ id:",1629)
 	return x.ClientStream.SendMsg(m)
 }
 
 func (x *gobgpApiInjectMrtClient) CloseAndRecv() (*InjectMrtResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1630)
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
@@ -6802,7 +5831,6 @@ func (x *gobgpApiInjectMrtClient) CloseAndRecv() (*InjectMrtResponse, error) {
 }
 
 func (c *gobgpApiClient) AddBmp(ctx context.Context, in *AddBmpRequest, opts ...grpc.CallOption) (*AddBmpResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1631)
 	out := new(AddBmpResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddBmp", in, out, c.cc, opts...)
 	if err != nil {
@@ -6812,7 +5840,6 @@ func (c *gobgpApiClient) AddBmp(ctx context.Context, in *AddBmpRequest, opts ...
 }
 
 func (c *gobgpApiClient) DeleteBmp(ctx context.Context, in *DeleteBmpRequest, opts ...grpc.CallOption) (*DeleteBmpResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1632)
 	out := new(DeleteBmpResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteBmp", in, out, c.cc, opts...)
 	if err != nil {
@@ -6822,7 +5849,6 @@ func (c *gobgpApiClient) DeleteBmp(ctx context.Context, in *DeleteBmpRequest, op
 }
 
 func (c *gobgpApiClient) GetRpki(ctx context.Context, in *GetRpkiRequest, opts ...grpc.CallOption) (*GetRpkiResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1633)
 	out := new(GetRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -6832,7 +5858,6 @@ func (c *gobgpApiClient) GetRpki(ctx context.Context, in *GetRpkiRequest, opts .
 }
 
 func (c *gobgpApiClient) AddRpki(ctx context.Context, in *AddRpkiRequest, opts ...grpc.CallOption) (*AddRpkiResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1634)
 	out := new(AddRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -6842,7 +5867,6 @@ func (c *gobgpApiClient) AddRpki(ctx context.Context, in *AddRpkiRequest, opts .
 }
 
 func (c *gobgpApiClient) DeleteRpki(ctx context.Context, in *DeleteRpkiRequest, opts ...grpc.CallOption) (*DeleteRpkiResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1635)
 	out := new(DeleteRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -6852,7 +5876,6 @@ func (c *gobgpApiClient) DeleteRpki(ctx context.Context, in *DeleteRpkiRequest, 
 }
 
 func (c *gobgpApiClient) EnableRpki(ctx context.Context, in *EnableRpkiRequest, opts ...grpc.CallOption) (*EnableRpkiResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1636)
 	out := new(EnableRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -6862,7 +5885,6 @@ func (c *gobgpApiClient) EnableRpki(ctx context.Context, in *EnableRpkiRequest, 
 }
 
 func (c *gobgpApiClient) DisableRpki(ctx context.Context, in *DisableRpkiRequest, opts ...grpc.CallOption) (*DisableRpkiResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1637)
 	out := new(DisableRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DisableRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -6872,7 +5894,6 @@ func (c *gobgpApiClient) DisableRpki(ctx context.Context, in *DisableRpkiRequest
 }
 
 func (c *gobgpApiClient) ResetRpki(ctx context.Context, in *ResetRpkiRequest, opts ...grpc.CallOption) (*ResetRpkiResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1638)
 	out := new(ResetRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ResetRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -6882,7 +5903,6 @@ func (c *gobgpApiClient) ResetRpki(ctx context.Context, in *ResetRpkiRequest, op
 }
 
 func (c *gobgpApiClient) SoftResetRpki(ctx context.Context, in *SoftResetRpkiRequest, opts ...grpc.CallOption) (*SoftResetRpkiResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1639)
 	out := new(SoftResetRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/SoftResetRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -6892,7 +5912,6 @@ func (c *gobgpApiClient) SoftResetRpki(ctx context.Context, in *SoftResetRpkiReq
 }
 
 func (c *gobgpApiClient) GetRoa(ctx context.Context, in *GetRoaRequest, opts ...grpc.CallOption) (*GetRoaResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1640)
 	out := new(GetRoaResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRoa", in, out, c.cc, opts...)
 	if err != nil {
@@ -6902,7 +5921,6 @@ func (c *gobgpApiClient) GetRoa(ctx context.Context, in *GetRoaRequest, opts ...
 }
 
 func (c *gobgpApiClient) EnableZebra(ctx context.Context, in *EnableZebraRequest, opts ...grpc.CallOption) (*EnableZebraResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1641)
 	out := new(EnableZebraResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableZebra", in, out, c.cc, opts...)
 	if err != nil {
@@ -6912,7 +5930,6 @@ func (c *gobgpApiClient) EnableZebra(ctx context.Context, in *EnableZebraRequest
 }
 
 func (c *gobgpApiClient) AddVrf(ctx context.Context, in *AddVrfRequest, opts ...grpc.CallOption) (*AddVrfResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1642)
 	out := new(AddVrfResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddVrf", in, out, c.cc, opts...)
 	if err != nil {
@@ -6922,7 +5939,6 @@ func (c *gobgpApiClient) AddVrf(ctx context.Context, in *AddVrfRequest, opts ...
 }
 
 func (c *gobgpApiClient) DeleteVrf(ctx context.Context, in *DeleteVrfRequest, opts ...grpc.CallOption) (*DeleteVrfResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1643)
 	out := new(DeleteVrfResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteVrf", in, out, c.cc, opts...)
 	if err != nil {
@@ -6932,7 +5948,6 @@ func (c *gobgpApiClient) DeleteVrf(ctx context.Context, in *DeleteVrfRequest, op
 }
 
 func (c *gobgpApiClient) GetVrf(ctx context.Context, in *GetVrfRequest, opts ...grpc.CallOption) (*GetVrfResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1644)
 	out := new(GetVrfResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetVrf", in, out, c.cc, opts...)
 	if err != nil {
@@ -6942,7 +5957,6 @@ func (c *gobgpApiClient) GetVrf(ctx context.Context, in *GetVrfRequest, opts ...
 }
 
 func (c *gobgpApiClient) GetDefinedSet(ctx context.Context, in *GetDefinedSetRequest, opts ...grpc.CallOption) (*GetDefinedSetResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1645)
 	out := new(GetDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -6952,7 +5966,6 @@ func (c *gobgpApiClient) GetDefinedSet(ctx context.Context, in *GetDefinedSetReq
 }
 
 func (c *gobgpApiClient) AddDefinedSet(ctx context.Context, in *AddDefinedSetRequest, opts ...grpc.CallOption) (*AddDefinedSetResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1646)
 	out := new(AddDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -6962,7 +5975,6 @@ func (c *gobgpApiClient) AddDefinedSet(ctx context.Context, in *AddDefinedSetReq
 }
 
 func (c *gobgpApiClient) DeleteDefinedSet(ctx context.Context, in *DeleteDefinedSetRequest, opts ...grpc.CallOption) (*DeleteDefinedSetResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1647)
 	out := new(DeleteDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -6972,7 +5984,6 @@ func (c *gobgpApiClient) DeleteDefinedSet(ctx context.Context, in *DeleteDefined
 }
 
 func (c *gobgpApiClient) ReplaceDefinedSet(ctx context.Context, in *ReplaceDefinedSetRequest, opts ...grpc.CallOption) (*ReplaceDefinedSetResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1648)
 	out := new(ReplaceDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplaceDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -6982,7 +5993,6 @@ func (c *gobgpApiClient) ReplaceDefinedSet(ctx context.Context, in *ReplaceDefin
 }
 
 func (c *gobgpApiClient) GetStatement(ctx context.Context, in *GetStatementRequest, opts ...grpc.CallOption) (*GetStatementResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1649)
 	out := new(GetStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -6992,7 +6002,6 @@ func (c *gobgpApiClient) GetStatement(ctx context.Context, in *GetStatementReque
 }
 
 func (c *gobgpApiClient) AddStatement(ctx context.Context, in *AddStatementRequest, opts ...grpc.CallOption) (*AddStatementResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1650)
 	out := new(AddStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -7002,7 +6011,6 @@ func (c *gobgpApiClient) AddStatement(ctx context.Context, in *AddStatementReque
 }
 
 func (c *gobgpApiClient) DeleteStatement(ctx context.Context, in *DeleteStatementRequest, opts ...grpc.CallOption) (*DeleteStatementResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1651)
 	out := new(DeleteStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -7012,7 +6020,6 @@ func (c *gobgpApiClient) DeleteStatement(ctx context.Context, in *DeleteStatemen
 }
 
 func (c *gobgpApiClient) ReplaceStatement(ctx context.Context, in *ReplaceStatementRequest, opts ...grpc.CallOption) (*ReplaceStatementResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1652)
 	out := new(ReplaceStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplaceStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -7022,7 +6029,6 @@ func (c *gobgpApiClient) ReplaceStatement(ctx context.Context, in *ReplaceStatem
 }
 
 func (c *gobgpApiClient) GetPolicy(ctx context.Context, in *GetPolicyRequest, opts ...grpc.CallOption) (*GetPolicyResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1653)
 	out := new(GetPolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetPolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -7032,7 +6038,6 @@ func (c *gobgpApiClient) GetPolicy(ctx context.Context, in *GetPolicyRequest, op
 }
 
 func (c *gobgpApiClient) AddPolicy(ctx context.Context, in *AddPolicyRequest, opts ...grpc.CallOption) (*AddPolicyResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1654)
 	out := new(AddPolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddPolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -7042,7 +6047,6 @@ func (c *gobgpApiClient) AddPolicy(ctx context.Context, in *AddPolicyRequest, op
 }
 
 func (c *gobgpApiClient) DeletePolicy(ctx context.Context, in *DeletePolicyRequest, opts ...grpc.CallOption) (*DeletePolicyResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1655)
 	out := new(DeletePolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeletePolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -7052,7 +6056,6 @@ func (c *gobgpApiClient) DeletePolicy(ctx context.Context, in *DeletePolicyReque
 }
 
 func (c *gobgpApiClient) ReplacePolicy(ctx context.Context, in *ReplacePolicyRequest, opts ...grpc.CallOption) (*ReplacePolicyResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1656)
 	out := new(ReplacePolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplacePolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -7062,7 +6065,6 @@ func (c *gobgpApiClient) ReplacePolicy(ctx context.Context, in *ReplacePolicyReq
 }
 
 func (c *gobgpApiClient) GetPolicyAssignment(ctx context.Context, in *GetPolicyAssignmentRequest, opts ...grpc.CallOption) (*GetPolicyAssignmentResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1657)
 	out := new(GetPolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetPolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -7072,7 +6074,6 @@ func (c *gobgpApiClient) GetPolicyAssignment(ctx context.Context, in *GetPolicyA
 }
 
 func (c *gobgpApiClient) AddPolicyAssignment(ctx context.Context, in *AddPolicyAssignmentRequest, opts ...grpc.CallOption) (*AddPolicyAssignmentResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1658)
 	out := new(AddPolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddPolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -7082,7 +6083,6 @@ func (c *gobgpApiClient) AddPolicyAssignment(ctx context.Context, in *AddPolicyA
 }
 
 func (c *gobgpApiClient) DeletePolicyAssignment(ctx context.Context, in *DeletePolicyAssignmentRequest, opts ...grpc.CallOption) (*DeletePolicyAssignmentResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1659)
 	out := new(DeletePolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeletePolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -7092,7 +6092,6 @@ func (c *gobgpApiClient) DeletePolicyAssignment(ctx context.Context, in *DeleteP
 }
 
 func (c *gobgpApiClient) ReplacePolicyAssignment(ctx context.Context, in *ReplacePolicyAssignmentRequest, opts ...grpc.CallOption) (*ReplacePolicyAssignmentResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1660)
 	out := new(ReplacePolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplacePolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -7102,7 +6101,6 @@ func (c *gobgpApiClient) ReplacePolicyAssignment(ctx context.Context, in *Replac
 }
 
 func (c *gobgpApiClient) GetRibInfo(ctx context.Context, in *GetRibInfoRequest, opts ...grpc.CallOption) (*GetRibInfoResponse, error) { 
-   fmt.Printf("DEJDEJ id:",1661)
 	out := new(GetRibInfoResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRibInfo", in, out, c.cc, opts...)
 	if err != nil {
@@ -7169,12 +6167,10 @@ type GobgpApiServer interface {
 }
 
 func RegisterGobgpApiServer(s *grpc.Server, srv GobgpApiServer) { 
-   fmt.Printf("DEJDEJ id:",1662)
 	s.RegisterService(&_GobgpApi_serviceDesc, srv)
 }
 
 func _GobgpApi_StartServer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1663)
 	in := new(StartServerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7193,7 +6189,6 @@ func _GobgpApi_StartServer_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_StopServer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1664)
 	in := new(StopServerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7212,7 +6207,6 @@ func _GobgpApi_StopServer_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_GetServer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1665)
 	in := new(GetServerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7231,7 +6225,6 @@ func _GobgpApi_GetServer_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_AddNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1666)
 	in := new(AddNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7250,7 +6243,6 @@ func _GobgpApi_AddNeighbor_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_DeleteNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1667)
 	in := new(DeleteNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7269,7 +6261,6 @@ func _GobgpApi_DeleteNeighbor_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _GobgpApi_GetNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1668)
 	in := new(GetNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7288,7 +6279,6 @@ func _GobgpApi_GetNeighbor_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_ResetNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1669)
 	in := new(ResetNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7307,7 +6297,6 @@ func _GobgpApi_ResetNeighbor_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_SoftResetNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1670)
 	in := new(SoftResetNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7326,7 +6315,6 @@ func _GobgpApi_SoftResetNeighbor_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _GobgpApi_ShutdownNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1671)
 	in := new(ShutdownNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7345,7 +6333,6 @@ func _GobgpApi_ShutdownNeighbor_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _GobgpApi_EnableNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1672)
 	in := new(EnableNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7364,7 +6351,6 @@ func _GobgpApi_EnableNeighbor_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _GobgpApi_DisableNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1673)
 	in := new(DisableNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7383,7 +6369,6 @@ func _GobgpApi_DisableNeighbor_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _GobgpApi_GetRib_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1674)
 	in := new(GetRibRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7402,7 +6387,6 @@ func _GobgpApi_GetRib_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_GetPath_Handler(srv interface{}, stream grpc.ServerStream) error { 
-   fmt.Printf("DEJDEJ id:",1675)
 	m := new(GetPathRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -7420,12 +6404,10 @@ type gobgpApiGetPathServer struct {
 }
 
 func (x *gobgpApiGetPathServer) Send(m *Path) error { 
-   fmt.Printf("DEJDEJ id:",1676)
 	return x.ServerStream.SendMsg(m)
 }
 
 func _GobgpApi_ValidateRib_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1677)
 	in := new(ValidateRibRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7444,7 +6426,6 @@ func _GobgpApi_ValidateRib_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_AddPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1678)
 	in := new(AddPathRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7463,7 +6444,6 @@ func _GobgpApi_AddPath_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 func _GobgpApi_DeletePath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1679)
 	in := new(DeletePathRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7482,7 +6462,6 @@ func _GobgpApi_DeletePath_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_MonitorRib_Handler(srv interface{}, stream grpc.ServerStream) error { 
-   fmt.Printf("DEJDEJ id:",1680)
 	m := new(MonitorRibRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -7500,12 +6479,10 @@ type gobgpApiMonitorRibServer struct {
 }
 
 func (x *gobgpApiMonitorRibServer) Send(m *Destination) error { 
-   fmt.Printf("DEJDEJ id:",1681)
 	return x.ServerStream.SendMsg(m)
 }
 
 func _GobgpApi_MonitorPeerState_Handler(srv interface{}, stream grpc.ServerStream) error { 
-   fmt.Printf("DEJDEJ id:",1682)
 	m := new(Arguments)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -7523,12 +6500,10 @@ type gobgpApiMonitorPeerStateServer struct {
 }
 
 func (x *gobgpApiMonitorPeerStateServer) Send(m *Peer) error { 
-   fmt.Printf("DEJDEJ id:",1683)
 	return x.ServerStream.SendMsg(m)
 }
 
 func _GobgpApi_EnableMrt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1684)
 	in := new(EnableMrtRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7547,7 +6522,6 @@ func _GobgpApi_EnableMrt_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_DisableMrt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1685)
 	in := new(DisableMrtRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7566,7 +6540,6 @@ func _GobgpApi_DisableMrt_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_InjectMrt_Handler(srv interface{}, stream grpc.ServerStream) error { 
-   fmt.Printf("DEJDEJ id:",1686)
 	return srv.(GobgpApiServer).InjectMrt(&gobgpApiInjectMrtServer{stream})
 }
 
@@ -7581,12 +6554,10 @@ type gobgpApiInjectMrtServer struct {
 }
 
 func (x *gobgpApiInjectMrtServer) SendAndClose(m *InjectMrtResponse) error { 
-   fmt.Printf("DEJDEJ id:",1687)
 	return x.ServerStream.SendMsg(m)
 }
 
 func (x *gobgpApiInjectMrtServer) Recv() (*InjectMrtRequest, error) { 
-   fmt.Printf("DEJDEJ id:",1688)
 	m := new(InjectMrtRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -7595,7 +6566,6 @@ func (x *gobgpApiInjectMrtServer) Recv() (*InjectMrtRequest, error) {
 }
 
 func _GobgpApi_AddBmp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1689)
 	in := new(AddBmpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7614,7 +6584,6 @@ func _GobgpApi_AddBmp_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_DeleteBmp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1690)
 	in := new(DeleteBmpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7633,7 +6602,6 @@ func _GobgpApi_DeleteBmp_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_GetRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1691)
 	in := new(GetRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7652,7 +6620,6 @@ func _GobgpApi_GetRpki_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 func _GobgpApi_AddRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1692)
 	in := new(AddRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7671,7 +6638,6 @@ func _GobgpApi_AddRpki_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 func _GobgpApi_DeleteRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1693)
 	in := new(DeleteRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7690,7 +6656,6 @@ func _GobgpApi_DeleteRpki_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_EnableRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1694)
 	in := new(EnableRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7709,7 +6674,6 @@ func _GobgpApi_EnableRpki_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_DisableRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1695)
 	in := new(DisableRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7728,7 +6692,6 @@ func _GobgpApi_DisableRpki_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_ResetRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1696)
 	in := new(ResetRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7747,7 +6710,6 @@ func _GobgpApi_ResetRpki_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_SoftResetRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1697)
 	in := new(SoftResetRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7766,7 +6728,6 @@ func _GobgpApi_SoftResetRpki_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_GetRoa_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1698)
 	in := new(GetRoaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7785,7 +6746,6 @@ func _GobgpApi_GetRoa_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_EnableZebra_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1699)
 	in := new(EnableZebraRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7804,7 +6764,6 @@ func _GobgpApi_EnableZebra_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_AddVrf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1700)
 	in := new(AddVrfRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7823,7 +6782,6 @@ func _GobgpApi_AddVrf_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_DeleteVrf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1701)
 	in := new(DeleteVrfRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7842,7 +6800,6 @@ func _GobgpApi_DeleteVrf_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_GetVrf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1702)
 	in := new(GetVrfRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7861,7 +6818,6 @@ func _GobgpApi_GetVrf_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_GetDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1703)
 	in := new(GetDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7880,7 +6836,6 @@ func _GobgpApi_GetDefinedSet_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_AddDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1704)
 	in := new(AddDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7899,7 +6854,6 @@ func _GobgpApi_AddDefinedSet_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_DeleteDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1705)
 	in := new(DeleteDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7918,7 +6872,6 @@ func _GobgpApi_DeleteDefinedSet_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _GobgpApi_ReplaceDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1706)
 	in := new(ReplaceDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7937,7 +6890,6 @@ func _GobgpApi_ReplaceDefinedSet_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _GobgpApi_GetStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1707)
 	in := new(GetStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7956,7 +6908,6 @@ func _GobgpApi_GetStatement_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _GobgpApi_AddStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1708)
 	in := new(AddStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7975,7 +6926,6 @@ func _GobgpApi_AddStatement_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _GobgpApi_DeleteStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1709)
 	in := new(DeleteStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7994,7 +6944,6 @@ func _GobgpApi_DeleteStatement_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _GobgpApi_ReplaceStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1710)
 	in := new(ReplaceStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8013,7 +6962,6 @@ func _GobgpApi_ReplaceStatement_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _GobgpApi_GetPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1711)
 	in := new(GetPolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8032,7 +6980,6 @@ func _GobgpApi_GetPolicy_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_AddPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1712)
 	in := new(AddPolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8051,7 +6998,6 @@ func _GobgpApi_AddPolicy_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_DeletePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1713)
 	in := new(DeletePolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8070,7 +7016,6 @@ func _GobgpApi_DeletePolicy_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _GobgpApi_ReplacePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1714)
 	in := new(ReplacePolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8089,7 +7034,6 @@ func _GobgpApi_ReplacePolicy_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_GetPolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1715)
 	in := new(GetPolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8108,7 +7052,6 @@ func _GobgpApi_GetPolicyAssignment_Handler(srv interface{}, ctx context.Context,
 }
 
 func _GobgpApi_AddPolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1716)
 	in := new(AddPolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8127,7 +7070,6 @@ func _GobgpApi_AddPolicyAssignment_Handler(srv interface{}, ctx context.Context,
 }
 
 func _GobgpApi_DeletePolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1717)
 	in := new(DeletePolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8146,7 +7088,6 @@ func _GobgpApi_DeletePolicyAssignment_Handler(srv interface{}, ctx context.Conte
 }
 
 func _GobgpApi_ReplacePolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1718)
 	in := new(ReplacePolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8165,7 +7106,6 @@ func _GobgpApi_ReplacePolicyAssignment_Handler(srv interface{}, ctx context.Cont
 }
 
 func _GobgpApi_GetRibInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
-   fmt.Printf("DEJDEJ id:",1719)
 	in := new(GetRibInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -8405,7 +7345,6 @@ var _GobgpApi_serviceDesc = grpc.ServiceDesc{
 	Metadata: "gobgp.proto",
 }
 
-func init() {    fmt.Printf("DEJDEJ id:",1720)
 proto.RegisterFile("gobgp.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{

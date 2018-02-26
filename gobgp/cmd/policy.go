@@ -32,7 +32,6 @@ import (
 )
 
 func formatDefinedSet(head bool, typ string, indent int, list []table.DefinedSet) string { 
-   fmt.Printf("DEJDEJ id:",3673)
 	if len(list) == 0 {
 		return "Nothing defined yet\n"
 	}
@@ -75,7 +74,6 @@ func formatDefinedSet(head bool, typ string, indent int, list []table.DefinedSet
 }
 
 func showDefinedSet(v string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3674)
 	var typ table.DefinedType
 	switch v {
 	case CMD_PREFIX:
@@ -143,7 +141,6 @@ func showDefinedSet(v string, args []string) error {
 }
 
 func parsePrefixSet(args []string) (table.DefinedSet, error) { 
-   fmt.Printf("DEJDEJ id:",3675)
 	if len(args) < 1 {
 		return nil, fmt.Errorf("empty neighbor set name")
 	}
@@ -172,7 +169,6 @@ func parsePrefixSet(args []string) (table.DefinedSet, error) {
 }
 
 func parseNeighborSet(args []string) (table.DefinedSet, error) { 
-   fmt.Printf("DEJDEJ id:",3676)
 	if len(args) < 1 {
 		return nil, fmt.Errorf("empty neighbor set name")
 	}
@@ -194,7 +190,6 @@ func parseNeighborSet(args []string) (table.DefinedSet, error) {
 }
 
 func parseAsPathSet(args []string) (table.DefinedSet, error) { 
-   fmt.Printf("DEJDEJ id:",3677)
 	if len(args) < 1 {
 		return nil, fmt.Errorf("empty as-path set name")
 	}
@@ -213,7 +208,6 @@ func parseAsPathSet(args []string) (table.DefinedSet, error) {
 }
 
 func parseCommunitySet(args []string) (table.DefinedSet, error) { 
-   fmt.Printf("DEJDEJ id:",3678)
 	if len(args) < 1 {
 		return nil, fmt.Errorf("empty community set name")
 	}
@@ -231,7 +225,6 @@ func parseCommunitySet(args []string) (table.DefinedSet, error) {
 }
 
 func parseExtCommunitySet(args []string) (table.DefinedSet, error) { 
-   fmt.Printf("DEJDEJ id:",3679)
 	if len(args) < 1 {
 		return nil, fmt.Errorf("empty ext-community set name")
 	}
@@ -249,7 +242,6 @@ func parseExtCommunitySet(args []string) (table.DefinedSet, error) {
 }
 
 func parseLargeCommunitySet(args []string) (table.DefinedSet, error) { 
-   fmt.Printf("DEJDEJ id:",3680)
 	if len(args) < 1 {
 		return nil, fmt.Errorf("empty large-community set name")
 	}
@@ -267,7 +259,6 @@ func parseLargeCommunitySet(args []string) (table.DefinedSet, error) {
 }
 
 func parseDefinedSet(settype string, args []string) (table.DefinedSet, error) { 
-   fmt.Printf("DEJDEJ id:",3681)
 	switch settype {
 	case CMD_PREFIX:
 		return parsePrefixSet(args)
@@ -296,7 +287,6 @@ var modPolicyUsageFormat = map[string]string{
 }
 
 func modDefinedSet(settype string, modtype string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3682)
 	var d table.DefinedSet
 	var err error
 	if len(args) < 1 {
@@ -321,7 +311,6 @@ func modDefinedSet(settype string, modtype string, args []string) error {
 }
 
 func printStatement(indent int, s *table.Statement) { 
-   fmt.Printf("DEJDEJ id:",3683)
 	sIndent := func(indent int) string {
 		return strings.Repeat(" ", indent)
 	}
@@ -387,14 +376,12 @@ func printStatement(indent int, s *table.Statement) {
 }
 
 func printPolicy(indent int, pd *table.Policy) { 
-   fmt.Printf("DEJDEJ id:",3684)
 	for _, s := range pd.Statements {
 		printStatement(indent, s)
 	}
 }
 
 func showPolicy(args []string) error { 
-   fmt.Printf("DEJDEJ id:",3685)
 	policies, err := client.GetPolicy()
 	if err != nil {
 		return err
@@ -433,7 +420,6 @@ func showPolicy(args []string) error {
 }
 
 func showStatement(args []string) error { 
-   fmt.Printf("DEJDEJ id:",3686)
 	stmts, err := client.GetStatement()
 	if err != nil {
 		return err
@@ -470,7 +456,6 @@ func showStatement(args []string) error {
 }
 
 func modStatement(op string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3687)
 	if len(args) < 1 {
 		return fmt.Errorf("usage: gobgp policy statement %s <name>", op)
 	}
@@ -490,7 +475,6 @@ func modStatement(op string, args []string) error {
 }
 
 func modCondition(name, op string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3688)
 	stmt := config.Statement{
 		Name: name,
 	}
@@ -675,7 +659,6 @@ func modCondition(name, op string, args []string) error {
 }
 
 func modAction(name, op string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3689)
 	stmt := config.Statement{
 		Name: name,
 	}
@@ -793,7 +776,6 @@ func modAction(name, op string, args []string) error {
 }
 
 func modPolicy(modtype string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3690)
 	if len(args) < 1 {
 		return fmt.Errorf("usage: gobgp policy %s <name> [<statement name>...]", modtype)
 	}
@@ -826,7 +808,6 @@ func modPolicy(modtype string, args []string) error {
 }
 
 func NewPolicyCmd() *cobra.Command { 
-   fmt.Printf("DEJDEJ id:",3691)
 	policyCmd := &cobra.Command{
 		Use: CMD_POLICY,
 		Run: func(cmd *cobra.Command, args []string) {

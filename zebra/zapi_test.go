@@ -26,7 +26,6 @@ import (
 )
 
 func Test_Header(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3501)
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -58,7 +57,6 @@ func Test_Header(t *testing.T) {
 }
 
 func Test_InterfaceUpdateBody(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3502)
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -95,7 +93,6 @@ func Test_InterfaceUpdateBody(t *testing.T) {
 }
 
 func Test_InterfaceAddressUpdateBody(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3503)
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -132,7 +129,6 @@ func Test_InterfaceAddressUpdateBody(t *testing.T) {
 }
 
 func Test_RouterIDUpdateBody(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3504)
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -160,7 +156,6 @@ func Test_RouterIDUpdateBody(t *testing.T) {
 }
 
 func Test_IPRouteBody_IPv4(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3505)
 	assert := assert.New(t)
 
 	//DecodeFromBytes IPV4_ROUTE
@@ -246,7 +241,6 @@ func Test_IPRouteBody_IPv4(t *testing.T) {
 }
 
 func Test_IPRouteBody_IPv6(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3506)
 	assert := assert.New(t)
 
 	//DecodeFromBytes IPV6_ROUTE
@@ -339,7 +333,6 @@ func Test_IPRouteBody_IPv6(t *testing.T) {
 }
 
 func Test_NexthopLookupBody(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3507)
 	assert := assert.New(t)
 
 	//ipv4
@@ -422,7 +415,6 @@ func Test_NexthopLookupBody(t *testing.T) {
 }
 
 func Test_ImportLookupBody(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3508)
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -467,7 +459,6 @@ func Test_ImportLookupBody(t *testing.T) {
 }
 
 func Test_NexthopRegisterBody(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3509)
 	assert := assert.New(t)
 
 	// Input binary
@@ -505,7 +496,6 @@ func Test_NexthopRegisterBody(t *testing.T) {
 }
 
 func Test_NexthopUpdateBody(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",3510)
 	assert := assert.New(t)
 
 	// Input binary

@@ -8,7 +8,6 @@ import (
 )
 
 func main() { 
-   fmt.Printf("DEJDEJ id:",3698)
 	b := config.Bgp{
 		Global: config.Global{
 			Config: config.GlobalConfig{
@@ -77,7 +76,6 @@ func main() {
 }
 
 func policy() config.RoutingPolicy { 
-   fmt.Printf("DEJDEJ id:",3699)
 
 	ps := config.PrefixSet{
 		PrefixSetName: "ps1",

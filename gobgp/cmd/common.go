@@ -122,7 +122,6 @@ var mrtOpts struct {
 }
 
 func formatTimedelta(d int64) string { 
-   fmt.Printf("DEJDEJ id:",3614)
 	u := uint64(d)
 	neg := d < 0
 	if neg {
@@ -143,7 +142,6 @@ func formatTimedelta(d int64) string {
 }
 
 func cidr2prefix(cidr string) string { 
-   fmt.Printf("DEJDEJ id:",3615)
 	_, n, err := net.ParseCIDR(cidr)
 	if err != nil {
 		return cidr
@@ -157,7 +155,6 @@ func cidr2prefix(cidr string) string {
 }
 
 func extractReserved(args, keys []string) map[string][]string { 
-   fmt.Printf("DEJDEJ id:",3616)
 	m := make(map[string][]string, len(keys))
 	var k string
 	isReserved := func(s string) bool {
@@ -182,17 +179,14 @@ func extractReserved(args, keys []string) map[string][]string {
 type neighbors []*config.Neighbor
 
 func (n neighbors) Len() int { 
-   fmt.Printf("DEJDEJ id:",3617)
 	return len(n)
 }
 
 func (n neighbors) Swap(i, j int) { 
-   fmt.Printf("DEJDEJ id:",3618)
 	n[i], n[j] = n[j], n[i]
 }
 
 func (n neighbors) Less(i, j int) bool { 
-   fmt.Printf("DEJDEJ id:",3619)
 	p1 := n[i].State.NeighborAddress
 	p2 := n[j].State.NeighborAddress
 	p1Isv4 := !strings.Contains(p1, ":")
@@ -215,39 +209,32 @@ func (n neighbors) Less(i, j int) bool {
 type capabilities []bgp.ParameterCapabilityInterface
 
 func (c capabilities) Len() int { 
-   fmt.Printf("DEJDEJ id:",3620)
 	return len(c)
 }
 
 func (c capabilities) Swap(i, j int) { 
-   fmt.Printf("DEJDEJ id:",3621)
 	c[i], c[j] = c[j], c[i]
 }
 
 func (c capabilities) Less(i, j int) bool { 
-   fmt.Printf("DEJDEJ id:",3622)
 	return c[i].Code() < c[j].Code()
 }
 
 type vrfs []*table.Vrf
 
 func (v vrfs) Len() int { 
-   fmt.Printf("DEJDEJ id:",3623)
 	return len(v)
 }
 
 func (v vrfs) Swap(i, j int) { 
-   fmt.Printf("DEJDEJ id:",3624)
 	v[i], v[j] = v[j], v[i]
 }
 
 func (v vrfs) Less(i, j int) bool { 
-   fmt.Printf("DEJDEJ id:",3625)
 	return v[i].Name < v[j].Name
 }
 
 func newClient() *cli.Client { 
-   fmt.Printf("DEJDEJ id:",3626)
 	var grpcOpts []grpc.DialOption
 	if globalOpts.TLS {
 		var creds credentials.TransportCredentials
@@ -275,7 +262,6 @@ func newClient() *cli.Client {
 }
 
 func addr2AddressFamily(a net.IP) bgp.RouteFamily { 
-   fmt.Printf("DEJDEJ id:",3627)
 	if a.To4() != nil {
 		return bgp.RF_IPv4_UC
 	} else if a.To16() != nil {
@@ -285,7 +271,6 @@ func addr2AddressFamily(a net.IP) bgp.RouteFamily {
 }
 
 func checkAddressFamily(def bgp.RouteFamily) (bgp.RouteFamily, error) { 
-   fmt.Printf("DEJDEJ id:",3628)
 	var rf bgp.RouteFamily
 	var e error
 	switch subOpts.AddressFamily {
@@ -330,7 +315,6 @@ func checkAddressFamily(def bgp.RouteFamily) (bgp.RouteFamily, error) {
 }
 
 func printError(err error) { 
-   fmt.Printf("DEJDEJ id:",3629)
 	if globalOpts.Json {
 		j, _ := json.Marshal(struct {
 			Error string `json:"error"`
@@ -342,7 +326,6 @@ func printError(err error) {
 }
 
 func exitWithError(err error) { 
-   fmt.Printf("DEJDEJ id:",3630)
 	printError(err)
 	os.Exit(1)
 }

@@ -40,7 +40,6 @@ var (
 )
 
 func updateColumnWidth(nlri, nexthop, aspath, label string) { 
-   fmt.Printf("DEJDEJ id:",3593)
 	if prefixLen := len(nlri); columnWidthPrefix < prefixLen {
 		columnWidthPrefix = prefixLen
 	}
@@ -56,7 +55,6 @@ func updateColumnWidth(nlri, nexthop, aspath, label string) {
 }
 
 func getNeighbors(vrf string) (neighbors, error) { 
-   fmt.Printf("DEJDEJ id:",3594)
 	if vrf != "" {
 		n, err := client.ListNeighborByVRF(vrf)
 		return neighbors(n), err
@@ -77,7 +75,6 @@ func getNeighbors(vrf string) (neighbors, error) {
 }
 
 func getASN(p *config.Neighbor) string { 
-   fmt.Printf("DEJDEJ id:",3595)
 	asn := "*"
 	if p.State.PeerAs > 0 {
 		asn = fmt.Sprint(p.State.PeerAs)
@@ -86,7 +83,6 @@ func getASN(p *config.Neighbor) string {
 }
 
 func showNeighbors(vrf string) error { 
-   fmt.Printf("DEJDEJ id:",3596)
 	m, err := getNeighbors(vrf)
 	if err != nil {
 		return err
@@ -175,7 +171,6 @@ func showNeighbors(vrf string) error {
 }
 
 func showNeighbor(args []string) error { 
-   fmt.Printf("DEJDEJ id:",3597)
 	p, e := client.GetNeighbor(args[0], true)
 	if e != nil {
 		return e
@@ -429,7 +424,6 @@ type AsPathFormat struct {
 }
 
 func getPathSymbolString(p *table.Path, idx int, showBest bool) string { 
-   fmt.Printf("DEJDEJ id:",3598)
 	symbols := ""
 	if p.IsStale() {
 		symbols += "S"
@@ -453,7 +447,6 @@ func getPathSymbolString(p *table.Path, idx int, showBest bool) string {
 }
 
 func getPathAttributeString(p *table.Path) string { 
-   fmt.Printf("DEJDEJ id:",3599)
 	s := make([]string, 0)
 	for _, a := range p.GetPathAttrs() {
 		switch a.GetType() {
@@ -480,7 +473,6 @@ func getPathAttributeString(p *table.Path) string {
 }
 
 func makeShowRouteArgs(p *table.Path, idx int, now time.Time, showAge, showBest, showLabel bool, showIdentifier bgp.BGPAddPathMode) []interface{} { 
-   fmt.Printf("DEJDEJ id:",3600)
 	nlri := p.GetNlri()
 
 	// Path Symbols (e.g. "*>")
@@ -530,7 +522,6 @@ func makeShowRouteArgs(p *table.Path, idx int, now time.Time, showAge, showBest,
 }
 
 func showRoute(destinationList [][]*table.Path, showAge, showBest, showLabel bool, showIdentifier bgp.BGPAddPathMode) { 
-   fmt.Printf("DEJDEJ id:",3601)
 	var pathStrs [][]interface{}
 	now := time.Now()
 	for _, pathList := range destinationList {
@@ -569,7 +560,6 @@ func showRoute(destinationList [][]*table.Path, showAge, showBest, showLabel boo
 }
 
 func checkOriginAsWasNotShown(p *table.Path, shownAs map[uint32]struct{}) bool { 
-   fmt.Printf("DEJDEJ id:",3602)
 	asPath := p.GetAsPath().Value
 	// the path was generated in internal
 	if len(asPath) == 0 {
@@ -586,7 +576,6 @@ func checkOriginAsWasNotShown(p *table.Path, shownAs map[uint32]struct{}) bool {
 }
 
 func showValidationInfo(p *table.Path, shownAs map[uint32]struct{}) error { 
-   fmt.Printf("DEJDEJ id:",3603)
 	asPath := p.GetAsPath().Value
 	if len(asPath) == 0 {
 		return fmt.Errorf("The path to %s was locally generated.\n", p.GetNlri().String())
@@ -644,7 +633,6 @@ func showValidationInfo(p *table.Path, shownAs map[uint32]struct{}) error {
 }
 
 func showRibInfo(r, name string) error { 
-   fmt.Printf("DEJDEJ id:",3604)
 	def := addr2AddressFamily(net.ParseIP(name))
 	if r == CMD_GLOBAL {
 		def = bgp.RF_IPv4_UC
@@ -684,7 +672,6 @@ func showRibInfo(r, name string) error {
 }
 
 func parseCIDRorIP(str string) (net.IP, *net.IPNet, error) { 
-   fmt.Printf("DEJDEJ id:",3605)
 	ip, n, err := net.ParseCIDR(str)
 	if err == nil {
 		return ip, n, nil
@@ -697,7 +684,6 @@ func parseCIDRorIP(str string) (net.IP, *net.IPNet, error) {
 }
 
 func showNeighborRib(r string, name string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3606)
 	showBest := false
 	showAge := true
 	showLabel := false
@@ -847,7 +833,6 @@ func showNeighborRib(r string, name string, args []string) error {
 }
 
 func resetNeighbor(cmd string, remoteIP string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3607)
 	family := bgp.RouteFamily(0)
 	if reasonLen := len(neighborsOpts.Reason); reasonLen > bgp.BGP_ERROR_ADMINISTRATIVE_COMMUNICATION_MAX {
 		return fmt.Errorf("Too long reason for shutdown communication (max %d bytes)", bgp.BGP_ERROR_ADMINISTRATIVE_COMMUNICATION_MAX)
@@ -866,7 +851,6 @@ func resetNeighbor(cmd string, remoteIP string, args []string) error {
 }
 
 func stateChangeNeighbor(cmd string, remoteIP string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3608)
 	if reasonLen := len(neighborsOpts.Reason); reasonLen > bgp.BGP_ERROR_ADMINISTRATIVE_COMMUNICATION_MAX {
 		return fmt.Errorf("Too long reason for shutdown communication (max %d bytes)", bgp.BGP_ERROR_ADMINISTRATIVE_COMMUNICATION_MAX)
 	}
@@ -883,7 +867,6 @@ func stateChangeNeighbor(cmd string, remoteIP string, args []string) error {
 }
 
 func showNeighborPolicy(remoteIP, policyType string, indent int) error { 
-   fmt.Printf("DEJDEJ id:",3609)
 	var assignment *table.PolicyAssignment
 	var err error
 
@@ -918,7 +901,6 @@ func showNeighborPolicy(remoteIP, policyType string, indent int) error {
 }
 
 func extractDefaultAction(args []string) ([]string, table.RouteType, error) { 
-   fmt.Printf("DEJDEJ id:",3610)
 	for idx, arg := range args {
 		if arg == "default" {
 			if len(args) < (idx + 2) {
@@ -939,7 +921,6 @@ func extractDefaultAction(args []string) ([]string, table.RouteType, error) {
 }
 
 func modNeighborPolicy(remoteIP, policyType, cmdType string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3611)
 	assign := &table.PolicyAssignment{
 		Name: remoteIP,
 	}
@@ -992,7 +973,6 @@ func modNeighborPolicy(remoteIP, policyType, cmdType string, args []string) erro
 }
 
 func modNeighbor(cmdType string, args []string) error { 
-   fmt.Printf("DEJDEJ id:",3612)
 	m := extractReserved(args, []string{"interface", "as", "family", "vrf", "route-reflector-client", "route-server-client", "allow-own-as", "remove-private-as", "replace-peer-as"})
 	usage := fmt.Sprintf("usage: gobgp neighbor %s [ <neighbor-address> | interface <neighbor-interface> ]", cmdType)
 	if cmdType == CMD_ADD {
@@ -1100,7 +1080,6 @@ func modNeighbor(cmdType string, args []string) error {
 }
 
 func NewNeighborCmd() *cobra.Command { 
-   fmt.Printf("DEJDEJ id:",3613)
 
 	neighborCmdImpl := &cobra.Command{}
 

@@ -25,7 +25,6 @@ import (
 )
 
 func showRPKIServer(args []string) error { 
-   fmt.Printf("DEJDEJ id:",3633)
 	servers, err := client.GetRPKI()
 	if err != nil {
 		fmt.Println(err)
@@ -73,7 +72,6 @@ func showRPKIServer(args []string) error {
 }
 
 func showRPKITable(args []string) error { 
-   fmt.Printf("DEJDEJ id:",3634)
 	family, err := checkAddressFamily(bgp.RouteFamily(0))
 	if err != nil {
 		exitWithError(err)
@@ -102,7 +100,6 @@ func showRPKITable(args []string) error {
 }
 
 func NewRPKICmd() *cobra.Command { 
-   fmt.Printf("DEJDEJ id:",3635)
 	rpkiCmd := &cobra.Command{
 		Use: CMD_RPKI,
 	}

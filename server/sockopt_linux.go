@@ -39,7 +39,6 @@ type tcpmd5sig struct {
 }
 
 func buildTcpMD5Sig(address string, key string) (tcpmd5sig, error) { 
-   fmt.Printf("DEJDEJ id:",250)
 	t := tcpmd5sig{}
 	addr := net.ParseIP(address)
 	if addr.To4() != nil {
@@ -57,7 +56,6 @@ func buildTcpMD5Sig(address string, key string) (tcpmd5sig, error) {
 }
 
 func setsockoptTcpMD5Sig(fd int, address string, key string) error { 
-   fmt.Printf("DEJDEJ id:",251)
 	t, err := buildTcpMD5Sig(address, key)
 	if err != nil {
 		return err
@@ -67,7 +65,6 @@ func setsockoptTcpMD5Sig(fd int, address string, key string) error {
 }
 
 func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
-   fmt.Printf("DEJDEJ id:",252)
 	fi, _, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -77,7 +74,6 @@ func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
 }
 
 func setsockoptIpTtl(fd int, family int, value int) error { 
-   fmt.Printf("DEJDEJ id:",253)
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_TTL
 	if family == syscall.AF_INET6 {
@@ -88,7 +84,6 @@ func setsockoptIpTtl(fd int, family int, value int) error {
 }
 
 func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
-   fmt.Printf("DEJDEJ id:",254)
 	fi, family, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -98,7 +93,6 @@ func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
 }
 
 func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
-   fmt.Printf("DEJDEJ id:",255)
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -108,7 +102,6 @@ func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
 }
 
 func setsockoptIpMinTtl(fd int, family int, value int) error { 
-   fmt.Printf("DEJDEJ id:",256)
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_MINTTL
 	if family == syscall.AF_INET6 {
@@ -119,7 +112,6 @@ func setsockoptIpMinTtl(fd int, family int, value int) error {
 }
 
 func SetTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
-   fmt.Printf("DEJDEJ id:",257)
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -142,7 +134,6 @@ type TCPDialer struct {
 }
 
 func (d *TCPDialer) DialTCP(addr string, port int) (*net.TCPConn, error) { 
-   fmt.Printf("DEJDEJ id:",258)
 	var family int
 	var ra, la syscall.Sockaddr
 

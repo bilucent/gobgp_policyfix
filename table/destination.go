@@ -71,12 +71,10 @@ var BestPathReasonStringMap = map[BestPathReason]string{
 }
 
 func (r *BestPathReason) String() string { 
-   fmt.Printf("DEJDEJ id:",2941)
 	return BestPathReasonStringMap[*r]
 }
 
 func IpToRadixkey(b []byte, max uint8) string { 
-   fmt.Printf("DEJDEJ id:",2942)
 	var buffer bytes.Buffer
 	for i := 0; i < len(b) && i < int(max); i++ {
 		fmt.Fprintf(&buffer, "%08b", b[i])
@@ -85,14 +83,12 @@ func IpToRadixkey(b []byte, max uint8) string {
 }
 
 func CidrToRadixkey(cidr string) string { 
-   fmt.Printf("DEJDEJ id:",2943)
 	_, n, _ := net.ParseCIDR(cidr)
 	ones, _ := n.Mask.Size()
 	return IpToRadixkey(n.IP, uint8(ones))
 }
 
 func AddrToRadixkey(addr bgp.AddrPrefixInterface) string { 
-   fmt.Printf("DEJDEJ id:",2944)
 	var (
 		ip   net.IP
 		size uint8
@@ -124,7 +120,6 @@ type PeerInfo struct {
 }
 
 func (lhs *PeerInfo) Equal(rhs *PeerInfo) bool { 
-   fmt.Printf("DEJDEJ id:",2945)
 	if lhs == rhs {
 		return true
 	}
@@ -140,7 +135,6 @@ func (lhs *PeerInfo) Equal(rhs *PeerInfo) bool {
 }
 
 func (i *PeerInfo) String() string { 
-   fmt.Printf("DEJDEJ id:",2946)
 	if i.Address == nil {
 		return "local"
 	}
@@ -156,7 +150,6 @@ func (i *PeerInfo) String() string {
 }
 
 func NewPeerInfo(g *config.Global, p *config.Neighbor) *PeerInfo { 
-   fmt.Printf("DEJDEJ id:",2947)
 	id := net.ParseIP(string(p.RouteReflector.Config.RouteReflectorClusterId)).To4()
 	// exclude zone info
 	naddr, _ := net.ResolveIPAddr("ip", p.State.NeighborAddress)
@@ -184,7 +177,6 @@ type Destination struct {
 }
 
 func NewDestination(nlri bgp.AddrPrefixInterface, mapSize int, known ...*Path) *Destination { 
-   fmt.Printf("DEJDEJ id:",2948)
 	d := &Destination{
 		routeFamily:   bgp.AfiSafiToRouteFamily(nlri.AFI(), nlri.SAFI()),
 		nlri:          nlri,
@@ -205,32 +197,26 @@ func NewDestination(nlri bgp.AddrPrefixInterface, mapSize int, known ...*Path) *
 }
 
 func (dd *Destination) Family() bgp.RouteFamily { 
-   fmt.Printf("DEJDEJ id:",2949)
 	return dd.routeFamily
 }
 
 func (dd *Destination) setRouteFamily(routeFamily bgp.RouteFamily) { 
-   fmt.Printf("DEJDEJ id:",2950)
 	dd.routeFamily = routeFamily
 }
 
 func (dd *Destination) GetNlri() bgp.AddrPrefixInterface { 
-   fmt.Printf("DEJDEJ id:",2951)
 	return dd.nlri
 }
 
 func (dd *Destination) setNlri(nlri bgp.AddrPrefixInterface) { 
-   fmt.Printf("DEJDEJ id:",2952)
 	dd.nlri = nlri
 }
 
 func (dd *Destination) GetAllKnownPathList() []*Path { 
-   fmt.Printf("DEJDEJ id:",2953)
 	return dd.knownPathList
 }
 
 func (dd *Destination) GetKnownPathList(id string) []*Path { 
-   fmt.Printf("DEJDEJ id:",2954)
 	list := make([]*Path, 0, len(dd.knownPathList))
 	for _, p := range dd.knownPathList {
 		if p.Filtered(id) == POLICY_DIRECTION_NONE {
@@ -241,7 +227,6 @@ func (dd *Destination) GetKnownPathList(id string) []*Path {
 }
 
 func getBestPath(id string, pathList *paths) *Path { 
-   fmt.Printf("DEJDEJ id:",2955)
 	for _, p := range *pathList {
 		if p.Filtered(id) == POLICY_DIRECTION_NONE && !p.IsNexthopInvalid {
 			return p
@@ -251,12 +236,10 @@ func getBestPath(id string, pathList *paths) *Path {
 }
 
 func (dd *Destination) GetBestPath(id string) *Path { 
-   fmt.Printf("DEJDEJ id:",2956)
 	return getBestPath(id, &dd.knownPathList)
 }
 
 func getMultiBestPath(id string, pathList *paths) []*Path { 
-   fmt.Printf("DEJDEJ id:",2957)
 	list := make([]*Path, 0, len(*pathList))
 	var best *Path
 	for _, p := range *pathList {
@@ -273,12 +256,10 @@ func getMultiBestPath(id string, pathList *paths) []*Path {
 }
 
 func (dd *Destination) GetMultiBestPath(id string) []*Path { 
-   fmt.Printf("DEJDEJ id:",2958)
 	return getMultiBestPath(id, &dd.knownPathList)
 }
 
 func (dd *Destination) GetAddPathChanges(id string) []*Path { 
-   fmt.Printf("DEJDEJ id:",2959)
 	l := make([]*Path, 0, len(dd.newPathList)+len(dd.withdrawList))
 	for _, p := range dd.newPathList {
 		l = append(l, p)
@@ -290,7 +271,6 @@ func (dd *Destination) GetAddPathChanges(id string) []*Path {
 }
 
 func (dd *Destination) GetChanges(id string, peerDown bool) (*Path, *Path, []*Path) { 
-   fmt.Printf("DEJDEJ id:",2960)
 	best, old := func(id string) (*Path, *Path) {
 		old := getBestPath(id, &dd.oldKnownPathList)
 		best := dd.GetBestPath(id)
@@ -353,19 +333,16 @@ func (dd *Destination) GetChanges(id string, peerDown bool) (*Path, *Path, []*Pa
 }
 
 func (dd *Destination) AddWithdraw(withdraw *Path) { 
-   fmt.Printf("DEJDEJ id:",2961)
 	dd.validatePath(withdraw)
 	dd.withdrawList = append(dd.withdrawList, withdraw)
 }
 
 func (dd *Destination) AddNewPath(newPath *Path) { 
-   fmt.Printf("DEJDEJ id:",2962)
 	dd.validatePath(newPath)
 	dd.newPathList = append(dd.newPathList, newPath)
 }
 
 func (dd *Destination) validatePath(path *Path) { 
-   fmt.Printf("DEJDEJ id:",2963)
 	if path == nil || path.GetRouteFamily() != dd.routeFamily {
 
 		log.WithFields(log.Fields{
@@ -382,7 +359,6 @@ func (dd *Destination) validatePath(path *Path) {
 // Modifies destination's state related to stored paths. Removes withdrawn
 // paths from known paths. Also, adds new paths to known paths.
 func (dest *Destination) Calculate() *Destination { 
-   fmt.Printf("DEJDEJ id:",2964)
 	oldKnownPathList := dest.knownPathList
 	newPathList := dest.newPathList
 	// First remove the withdrawn paths.
@@ -432,7 +408,6 @@ func (dest *Destination) Calculate() *Destination {
 // stopped by the same policies.
 //
 func (dest *Destination) explicitWithdraw() paths { 
-   fmt.Printf("DEJDEJ id:",2965)
 
 	// If we have no withdrawals, we have nothing to do.
 	if len(dest.withdrawList) == 0 {
@@ -507,7 +482,6 @@ func (dest *Destination) explicitWithdraw() paths {
 // Known paths will no longer have paths whose new version is present in
 // new paths.
 func (dest *Destination) implicitWithdraw() paths { 
-   fmt.Printf("DEJDEJ id:",2966)
 	newKnownPaths := make([]*Path, 0, len(dest.knownPathList))
 	implicitWithdrawn := make([]*Path, 0, len(dest.knownPathList))
 	for _, path := range dest.knownPathList {
@@ -543,7 +517,6 @@ func (dest *Destination) implicitWithdraw() paths {
 }
 
 func (dest *Destination) computeKnownBestPath() (*Path, BestPathReason, error) { 
-   fmt.Printf("DEJDEJ id:",2967)
 	if SelectionOptions.DisableBestPathSelection {
 		log.WithFields(log.Fields{
 			"Topic": "Table",
@@ -585,17 +558,14 @@ func (dest *Destination) computeKnownBestPath() (*Path, BestPathReason, error) {
 type paths []*Path
 
 func (p paths) Len() int { 
-   fmt.Printf("DEJDEJ id:",2968)
 	return len(p)
 }
 
 func (p paths) Swap(i, j int) { 
-   fmt.Printf("DEJDEJ id:",2969)
 	p[i], p[j] = p[j], p[i]
 }
 
 func (p paths) Less(i, j int) bool { 
-   fmt.Printf("DEJDEJ id:",2970)
 
 	//Compares given paths and returns best path.
 	//
@@ -705,7 +675,6 @@ func (p paths) Less(i, j int) bool {
 }
 
 func compareByLLGRStaleCommunity(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2971)
 	p1 := path1.IsLLGRStale()
 	p2 := path2.IsLLGRStale()
 	if p1 == p2 {
@@ -717,7 +686,6 @@ func compareByLLGRStaleCommunity(path1, path2 *Path) *Path {
 }
 
 func compareByReachableNexthop(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2972)
 	//	Compares given paths and selects best path based on reachable next-hop.
 	//
 	//	If no path matches this criteria, return nil.
@@ -736,7 +704,6 @@ func compareByReachableNexthop(path1, path2 *Path) *Path {
 }
 
 func compareByHighestWeight(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2973)
 	//	Selects a path with highest weight.
 	//
 	//	Weight is BGPS specific parameter. It is local to the router on which it
@@ -750,7 +717,6 @@ func compareByHighestWeight(path1, path2 *Path) *Path {
 }
 
 func compareByLocalPref(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2974)
 	//	Selects a path with highest local-preference.
 	//
 	//	Unlike the weight attribute, which is only relevant to the local
@@ -775,7 +741,6 @@ func compareByLocalPref(path1, path2 *Path) *Path {
 }
 
 func compareByLocalOrigin(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2975)
 
 	// Select locally originating path as best path.
 	// Locally originating routes are network routes, redistributed routes,
@@ -803,7 +768,6 @@ func compareByLocalOrigin(path1, path2 *Path) *Path {
 }
 
 func compareByASPath(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2976)
 	// Calculated the best-paths by comparing as-path lengths.
 	//
 	// Shortest as-path length is preferred. If both path have same lengths,
@@ -847,7 +811,6 @@ func compareByASPath(path1, path2 *Path) *Path {
 }
 
 func compareByOrigin(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2977)
 	//	Select the best path based on origin attribute.
 	//
 	//	IGP is preferred over EGP; EGP is preferred over Incomplete.
@@ -885,7 +848,6 @@ func compareByOrigin(path1, path2 *Path) *Path {
 }
 
 func compareByMED(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2978)
 	//	Select the path based with lowest MED value.
 	//
 	//	If both paths have same MED, return None.
@@ -950,7 +912,6 @@ func compareByMED(path1, path2 *Path) *Path {
 }
 
 func compareByASNumber(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2979)
 
 	//Select the path based on source (iBGP/eBGP) peer.
 	//
@@ -979,7 +940,6 @@ func compareByASNumber(path1, path2 *Path) *Path {
 }
 
 func compareByIGPCost(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2980)
 	//	Select the route with the lowest IGP cost to the next hop.
 	//
 	//	Return None if igp cost is same.
@@ -991,7 +951,6 @@ func compareByIGPCost(path1, path2 *Path) *Path {
 }
 
 func compareByRouterID(path1, path2 *Path) (*Path, error) { 
-   fmt.Printf("DEJDEJ id:",2981)
 	//	Select the route received from the peer with the lowest BGP router ID.
 	//
 	//	If both paths are eBGP paths, then we do not do any tie breaking, i.e we do
@@ -1033,7 +992,6 @@ func compareByRouterID(path1, path2 *Path) (*Path, error) {
 }
 
 func compareByAge(path1, path2 *Path) *Path { 
-   fmt.Printf("DEJDEJ id:",2982)
 	if !path1.IsIBGP() && !path2.IsIBGP() && !SelectionOptions.ExternalCompareRouterId {
 		age1 := path1.GetTimestamp().UnixNano()
 		age2 := path2.GetTimestamp().UnixNano()
@@ -1048,7 +1006,6 @@ func compareByAge(path1, path2 *Path) *Path {
 }
 
 func (dest *Destination) String() string { 
-   fmt.Printf("DEJDEJ id:",2983)
 	return fmt.Sprintf("Destination NLRI: %s", dest.nlri.String())
 }
 
@@ -1061,12 +1018,10 @@ type DestinationSelectOption struct {
 }
 
 func (d *Destination) MarshalJSON() ([]byte, error) { 
-   fmt.Printf("DEJDEJ id:",2984)
 	return json.Marshal(d.GetAllKnownPathList())
 }
 
 func (old *Destination) Select(option ...DestinationSelectOption) *Destination { 
-   fmt.Printf("DEJDEJ id:",2985)
 	id := GLOBAL_RIB_NAME
 	var vrf *Vrf
 	adj := false
@@ -1130,17 +1085,14 @@ func (old *Destination) Select(option ...DestinationSelectOption) *Destination {
 type destinations []*Destination
 
 func (d destinations) Len() int { 
-   fmt.Printf("DEJDEJ id:",2986)
 	return len(d)
 }
 
 func (d destinations) Swap(i, j int) { 
-   fmt.Printf("DEJDEJ id:",2987)
 	d[i], d[j] = d[j], d[i]
 }
 
 func (d destinations) Less(i, j int) bool { 
-   fmt.Printf("DEJDEJ id:",2988)
 	switch d[i].routeFamily {
 	case bgp.RF_FS_IPv4_UC, bgp.RF_FS_IPv6_UC, bgp.RF_FS_IPv4_VPN, bgp.RF_FS_IPv6_VPN, bgp.RF_FS_L2_VPN:
 		var s, t *bgp.FlowSpecNLRI

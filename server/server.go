@@ -37,7 +37,6 @@ type TCPListener struct {
 }
 
 func (l *TCPListener) Close() error { 
-   fmt.Printf("DEJDEJ id:",114)
 	if err := l.l.Close(); err != nil {
 		return err
 	}
@@ -52,7 +51,6 @@ func (l *TCPListener) Close() error {
 
 // avoid mapped IPv6 address
 func NewTCPListener(address string, port uint32, ch chan *net.TCPConn) (*TCPListener, error) { 
-   fmt.Printf("DEJDEJ id:",115)
 	proto := "tcp4"
 	if ip := net.ParseIP(address); ip == nil {
 		return nil, fmt.Errorf("can't listen on %s", address)
@@ -120,7 +118,6 @@ type BgpServer struct {
 }
 
 func NewBgpServer() *BgpServer { 
-   fmt.Printf("DEJDEJ id:",116)
 	roaManager, _ := NewROAManager(0)
 	s := &BgpServer{
 		neighborMap:  make(map[string]*Peer),
@@ -136,7 +133,6 @@ func NewBgpServer() *BgpServer {
 }
 
 func (server *BgpServer) Listeners(addr string) []*net.TCPListener { 
-   fmt.Printf("DEJDEJ id:",117)
 	list := make([]*net.TCPListener, 0, len(server.listeners))
 	rhs := net.ParseIP(addr).To4() != nil
 	for _, l := range server.listeners {
@@ -150,7 +146,6 @@ func (server *BgpServer) Listeners(addr string) []*net.TCPListener {
 }
 
 func (s *BgpServer) active() error { 
-   fmt.Printf("DEJDEJ id:",118)
 	if s.bgpConfig.Global.Config.As == 0 {
 		return fmt.Errorf("bgp server hasn't started yet")
 	}
@@ -164,7 +159,6 @@ type mgmtOp struct {
 }
 
 func (server *BgpServer) handleMGMTOp(op *mgmtOp) { 
-   fmt.Printf("DEJDEJ id:",119)
 	if op.checkActive {
 		if err := server.active(); err != nil {
 			op.errCh <- err
@@ -175,7 +169,6 @@ func (server *BgpServer) handleMGMTOp(op *mgmtOp) {
 }
 
 func (s *BgpServer) mgmtOperation(f func() error, checkActive bool) (err error) { 
-   fmt.Printf("DEJDEJ id:",120)
 	ch := make(chan error)
 	defer func() { err = <-ch }()
 	s.mgmtCh <- &mgmtOp{
@@ -187,7 +180,6 @@ func (s *BgpServer) mgmtOperation(f func() error, checkActive bool) (err error) 
 }
 
 func (server *BgpServer) Serve() { 
-   fmt.Printf("DEJDEJ id:",121)
 	server.listeners = make([]*TCPListener, 0, 2)
 	server.fsmincomingCh = channels.NewInfiniteChannel()
 	server.fsmStateCh = make(chan *FsmMsg, 4096)
@@ -318,7 +310,6 @@ func (server *BgpServer) Serve() {
 }
 
 func (server *BgpServer) matchLongestDynamicNeighborPrefix(a string) *PeerGroup { 
-   fmt.Printf("DEJDEJ id:",122)
 	ipAddr := net.ParseIP(a)
 	longestMask := net.CIDRMask(0, 32).String()
 	var longestPG *PeerGroup
@@ -337,7 +328,6 @@ func (server *BgpServer) matchLongestDynamicNeighborPrefix(a string) *PeerGroup 
 }
 
 func sendFsmOutgoingMsg(peer *Peer, paths []*table.Path, notification *bgp.BGPMessage, stayIdle bool) { 
-   fmt.Printf("DEJDEJ id:",123)
 	peer.outgoing.In() <- &FsmOutgoingMsg{
 		Paths:        paths,
 		Notification: notification,
@@ -346,7 +336,6 @@ func sendFsmOutgoingMsg(peer *Peer, paths []*table.Path, notification *bgp.BGPMe
 }
 
 func isASLoop(peer *Peer, path *table.Path) bool { 
-   fmt.Printf("DEJDEJ id:",124)
 	for _, as := range path.GetAsList() {
 		if as == peer.AS() {
 			return true
@@ -356,7 +345,6 @@ func isASLoop(peer *Peer, path *table.Path) bool {
 }
 
 func filterpath(peer *Peer, path, old *table.Path) *table.Path { 
-   fmt.Printf("DEJDEJ id:",125)
 	if path == nil {
 		return nil
 	}
@@ -486,7 +474,6 @@ func filterpath(peer *Peer, path, old *table.Path) *table.Path {
 }
 
 func clonePathList(pathList []*table.Path) []*table.Path { 
-   fmt.Printf("DEJDEJ id:",126)
 	l := make([]*table.Path, 0, len(pathList))
 	for _, p := range pathList {
 		if p != nil {
@@ -497,7 +484,6 @@ func clonePathList(pathList []*table.Path) []*table.Path {
 }
 
 func (server *BgpServer) notifyBestWatcher(best []*table.Path, multipath [][]*table.Path) { 
-   fmt.Printf("DEJDEJ id:",127)
 	if table.SelectionOptions.DisableBestPathSelection {
 		// Note: If best path selection disabled, no best path to notify.
 		return
@@ -521,7 +507,6 @@ func (server *BgpServer) notifyBestWatcher(best []*table.Path, multipath [][]*ta
 }
 
 func (server *BgpServer) notifyPrePolicyUpdateWatcher(peer *Peer, pathList []*table.Path, msg *bgp.BGPMessage, timestamp time.Time, payload []byte) { 
-   fmt.Printf("DEJDEJ id:",128)
 	if !server.isWatched(WATCH_EVENT_TYPE_PRE_UPDATE) || peer == nil {
 		return
 	}
@@ -549,7 +534,6 @@ func (server *BgpServer) notifyPrePolicyUpdateWatcher(peer *Peer, pathList []*ta
 }
 
 func (server *BgpServer) notifyPostPolicyUpdateWatcher(peer *Peer, pathList []*table.Path) { 
-   fmt.Printf("DEJDEJ id:",129)
 	if !server.isWatched(WATCH_EVENT_TYPE_POST_UPDATE) || peer == nil {
 		return
 	}
@@ -575,7 +559,6 @@ func (server *BgpServer) notifyPostPolicyUpdateWatcher(peer *Peer, pathList []*t
 }
 
 func dstsToPaths(id string, dsts []*table.Destination, addpath bool) ([]*table.Path, []*table.Path, [][]*table.Path) { 
-   fmt.Printf("DEJDEJ id:",130)
 	if table.SelectionOptions.DisableBestPathSelection {
 		// Note: If best path selection disabled, there is no best path.
 		return nil, nil, nil
@@ -603,7 +586,6 @@ func dstsToPaths(id string, dsts []*table.Destination, addpath bool) ([]*table.P
 }
 
 func (server *BgpServer) dropPeerAllRoutes(peer *Peer, families []bgp.RouteFamily) { 
-   fmt.Printf("DEJDEJ id:",131)
 	var gBestList, bestList []*table.Path
 	var mpathList [][]*table.Path
 	families = peer.toGlobalFamilies(families)
@@ -637,7 +619,6 @@ func (server *BgpServer) dropPeerAllRoutes(peer *Peer, families []bgp.RouteFamil
 }
 
 func createWatchEventPeerState(peer *Peer) *WatchEventPeerState { 
-   fmt.Printf("DEJDEJ id:",132)
 	_, rport := peer.fsm.RemoteHostPort()
 	laddr, lport := peer.fsm.LocalHostPort()
 	sentOpen := buildopen(peer.fsm.gConf, peer.fsm.pConf)
@@ -660,7 +641,6 @@ func createWatchEventPeerState(peer *Peer) *WatchEventPeerState {
 }
 
 func (server *BgpServer) broadcastPeerState(peer *Peer, oldState bgp.FSMState) { 
-   fmt.Printf("DEJDEJ id:",133)
 	newState := peer.fsm.state
 	if oldState == bgp.BGP_FSM_ESTABLISHED || newState == bgp.BGP_FSM_ESTABLISHED {
 		server.notifyWatcher(WATCH_EVENT_TYPE_PEER_STATE, createWatchEventPeerState(peer))
@@ -668,7 +648,6 @@ func (server *BgpServer) broadcastPeerState(peer *Peer, oldState bgp.FSMState) {
 }
 
 func (server *BgpServer) notifyMessageWatcher(peer *Peer, timestamp time.Time, msg *bgp.BGPMessage, isSent bool) { 
-   fmt.Printf("DEJDEJ id:",134)
 	// validation should be done in the caller of this function
 	_, y := peer.fsm.capMap[bgp.BGP_CAP_FOUR_OCTET_AS_NUMBER]
 	l, _ := peer.fsm.LocalHostPort()
@@ -689,7 +668,6 @@ func (server *BgpServer) notifyMessageWatcher(peer *Peer, timestamp time.Time, m
 }
 
 func (server *BgpServer) notifyRecvMessageWatcher(peer *Peer, timestamp time.Time, msg *bgp.BGPMessage) { 
-   fmt.Printf("DEJDEJ id:",135)
 	if peer == nil || !server.isWatched(WATCH_EVENT_TYPE_RECV_MSG) {
 		return
 	}
@@ -697,7 +675,6 @@ func (server *BgpServer) notifyRecvMessageWatcher(peer *Peer, timestamp time.Tim
 }
 
 func (server *BgpServer) RSimportPaths(peer *Peer, pathList []*table.Path) []*table.Path { 
-   fmt.Printf("DEJDEJ id:",136)
 	moded := make([]*table.Path, 0, len(pathList)/2)
 	for _, before := range pathList {
 		if isASLoop(peer, before) {
@@ -722,7 +699,6 @@ func (server *BgpServer) RSimportPaths(peer *Peer, pathList []*table.Path) []*ta
 }
 
 func (server *BgpServer) propagateUpdate(peer *Peer, pathList []*table.Path) { 
-   fmt.Printf("DEJDEJ id:",137)
 	var dsts []*table.Destination
 
 	var gBestList, gOldList []*table.Path
@@ -822,7 +798,6 @@ func (server *BgpServer) propagateUpdate(peer *Peer, pathList []*table.Path) {
 }
 
 func (server *BgpServer) propagateUpdateToNeighbors(peer *Peer, dsts []*table.Destination, gBestList, gOldList []*table.Path) { 
-   fmt.Printf("DEJDEJ id:",138)
 	if table.SelectionOptions.DisableBestPathSelection {
 		// Note: If best path selection disabled, no best path to propagate.
 		return
@@ -858,7 +833,6 @@ func (server *BgpServer) propagateUpdateToNeighbors(peer *Peer, dsts []*table.De
 }
 
 func (server *BgpServer) handleFSMMessage(peer *Peer, e *FsmMsg) { 
-   fmt.Printf("DEJDEJ id:",139)
 	switch e.MsgType {
 	case FSM_MSG_STATE_CHANGE:
 		nextState := e.MsgData.(bgp.FSMState)
@@ -1170,7 +1144,6 @@ func (server *BgpServer) handleFSMMessage(peer *Peer, e *FsmMsg) {
 }
 
 func (s *BgpServer) StartCollector(c *config.CollectorConfig) error { 
-   fmt.Printf("DEJDEJ id:",140)
 	return s.mgmtOperation(func() error {
 		_, err := NewCollector(s, c.Url, c.DbName, c.TableDumpInterval)
 		return err
@@ -1178,7 +1151,6 @@ func (s *BgpServer) StartCollector(c *config.CollectorConfig) error {
 }
 
 func (s *BgpServer) StartZebraClient(c *config.ZebraConfig) error { 
-   fmt.Printf("DEJDEJ id:",141)
 	return s.mgmtOperation(func() error {
 		if s.zclient != nil {
 			return fmt.Errorf("already connected to Zebra")
@@ -1194,21 +1166,18 @@ func (s *BgpServer) StartZebraClient(c *config.ZebraConfig) error {
 }
 
 func (s *BgpServer) AddBmp(c *config.BmpServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",142)
 	return s.mgmtOperation(func() error {
 		return s.bmpManager.addServer(c)
 	}, true)
 }
 
 func (s *BgpServer) DeleteBmp(c *config.BmpServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",143)
 	return s.mgmtOperation(func() error {
 		return s.bmpManager.deleteServer(c)
 	}, true)
 }
 
 func (s *BgpServer) Shutdown() { 
-   fmt.Printf("DEJDEJ id:",144)
 	s.mgmtOperation(func() error {
 		s.shutdown = true
 		stateOp := AdminStateOperation{ADMIN_STATE_DOWN, nil}
@@ -1225,7 +1194,6 @@ func (s *BgpServer) Shutdown() {
 }
 
 func (s *BgpServer) UpdatePolicy(policy config.RoutingPolicy) error { 
-   fmt.Printf("DEJDEJ id:",145)
 	return s.mgmtOperation(func() error {
 		ap := make(map[string]config.ApplyPolicy, len(s.neighborMap)+1)
 		ap[table.GLOBAL_RIB_NAME] = s.bgpConfig.Global.ApplyPolicy
@@ -1255,7 +1223,6 @@ func (s *BgpServer) UpdatePolicy(policy config.RoutingPolicy) error {
 // is no need for ESI comparison.
 
 func getMacMobilityExtendedCommunity(etag uint32, mac net.HardwareAddr, evpnPaths []*table.Path) *bgp.MacMobilityExtended { 
-   fmt.Printf("DEJDEJ id:",146)
 	seqs := make([]struct {
 		seq     int
 		isLocal bool
@@ -1313,7 +1280,6 @@ func getMacMobilityExtendedCommunity(etag uint32, mac net.HardwareAddr, evpnPath
 }
 
 func (server *BgpServer) fixupApiPath(vrfId string, pathList []*table.Path) error { 
-   fmt.Printf("DEJDEJ id:",147)
 	pi := &table.PeerInfo{
 		AS:      server.bgpConfig.Global.Config.As,
 		LocalID: net.ParseIP(server.bgpConfig.Global.Config.RouterId).To4(),
@@ -1374,7 +1340,6 @@ func (server *BgpServer) fixupApiPath(vrfId string, pathList []*table.Path) erro
 }
 
 func (s *BgpServer) AddPath(vrfId string, pathList []*table.Path) (uuidBytes []byte, err error) { 
-   fmt.Printf("DEJDEJ id:",148)
 	err = s.mgmtOperation(func() error {
 		if err := s.fixupApiPath(vrfId, pathList); err != nil {
 			return err
@@ -1390,7 +1355,6 @@ func (s *BgpServer) AddPath(vrfId string, pathList []*table.Path) (uuidBytes []b
 }
 
 func (s *BgpServer) DeletePath(uuid []byte, f bgp.RouteFamily, vrfId string, pathList []*table.Path) error { 
-   fmt.Printf("DEJDEJ id:",149)
 	return s.mgmtOperation(func() error {
 		deletePathList := make([]*table.Path, 0)
 		if len(uuid) > 0 {
@@ -1430,7 +1394,6 @@ func (s *BgpServer) DeletePath(uuid []byte, f bgp.RouteFamily, vrfId string, pat
 }
 
 func (s *BgpServer) UpdatePath(vrfId string, pathList []*table.Path) error { 
-   fmt.Printf("DEJDEJ id:",150)
 	err := s.mgmtOperation(func() error {
 		if err := s.fixupApiPath(vrfId, pathList); err != nil {
 			return err
@@ -1445,7 +1408,6 @@ func (s *BgpServer) UpdatePath(vrfId string, pathList []*table.Path) error {
 }
 
 func (s *BgpServer) Start(c *config.Global) error { 
-   fmt.Printf("DEJDEJ id:",151)
 	return s.mgmtOperation(func() error {
 		if err := config.SetDefaultGlobalConfigValues(c); err != nil {
 			return err
@@ -1481,7 +1443,6 @@ func (s *BgpServer) Start(c *config.Global) error {
 }
 
 func (s *BgpServer) GetVrf() (l []*table.Vrf) { 
-   fmt.Printf("DEJDEJ id:",152)
 	s.mgmtOperation(func() error {
 		l = make([]*table.Vrf, 0, len(s.globalRib.Vrfs))
 		for _, vrf := range s.globalRib.Vrfs {
@@ -1493,7 +1454,6 @@ func (s *BgpServer) GetVrf() (l []*table.Vrf) {
 }
 
 func (s *BgpServer) AddVrf(name string, id uint32, rd bgp.RouteDistinguisherInterface, im, ex []bgp.ExtendedCommunityInterface) error { 
-   fmt.Printf("DEJDEJ id:",153)
 	return s.mgmtOperation(func() error {
 		pi := &table.PeerInfo{
 			AS:      s.bgpConfig.Global.Config.As,
@@ -1509,7 +1469,6 @@ func (s *BgpServer) AddVrf(name string, id uint32, rd bgp.RouteDistinguisherInte
 }
 
 func (s *BgpServer) DeleteVrf(name string) error { 
-   fmt.Printf("DEJDEJ id:",154)
 	return s.mgmtOperation(func() error {
 		for _, n := range s.neighborMap {
 			if n.fsm.pConf.Config.Vrf == name {
@@ -1528,7 +1487,6 @@ func (s *BgpServer) DeleteVrf(name string) error {
 }
 
 func (s *BgpServer) Stop() error { 
-   fmt.Printf("DEJDEJ id:",155)
 	return s.mgmtOperation(func() error {
 		for k, _ := range s.neighborMap {
 			if err := s.deleteNeighbor(&config.Neighbor{Config: config.NeighborConfig{
@@ -1545,7 +1503,6 @@ func (s *BgpServer) Stop() error {
 }
 
 func (s *BgpServer) softResetIn(addr string, family bgp.RouteFamily) error { 
-   fmt.Printf("DEJDEJ id:",156)
 	peers, err := s.addrToPeers(addr)
 	if err != nil {
 		return err
@@ -1595,7 +1552,6 @@ func (s *BgpServer) softResetIn(addr string, family bgp.RouteFamily) error {
 }
 
 func (s *BgpServer) softResetOut(addr string, family bgp.RouteFamily, deferral bool) error { 
-   fmt.Printf("DEJDEJ id:",157)
 	peers, err := s.addrToPeers(addr)
 	if err != nil {
 		return err
@@ -1646,7 +1602,6 @@ func (s *BgpServer) softResetOut(addr string, family bgp.RouteFamily, deferral b
 }
 
 func (s *BgpServer) SoftResetIn(addr string, family bgp.RouteFamily) error { 
-   fmt.Printf("DEJDEJ id:",158)
 	return s.mgmtOperation(func() error {
 		log.WithFields(log.Fields{
 			"Topic": "Operation",
@@ -1657,7 +1612,6 @@ func (s *BgpServer) SoftResetIn(addr string, family bgp.RouteFamily) error {
 }
 
 func (s *BgpServer) SoftResetOut(addr string, family bgp.RouteFamily) error { 
-   fmt.Printf("DEJDEJ id:",159)
 	return s.mgmtOperation(func() error {
 		log.WithFields(log.Fields{
 			"Topic": "Operation",
@@ -1668,7 +1622,6 @@ func (s *BgpServer) SoftResetOut(addr string, family bgp.RouteFamily) error {
 }
 
 func (s *BgpServer) SoftReset(addr string, family bgp.RouteFamily) error { 
-   fmt.Printf("DEJDEJ id:",160)
 	return s.mgmtOperation(func() error {
 		log.WithFields(log.Fields{
 			"Topic": "Operation",
@@ -1683,7 +1636,6 @@ func (s *BgpServer) SoftReset(addr string, family bgp.RouteFamily) error {
 }
 
 func (s *BgpServer) GetRib(addr string, family bgp.RouteFamily, prefixes []*table.LookupPrefix) (rib *table.Table, err error) { 
-   fmt.Printf("DEJDEJ id:",161)
 	err = s.mgmtOperation(func() error {
 		m := s.globalRib
 		id := table.GLOBAL_RIB_NAME
@@ -1710,7 +1662,6 @@ func (s *BgpServer) GetRib(addr string, family bgp.RouteFamily, prefixes []*tabl
 }
 
 func (s *BgpServer) GetVrfRib(name string, family bgp.RouteFamily, prefixes []*table.LookupPrefix) (rib *table.Table, err error) { 
-   fmt.Printf("DEJDEJ id:",162)
 	err = s.mgmtOperation(func() error {
 		m := s.globalRib
 		vrfs := m.Vrfs
@@ -1737,7 +1688,6 @@ func (s *BgpServer) GetVrfRib(name string, family bgp.RouteFamily, prefixes []*t
 }
 
 func (s *BgpServer) GetAdjRib(addr string, family bgp.RouteFamily, in bool, prefixes []*table.LookupPrefix) (rib *table.Table, err error) { 
-   fmt.Printf("DEJDEJ id:",163)
 	err = s.mgmtOperation(func() error {
 		peer, ok := s.neighborMap[addr]
 		if !ok {
@@ -1760,7 +1710,6 @@ func (s *BgpServer) GetAdjRib(addr string, family bgp.RouteFamily, in bool, pref
 }
 
 func (s *BgpServer) GetRibInfo(addr string, family bgp.RouteFamily) (info *table.TableInfo, err error) { 
-   fmt.Printf("DEJDEJ id:",164)
 	err = s.mgmtOperation(func() error {
 		m := s.globalRib
 		id := table.GLOBAL_RIB_NAME
@@ -1782,7 +1731,6 @@ func (s *BgpServer) GetRibInfo(addr string, family bgp.RouteFamily) (info *table
 }
 
 func (s *BgpServer) GetAdjRibInfo(addr string, family bgp.RouteFamily, in bool) (info *table.TableInfo, err error) { 
-   fmt.Printf("DEJDEJ id:",165)
 	err = s.mgmtOperation(func() error {
 		peer, ok := s.neighborMap[addr]
 		if !ok {
@@ -1804,7 +1752,6 @@ func (s *BgpServer) GetAdjRibInfo(addr string, family bgp.RouteFamily, in bool) 
 }
 
 func (s *BgpServer) GetServer() (c *config.Global) { 
-   fmt.Printf("DEJDEJ id:",166)
 	s.mgmtOperation(func() error {
 		g := s.bgpConfig.Global
 		c = &g
@@ -1814,7 +1761,6 @@ func (s *BgpServer) GetServer() (c *config.Global) {
 }
 
 func (s *BgpServer) GetNeighbor(address string, getAdvertised bool) (l []*config.Neighbor) { 
-   fmt.Printf("DEJDEJ id:",167)
 	s.mgmtOperation(func() error {
 		l = make([]*config.Neighbor, 0, len(s.neighborMap))
 		for k, peer := range s.neighborMap {
@@ -1829,7 +1775,6 @@ func (s *BgpServer) GetNeighbor(address string, getAdvertised bool) (l []*config
 }
 
 func (server *BgpServer) addPeerGroup(c *config.PeerGroup) error { 
-   fmt.Printf("DEJDEJ id:",168)
 	name := c.Config.PeerGroupName
 	if _, y := server.peerGroupMap[name]; y {
 		return fmt.Errorf("Can't overwrite the existing peer-group: %s", name)
@@ -1846,7 +1791,6 @@ func (server *BgpServer) addPeerGroup(c *config.PeerGroup) error {
 }
 
 func (server *BgpServer) addNeighbor(c *config.Neighbor) error { 
-   fmt.Printf("DEJDEJ id:",169)
 	addr, err := c.ExtractNeighborAddress()
 	if err != nil {
 		return err
@@ -1935,21 +1879,18 @@ func (server *BgpServer) addNeighbor(c *config.Neighbor) error {
 }
 
 func (s *BgpServer) AddPeerGroup(c *config.PeerGroup) error { 
-   fmt.Printf("DEJDEJ id:",170)
 	return s.mgmtOperation(func() error {
 		return s.addPeerGroup(c)
 	}, true)
 }
 
 func (s *BgpServer) AddNeighbor(c *config.Neighbor) error { 
-   fmt.Printf("DEJDEJ id:",171)
 	return s.mgmtOperation(func() error {
 		return s.addNeighbor(c)
 	}, true)
 }
 
 func (s *BgpServer) AddDynamicNeighbor(c *config.DynamicNeighbor) error { 
-   fmt.Printf("DEJDEJ id:",172)
 	return s.mgmtOperation(func() error {
 		s.peerGroupMap[c.Config.PeerGroup].AddDynamicNeighbor(c)
 		return nil
@@ -1957,7 +1898,6 @@ func (s *BgpServer) AddDynamicNeighbor(c *config.DynamicNeighbor) error {
 }
 
 func (server *BgpServer) deletePeerGroup(pg *config.PeerGroup) error { 
-   fmt.Printf("DEJDEJ id:",173)
 	name := pg.Config.PeerGroupName
 
 	if _, y := server.peerGroupMap[name]; !y {
@@ -1974,7 +1914,6 @@ func (server *BgpServer) deletePeerGroup(pg *config.PeerGroup) error {
 }
 
 func (server *BgpServer) deleteNeighbor(c *config.Neighbor, code, subcode uint8) error { 
-   fmt.Printf("DEJDEJ id:",174)
 	if c.Config.PeerGroup != "" {
 		_, y := server.peerGroupMap[c.Config.PeerGroup]
 		if y {
@@ -2020,7 +1959,6 @@ func (server *BgpServer) deleteNeighbor(c *config.Neighbor, code, subcode uint8)
 }
 
 func (s *BgpServer) DeletePeerGroup(c *config.PeerGroup) error { 
-   fmt.Printf("DEJDEJ id:",175)
 	return s.mgmtOperation(func() error {
 		name := c.Config.PeerGroupName
 		for _, n := range s.neighborMap {
@@ -2033,14 +1971,12 @@ func (s *BgpServer) DeletePeerGroup(c *config.PeerGroup) error {
 }
 
 func (s *BgpServer) DeleteNeighbor(c *config.Neighbor) error { 
-   fmt.Printf("DEJDEJ id:",176)
 	return s.mgmtOperation(func() error {
 		return s.deleteNeighbor(c, bgp.BGP_ERROR_CEASE, bgp.BGP_ERROR_SUB_PEER_DECONFIGURED)
 	}, true)
 }
 
 func (s *BgpServer) updatePeerGroup(pg *config.PeerGroup) (needsSoftResetIn bool, err error) { 
-   fmt.Printf("DEJDEJ id:",177)
 	name := pg.Config.PeerGroupName
 
 	_, ok := s.peerGroupMap[name]
@@ -2061,7 +1997,6 @@ func (s *BgpServer) updatePeerGroup(pg *config.PeerGroup) (needsSoftResetIn bool
 }
 
 func (s *BgpServer) UpdatePeerGroup(pg *config.PeerGroup) (needsSoftResetIn bool, err error) { 
-   fmt.Printf("DEJDEJ id:",178)
 	err = s.mgmtOperation(func() error {
 		needsSoftResetIn, err = s.updatePeerGroup(pg)
 		return err
@@ -2070,7 +2005,6 @@ func (s *BgpServer) UpdatePeerGroup(pg *config.PeerGroup) (needsSoftResetIn bool
 }
 
 func (s *BgpServer) updateNeighbor(c *config.Neighbor) (needsSoftResetIn bool, err error) { 
-   fmt.Printf("DEJDEJ id:",179)
 	if c.Config.PeerGroup != "" {
 		if pg, ok := s.peerGroupMap[c.Config.PeerGroup]; ok {
 			if err := config.SetDefaultNeighborConfigValues(c, pg.Conf, &s.bgpConfig.Global); err != nil {
@@ -2165,7 +2099,6 @@ func (s *BgpServer) updateNeighbor(c *config.Neighbor) (needsSoftResetIn bool, e
 }
 
 func (s *BgpServer) UpdateNeighbor(c *config.Neighbor) (needsSoftResetIn bool, err error) { 
-   fmt.Printf("DEJDEJ id:",180)
 	err = s.mgmtOperation(func() error {
 		needsSoftResetIn, err = s.updateNeighbor(c)
 		return err
@@ -2174,7 +2107,6 @@ func (s *BgpServer) UpdateNeighbor(c *config.Neighbor) (needsSoftResetIn bool, e
 }
 
 func (s *BgpServer) addrToPeers(addr string) (l []*Peer, err error) { 
-   fmt.Printf("DEJDEJ id:",181)
 	if len(addr) == 0 {
 		for _, p := range s.neighborMap {
 			l = append(l, p)
@@ -2189,7 +2121,6 @@ func (s *BgpServer) addrToPeers(addr string) (l []*Peer, err error) {
 }
 
 func (s *BgpServer) resetNeighbor(op, addr string, subcode uint8, data []byte) error { 
-   fmt.Printf("DEJDEJ id:",182)
 	log.WithFields(log.Fields{
 		"Topic": "Operation",
 		"Key":   addr,
@@ -2206,14 +2137,12 @@ func (s *BgpServer) resetNeighbor(op, addr string, subcode uint8, data []byte) e
 }
 
 func (s *BgpServer) ShutdownNeighbor(addr, communication string) error { 
-   fmt.Printf("DEJDEJ id:",183)
 	return s.mgmtOperation(func() error {
 		return s.resetNeighbor("Neighbor shutdown", addr, bgp.BGP_ERROR_SUB_ADMINISTRATIVE_SHUTDOWN, newAdministrativeCommunication(communication))
 	}, true)
 }
 
 func (s *BgpServer) ResetNeighbor(addr, communication string) error { 
-   fmt.Printf("DEJDEJ id:",184)
 	return s.mgmtOperation(func() error {
 		err := s.resetNeighbor("Neighbor reset", addr, bgp.BGP_ERROR_SUB_ADMINISTRATIVE_RESET, newAdministrativeCommunication(communication))
 		if err != nil {
@@ -2228,7 +2157,6 @@ func (s *BgpServer) ResetNeighbor(addr, communication string) error {
 }
 
 func (s *BgpServer) setAdminState(addr, communication string, enable bool) error { 
-   fmt.Printf("DEJDEJ id:",185)
 	peers, err := s.addrToPeers(addr)
 	if err != nil {
 		return err
@@ -2255,21 +2183,18 @@ func (s *BgpServer) setAdminState(addr, communication string, enable bool) error
 }
 
 func (s *BgpServer) EnableNeighbor(addr string) error { 
-   fmt.Printf("DEJDEJ id:",186)
 	return s.mgmtOperation(func() error {
 		return s.setAdminState(addr, "", true)
 	}, true)
 }
 
 func (s *BgpServer) DisableNeighbor(addr, communication string) error { 
-   fmt.Printf("DEJDEJ id:",187)
 	return s.mgmtOperation(func() error {
 		return s.setAdminState(addr, communication, false)
 	}, true)
 }
 
 func (s *BgpServer) GetDefinedSet(typ table.DefinedType, name string) (sets *config.DefinedSets, err error) { 
-   fmt.Printf("DEJDEJ id:",188)
 	err = s.mgmtOperation(func() error {
 		sets, err = s.policy.GetDefinedSet(typ, name)
 		return nil
@@ -2278,28 +2203,24 @@ func (s *BgpServer) GetDefinedSet(typ table.DefinedType, name string) (sets *con
 }
 
 func (s *BgpServer) AddDefinedSet(a table.DefinedSet) error { 
-   fmt.Printf("DEJDEJ id:",189)
 	return s.mgmtOperation(func() error {
 		return s.policy.AddDefinedSet(a)
 	}, false)
 }
 
 func (s *BgpServer) DeleteDefinedSet(a table.DefinedSet, all bool) error { 
-   fmt.Printf("DEJDEJ id:",190)
 	return s.mgmtOperation(func() error {
 		return s.policy.DeleteDefinedSet(a, all)
 	}, false)
 }
 
 func (s *BgpServer) ReplaceDefinedSet(a table.DefinedSet) error { 
-   fmt.Printf("DEJDEJ id:",191)
 	return s.mgmtOperation(func() error {
 		return s.policy.ReplaceDefinedSet(a)
 	}, false)
 }
 
 func (s *BgpServer) GetStatement() (l []*config.Statement) { 
-   fmt.Printf("DEJDEJ id:",192)
 	s.mgmtOperation(func() error {
 		l = s.policy.GetStatement()
 		return nil
@@ -2308,28 +2229,24 @@ func (s *BgpServer) GetStatement() (l []*config.Statement) {
 }
 
 func (s *BgpServer) AddStatement(st *table.Statement) error { 
-   fmt.Printf("DEJDEJ id:",193)
 	return s.mgmtOperation(func() error {
 		return s.policy.AddStatement(st)
 	}, false)
 }
 
 func (s *BgpServer) DeleteStatement(st *table.Statement, all bool) error { 
-   fmt.Printf("DEJDEJ id:",194)
 	return s.mgmtOperation(func() error {
 		return s.policy.DeleteStatement(st, all)
 	}, false)
 }
 
 func (s *BgpServer) ReplaceStatement(st *table.Statement) error { 
-   fmt.Printf("DEJDEJ id:",195)
 	return s.mgmtOperation(func() error {
 		return s.policy.ReplaceStatement(st)
 	}, false)
 }
 
 func (s *BgpServer) GetPolicy() (l []*config.PolicyDefinition) { 
-   fmt.Printf("DEJDEJ id:",196)
 	s.mgmtOperation(func() error {
 		l = s.policy.GetAllPolicy()
 		return nil
@@ -2338,14 +2255,12 @@ func (s *BgpServer) GetPolicy() (l []*config.PolicyDefinition) {
 }
 
 func (s *BgpServer) AddPolicy(x *table.Policy, refer bool) error { 
-   fmt.Printf("DEJDEJ id:",197)
 	return s.mgmtOperation(func() error {
 		return s.policy.AddPolicy(x, refer)
 	}, false)
 }
 
 func (s *BgpServer) DeletePolicy(x *table.Policy, all, preserve bool) error { 
-   fmt.Printf("DEJDEJ id:",198)
 	return s.mgmtOperation(func() error {
 		l := make([]string, 0, len(s.neighborMap)+1)
 		for _, peer := range s.neighborMap {
@@ -2358,14 +2273,12 @@ func (s *BgpServer) DeletePolicy(x *table.Policy, all, preserve bool) error {
 }
 
 func (s *BgpServer) ReplacePolicy(x *table.Policy, refer, preserve bool) error { 
-   fmt.Printf("DEJDEJ id:",199)
 	return s.mgmtOperation(func() error {
 		return s.policy.ReplacePolicy(x, refer, preserve)
 	}, false)
 }
 
 func (server *BgpServer) toPolicyInfo(name string, dir table.PolicyDirection) (string, error) { 
-   fmt.Printf("DEJDEJ id:",200)
 	if name == "" {
 		switch dir {
 		case table.POLICY_DIRECTION_IMPORT, table.POLICY_DIRECTION_EXPORT:
@@ -2385,7 +2298,6 @@ func (server *BgpServer) toPolicyInfo(name string, dir table.PolicyDirection) (s
 }
 
 func (s *BgpServer) GetPolicyAssignment(name string, dir table.PolicyDirection) (rt table.RouteType, l []*config.PolicyDefinition, err error) { 
-   fmt.Printf("DEJDEJ id:",201)
 	err = s.mgmtOperation(func() error {
 		var id string
 		id, err = s.toPolicyInfo(name, dir)
@@ -2400,7 +2312,6 @@ func (s *BgpServer) GetPolicyAssignment(name string, dir table.PolicyDirection) 
 }
 
 func (s *BgpServer) AddPolicyAssignment(name string, dir table.PolicyDirection, policies []*config.PolicyDefinition, def table.RouteType) error { 
-   fmt.Printf("DEJDEJ id:",202)
 	return s.mgmtOperation(func() error {
 		id, err := s.toPolicyInfo(name, dir)
 		if err != nil {
@@ -2411,7 +2322,6 @@ func (s *BgpServer) AddPolicyAssignment(name string, dir table.PolicyDirection, 
 }
 
 func (s *BgpServer) DeletePolicyAssignment(name string, dir table.PolicyDirection, policies []*config.PolicyDefinition, all bool) error { 
-   fmt.Printf("DEJDEJ id:",203)
 	return s.mgmtOperation(func() error {
 		id, err := s.toPolicyInfo(name, dir)
 		if err != nil {
@@ -2422,7 +2332,6 @@ func (s *BgpServer) DeletePolicyAssignment(name string, dir table.PolicyDirectio
 }
 
 func (s *BgpServer) ReplacePolicyAssignment(name string, dir table.PolicyDirection, policies []*config.PolicyDefinition, def table.RouteType) error { 
-   fmt.Printf("DEJDEJ id:",204)
 	return s.mgmtOperation(func() error {
 		id, err := s.toPolicyInfo(name, dir)
 		if err != nil {
@@ -2433,21 +2342,18 @@ func (s *BgpServer) ReplacePolicyAssignment(name string, dir table.PolicyDirecti
 }
 
 func (s *BgpServer) EnableMrt(c *config.MrtConfig) error { 
-   fmt.Printf("DEJDEJ id:",205)
 	return s.mgmtOperation(func() error {
 		return s.mrtManager.enable(c)
 	}, false)
 }
 
 func (s *BgpServer) DisableMrt(c *config.MrtConfig) error { 
-   fmt.Printf("DEJDEJ id:",206)
 	return s.mgmtOperation(func() error {
 		return s.mrtManager.disable(c)
 	}, false)
 }
 
 func (s *BgpServer) ValidateRib(prefix string) error { 
-   fmt.Printf("DEJDEJ id:",207)
 	return s.mgmtOperation(func() error {
 		for _, rf := range s.globalRib.GetRFlist() {
 			if t, ok := s.globalRib.Tables[rf]; ok {
@@ -2468,7 +2374,6 @@ func (s *BgpServer) ValidateRib(prefix string) error {
 }
 
 func (s *BgpServer) GetRpki() (l []*config.RpkiServer, err error) { 
-   fmt.Printf("DEJDEJ id:",208)
 	err = s.mgmtOperation(func() error {
 		l = s.roaManager.GetServers()
 		return nil
@@ -2477,7 +2382,6 @@ func (s *BgpServer) GetRpki() (l []*config.RpkiServer, err error) {
 }
 
 func (s *BgpServer) GetRoa(family bgp.RouteFamily) (l []*table.ROA, err error) { 
-   fmt.Printf("DEJDEJ id:",209)
 	s.mgmtOperation(func() error {
 		l, err = s.roaManager.GetRoa(family)
 		return nil
@@ -2486,42 +2390,36 @@ func (s *BgpServer) GetRoa(family bgp.RouteFamily) (l []*table.ROA, err error) {
 }
 
 func (s *BgpServer) AddRpki(c *config.RpkiServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",210)
 	return s.mgmtOperation(func() error {
 		return s.roaManager.AddServer(net.JoinHostPort(c.Address, strconv.Itoa(int(c.Port))), c.RecordLifetime)
 	}, false)
 }
 
 func (s *BgpServer) DeleteRpki(c *config.RpkiServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",211)
 	return s.mgmtOperation(func() error {
 		return s.roaManager.DeleteServer(c.Address)
 	}, false)
 }
 
 func (s *BgpServer) EnableRpki(c *config.RpkiServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",212)
 	return s.mgmtOperation(func() error {
 		return s.roaManager.Enable(c.Address)
 	}, false)
 }
 
 func (s *BgpServer) DisableRpki(c *config.RpkiServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",213)
 	return s.mgmtOperation(func() error {
 		return s.roaManager.Disable(c.Address)
 	}, false)
 }
 
 func (s *BgpServer) ResetRpki(c *config.RpkiServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",214)
 	return s.mgmtOperation(func() error {
 		return s.roaManager.Reset(c.Address)
 	}, false)
 }
 
 func (s *BgpServer) SoftResetRpki(c *config.RpkiServerConfig) error { 
-   fmt.Printf("DEJDEJ id:",215)
 	return s.mgmtOperation(func() error {
 		return s.roaManager.SoftReset(c.Address)
 	}, false)
@@ -2616,7 +2514,6 @@ type watchOptions struct {
 type WatchOption func(*watchOptions)
 
 func WatchBestPath(current bool) WatchOption { 
-   fmt.Printf("DEJDEJ id:",216)
 	return func(o *watchOptions) {
 		o.bestpath = true
 		if current {
@@ -2626,7 +2523,6 @@ func WatchBestPath(current bool) WatchOption {
 }
 
 func WatchUpdate(current bool) WatchOption { 
-   fmt.Printf("DEJDEJ id:",217)
 	return func(o *watchOptions) {
 		o.preUpdate = true
 		if current {
@@ -2636,7 +2532,6 @@ func WatchUpdate(current bool) WatchOption {
 }
 
 func WatchPostUpdate(current bool) WatchOption { 
-   fmt.Printf("DEJDEJ id:",218)
 	return func(o *watchOptions) {
 		o.postUpdate = true
 		if current {
@@ -2646,7 +2541,6 @@ func WatchPostUpdate(current bool) WatchOption {
 }
 
 func WatchPeerState(current bool) WatchOption { 
-   fmt.Printf("DEJDEJ id:",219)
 	return func(o *watchOptions) {
 		o.peerState = true
 		if current {
@@ -2656,14 +2550,12 @@ func WatchPeerState(current bool) WatchOption {
 }
 
 func WatchTableName(name string) WatchOption { 
-   fmt.Printf("DEJDEJ id:",220)
 	return func(o *watchOptions) {
 		o.tableName = name
 	}
 }
 
 func WatchMessage(isSent bool) WatchOption { 
-   fmt.Printf("DEJDEJ id:",221)
 	return func(o *watchOptions) {
 		if isSent {
 			log.WithFields(log.Fields{
@@ -2684,12 +2576,10 @@ type Watcher struct {
 }
 
 func (w *Watcher) Event() <-chan WatchEvent { 
-   fmt.Printf("DEJDEJ id:",222)
 	return w.realCh
 }
 
 func (w *Watcher) Generate(t WatchEventType) error { 
-   fmt.Printf("DEJDEJ id:",223)
 	return w.s.mgmtOperation(func() error {
 		switch t {
 		case WATCH_EVENT_TYPE_PRE_UPDATE:
@@ -2737,12 +2627,10 @@ func (w *Watcher) Generate(t WatchEventType) error {
 }
 
 func (w *Watcher) notify(v WatchEvent) { 
-   fmt.Printf("DEJDEJ id:",224)
 	w.ch.In() <- v
 }
 
 func (w *Watcher) loop() { 
-   fmt.Printf("DEJDEJ id:",225)
 	for {
 		select {
 		case ev, ok := <-w.ch.Out():
@@ -2756,7 +2644,6 @@ func (w *Watcher) loop() {
 }
 
 func (w *Watcher) Stop() { 
-   fmt.Printf("DEJDEJ id:",226)
 	w.s.mgmtOperation(func() error {
 		for k, l := range w.s.watcherMap {
 			for i, v := range l {
@@ -2777,19 +2664,16 @@ func (w *Watcher) Stop() {
 }
 
 func (s *BgpServer) isWatched(typ WatchEventType) bool { 
-   fmt.Printf("DEJDEJ id:",227)
 	return len(s.watcherMap[typ]) != 0
 }
 
 func (s *BgpServer) notifyWatcher(typ WatchEventType, ev WatchEvent) { 
-   fmt.Printf("DEJDEJ id:",228)
 	for _, w := range s.watcherMap[typ] {
 		w.notify(ev)
 	}
 }
 
 func (s *BgpServer) Watch(opts ...WatchOption) (w *Watcher) { 
-   fmt.Printf("DEJDEJ id:",229)
 	s.mgmtOperation(func() error {
 		w = &Watcher{
 			s:      s,

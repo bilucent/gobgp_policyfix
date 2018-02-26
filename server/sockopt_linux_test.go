@@ -28,7 +28,6 @@ import (
 )
 
 func Test_buildTcpMD5Sig(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",373)
 	s, _ := buildTcpMD5Sig("1.2.3.4", "hello")
 
 	if unsafe.Sizeof(s) != 216 {
@@ -51,7 +50,6 @@ func Test_buildTcpMD5Sig(t *testing.T) {
 }
 
 func Test_buildTcpMD5Sigv6(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",374)
 	s, _ := buildTcpMD5Sig("fe80::4850:31ff:fe01:fc55", "helloworld")
 
 	buf1 := make([]uint8, 216)
@@ -72,7 +70,6 @@ func Test_buildTcpMD5Sigv6(t *testing.T) {
 }
 
 func Test_DialTCP_FDleak(t *testing.T) { 
-   fmt.Printf("DEJDEJ id:",375)
 	openFds := func() int {
 		pid := os.Getpid()
 		f, err := os.OpenFile(fmt.Sprintf("/proc/%d/fdinfo", pid), os.O_RDONLY, 0)

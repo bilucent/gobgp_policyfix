@@ -25,7 +25,6 @@ import (
 )
 
 func UpdatePathAttrs2ByteAs(msg *bgp.BGPUpdate) error { 
-   fmt.Printf("DEJDEJ id:",2732)
 	ps := msg.PathAttributes
 	msg.PathAttributes = make([]bgp.PathAttributeInterface, len(ps))
 	copy(msg.PathAttributes, ps)
@@ -76,7 +75,6 @@ func UpdatePathAttrs2ByteAs(msg *bgp.BGPUpdate) error {
 }
 
 func UpdatePathAttrs4ByteAs(msg *bgp.BGPUpdate) error { 
-   fmt.Printf("DEJDEJ id:",2733)
 	var asAttr *bgp.PathAttributeAsPath
 	var as4Attr *bgp.PathAttributeAs4Path
 	asAttrPos := 0
@@ -205,7 +203,6 @@ func UpdatePathAttrs4ByteAs(msg *bgp.BGPUpdate) error {
 }
 
 func UpdatePathAggregator2ByteAs(msg *bgp.BGPUpdate) { 
-   fmt.Printf("DEJDEJ id:",2734)
 	as := uint32(0)
 	var addr string
 	for i, attr := range msg.PathAttributes {
@@ -227,7 +224,6 @@ func UpdatePathAggregator2ByteAs(msg *bgp.BGPUpdate) {
 }
 
 func UpdatePathAggregator4ByteAs(msg *bgp.BGPUpdate) error { 
-   fmt.Printf("DEJDEJ id:",2735)
 	var aggAttr *bgp.PathAttributeAggregator
 	var agg4Attr *bgp.PathAttributeAs4Aggregator
 	agg4AttrPos := 0
@@ -265,7 +261,6 @@ type cage struct {
 }
 
 func newCage(b []byte, path *Path) *cage { 
-   fmt.Printf("DEJDEJ id:",2736)
 	return &cage{
 		attrsBytes: b,
 		paths:      []*Path{path},
@@ -290,7 +285,6 @@ type packerMP struct {
 }
 
 func (p *packerMP) add(path *Path) { 
-   fmt.Printf("DEJDEJ id:",2737)
 	p.packer.total++
 
 	if path.IsEOR() {
@@ -307,7 +301,6 @@ func (p *packerMP) add(path *Path) {
 }
 
 func createMPReachMessage(path *Path) *bgp.BGPMessage { 
-   fmt.Printf("DEJDEJ id:",2738)
 	oattrs := path.GetPathAttrs()
 	attrs := make([]bgp.PathAttributeInterface, 0, len(oattrs))
 	for _, a := range oattrs {
@@ -321,7 +314,6 @@ func createMPReachMessage(path *Path) *bgp.BGPMessage {
 }
 
 func (p *packerMP) pack(options ...*bgp.MarshallingOption) []*bgp.BGPMessage { 
-   fmt.Printf("DEJDEJ id:",2739)
 	msgs := make([]*bgp.BGPMessage, 0, p.packer.total)
 
 	for _, path := range p.withdrawals {
@@ -340,7 +332,6 @@ func (p *packerMP) pack(options ...*bgp.MarshallingOption) []*bgp.BGPMessage {
 }
 
 func newPackerMP(f bgp.RouteFamily) *packerMP { 
-   fmt.Printf("DEJDEJ id:",2740)
 	return &packerMP{
 		packer: packer{
 			family: f,
@@ -358,7 +349,6 @@ type packerV4 struct {
 }
 
 func (p *packerV4) add(path *Path) { 
-   fmt.Printf("DEJDEJ id:",2741)
 	p.packer.total++
 
 	if path.IsEOR() {
@@ -402,7 +392,6 @@ func (p *packerV4) add(path *Path) {
 }
 
 func (p *packerV4) pack(options ...*bgp.MarshallingOption) []*bgp.BGPMessage { 
-   fmt.Printf("DEJDEJ id:",2742)
 	split := func(max int, paths []*Path) ([]*bgp.IPAddrPrefix, []*Path) {
 		nlris := make([]*bgp.IPAddrPrefix, 0, max)
 		i := 0
@@ -470,7 +459,6 @@ func (p *packerV4) pack(options ...*bgp.MarshallingOption) []*bgp.BGPMessage {
 }
 
 func newPackerV4(f bgp.RouteFamily) *packerV4 { 
-   fmt.Printf("DEJDEJ id:",2743)
 	return &packerV4{
 		packer: packer{
 			family: f,
@@ -482,7 +470,6 @@ func newPackerV4(f bgp.RouteFamily) *packerV4 {
 }
 
 func newPacker(f bgp.RouteFamily) packerInterface { 
-   fmt.Printf("DEJDEJ id:",2744)
 	switch f {
 	case bgp.RF_IPv4_UC:
 		return newPackerV4(bgp.RF_IPv4_UC)
@@ -492,7 +479,6 @@ func newPacker(f bgp.RouteFamily) packerInterface {
 }
 
 func CreateUpdateMsgFromPaths(pathList []*Path, options ...*bgp.MarshallingOption) []*bgp.BGPMessage { 
-   fmt.Printf("DEJDEJ id:",2745)
 	msgs := make([]*bgp.BGPMessage, 0, len(pathList))
 
 	m := make(map[bgp.RouteFamily]packerInterface)
