@@ -7,7 +7,8 @@ import (
 	"github.com/osrg/gobgp/config"
 )
 
-func main() {
+func main() { 
+   fmt.Printf("DEJDEJ id:",3698)
 	b := config.Bgp{
 		Global: config.Global{
 			Config: config.GlobalConfig{
@@ -75,7 +76,8 @@ func main() {
 	fmt.Printf("%v\n", buffer.String())
 }
 
-func policy() config.RoutingPolicy {
+func policy() config.RoutingPolicy { 
+   fmt.Printf("DEJDEJ id:",3699)
 
 	ps := config.PrefixSet{
 		PrefixSetName: "ps1",

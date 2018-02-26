@@ -23,11 +23,13 @@ import (
 	"syscall"
 )
 
-func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
+func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
+   fmt.Printf("DEJDEJ id:",329)
 	return fmt.Errorf("setting md5 is not supported")
 }
 
-func setsockoptIpTtl(fd int, family int, value int) error {
+func setsockoptIpTtl(fd int, family int, value int) error { 
+   fmt.Printf("DEJDEJ id:",330)
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_TTL
 	if family == syscall.AF_INET6 {
@@ -37,7 +39,8 @@ func setsockoptIpTtl(fd int, family int, value int) error {
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(fd, level, name, value))
 }
 
-func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
+func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
+   fmt.Printf("DEJDEJ id:",331)
 	fi, family, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -46,7 +49,8 @@ func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
+func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Printf("DEJDEJ id:",332)
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -55,6 +59,7 @@ func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {
+func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Printf("DEJDEJ id:",333)
 	return fmt.Errorf("setting min ttl is not supported")
 }

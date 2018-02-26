@@ -25,7 +25,8 @@ import (
 	"time"
 )
 
-func Test_createPathFromIPRouteMessage(t *testing.T) {
+func Test_createPathFromIPRouteMessage(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",324)
 	assert := assert.New(t)
 
 	// IPv4 Route Add

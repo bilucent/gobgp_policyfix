@@ -8,7 +8,8 @@ const _ESIType_name = "ESI_ARBITRARYESI_LACPESI_MSTPESI_MACESI_ROUTERIDESI_AS"
 
 var _ESIType_index = [...]uint8{0, 13, 21, 29, 36, 48, 54}
 
-func (i ESIType) String() string {
+func (i ESIType) String() string { 
+   fmt.Printf("DEJDEJ id:",2018)
 	if i+1 >= ESIType(len(_ESIType_index)) {
 		return fmt.Sprintf("ESIType(%d)", i)
 	}

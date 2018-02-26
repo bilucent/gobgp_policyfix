@@ -28,7 +28,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestEqual(t *testing.T) {
+func TestEqual(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",3283)
 	assert := assert.New(t)
 	p1 := Prefix{
 		IpPrefix:        "192.168.0.0",
@@ -62,7 +63,8 @@ func TestEqual(t *testing.T) {
 	assert.False(ps1.Equal(&ps2))
 }
 
-func extractTomlFromMarkdown(fileMd string, fileToml string) error {
+func extractTomlFromMarkdown(fileMd string, fileToml string) error { 
+   fmt.Printf("DEJDEJ id:",3284)
 	fMd, err := os.Open(fileMd)
 	if err != nil {
 		return err
@@ -97,7 +99,8 @@ func extractTomlFromMarkdown(fileMd string, fileToml string) error {
 	return nil
 }
 
-func TestConfigExample(t *testing.T) {
+func TestConfigExample(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",3285)
 	assert := assert.New(t)
 
 	_, f, _, _ := runtime.Caller(0)

@@ -38,7 +38,8 @@ const (
 	MEATUREMENT_TABLE  = "table"
 )
 
-func (c *Collector) writePoints(points []*client.Point) error {
+func (c *Collector) writePoints(points []*client.Point) error { 
+   fmt.Printf("DEJDEJ id:",59)
 	bp, _ := client.NewBatchPoints(client.BatchPointsConfig{
 		Database:  c.dbName,
 		Precision: "ms",
@@ -47,7 +48,8 @@ func (c *Collector) writePoints(points []*client.Point) error {
 	return c.client.Write(bp)
 }
 
-func (c *Collector) writePeer(msg *WatchEventPeerState) error {
+func (c *Collector) writePeer(msg *WatchEventPeerState) error { 
+   fmt.Printf("DEJDEJ id:",60)
 	var state string
 	switch msg.State {
 	case bgp.BGP_FSM_ESTABLISHED:
@@ -75,7 +77,8 @@ func (c *Collector) writePeer(msg *WatchEventPeerState) error {
 	return c.writePoints([]*client.Point{pt})
 }
 
-func path2data(path *table.Path) (map[string]interface{}, map[string]string) {
+func path2data(path *table.Path) (map[string]interface{}, map[string]string) { 
+   fmt.Printf("DEJDEJ id:",61)
 	fields := map[string]interface{}{
 		"RouterID": path.GetSource().ID,
 	}
@@ -121,7 +124,8 @@ func path2data(path *table.Path) (map[string]interface{}, map[string]string) {
 	return fields, tags
 }
 
-func (c *Collector) writeUpdate(msg *WatchEventUpdate) error {
+func (c *Collector) writeUpdate(msg *WatchEventUpdate) error { 
+   fmt.Printf("DEJDEJ id:",62)
 	if len(msg.PathList) == 0 {
 		// EOR
 		return nil
@@ -140,7 +144,8 @@ func (c *Collector) writeUpdate(msg *WatchEventUpdate) error {
 	return c.writePoints(points)
 }
 
-func (c *Collector) writeTable(msg *WatchEventAdjIn) error {
+func (c *Collector) writeTable(msg *WatchEventAdjIn) error { 
+   fmt.Printf("DEJDEJ id:",63)
 	now := time.Now()
 	points := make([]*client.Point, 0, len(msg.PathList))
 	for _, path := range msg.PathList {
@@ -154,7 +159,8 @@ func (c *Collector) writeTable(msg *WatchEventAdjIn) error {
 	return c.writePoints(points)
 }
 
-func (c *Collector) loop() {
+func (c *Collector) loop() { 
+   fmt.Printf("DEJDEJ id:",64)
 	w := c.s.Watch(WatchPeerState(true), WatchUpdate(false))
 	defer w.Stop()
 
@@ -188,7 +194,8 @@ func (c *Collector) loop() {
 	}
 }
 
-func NewCollector(s *BgpServer, url, dbName string, interval uint64) (*Collector, error) {
+func NewCollector(s *BgpServer, url, dbName string, interval uint64) (*Collector, error) { 
+   fmt.Printf("DEJDEJ id:",65)
 	c, err := client.NewHTTPClient(client.HTTPConfig{
 		Addr: url,
 	})

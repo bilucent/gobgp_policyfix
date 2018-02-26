@@ -24,7 +24,8 @@ import (
 
 var version = "master"
 
-func main() {
+func main() { 
+   fmt.Printf("DEJDEJ id:",3580)
 	if len(os.Args) > 1 && os.Args[1] == "--version" {
 		fmt.Println("gobgp version", version)
 		os.Exit(0)

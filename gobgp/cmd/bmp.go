@@ -26,7 +26,8 @@ import (
 	"github.com/osrg/gobgp/packet/bmp"
 )
 
-func modBmpServer(cmdType string, args []string) error {
+func modBmpServer(cmdType string, args []string) error { 
+   fmt.Printf("DEJDEJ id:",3586)
 	if len(args) < 1 {
 		return fmt.Errorf("usage: gobgp bmp %s <addr>[:<port>] [{pre|post|both|local-rib|all}]", cmdType)
 	}
@@ -80,7 +81,8 @@ func modBmpServer(cmdType string, args []string) error {
 	return err
 }
 
-func NewBmpCmd() *cobra.Command {
+func NewBmpCmd() *cobra.Command { 
+   fmt.Printf("DEJDEJ id:",3587)
 
 	bmpCmd := &cobra.Command{
 		Use: CMD_BMP,

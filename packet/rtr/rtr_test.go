@@ -25,7 +25,8 @@ import (
 	"time"
 )
 
-func verifyRTRMessage(t *testing.T, m1 RTRMessage) {
+func verifyRTRMessage(t *testing.T, m1 RTRMessage) { 
+   fmt.Printf("DEJDEJ id:",1820)
 	buf1, _ := m1.Serialize()
 	m2, err := ParseRTR(buf1)
 	if err != nil {
@@ -42,28 +43,33 @@ func verifyRTRMessage(t *testing.T, m1 RTRMessage) {
 	}
 }
 
-func randUint32() uint32 {
+func randUint32() uint32 { 
+   fmt.Printf("DEJDEJ id:",1821)
 	rand.Seed(time.Now().UnixNano())
 	return rand.Uint32()
 }
 
-func Test_RTRSerialNotify(t *testing.T) {
+func Test_RTRSerialNotify(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1822)
 	id := uint16(time.Now().Unix())
 	sn := randUint32()
 	verifyRTRMessage(t, NewRTRSerialNotify(id, sn))
 }
 
-func Test_RTRSerialQuery(t *testing.T) {
+func Test_RTRSerialQuery(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1823)
 	id := uint16(time.Now().Unix())
 	sn := randUint32()
 	verifyRTRMessage(t, NewRTRSerialQuery(id, sn))
 }
 
-func Test_RTRResetQuery(t *testing.T) {
+func Test_RTRResetQuery(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1824)
 	verifyRTRMessage(t, NewRTRResetQuery())
 }
 
-func Test_RTRCacheResponse(t *testing.T) {
+func Test_RTRCacheResponse(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1825)
 	id := uint16(time.Now().Unix())
 	verifyRTRMessage(t, NewRTRCacheResponse(id))
 }
@@ -85,7 +91,8 @@ var rtrIPPrefixTestCases = []rtrIPPrefixTestCase{
 	{"::ffff:0.0.0.0", 96, 128, 65001, WITHDRAWAL},
 }
 
-func Test_RTRIPPrefix(t *testing.T) {
+func Test_RTRIPPrefix(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1826)
 	for i := range rtrIPPrefixTestCases {
 		test := &rtrIPPrefixTestCases[i]
 		addr := net.ParseIP(test.pString)
@@ -93,17 +100,20 @@ func Test_RTRIPPrefix(t *testing.T) {
 	}
 }
 
-func Test_RTREndOfData(t *testing.T) {
+func Test_RTREndOfData(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1827)
 	id := uint16(time.Now().Unix())
 	sn := randUint32()
 	verifyRTRMessage(t, NewRTREndOfData(id, sn))
 }
 
-func Test_RTRCacheReset(t *testing.T) {
+func Test_RTRCacheReset(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1828)
 	verifyRTRMessage(t, NewRTRCacheReset())
 }
 
-func Test_RTRErrorReport(t *testing.T) {
+func Test_RTRErrorReport(t *testing.T) { 
+   fmt.Printf("DEJDEJ id:",1829)
 	errPDU, _ := NewRTRResetQuery().Serialize()
 	errText1 := []byte("Couldn't send CacheResponce PDU")
 	errText2 := []byte("Wrong Length of PDU: 10 bytes")

@@ -38,7 +38,8 @@ const (
 	CONNECT_RETRY_INTERVAL = 30
 )
 
-func before(a, b uint32) bool {
+func before(a, b uint32) bool { 
+   fmt.Printf("DEJDEJ id:",334)
 	return int32(a-b) < 0
 }
 
@@ -47,21 +48,25 @@ type RoaBucket struct {
 	entries []*table.ROA
 }
 
-func (r *RoaBucket) GetEntries() []*table.ROA {
+func (r *RoaBucket) GetEntries() []*table.ROA { 
+   fmt.Printf("DEJDEJ id:",335)
 	return r.entries
 }
 
 type roas []*table.ROA
 
-func (r roas) Len() int {
+func (r roas) Len() int { 
+   fmt.Printf("DEJDEJ id:",336)
 	return len(r)
 }
 
-func (r roas) Swap(i, j int) {
+func (r roas) Swap(i, j int) { 
+   fmt.Printf("DEJDEJ id:",337)
 	r[i], r[j] = r[j], r[i]
 }
 
-func (r roas) Less(i, j int) bool {
+func (r roas) Less(i, j int) bool { 
+   fmt.Printf("DEJDEJ id:",338)
 	r1 := r[i]
 	r2 := r[j]
 
@@ -100,7 +105,8 @@ type roaManager struct {
 	clientMap map[string]*roaClient
 }
 
-func NewROAManager(as uint32) (*roaManager, error) {
+func NewROAManager(as uint32) (*roaManager, error) { 
+   fmt.Printf("DEJDEJ id:",339)
 	m := &roaManager{
 		AS:   as,
 		Roas: make(map[bgp.RouteFamily]*radix.Tree),
@@ -112,7 +118,8 @@ func NewROAManager(as uint32) (*roaManager, error) {
 	return m, nil
 }
 
-func (m *roaManager) SetAS(as uint32) error {
+func (m *roaManager) SetAS(as uint32) error { 
+   fmt.Printf("DEJDEJ id:",340)
 	if m.AS != 0 {
 		return fmt.Errorf("AS was already configured")
 	}
@@ -120,7 +127,8 @@ func (m *roaManager) SetAS(as uint32) error {
 	return nil
 }
 
-func (m *roaManager) AddServer(host string, lifetime int64) error {
+func (m *roaManager) AddServer(host string, lifetime int64) error { 
+   fmt.Printf("DEJDEJ id:",341)
 	address, port, err := net.SplitHostPort(host)
 	if err != nil {
 		return err
@@ -135,7 +143,8 @@ func (m *roaManager) AddServer(host string, lifetime int64) error {
 	return nil
 }
 
-func (m *roaManager) DeleteServer(host string) error {
+func (m *roaManager) DeleteServer(host string) error { 
+   fmt.Printf("DEJDEJ id:",342)
 	client, ok := m.clientMap[host]
 	if !ok {
 		return fmt.Errorf("ROA server doesn't exists %s", host)
@@ -146,7 +155,8 @@ func (m *roaManager) DeleteServer(host string) error {
 	return nil
 }
 
-func (m *roaManager) deleteAllROA(network string) {
+func (m *roaManager) deleteAllROA(network string) { 
+   fmt.Printf("DEJDEJ id:",343)
 	for _, tree := range m.Roas {
 		deleteKeys := make([]string, 0, tree.Len())
 		tree.Walk(func(s string, v interface{}) bool {
@@ -170,7 +180,8 @@ func (m *roaManager) deleteAllROA(network string) {
 	}
 }
 
-func (m *roaManager) Enable(address string) error {
+func (m *roaManager) Enable(address string) error { 
+   fmt.Printf("DEJDEJ id:",344)
 	for network, client := range m.clientMap {
 		add, _, _ := net.SplitHostPort(network)
 		if add == address {
@@ -181,7 +192,8 @@ func (m *roaManager) Enable(address string) error {
 	return fmt.Errorf("ROA server not found %s", address)
 }
 
-func (m *roaManager) Disable(address string) error {
+func (m *roaManager) Disable(address string) error { 
+   fmt.Printf("DEJDEJ id:",345)
 	for network, client := range m.clientMap {
 		add, _, _ := net.SplitHostPort(network)
 		if add == address {
@@ -193,11 +205,13 @@ func (m *roaManager) Disable(address string) error {
 	return fmt.Errorf("ROA server not found %s", address)
 }
 
-func (m *roaManager) Reset(address string) error {
+func (m *roaManager) Reset(address string) error { 
+   fmt.Printf("DEJDEJ id:",346)
 	return m.Disable(address)
 }
 
-func (m *roaManager) SoftReset(address string) error {
+func (m *roaManager) SoftReset(address string) error { 
+   fmt.Printf("DEJDEJ id:",347)
 	for network, client := range m.clientMap {
 		add, _, _ := net.SplitHostPort(network)
 		if add == address {
@@ -209,18 +223,21 @@ func (m *roaManager) SoftReset(address string) error {
 	return fmt.Errorf("ROA server not found %s", address)
 }
 
-func (c *roaManager) ReceiveROA() chan *ROAEvent {
+func (c *roaManager) ReceiveROA() chan *ROAEvent { 
+   fmt.Printf("DEJDEJ id:",348)
 	return c.eventCh
 }
 
-func (c *roaClient) lifetimeout() {
+func (c *roaClient) lifetimeout() { 
+   fmt.Printf("DEJDEJ id:",349)
 	c.eventCh <- &ROAEvent{
 		EventType: LIFETIMEOUT,
 		Src:       c.host,
 	}
 }
 
-func (m *roaManager) HandleROAEvent(ev *ROAEvent) {
+func (m *roaManager) HandleROAEvent(ev *ROAEvent) { 
+   fmt.Printf("DEJDEJ id:",350)
 	client, y := m.clientMap[ev.Src]
 	if !y {
 		if ev.EventType == CONNECTED {
@@ -265,7 +282,8 @@ func (m *roaManager) HandleROAEvent(ev *ROAEvent) {
 	}
 }
 
-func (m *roaManager) roa2tree(roa *table.ROA) (*radix.Tree, string) {
+func (m *roaManager) roa2tree(roa *table.ROA) (*radix.Tree, string) { 
+   fmt.Printf("DEJDEJ id:",351)
 	tree := m.Roas[bgp.RF_IPv4_UC]
 	if roa.Family == bgp.AFI_IP6 {
 		tree = m.Roas[bgp.RF_IPv6_UC]
@@ -273,7 +291,8 @@ func (m *roaManager) roa2tree(roa *table.ROA) (*radix.Tree, string) {
 	return tree, table.IpToRadixkey(roa.Prefix.Prefix, roa.Prefix.Length)
 }
 
-func (m *roaManager) deleteROA(roa *table.ROA) {
+func (m *roaManager) deleteROA(roa *table.ROA) { 
+   fmt.Printf("DEJDEJ id:",352)
 	tree, key := m.roa2tree(roa)
 	b, _ := tree.Get(key)
 	if b != nil {
@@ -301,11 +320,13 @@ func (m *roaManager) deleteROA(roa *table.ROA) {
 	}).Info("Can't withdraw a ROA")
 }
 
-func (m *roaManager) DeleteROA(roa *table.ROA) {
+func (m *roaManager) DeleteROA(roa *table.ROA) { 
+   fmt.Printf("DEJDEJ id:",353)
 	m.deleteROA(roa)
 }
 
-func (m *roaManager) addROA(roa *table.ROA) {
+func (m *roaManager) addROA(roa *table.ROA) { 
+   fmt.Printf("DEJDEJ id:",354)
 	tree, key := m.roa2tree(roa)
 	b, _ := tree.Get(key)
 	var bucket *RoaBucket
@@ -327,11 +348,13 @@ func (m *roaManager) addROA(roa *table.ROA) {
 	bucket.entries = append(bucket.entries, roa)
 }
 
-func (m *roaManager) AddROA(roa *table.ROA) {
+func (m *roaManager) AddROA(roa *table.ROA) { 
+   fmt.Printf("DEJDEJ id:",355)
 	m.addROA(roa)
 }
 
-func (c *roaManager) handleRTRMsg(client *roaClient, state *config.RpkiServerState, buf []byte) {
+func (c *roaManager) handleRTRMsg(client *roaClient, state *config.RpkiServerState, buf []byte) { 
+   fmt.Printf("DEJDEJ id:",356)
 	received := &state.RpkiMessages.RpkiReceived
 
 	m, err := rtr.ParseRTR(buf)
@@ -403,7 +426,8 @@ func (c *roaManager) handleRTRMsg(client *roaClient, state *config.RpkiServerSta
 	}
 }
 
-func (c *roaManager) GetServers() []*config.RpkiServer {
+func (c *roaManager) GetServers() []*config.RpkiServer { 
+   fmt.Printf("DEJDEJ id:",357)
 	f := func(tree *radix.Tree) (map[string]uint32, map[string]uint32) {
 		records := make(map[string]uint32)
 		prefixes := make(map[string]uint32)
@@ -464,7 +488,8 @@ func (c *roaManager) GetServers() []*config.RpkiServer {
 	return l
 }
 
-func (c *roaManager) GetRoa(family bgp.RouteFamily) ([]*table.ROA, error) {
+func (c *roaManager) GetRoa(family bgp.RouteFamily) ([]*table.ROA, error) { 
+   fmt.Printf("DEJDEJ id:",358)
 	if len(c.clientMap) == 0 {
 		return []*table.ROA{}, fmt.Errorf("RPKI server isn't configured.")
 	}
@@ -497,7 +522,8 @@ func (c *roaManager) GetRoa(family bgp.RouteFamily) ([]*table.ROA, error) {
 	return l, nil
 }
 
-func ValidatePath(ownAs uint32, tree *radix.Tree, cidr string, asPath *bgp.PathAttributeAsPath) *table.Validation {
+func ValidatePath(ownAs uint32, tree *radix.Tree, cidr string, asPath *bgp.PathAttributeAsPath) *table.Validation { 
+   fmt.Printf("DEJDEJ id:",359)
 	var as uint32
 
 	validation := &table.Validation{
@@ -569,7 +595,8 @@ func ValidatePath(ownAs uint32, tree *radix.Tree, cidr string, asPath *bgp.PathA
 	return validation
 }
 
-func (c *roaManager) validate(pathList []*table.Path) {
+func (c *roaManager) validate(pathList []*table.Path) { 
+   fmt.Printf("DEJDEJ id:",360)
 	if len(c.clientMap) == 0 {
 		// RPKI isn't enabled
 		return
@@ -602,7 +629,8 @@ type roaClient struct {
 	ctx          context.Context
 }
 
-func NewRoaClient(address, port string, ch chan *ROAEvent, lifetime int64) *roaClient {
+func NewRoaClient(address, port string, ch chan *ROAEvent, lifetime int64) *roaClient { 
+   fmt.Printf("DEJDEJ id:",361)
 	ctx, cancel := context.WithCancel(context.Background())
 	c := &roaClient{
 		host:        net.JoinHostPort(address, port),
@@ -616,7 +644,8 @@ func NewRoaClient(address, port string, ch chan *ROAEvent, lifetime int64) *roaC
 	return c
 }
 
-func (c *roaClient) enable(serial uint32) error {
+func (c *roaClient) enable(serial uint32) error { 
+   fmt.Printf("DEJDEJ id:",362)
 	if c.conn != nil {
 		r := rtr.NewRTRSerialQuery(c.sessionID, serial)
 		data, _ := r.Serialize()
@@ -629,7 +658,8 @@ func (c *roaClient) enable(serial uint32) error {
 	return nil
 }
 
-func (c *roaClient) softReset() error {
+func (c *roaClient) softReset() error { 
+   fmt.Printf("DEJDEJ id:",363)
 	if c.conn != nil {
 		r := rtr.NewRTRResetQuery()
 		data, _ := r.Serialize()
@@ -644,18 +674,21 @@ func (c *roaClient) softReset() error {
 	return nil
 }
 
-func (c *roaClient) reset() {
+func (c *roaClient) reset() { 
+   fmt.Printf("DEJDEJ id:",364)
 	if c.conn != nil {
 		c.conn.Close()
 	}
 }
 
-func (c *roaClient) stop() {
+func (c *roaClient) stop() { 
+   fmt.Printf("DEJDEJ id:",365)
 	c.cancelfnc()
 	c.reset()
 }
 
-func (c *roaClient) tryConnect() {
+func (c *roaClient) tryConnect() { 
+   fmt.Printf("DEJDEJ id:",366)
 	for {
 		select {
 		case <-c.ctx.Done():
@@ -676,7 +709,8 @@ func (c *roaClient) tryConnect() {
 	}
 }
 
-func (c *roaClient) established() (err error) {
+func (c *roaClient) established() (err error) { 
+   fmt.Printf("DEJDEJ id:",367)
 	defer func() {
 		c.conn.Close()
 		c.eventCh <- &ROAEvent{

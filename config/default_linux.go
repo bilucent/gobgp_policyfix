@@ -22,7 +22,8 @@ import (
 	"net"
 )
 
-func GetIPv6LinkLocalNeighborAddress(ifname string) (string, error) {
+func GetIPv6LinkLocalNeighborAddress(ifname string) (string, error) { 
+   fmt.Printf("DEJDEJ id:",3281)
 	ifi, err := net.InterfaceByName(ifname)
 	if err != nil {
 		return "", err
