@@ -26,6 +26,7 @@ import (
 )
 
 func Test_createPathFromIPRouteMessage(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:731, zclient_test.go:Test_createPathFromIPRouteMessage(t>>>")
 	assert := assert.New(t)
 
 	// IPv4 Route Add

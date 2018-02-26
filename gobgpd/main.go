@@ -42,6 +42,7 @@ import (
 var version = "master"
 
 func main() { 
+   fmt.Print("<<<DEJDEJ id:1393, main.go:main()>>>")
 	sigCh := make(chan os.Signal, 1)
 	signal.Notify(sigCh, syscall.SIGTERM)
 

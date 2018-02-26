@@ -15,6 +15,7 @@ var (
 )
 
 func (i BGPAttrType) String() string { 
+   fmt.Print("<<<DEJDEJ id:2534, bgpattrtype_string.go:String>>>")
 	switch {
 	case 1 <= i && i <= 10:
 		i -= 1

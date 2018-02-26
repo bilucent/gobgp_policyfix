@@ -23,6 +23,7 @@ import (
 )
 
 func GetIPv6LinkLocalNeighborAddress(ifname string) (string, error) { 
+   fmt.Print("<<<DEJDEJ id:296, default_linux.go:GetIPv6LinkLocalNeighborAddress(ifname>>>")
 	ifi, err := net.InterfaceByName(ifname)
 	if err != nil {
 		return "", err

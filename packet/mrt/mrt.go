@@ -76,6 +76,7 @@ const (
 )
 
 func (t MRTSubTypeTableDumpv2) ToUint16() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2360, mrt.go:ToUint16>>>")
 	return uint16(t)
 }
 
@@ -95,6 +96,7 @@ const (
 )
 
 func (t MRTSubTypeBGP4MP) ToUint16() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2361, mrt.go:ToUint16>>>")
 	return uint16(t)
 }
 
@@ -110,6 +112,7 @@ const (
 )
 
 func packValues(values []interface{}) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2362, mrt.go:packValues(values>>>")
 	b := new(bytes.Buffer)
 	for _, v := range values {
 		err := binary.Write(b, binary.BigEndian, v)
@@ -128,6 +131,7 @@ type MRTHeader struct {
 }
 
 func (h *MRTHeader) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2363, mrt.go:DecodeFromBytes>>>")
 	if len(data) < MRT_COMMON_HEADER_LEN {
 		return fmt.Errorf("not all MRTHeader bytes are available. expected: %d, actual: %d", MRT_COMMON_HEADER_LEN, len(data))
 	}
@@ -139,10 +143,12 @@ func (h *MRTHeader) DecodeFromBytes(data []byte) error {
 }
 
 func (h *MRTHeader) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2364, mrt.go:Serialize>>>")
 	return packValues([]interface{}{h.Timestamp, h.Type, h.SubType, h.Len})
 }
 
 func NewMRTHeader(timestamp uint32, t MRTType, subtype MRTSubTyper, l uint32) (*MRTHeader, error) { 
+   fmt.Print("<<<DEJDEJ id:2365, mrt.go:NewMRTHeader(timestamp>>>")
 	return &MRTHeader{
 		Timestamp: timestamp,
 		Type:      t,
@@ -152,6 +158,7 @@ func NewMRTHeader(timestamp uint32, t MRTType, subtype MRTSubTyper, l uint32) (*
 }
 
 func (h *MRTHeader) GetTime() time.Time { 
+   fmt.Print("<<<DEJDEJ id:2366, mrt.go:GetTime>>>")
 	t := int64(h.Timestamp)
 	return time.Unix(t, 0)
 }
@@ -162,6 +169,7 @@ type MRTMessage struct {
 }
 
 func (m *MRTMessage) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2367, mrt.go:Serialize>>>")
 	buf, err := m.Body.Serialize()
 	if err != nil {
 		return nil, err
@@ -175,6 +183,7 @@ func (m *MRTMessage) Serialize() ([]byte, error) {
 }
 
 func NewMRTMessage(timestamp uint32, t MRTType, subtype MRTSubTyper, body Body) (*MRTMessage, error) { 
+   fmt.Print("<<<DEJDEJ id:2368, mrt.go:NewMRTMessage(timestamp>>>")
 	header, err := NewMRTHeader(timestamp, t, subtype, 0)
 	if err != nil {
 		return nil, err
@@ -198,6 +207,7 @@ type Peer struct {
 }
 
 func (p *Peer) DecodeFromBytes(data []byte) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2369, mrt.go:DecodeFromBytes>>>")
 	notAllBytesAvail := fmt.Errorf("not all Peer bytes are available")
 	if len(data) < 5 {
 		return nil, notAllBytesAvail
@@ -238,6 +248,7 @@ func (p *Peer) DecodeFromBytes(data []byte) ([]byte, error) {
 }
 
 func (p *Peer) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2370, mrt.go:Serialize>>>")
 	var err error
 	var bbuf []byte
 	buf := make([]byte, 5)
@@ -263,6 +274,7 @@ func (p *Peer) Serialize() ([]byte, error) {
 }
 
 func NewPeer(bgpid string, ipaddr string, asn uint32, isAS4 bool) *Peer { 
+   fmt.Print("<<<DEJDEJ id:2371, mrt.go:NewPeer(bgpid>>>")
 	t := 0
 	addr := net.ParseIP(ipaddr).To4()
 	if addr == nil {
@@ -281,6 +293,7 @@ func NewPeer(bgpid string, ipaddr string, asn uint32, isAS4 bool) *Peer {
 }
 
 func (p *Peer) String() string { 
+   fmt.Print("<<<DEJDEJ id:2372, mrt.go:String>>>")
 	return fmt.Sprintf("PEER ENTRY: ID [%s] Addr [%s] AS [%d]", p.BgpId, p.IpAddress, p.AS)
 }
 
@@ -291,6 +304,7 @@ type PeerIndexTable struct {
 }
 
 func (t *PeerIndexTable) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2373, mrt.go:DecodeFromBytes>>>")
 	notAllBytesAvail := fmt.Errorf("not all PeerIndexTable bytes are available")
 	if len(data) < 6 {
 		return notAllBytesAvail
@@ -324,6 +338,7 @@ func (t *PeerIndexTable) DecodeFromBytes(data []byte) error {
 }
 
 func (t *PeerIndexTable) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2374, mrt.go:Serialize>>>")
 	buf := make([]byte, 8+len(t.ViewName))
 	copy(buf, t.CollectorBgpId.To4())
 	binary.BigEndian.PutUint16(buf[4:], uint16(len(t.ViewName)))
@@ -340,6 +355,7 @@ func (t *PeerIndexTable) Serialize() ([]byte, error) {
 }
 
 func NewPeerIndexTable(bgpid string, viewname string, peers []*Peer) *PeerIndexTable { 
+   fmt.Print("<<<DEJDEJ id:2375, mrt.go:NewPeerIndexTable(bgpid>>>")
 	return &PeerIndexTable{
 		CollectorBgpId: net.ParseIP(bgpid).To4(),
 		ViewName:       viewname,
@@ -348,6 +364,7 @@ func NewPeerIndexTable(bgpid string, viewname string, peers []*Peer) *PeerIndexT
 }
 
 func (t *PeerIndexTable) String() string { 
+   fmt.Print("<<<DEJDEJ id:2376, mrt.go:String>>>")
 	return fmt.Sprintf("PEER_INDEX_TABLE: CollectorBgpId [%s] ViewName [%s] Peers [%s]", t.CollectorBgpId, t.ViewName, t.Peers)
 }
 
@@ -360,6 +377,7 @@ type RibEntry struct {
 }
 
 func (e *RibEntry) DecodeFromBytes(data []byte) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2377, mrt.go:DecodeFromBytes>>>")
 	notAllBytesAvail := fmt.Errorf("not all RibEntry bytes are available")
 	if len(data) < 8 {
 		return nil, notAllBytesAvail
@@ -394,6 +412,7 @@ func (e *RibEntry) DecodeFromBytes(data []byte) ([]byte, error) {
 }
 
 func (e *RibEntry) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2378, mrt.go:Serialize>>>")
 	pbuf := make([]byte, 0)
 	totalLen := 0
 	for _, pattr := range e.PathAttributes {
@@ -432,6 +451,7 @@ func (e *RibEntry) Serialize() ([]byte, error) {
 }
 
 func NewRibEntry(index uint16, time uint32, pathId uint32, pathAttrs []bgp.PathAttributeInterface, isAddPath bool) *RibEntry { 
+   fmt.Print("<<<DEJDEJ id:2379, mrt.go:NewRibEntry(index>>>")
 	return &RibEntry{
 		PeerIndex:      index,
 		OriginatedTime: time,
@@ -442,6 +462,7 @@ func NewRibEntry(index uint16, time uint32, pathId uint32, pathAttrs []bgp.PathA
 }
 
 func (e *RibEntry) String() string { 
+   fmt.Print("<<<DEJDEJ id:2380, mrt.go:String>>>")
 	if e.isAddPath {
 		return fmt.Sprintf("RIB_ENTRY: PeerIndex [%d] OriginatedTime [%d] PathIdentifier[%d] PathAttributes [%v]", e.PeerIndex, e.OriginatedTime, e.PathIdentifier, e.PathAttributes)
 	} else {
@@ -459,6 +480,7 @@ type Rib struct {
 }
 
 func (u *Rib) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2381, mrt.go:DecodeFromBytes>>>")
 	if len(data) < 4 {
 		return fmt.Errorf("Not all RibIpv4Unicast message bytes available")
 	}
@@ -497,6 +519,7 @@ func (u *Rib) DecodeFromBytes(data []byte) error {
 }
 
 func (u *Rib) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2382, mrt.go:Serialize>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint32(buf, u.SequenceNumber)
 	rf := bgp.AfiSafiToRouteFamily(u.Prefix.AFI(), u.Prefix.SAFI())
@@ -529,6 +552,7 @@ func (u *Rib) Serialize() ([]byte, error) {
 }
 
 func NewRib(seq uint32, prefix bgp.AddrPrefixInterface, entries []*RibEntry) *Rib { 
+   fmt.Print("<<<DEJDEJ id:2383, mrt.go:NewRib(seq>>>")
 	rf := bgp.AfiSafiToRouteFamily(prefix.AFI(), prefix.SAFI())
 	return &Rib{
 		SequenceNumber: seq,
@@ -540,6 +564,7 @@ func NewRib(seq uint32, prefix bgp.AddrPrefixInterface, entries []*RibEntry) *Ri
 }
 
 func (u *Rib) String() string { 
+   fmt.Print("<<<DEJDEJ id:2384, mrt.go:String>>>")
 	return fmt.Sprintf("RIB: Seq [%d] Prefix [%s] Entries [%s]", u.SequenceNumber, u.Prefix, u.Entries)
 }
 
@@ -551,6 +576,7 @@ type GeoPeer struct {
 }
 
 func (p *GeoPeer) DecodeFromBytes(data []byte) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2385, mrt.go:DecodeFromBytes>>>")
 	if len(data) < 13 {
 		return nil, fmt.Errorf("not all GeoPeer bytes are available")
 	}
@@ -566,6 +592,7 @@ func (p *GeoPeer) DecodeFromBytes(data []byte) ([]byte, error) {
 }
 
 func (p *GeoPeer) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2386, mrt.go:Serialize>>>")
 	buf := make([]byte, 13)
 	buf[0] = uint8(0) // Peer IP Address and Peer AS should not be included
 	bgpId := p.BgpId.To4()
@@ -579,6 +606,7 @@ func (p *GeoPeer) Serialize() ([]byte, error) {
 }
 
 func NewGeoPeer(bgpid string, latitude float32, longitude float32) *GeoPeer { 
+   fmt.Print("<<<DEJDEJ id:2387, mrt.go:NewGeoPeer(bgpid>>>")
 	return &GeoPeer{
 		Type:      0, // Peer IP Address and Peer AS should not be included
 		BgpId:     net.ParseIP(bgpid).To4(),
@@ -588,6 +616,7 @@ func NewGeoPeer(bgpid string, latitude float32, longitude float32) *GeoPeer {
 }
 
 func (p *GeoPeer) String() string { 
+   fmt.Print("<<<DEJDEJ id:2388, mrt.go:String>>>")
 	return fmt.Sprintf("PEER ENTRY: ID [%s] Latitude [%f] Longitude [%f]", p.BgpId, p.Latitude, p.Longitude)
 }
 
@@ -599,6 +628,7 @@ type GeoPeerTable struct {
 }
 
 func (t *GeoPeerTable) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2389, mrt.go:DecodeFromBytes>>>")
 	if len(data) < 14 {
 		return fmt.Errorf("not all GeoPeerTable bytes are available")
 	}
@@ -620,6 +650,7 @@ func (t *GeoPeerTable) DecodeFromBytes(data []byte) error {
 }
 
 func (t *GeoPeerTable) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2390, mrt.go:Serialize>>>")
 	buf := make([]byte, 14)
 	collectorBgpId := t.CollectorBgpId.To4()
 	if collectorBgpId == nil {
@@ -640,6 +671,7 @@ func (t *GeoPeerTable) Serialize() ([]byte, error) {
 }
 
 func NewGeoPeerTable(bgpid string, latitude float32, longitude float32, peers []*GeoPeer) *GeoPeerTable { 
+   fmt.Print("<<<DEJDEJ id:2391, mrt.go:NewGeoPeerTable(bgpid>>>")
 	return &GeoPeerTable{
 		CollectorBgpId:     net.ParseIP(bgpid).To4(),
 		CollectorLatitude:  latitude,
@@ -649,6 +681,7 @@ func NewGeoPeerTable(bgpid string, latitude float32, longitude float32, peers []
 }
 
 func (t *GeoPeerTable) String() string { 
+   fmt.Print("<<<DEJDEJ id:2392, mrt.go:String>>>")
 	return fmt.Sprintf("GEO_PEER_TABLE: CollectorBgpId [%s] CollectorLatitude [%f] CollectorLongitude [%f] Peers [%s]", t.CollectorBgpId, t.CollectorLatitude, t.CollectorLongitude, t.Peers)
 }
 
@@ -663,6 +696,7 @@ type BGP4MPHeader struct {
 }
 
 func (m *BGP4MPHeader) decodeFromBytes(data []byte) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2393, mrt.go:decodeFromBytes>>>")
 	if m.isAS4 && len(data) < 8 {
 		return nil, fmt.Errorf("Not all BGP4MPMessageAS4 bytes available")
 	} else if !m.isAS4 && len(data) < 4 {
@@ -696,6 +730,7 @@ func (m *BGP4MPHeader) decodeFromBytes(data []byte) ([]byte, error) {
 }
 
 func (m *BGP4MPHeader) serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2394, mrt.go:serialize>>>")
 	var values []interface{}
 	if m.isAS4 {
 		values = []interface{}{m.PeerAS, m.LocalAS, m.InterfaceIndex, m.AddressFamily}
@@ -723,6 +758,7 @@ func (m *BGP4MPHeader) serialize() ([]byte, error) {
 }
 
 func newBGP4MPHeader(peeras, localas uint32, intfindex uint16, peerip, localip string, isAS4 bool) (*BGP4MPHeader, error) { 
+   fmt.Print("<<<DEJDEJ id:2395, mrt.go:newBGP4MPHeader(peeras,>>>")
 	var af uint16
 	paddr := net.ParseIP(peerip).To4()
 	laddr := net.ParseIP(localip).To4()
@@ -755,6 +791,7 @@ type BGP4MPStateChange struct {
 }
 
 func (m *BGP4MPStateChange) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2396, mrt.go:DecodeFromBytes>>>")
 	rest, err := m.decodeFromBytes(data)
 	if err != nil {
 		return err
@@ -768,6 +805,7 @@ func (m *BGP4MPStateChange) DecodeFromBytes(data []byte) error {
 }
 
 func (m *BGP4MPStateChange) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2397, mrt.go:Serialize>>>")
 	buf, err := m.serialize()
 	if err != nil {
 		return nil, err
@@ -780,6 +818,7 @@ func (m *BGP4MPStateChange) Serialize() ([]byte, error) {
 }
 
 func NewBGP4MPStateChange(peeras, localas uint32, intfindex uint16, peerip, localip string, isAS4 bool, oldstate, newstate BGPState) *BGP4MPStateChange { 
+   fmt.Print("<<<DEJDEJ id:2398, mrt.go:NewBGP4MPStateChange(peeras,>>>")
 	header, _ := newBGP4MPHeader(peeras, localas, intfindex, peerip, localip, isAS4)
 	return &BGP4MPStateChange{
 		BGP4MPHeader: header,
@@ -797,6 +836,7 @@ type BGP4MPMessage struct {
 }
 
 func (m *BGP4MPMessage) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2399, mrt.go:DecodeFromBytes>>>")
 	rest, err := m.decodeFromBytes(data)
 	if err != nil {
 		return err
@@ -815,6 +855,7 @@ func (m *BGP4MPMessage) DecodeFromBytes(data []byte) error {
 }
 
 func (m *BGP4MPMessage) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2400, mrt.go:Serialize>>>")
 	buf, err := m.serialize()
 	if err != nil {
 		return nil, err
@@ -830,6 +871,7 @@ func (m *BGP4MPMessage) Serialize() ([]byte, error) {
 }
 
 func NewBGP4MPMessage(peeras, localas uint32, intfindex uint16, peerip, localip string, isAS4 bool, msg *bgp.BGPMessage) *BGP4MPMessage { 
+   fmt.Print("<<<DEJDEJ id:2401, mrt.go:NewBGP4MPMessage(peeras,>>>")
 	header, _ := newBGP4MPHeader(peeras, localas, intfindex, peerip, localip, isAS4)
 	return &BGP4MPMessage{
 		BGP4MPHeader: header,
@@ -838,6 +880,7 @@ func NewBGP4MPMessage(peeras, localas uint32, intfindex uint16, peerip, localip 
 }
 
 func NewBGP4MPMessageLocal(peeras, localas uint32, intfindex uint16, peerip, localip string, isAS4 bool, msg *bgp.BGPMessage) *BGP4MPMessage { 
+   fmt.Print("<<<DEJDEJ id:2402, mrt.go:NewBGP4MPMessageLocal(peeras,>>>")
 	header, _ := newBGP4MPHeader(peeras, localas, intfindex, peerip, localip, isAS4)
 	return &BGP4MPMessage{
 		BGP4MPHeader: header,
@@ -847,6 +890,7 @@ func NewBGP4MPMessageLocal(peeras, localas uint32, intfindex uint16, peerip, loc
 }
 
 func NewBGP4MPMessageAddPath(peeras, localas uint32, intfindex uint16, peerip, localip string, isAS4 bool, msg *bgp.BGPMessage) *BGP4MPMessage { 
+   fmt.Print("<<<DEJDEJ id:2403, mrt.go:NewBGP4MPMessageAddPath(peeras,>>>")
 	header, _ := newBGP4MPHeader(peeras, localas, intfindex, peerip, localip, isAS4)
 	return &BGP4MPMessage{
 		BGP4MPHeader: header,
@@ -856,6 +900,7 @@ func NewBGP4MPMessageAddPath(peeras, localas uint32, intfindex uint16, peerip, l
 }
 
 func NewBGP4MPMessageLocalAddPath(peeras, localas uint32, intfindex uint16, peerip, localip string, isAS4 bool, msg *bgp.BGPMessage) *BGP4MPMessage { 
+   fmt.Print("<<<DEJDEJ id:2404, mrt.go:NewBGP4MPMessageLocalAddPath(peeras,>>>")
 	header, _ := newBGP4MPHeader(peeras, localas, intfindex, peerip, localip, isAS4)
 	return &BGP4MPMessage{
 		BGP4MPHeader: header,
@@ -866,6 +911,7 @@ func NewBGP4MPMessageLocalAddPath(peeras, localas uint32, intfindex uint16, peer
 }
 
 func (m *BGP4MPMessage) String() string { 
+   fmt.Print("<<<DEJDEJ id:2405, mrt.go:String>>>")
 	title := "BGP4MP_MSG"
 	if m.isAS4 {
 		title += "_AS4"
@@ -881,6 +927,7 @@ func (m *BGP4MPMessage) String() string {
 
 //This function can be passed into a bufio.Scanner.Split() to read buffered mrt msgs
 func SplitMrt(data []byte, atEOF bool) (advance int, token []byte, err error) { 
+   fmt.Print("<<<DEJDEJ id:2406, mrt.go:SplitMrt(data>>>")
 	if atEOF && len(data) == 0 {
 		return 0, nil, nil
 	}
@@ -901,6 +948,7 @@ func SplitMrt(data []byte, atEOF bool) (advance int, token []byte, err error) {
 }
 
 func ParseMRTBody(h *MRTHeader, data []byte) (*MRTMessage, error) { 
+   fmt.Print("<<<DEJDEJ id:2407, mrt.go:ParseMRTBody(h>>>")
 	if len(data) < int(h.Len) {
 		return nil, fmt.Errorf("Not all MRT message bytes available. expected: %d, actual: %d", int(h.Len), len(data))
 	}

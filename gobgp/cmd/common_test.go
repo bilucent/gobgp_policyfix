@@ -23,6 +23,7 @@ import (
 )
 
 func Test_ExtractReserved(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:87, common_test.go:Test_ExtractReserved(t>>>")
 	assert := assert.New(t)
 	args := strings.Split("10 rt 100:100 med 10 nexthop 10.0.0.1 aigp metric 10 local-pref 100", " ")
 	keys := []string{"rt", "med", "nexthop", "aigp", "local-pref"}

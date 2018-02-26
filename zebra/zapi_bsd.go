@@ -24,6 +24,7 @@ import (
 )
 
 func intfflag2string(flag uint64) string { 
+   fmt.Print("<<<DEJDEJ id:336, zapi_bsd.go:intfflag2string(flag>>>")
 	ss := make([]string, 0, 10)
 	if flag&syscall.IFF_UP > 0 {
 		ss = append(ss, "UP")

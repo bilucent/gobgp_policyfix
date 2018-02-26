@@ -39,6 +39,7 @@ const (
 )
 
 func before(a, b uint32) bool { 
+   fmt.Print("<<<DEJDEJ id:629, rpki.go:before(a,>>>")
 	return int32(a-b) < 0
 }
 
@@ -48,20 +49,24 @@ type RoaBucket struct {
 }
 
 func (r *RoaBucket) GetEntries() []*table.ROA { 
+   fmt.Print("<<<DEJDEJ id:630, rpki.go:GetEntries>>>")
 	return r.entries
 }
 
 type roas []*table.ROA
 
 func (r roas) Len() int { 
+   fmt.Print("<<<DEJDEJ id:631, rpki.go:Len>>>")
 	return len(r)
 }
 
 func (r roas) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:632, rpki.go:Swap>>>")
 	r[i], r[j] = r[j], r[i]
 }
 
 func (r roas) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:633, rpki.go:Less>>>")
 	r1 := r[i]
 	r2 := r[j]
 
@@ -101,6 +106,7 @@ type roaManager struct {
 }
 
 func NewROAManager(as uint32) (*roaManager, error) { 
+   fmt.Print("<<<DEJDEJ id:634, rpki.go:NewROAManager(as>>>")
 	m := &roaManager{
 		AS:   as,
 		Roas: make(map[bgp.RouteFamily]*radix.Tree),
@@ -113,6 +119,7 @@ func NewROAManager(as uint32) (*roaManager, error) {
 }
 
 func (m *roaManager) SetAS(as uint32) error { 
+   fmt.Print("<<<DEJDEJ id:635, rpki.go:SetAS>>>")
 	if m.AS != 0 {
 		return fmt.Errorf("AS was already configured")
 	}
@@ -121,6 +128,7 @@ func (m *roaManager) SetAS(as uint32) error {
 }
 
 func (m *roaManager) AddServer(host string, lifetime int64) error { 
+   fmt.Print("<<<DEJDEJ id:636, rpki.go:AddServer>>>")
 	address, port, err := net.SplitHostPort(host)
 	if err != nil {
 		return err
@@ -136,6 +144,7 @@ func (m *roaManager) AddServer(host string, lifetime int64) error {
 }
 
 func (m *roaManager) DeleteServer(host string) error { 
+   fmt.Print("<<<DEJDEJ id:637, rpki.go:DeleteServer>>>")
 	client, ok := m.clientMap[host]
 	if !ok {
 		return fmt.Errorf("ROA server doesn't exists %s", host)
@@ -147,6 +156,7 @@ func (m *roaManager) DeleteServer(host string) error {
 }
 
 func (m *roaManager) deleteAllROA(network string) { 
+   fmt.Print("<<<DEJDEJ id:638, rpki.go:deleteAllROA>>>")
 	for _, tree := range m.Roas {
 		deleteKeys := make([]string, 0, tree.Len())
 		tree.Walk(func(s string, v interface{}) bool {
@@ -171,6 +181,7 @@ func (m *roaManager) deleteAllROA(network string) {
 }
 
 func (m *roaManager) Enable(address string) error { 
+   fmt.Print("<<<DEJDEJ id:639, rpki.go:Enable>>>")
 	for network, client := range m.clientMap {
 		add, _, _ := net.SplitHostPort(network)
 		if add == address {
@@ -182,6 +193,7 @@ func (m *roaManager) Enable(address string) error {
 }
 
 func (m *roaManager) Disable(address string) error { 
+   fmt.Print("<<<DEJDEJ id:640, rpki.go:Disable>>>")
 	for network, client := range m.clientMap {
 		add, _, _ := net.SplitHostPort(network)
 		if add == address {
@@ -194,10 +206,12 @@ func (m *roaManager) Disable(address string) error {
 }
 
 func (m *roaManager) Reset(address string) error { 
+   fmt.Print("<<<DEJDEJ id:641, rpki.go:Reset>>>")
 	return m.Disable(address)
 }
 
 func (m *roaManager) SoftReset(address string) error { 
+   fmt.Print("<<<DEJDEJ id:642, rpki.go:SoftReset>>>")
 	for network, client := range m.clientMap {
 		add, _, _ := net.SplitHostPort(network)
 		if add == address {
@@ -210,10 +224,12 @@ func (m *roaManager) SoftReset(address string) error {
 }
 
 func (c *roaManager) ReceiveROA() chan *ROAEvent { 
+   fmt.Print("<<<DEJDEJ id:643, rpki.go:ReceiveROA>>>")
 	return c.eventCh
 }
 
 func (c *roaClient) lifetimeout() { 
+   fmt.Print("<<<DEJDEJ id:644, rpki.go:lifetimeout>>>")
 	c.eventCh <- &ROAEvent{
 		EventType: LIFETIMEOUT,
 		Src:       c.host,
@@ -221,6 +237,7 @@ func (c *roaClient) lifetimeout() {
 }
 
 func (m *roaManager) HandleROAEvent(ev *ROAEvent) { 
+   fmt.Print("<<<DEJDEJ id:645, rpki.go:HandleROAEvent>>>")
 	client, y := m.clientMap[ev.Src]
 	if !y {
 		if ev.EventType == CONNECTED {
@@ -266,6 +283,7 @@ func (m *roaManager) HandleROAEvent(ev *ROAEvent) {
 }
 
 func (m *roaManager) roa2tree(roa *table.ROA) (*radix.Tree, string) { 
+   fmt.Print("<<<DEJDEJ id:646, rpki.go:roa2tree>>>")
 	tree := m.Roas[bgp.RF_IPv4_UC]
 	if roa.Family == bgp.AFI_IP6 {
 		tree = m.Roas[bgp.RF_IPv6_UC]
@@ -274,6 +292,7 @@ func (m *roaManager) roa2tree(roa *table.ROA) (*radix.Tree, string) {
 }
 
 func (m *roaManager) deleteROA(roa *table.ROA) { 
+   fmt.Print("<<<DEJDEJ id:647, rpki.go:deleteROA>>>")
 	tree, key := m.roa2tree(roa)
 	b, _ := tree.Get(key)
 	if b != nil {
@@ -302,10 +321,12 @@ func (m *roaManager) deleteROA(roa *table.ROA) {
 }
 
 func (m *roaManager) DeleteROA(roa *table.ROA) { 
+   fmt.Print("<<<DEJDEJ id:648, rpki.go:DeleteROA>>>")
 	m.deleteROA(roa)
 }
 
 func (m *roaManager) addROA(roa *table.ROA) { 
+   fmt.Print("<<<DEJDEJ id:649, rpki.go:addROA>>>")
 	tree, key := m.roa2tree(roa)
 	b, _ := tree.Get(key)
 	var bucket *RoaBucket
@@ -328,10 +349,12 @@ func (m *roaManager) addROA(roa *table.ROA) {
 }
 
 func (m *roaManager) AddROA(roa *table.ROA) { 
+   fmt.Print("<<<DEJDEJ id:650, rpki.go:AddROA>>>")
 	m.addROA(roa)
 }
 
 func (c *roaManager) handleRTRMsg(client *roaClient, state *config.RpkiServerState, buf []byte) { 
+   fmt.Print("<<<DEJDEJ id:651, rpki.go:handleRTRMsg>>>")
 	received := &state.RpkiMessages.RpkiReceived
 
 	m, err := rtr.ParseRTR(buf)
@@ -404,6 +427,7 @@ func (c *roaManager) handleRTRMsg(client *roaClient, state *config.RpkiServerSta
 }
 
 func (c *roaManager) GetServers() []*config.RpkiServer { 
+   fmt.Print("<<<DEJDEJ id:652, rpki.go:GetServers>>>")
 	f := func(tree *radix.Tree) (map[string]uint32, map[string]uint32) {
 		records := make(map[string]uint32)
 		prefixes := make(map[string]uint32)
@@ -465,6 +489,7 @@ func (c *roaManager) GetServers() []*config.RpkiServer {
 }
 
 func (c *roaManager) GetRoa(family bgp.RouteFamily) ([]*table.ROA, error) { 
+   fmt.Print("<<<DEJDEJ id:653, rpki.go:GetRoa>>>")
 	if len(c.clientMap) == 0 {
 		return []*table.ROA{}, fmt.Errorf("RPKI server isn't configured.")
 	}
@@ -498,6 +523,7 @@ func (c *roaManager) GetRoa(family bgp.RouteFamily) ([]*table.ROA, error) {
 }
 
 func ValidatePath(ownAs uint32, tree *radix.Tree, cidr string, asPath *bgp.PathAttributeAsPath) *table.Validation { 
+   fmt.Print("<<<DEJDEJ id:654, rpki.go:ValidatePath(ownAs>>>")
 	var as uint32
 
 	validation := &table.Validation{
@@ -570,6 +596,7 @@ func ValidatePath(ownAs uint32, tree *radix.Tree, cidr string, asPath *bgp.PathA
 }
 
 func (c *roaManager) validate(pathList []*table.Path) { 
+   fmt.Print("<<<DEJDEJ id:655, rpki.go:validate>>>")
 	if len(c.clientMap) == 0 {
 		// RPKI isn't enabled
 		return
@@ -603,6 +630,7 @@ type roaClient struct {
 }
 
 func NewRoaClient(address, port string, ch chan *ROAEvent, lifetime int64) *roaClient { 
+   fmt.Print("<<<DEJDEJ id:656, rpki.go:NewRoaClient(address,>>>")
 	ctx, cancel := context.WithCancel(context.Background())
 	c := &roaClient{
 		host:        net.JoinHostPort(address, port),
@@ -617,6 +645,7 @@ func NewRoaClient(address, port string, ch chan *ROAEvent, lifetime int64) *roaC
 }
 
 func (c *roaClient) enable(serial uint32) error { 
+   fmt.Print("<<<DEJDEJ id:657, rpki.go:enable>>>")
 	if c.conn != nil {
 		r := rtr.NewRTRSerialQuery(c.sessionID, serial)
 		data, _ := r.Serialize()
@@ -630,6 +659,7 @@ func (c *roaClient) enable(serial uint32) error {
 }
 
 func (c *roaClient) softReset() error { 
+   fmt.Print("<<<DEJDEJ id:658, rpki.go:softReset>>>")
 	if c.conn != nil {
 		r := rtr.NewRTRResetQuery()
 		data, _ := r.Serialize()
@@ -645,17 +675,20 @@ func (c *roaClient) softReset() error {
 }
 
 func (c *roaClient) reset() { 
+   fmt.Print("<<<DEJDEJ id:659, rpki.go:reset>>>")
 	if c.conn != nil {
 		c.conn.Close()
 	}
 }
 
 func (c *roaClient) stop() { 
+   fmt.Print("<<<DEJDEJ id:660, rpki.go:stop>>>")
 	c.cancelfnc()
 	c.reset()
 }
 
 func (c *roaClient) tryConnect() { 
+   fmt.Print("<<<DEJDEJ id:661, rpki.go:tryConnect>>>")
 	for {
 		select {
 		case <-c.ctx.Done():
@@ -677,6 +710,7 @@ func (c *roaClient) tryConnect() {
 }
 
 func (c *roaClient) established() (err error) { 
+   fmt.Print("<<<DEJDEJ id:662, rpki.go:established>>>")
 	defer func() {
 		c.conn.Close()
 		c.eventCh <- &ROAEvent{

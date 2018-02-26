@@ -43,18 +43,22 @@ type Bitmap struct {
 }
 
 func (b *Bitmap) Flag(i uint) { 
+   fmt.Print("<<<DEJDEJ id:1282, path.go:Flag>>>")
 	b.bitmap[i/64] |= 1 << uint(i%64)
 }
 
 func (b *Bitmap) Unflag(i uint) { 
+   fmt.Print("<<<DEJDEJ id:1283, path.go:Unflag>>>")
 	b.bitmap[i/64] &^= 1 << uint(i%64)
 }
 
 func (b *Bitmap) GetFlag(i uint) bool { 
+   fmt.Print("<<<DEJDEJ id:1284, path.go:GetFlag>>>")
 	return b.bitmap[i/64]&(1<<uint(i%64)) > 0
 }
 
 func (b *Bitmap) FindandSetZeroBit() (uint, error) { 
+   fmt.Print("<<<DEJDEJ id:1285, path.go:FindandSetZeroBit>>>")
 	for i := 0; i < len(b.bitmap); i++ {
 		if b.bitmap[i] == math.MaxUint64 {
 			continue
@@ -73,6 +77,7 @@ func (b *Bitmap) FindandSetZeroBit() (uint, error) {
 }
 
 func (b *Bitmap) Expand() { 
+   fmt.Print("<<<DEJDEJ id:1286, path.go:Expand>>>")
 	old := b.bitmap
 	new := make([]uint64, len(old)+1)
 	for i := 0; i < len(old); i++ {
@@ -82,6 +87,7 @@ func (b *Bitmap) Expand() {
 }
 
 func NewBitmap(size int) *Bitmap { 
+   fmt.Print("<<<DEJDEJ id:1287, path.go:NewBitmap(size>>>")
 	b := &Bitmap{}
 	if size != 0 {
 		b.bitmap = make([]uint64, (size+64-1)/64)
@@ -117,6 +123,7 @@ var RpkiValidationReasonTypeToIntMap = map[RpkiValidationReasonType]int{
 }
 
 func (v RpkiValidationReasonType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:1288, path.go:ToInt>>>")
 	i, ok := RpkiValidationReasonTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -153,6 +160,7 @@ type Path struct {
 }
 
 func NewPath(source *PeerInfo, nlri bgp.AddrPrefixInterface, isWithdraw bool, pattrs []bgp.PathAttributeInterface, timestamp time.Time, noImplicitWithdraw bool) *Path { 
+   fmt.Print("<<<DEJDEJ id:1289, path.go:NewPath(source>>>")
 	if !isWithdraw && pattrs == nil {
 		log.WithFields(log.Fields{
 			"Topic": "Table",
@@ -175,6 +183,7 @@ func NewPath(source *PeerInfo, nlri bgp.AddrPrefixInterface, isWithdraw bool, pa
 }
 
 func NewEOR(family bgp.RouteFamily) *Path { 
+   fmt.Print("<<<DEJDEJ id:1290, path.go:NewEOR(family>>>")
 	afi, safi := bgp.RouteFamilyToAfiSafi(family)
 	nlri, _ := bgp.NewPrefixFromRouteFamily(afi, safi)
 	return &Path{
@@ -187,6 +196,7 @@ func NewEOR(family bgp.RouteFamily) *Path {
 }
 
 func (path *Path) IsEOR() bool { 
+   fmt.Print("<<<DEJDEJ id:1291, path.go:IsEOR>>>")
 	if path.info != nil && path.info.eor {
 		return true
 	}
@@ -194,6 +204,7 @@ func (path *Path) IsEOR() bool {
 }
 
 func cloneAsPath(asAttr *bgp.PathAttributeAsPath) *bgp.PathAttributeAsPath { 
+   fmt.Print("<<<DEJDEJ id:1292, path.go:cloneAsPath(asAttr>>>")
 	newASparams := make([]bgp.AsPathParamInterface, len(asAttr.Value))
 	for i, param := range asAttr.Value {
 		asParam := param.(*bgp.As4PathParam)
@@ -205,6 +216,7 @@ func cloneAsPath(asAttr *bgp.PathAttributeAsPath) *bgp.PathAttributeAsPath {
 }
 
 func UpdatePathAttrs(global *config.Global, peer *config.Neighbor, info *PeerInfo, original *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:1293, path.go:UpdatePathAttrs(global>>>")
 	if peer.RouteServer.Config.RouteServerClient {
 		return original
 	}
@@ -319,23 +331,28 @@ func UpdatePathAttrs(global *config.Global, peer *config.Neighbor, info *PeerInf
 }
 
 func (path *Path) GetTimestamp() time.Time { 
+   fmt.Print("<<<DEJDEJ id:1294, path.go:GetTimestamp>>>")
 	return time.Unix(path.OriginInfo().timestamp, 0)
 }
 
 func (path *Path) setTimestamp(t time.Time) { 
+   fmt.Print("<<<DEJDEJ id:1295, path.go:setTimestamp>>>")
 	path.OriginInfo().timestamp = t.Unix()
 }
 
 func (path *Path) IsLocal() bool { 
+   fmt.Print("<<<DEJDEJ id:1296, path.go:IsLocal>>>")
 	return path.GetSource().Address == nil
 }
 
 func (path *Path) IsIBGP() bool { 
+   fmt.Print("<<<DEJDEJ id:1297, path.go:IsIBGP>>>")
 	return path.GetSource().AS == path.GetSource().LocalAS
 }
 
 // create new PathAttributes
 func (path *Path) Clone(isWithdraw bool) *Path { 
+   fmt.Print("<<<DEJDEJ id:1298, path.go:Clone>>>")
 	return &Path{
 		parent:           path,
 		IsWithdraw:       isWithdraw,
@@ -345,6 +362,7 @@ func (path *Path) Clone(isWithdraw bool) *Path {
 }
 
 func (path *Path) root() *Path { 
+   fmt.Print("<<<DEJDEJ id:1299, path.go:root>>>")
 	p := path
 	for p.parent != nil {
 		p = p.parent
@@ -353,18 +371,22 @@ func (path *Path) root() *Path {
 }
 
 func (path *Path) OriginInfo() *originInfo { 
+   fmt.Print("<<<DEJDEJ id:1300, path.go:OriginInfo>>>")
 	return path.root().info
 }
 
 func (path *Path) NoImplicitWithdraw() bool { 
+   fmt.Print("<<<DEJDEJ id:1301, path.go:NoImplicitWithdraw>>>")
 	return path.OriginInfo().noImplicitWithdraw
 }
 
 func (path *Path) Validation() *Validation { 
+   fmt.Print("<<<DEJDEJ id:1302, path.go:Validation>>>")
 	return path.OriginInfo().validation
 }
 
 func (path *Path) ValidationStatus() config.RpkiValidationResultType { 
+   fmt.Print("<<<DEJDEJ id:1303, path.go:ValidationStatus>>>")
 	if v := path.OriginInfo().validation; v != nil {
 		return v.Status
 	} else {
@@ -373,57 +395,71 @@ func (path *Path) ValidationStatus() config.RpkiValidationResultType {
 }
 
 func (path *Path) SetValidation(v *Validation) { 
+   fmt.Print("<<<DEJDEJ id:1304, path.go:SetValidation>>>")
 	path.OriginInfo().validation = v
 }
 
 func (path *Path) IsFromExternal() bool { 
+   fmt.Print("<<<DEJDEJ id:1305, path.go:IsFromExternal>>>")
 	return path.OriginInfo().isFromExternal
 }
 
 func (path *Path) SetIsFromExternal(y bool) { 
+   fmt.Print("<<<DEJDEJ id:1306, path.go:SetIsFromExternal>>>")
 	path.OriginInfo().isFromExternal = y
 }
 
 func (path *Path) UUID() uuid.UUID { 
+   fmt.Print("<<<DEJDEJ id:1307, path.go:UUID>>>")
 	return path.OriginInfo().uuid
 }
 
 func (path *Path) SetUUID(id []byte) { 
+   fmt.Print("<<<DEJDEJ id:1308, path.go:SetUUID>>>")
 	path.OriginInfo().uuid = uuid.FromBytesOrNil(id)
 }
 
 func (path *Path) AssignNewUUID() { 
+   fmt.Print("<<<DEJDEJ id:1309, path.go:AssignNewUUID>>>")
 	path.OriginInfo().uuid, _ = uuid.NewV4()
 }
 
 func (path *Path) Filter(id string, reason PolicyDirection) { 
+   fmt.Print("<<<DEJDEJ id:1310, path.go:Filter>>>")
 	path.filtered[id] = reason
 }
 
 func (path *Path) Filtered(id string) PolicyDirection { 
+   fmt.Print("<<<DEJDEJ id:1311, path.go:Filtered>>>")
 	return path.filtered[id]
 }
 
 func (path *Path) GetRouteFamily() bgp.RouteFamily { 
+   fmt.Print("<<<DEJDEJ id:1312, path.go:GetRouteFamily>>>")
 	return bgp.AfiSafiToRouteFamily(path.OriginInfo().nlri.AFI(), path.OriginInfo().nlri.SAFI())
 }
 
 func (path *Path) SetSource(source *PeerInfo) { 
+   fmt.Print("<<<DEJDEJ id:1313, path.go:SetSource>>>")
 	path.OriginInfo().source = source
 }
 func (path *Path) GetSource() *PeerInfo { 
+   fmt.Print("<<<DEJDEJ id:1314, path.go:GetSource>>>")
 	return path.OriginInfo().source
 }
 
 func (path *Path) MarkStale(s bool) { 
+   fmt.Print("<<<DEJDEJ id:1315, path.go:MarkStale>>>")
 	path.OriginInfo().stale = s
 }
 
 func (path *Path) IsStale() bool { 
+   fmt.Print("<<<DEJDEJ id:1316, path.go:IsStale>>>")
 	return path.OriginInfo().stale
 }
 
 func (path *Path) IsLLGRStale() bool { 
+   fmt.Print("<<<DEJDEJ id:1317, path.go:IsLLGRStale>>>")
 	for _, c := range path.GetCommunities() {
 		if c == bgp.COMMUNITY_LLGR_STALE {
 			return true
@@ -433,6 +469,7 @@ func (path *Path) IsLLGRStale() bool {
 }
 
 func (path *Path) GetSourceAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1318, path.go:GetSourceAs>>>")
 	attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_AS_PATH)
 	if attr != nil {
 		asPathParam := attr.(*bgp.PathAttributeAsPath).Value
@@ -449,6 +486,7 @@ func (path *Path) GetSourceAs() uint32 {
 }
 
 func (path *Path) GetNexthop() net.IP { 
+   fmt.Print("<<<DEJDEJ id:1319, path.go:GetNexthop>>>")
 	attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_NEXT_HOP)
 	if attr != nil {
 		return attr.(*bgp.PathAttributeNextHop).Value
@@ -461,6 +499,7 @@ func (path *Path) GetNexthop() net.IP {
 }
 
 func (path *Path) SetNexthop(nexthop net.IP) { 
+   fmt.Print("<<<DEJDEJ id:1320, path.go:SetNexthop>>>")
 	if path.GetRouteFamily() == bgp.RF_IPv4_UC && nexthop.To4() == nil {
 		path.delPathAttr(bgp.BGP_ATTR_TYPE_NEXT_HOP)
 		mpreach := bgp.NewPathAttributeMpReachNLRI(nexthop.String(), []bgp.AddrPrefixInterface{path.GetNlri()})
@@ -479,24 +518,29 @@ func (path *Path) SetNexthop(nexthop net.IP) {
 }
 
 func (path *Path) GetNlri() bgp.AddrPrefixInterface { 
+   fmt.Print("<<<DEJDEJ id:1321, path.go:GetNlri>>>")
 	return path.OriginInfo().nlri
 }
 
 type PathAttrs []bgp.PathAttributeInterface
 
 func (a PathAttrs) Len() int { 
+   fmt.Print("<<<DEJDEJ id:1322, path.go:Len>>>")
 	return len(a)
 }
 
 func (a PathAttrs) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:1323, path.go:Swap>>>")
 	a[i], a[j] = a[j], a[i]
 }
 
 func (a PathAttrs) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:1324, path.go:Less>>>")
 	return a[i].GetType() < a[j].GetType()
 }
 
 func (path *Path) GetPathAttrs() []bgp.PathAttributeInterface { 
+   fmt.Print("<<<DEJDEJ id:1325, path.go:GetPathAttrs>>>")
 	deleted := NewBitmap(math.MaxUint8)
 	modified := make(map[uint]bgp.PathAttributeInterface)
 	p := path
@@ -540,6 +584,7 @@ func (path *Path) GetPathAttrs() []bgp.PathAttributeInterface {
 }
 
 func (path *Path) getPathAttr(typ bgp.BGPAttrType) bgp.PathAttributeInterface { 
+   fmt.Print("<<<DEJDEJ id:1326, path.go:getPathAttr>>>")
 	p := path
 	for {
 		for _, t := range p.dels {
@@ -560,6 +605,7 @@ func (path *Path) getPathAttr(typ bgp.BGPAttrType) bgp.PathAttributeInterface {
 }
 
 func (path *Path) setPathAttr(a bgp.PathAttributeInterface) { 
+   fmt.Print("<<<DEJDEJ id:1327, path.go:setPathAttr>>>")
 	if len(path.pathAttrs) == 0 {
 		path.pathAttrs = []bgp.PathAttributeInterface{a}
 	} else {
@@ -574,6 +620,7 @@ func (path *Path) setPathAttr(a bgp.PathAttributeInterface) {
 }
 
 func (path *Path) delPathAttr(typ bgp.BGPAttrType) { 
+   fmt.Print("<<<DEJDEJ id:1328, path.go:delPathAttr>>>")
 	if len(path.dels) == 0 {
 		path.dels = []bgp.BGPAttrType{typ}
 	} else {
@@ -583,6 +630,7 @@ func (path *Path) delPathAttr(typ bgp.BGPAttrType) {
 
 // return Path's string representation
 func (path *Path) String() string { 
+   fmt.Print("<<<DEJDEJ id:1329, path.go:String>>>")
 	s := bytes.NewBuffer(make([]byte, 0, 64))
 	if path.IsEOR() {
 		s.WriteString(fmt.Sprintf("{ %s EOR | src: %s }", path.GetRouteFamily(), path.GetSource()))
@@ -602,6 +650,7 @@ func (path *Path) String() string {
 }
 
 func (path *Path) getPrefix() string { 
+   fmt.Print("<<<DEJDEJ id:1330, path.go:getPrefix>>>")
 	if path.OriginInfo().key == "" {
 		path.OriginInfo().key = path.GetNlri().String()
 	}
@@ -609,6 +658,7 @@ func (path *Path) getPrefix() string {
 }
 
 func (path *Path) GetAsPath() *bgp.PathAttributeAsPath { 
+   fmt.Print("<<<DEJDEJ id:1331, path.go:GetAsPath>>>")
 	attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_AS_PATH)
 	if attr != nil {
 		return attr.(*bgp.PathAttributeAsPath)
@@ -618,6 +668,7 @@ func (path *Path) GetAsPath() *bgp.PathAttributeAsPath {
 
 // GetAsPathLen returns the number of AS_PATH
 func (path *Path) GetAsPathLen() int { 
+   fmt.Print("<<<DEJDEJ id:1332, path.go:GetAsPathLen>>>")
 
 	var length int = 0
 	if aspath := path.GetAsPath(); aspath != nil {
@@ -629,6 +680,7 @@ func (path *Path) GetAsPathLen() int {
 }
 
 func (path *Path) GetAsString() string { 
+   fmt.Print("<<<DEJDEJ id:1333, path.go:GetAsString>>>")
 	s := bytes.NewBuffer(make([]byte, 0, 64))
 	if aspath := path.GetAsPath(); aspath != nil {
 		for i, paramIf := range aspath.Value {
@@ -668,16 +720,19 @@ func (path *Path) GetAsString() string {
 }
 
 func (path *Path) GetAsList() []uint32 { 
+   fmt.Print("<<<DEJDEJ id:1334, path.go:GetAsList>>>")
 	return path.getAsListofSpecificType(true, true)
 
 }
 
 func (path *Path) GetAsSeqList() []uint32 { 
+   fmt.Print("<<<DEJDEJ id:1335, path.go:GetAsSeqList>>>")
 	return path.getAsListofSpecificType(true, false)
 
 }
 
 func (path *Path) getAsListofSpecificType(getAsSeq, getAsSet bool) []uint32 { 
+   fmt.Print("<<<DEJDEJ id:1336, path.go:getAsListofSpecificType>>>")
 	asList := []uint32{}
 	if aspath := path.GetAsPath(); aspath != nil {
 		for _, paramIf := range aspath.Value {
@@ -697,6 +752,7 @@ func (path *Path) getAsListofSpecificType(getAsSeq, getAsSet bool) []uint32 {
 }
 
 func (path *Path) GetLabelString() string { 
+   fmt.Print("<<<DEJDEJ id:1337, path.go:GetLabelString>>>")
 	label := ""
 	switch n := path.GetNlri().(type) {
 	case *bgp.LabeledIPAddrPrefix:
@@ -747,6 +803,7 @@ func (path *Path) GetLabelString() string {
 //     segment of type AS_SEQUENCE, places the specified AS number
 //     into that segment, and places that segment into the AS_PATH.
 func (path *Path) PrependAsn(asn uint32, repeat uint8, confed bool) { 
+   fmt.Print("<<<DEJDEJ id:1338, path.go:PrependAsn>>>")
 	var segType uint8
 	if confed {
 		segType = bgp.BGP_ASPATH_ATTR_TYPE_CONFED_SEQ
@@ -788,10 +845,12 @@ func (path *Path) PrependAsn(asn uint32, repeat uint8, confed bool) {
 }
 
 func isPrivateAS(as uint32) bool { 
+   fmt.Print("<<<DEJDEJ id:1339, path.go:isPrivateAS(as>>>")
 	return (64512 <= as && as <= 65534) || (4200000000 <= as && as <= 4294967294)
 }
 
 func (path *Path) RemovePrivateAS(localAS uint32, option config.RemovePrivateAsOption) { 
+   fmt.Print("<<<DEJDEJ id:1340, path.go:RemovePrivateAS>>>")
 	original := path.GetAsPath()
 	if original == nil {
 		return
@@ -821,6 +880,7 @@ func (path *Path) RemovePrivateAS(localAS uint32, option config.RemovePrivateAsO
 }
 
 func (path *Path) removeConfedAs() { 
+   fmt.Print("<<<DEJDEJ id:1341, path.go:removeConfedAs>>>")
 	original := path.GetAsPath()
 	if original == nil {
 		return
@@ -836,6 +896,7 @@ func (path *Path) removeConfedAs() {
 }
 
 func (path *Path) ReplaceAS(localAS, peerAS uint32) *Path { 
+   fmt.Print("<<<DEJDEJ id:1342, path.go:ReplaceAS>>>")
 	original := path.GetAsPath()
 	if original == nil {
 		return path
@@ -862,6 +923,7 @@ func (path *Path) ReplaceAS(localAS, peerAS uint32) *Path {
 }
 
 func (path *Path) GetCommunities() []uint32 { 
+   fmt.Print("<<<DEJDEJ id:1343, path.go:GetCommunities>>>")
 	communityList := []uint32{}
 	if attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_COMMUNITIES); attr != nil {
 		communities := attr.(*bgp.PathAttributeCommunities)
@@ -873,6 +935,7 @@ func (path *Path) GetCommunities() []uint32 {
 // SetCommunities adds or replaces communities with new ones.
 // If the length of communities is 0 and doReplace is true, it clears communities.
 func (path *Path) SetCommunities(communities []uint32, doReplace bool) { 
+   fmt.Print("<<<DEJDEJ id:1344, path.go:SetCommunities>>>")
 
 	if len(communities) == 0 && doReplace {
 		// clear communities
@@ -901,6 +964,7 @@ func (path *Path) SetCommunities(communities []uint32, doReplace bool) {
 // If the length of communities is 0, it does nothing.
 // If all communities are removed, it removes Communities path attribute itself.
 func (path *Path) RemoveCommunities(communities []uint32) int { 
+   fmt.Print("<<<DEJDEJ id:1345, path.go:RemoveCommunities>>>")
 
 	if len(communities) == 0 {
 		// do nothing
@@ -940,6 +1004,7 @@ func (path *Path) RemoveCommunities(communities []uint32) int {
 }
 
 func (path *Path) GetExtCommunities() []bgp.ExtendedCommunityInterface { 
+   fmt.Print("<<<DEJDEJ id:1346, path.go:GetExtCommunities>>>")
 	eCommunityList := make([]bgp.ExtendedCommunityInterface, 0)
 	if attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_EXTENDED_COMMUNITIES); attr != nil {
 		eCommunities := attr.(*bgp.PathAttributeExtendedCommunities).Value
@@ -951,6 +1016,7 @@ func (path *Path) GetExtCommunities() []bgp.ExtendedCommunityInterface {
 }
 
 func (path *Path) SetExtCommunities(exts []bgp.ExtendedCommunityInterface, doReplace bool) { 
+   fmt.Print("<<<DEJDEJ id:1347, path.go:SetExtCommunities>>>")
 	attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_EXTENDED_COMMUNITIES)
 	if attr != nil {
 		l := attr.(*bgp.PathAttributeExtendedCommunities).Value
@@ -966,6 +1032,7 @@ func (path *Path) SetExtCommunities(exts []bgp.ExtendedCommunityInterface, doRep
 }
 
 func (path *Path) GetLargeCommunities() []*bgp.LargeCommunity { 
+   fmt.Print("<<<DEJDEJ id:1348, path.go:GetLargeCommunities>>>")
 	if a := path.getPathAttr(bgp.BGP_ATTR_TYPE_LARGE_COMMUNITY); a != nil {
 		v := a.(*bgp.PathAttributeLargeCommunities).Values
 		ret := make([]*bgp.LargeCommunity, 0, len(v))
@@ -978,6 +1045,7 @@ func (path *Path) GetLargeCommunities() []*bgp.LargeCommunity {
 }
 
 func (path *Path) SetLargeCommunities(cs []*bgp.LargeCommunity, doReplace bool) { 
+   fmt.Print("<<<DEJDEJ id:1349, path.go:SetLargeCommunities>>>")
 	a := path.getPathAttr(bgp.BGP_ATTR_TYPE_LARGE_COMMUNITY)
 	if a == nil || doReplace {
 		path.setPathAttr(bgp.NewPathAttributeLargeCommunities(cs))
@@ -988,6 +1056,7 @@ func (path *Path) SetLargeCommunities(cs []*bgp.LargeCommunity, doReplace bool) 
 }
 
 func (path *Path) GetMed() (uint32, error) { 
+   fmt.Print("<<<DEJDEJ id:1350, path.go:GetMed>>>")
 	attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_MULTI_EXIT_DISC)
 	if attr == nil {
 		return 0, fmt.Errorf("no med path attr")
@@ -997,6 +1066,7 @@ func (path *Path) GetMed() (uint32, error) {
 
 // SetMed replace, add or subtraction med with new ones.
 func (path *Path) SetMed(med int64, doReplace bool) error { 
+   fmt.Print("<<<DEJDEJ id:1351, path.go:SetMed>>>")
 
 	parseMed := func(orgMed uint32, med int64, doReplace bool) (*bgp.PathAttributeMultiExitDisc, error) {
 		newMed := &bgp.PathAttributeMultiExitDisc{}
@@ -1026,12 +1096,14 @@ func (path *Path) SetMed(med int64, doReplace bool) error {
 }
 
 func (path *Path) RemoveLocalPref() { 
+   fmt.Print("<<<DEJDEJ id:1352, path.go:RemoveLocalPref>>>")
 	if path.getPathAttr(bgp.BGP_ATTR_TYPE_LOCAL_PREF) != nil {
 		path.delPathAttr(bgp.BGP_ATTR_TYPE_LOCAL_PREF)
 	}
 }
 
 func (path *Path) GetOriginatorID() net.IP { 
+   fmt.Print("<<<DEJDEJ id:1353, path.go:GetOriginatorID>>>")
 	if attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_ORIGINATOR_ID); attr != nil {
 		return attr.(*bgp.PathAttributeOriginatorId).Value
 	}
@@ -1039,6 +1111,7 @@ func (path *Path) GetOriginatorID() net.IP {
 }
 
 func (path *Path) GetClusterList() []net.IP { 
+   fmt.Print("<<<DEJDEJ id:1354, path.go:GetClusterList>>>")
 	if attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_CLUSTER_LIST); attr != nil {
 		return attr.(*bgp.PathAttributeClusterList).Value
 	}
@@ -1046,6 +1119,7 @@ func (path *Path) GetClusterList() []net.IP {
 }
 
 func (path *Path) GetOrigin() (uint8, error) { 
+   fmt.Print("<<<DEJDEJ id:1355, path.go:GetOrigin>>>")
 	if attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_ORIGIN); attr != nil {
 		return attr.(*bgp.PathAttributeOrigin).Value, nil
 	}
@@ -1053,6 +1127,7 @@ func (path *Path) GetOrigin() (uint8, error) {
 }
 
 func (path *Path) GetLocalPref() (uint32, error) { 
+   fmt.Print("<<<DEJDEJ id:1356, path.go:GetLocalPref>>>")
 	lp := uint32(DEFAULT_LOCAL_PREF)
 	attr := path.getPathAttr(bgp.BGP_ATTR_TYPE_LOCAL_PREF)
 	if attr != nil {
@@ -1062,6 +1137,7 @@ func (path *Path) GetLocalPref() (uint32, error) {
 }
 
 func (lhs *Path) Equal(rhs *Path) bool { 
+   fmt.Print("<<<DEJDEJ id:1357, path.go:Equal>>>")
 	if rhs == nil {
 		return false
 	}
@@ -1082,6 +1158,7 @@ func (lhs *Path) Equal(rhs *Path) bool {
 }
 
 func (path *Path) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1358, path.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Nlri       bgp.AddrPrefixInterface      `json:"nlri"`
 		PathAttrs  []bgp.PathAttributeInterface `json:"attrs"`
@@ -1110,6 +1187,7 @@ func (path *Path) MarshalJSON() ([]byte, error) {
 }
 
 func (lhs *Path) Compare(rhs *Path) int { 
+   fmt.Print("<<<DEJDEJ id:1359, path.go:Compare>>>")
 	if lhs.IsLocal() && !rhs.IsLocal() {
 		return 1
 	} else if !lhs.IsLocal() && rhs.IsLocal() {
@@ -1146,6 +1224,7 @@ func (lhs *Path) Compare(rhs *Path) int {
 }
 
 func (v *Vrf) ToGlobalPath(path *Path) error { 
+   fmt.Print("<<<DEJDEJ id:1360, path.go:ToGlobalPath>>>")
 	nlri := path.GetNlri()
 	switch rf := path.GetRouteFamily(); rf {
 	case bgp.RF_IPv4_UC:
@@ -1170,6 +1249,7 @@ func (v *Vrf) ToGlobalPath(path *Path) error {
 }
 
 func (p *Path) ToGlobal(vrf *Vrf) *Path { 
+   fmt.Print("<<<DEJDEJ id:1361, path.go:ToGlobal>>>")
 	nlri := p.GetNlri()
 	nh := p.GetNexthop()
 	switch rf := p.GetRouteFamily(); rf {
@@ -1217,6 +1297,7 @@ func (p *Path) ToGlobal(vrf *Vrf) *Path {
 }
 
 func (p *Path) ToLocal() *Path { 
+   fmt.Print("<<<DEJDEJ id:1362, path.go:ToLocal>>>")
 	nlri := p.GetNlri()
 	f := p.GetRouteFamily()
 	switch f {
@@ -1246,9 +1327,11 @@ func (p *Path) ToLocal() *Path {
 }
 
 func (p *Path) SetHash(v uint32) { 
+   fmt.Print("<<<DEJDEJ id:1363, path.go:SetHash>>>")
 	p.attrsHash = v
 }
 
 func (p *Path) GetHash() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1364, path.go:GetHash>>>")
 	return p.attrsHash
 }

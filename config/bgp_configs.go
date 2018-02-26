@@ -25,6 +25,7 @@ import (
 )
 
 func mapkey(index int, name string) string { 
+   fmt.Print("<<<DEJDEJ id:125, bgp_configs.go:mapkey(index>>>")
 	if name != "" {
 		return name
 	}
@@ -56,6 +57,7 @@ var RemovePrivateAsOptionToIntMap = map[RemovePrivateAsOption]int{
 }
 
 func (v RemovePrivateAsOption) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:126, bgp_configs.go:ToInt>>>")
 	i, ok := RemovePrivateAsOptionToIntMap[v]
 	if !ok {
 		return -1
@@ -69,6 +71,7 @@ var IntToRemovePrivateAsOptionMap = map[int]RemovePrivateAsOption{
 }
 
 func (v RemovePrivateAsOption) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:127, bgp_configs.go:Validate>>>")
 	if _, ok := RemovePrivateAsOptionToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RemovePrivateAsOption: %s", v)
 	}
@@ -100,6 +103,7 @@ var CommunityTypeToIntMap = map[CommunityType]int{
 }
 
 func (v CommunityType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:128, bgp_configs.go:ToInt>>>")
 	i, ok := CommunityTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -115,6 +119,7 @@ var IntToCommunityTypeMap = map[int]CommunityType{
 }
 
 func (v CommunityType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:129, bgp_configs.go:Validate>>>")
 	if _, ok := CommunityTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid CommunityType: %s", v)
 	}
@@ -143,6 +148,7 @@ var PeerTypeToIntMap = map[PeerType]int{
 }
 
 func (v PeerType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:130, bgp_configs.go:ToInt>>>")
 	i, ok := PeerTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -156,6 +162,7 @@ var IntToPeerTypeMap = map[int]PeerType{
 }
 
 func (v PeerType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:131, bgp_configs.go:Validate>>>")
 	if _, ok := PeerTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid PeerType: %s", v)
 	}
@@ -177,6 +184,7 @@ var BgpSessionDirectionToIntMap = map[BgpSessionDirection]int{
 }
 
 func (v BgpSessionDirection) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:132, bgp_configs.go:ToInt>>>")
 	i, ok := BgpSessionDirectionToIntMap[v]
 	if !ok {
 		return -1
@@ -190,6 +198,7 @@ var IntToBgpSessionDirectionMap = map[int]BgpSessionDirection{
 }
 
 func (v BgpSessionDirection) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:133, bgp_configs.go:Validate>>>")
 	if _, ok := BgpSessionDirectionToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpSessionDirection: %s", v)
 	}
@@ -213,6 +222,7 @@ var BgpOriginAttrTypeToIntMap = map[BgpOriginAttrType]int{
 }
 
 func (v BgpOriginAttrType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:134, bgp_configs.go:ToInt>>>")
 	i, ok := BgpOriginAttrTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -227,6 +237,7 @@ var IntToBgpOriginAttrTypeMap = map[int]BgpOriginAttrType{
 }
 
 func (v BgpOriginAttrType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:135, bgp_configs.go:Validate>>>")
 	if _, ok := BgpOriginAttrTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpOriginAttrType: %s", v)
 	}
@@ -286,6 +297,7 @@ var AfiSafiTypeToIntMap = map[AfiSafiType]int{
 }
 
 func (v AfiSafiType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:136, bgp_configs.go:ToInt>>>")
 	i, ok := AfiSafiTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -318,6 +330,7 @@ var IntToAfiSafiTypeMap = map[int]AfiSafiType{
 }
 
 func (v AfiSafiType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:137, bgp_configs.go:Validate>>>")
 	if _, ok := AfiSafiTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid AfiSafiType: %s", v)
 	}
@@ -345,6 +358,7 @@ var BgpCapabilityToIntMap = map[BgpCapability]int{
 }
 
 func (v BgpCapability) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:138, bgp_configs.go:ToInt>>>")
 	i, ok := BgpCapabilityToIntMap[v]
 	if !ok {
 		return -1
@@ -361,6 +375,7 @@ var IntToBgpCapabilityMap = map[int]BgpCapability{
 }
 
 func (v BgpCapability) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:139, bgp_configs.go:Validate>>>")
 	if _, ok := BgpCapabilityToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpCapability: %s", v)
 	}
@@ -388,6 +403,7 @@ var BgpWellKnownStdCommunityToIntMap = map[BgpWellKnownStdCommunity]int{
 }
 
 func (v BgpWellKnownStdCommunity) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:140, bgp_configs.go:ToInt>>>")
 	i, ok := BgpWellKnownStdCommunityToIntMap[v]
 	if !ok {
 		return -1
@@ -403,6 +419,7 @@ var IntToBgpWellKnownStdCommunityMap = map[int]BgpWellKnownStdCommunity{
 }
 
 func (v BgpWellKnownStdCommunity) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:141, bgp_configs.go:Validate>>>")
 	if _, ok := BgpWellKnownStdCommunityToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpWellKnownStdCommunity: %s", v)
 	}
@@ -427,6 +444,7 @@ var MatchSetOptionsRestrictedTypeToIntMap = map[MatchSetOptionsRestrictedType]in
 }
 
 func (v MatchSetOptionsRestrictedType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:142, bgp_configs.go:ToInt>>>")
 	i, ok := MatchSetOptionsRestrictedTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -440,6 +458,7 @@ var IntToMatchSetOptionsRestrictedTypeMap = map[int]MatchSetOptionsRestrictedTyp
 }
 
 func (v MatchSetOptionsRestrictedType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:143, bgp_configs.go:Validate>>>")
 	if _, ok := MatchSetOptionsRestrictedTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid MatchSetOptionsRestrictedType: %s", v)
 	}
@@ -447,10 +466,12 @@ func (v MatchSetOptionsRestrictedType) Validate() error {
 }
 
 func (v MatchSetOptionsRestrictedType) Default() MatchSetOptionsRestrictedType { 
+   fmt.Print("<<<DEJDEJ id:144, bgp_configs.go:Default>>>")
 	return MATCH_SET_OPTIONS_RESTRICTED_TYPE_ANY
 }
 
 func (v MatchSetOptionsRestrictedType) DefaultAsNeeded() MatchSetOptionsRestrictedType { 
+   fmt.Print("<<<DEJDEJ id:145, bgp_configs.go:DefaultAsNeeded>>>")
 	if string(v) == "" {
 		return v.Default()
 	}
@@ -476,6 +497,7 @@ var MatchSetOptionsTypeToIntMap = map[MatchSetOptionsType]int{
 }
 
 func (v MatchSetOptionsType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:146, bgp_configs.go:ToInt>>>")
 	i, ok := MatchSetOptionsTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -490,6 +512,7 @@ var IntToMatchSetOptionsTypeMap = map[int]MatchSetOptionsType{
 }
 
 func (v MatchSetOptionsType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:147, bgp_configs.go:Validate>>>")
 	if _, ok := MatchSetOptionsTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid MatchSetOptionsType: %s", v)
 	}
@@ -497,10 +520,12 @@ func (v MatchSetOptionsType) Validate() error {
 }
 
 func (v MatchSetOptionsType) Default() MatchSetOptionsType { 
+   fmt.Print("<<<DEJDEJ id:148, bgp_configs.go:Default>>>")
 	return MATCH_SET_OPTIONS_TYPE_ANY
 }
 
 func (v MatchSetOptionsType) DefaultAsNeeded() MatchSetOptionsType { 
+   fmt.Print("<<<DEJDEJ id:149, bgp_configs.go:DefaultAsNeeded>>>")
 	if string(v) == "" {
 		return v.Default()
 	}
@@ -536,6 +561,7 @@ var InstallProtocolTypeToIntMap = map[InstallProtocolType]int{
 }
 
 func (v InstallProtocolType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:150, bgp_configs.go:ToInt>>>")
 	i, ok := InstallProtocolTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -554,6 +580,7 @@ var IntToInstallProtocolTypeMap = map[int]InstallProtocolType{
 }
 
 func (v InstallProtocolType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:151, bgp_configs.go:Validate>>>")
 	if _, ok := InstallProtocolTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid InstallProtocolType: %s", v)
 	}
@@ -584,6 +611,7 @@ var AttributeComparisonToIntMap = map[AttributeComparison]int{
 }
 
 func (v AttributeComparison) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:152, bgp_configs.go:ToInt>>>")
 	i, ok := AttributeComparisonToIntMap[v]
 	if !ok {
 		return -1
@@ -601,6 +629,7 @@ var IntToAttributeComparisonMap = map[int]AttributeComparison{
 }
 
 func (v AttributeComparison) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:153, bgp_configs.go:Validate>>>")
 	if _, ok := AttributeComparisonToIntMap[v]; !ok {
 		return fmt.Errorf("invalid AttributeComparison: %s", v)
 	}
@@ -625,6 +654,7 @@ var RouteDispositionToIntMap = map[RouteDisposition]int{
 }
 
 func (v RouteDisposition) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:154, bgp_configs.go:ToInt>>>")
 	i, ok := RouteDispositionToIntMap[v]
 	if !ok {
 		return -1
@@ -639,6 +669,7 @@ var IntToRouteDispositionMap = map[int]RouteDisposition{
 }
 
 func (v RouteDisposition) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:155, bgp_configs.go:Validate>>>")
 	if _, ok := RouteDispositionToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RouteDisposition: %s", v)
 	}
@@ -664,6 +695,7 @@ var RouteTypeToIntMap = map[RouteType]int{
 }
 
 func (v RouteType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:156, bgp_configs.go:ToInt>>>")
 	i, ok := RouteTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -679,6 +711,7 @@ var IntToRouteTypeMap = map[int]RouteType{
 }
 
 func (v RouteType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:157, bgp_configs.go:Validate>>>")
 	if _, ok := RouteTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RouteType: %s", v)
 	}
@@ -701,6 +734,7 @@ var DefaultPolicyTypeToIntMap = map[DefaultPolicyType]int{
 }
 
 func (v DefaultPolicyType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:158, bgp_configs.go:ToInt>>>")
 	i, ok := DefaultPolicyTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -714,6 +748,7 @@ var IntToDefaultPolicyTypeMap = map[int]DefaultPolicyType{
 }
 
 func (v DefaultPolicyType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:159, bgp_configs.go:Validate>>>")
 	if _, ok := DefaultPolicyTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid DefaultPolicyType: %s", v)
 	}
@@ -743,6 +778,7 @@ var SessionStateToIntMap = map[SessionState]int{
 }
 
 func (v SessionState) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:160, bgp_configs.go:ToInt>>>")
 	i, ok := SessionStateToIntMap[v]
 	if !ok {
 		return -1
@@ -760,6 +796,7 @@ var IntToSessionStateMap = map[int]SessionState{
 }
 
 func (v SessionState) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:161, bgp_configs.go:Validate>>>")
 	if _, ok := SessionStateToIntMap[v]; !ok {
 		return fmt.Errorf("invalid SessionState: %s", v)
 	}
@@ -782,6 +819,7 @@ var AdminStateToIntMap = map[AdminState]int{
 }
 
 func (v AdminState) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:162, bgp_configs.go:ToInt>>>")
 	i, ok := AdminStateToIntMap[v]
 	if !ok {
 		return -1
@@ -796,6 +834,7 @@ var IntToAdminStateMap = map[int]AdminState{
 }
 
 func (v AdminState) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:163, bgp_configs.go:Validate>>>")
 	if _, ok := AdminStateToIntMap[v]; !ok {
 		return fmt.Errorf("invalid AdminState: %s", v)
 	}
@@ -820,6 +859,7 @@ var ModeToIntMap = map[Mode]int{
 }
 
 func (v Mode) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:164, bgp_configs.go:ToInt>>>")
 	i, ok := ModeToIntMap[v]
 	if !ok {
 		return -1
@@ -834,6 +874,7 @@ var IntToModeMap = map[int]Mode{
 }
 
 func (v Mode) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:165, bgp_configs.go:Validate>>>")
 	if _, ok := ModeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid Mode: %s", v)
 	}
@@ -867,6 +908,7 @@ var BgpSetCommunityOptionTypeToIntMap = map[BgpSetCommunityOptionType]int{
 }
 
 func (v BgpSetCommunityOptionType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:166, bgp_configs.go:ToInt>>>")
 	i, ok := BgpSetCommunityOptionTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -881,6 +923,7 @@ var IntToBgpSetCommunityOptionTypeMap = map[int]BgpSetCommunityOptionType{
 }
 
 func (v BgpSetCommunityOptionType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:167, bgp_configs.go:Validate>>>")
 	if _, ok := BgpSetCommunityOptionTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpSetCommunityOptionType: %s", v)
 	}
@@ -907,6 +950,7 @@ var BmpRouteMonitoringPolicyTypeToIntMap = map[BmpRouteMonitoringPolicyType]int{
 }
 
 func (v BmpRouteMonitoringPolicyType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:168, bgp_configs.go:ToInt>>>")
 	i, ok := BmpRouteMonitoringPolicyTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -923,6 +967,7 @@ var IntToBmpRouteMonitoringPolicyTypeMap = map[int]BmpRouteMonitoringPolicyType{
 }
 
 func (v BmpRouteMonitoringPolicyType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:169, bgp_configs.go:Validate>>>")
 	if _, ok := BmpRouteMonitoringPolicyTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BmpRouteMonitoringPolicyType: %s", v)
 	}
@@ -943,6 +988,7 @@ var MrtTypeToIntMap = map[MrtType]int{
 }
 
 func (v MrtType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:170, bgp_configs.go:ToInt>>>")
 	i, ok := MrtTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -956,6 +1002,7 @@ var IntToMrtTypeMap = map[int]MrtType{
 }
 
 func (v MrtType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:171, bgp_configs.go:Validate>>>")
 	if _, ok := MrtTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid MrtType: %s", v)
 	}
@@ -981,6 +1028,7 @@ var RpkiValidationResultTypeToIntMap = map[RpkiValidationResultType]int{
 }
 
 func (v RpkiValidationResultType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:172, bgp_configs.go:ToInt>>>")
 	i, ok := RpkiValidationResultTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -996,6 +1044,7 @@ var IntToRpkiValidationResultTypeMap = map[int]RpkiValidationResultType{
 }
 
 func (v RpkiValidationResultType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:173, bgp_configs.go:Validate>>>")
 	if _, ok := RpkiValidationResultTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RpkiValidationResultType: %s", v)
 	}
@@ -1019,6 +1068,7 @@ type DynamicNeighborConfig struct {
 }
 
 func (lhs *DynamicNeighborConfig) Equal(rhs *DynamicNeighborConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:174, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1041,6 +1091,7 @@ type DynamicNeighbor struct {
 }
 
 func (lhs *DynamicNeighbor) Equal(rhs *DynamicNeighbor) bool { 
+   fmt.Print("<<<DEJDEJ id:175, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1071,6 +1122,7 @@ type CollectorConfig struct {
 }
 
 func (lhs *CollectorConfig) Equal(rhs *CollectorConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:176, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1095,6 +1147,7 @@ type Collector struct {
 }
 
 func (lhs *Collector) Equal(rhs *Collector) bool { 
+   fmt.Print("<<<DEJDEJ id:177, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1147,6 +1200,7 @@ type ZebraConfig struct {
 }
 
 func (lhs *ZebraConfig) Equal(rhs *ZebraConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:178, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1185,6 +1239,7 @@ type Zebra struct {
 }
 
 func (lhs *Zebra) Equal(rhs *Zebra) bool { 
+   fmt.Print("<<<DEJDEJ id:179, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1211,6 +1266,7 @@ type MrtConfig struct {
 }
 
 func (lhs *MrtConfig) Equal(rhs *MrtConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:180, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1240,6 +1296,7 @@ type Mrt struct {
 }
 
 func (lhs *Mrt) Equal(rhs *Mrt) bool { 
+   fmt.Print("<<<DEJDEJ id:181, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1296,6 +1353,7 @@ type BmpServerConfig struct {
 }
 
 func (lhs *BmpServerConfig) Equal(rhs *BmpServerConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:182, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1330,6 +1388,7 @@ type BmpServer struct {
 }
 
 func (lhs *BmpServer) Equal(rhs *BmpServer) bool { 
+   fmt.Print("<<<DEJDEJ id:183, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1366,6 +1425,7 @@ type RpkiReceived struct {
 }
 
 func (lhs *RpkiReceived) Equal(rhs *RpkiReceived) bool { 
+   fmt.Print("<<<DEJDEJ id:184, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1408,6 +1468,7 @@ type RpkiSent struct {
 }
 
 func (lhs *RpkiSent) Equal(rhs *RpkiSent) bool { 
+   fmt.Print("<<<DEJDEJ id:185, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1435,6 +1496,7 @@ type RpkiMessages struct {
 }
 
 func (lhs *RpkiMessages) Equal(rhs *RpkiMessages) bool { 
+   fmt.Print("<<<DEJDEJ id:186, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1509,6 +1571,7 @@ type RpkiServerConfig struct {
 }
 
 func (lhs *RpkiServerConfig) Equal(rhs *RpkiServerConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:187, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1546,6 +1609,7 @@ type RpkiServer struct {
 }
 
 func (lhs *RpkiServer) Equal(rhs *RpkiServer) bool { 
+   fmt.Print("<<<DEJDEJ id:188, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1649,6 +1713,7 @@ type PeerGroupConfig struct {
 }
 
 func (lhs *PeerGroupConfig) Equal(rhs *PeerGroupConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:189, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1748,6 +1813,7 @@ type PeerGroup struct {
 }
 
 func (lhs *PeerGroup) Equal(rhs *PeerGroup) bool { 
+   fmt.Print("<<<DEJDEJ id:190, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1837,6 +1903,7 @@ type TtlSecurityConfig struct {
 }
 
 func (lhs *TtlSecurityConfig) Equal(rhs *TtlSecurityConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:191, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1861,6 +1928,7 @@ type TtlSecurity struct {
 }
 
 func (lhs *TtlSecurity) Equal(rhs *TtlSecurity) bool { 
+   fmt.Print("<<<DEJDEJ id:192, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1891,6 +1959,7 @@ type RouteServerConfig struct {
 }
 
 func (lhs *RouteServerConfig) Equal(rhs *RouteServerConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:193, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1914,6 +1983,7 @@ type RouteServer struct {
 }
 
 func (lhs *RouteServer) Equal(rhs *RouteServer) bool { 
+   fmt.Print("<<<DEJDEJ id:194, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1939,6 +2009,7 @@ type Prefixes struct {
 }
 
 func (lhs *Prefixes) Equal(rhs *Prefixes) bool { 
+   fmt.Print("<<<DEJDEJ id:195, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1983,6 +2054,7 @@ type AddPathsConfig struct {
 }
 
 func (lhs *AddPathsConfig) Equal(rhs *AddPathsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:196, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2008,6 +2080,7 @@ type AddPaths struct {
 }
 
 func (lhs *AddPaths) Equal(rhs *AddPaths) bool { 
+   fmt.Print("<<<DEJDEJ id:197, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2048,6 +2121,7 @@ type AsPathOptionsConfig struct {
 }
 
 func (lhs *AsPathOptionsConfig) Equal(rhs *AsPathOptionsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:198, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2075,6 +2149,7 @@ type AsPathOptions struct {
 }
 
 func (lhs *AsPathOptions) Equal(rhs *AsPathOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:199, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2117,6 +2192,7 @@ type RouteReflectorConfig struct {
 }
 
 func (lhs *RouteReflectorConfig) Equal(rhs *RouteReflectorConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:200, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2143,6 +2219,7 @@ type RouteReflector struct {
 }
 
 func (lhs *RouteReflector) Equal(rhs *RouteReflector) bool { 
+   fmt.Print("<<<DEJDEJ id:201, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2185,6 +2262,7 @@ type EbgpMultihopConfig struct {
 }
 
 func (lhs *EbgpMultihopConfig) Equal(rhs *EbgpMultihopConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:202, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2211,6 +2289,7 @@ type EbgpMultihop struct {
 }
 
 func (lhs *EbgpMultihop) Equal(rhs *EbgpMultihop) bool { 
+   fmt.Print("<<<DEJDEJ id:203, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2243,6 +2322,7 @@ type LoggingOptionsConfig struct {
 }
 
 func (lhs *LoggingOptionsConfig) Equal(rhs *LoggingOptionsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:204, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2267,6 +2347,7 @@ type LoggingOptions struct {
 }
 
 func (lhs *LoggingOptions) Equal(rhs *LoggingOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:205, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2307,6 +2388,7 @@ type ErrorHandlingConfig struct {
 }
 
 func (lhs *ErrorHandlingConfig) Equal(rhs *ErrorHandlingConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:206, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2332,6 +2414,7 @@ type ErrorHandling struct {
 }
 
 func (lhs *ErrorHandling) Equal(rhs *ErrorHandling) bool { 
+   fmt.Print("<<<DEJDEJ id:207, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2415,6 +2498,7 @@ type TransportConfig struct {
 }
 
 func (lhs *TransportConfig) Equal(rhs *TransportConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:208, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2453,6 +2537,7 @@ type Transport struct {
 }
 
 func (lhs *Transport) Equal(rhs *Transport) bool { 
+   fmt.Print("<<<DEJDEJ id:209, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2558,6 +2643,7 @@ type TimersConfig struct {
 }
 
 func (lhs *TimersConfig) Equal(rhs *TimersConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:210, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2593,6 +2679,7 @@ type Timers struct {
 }
 
 func (lhs *Timers) Equal(rhs *Timers) bool { 
+   fmt.Print("<<<DEJDEJ id:211, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2615,6 +2702,7 @@ type AdjTable struct {
 }
 
 func (lhs *AdjTable) Equal(rhs *AdjTable) bool { 
+   fmt.Print("<<<DEJDEJ id:212, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2647,6 +2735,7 @@ type Queues struct {
 }
 
 func (lhs *Queues) Equal(rhs *Queues) bool { 
+   fmt.Print("<<<DEJDEJ id:213, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2703,6 +2792,7 @@ type Received struct {
 }
 
 func (lhs *Received) Equal(rhs *Received) bool { 
+   fmt.Print("<<<DEJDEJ id:214, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2783,6 +2873,7 @@ type Sent struct {
 }
 
 func (lhs *Sent) Equal(rhs *Sent) bool { 
+   fmt.Print("<<<DEJDEJ id:215, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2832,6 +2923,7 @@ type Messages struct {
 }
 
 func (lhs *Messages) Equal(rhs *Messages) bool { 
+   fmt.Print("<<<DEJDEJ id:216, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2991,6 +3083,7 @@ type NeighborConfig struct {
 }
 
 func (lhs *NeighborConfig) Equal(rhs *NeighborConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:217, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3102,6 +3195,7 @@ type Neighbor struct {
 }
 
 func (lhs *Neighbor) Equal(rhs *Neighbor) bool { 
+   fmt.Print("<<<DEJDEJ id:218, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3194,6 +3288,7 @@ type LongLivedGracefulRestartConfig struct {
 }
 
 func (lhs *LongLivedGracefulRestartConfig) Equal(rhs *LongLivedGracefulRestartConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:219, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3215,6 +3310,7 @@ type LongLivedGracefulRestart struct {
 }
 
 func (lhs *LongLivedGracefulRestart) Equal(rhs *LongLivedGracefulRestart) bool { 
+   fmt.Print("<<<DEJDEJ id:220, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3237,6 +3333,7 @@ type RouteTargetMembershipConfig struct {
 }
 
 func (lhs *RouteTargetMembershipConfig) Equal(rhs *RouteTargetMembershipConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:221, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3255,6 +3352,7 @@ type RouteTargetMembership struct {
 }
 
 func (lhs *RouteTargetMembership) Equal(rhs *RouteTargetMembership) bool { 
+   fmt.Print("<<<DEJDEJ id:222, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3274,6 +3372,7 @@ type L2vpnEvpn struct {
 }
 
 func (lhs *L2vpnEvpn) Equal(rhs *L2vpnEvpn) bool { 
+   fmt.Print("<<<DEJDEJ id:223, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3293,6 +3392,7 @@ type L2vpnVpls struct {
 }
 
 func (lhs *L2vpnVpls) Equal(rhs *L2vpnVpls) bool { 
+   fmt.Print("<<<DEJDEJ id:224, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3312,6 +3412,7 @@ type L3vpnIpv6Multicast struct {
 }
 
 func (lhs *L3vpnIpv6Multicast) Equal(rhs *L3vpnIpv6Multicast) bool { 
+   fmt.Print("<<<DEJDEJ id:225, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3331,6 +3432,7 @@ type L3vpnIpv4Multicast struct {
 }
 
 func (lhs *L3vpnIpv4Multicast) Equal(rhs *L3vpnIpv4Multicast) bool { 
+   fmt.Print("<<<DEJDEJ id:226, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3350,6 +3452,7 @@ type L3vpnIpv6Unicast struct {
 }
 
 func (lhs *L3vpnIpv6Unicast) Equal(rhs *L3vpnIpv6Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:227, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3369,6 +3472,7 @@ type L3vpnIpv4Unicast struct {
 }
 
 func (lhs *L3vpnIpv4Unicast) Equal(rhs *L3vpnIpv4Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:228, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3388,6 +3492,7 @@ type Ipv6LabelledUnicast struct {
 }
 
 func (lhs *Ipv6LabelledUnicast) Equal(rhs *Ipv6LabelledUnicast) bool { 
+   fmt.Print("<<<DEJDEJ id:229, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3407,6 +3512,7 @@ type Ipv4LabelledUnicast struct {
 }
 
 func (lhs *Ipv4LabelledUnicast) Equal(rhs *Ipv4LabelledUnicast) bool { 
+   fmt.Print("<<<DEJDEJ id:230, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3437,6 +3543,7 @@ type Ipv6UnicastConfig struct {
 }
 
 func (lhs *Ipv6UnicastConfig) Equal(rhs *Ipv6UnicastConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:231, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3464,6 +3571,7 @@ type Ipv6Unicast struct {
 }
 
 func (lhs *Ipv6Unicast) Equal(rhs *Ipv6Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:232, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3497,6 +3605,7 @@ type Ipv4UnicastConfig struct {
 }
 
 func (lhs *Ipv4UnicastConfig) Equal(rhs *Ipv4UnicastConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:233, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3551,6 +3660,7 @@ type PrefixLimitConfig struct {
 }
 
 func (lhs *PrefixLimitConfig) Equal(rhs *PrefixLimitConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:234, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3581,6 +3691,7 @@ type PrefixLimit struct {
 }
 
 func (lhs *PrefixLimit) Equal(rhs *PrefixLimit) bool { 
+   fmt.Print("<<<DEJDEJ id:235, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3608,6 +3719,7 @@ type Ipv4Unicast struct {
 }
 
 func (lhs *Ipv4Unicast) Equal(rhs *Ipv4Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:236, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3689,6 +3801,7 @@ type ApplyPolicyConfig struct {
 }
 
 func (lhs *ApplyPolicyConfig) Equal(rhs *ApplyPolicyConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:237, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3743,6 +3856,7 @@ type ApplyPolicy struct {
 }
 
 func (lhs *ApplyPolicy) Equal(rhs *ApplyPolicy) bool { 
+   fmt.Print("<<<DEJDEJ id:238, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3789,6 +3903,7 @@ type AfiSafiConfig struct {
 }
 
 func (lhs *AfiSafiConfig) Equal(rhs *AfiSafiConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:239, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3838,6 +3953,7 @@ type MpGracefulRestartConfig struct {
 }
 
 func (lhs *MpGracefulRestartConfig) Equal(rhs *MpGracefulRestartConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:240, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3859,6 +3975,7 @@ type MpGracefulRestart struct {
 }
 
 func (lhs *MpGracefulRestart) Equal(rhs *MpGracefulRestart) bool { 
+   fmt.Print("<<<DEJDEJ id:241, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3939,6 +4056,7 @@ type AfiSafi struct {
 }
 
 func (lhs *AfiSafi) Equal(rhs *AfiSafi) bool { 
+   fmt.Print("<<<DEJDEJ id:242, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4107,6 +4225,7 @@ type GracefulRestartConfig struct {
 }
 
 func (lhs *GracefulRestartConfig) Equal(rhs *GracefulRestartConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:243, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4146,6 +4265,7 @@ type GracefulRestart struct {
 }
 
 func (lhs *GracefulRestart) Equal(rhs *GracefulRestart) bool { 
+   fmt.Print("<<<DEJDEJ id:244, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4174,6 +4294,7 @@ type IbgpConfig struct {
 }
 
 func (lhs *IbgpConfig) Equal(rhs *IbgpConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:245, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4195,6 +4316,7 @@ type Ibgp struct {
 }
 
 func (lhs *Ibgp) Equal(rhs *Ibgp) bool { 
+   fmt.Print("<<<DEJDEJ id:246, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4235,6 +4357,7 @@ type EbgpConfig struct {
 }
 
 func (lhs *EbgpConfig) Equal(rhs *EbgpConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:247, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4259,6 +4382,7 @@ type Ebgp struct {
 }
 
 func (lhs *Ebgp) Equal(rhs *Ebgp) bool { 
+   fmt.Print("<<<DEJDEJ id:248, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4291,6 +4415,7 @@ type UseMultiplePathsConfig struct {
 }
 
 func (lhs *UseMultiplePathsConfig) Equal(rhs *UseMultiplePathsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:249, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4319,6 +4444,7 @@ type UseMultiplePaths struct {
 }
 
 func (lhs *UseMultiplePaths) Equal(rhs *UseMultiplePaths) bool { 
+   fmt.Print("<<<DEJDEJ id:250, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4373,6 +4499,7 @@ type ConfederationConfig struct {
 }
 
 func (lhs *ConfederationConfig) Equal(rhs *ConfederationConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:251, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4406,6 +4533,7 @@ type Confederation struct {
 }
 
 func (lhs *Confederation) Equal(rhs *Confederation) bool { 
+   fmt.Print("<<<DEJDEJ id:252, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4443,6 +4571,7 @@ type DefaultRouteDistanceConfig struct {
 }
 
 func (lhs *DefaultRouteDistanceConfig) Equal(rhs *DefaultRouteDistanceConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:253, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4470,6 +4599,7 @@ type DefaultRouteDistance struct {
 }
 
 func (lhs *DefaultRouteDistance) Equal(rhs *DefaultRouteDistance) bool { 
+   fmt.Print("<<<DEJDEJ id:254, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4569,6 +4699,7 @@ type RouteSelectionOptionsConfig struct {
 }
 
 func (lhs *RouteSelectionOptionsConfig) Equal(rhs *RouteSelectionOptionsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:255, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4609,6 +4740,7 @@ type RouteSelectionOptions struct {
 }
 
 func (lhs *RouteSelectionOptions) Equal(rhs *RouteSelectionOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:256, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4663,6 +4795,7 @@ type GlobalConfig struct {
 }
 
 func (lhs *GlobalConfig) Equal(rhs *GlobalConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:257, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4726,6 +4859,7 @@ type Global struct {
 }
 
 func (lhs *Global) Equal(rhs *Global) bool { 
+   fmt.Print("<<<DEJDEJ id:258, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4796,6 +4930,7 @@ type Bgp struct {
 }
 
 func (lhs *Bgp) Equal(rhs *Bgp) bool { 
+   fmt.Print("<<<DEJDEJ id:259, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4914,6 +5049,7 @@ type SetLargeCommunityMethod struct {
 }
 
 func (lhs *SetLargeCommunityMethod) Equal(rhs *SetLargeCommunityMethod) bool { 
+   fmt.Print("<<<DEJDEJ id:260, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4937,6 +5073,7 @@ type SetLargeCommunity struct {
 }
 
 func (lhs *SetLargeCommunity) Equal(rhs *SetLargeCommunity) bool { 
+   fmt.Print("<<<DEJDEJ id:261, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4965,6 +5102,7 @@ type SetExtCommunityMethod struct {
 }
 
 func (lhs *SetExtCommunityMethod) Equal(rhs *SetExtCommunityMethod) bool { 
+   fmt.Print("<<<DEJDEJ id:262, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5001,6 +5139,7 @@ type SetExtCommunity struct {
 }
 
 func (lhs *SetExtCommunity) Equal(rhs *SetExtCommunity) bool { 
+   fmt.Print("<<<DEJDEJ id:263, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5028,6 +5167,7 @@ type SetCommunityMethod struct {
 }
 
 func (lhs *SetCommunityMethod) Equal(rhs *SetCommunityMethod) bool { 
+   fmt.Print("<<<DEJDEJ id:264, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5062,6 +5202,7 @@ type SetCommunity struct {
 }
 
 func (lhs *SetCommunity) Equal(rhs *SetCommunity) bool { 
+   fmt.Print("<<<DEJDEJ id:265, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5090,6 +5231,7 @@ type SetAsPathPrepend struct {
 }
 
 func (lhs *SetAsPathPrepend) Equal(rhs *SetAsPathPrepend) bool { 
+   fmt.Print("<<<DEJDEJ id:266, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5139,6 +5281,7 @@ type BgpActions struct {
 }
 
 func (lhs *BgpActions) Equal(rhs *BgpActions) bool { 
+   fmt.Print("<<<DEJDEJ id:267, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5179,6 +5322,7 @@ type IgpActions struct {
 }
 
 func (lhs *IgpActions) Equal(rhs *IgpActions) bool { 
+   fmt.Print("<<<DEJDEJ id:268, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5207,6 +5351,7 @@ type Actions struct {
 }
 
 func (lhs *Actions) Equal(rhs *Actions) bool { 
+   fmt.Print("<<<DEJDEJ id:269, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5233,6 +5378,7 @@ type MatchLargeCommunitySet struct {
 }
 
 func (lhs *MatchLargeCommunitySet) Equal(rhs *MatchLargeCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:270, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5258,6 +5404,7 @@ type AsPathLength struct {
 }
 
 func (lhs *AsPathLength) Equal(rhs *AsPathLength) bool { 
+   fmt.Print("<<<DEJDEJ id:271, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5283,6 +5430,7 @@ type CommunityCount struct {
 }
 
 func (lhs *CommunityCount) Equal(rhs *CommunityCount) bool { 
+   fmt.Print("<<<DEJDEJ id:272, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5309,6 +5457,7 @@ type MatchAsPathSet struct {
 }
 
 func (lhs *MatchAsPathSet) Equal(rhs *MatchAsPathSet) bool { 
+   fmt.Print("<<<DEJDEJ id:273, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5335,6 +5484,7 @@ type MatchExtCommunitySet struct {
 }
 
 func (lhs *MatchExtCommunitySet) Equal(rhs *MatchExtCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:274, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5361,6 +5511,7 @@ type MatchCommunitySet struct {
 }
 
 func (lhs *MatchCommunitySet) Equal(rhs *MatchCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:275, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5430,6 +5581,7 @@ type BgpConditions struct {
 }
 
 func (lhs *BgpConditions) Equal(rhs *BgpConditions) bool { 
+   fmt.Print("<<<DEJDEJ id:276, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5491,6 +5643,7 @@ type IgpConditions struct {
 }
 
 func (lhs *IgpConditions) Equal(rhs *IgpConditions) bool { 
+   fmt.Print("<<<DEJDEJ id:277, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5513,6 +5666,7 @@ type MatchTagSet struct {
 }
 
 func (lhs *MatchTagSet) Equal(rhs *MatchTagSet) bool { 
+   fmt.Print("<<<DEJDEJ id:278, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5541,6 +5695,7 @@ type MatchNeighborSet struct {
 }
 
 func (lhs *MatchNeighborSet) Equal(rhs *MatchNeighborSet) bool { 
+   fmt.Print("<<<DEJDEJ id:279, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5569,6 +5724,7 @@ type MatchPrefixSet struct {
 }
 
 func (lhs *MatchPrefixSet) Equal(rhs *MatchPrefixSet) bool { 
+   fmt.Print("<<<DEJDEJ id:280, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5625,6 +5781,7 @@ type Conditions struct {
 }
 
 func (lhs *Conditions) Equal(rhs *Conditions) bool { 
+   fmt.Print("<<<DEJDEJ id:281, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5672,6 +5829,7 @@ type Statement struct {
 }
 
 func (lhs *Statement) Equal(rhs *Statement) bool { 
+   fmt.Print("<<<DEJDEJ id:282, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5703,6 +5861,7 @@ type PolicyDefinition struct {
 }
 
 func (lhs *PolicyDefinition) Equal(rhs *PolicyDefinition) bool { 
+   fmt.Print("<<<DEJDEJ id:283, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5738,6 +5897,7 @@ type LargeCommunitySet struct {
 }
 
 func (lhs *LargeCommunitySet) Equal(rhs *LargeCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:284, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5768,6 +5928,7 @@ type AsPathSet struct {
 }
 
 func (lhs *AsPathSet) Equal(rhs *AsPathSet) bool { 
+   fmt.Print("<<<DEJDEJ id:285, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5798,6 +5959,7 @@ type ExtCommunitySet struct {
 }
 
 func (lhs *ExtCommunitySet) Equal(rhs *ExtCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:286, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5828,6 +5990,7 @@ type CommunitySet struct {
 }
 
 func (lhs *CommunitySet) Equal(rhs *CommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:287, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5862,6 +6025,7 @@ type BgpDefinedSets struct {
 }
 
 func (lhs *BgpDefinedSets) Equal(rhs *BgpDefinedSets) bool { 
+   fmt.Print("<<<DEJDEJ id:288, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5941,6 +6105,7 @@ type Tag struct {
 }
 
 func (lhs *Tag) Equal(rhs *Tag) bool { 
+   fmt.Print("<<<DEJDEJ id:289, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5963,6 +6128,7 @@ type TagSet struct {
 }
 
 func (lhs *TagSet) Equal(rhs *TagSet) bool { 
+   fmt.Print("<<<DEJDEJ id:290, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6002,6 +6168,7 @@ type NeighborSet struct {
 }
 
 func (lhs *NeighborSet) Equal(rhs *NeighborSet) bool { 
+   fmt.Print("<<<DEJDEJ id:291, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6045,6 +6212,7 @@ type Prefix struct {
 }
 
 func (lhs *Prefix) Equal(rhs *Prefix) bool { 
+   fmt.Print("<<<DEJDEJ id:292, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6070,6 +6238,7 @@ type PrefixSet struct {
 }
 
 func (lhs *PrefixSet) Equal(rhs *PrefixSet) bool { 
+   fmt.Print("<<<DEJDEJ id:293, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6114,6 +6283,7 @@ type DefinedSets struct {
 }
 
 func (lhs *DefinedSets) Equal(rhs *DefinedSets) bool { 
+   fmt.Print("<<<DEJDEJ id:294, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6185,6 +6355,7 @@ type RoutingPolicy struct {
 }
 
 func (lhs *RoutingPolicy) Equal(rhs *RoutingPolicy) bool { 
+   fmt.Print("<<<DEJDEJ id:295, bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}

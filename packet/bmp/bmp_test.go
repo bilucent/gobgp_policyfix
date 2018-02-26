@@ -24,6 +24,7 @@ import (
 )
 
 func verify(t *testing.T, m1 *BMPMessage) { 
+   fmt.Print("<<<DEJDEJ id:2408, bmp_test.go:verify(t>>>")
 	buf1, _ := m1.Serialize()
 	m2, err := ParseBMPMessage(buf1)
 	if err != nil {
@@ -41,6 +42,7 @@ func verify(t *testing.T, m1 *BMPMessage) {
 }
 
 func Test_Initiation(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2409, bmp_test.go:Test_Initiation(t>>>")
 	verify(t, NewBMPInitiation(nil))
 	m := NewBMPInitiation([]BMPInfoTLVInterface{
 		NewBMPInfoTLVString(BMP_INIT_TLV_TYPE_STRING, "free-form UTF-8 string"),
@@ -50,6 +52,7 @@ func Test_Initiation(t *testing.T) {
 }
 
 func Test_Termination(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2410, bmp_test.go:Test_Termination(t>>>")
 	verify(t, NewBMPTermination(nil))
 	m := NewBMPTermination([]BMPTermTLVInterface{
 		NewBMPTermTLVString(BMP_TERM_TLV_TYPE_STRING, "free-form UTF-8 string"),
@@ -60,6 +63,7 @@ func Test_Termination(t *testing.T) {
 }
 
 func Test_PeerUpNotification(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2411, bmp_test.go:Test_PeerUpNotification(t>>>")
 	m := bgp.NewTestBGPOpenMessage()
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	verify(t, NewBMPPeerUpNotification(*p0, "10.0.0.3", 10, 100, m, m))
@@ -68,6 +72,7 @@ func Test_PeerUpNotification(t *testing.T) {
 }
 
 func Test_PeerDownNotification(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2412, bmp_test.go:Test_PeerDownNotification(t>>>")
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	verify(t, NewBMPPeerDownNotification(*p0, BMP_PEER_DOWN_REASON_UNKNOWN, nil, []byte{0x3, 0xb}))
 	m := bgp.NewBGPNotificationMessage(1, 2, nil)
@@ -75,12 +80,14 @@ func Test_PeerDownNotification(t *testing.T) {
 }
 
 func Test_RouteMonitoring(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2413, bmp_test.go:Test_RouteMonitoring(t>>>")
 	m := bgp.NewTestBGPUpdateMessage()
 	p0 := NewBMPPeerHeader(0, 0, 1000, "fe80::6e40:8ff:feab:2c2a", 70000, "10.0.0.2", 1)
 	verify(t, NewBMPRouteMonitoring(*p0, m))
 }
 
 func Test_StatisticsReport(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2414, bmp_test.go:Test_StatisticsReport(t>>>")
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	s0 := NewBMPStatisticsReport(
 		*p0,
@@ -94,6 +101,7 @@ func Test_StatisticsReport(t *testing.T) {
 }
 
 func Test_RouteMirroring(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2415, bmp_test.go:Test_RouteMirroring(t>>>")
 	p0 := NewBMPPeerHeader(0, 0, 1000, "10.0.0.1", 70000, "10.0.0.2", 1)
 	s0 := NewBMPRouteMirroring(
 		*p0,
@@ -108,6 +116,7 @@ func Test_RouteMirroring(t *testing.T) {
 }
 
 func Test_BogusHeader(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2416, bmp_test.go:Test_BogusHeader(t>>>")
 	h, err := ParseBMPMessage(make([]byte, 10))
 	assert.Nil(t, h)
 	assert.NotNil(t, err)

@@ -45,11 +45,13 @@ type Server struct {
 }
 
 func NewGrpcServer(b *server.BgpServer, hosts string) *Server { 
+   fmt.Print("<<<DEJDEJ id:2102, grpc_server.go:NewGrpcServer(b>>>")
 	size := 256 << 20
 	return NewServer(b, grpc.NewServer(grpc.MaxRecvMsgSize(size), grpc.MaxSendMsgSize(size)), hosts)
 }
 
 func NewServer(b *server.BgpServer, g *grpc.Server, hosts string) *Server { 
+   fmt.Print("<<<DEJDEJ id:2103, grpc_server.go:NewServer(b>>>")
 	grpc.EnableTracing = false
 	s := &Server{
 		bgpServer:  b,
@@ -61,6 +63,7 @@ func NewServer(b *server.BgpServer, g *grpc.Server, hosts string) *Server {
 }
 
 func (s *Server) Serve() error { 
+   fmt.Print("<<<DEJDEJ id:2104, grpc_server.go:Serve>>>")
 	var wg sync.WaitGroup
 	l := strings.Split(s.hosts, ",")
 	wg.Add(len(l))
@@ -92,6 +95,7 @@ func (s *Server) Serve() error {
 }
 
 func NewMpGracefulRestartFromConfigStruct(c *config.MpGracefulRestart) *MpGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:2105, grpc_server.go:NewMpGracefulRestartFromConfigStruct(c>>>")
 	return &MpGracefulRestart{
 		Config: &MpGracefulRestartConfig{
 			Enabled: c.Config.Enabled,
@@ -100,6 +104,7 @@ func NewMpGracefulRestartFromConfigStruct(c *config.MpGracefulRestart) *MpGracef
 }
 
 func NewAfiSafiConfigFromConfigStruct(c *config.AfiSafi) *AfiSafiConfig { 
+   fmt.Print("<<<DEJDEJ id:2106, grpc_server.go:NewAfiSafiConfigFromConfigStruct(c>>>")
 	return &AfiSafiConfig{
 		Family:  extractFamilyFromConfigAfiSafi(c),
 		Enabled: c.Config.Enabled,
@@ -107,6 +112,7 @@ func NewAfiSafiConfigFromConfigStruct(c *config.AfiSafi) *AfiSafiConfig {
 }
 
 func NewApplyPolicyFromConfigStruct(c *config.ApplyPolicy) *ApplyPolicy { 
+   fmt.Print("<<<DEJDEJ id:2107, grpc_server.go:NewApplyPolicyFromConfigStruct(c>>>")
 	applyPolicy := &ApplyPolicy{
 		ImportPolicy: &PolicyAssignment{
 			Type:    PolicyType_IMPORT,
@@ -136,6 +142,7 @@ func NewApplyPolicyFromConfigStruct(c *config.ApplyPolicy) *ApplyPolicy {
 }
 
 func NewRouteSelectionOptionsFromConfigStruct(c *config.RouteSelectionOptions) *RouteSelectionOptions { 
+   fmt.Print("<<<DEJDEJ id:2108, grpc_server.go:NewRouteSelectionOptionsFromConfigStruct(c>>>")
 	return &RouteSelectionOptions{
 		Config: &RouteSelectionOptionsConfig{
 			AlwaysCompareMed:        c.Config.AlwaysCompareMed,
@@ -149,6 +156,7 @@ func NewRouteSelectionOptionsFromConfigStruct(c *config.RouteSelectionOptions) *
 }
 
 func NewUseMultiplePathsFromConfigStruct(c *config.UseMultiplePaths) *UseMultiplePaths { 
+   fmt.Print("<<<DEJDEJ id:2109, grpc_server.go:NewUseMultiplePathsFromConfigStruct(c>>>")
 	return &UseMultiplePaths{
 		Config: &UseMultiplePathsConfig{
 			Enabled: c.Config.Enabled,
@@ -168,6 +176,7 @@ func NewUseMultiplePathsFromConfigStruct(c *config.UseMultiplePaths) *UseMultipl
 }
 
 func NewPrefixLimitFromConfigStruct(c *config.AfiSafi) *PrefixLimit { 
+   fmt.Print("<<<DEJDEJ id:2110, grpc_server.go:NewPrefixLimitFromConfigStruct(c>>>")
 	if c.PrefixLimit.Config.MaxPrefixes == 0 {
 		return nil
 	}
@@ -180,6 +189,7 @@ func NewPrefixLimitFromConfigStruct(c *config.AfiSafi) *PrefixLimit {
 }
 
 func NewRouteTargetMembershipFromConfigStruct(c *config.RouteTargetMembership) *RouteTargetMembership { 
+   fmt.Print("<<<DEJDEJ id:2111, grpc_server.go:NewRouteTargetMembershipFromConfigStruct(c>>>")
 	return &RouteTargetMembership{
 		Config: &RouteTargetMembershipConfig{
 			DeferralTime: uint32(c.Config.DeferralTime),
@@ -188,6 +198,7 @@ func NewRouteTargetMembershipFromConfigStruct(c *config.RouteTargetMembership) *
 }
 
 func NewLongLivedGracefulRestartFromConfigStruct(c *config.LongLivedGracefulRestart) *LongLivedGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:2112, grpc_server.go:NewLongLivedGracefulRestartFromConfigStruct(c>>>")
 	return &LongLivedGracefulRestart{
 		Config: &LongLivedGracefulRestartConfig{
 			Enabled:     c.Config.Enabled,
@@ -197,6 +208,7 @@ func NewLongLivedGracefulRestartFromConfigStruct(c *config.LongLivedGracefulRest
 }
 
 func NewAddPathsFromConfigStruct(c *config.AddPaths) *AddPaths { 
+   fmt.Print("<<<DEJDEJ id:2113, grpc_server.go:NewAddPathsFromConfigStruct(c>>>")
 	return &AddPaths{
 		Config: &AddPathsConfig{
 			Receive: c.Config.Receive,
@@ -206,6 +218,7 @@ func NewAddPathsFromConfigStruct(c *config.AddPaths) *AddPaths {
 }
 
 func NewAfiSafiFromConfigStruct(c *config.AfiSafi) *AfiSafi { 
+   fmt.Print("<<<DEJDEJ id:2114, grpc_server.go:NewAfiSafiFromConfigStruct(c>>>")
 	return &AfiSafi{
 		MpGracefulRestart:        NewMpGracefulRestartFromConfigStruct(&c.MpGracefulRestart),
 		Config:                   NewAfiSafiConfigFromConfigStruct(c),
@@ -220,6 +233,7 @@ func NewAfiSafiFromConfigStruct(c *config.AfiSafi) *AfiSafi {
 }
 
 func NewPeerFromConfigStruct(pconf *config.Neighbor) *Peer { 
+   fmt.Print("<<<DEJDEJ id:2115, grpc_server.go:NewPeerFromConfigStruct(pconf>>>")
 	families := make([]uint32, 0, len(pconf.AfiSafis))
 	prefixLimits := make([]*PrefixLimit, 0, len(pconf.AfiSafis))
 	afiSafis := make([]*AfiSafi, 0, len(pconf.AfiSafis))
@@ -346,6 +360,7 @@ func NewPeerFromConfigStruct(pconf *config.Neighbor) *Peer {
 }
 
 func (s *Server) GetNeighbor(ctx context.Context, arg *GetNeighborRequest) (*GetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2116, grpc_server.go:GetNeighbor>>>")
 	if arg == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -358,6 +373,7 @@ func (s *Server) GetNeighbor(ctx context.Context, arg *GetNeighborRequest) (*Get
 }
 
 func NewValidationFromTableStruct(v *table.Validation) *RPKIValidation { 
+   fmt.Print("<<<DEJDEJ id:2117, grpc_server.go:NewValidationFromTableStruct(v>>>")
 	if v == nil {
 		return &RPKIValidation{}
 	}
@@ -370,6 +386,7 @@ func NewValidationFromTableStruct(v *table.Validation) *RPKIValidation {
 }
 
 func ToPathApi(path *table.Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:2118, grpc_server.go:ToPathApi(path>>>")
 	nlri := path.GetNlri()
 	n, _ := nlri.Serialize()
 	family := uint32(bgp.AfiSafiToRouteFamily(nlri.AFI(), nlri.SAFI()))
@@ -407,6 +424,7 @@ func ToPathApi(path *table.Path) *Path {
 }
 
 func (s *Server) GetRib(ctx context.Context, arg *GetRibRequest) (*GetRibResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2119, grpc_server.go:GetRib>>>")
 	if arg == nil || arg.Table == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -481,6 +499,7 @@ func (s *Server) GetRib(ctx context.Context, arg *GetRibRequest) (*GetRibRespons
 }
 
 func (s *Server) GetPath(arg *GetPathRequest, stream GobgpApi_GetPathServer) error { 
+   fmt.Print("<<<DEJDEJ id:2120, grpc_server.go:GetPath>>>")
 	f := func() []*table.LookupPrefix {
 		l := make([]*table.LookupPrefix, 0, len(arg.Prefixes))
 		for _, p := range arg.Prefixes {
@@ -533,6 +552,7 @@ func (s *Server) GetPath(arg *GetPathRequest, stream GobgpApi_GetPathServer) err
 }
 
 func (s *Server) MonitorRib(arg *MonitorRibRequest, stream GobgpApi_MonitorRibServer) error { 
+   fmt.Print("<<<DEJDEJ id:2121, grpc_server.go:MonitorRib>>>")
 	if arg == nil || arg.Table == nil {
 		return fmt.Errorf("invalid request")
 	}
@@ -608,6 +628,7 @@ func (s *Server) MonitorRib(arg *MonitorRibRequest, stream GobgpApi_MonitorRibSe
 }
 
 func (s *Server) MonitorPeerState(arg *Arguments, stream GobgpApi_MonitorPeerStateServer) error { 
+   fmt.Print("<<<DEJDEJ id:2122, grpc_server.go:MonitorPeerState>>>")
 	if arg == nil {
 		return fmt.Errorf("invalid request")
 	}
@@ -653,10 +674,12 @@ func (s *Server) MonitorPeerState(arg *Arguments, stream GobgpApi_MonitorPeerSta
 }
 
 func (s *Server) ResetNeighbor(ctx context.Context, arg *ResetNeighborRequest) (*ResetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2123, grpc_server.go:ResetNeighbor>>>")
 	return &ResetNeighborResponse{}, s.bgpServer.ResetNeighbor(arg.Address, arg.Communication)
 }
 
 func (s *Server) SoftResetNeighbor(ctx context.Context, arg *SoftResetNeighborRequest) (*SoftResetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2124, grpc_server.go:SoftResetNeighbor>>>")
 	var err error
 	addr := arg.Address
 	if addr == "all" {
@@ -675,18 +698,22 @@ func (s *Server) SoftResetNeighbor(ctx context.Context, arg *SoftResetNeighborRe
 }
 
 func (s *Server) ShutdownNeighbor(ctx context.Context, arg *ShutdownNeighborRequest) (*ShutdownNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2125, grpc_server.go:ShutdownNeighbor>>>")
 	return &ShutdownNeighborResponse{}, s.bgpServer.ShutdownNeighbor(arg.Address, arg.Communication)
 }
 
 func (s *Server) EnableNeighbor(ctx context.Context, arg *EnableNeighborRequest) (*EnableNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2126, grpc_server.go:EnableNeighbor>>>")
 	return &EnableNeighborResponse{}, s.bgpServer.EnableNeighbor(arg.Address)
 }
 
 func (s *Server) DisableNeighbor(ctx context.Context, arg *DisableNeighborRequest) (*DisableNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2127, grpc_server.go:DisableNeighbor>>>")
 	return &DisableNeighborResponse{}, s.bgpServer.DisableNeighbor(arg.Address, arg.Communication)
 }
 
 func (s *Server) api2PathList(resource Resource, ApiPathList []*Path) ([]*table.Path, error) { 
+   fmt.Print("<<<DEJDEJ id:2128, grpc_server.go:api2PathList>>>")
 	var nlri bgp.AddrPrefixInterface
 	var nexthop string
 	var pi *table.PeerInfo
@@ -786,6 +813,7 @@ func (s *Server) api2PathList(resource Resource, ApiPathList []*Path) ([]*table.
 }
 
 func (s *Server) AddPath(ctx context.Context, arg *AddPathRequest) (*AddPathResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2129, grpc_server.go:AddPath>>>")
 	pathList, err := s.api2PathList(arg.Resource, []*Path{arg.Path})
 	var uuid []byte
 	if err == nil {
@@ -795,6 +823,7 @@ func (s *Server) AddPath(ctx context.Context, arg *AddPathRequest) (*AddPathResp
 }
 
 func (s *Server) DeletePath(ctx context.Context, arg *DeletePathRequest) (*DeletePathResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2130, grpc_server.go:DeletePath>>>")
 	pathList, err := func() ([]*table.Path, error) {
 		if arg.Path != nil {
 			arg.Path.IsWithdraw = true
@@ -809,6 +838,7 @@ func (s *Server) DeletePath(ctx context.Context, arg *DeletePathRequest) (*Delet
 }
 
 func (s *Server) EnableMrt(ctx context.Context, arg *EnableMrtRequest) (*EnableMrtResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2131, grpc_server.go:EnableMrt>>>")
 	return &EnableMrtResponse{}, s.bgpServer.EnableMrt(&config.MrtConfig{
 		RotationInterval: arg.Interval,
 		DumpType:         config.IntToMrtTypeMap[int(arg.DumpType)],
@@ -817,10 +847,12 @@ func (s *Server) EnableMrt(ctx context.Context, arg *EnableMrtRequest) (*EnableM
 }
 
 func (s *Server) DisableMrt(ctx context.Context, arg *DisableMrtRequest) (*DisableMrtResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2132, grpc_server.go:DisableMrt>>>")
 	return &DisableMrtResponse{}, s.bgpServer.DisableMrt(&config.MrtConfig{})
 }
 
 func (s *Server) InjectMrt(stream GobgpApi_InjectMrtServer) error { 
+   fmt.Print("<<<DEJDEJ id:2133, grpc_server.go:InjectMrt>>>")
 	for {
 		arg, err := stream.Recv()
 
@@ -846,6 +878,7 @@ func (s *Server) InjectMrt(stream GobgpApi_InjectMrtServer) error {
 }
 
 func (s *Server) AddBmp(ctx context.Context, arg *AddBmpRequest) (*AddBmpResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2134, grpc_server.go:AddBmp>>>")
 	t, ok := config.IntToBmpRouteMonitoringPolicyTypeMap[int(arg.Type)]
 	if !ok {
 		return nil, fmt.Errorf("invalid bmp route monitoring policy: %d", arg.Type)
@@ -858,6 +891,7 @@ func (s *Server) AddBmp(ctx context.Context, arg *AddBmpRequest) (*AddBmpRespons
 }
 
 func (s *Server) DeleteBmp(ctx context.Context, arg *DeleteBmpRequest) (*DeleteBmpResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2135, grpc_server.go:DeleteBmp>>>")
 	return &DeleteBmpResponse{}, s.bgpServer.DeleteBmp(&config.BmpServerConfig{
 		Address: arg.Address,
 		Port:    arg.Port,
@@ -865,10 +899,12 @@ func (s *Server) DeleteBmp(ctx context.Context, arg *DeleteBmpRequest) (*DeleteB
 }
 
 func (s *Server) ValidateRib(ctx context.Context, arg *ValidateRibRequest) (*ValidateRibResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2136, grpc_server.go:ValidateRib>>>")
 	return &ValidateRibResponse{}, s.bgpServer.ValidateRib(arg.Prefix)
 }
 
 func (s *Server) AddRpki(ctx context.Context, arg *AddRpkiRequest) (*AddRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2137, grpc_server.go:AddRpki>>>")
 	return &AddRpkiResponse{}, s.bgpServer.AddRpki(&config.RpkiServerConfig{
 		Address:        arg.Address,
 		Port:           arg.Port,
@@ -877,6 +913,7 @@ func (s *Server) AddRpki(ctx context.Context, arg *AddRpkiRequest) (*AddRpkiResp
 }
 
 func (s *Server) DeleteRpki(ctx context.Context, arg *DeleteRpkiRequest) (*DeleteRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2138, grpc_server.go:DeleteRpki>>>")
 	return &DeleteRpkiResponse{}, s.bgpServer.DeleteRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 		Port:    arg.Port,
@@ -884,30 +921,35 @@ func (s *Server) DeleteRpki(ctx context.Context, arg *DeleteRpkiRequest) (*Delet
 }
 
 func (s *Server) EnableRpki(ctx context.Context, arg *EnableRpkiRequest) (*EnableRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2139, grpc_server.go:EnableRpki>>>")
 	return &EnableRpkiResponse{}, s.bgpServer.EnableRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
 func (s *Server) DisableRpki(ctx context.Context, arg *DisableRpkiRequest) (*DisableRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2140, grpc_server.go:DisableRpki>>>")
 	return &DisableRpkiResponse{}, s.bgpServer.DisableRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
 func (s *Server) ResetRpki(ctx context.Context, arg *ResetRpkiRequest) (*ResetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2141, grpc_server.go:ResetRpki>>>")
 	return &ResetRpkiResponse{}, s.bgpServer.ResetRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
 func (s *Server) SoftResetRpki(ctx context.Context, arg *SoftResetRpkiRequest) (*SoftResetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2142, grpc_server.go:SoftResetRpki>>>")
 	return &SoftResetRpkiResponse{}, s.bgpServer.SoftResetRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
 func (s *Server) GetRpki(ctx context.Context, arg *GetRpkiRequest) (*GetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2143, grpc_server.go:GetRpki>>>")
 	servers, err := s.bgpServer.GetRpki()
 	if err != nil {
 		return nil, err
@@ -947,6 +989,7 @@ func (s *Server) GetRpki(ctx context.Context, arg *GetRpkiRequest) (*GetRpkiResp
 }
 
 func (s *Server) GetRoa(ctx context.Context, arg *GetRoaRequest) (*GetRoaResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2144, grpc_server.go:GetRoa>>>")
 	roas, err := s.bgpServer.GetRoa(bgp.RouteFamily(arg.Family))
 	if err != nil {
 		return nil, err
@@ -955,6 +998,7 @@ func (s *Server) GetRoa(ctx context.Context, arg *GetRoaRequest) (*GetRoaRespons
 }
 
 func (s *Server) EnableZebra(ctx context.Context, arg *EnableZebraRequest) (*EnableZebraResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2145, grpc_server.go:EnableZebra>>>")
 	l := make([]config.InstallProtocolType, 0, len(arg.RouteTypes))
 	for _, p := range arg.RouteTypes {
 		if err := config.InstallProtocolType(p).Validate(); err != nil {
@@ -973,6 +1017,7 @@ func (s *Server) EnableZebra(ctx context.Context, arg *EnableZebraRequest) (*Ena
 }
 
 func (s *Server) GetVrf(ctx context.Context, arg *GetVrfRequest) (*GetVrfResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2146, grpc_server.go:GetVrf>>>")
 	toApi := func(v *table.Vrf) *Vrf {
 		f := func(rts []bgp.ExtendedCommunityInterface) [][]byte {
 			ret := make([][]byte, 0, len(rts))
@@ -1000,6 +1045,7 @@ func (s *Server) GetVrf(ctx context.Context, arg *GetVrfRequest) (*GetVrfRespons
 }
 
 func (s *Server) AddVrf(ctx context.Context, arg *AddVrfRequest) (r *AddVrfResponse, err error) { 
+   fmt.Print("<<<DEJDEJ id:2147, grpc_server.go:AddVrf>>>")
 	if arg == nil || arg.Vrf == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1027,6 +1073,7 @@ func (s *Server) AddVrf(ctx context.Context, arg *AddVrfRequest) (r *AddVrfRespo
 }
 
 func (s *Server) DeleteVrf(ctx context.Context, arg *DeleteVrfRequest) (*DeleteVrfResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2148, grpc_server.go:DeleteVrf>>>")
 	if arg == nil || arg.Vrf == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1034,6 +1081,7 @@ func (s *Server) DeleteVrf(ctx context.Context, arg *DeleteVrfRequest) (*DeleteV
 }
 
 func ReadMpGracefulRestartFromAPIStruct(c *config.MpGracefulRestart, a *MpGracefulRestart) { 
+   fmt.Print("<<<DEJDEJ id:2149, grpc_server.go:ReadMpGracefulRestartFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1043,6 +1091,7 @@ func ReadMpGracefulRestartFromAPIStruct(c *config.MpGracefulRestart, a *MpGracef
 }
 
 func ReadAfiSafiConfigFromAPIStruct(c *config.AfiSafiConfig, a *AfiSafiConfig) { 
+   fmt.Print("<<<DEJDEJ id:2150, grpc_server.go:ReadAfiSafiConfigFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1051,6 +1100,7 @@ func ReadAfiSafiConfigFromAPIStruct(c *config.AfiSafiConfig, a *AfiSafiConfig) {
 }
 
 func ReadAfiSafiStateFromAPIStruct(s *config.AfiSafiState, a *AfiSafiConfig) { 
+   fmt.Print("<<<DEJDEJ id:2151, grpc_server.go:ReadAfiSafiStateFromAPIStruct(s>>>")
 	if s == nil || a == nil {
 		return
 	}
@@ -1059,6 +1109,7 @@ func ReadAfiSafiStateFromAPIStruct(s *config.AfiSafiState, a *AfiSafiConfig) {
 }
 
 func ReadPrefixLimitFromAPIStruct(c *config.PrefixLimit, a *PrefixLimit) { 
+   fmt.Print("<<<DEJDEJ id:2152, grpc_server.go:ReadPrefixLimitFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1067,6 +1118,7 @@ func ReadPrefixLimitFromAPIStruct(c *config.PrefixLimit, a *PrefixLimit) {
 }
 
 func ReadApplyPolicyFromAPIStruct(c *config.ApplyPolicy, a *ApplyPolicy) { 
+   fmt.Print("<<<DEJDEJ id:2153, grpc_server.go:ReadApplyPolicyFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1091,6 +1143,7 @@ func ReadApplyPolicyFromAPIStruct(c *config.ApplyPolicy, a *ApplyPolicy) {
 }
 
 func ReadRouteSelectionOptionsFromAPIStruct(c *config.RouteSelectionOptions, a *RouteSelectionOptions) { 
+   fmt.Print("<<<DEJDEJ id:2154, grpc_server.go:ReadRouteSelectionOptionsFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1105,6 +1158,7 @@ func ReadRouteSelectionOptionsFromAPIStruct(c *config.RouteSelectionOptions, a *
 }
 
 func ReadUseMultiplePathsFromAPIStruct(c *config.UseMultiplePaths, a *UseMultiplePaths) { 
+   fmt.Print("<<<DEJDEJ id:2155, grpc_server.go:ReadUseMultiplePathsFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1129,6 +1183,7 @@ func ReadUseMultiplePathsFromAPIStruct(c *config.UseMultiplePaths, a *UseMultipl
 }
 
 func ReadRouteTargetMembershipFromAPIStruct(c *config.RouteTargetMembership, a *RouteTargetMembership) { 
+   fmt.Print("<<<DEJDEJ id:2156, grpc_server.go:ReadRouteTargetMembershipFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1138,6 +1193,7 @@ func ReadRouteTargetMembershipFromAPIStruct(c *config.RouteTargetMembership, a *
 }
 
 func ReadLongLivedGracefulRestartFromAPIStruct(c *config.LongLivedGracefulRestart, a *LongLivedGracefulRestart) { 
+   fmt.Print("<<<DEJDEJ id:2157, grpc_server.go:ReadLongLivedGracefulRestartFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1148,6 +1204,7 @@ func ReadLongLivedGracefulRestartFromAPIStruct(c *config.LongLivedGracefulRestar
 }
 
 func ReadAddPathsFromAPIStruct(c *config.AddPaths, a *AddPaths) { 
+   fmt.Print("<<<DEJDEJ id:2158, grpc_server.go:ReadAddPathsFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1158,6 +1215,7 @@ func ReadAddPathsFromAPIStruct(c *config.AddPaths, a *AddPaths) {
 }
 
 func NewNeighborFromAPIStruct(a *Peer) (*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2159, grpc_server.go:NewNeighborFromAPIStruct(a>>>")
 	pconf := &config.Neighbor{}
 	if a.Conf != nil {
 		pconf.Config.PeerAs = a.Conf.PeerAs
@@ -1329,6 +1387,7 @@ func NewNeighborFromAPIStruct(a *Peer) (*config.Neighbor, error) {
 }
 
 func (s *Server) AddNeighbor(ctx context.Context, arg *AddNeighborRequest) (*AddNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2160, grpc_server.go:AddNeighbor>>>")
 	c, err := NewNeighborFromAPIStruct(arg.Peer)
 	if err != nil {
 		return nil, err
@@ -1337,6 +1396,7 @@ func (s *Server) AddNeighbor(ctx context.Context, arg *AddNeighborRequest) (*Add
 }
 
 func (s *Server) DeleteNeighbor(ctx context.Context, arg *DeleteNeighborRequest) (*DeleteNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2161, grpc_server.go:DeleteNeighbor>>>")
 	return &DeleteNeighborResponse{}, s.bgpServer.DeleteNeighbor(&config.Neighbor{Config: config.NeighborConfig{
 		NeighborAddress:   arg.Peer.Conf.NeighborAddress,
 		NeighborInterface: arg.Peer.Conf.NeighborInterface,
@@ -1344,6 +1404,7 @@ func (s *Server) DeleteNeighbor(ctx context.Context, arg *DeleteNeighborRequest)
 }
 
 func NewPrefixFromApiStruct(a *Prefix) (*table.Prefix, error) { 
+   fmt.Print("<<<DEJDEJ id:2162, grpc_server.go:NewPrefixFromApiStruct(a>>>")
 	_, prefix, err := net.ParseCIDR(a.IpPrefix)
 	if err != nil {
 		return nil, err
@@ -1361,6 +1422,7 @@ func NewPrefixFromApiStruct(a *Prefix) (*table.Prefix, error) {
 }
 
 func NewAPIPrefixFromConfigStruct(c config.Prefix) (*Prefix, error) { 
+   fmt.Print("<<<DEJDEJ id:2163, grpc_server.go:NewAPIPrefixFromConfigStruct(c>>>")
 	min, max, err := config.ParseMaskLength(c.IpPrefix, c.MasklengthRange)
 	if err != nil {
 		return nil, err
@@ -1373,6 +1435,7 @@ func NewAPIPrefixFromConfigStruct(c config.Prefix) (*Prefix, error) {
 }
 
 func NewAPIDefinedSetFromTableStruct(t table.DefinedSet) (*DefinedSet, error) { 
+   fmt.Print("<<<DEJDEJ id:2164, grpc_server.go:NewAPIDefinedSetFromTableStruct(t>>>")
 	a := &DefinedSet{
 		Type: DefinedType(t.Type()),
 		Name: t.Name(),
@@ -1425,6 +1488,7 @@ func NewAPIDefinedSetFromTableStruct(t table.DefinedSet) (*DefinedSet, error) {
 }
 
 func NewDefinedSetFromApiStruct(a *DefinedSet) (table.DefinedSet, error) { 
+   fmt.Print("<<<DEJDEJ id:2165, grpc_server.go:NewDefinedSetFromApiStruct(a>>>")
 	if a.Name == "" {
 		return nil, fmt.Errorf("empty neighbor set name")
 	}
@@ -1475,6 +1539,7 @@ func NewDefinedSetFromApiStruct(a *DefinedSet) (table.DefinedSet, error) {
 }
 
 func (s *Server) GetDefinedSet(ctx context.Context, arg *GetDefinedSetRequest) (*GetDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2166, grpc_server.go:GetDefinedSet>>>")
 	cd, err := s.bgpServer.GetDefinedSet(table.DefinedType(arg.Type), arg.Name)
 	if err != nil {
 		return nil, err
@@ -1545,6 +1610,7 @@ func (s *Server) GetDefinedSet(ctx context.Context, arg *GetDefinedSetRequest) (
 }
 
 func (s *Server) AddDefinedSet(ctx context.Context, arg *AddDefinedSetRequest) (*AddDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2167, grpc_server.go:AddDefinedSet>>>")
 	if arg == nil || arg.Set == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1556,6 +1622,7 @@ func (s *Server) AddDefinedSet(ctx context.Context, arg *AddDefinedSetRequest) (
 }
 
 func (s *Server) DeleteDefinedSet(ctx context.Context, arg *DeleteDefinedSetRequest) (*DeleteDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2168, grpc_server.go:DeleteDefinedSet>>>")
 	if arg == nil || arg.Set == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1567,6 +1634,7 @@ func (s *Server) DeleteDefinedSet(ctx context.Context, arg *DeleteDefinedSetRequ
 }
 
 func (s *Server) ReplaceDefinedSet(ctx context.Context, arg *ReplaceDefinedSetRequest) (*ReplaceDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2169, grpc_server.go:ReplaceDefinedSet>>>")
 	if arg == nil || arg.Set == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1578,10 +1646,12 @@ func (s *Server) ReplaceDefinedSet(ctx context.Context, arg *ReplaceDefinedSetRe
 }
 
 func NewAPIStatementFromTableStruct(t *table.Statement) *Statement { 
+   fmt.Print("<<<DEJDEJ id:2170, grpc_server.go:NewAPIStatementFromTableStruct(t>>>")
 	return toStatementApi(t.ToConfig())
 }
 
 func toStatementApi(s *config.Statement) *Statement { 
+   fmt.Print("<<<DEJDEJ id:2171, grpc_server.go:toStatementApi(s>>>")
 	cs := &Conditions{}
 	if s.Conditions.MatchPrefixSet.PrefixSet != "" {
 		o, _ := table.NewMatchOption(s.Conditions.MatchPrefixSet.MatchSetOptions)
@@ -1737,6 +1807,7 @@ func toStatementApi(s *config.Statement) *Statement {
 }
 
 func toConfigMatchSetOption(a MatchType) (config.MatchSetOptionsType, error) { 
+   fmt.Print("<<<DEJDEJ id:2172, grpc_server.go:toConfigMatchSetOption(a>>>")
 	var typ config.MatchSetOptionsType
 	switch a {
 	case MatchType_ANY:
@@ -1752,6 +1823,7 @@ func toConfigMatchSetOption(a MatchType) (config.MatchSetOptionsType, error) {
 }
 
 func toConfigMatchSetOptionRestricted(a MatchType) (config.MatchSetOptionsRestrictedType, error) { 
+   fmt.Print("<<<DEJDEJ id:2173, grpc_server.go:toConfigMatchSetOptionRestricted(a>>>")
 	var typ config.MatchSetOptionsRestrictedType
 	switch a {
 	case MatchType_ANY:
@@ -1765,6 +1837,7 @@ func toConfigMatchSetOptionRestricted(a MatchType) (config.MatchSetOptionsRestri
 }
 
 func NewPrefixConditionFromApiStruct(a *MatchSet) (*table.PrefixCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2174, grpc_server.go:NewPrefixConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1780,6 +1853,7 @@ func NewPrefixConditionFromApiStruct(a *MatchSet) (*table.PrefixCondition, error
 }
 
 func NewNeighborConditionFromApiStruct(a *MatchSet) (*table.NeighborCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2175, grpc_server.go:NewNeighborConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1795,6 +1869,7 @@ func NewNeighborConditionFromApiStruct(a *MatchSet) (*table.NeighborCondition, e
 }
 
 func NewAsPathLengthConditionFromApiStruct(a *AsPathLength) (*table.AsPathLengthCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2176, grpc_server.go:NewAsPathLengthConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1805,6 +1880,7 @@ func NewAsPathLengthConditionFromApiStruct(a *AsPathLength) (*table.AsPathLength
 }
 
 func NewAsPathConditionFromApiStruct(a *MatchSet) (*table.AsPathCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2177, grpc_server.go:NewAsPathConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1820,6 +1896,7 @@ func NewAsPathConditionFromApiStruct(a *MatchSet) (*table.AsPathCondition, error
 }
 
 func NewRpkiValidationConditionFromApiStruct(a int32) (*table.RpkiValidationCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2178, grpc_server.go:NewRpkiValidationConditionFromApiStruct(a>>>")
 	if a < 1 {
 		return nil, nil
 	}
@@ -1827,6 +1904,7 @@ func NewRpkiValidationConditionFromApiStruct(a int32) (*table.RpkiValidationCond
 }
 
 func NewRouteTypeConditionFromApiStruct(a Conditions_RouteType) (*table.RouteTypeCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2179, grpc_server.go:NewRouteTypeConditionFromApiStruct(a>>>")
 	if a == 0 {
 		return nil, nil
 	}
@@ -1838,6 +1916,7 @@ func NewRouteTypeConditionFromApiStruct(a Conditions_RouteType) (*table.RouteTyp
 }
 
 func NewCommunityConditionFromApiStruct(a *MatchSet) (*table.CommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2180, grpc_server.go:NewCommunityConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1853,6 +1932,7 @@ func NewCommunityConditionFromApiStruct(a *MatchSet) (*table.CommunityCondition,
 }
 
 func NewExtCommunityConditionFromApiStruct(a *MatchSet) (*table.ExtCommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2181, grpc_server.go:NewExtCommunityConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1868,6 +1948,7 @@ func NewExtCommunityConditionFromApiStruct(a *MatchSet) (*table.ExtCommunityCond
 }
 
 func NewLargeCommunityConditionFromApiStruct(a *MatchSet) (*table.LargeCommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2182, grpc_server.go:NewLargeCommunityConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1883,6 +1964,7 @@ func NewLargeCommunityConditionFromApiStruct(a *MatchSet) (*table.LargeCommunity
 }
 
 func NewRoutingActionFromApiStruct(a RouteAction) (*table.RoutingAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2183, grpc_server.go:NewRoutingActionFromApiStruct(a>>>")
 	if a == RouteAction_NONE {
 		return nil, nil
 	}
@@ -1896,6 +1978,7 @@ func NewRoutingActionFromApiStruct(a RouteAction) (*table.RoutingAction, error) 
 }
 
 func NewCommunityActionFromApiStruct(a *CommunityAction) (*table.CommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2184, grpc_server.go:NewCommunityActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1908,6 +1991,7 @@ func NewCommunityActionFromApiStruct(a *CommunityAction) (*table.CommunityAction
 }
 
 func NewExtCommunityActionFromApiStruct(a *CommunityAction) (*table.ExtCommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2185, grpc_server.go:NewExtCommunityActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1920,6 +2004,7 @@ func NewExtCommunityActionFromApiStruct(a *CommunityAction) (*table.ExtCommunity
 }
 
 func NewLargeCommunityActionFromApiStruct(a *CommunityAction) (*table.LargeCommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2186, grpc_server.go:NewLargeCommunityActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1932,6 +2017,7 @@ func NewLargeCommunityActionFromApiStruct(a *CommunityAction) (*table.LargeCommu
 }
 
 func NewMedActionFromApiStruct(a *MedAction) (*table.MedAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2187, grpc_server.go:NewMedActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1939,6 +2025,7 @@ func NewMedActionFromApiStruct(a *MedAction) (*table.MedAction, error) {
 }
 
 func NewLocalPrefActionFromApiStruct(a *LocalPrefAction) (*table.LocalPrefAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2188, grpc_server.go:NewLocalPrefActionFromApiStruct(a>>>")
 	if a == nil || a.Value == 0 {
 		return nil, nil
 	}
@@ -1946,6 +2033,7 @@ func NewLocalPrefActionFromApiStruct(a *LocalPrefAction) (*table.LocalPrefAction
 }
 
 func NewAsPathPrependActionFromApiStruct(a *AsPrependAction) (*table.AsPathPrependAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2189, grpc_server.go:NewAsPathPrependActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1961,6 +2049,7 @@ func NewAsPathPrependActionFromApiStruct(a *AsPrependAction) (*table.AsPathPrepe
 }
 
 func NewNexthopActionFromApiStruct(a *NexthopAction) (*table.NexthopAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2190, grpc_server.go:NewNexthopActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1975,6 +2064,7 @@ func NewNexthopActionFromApiStruct(a *NexthopAction) (*table.NexthopAction, erro
 }
 
 func NewStatementFromApiStruct(a *Statement) (*table.Statement, error) { 
+   fmt.Print("<<<DEJDEJ id:2191, grpc_server.go:NewStatementFromApiStruct(a>>>")
 	if a.Name == "" {
 		return nil, fmt.Errorf("empty statement name")
 	}
@@ -2071,6 +2161,7 @@ func NewStatementFromApiStruct(a *Statement) (*table.Statement, error) {
 }
 
 func (s *Server) GetStatement(ctx context.Context, arg *GetStatementRequest) (*GetStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2192, grpc_server.go:GetStatement>>>")
 	l := make([]*Statement, 0)
 	for _, s := range s.bgpServer.GetStatement() {
 		l = append(l, toStatementApi(s))
@@ -2079,6 +2170,7 @@ func (s *Server) GetStatement(ctx context.Context, arg *GetStatementRequest) (*G
 }
 
 func (s *Server) AddStatement(ctx context.Context, arg *AddStatementRequest) (*AddStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2193, grpc_server.go:AddStatement>>>")
 	if arg == nil || arg.Statement == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2090,6 +2182,7 @@ func (s *Server) AddStatement(ctx context.Context, arg *AddStatementRequest) (*A
 }
 
 func (s *Server) DeleteStatement(ctx context.Context, arg *DeleteStatementRequest) (*DeleteStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2194, grpc_server.go:DeleteStatement>>>")
 	if arg == nil || arg.Statement == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2101,6 +2194,7 @@ func (s *Server) DeleteStatement(ctx context.Context, arg *DeleteStatementReques
 }
 
 func (s *Server) ReplaceStatement(ctx context.Context, arg *ReplaceStatementRequest) (*ReplaceStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2195, grpc_server.go:ReplaceStatement>>>")
 	if arg == nil || arg.Statement == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2112,10 +2206,12 @@ func (s *Server) ReplaceStatement(ctx context.Context, arg *ReplaceStatementRequ
 }
 
 func NewAPIPolicyFromTableStruct(p *table.Policy) *Policy { 
+   fmt.Print("<<<DEJDEJ id:2196, grpc_server.go:NewAPIPolicyFromTableStruct(p>>>")
 	return toPolicyApi(p.ToConfig())
 }
 
 func toPolicyApi(p *config.PolicyDefinition) *Policy { 
+   fmt.Print("<<<DEJDEJ id:2197, grpc_server.go:toPolicyApi(p>>>")
 	return &Policy{
 		Name: p.Name,
 		Statements: func() []*Statement {
@@ -2129,6 +2225,7 @@ func toPolicyApi(p *config.PolicyDefinition) *Policy {
 }
 
 func NewAPIPolicyAssignmentFromTableStruct(t *table.PolicyAssignment) *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:2198, grpc_server.go:NewAPIPolicyAssignmentFromTableStruct(t>>>")
 	return &PolicyAssignment{
 		Type: func() PolicyType {
 			switch t.Type {
@@ -2169,6 +2266,7 @@ func NewAPIPolicyAssignmentFromTableStruct(t *table.PolicyAssignment) *PolicyAss
 }
 
 func NewPolicyFromApiStruct(a *Policy) (*table.Policy, error) { 
+   fmt.Print("<<<DEJDEJ id:2199, grpc_server.go:NewPolicyFromApiStruct(a>>>")
 	if a.Name == "" {
 		return nil, fmt.Errorf("empty policy name")
 	}
@@ -2190,6 +2288,7 @@ func NewPolicyFromApiStruct(a *Policy) (*table.Policy, error) {
 }
 
 func NewRoaListFromTableStructList(origin []*table.ROA) []*Roa { 
+   fmt.Print("<<<DEJDEJ id:2200, grpc_server.go:NewRoaListFromTableStructList(origin>>>")
 	l := make([]*Roa, 0)
 	for _, r := range origin {
 		host, port, _ := net.SplitHostPort(r.Src)
@@ -2208,6 +2307,7 @@ func NewRoaListFromTableStructList(origin []*table.ROA) []*Roa {
 }
 
 func (s *Server) GetPolicy(ctx context.Context, arg *GetPolicyRequest) (*GetPolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2201, grpc_server.go:GetPolicy>>>")
 	l := make([]*Policy, 0)
 	for _, p := range s.bgpServer.GetPolicy() {
 		l = append(l, toPolicyApi(p))
@@ -2216,6 +2316,7 @@ func (s *Server) GetPolicy(ctx context.Context, arg *GetPolicyRequest) (*GetPoli
 }
 
 func (s *Server) AddPolicy(ctx context.Context, arg *AddPolicyRequest) (*AddPolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2202, grpc_server.go:AddPolicy>>>")
 	if arg == nil || arg.Policy == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2227,6 +2328,7 @@ func (s *Server) AddPolicy(ctx context.Context, arg *AddPolicyRequest) (*AddPoli
 }
 
 func (s *Server) DeletePolicy(ctx context.Context, arg *DeletePolicyRequest) (*DeletePolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2203, grpc_server.go:DeletePolicy>>>")
 	if arg == nil || arg.Policy == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2238,6 +2340,7 @@ func (s *Server) DeletePolicy(ctx context.Context, arg *DeletePolicyRequest) (*D
 }
 
 func (s *Server) ReplacePolicy(ctx context.Context, arg *ReplacePolicyRequest) (*ReplacePolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2204, grpc_server.go:ReplacePolicy>>>")
 	if arg == nil || arg.Policy == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2249,6 +2352,7 @@ func (s *Server) ReplacePolicy(ctx context.Context, arg *ReplacePolicyRequest) (
 }
 
 func toPolicyAssignmentName(a *PolicyAssignment) (string, table.PolicyDirection, error) { 
+   fmt.Print("<<<DEJDEJ id:2205, grpc_server.go:toPolicyAssignmentName(a>>>")
 	switch a.Resource {
 	case Resource_GLOBAL:
 		switch a.Type {
@@ -2277,6 +2381,7 @@ func toPolicyAssignmentName(a *PolicyAssignment) (string, table.PolicyDirection,
 }
 
 func (s *Server) GetPolicyAssignment(ctx context.Context, arg *GetPolicyAssignmentRequest) (*GetPolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2206, grpc_server.go:GetPolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2306,6 +2411,7 @@ func (s *Server) GetPolicyAssignment(ctx context.Context, arg *GetPolicyAssignme
 }
 
 func defaultRouteType(d RouteAction) table.RouteType { 
+   fmt.Print("<<<DEJDEJ id:2207, grpc_server.go:defaultRouteType(d>>>")
 	switch d {
 	case RouteAction_ACCEPT:
 		return table.ROUTE_TYPE_ACCEPT
@@ -2317,6 +2423,7 @@ func defaultRouteType(d RouteAction) table.RouteType {
 }
 
 func toPolicyDefinition(policies []*Policy) []*config.PolicyDefinition { 
+   fmt.Print("<<<DEJDEJ id:2208, grpc_server.go:toPolicyDefinition(policies>>>")
 	l := make([]*config.PolicyDefinition, 0, len(policies))
 	for _, p := range policies {
 		l = append(l, &config.PolicyDefinition{Name: p.Name})
@@ -2325,6 +2432,7 @@ func toPolicyDefinition(policies []*Policy) []*config.PolicyDefinition {
 }
 
 func (s *Server) AddPolicyAssignment(ctx context.Context, arg *AddPolicyAssignmentRequest) (*AddPolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2209, grpc_server.go:AddPolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2336,6 +2444,7 @@ func (s *Server) AddPolicyAssignment(ctx context.Context, arg *AddPolicyAssignme
 }
 
 func (s *Server) DeletePolicyAssignment(ctx context.Context, arg *DeletePolicyAssignmentRequest) (*DeletePolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2210, grpc_server.go:DeletePolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2347,6 +2456,7 @@ func (s *Server) DeletePolicyAssignment(ctx context.Context, arg *DeletePolicyAs
 }
 
 func (s *Server) ReplacePolicyAssignment(ctx context.Context, arg *ReplacePolicyAssignmentRequest) (*ReplacePolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2211, grpc_server.go:ReplacePolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2358,6 +2468,7 @@ func (s *Server) ReplacePolicyAssignment(ctx context.Context, arg *ReplacePolicy
 }
 
 func (s *Server) GetServer(ctx context.Context, arg *GetServerRequest) (*GetServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2212, grpc_server.go:GetServer>>>")
 	g := s.bgpServer.GetServer()
 	return &GetServerResponse{
 		Global: &Global{
@@ -2371,6 +2482,7 @@ func (s *Server) GetServer(ctx context.Context, arg *GetServerRequest) (*GetServ
 }
 
 func (s *Server) StartServer(ctx context.Context, arg *StartServerRequest) (*StartServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2213, grpc_server.go:StartServer>>>")
 	if arg == nil || arg.Global == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2411,10 +2523,12 @@ func (s *Server) StartServer(ctx context.Context, arg *StartServerRequest) (*Sta
 }
 
 func (s *Server) StopServer(ctx context.Context, arg *StopServerRequest) (*StopServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2214, grpc_server.go:StopServer>>>")
 	return &StopServerResponse{}, s.bgpServer.Stop()
 }
 
 func (s *Server) GetRibInfo(ctx context.Context, arg *GetRibInfoRequest) (*GetRibInfoResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2215, grpc_server.go:GetRibInfo>>>")
 	if arg == nil || arg.Info == nil {
 		return nil, fmt.Errorf("invalid request")
 	}

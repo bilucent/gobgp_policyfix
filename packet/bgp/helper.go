@@ -21,6 +21,7 @@ import (
 )
 
 func NewTestBGPOpenMessage() *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3159, helper.go:NewTestBGPOpenMessage()>>>")
 	p1 := NewOptionParameterCapability(
 		[]ParameterCapabilityInterface{NewCapRouteRefresh()})
 	p2 := NewOptionParameterCapability(
@@ -38,6 +39,7 @@ func NewTestBGPOpenMessage() *BGPMessage {
 }
 
 func NewTestBGPUpdateMessage() *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3160, helper.go:NewTestBGPUpdateMessage()>>>")
 	w1 := NewIPAddrPrefix(23, "121.1.3.2")
 	w2 := NewIPAddrPrefix(17, "100.33.3.0")
 	w := []*IPAddrPrefix{w1, w2}

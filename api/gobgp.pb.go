@@ -279,6 +279,7 @@ var Family_value = map[string]int32{
 }
 
 func (x Family) String() string { 
+   fmt.Print("<<<DEJDEJ id:1394, gobgp.pb.go:String>>>")
 	return proto.EnumName(Family_name, int32(x))
 }
 return fileDescriptor0, []int{0} }
@@ -309,6 +310,7 @@ var Resource_value = map[string]int32{
 }
 
 func (x Resource) String() string { 
+   fmt.Print("<<<DEJDEJ id:1395, gobgp.pb.go:String>>>")
 	return proto.EnumName(Resource_name, int32(x))
 }
 return fileDescriptor0, []int{1} }
@@ -334,6 +336,7 @@ var TableLookupOption_value = map[string]int32{
 }
 
 func (x TableLookupOption) String() string { 
+   fmt.Print("<<<DEJDEJ id:1396, gobgp.pb.go:String>>>")
 	return proto.EnumName(TableLookupOption_name, int32(x))
 }
 return fileDescriptor0, []int{2} }
@@ -370,6 +373,7 @@ var DefinedType_value = map[string]int32{
 }
 
 func (x DefinedType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1397, gobgp.pb.go:String>>>")
 	return proto.EnumName(DefinedType_name, int32(x))
 }
 return fileDescriptor0, []int{3} }
@@ -394,6 +398,7 @@ var MatchType_value = map[string]int32{
 }
 
 func (x MatchType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1398, gobgp.pb.go:String>>>")
 	return proto.EnumName(MatchType_name, int32(x))
 }
 return fileDescriptor0, []int{4} }
@@ -418,6 +423,7 @@ var AsPathLengthType_value = map[string]int32{
 }
 
 func (x AsPathLengthType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1399, gobgp.pb.go:String>>>")
 	return proto.EnumName(AsPathLengthType_name, int32(x))
 }
 return fileDescriptor0, []int{5} }
@@ -442,6 +448,7 @@ var RouteAction_value = map[string]int32{
 }
 
 func (x RouteAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1400, gobgp.pb.go:String>>>")
 	return proto.EnumName(RouteAction_name, int32(x))
 }
 return fileDescriptor0, []int{6} }
@@ -466,6 +473,7 @@ var CommunityActionType_value = map[string]int32{
 }
 
 func (x CommunityActionType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1401, gobgp.pb.go:String>>>")
 	return proto.EnumName(CommunityActionType_name, int32(x))
 }
 return fileDescriptor0, []int{7} }
@@ -487,6 +495,7 @@ var MedActionType_value = map[string]int32{
 }
 
 func (x MedActionType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1402, gobgp.pb.go:String>>>")
 	return proto.EnumName(MedActionType_name, int32(x))
 }
 return fileDescriptor0, []int{8} }
@@ -511,6 +520,7 @@ var PolicyType_value = map[string]int32{
 }
 
 func (x PolicyType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1403, gobgp.pb.go:String>>>")
 	return proto.EnumName(PolicyType_name, int32(x))
 }
 return fileDescriptor0, []int{9} }
@@ -535,9 +545,11 @@ var SoftResetNeighborRequest_SoftResetDirection_value = map[string]int32{
 }
 
 func (x SoftResetNeighborRequest_SoftResetDirection) String() string { 
+   fmt.Print("<<<DEJDEJ id:1404, gobgp.pb.go:String>>>")
 	return proto.EnumName(SoftResetNeighborRequest_SoftResetDirection_name, int32(x))
 }
 func (SoftResetNeighborRequest_SoftResetDirection) EnumDescriptor() ([]byte, []int) { 
+   fmt.Print("<<<DEJDEJ id:1405, gobgp.pb.go:>>>")
 	return fileDescriptor0, []int{13, 0}
 }
 
@@ -567,9 +579,11 @@ var AddBmpRequest_MonitoringPolicy_value = map[string]int32{
 }
 
 func (x AddBmpRequest_MonitoringPolicy) String() string { 
+   fmt.Print("<<<DEJDEJ id:1406, gobgp.pb.go:String>>>")
 	return proto.EnumName(AddBmpRequest_MonitoringPolicy_name, int32(x))
 }
 func (AddBmpRequest_MonitoringPolicy) EnumDescriptor() ([]byte, []int) { 
+   fmt.Print("<<<DEJDEJ id:1407, gobgp.pb.go:>>>")
 	return fileDescriptor0, []int{27, 0}
 }
 
@@ -596,6 +610,7 @@ var RPKIValidation_State_value = map[string]int32{
 }
 
 func (x RPKIValidation_State) String() string { 
+   fmt.Print("<<<DEJDEJ id:1408, gobgp.pb.go:String>>>")
 	return proto.EnumName(RPKIValidation_State_name, int32(x))
 }
 return fileDescriptor0, []int{95, 0} }
@@ -620,6 +635,7 @@ var RPKIValidation_Reason_value = map[string]int32{
 }
 
 func (x RPKIValidation_Reason) String() string { 
+   fmt.Print("<<<DEJDEJ id:1409, gobgp.pb.go:String>>>")
 	return proto.EnumName(RPKIValidation_Reason_name, int32(x))
 }
 return fileDescriptor0, []int{95, 1} }
@@ -644,9 +660,11 @@ var PeerConf_RemovePrivateAs_value = map[string]int32{
 }
 
 func (x PeerConf_RemovePrivateAs) String() string { 
+   fmt.Print("<<<DEJDEJ id:1410, gobgp.pb.go:String>>>")
 	return proto.EnumName(PeerConf_RemovePrivateAs_name, int32(x))
 }
 func (PeerConf_RemovePrivateAs) EnumDescriptor() ([]byte, []int) { 
+   fmt.Print("<<<DEJDEJ id:1411, gobgp.pb.go:>>>")
 	return fileDescriptor0, []int{108, 0}
 }
 
@@ -670,6 +688,7 @@ var PeerState_AdminState_value = map[string]int32{
 }
 
 func (x PeerState_AdminState) String() string { 
+   fmt.Print("<<<DEJDEJ id:1412, gobgp.pb.go:String>>>")
 	return proto.EnumName(PeerState_AdminState_name, int32(x))
 }
 return fileDescriptor0, []int{111, 0} }
@@ -697,6 +716,7 @@ var Conditions_RouteType_value = map[string]int32{
 }
 
 func (x Conditions_RouteType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1413, gobgp.pb.go:String>>>")
 	return proto.EnumName(Conditions_RouteType_name, int32(x))
 }
 return fileDescriptor0, []int{152, 0} }
@@ -712,6 +732,7 @@ func (*GetNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{0} }
 
 func (m *GetNeighborRequest) GetEnableAdvertised() bool { 
+   fmt.Print("<<<DEJDEJ id:1415, gobgp.pb.go:GetEnableAdvertised>>>")
 	if m != nil {
 		return m.EnableAdvertised
 	}
@@ -719,6 +740,7 @@ func (m *GetNeighborRequest) GetEnableAdvertised() bool {
 }
 
 func (m *GetNeighborRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1416, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -735,6 +757,7 @@ func (*GetNeighborResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{1} }
 
 func (m *GetNeighborResponse) GetPeers() []*Peer { 
+   fmt.Print("<<<DEJDEJ id:1418, gobgp.pb.go:GetPeers>>>")
 	if m != nil {
 		return m.Peers
 	}
@@ -754,6 +777,7 @@ func (*Arguments) ProtoMessage()               {}
 return fileDescriptor0, []int{2} }
 
 func (m *Arguments) GetResource() Resource { 
+   fmt.Print("<<<DEJDEJ id:1420, gobgp.pb.go:GetResource>>>")
 	if m != nil {
 		return m.Resource
 	}
@@ -761,6 +785,7 @@ func (m *Arguments) GetResource() Resource {
 }
 
 func (m *Arguments) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1421, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -768,6 +793,7 @@ func (m *Arguments) GetFamily() uint32 {
 }
 
 func (m *Arguments) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1422, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -775,6 +801,7 @@ func (m *Arguments) GetName() string {
 }
 
 func (m *Arguments) GetCurrent() bool { 
+   fmt.Print("<<<DEJDEJ id:1423, gobgp.pb.go:GetCurrent>>>")
 	if m != nil {
 		return m.Current
 	}
@@ -793,6 +820,7 @@ func (*AddPathRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{3} }
 
 func (m *AddPathRequest) GetResource() Resource { 
+   fmt.Print("<<<DEJDEJ id:1425, gobgp.pb.go:GetResource>>>")
 	if m != nil {
 		return m.Resource
 	}
@@ -800,6 +828,7 @@ func (m *AddPathRequest) GetResource() Resource {
 }
 
 func (m *AddPathRequest) GetVrfId() string { 
+   fmt.Print("<<<DEJDEJ id:1426, gobgp.pb.go:GetVrfId>>>")
 	if m != nil {
 		return m.VrfId
 	}
@@ -807,6 +836,7 @@ func (m *AddPathRequest) GetVrfId() string {
 }
 
 func (m *AddPathRequest) GetPath() *Path { 
+   fmt.Print("<<<DEJDEJ id:1427, gobgp.pb.go:GetPath>>>")
 	if m != nil {
 		return m.Path
 	}
@@ -823,6 +853,7 @@ func (*AddPathResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{4} }
 
 func (m *AddPathResponse) GetUuid() []byte { 
+   fmt.Print("<<<DEJDEJ id:1429, gobgp.pb.go:GetUuid>>>")
 	if m != nil {
 		return m.Uuid
 	}
@@ -843,6 +874,7 @@ func (*DeletePathRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{5} }
 
 func (m *DeletePathRequest) GetResource() Resource { 
+   fmt.Print("<<<DEJDEJ id:1431, gobgp.pb.go:GetResource>>>")
 	if m != nil {
 		return m.Resource
 	}
@@ -850,6 +882,7 @@ func (m *DeletePathRequest) GetResource() Resource {
 }
 
 func (m *DeletePathRequest) GetVrfId() string { 
+   fmt.Print("<<<DEJDEJ id:1432, gobgp.pb.go:GetVrfId>>>")
 	if m != nil {
 		return m.VrfId
 	}
@@ -857,6 +890,7 @@ func (m *DeletePathRequest) GetVrfId() string {
 }
 
 func (m *DeletePathRequest) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1433, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -864,6 +898,7 @@ func (m *DeletePathRequest) GetFamily() uint32 {
 }
 
 func (m *DeletePathRequest) GetPath() *Path { 
+   fmt.Print("<<<DEJDEJ id:1434, gobgp.pb.go:GetPath>>>")
 	if m != nil {
 		return m.Path
 	}
@@ -871,6 +906,7 @@ func (m *DeletePathRequest) GetPath() *Path {
 }
 
 func (m *DeletePathRequest) GetUuid() []byte { 
+   fmt.Print("<<<DEJDEJ id:1435, gobgp.pb.go:GetUuid>>>")
 	if m != nil {
 		return m.Uuid
 	}
@@ -895,6 +931,7 @@ func (*AddNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{7} }
 
 func (m *AddNeighborRequest) GetPeer() *Peer { 
+   fmt.Print("<<<DEJDEJ id:1438, gobgp.pb.go:GetPeer>>>")
 	if m != nil {
 		return m.Peer
 	}
@@ -919,6 +956,7 @@ func (*DeleteNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{9} }
 
 func (m *DeleteNeighborRequest) GetPeer() *Peer { 
+   fmt.Print("<<<DEJDEJ id:1441, gobgp.pb.go:GetPeer>>>")
 	if m != nil {
 		return m.Peer
 	}
@@ -944,6 +982,7 @@ func (*ResetNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{11} }
 
 func (m *ResetNeighborRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1444, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -951,6 +990,7 @@ func (m *ResetNeighborRequest) GetAddress() string {
 }
 
 func (m *ResetNeighborRequest) GetCommunication() string { 
+   fmt.Print("<<<DEJDEJ id:1445, gobgp.pb.go:GetCommunication>>>")
 	if m != nil {
 		return m.Communication
 	}
@@ -976,6 +1016,7 @@ func (*SoftResetNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{13} }
 
 func (m *SoftResetNeighborRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1448, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -983,6 +1024,7 @@ func (m *SoftResetNeighborRequest) GetAddress() string {
 }
 
 func (m *SoftResetNeighborRequest) GetDirection() SoftResetNeighborRequest_SoftResetDirection { 
+   fmt.Print("<<<DEJDEJ id:1449, gobgp.pb.go:GetDirection>>>")
 	if m != nil {
 		return m.Direction
 	}
@@ -1008,6 +1050,7 @@ func (*ShutdownNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{15} }
 
 func (m *ShutdownNeighborRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1452, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1015,6 +1058,7 @@ func (m *ShutdownNeighborRequest) GetAddress() string {
 }
 
 func (m *ShutdownNeighborRequest) GetCommunication() string { 
+   fmt.Print("<<<DEJDEJ id:1453, gobgp.pb.go:GetCommunication>>>")
 	if m != nil {
 		return m.Communication
 	}
@@ -1039,6 +1083,7 @@ func (*EnableNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{17} }
 
 func (m *EnableNeighborRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1456, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1064,6 +1109,7 @@ func (*DisableNeighborRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{19} }
 
 func (m *DisableNeighborRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1459, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1071,6 +1117,7 @@ func (m *DisableNeighborRequest) GetAddress() string {
 }
 
 func (m *DisableNeighborRequest) GetCommunication() string { 
+   fmt.Print("<<<DEJDEJ id:1460, gobgp.pb.go:GetCommunication>>>")
 	if m != nil {
 		return m.Communication
 	}
@@ -1097,6 +1144,7 @@ func (*EnableMrtRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{21} }
 
 func (m *EnableMrtRequest) GetDumpType() int32 { 
+   fmt.Print("<<<DEJDEJ id:1463, gobgp.pb.go:GetDumpType>>>")
 	if m != nil {
 		return m.DumpType
 	}
@@ -1104,6 +1152,7 @@ func (m *EnableMrtRequest) GetDumpType() int32 {
 }
 
 func (m *EnableMrtRequest) GetFilename() string { 
+   fmt.Print("<<<DEJDEJ id:1464, gobgp.pb.go:GetFilename>>>")
 	if m != nil {
 		return m.Filename
 	}
@@ -1111,6 +1160,7 @@ func (m *EnableMrtRequest) GetFilename() string {
 }
 
 func (m *EnableMrtRequest) GetInterval() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1465, gobgp.pb.go:GetInterval>>>")
 	if m != nil {
 		return m.Interval
 	}
@@ -1153,6 +1203,7 @@ func (*InjectMrtRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{25} }
 
 func (m *InjectMrtRequest) GetResource() Resource { 
+   fmt.Print("<<<DEJDEJ id:1470, gobgp.pb.go:GetResource>>>")
 	if m != nil {
 		return m.Resource
 	}
@@ -1160,6 +1211,7 @@ func (m *InjectMrtRequest) GetResource() Resource {
 }
 
 func (m *InjectMrtRequest) GetVrfId() string { 
+   fmt.Print("<<<DEJDEJ id:1471, gobgp.pb.go:GetVrfId>>>")
 	if m != nil {
 		return m.VrfId
 	}
@@ -1167,6 +1219,7 @@ func (m *InjectMrtRequest) GetVrfId() string {
 }
 
 func (m *InjectMrtRequest) GetPaths() []*Path { 
+   fmt.Print("<<<DEJDEJ id:1472, gobgp.pb.go:GetPaths>>>")
 	if m != nil {
 		return m.Paths
 	}
@@ -1193,6 +1246,7 @@ func (*AddBmpRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{27} }
 
 func (m *AddBmpRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1475, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1200,6 +1254,7 @@ func (m *AddBmpRequest) GetAddress() string {
 }
 
 func (m *AddBmpRequest) GetPort() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1476, gobgp.pb.go:GetPort>>>")
 	if m != nil {
 		return m.Port
 	}
@@ -1207,6 +1262,7 @@ func (m *AddBmpRequest) GetPort() uint32 {
 }
 
 func (m *AddBmpRequest) GetType() AddBmpRequest_MonitoringPolicy { 
+   fmt.Print("<<<DEJDEJ id:1477, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -1232,6 +1288,7 @@ func (*DeleteBmpRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{29} }
 
 func (m *DeleteBmpRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1480, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1239,6 +1296,7 @@ func (m *DeleteBmpRequest) GetAddress() string {
 }
 
 func (m *DeleteBmpRequest) GetPort() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1481, gobgp.pb.go:GetPort>>>")
 	if m != nil {
 		return m.Port
 	}
@@ -1264,6 +1322,7 @@ func (*MonitorRibRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{31} }
 
 func (m *MonitorRibRequest) GetTable() *Table { 
+   fmt.Print("<<<DEJDEJ id:1484, gobgp.pb.go:GetTable>>>")
 	if m != nil {
 		return m.Table
 	}
@@ -1271,6 +1330,7 @@ func (m *MonitorRibRequest) GetTable() *Table {
 }
 
 func (m *MonitorRibRequest) GetCurrent() bool { 
+   fmt.Print("<<<DEJDEJ id:1485, gobgp.pb.go:GetCurrent>>>")
 	if m != nil {
 		return m.Current
 	}
@@ -1288,6 +1348,7 @@ func (*RPKIConf) ProtoMessage()               {}
 return fileDescriptor0, []int{32} }
 
 func (m *RPKIConf) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1487, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1295,6 +1356,7 @@ func (m *RPKIConf) GetAddress() string {
 }
 
 func (m *RPKIConf) GetRemotePort() string { 
+   fmt.Print("<<<DEJDEJ id:1488, gobgp.pb.go:GetRemotePort>>>")
 	if m != nil {
 		return m.RemotePort
 	}
@@ -1327,6 +1389,7 @@ func (*RPKIState) ProtoMessage()               {}
 return fileDescriptor0, []int{33} }
 
 func (m *RPKIState) GetUptime() int64 { 
+   fmt.Print("<<<DEJDEJ id:1490, gobgp.pb.go:GetUptime>>>")
 	if m != nil {
 		return m.Uptime
 	}
@@ -1334,6 +1397,7 @@ func (m *RPKIState) GetUptime() int64 {
 }
 
 func (m *RPKIState) GetDowntime() int64 { 
+   fmt.Print("<<<DEJDEJ id:1491, gobgp.pb.go:GetDowntime>>>")
 	if m != nil {
 		return m.Downtime
 	}
@@ -1341,6 +1405,7 @@ func (m *RPKIState) GetDowntime() int64 {
 }
 
 func (m *RPKIState) GetUp() bool { 
+   fmt.Print("<<<DEJDEJ id:1492, gobgp.pb.go:GetUp>>>")
 	if m != nil {
 		return m.Up
 	}
@@ -1348,6 +1413,7 @@ func (m *RPKIState) GetUp() bool {
 }
 
 func (m *RPKIState) GetRecordIpv4() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1493, gobgp.pb.go:GetRecordIpv4>>>")
 	if m != nil {
 		return m.RecordIpv4
 	}
@@ -1355,6 +1421,7 @@ func (m *RPKIState) GetRecordIpv4() uint32 {
 }
 
 func (m *RPKIState) GetRecordIpv6() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1494, gobgp.pb.go:GetRecordIpv6>>>")
 	if m != nil {
 		return m.RecordIpv6
 	}
@@ -1362,6 +1429,7 @@ func (m *RPKIState) GetRecordIpv6() uint32 {
 }
 
 func (m *RPKIState) GetPrefixIpv4() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1495, gobgp.pb.go:GetPrefixIpv4>>>")
 	if m != nil {
 		return m.PrefixIpv4
 	}
@@ -1369,6 +1437,7 @@ func (m *RPKIState) GetPrefixIpv4() uint32 {
 }
 
 func (m *RPKIState) GetPrefixIpv6() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1496, gobgp.pb.go:GetPrefixIpv6>>>")
 	if m != nil {
 		return m.PrefixIpv6
 	}
@@ -1376,6 +1445,7 @@ func (m *RPKIState) GetPrefixIpv6() uint32 {
 }
 
 func (m *RPKIState) GetSerial() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1497, gobgp.pb.go:GetSerial>>>")
 	if m != nil {
 		return m.Serial
 	}
@@ -1383,6 +1453,7 @@ func (m *RPKIState) GetSerial() uint32 {
 }
 
 func (m *RPKIState) GetReceivedIpv4() int64 { 
+   fmt.Print("<<<DEJDEJ id:1498, gobgp.pb.go:GetReceivedIpv4>>>")
 	if m != nil {
 		return m.ReceivedIpv4
 	}
@@ -1390,6 +1461,7 @@ func (m *RPKIState) GetReceivedIpv4() int64 {
 }
 
 func (m *RPKIState) GetReceivedIpv6() int64 { 
+   fmt.Print("<<<DEJDEJ id:1499, gobgp.pb.go:GetReceivedIpv6>>>")
 	if m != nil {
 		return m.ReceivedIpv6
 	}
@@ -1397,6 +1469,7 @@ func (m *RPKIState) GetReceivedIpv6() int64 {
 }
 
 func (m *RPKIState) GetSerialNotify() int64 { 
+   fmt.Print("<<<DEJDEJ id:1500, gobgp.pb.go:GetSerialNotify>>>")
 	if m != nil {
 		return m.SerialNotify
 	}
@@ -1404,6 +1477,7 @@ func (m *RPKIState) GetSerialNotify() int64 {
 }
 
 func (m *RPKIState) GetCacheReset() int64 { 
+   fmt.Print("<<<DEJDEJ id:1501, gobgp.pb.go:GetCacheReset>>>")
 	if m != nil {
 		return m.CacheReset
 	}
@@ -1411,6 +1485,7 @@ func (m *RPKIState) GetCacheReset() int64 {
 }
 
 func (m *RPKIState) GetCacheResponse() int64 { 
+   fmt.Print("<<<DEJDEJ id:1502, gobgp.pb.go:GetCacheResponse>>>")
 	if m != nil {
 		return m.CacheResponse
 	}
@@ -1418,6 +1493,7 @@ func (m *RPKIState) GetCacheResponse() int64 {
 }
 
 func (m *RPKIState) GetEndOfData() int64 { 
+   fmt.Print("<<<DEJDEJ id:1503, gobgp.pb.go:GetEndOfData>>>")
 	if m != nil {
 		return m.EndOfData
 	}
@@ -1425,6 +1501,7 @@ func (m *RPKIState) GetEndOfData() int64 {
 }
 
 func (m *RPKIState) GetError() int64 { 
+   fmt.Print("<<<DEJDEJ id:1504, gobgp.pb.go:GetError>>>")
 	if m != nil {
 		return m.Error
 	}
@@ -1432,6 +1509,7 @@ func (m *RPKIState) GetError() int64 {
 }
 
 func (m *RPKIState) GetSerialQuery() int64 { 
+   fmt.Print("<<<DEJDEJ id:1505, gobgp.pb.go:GetSerialQuery>>>")
 	if m != nil {
 		return m.SerialQuery
 	}
@@ -1439,6 +1517,7 @@ func (m *RPKIState) GetSerialQuery() int64 {
 }
 
 func (m *RPKIState) GetResetQuery() int64 { 
+   fmt.Print("<<<DEJDEJ id:1506, gobgp.pb.go:GetResetQuery>>>")
 	if m != nil {
 		return m.ResetQuery
 	}
@@ -1456,6 +1535,7 @@ func (*Rpki) ProtoMessage()               {}
 return fileDescriptor0, []int{34} }
 
 func (m *Rpki) GetConf() *RPKIConf { 
+   fmt.Print("<<<DEJDEJ id:1508, gobgp.pb.go:GetConf>>>")
 	if m != nil {
 		return m.Conf
 	}
@@ -1463,6 +1543,7 @@ func (m *Rpki) GetConf() *RPKIConf {
 }
 
 func (m *Rpki) GetState() *RPKIState { 
+   fmt.Print("<<<DEJDEJ id:1509, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -1479,6 +1560,7 @@ func (*GetRpkiRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{35} }
 
 func (m *GetRpkiRequest) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1511, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -1495,6 +1577,7 @@ func (*GetRpkiResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{36} }
 
 func (m *GetRpkiResponse) GetServers() []*Rpki { 
+   fmt.Print("<<<DEJDEJ id:1513, gobgp.pb.go:GetServers>>>")
 	if m != nil {
 		return m.Servers
 	}
@@ -1513,6 +1596,7 @@ func (*AddRpkiRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{37} }
 
 func (m *AddRpkiRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1515, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1520,6 +1604,7 @@ func (m *AddRpkiRequest) GetAddress() string {
 }
 
 func (m *AddRpkiRequest) GetPort() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1516, gobgp.pb.go:GetPort>>>")
 	if m != nil {
 		return m.Port
 	}
@@ -1527,6 +1612,7 @@ func (m *AddRpkiRequest) GetPort() uint32 {
 }
 
 func (m *AddRpkiRequest) GetLifetime() int64 { 
+   fmt.Print("<<<DEJDEJ id:1517, gobgp.pb.go:GetLifetime>>>")
 	if m != nil {
 		return m.Lifetime
 	}
@@ -1552,6 +1638,7 @@ func (*DeleteRpkiRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{39} }
 
 func (m *DeleteRpkiRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1520, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1559,6 +1646,7 @@ func (m *DeleteRpkiRequest) GetAddress() string {
 }
 
 func (m *DeleteRpkiRequest) GetPort() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1521, gobgp.pb.go:GetPort>>>")
 	if m != nil {
 		return m.Port
 	}
@@ -1583,6 +1671,7 @@ func (*EnableRpkiRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{41} }
 
 func (m *EnableRpkiRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1524, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1607,6 +1696,7 @@ func (*DisableRpkiRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{43} }
 
 func (m *DisableRpkiRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1527, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1631,6 +1721,7 @@ func (*ResetRpkiRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{45} }
 
 func (m *ResetRpkiRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1530, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1655,6 +1746,7 @@ func (*SoftResetRpkiRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{47} }
 
 func (m *SoftResetRpkiRequest) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1533, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -1683,6 +1775,7 @@ func (*EnableZebraRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{49} }
 
 func (m *EnableZebraRequest) GetUrl() string { 
+   fmt.Print("<<<DEJDEJ id:1536, gobgp.pb.go:GetUrl>>>")
 	if m != nil {
 		return m.Url
 	}
@@ -1690,6 +1783,7 @@ func (m *EnableZebraRequest) GetUrl() string {
 }
 
 func (m *EnableZebraRequest) GetRouteTypes() []string { 
+   fmt.Print("<<<DEJDEJ id:1537, gobgp.pb.go:GetRouteTypes>>>")
 	if m != nil {
 		return m.RouteTypes
 	}
@@ -1697,6 +1791,7 @@ func (m *EnableZebraRequest) GetRouteTypes() []string {
 }
 
 func (m *EnableZebraRequest) GetVersion() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1538, gobgp.pb.go:GetVersion>>>")
 	if m != nil {
 		return m.Version
 	}
@@ -1704,6 +1799,7 @@ func (m *EnableZebraRequest) GetVersion() uint32 {
 }
 
 func (m *EnableZebraRequest) GetNexthopTriggerEnable() bool { 
+   fmt.Print("<<<DEJDEJ id:1539, gobgp.pb.go:GetNexthopTriggerEnable>>>")
 	if m != nil {
 		return m.NexthopTriggerEnable
 	}
@@ -1711,6 +1807,7 @@ func (m *EnableZebraRequest) GetNexthopTriggerEnable() bool {
 }
 
 func (m *EnableZebraRequest) GetNexthopTriggerDelay() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1540, gobgp.pb.go:GetNexthopTriggerDelay>>>")
 	if m != nil {
 		return m.NexthopTriggerDelay
 	}
@@ -1743,6 +1840,7 @@ func (*GetVrfResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{52} }
 
 func (m *GetVrfResponse) GetVrfs() []*Vrf { 
+   fmt.Print("<<<DEJDEJ id:1544, gobgp.pb.go:GetVrfs>>>")
 	if m != nil {
 		return m.Vrfs
 	}
@@ -1759,6 +1857,7 @@ func (*AddVrfRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{53} }
 
 func (m *AddVrfRequest) GetVrf() *Vrf { 
+   fmt.Print("<<<DEJDEJ id:1546, gobgp.pb.go:GetVrf>>>")
 	if m != nil {
 		return m.Vrf
 	}
@@ -1783,6 +1882,7 @@ func (*DeleteVrfRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{55} }
 
 func (m *DeleteVrfRequest) GetVrf() *Vrf { 
+   fmt.Print("<<<DEJDEJ id:1549, gobgp.pb.go:GetVrf>>>")
 	if m != nil {
 		return m.Vrf
 	}
@@ -1808,6 +1908,7 @@ func (*GetDefinedSetRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{57} }
 
 func (m *GetDefinedSetRequest) GetType() DefinedType { 
+   fmt.Print("<<<DEJDEJ id:1552, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -1815,6 +1916,7 @@ func (m *GetDefinedSetRequest) GetType() DefinedType {
 }
 
 func (m *GetDefinedSetRequest) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1553, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -1831,6 +1933,7 @@ func (*GetDefinedSetResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{58} }
 
 func (m *GetDefinedSetResponse) GetSets() []*DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1555, gobgp.pb.go:GetSets>>>")
 	if m != nil {
 		return m.Sets
 	}
@@ -1847,6 +1950,7 @@ func (*AddDefinedSetRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{59} }
 
 func (m *AddDefinedSetRequest) GetSet() *DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1557, gobgp.pb.go:GetSet>>>")
 	if m != nil {
 		return m.Set
 	}
@@ -1872,6 +1976,7 @@ func (*DeleteDefinedSetRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{61} }
 
 func (m *DeleteDefinedSetRequest) GetSet() *DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1560, gobgp.pb.go:GetSet>>>")
 	if m != nil {
 		return m.Set
 	}
@@ -1879,6 +1984,7 @@ func (m *DeleteDefinedSetRequest) GetSet() *DefinedSet {
 }
 
 func (m *DeleteDefinedSetRequest) GetAll() bool { 
+   fmt.Print("<<<DEJDEJ id:1561, gobgp.pb.go:GetAll>>>")
 	if m != nil {
 		return m.All
 	}
@@ -1903,6 +2009,7 @@ func (*ReplaceDefinedSetRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{63} }
 
 func (m *ReplaceDefinedSetRequest) GetSet() *DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1564, gobgp.pb.go:GetSet>>>")
 	if m != nil {
 		return m.Set
 	}
@@ -1935,6 +2042,7 @@ func (*GetStatementResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{66} }
 
 func (m *GetStatementResponse) GetStatements() []*Statement { 
+   fmt.Print("<<<DEJDEJ id:1568, gobgp.pb.go:GetStatements>>>")
 	if m != nil {
 		return m.Statements
 	}
@@ -1951,6 +2059,7 @@ func (*AddStatementRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{67} }
 
 func (m *AddStatementRequest) GetStatement() *Statement { 
+   fmt.Print("<<<DEJDEJ id:1570, gobgp.pb.go:GetStatement>>>")
 	if m != nil {
 		return m.Statement
 	}
@@ -1976,6 +2085,7 @@ func (*DeleteStatementRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{69} }
 
 func (m *DeleteStatementRequest) GetStatement() *Statement { 
+   fmt.Print("<<<DEJDEJ id:1573, gobgp.pb.go:GetStatement>>>")
 	if m != nil {
 		return m.Statement
 	}
@@ -1983,6 +2093,7 @@ func (m *DeleteStatementRequest) GetStatement() *Statement {
 }
 
 func (m *DeleteStatementRequest) GetAll() bool { 
+   fmt.Print("<<<DEJDEJ id:1574, gobgp.pb.go:GetAll>>>")
 	if m != nil {
 		return m.All
 	}
@@ -2007,6 +2118,7 @@ func (*ReplaceStatementRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{71} }
 
 func (m *ReplaceStatementRequest) GetStatement() *Statement { 
+   fmt.Print("<<<DEJDEJ id:1577, gobgp.pb.go:GetStatement>>>")
 	if m != nil {
 		return m.Statement
 	}
@@ -2039,6 +2151,7 @@ func (*GetPolicyResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{74} }
 
 func (m *GetPolicyResponse) GetPolicies() []*Policy { 
+   fmt.Print("<<<DEJDEJ id:1581, gobgp.pb.go:GetPolicies>>>")
 	if m != nil {
 		return m.Policies
 	}
@@ -2058,6 +2171,7 @@ func (*AddPolicyRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{75} }
 
 func (m *AddPolicyRequest) GetPolicy() *Policy { 
+   fmt.Print("<<<DEJDEJ id:1583, gobgp.pb.go:GetPolicy>>>")
 	if m != nil {
 		return m.Policy
 	}
@@ -2065,6 +2179,7 @@ func (m *AddPolicyRequest) GetPolicy() *Policy {
 }
 
 func (m *AddPolicyRequest) GetReferExistingStatements() bool { 
+   fmt.Print("<<<DEJDEJ id:1584, gobgp.pb.go:GetReferExistingStatements>>>")
 	if m != nil {
 		return m.ReferExistingStatements
 	}
@@ -2093,6 +2208,7 @@ func (*DeletePolicyRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{77} }
 
 func (m *DeletePolicyRequest) GetPolicy() *Policy { 
+   fmt.Print("<<<DEJDEJ id:1587, gobgp.pb.go:GetPolicy>>>")
 	if m != nil {
 		return m.Policy
 	}
@@ -2100,6 +2216,7 @@ func (m *DeletePolicyRequest) GetPolicy() *Policy {
 }
 
 func (m *DeletePolicyRequest) GetPreserveStatements() bool { 
+   fmt.Print("<<<DEJDEJ id:1588, gobgp.pb.go:GetPreserveStatements>>>")
 	if m != nil {
 		return m.PreserveStatements
 	}
@@ -2107,6 +2224,7 @@ func (m *DeletePolicyRequest) GetPreserveStatements() bool {
 }
 
 func (m *DeletePolicyRequest) GetAll() bool { 
+   fmt.Print("<<<DEJDEJ id:1589, gobgp.pb.go:GetAll>>>")
 	if m != nil {
 		return m.All
 	}
@@ -2137,6 +2255,7 @@ func (*ReplacePolicyRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{79} }
 
 func (m *ReplacePolicyRequest) GetPolicy() *Policy { 
+   fmt.Print("<<<DEJDEJ id:1592, gobgp.pb.go:GetPolicy>>>")
 	if m != nil {
 		return m.Policy
 	}
@@ -2144,6 +2263,7 @@ func (m *ReplacePolicyRequest) GetPolicy() *Policy {
 }
 
 func (m *ReplacePolicyRequest) GetReferExistingStatements() bool { 
+   fmt.Print("<<<DEJDEJ id:1593, gobgp.pb.go:GetReferExistingStatements>>>")
 	if m != nil {
 		return m.ReferExistingStatements
 	}
@@ -2151,6 +2271,7 @@ func (m *ReplacePolicyRequest) GetReferExistingStatements() bool {
 }
 
 func (m *ReplacePolicyRequest) GetPreserveStatements() bool { 
+   fmt.Print("<<<DEJDEJ id:1594, gobgp.pb.go:GetPreserveStatements>>>")
 	if m != nil {
 		return m.PreserveStatements
 	}
@@ -2175,6 +2296,7 @@ func (*GetPolicyAssignmentRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{81} }
 
 func (m *GetPolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1597, gobgp.pb.go:GetAssignment>>>")
 	if m != nil {
 		return m.Assignment
 	}
@@ -2191,6 +2313,7 @@ func (*GetPolicyAssignmentResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{82} }
 
 func (m *GetPolicyAssignmentResponse) GetAssignment() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1599, gobgp.pb.go:GetAssignment>>>")
 	if m != nil {
 		return m.Assignment
 	}
@@ -2207,6 +2330,7 @@ func (*AddPolicyAssignmentRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{83} }
 
 func (m *AddPolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1601, gobgp.pb.go:GetAssignment>>>")
 	if m != nil {
 		return m.Assignment
 	}
@@ -2232,6 +2356,7 @@ func (*DeletePolicyAssignmentRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{85} }
 
 func (m *DeletePolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1604, gobgp.pb.go:GetAssignment>>>")
 	if m != nil {
 		return m.Assignment
 	}
@@ -2239,6 +2364,7 @@ func (m *DeletePolicyAssignmentRequest) GetAssignment() *PolicyAssignment {
 }
 
 func (m *DeletePolicyAssignmentRequest) GetAll() bool { 
+   fmt.Print("<<<DEJDEJ id:1605, gobgp.pb.go:GetAll>>>")
 	if m != nil {
 		return m.All
 	}
@@ -2263,6 +2389,7 @@ func (*ReplacePolicyAssignmentRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{87} }
 
 func (m *ReplacePolicyAssignmentRequest) GetAssignment() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1608, gobgp.pb.go:GetAssignment>>>")
 	if m != nil {
 		return m.Assignment
 	}
@@ -2276,6 +2403,7 @@ type ReplacePolicyAssignmentResponse struct {
 return proto.CompactTextString(m) }
 func (*ReplacePolicyAssignmentResponse) ProtoMessage()    {}
 func (*ReplacePolicyAssignmentResponse) Descriptor() ([]byte, []int) { 
+   fmt.Print("<<<DEJDEJ id:1610, gobgp.pb.go:>>>")
 	return fileDescriptor0, []int{88}
 }
 
@@ -2297,6 +2425,7 @@ func (*GetServerResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{90} }
 
 func (m *GetServerResponse) GetGlobal() *Global { 
+   fmt.Print("<<<DEJDEJ id:1613, gobgp.pb.go:GetGlobal>>>")
 	if m != nil {
 		return m.Global
 	}
@@ -2313,6 +2442,7 @@ func (*StartServerRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{91} }
 
 func (m *StartServerRequest) GetGlobal() *Global { 
+   fmt.Print("<<<DEJDEJ id:1615, gobgp.pb.go:GetGlobal>>>")
 	if m != nil {
 		return m.Global
 	}
@@ -2357,6 +2487,7 @@ func (*RPKIValidation) ProtoMessage()               {}
 return fileDescriptor0, []int{95} }
 
 func (m *RPKIValidation) GetState() RPKIValidation_State { 
+   fmt.Print("<<<DEJDEJ id:1620, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -2364,6 +2495,7 @@ func (m *RPKIValidation) GetState() RPKIValidation_State {
 }
 
 func (m *RPKIValidation) GetReason() RPKIValidation_Reason { 
+   fmt.Print("<<<DEJDEJ id:1621, gobgp.pb.go:GetReason>>>")
 	if m != nil {
 		return m.Reason
 	}
@@ -2371,6 +2503,7 @@ func (m *RPKIValidation) GetReason() RPKIValidation_Reason {
 }
 
 func (m *RPKIValidation) GetMatched() []*Roa { 
+   fmt.Print("<<<DEJDEJ id:1622, gobgp.pb.go:GetMatched>>>")
 	if m != nil {
 		return m.Matched
 	}
@@ -2378,6 +2511,7 @@ func (m *RPKIValidation) GetMatched() []*Roa {
 }
 
 func (m *RPKIValidation) GetUnmatchedAs() []*Roa { 
+   fmt.Print("<<<DEJDEJ id:1623, gobgp.pb.go:GetUnmatchedAs>>>")
 	if m != nil {
 		return m.UnmatchedAs
 	}
@@ -2385,6 +2519,7 @@ func (m *RPKIValidation) GetUnmatchedAs() []*Roa {
 }
 
 func (m *RPKIValidation) GetUnmatchedLength() []*Roa { 
+   fmt.Print("<<<DEJDEJ id:1624, gobgp.pb.go:GetUnmatchedLength>>>")
 	if m != nil {
 		return m.UnmatchedLength
 	}
@@ -2419,6 +2554,7 @@ func (*Path) ProtoMessage()               {}
 return fileDescriptor0, []int{96} }
 
 func (m *Path) GetNlri() []byte { 
+   fmt.Print("<<<DEJDEJ id:1626, gobgp.pb.go:GetNlri>>>")
 	if m != nil {
 		return m.Nlri
 	}
@@ -2426,6 +2562,7 @@ func (m *Path) GetNlri() []byte {
 }
 
 func (m *Path) GetPattrs() [][]byte { 
+   fmt.Print("<<<DEJDEJ id:1627, gobgp.pb.go:GetPattrs>>>")
 	if m != nil {
 		return m.Pattrs
 	}
@@ -2433,6 +2570,7 @@ func (m *Path) GetPattrs() [][]byte {
 }
 
 func (m *Path) GetAge() int64 { 
+   fmt.Print("<<<DEJDEJ id:1628, gobgp.pb.go:GetAge>>>")
 	if m != nil {
 		return m.Age
 	}
@@ -2440,6 +2578,7 @@ func (m *Path) GetAge() int64 {
 }
 
 func (m *Path) GetBest() bool { 
+   fmt.Print("<<<DEJDEJ id:1629, gobgp.pb.go:GetBest>>>")
 	if m != nil {
 		return m.Best
 	}
@@ -2447,6 +2586,7 @@ func (m *Path) GetBest() bool {
 }
 
 func (m *Path) GetIsWithdraw() bool { 
+   fmt.Print("<<<DEJDEJ id:1630, gobgp.pb.go:GetIsWithdraw>>>")
 	if m != nil {
 		return m.IsWithdraw
 	}
@@ -2454,6 +2594,7 @@ func (m *Path) GetIsWithdraw() bool {
 }
 
 func (m *Path) GetValidation() int32 { 
+   fmt.Print("<<<DEJDEJ id:1631, gobgp.pb.go:GetValidation>>>")
 	if m != nil {
 		return m.Validation
 	}
@@ -2461,6 +2602,7 @@ func (m *Path) GetValidation() int32 {
 }
 
 func (m *Path) GetValidationDetail() *RPKIValidation { 
+   fmt.Print("<<<DEJDEJ id:1632, gobgp.pb.go:GetValidationDetail>>>")
 	if m != nil {
 		return m.ValidationDetail
 	}
@@ -2468,6 +2610,7 @@ func (m *Path) GetValidationDetail() *RPKIValidation {
 }
 
 func (m *Path) GetNoImplicitWithdraw() bool { 
+   fmt.Print("<<<DEJDEJ id:1633, gobgp.pb.go:GetNoImplicitWithdraw>>>")
 	if m != nil {
 		return m.NoImplicitWithdraw
 	}
@@ -2475,6 +2618,7 @@ func (m *Path) GetNoImplicitWithdraw() bool {
 }
 
 func (m *Path) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1634, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -2482,6 +2626,7 @@ func (m *Path) GetFamily() uint32 {
 }
 
 func (m *Path) GetSourceAsn() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1635, gobgp.pb.go:GetSourceAsn>>>")
 	if m != nil {
 		return m.SourceAsn
 	}
@@ -2489,6 +2634,7 @@ func (m *Path) GetSourceAsn() uint32 {
 }
 
 func (m *Path) GetSourceId() string { 
+   fmt.Print("<<<DEJDEJ id:1636, gobgp.pb.go:GetSourceId>>>")
 	if m != nil {
 		return m.SourceId
 	}
@@ -2496,6 +2642,7 @@ func (m *Path) GetSourceId() string {
 }
 
 func (m *Path) GetFiltered() bool { 
+   fmt.Print("<<<DEJDEJ id:1637, gobgp.pb.go:GetFiltered>>>")
 	if m != nil {
 		return m.Filtered
 	}
@@ -2503,6 +2650,7 @@ func (m *Path) GetFiltered() bool {
 }
 
 func (m *Path) GetStale() bool { 
+   fmt.Print("<<<DEJDEJ id:1638, gobgp.pb.go:GetStale>>>")
 	if m != nil {
 		return m.Stale
 	}
@@ -2510,6 +2658,7 @@ func (m *Path) GetStale() bool {
 }
 
 func (m *Path) GetIsFromExternal() bool { 
+   fmt.Print("<<<DEJDEJ id:1639, gobgp.pb.go:GetIsFromExternal>>>")
 	if m != nil {
 		return m.IsFromExternal
 	}
@@ -2517,6 +2666,7 @@ func (m *Path) GetIsFromExternal() bool {
 }
 
 func (m *Path) GetNeighborIp() string { 
+   fmt.Print("<<<DEJDEJ id:1640, gobgp.pb.go:GetNeighborIp>>>")
 	if m != nil {
 		return m.NeighborIp
 	}
@@ -2524,6 +2674,7 @@ func (m *Path) GetNeighborIp() string {
 }
 
 func (m *Path) GetUuid() []byte { 
+   fmt.Print("<<<DEJDEJ id:1641, gobgp.pb.go:GetUuid>>>")
 	if m != nil {
 		return m.Uuid
 	}
@@ -2531,6 +2682,7 @@ func (m *Path) GetUuid() []byte {
 }
 
 func (m *Path) GetIsNexthopInvalid() bool { 
+   fmt.Print("<<<DEJDEJ id:1642, gobgp.pb.go:GetIsNexthopInvalid>>>")
 	if m != nil {
 		return m.IsNexthopInvalid
 	}
@@ -2538,6 +2690,7 @@ func (m *Path) GetIsNexthopInvalid() bool {
 }
 
 func (m *Path) GetIdentifier() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1643, gobgp.pb.go:GetIdentifier>>>")
 	if m != nil {
 		return m.Identifier
 	}
@@ -2545,6 +2698,7 @@ func (m *Path) GetIdentifier() uint32 {
 }
 
 func (m *Path) GetLocalIdentifier() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1644, gobgp.pb.go:GetLocalIdentifier>>>")
 	if m != nil {
 		return m.LocalIdentifier
 	}
@@ -2564,6 +2718,7 @@ func (*Destination) ProtoMessage()               {}
 return fileDescriptor0, []int{97} }
 
 func (m *Destination) GetPrefix() string { 
+   fmt.Print("<<<DEJDEJ id:1646, gobgp.pb.go:GetPrefix>>>")
 	if m != nil {
 		return m.Prefix
 	}
@@ -2571,6 +2726,7 @@ func (m *Destination) GetPrefix() string {
 }
 
 func (m *Destination) GetPaths() []*Path { 
+   fmt.Print("<<<DEJDEJ id:1647, gobgp.pb.go:GetPaths>>>")
 	if m != nil {
 		return m.Paths
 	}
@@ -2578,6 +2734,7 @@ func (m *Destination) GetPaths() []*Path {
 }
 
 func (m *Destination) GetLongerPrefixes() bool { 
+   fmt.Print("<<<DEJDEJ id:1648, gobgp.pb.go:GetLongerPrefixes>>>")
 	if m != nil {
 		return m.LongerPrefixes
 	}
@@ -2585,6 +2742,7 @@ func (m *Destination) GetLongerPrefixes() bool {
 }
 
 func (m *Destination) GetShorterPrefixes() bool { 
+   fmt.Print("<<<DEJDEJ id:1649, gobgp.pb.go:GetShorterPrefixes>>>")
 	if m != nil {
 		return m.ShorterPrefixes
 	}
@@ -2605,6 +2763,7 @@ func (*Table) ProtoMessage()               {}
 return fileDescriptor0, []int{98} }
 
 func (m *Table) GetType() Resource { 
+   fmt.Print("<<<DEJDEJ id:1651, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -2612,6 +2771,7 @@ func (m *Table) GetType() Resource {
 }
 
 func (m *Table) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1652, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -2619,6 +2779,7 @@ func (m *Table) GetName() string {
 }
 
 func (m *Table) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1653, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -2626,6 +2787,7 @@ func (m *Table) GetFamily() uint32 {
 }
 
 func (m *Table) GetDestinations() []*Destination { 
+   fmt.Print("<<<DEJDEJ id:1654, gobgp.pb.go:GetDestinations>>>")
 	if m != nil {
 		return m.Destinations
 	}
@@ -2633,6 +2795,7 @@ func (m *Table) GetDestinations() []*Destination {
 }
 
 func (m *Table) GetPostPolicy() bool { 
+   fmt.Print("<<<DEJDEJ id:1655, gobgp.pb.go:GetPostPolicy>>>")
 	if m != nil {
 		return m.PostPolicy
 	}
@@ -2649,6 +2812,7 @@ func (*GetRibRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{99} }
 
 func (m *GetRibRequest) GetTable() *Table { 
+   fmt.Print("<<<DEJDEJ id:1657, gobgp.pb.go:GetTable>>>")
 	if m != nil {
 		return m.Table
 	}
@@ -2665,6 +2829,7 @@ func (*GetRibResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{100} }
 
 func (m *GetRibResponse) GetTable() *Table { 
+   fmt.Print("<<<DEJDEJ id:1659, gobgp.pb.go:GetTable>>>")
 	if m != nil {
 		return m.Table
 	}
@@ -2683,6 +2848,7 @@ func (*TableLookupPrefix) ProtoMessage()               {}
 return fileDescriptor0, []int{101} }
 
 func (m *TableLookupPrefix) GetPrefix() string { 
+   fmt.Print("<<<DEJDEJ id:1661, gobgp.pb.go:GetPrefix>>>")
 	if m != nil {
 		return m.Prefix
 	}
@@ -2690,6 +2856,7 @@ func (m *TableLookupPrefix) GetPrefix() string {
 }
 
 func (m *TableLookupPrefix) GetLookupOption() TableLookupOption { 
+   fmt.Print("<<<DEJDEJ id:1662, gobgp.pb.go:GetLookupOption>>>")
 	if m != nil {
 		return m.LookupOption
 	}
@@ -2709,6 +2876,7 @@ func (*GetPathRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{102} }
 
 func (m *GetPathRequest) GetType() Resource { 
+   fmt.Print("<<<DEJDEJ id:1664, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -2716,6 +2884,7 @@ func (m *GetPathRequest) GetType() Resource {
 }
 
 func (m *GetPathRequest) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1665, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -2723,6 +2892,7 @@ func (m *GetPathRequest) GetName() string {
 }
 
 func (m *GetPathRequest) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1666, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -2730,6 +2900,7 @@ func (m *GetPathRequest) GetFamily() uint32 {
 }
 
 func (m *GetPathRequest) GetPrefixes() []*TableLookupPrefix { 
+   fmt.Print("<<<DEJDEJ id:1667, gobgp.pb.go:GetPrefixes>>>")
 	if m != nil {
 		return m.Prefixes
 	}
@@ -2748,6 +2919,7 @@ func (*ValidateRibRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{103} }
 
 func (m *ValidateRibRequest) GetType() Resource { 
+   fmt.Print("<<<DEJDEJ id:1669, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -2755,6 +2927,7 @@ func (m *ValidateRibRequest) GetType() Resource {
 }
 
 func (m *ValidateRibRequest) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1670, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -2762,6 +2935,7 @@ func (m *ValidateRibRequest) GetFamily() uint32 {
 }
 
 func (m *ValidateRibRequest) GetPrefix() string { 
+   fmt.Print("<<<DEJDEJ id:1671, gobgp.pb.go:GetPrefix>>>")
 	if m != nil {
 		return m.Prefix
 	}
@@ -2800,6 +2974,7 @@ func (*Peer) ProtoMessage()               {}
 return fileDescriptor0, []int{105} }
 
 func (m *Peer) GetFamilies() []uint32 { 
+   fmt.Print("<<<DEJDEJ id:1674, gobgp.pb.go:GetFamilies>>>")
 	if m != nil {
 		return m.Families
 	}
@@ -2807,6 +2982,7 @@ func (m *Peer) GetFamilies() []uint32 {
 }
 
 func (m *Peer) GetApplyPolicy() *ApplyPolicy { 
+   fmt.Print("<<<DEJDEJ id:1675, gobgp.pb.go:GetApplyPolicy>>>")
 	if m != nil {
 		return m.ApplyPolicy
 	}
@@ -2814,6 +2990,7 @@ func (m *Peer) GetApplyPolicy() *ApplyPolicy {
 }
 
 func (m *Peer) GetConf() *PeerConf { 
+   fmt.Print("<<<DEJDEJ id:1676, gobgp.pb.go:GetConf>>>")
 	if m != nil {
 		return m.Conf
 	}
@@ -2821,6 +2998,7 @@ func (m *Peer) GetConf() *PeerConf {
 }
 
 func (m *Peer) GetEbgpMultihop() *EbgpMultihop { 
+   fmt.Print("<<<DEJDEJ id:1677, gobgp.pb.go:GetEbgpMultihop>>>")
 	if m != nil {
 		return m.EbgpMultihop
 	}
@@ -2828,6 +3006,7 @@ func (m *Peer) GetEbgpMultihop() *EbgpMultihop {
 }
 
 func (m *Peer) GetRouteReflector() *RouteReflector { 
+   fmt.Print("<<<DEJDEJ id:1678, gobgp.pb.go:GetRouteReflector>>>")
 	if m != nil {
 		return m.RouteReflector
 	}
@@ -2835,6 +3014,7 @@ func (m *Peer) GetRouteReflector() *RouteReflector {
 }
 
 func (m *Peer) GetInfo() *PeerState { 
+   fmt.Print("<<<DEJDEJ id:1679, gobgp.pb.go:GetInfo>>>")
 	if m != nil {
 		return m.Info
 	}
@@ -2842,6 +3022,7 @@ func (m *Peer) GetInfo() *PeerState {
 }
 
 func (m *Peer) GetTimers() *Timers { 
+   fmt.Print("<<<DEJDEJ id:1680, gobgp.pb.go:GetTimers>>>")
 	if m != nil {
 		return m.Timers
 	}
@@ -2849,6 +3030,7 @@ func (m *Peer) GetTimers() *Timers {
 }
 
 func (m *Peer) GetTransport() *Transport { 
+   fmt.Print("<<<DEJDEJ id:1681, gobgp.pb.go:GetTransport>>>")
 	if m != nil {
 		return m.Transport
 	}
@@ -2856,6 +3038,7 @@ func (m *Peer) GetTransport() *Transport {
 }
 
 func (m *Peer) GetRouteServer() *RouteServer { 
+   fmt.Print("<<<DEJDEJ id:1682, gobgp.pb.go:GetRouteServer>>>")
 	if m != nil {
 		return m.RouteServer
 	}
@@ -2863,6 +3046,7 @@ func (m *Peer) GetRouteServer() *RouteServer {
 }
 
 func (m *Peer) GetGracefulRestart() *GracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:1683, gobgp.pb.go:GetGracefulRestart>>>")
 	if m != nil {
 		return m.GracefulRestart
 	}
@@ -2870,6 +3054,7 @@ func (m *Peer) GetGracefulRestart() *GracefulRestart {
 }
 
 func (m *Peer) GetAfiSafis() []*AfiSafi { 
+   fmt.Print("<<<DEJDEJ id:1684, gobgp.pb.go:GetAfiSafis>>>")
 	if m != nil {
 		return m.AfiSafis
 	}
@@ -2877,6 +3062,7 @@ func (m *Peer) GetAfiSafis() []*AfiSafi {
 }
 
 func (m *Peer) GetAddPaths() *AddPaths { 
+   fmt.Print("<<<DEJDEJ id:1685, gobgp.pb.go:GetAddPaths>>>")
 	if m != nil {
 		return m.AddPaths
 	}
@@ -2895,6 +3081,7 @@ func (*ApplyPolicy) ProtoMessage()               {}
 return fileDescriptor0, []int{106} }
 
 func (m *ApplyPolicy) GetInPolicy() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1687, gobgp.pb.go:GetInPolicy>>>")
 	if m != nil {
 		return m.InPolicy
 	}
@@ -2902,6 +3089,7 @@ func (m *ApplyPolicy) GetInPolicy() *PolicyAssignment {
 }
 
 func (m *ApplyPolicy) GetExportPolicy() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1688, gobgp.pb.go:GetExportPolicy>>>")
 	if m != nil {
 		return m.ExportPolicy
 	}
@@ -2909,6 +3097,7 @@ func (m *ApplyPolicy) GetExportPolicy() *PolicyAssignment {
 }
 
 func (m *ApplyPolicy) GetImportPolicy() *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:1689, gobgp.pb.go:GetImportPolicy>>>")
 	if m != nil {
 		return m.ImportPolicy
 	}
@@ -2927,6 +3116,7 @@ func (*PrefixLimit) ProtoMessage()               {}
 return fileDescriptor0, []int{107} }
 
 func (m *PrefixLimit) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1691, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -2934,6 +3124,7 @@ func (m *PrefixLimit) GetFamily() uint32 {
 }
 
 func (m *PrefixLimit) GetMaxPrefixes() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1692, gobgp.pb.go:GetMaxPrefixes>>>")
 	if m != nil {
 		return m.MaxPrefixes
 	}
@@ -2941,6 +3132,7 @@ func (m *PrefixLimit) GetMaxPrefixes() uint32 {
 }
 
 func (m *PrefixLimit) GetShutdownThresholdPct() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1693, gobgp.pb.go:GetShutdownThresholdPct>>>")
 	if m != nil {
 		return m.ShutdownThresholdPct
 	}
@@ -2978,6 +3170,7 @@ func (*PeerConf) ProtoMessage()               {}
 return fileDescriptor0, []int{108} }
 
 func (m *PeerConf) GetAuthPassword() string { 
+   fmt.Print("<<<DEJDEJ id:1695, gobgp.pb.go:GetAuthPassword>>>")
 	if m != nil {
 		return m.AuthPassword
 	}
@@ -2985,6 +3178,7 @@ func (m *PeerConf) GetAuthPassword() string {
 }
 
 func (m *PeerConf) GetDescription() string { 
+   fmt.Print("<<<DEJDEJ id:1696, gobgp.pb.go:GetDescription>>>")
 	if m != nil {
 		return m.Description
 	}
@@ -2992,6 +3186,7 @@ func (m *PeerConf) GetDescription() string {
 }
 
 func (m *PeerConf) GetLocalAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1697, gobgp.pb.go:GetLocalAs>>>")
 	if m != nil {
 		return m.LocalAs
 	}
@@ -2999,6 +3194,7 @@ func (m *PeerConf) GetLocalAs() uint32 {
 }
 
 func (m *PeerConf) GetNeighborAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1698, gobgp.pb.go:GetNeighborAddress>>>")
 	if m != nil {
 		return m.NeighborAddress
 	}
@@ -3006,6 +3202,7 @@ func (m *PeerConf) GetNeighborAddress() string {
 }
 
 func (m *PeerConf) GetPeerAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1699, gobgp.pb.go:GetPeerAs>>>")
 	if m != nil {
 		return m.PeerAs
 	}
@@ -3013,6 +3210,7 @@ func (m *PeerConf) GetPeerAs() uint32 {
 }
 
 func (m *PeerConf) GetPeerGroup() string { 
+   fmt.Print("<<<DEJDEJ id:1700, gobgp.pb.go:GetPeerGroup>>>")
 	if m != nil {
 		return m.PeerGroup
 	}
@@ -3020,6 +3218,7 @@ func (m *PeerConf) GetPeerGroup() string {
 }
 
 func (m *PeerConf) GetPeerType() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1701, gobgp.pb.go:GetPeerType>>>")
 	if m != nil {
 		return m.PeerType
 	}
@@ -3027,6 +3226,7 @@ func (m *PeerConf) GetPeerType() uint32 {
 }
 
 func (m *PeerConf) GetRemovePrivateAs() PeerConf_RemovePrivateAs { 
+   fmt.Print("<<<DEJDEJ id:1702, gobgp.pb.go:GetRemovePrivateAs>>>")
 	if m != nil {
 		return m.RemovePrivateAs
 	}
@@ -3034,6 +3234,7 @@ func (m *PeerConf) GetRemovePrivateAs() PeerConf_RemovePrivateAs {
 }
 
 func (m *PeerConf) GetRouteFlapDamping() bool { 
+   fmt.Print("<<<DEJDEJ id:1703, gobgp.pb.go:GetRouteFlapDamping>>>")
 	if m != nil {
 		return m.RouteFlapDamping
 	}
@@ -3041,6 +3242,7 @@ func (m *PeerConf) GetRouteFlapDamping() bool {
 }
 
 func (m *PeerConf) GetSendCommunity() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1704, gobgp.pb.go:GetSendCommunity>>>")
 	if m != nil {
 		return m.SendCommunity
 	}
@@ -3048,6 +3250,7 @@ func (m *PeerConf) GetSendCommunity() uint32 {
 }
 
 func (m *PeerConf) GetRemoteCap() [][]byte { 
+   fmt.Print("<<<DEJDEJ id:1705, gobgp.pb.go:GetRemoteCap>>>")
 	if m != nil {
 		return m.RemoteCap
 	}
@@ -3055,6 +3258,7 @@ func (m *PeerConf) GetRemoteCap() [][]byte {
 }
 
 func (m *PeerConf) GetLocalCap() [][]byte { 
+   fmt.Print("<<<DEJDEJ id:1706, gobgp.pb.go:GetLocalCap>>>")
 	if m != nil {
 		return m.LocalCap
 	}
@@ -3062,6 +3266,7 @@ func (m *PeerConf) GetLocalCap() [][]byte {
 }
 
 func (m *PeerConf) GetId() string { 
+   fmt.Print("<<<DEJDEJ id:1707, gobgp.pb.go:GetId>>>")
 	if m != nil {
 		return m.Id
 	}
@@ -3069,6 +3274,7 @@ func (m *PeerConf) GetId() string {
 }
 
 func (m *PeerConf) GetPrefixLimits() []*PrefixLimit { 
+   fmt.Print("<<<DEJDEJ id:1708, gobgp.pb.go:GetPrefixLimits>>>")
 	if m != nil {
 		return m.PrefixLimits
 	}
@@ -3076,6 +3282,7 @@ func (m *PeerConf) GetPrefixLimits() []*PrefixLimit {
 }
 
 func (m *PeerConf) GetLocalAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1709, gobgp.pb.go:GetLocalAddress>>>")
 	if m != nil {
 		return m.LocalAddress
 	}
@@ -3083,6 +3290,7 @@ func (m *PeerConf) GetLocalAddress() string {
 }
 
 func (m *PeerConf) GetNeighborInterface() string { 
+   fmt.Print("<<<DEJDEJ id:1710, gobgp.pb.go:GetNeighborInterface>>>")
 	if m != nil {
 		return m.NeighborInterface
 	}
@@ -3090,6 +3298,7 @@ func (m *PeerConf) GetNeighborInterface() string {
 }
 
 func (m *PeerConf) GetVrf() string { 
+   fmt.Print("<<<DEJDEJ id:1711, gobgp.pb.go:GetVrf>>>")
 	if m != nil {
 		return m.Vrf
 	}
@@ -3097,6 +3306,7 @@ func (m *PeerConf) GetVrf() string {
 }
 
 func (m *PeerConf) GetAllowOwnAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1712, gobgp.pb.go:GetAllowOwnAs>>>")
 	if m != nil {
 		return m.AllowOwnAs
 	}
@@ -3104,6 +3314,7 @@ func (m *PeerConf) GetAllowOwnAs() uint32 {
 }
 
 func (m *PeerConf) GetReplacePeerAs() bool { 
+   fmt.Print("<<<DEJDEJ id:1713, gobgp.pb.go:GetReplacePeerAs>>>")
 	if m != nil {
 		return m.ReplacePeerAs
 	}
@@ -3121,6 +3332,7 @@ func (*EbgpMultihop) ProtoMessage()               {}
 return fileDescriptor0, []int{109} }
 
 func (m *EbgpMultihop) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1715, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -3128,6 +3340,7 @@ func (m *EbgpMultihop) GetEnabled() bool {
 }
 
 func (m *EbgpMultihop) GetMultihopTtl() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1716, gobgp.pb.go:GetMultihopTtl>>>")
 	if m != nil {
 		return m.MultihopTtl
 	}
@@ -3145,6 +3358,7 @@ func (*RouteReflector) ProtoMessage()               {}
 return fileDescriptor0, []int{110} }
 
 func (m *RouteReflector) GetRouteReflectorClient() bool { 
+   fmt.Print("<<<DEJDEJ id:1718, gobgp.pb.go:GetRouteReflectorClient>>>")
 	if m != nil {
 		return m.RouteReflectorClient
 	}
@@ -3152,6 +3366,7 @@ func (m *RouteReflector) GetRouteReflectorClient() bool {
 }
 
 func (m *RouteReflector) GetRouteReflectorClusterId() string { 
+   fmt.Print("<<<DEJDEJ id:1719, gobgp.pb.go:GetRouteReflectorClusterId>>>")
 	if m != nil {
 		return m.RouteReflectorClusterId
 	}
@@ -3188,6 +3403,7 @@ func (*PeerState) ProtoMessage()               {}
 return fileDescriptor0, []int{111} }
 
 func (m *PeerState) GetAuthPassword() string { 
+   fmt.Print("<<<DEJDEJ id:1721, gobgp.pb.go:GetAuthPassword>>>")
 	if m != nil {
 		return m.AuthPassword
 	}
@@ -3195,6 +3411,7 @@ func (m *PeerState) GetAuthPassword() string {
 }
 
 func (m *PeerState) GetDescription() string { 
+   fmt.Print("<<<DEJDEJ id:1722, gobgp.pb.go:GetDescription>>>")
 	if m != nil {
 		return m.Description
 	}
@@ -3202,6 +3419,7 @@ func (m *PeerState) GetDescription() string {
 }
 
 func (m *PeerState) GetLocalAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1723, gobgp.pb.go:GetLocalAs>>>")
 	if m != nil {
 		return m.LocalAs
 	}
@@ -3209,6 +3427,7 @@ func (m *PeerState) GetLocalAs() uint32 {
 }
 
 func (m *PeerState) GetMessages() *Messages { 
+   fmt.Print("<<<DEJDEJ id:1724, gobgp.pb.go:GetMessages>>>")
 	if m != nil {
 		return m.Messages
 	}
@@ -3216,6 +3435,7 @@ func (m *PeerState) GetMessages() *Messages {
 }
 
 func (m *PeerState) GetNeighborAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1725, gobgp.pb.go:GetNeighborAddress>>>")
 	if m != nil {
 		return m.NeighborAddress
 	}
@@ -3223,6 +3443,7 @@ func (m *PeerState) GetNeighborAddress() string {
 }
 
 func (m *PeerState) GetPeerAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1726, gobgp.pb.go:GetPeerAs>>>")
 	if m != nil {
 		return m.PeerAs
 	}
@@ -3230,6 +3451,7 @@ func (m *PeerState) GetPeerAs() uint32 {
 }
 
 func (m *PeerState) GetPeerGroup() string { 
+   fmt.Print("<<<DEJDEJ id:1727, gobgp.pb.go:GetPeerGroup>>>")
 	if m != nil {
 		return m.PeerGroup
 	}
@@ -3237,6 +3459,7 @@ func (m *PeerState) GetPeerGroup() string {
 }
 
 func (m *PeerState) GetPeerType() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1728, gobgp.pb.go:GetPeerType>>>")
 	if m != nil {
 		return m.PeerType
 	}
@@ -3244,6 +3467,7 @@ func (m *PeerState) GetPeerType() uint32 {
 }
 
 func (m *PeerState) GetQueues() *Queues { 
+   fmt.Print("<<<DEJDEJ id:1729, gobgp.pb.go:GetQueues>>>")
 	if m != nil {
 		return m.Queues
 	}
@@ -3251,6 +3475,7 @@ func (m *PeerState) GetQueues() *Queues {
 }
 
 func (m *PeerState) GetRemovePrivateAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1730, gobgp.pb.go:GetRemovePrivateAs>>>")
 	if m != nil {
 		return m.RemovePrivateAs
 	}
@@ -3258,6 +3483,7 @@ func (m *PeerState) GetRemovePrivateAs() uint32 {
 }
 
 func (m *PeerState) GetRouteFlapDamping() bool { 
+   fmt.Print("<<<DEJDEJ id:1731, gobgp.pb.go:GetRouteFlapDamping>>>")
 	if m != nil {
 		return m.RouteFlapDamping
 	}
@@ -3265,6 +3491,7 @@ func (m *PeerState) GetRouteFlapDamping() bool {
 }
 
 func (m *PeerState) GetSendCommunity() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1732, gobgp.pb.go:GetSendCommunity>>>")
 	if m != nil {
 		return m.SendCommunity
 	}
@@ -3272,6 +3499,7 @@ func (m *PeerState) GetSendCommunity() uint32 {
 }
 
 func (m *PeerState) GetSessionState() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1733, gobgp.pb.go:GetSessionState>>>")
 	if m != nil {
 		return m.SessionState
 	}
@@ -3279,6 +3507,7 @@ func (m *PeerState) GetSessionState() uint32 {
 }
 
 func (m *PeerState) GetSupportedCapabilities() []string { 
+   fmt.Print("<<<DEJDEJ id:1734, gobgp.pb.go:GetSupportedCapabilities>>>")
 	if m != nil {
 		return m.SupportedCapabilities
 	}
@@ -3286,6 +3515,7 @@ func (m *PeerState) GetSupportedCapabilities() []string {
 }
 
 func (m *PeerState) GetBgpState() string { 
+   fmt.Print("<<<DEJDEJ id:1735, gobgp.pb.go:GetBgpState>>>")
 	if m != nil {
 		return m.BgpState
 	}
@@ -3293,6 +3523,7 @@ func (m *PeerState) GetBgpState() string {
 }
 
 func (m *PeerState) GetAdminState() PeerState_AdminState { 
+   fmt.Print("<<<DEJDEJ id:1736, gobgp.pb.go:GetAdminState>>>")
 	if m != nil {
 		return m.AdminState
 	}
@@ -3300,6 +3531,7 @@ func (m *PeerState) GetAdminState() PeerState_AdminState {
 }
 
 func (m *PeerState) GetReceived() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1737, gobgp.pb.go:GetReceived>>>")
 	if m != nil {
 		return m.Received
 	}
@@ -3307,6 +3539,7 @@ func (m *PeerState) GetReceived() uint32 {
 }
 
 func (m *PeerState) GetAccepted() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1738, gobgp.pb.go:GetAccepted>>>")
 	if m != nil {
 		return m.Accepted
 	}
@@ -3314,6 +3547,7 @@ func (m *PeerState) GetAccepted() uint32 {
 }
 
 func (m *PeerState) GetAdvertised() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1739, gobgp.pb.go:GetAdvertised>>>")
 	if m != nil {
 		return m.Advertised
 	}
@@ -3321,6 +3555,7 @@ func (m *PeerState) GetAdvertised() uint32 {
 }
 
 func (m *PeerState) GetOutQ() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1740, gobgp.pb.go:GetOutQ>>>")
 	if m != nil {
 		return m.OutQ
 	}
@@ -3328,6 +3563,7 @@ func (m *PeerState) GetOutQ() uint32 {
 }
 
 func (m *PeerState) GetFlops() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1741, gobgp.pb.go:GetFlops>>>")
 	if m != nil {
 		return m.Flops
 	}
@@ -3345,6 +3581,7 @@ func (*Messages) ProtoMessage()               {}
 return fileDescriptor0, []int{112} }
 
 func (m *Messages) GetReceived() *Message { 
+   fmt.Print("<<<DEJDEJ id:1743, gobgp.pb.go:GetReceived>>>")
 	if m != nil {
 		return m.Received
 	}
@@ -3352,6 +3589,7 @@ func (m *Messages) GetReceived() *Message {
 }
 
 func (m *Messages) GetSent() *Message { 
+   fmt.Print("<<<DEJDEJ id:1744, gobgp.pb.go:GetSent>>>")
 	if m != nil {
 		return m.Sent
 	}
@@ -3374,6 +3612,7 @@ func (*Message) ProtoMessage()               {}
 return fileDescriptor0, []int{113} }
 
 func (m *Message) GetNOTIFICATION() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1746, gobgp.pb.go:GetNOTIFICATION>>>")
 	if m != nil {
 		return m.NOTIFICATION
 	}
@@ -3381,6 +3620,7 @@ func (m *Message) GetNOTIFICATION() uint64 {
 }
 
 func (m *Message) GetUPDATE() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1747, gobgp.pb.go:GetUPDATE>>>")
 	if m != nil {
 		return m.UPDATE
 	}
@@ -3388,6 +3628,7 @@ func (m *Message) GetUPDATE() uint64 {
 }
 
 func (m *Message) GetOPEN() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1748, gobgp.pb.go:GetOPEN>>>")
 	if m != nil {
 		return m.OPEN
 	}
@@ -3395,6 +3636,7 @@ func (m *Message) GetOPEN() uint64 {
 }
 
 func (m *Message) GetKEEPALIVE() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1749, gobgp.pb.go:GetKEEPALIVE>>>")
 	if m != nil {
 		return m.KEEPALIVE
 	}
@@ -3402,6 +3644,7 @@ func (m *Message) GetKEEPALIVE() uint64 {
 }
 
 func (m *Message) GetREFRESH() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1750, gobgp.pb.go:GetREFRESH>>>")
 	if m != nil {
 		return m.REFRESH
 	}
@@ -3409,6 +3652,7 @@ func (m *Message) GetREFRESH() uint64 {
 }
 
 func (m *Message) GetDISCARDED() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1751, gobgp.pb.go:GetDISCARDED>>>")
 	if m != nil {
 		return m.DISCARDED
 	}
@@ -3416,6 +3660,7 @@ func (m *Message) GetDISCARDED() uint64 {
 }
 
 func (m *Message) GetTOTAL() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1752, gobgp.pb.go:GetTOTAL>>>")
 	if m != nil {
 		return m.TOTAL
 	}
@@ -3433,6 +3678,7 @@ func (*Queues) ProtoMessage()               {}
 return fileDescriptor0, []int{114} }
 
 func (m *Queues) GetInput() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1754, gobgp.pb.go:GetInput>>>")
 	if m != nil {
 		return m.Input
 	}
@@ -3440,6 +3686,7 @@ func (m *Queues) GetInput() uint32 {
 }
 
 func (m *Queues) GetOutput() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1755, gobgp.pb.go:GetOutput>>>")
 	if m != nil {
 		return m.Output
 	}
@@ -3457,6 +3704,7 @@ func (*Timers) ProtoMessage()               {}
 return fileDescriptor0, []int{115} }
 
 func (m *Timers) GetConfig() *TimersConfig { 
+   fmt.Print("<<<DEJDEJ id:1757, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -3464,6 +3712,7 @@ func (m *Timers) GetConfig() *TimersConfig {
 }
 
 func (m *Timers) GetState() *TimersState { 
+   fmt.Print("<<<DEJDEJ id:1758, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -3483,6 +3732,7 @@ func (*TimersConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{116} }
 
 func (m *TimersConfig) GetConnectRetry() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1760, gobgp.pb.go:GetConnectRetry>>>")
 	if m != nil {
 		return m.ConnectRetry
 	}
@@ -3490,6 +3740,7 @@ func (m *TimersConfig) GetConnectRetry() uint64 {
 }
 
 func (m *TimersConfig) GetHoldTime() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1761, gobgp.pb.go:GetHoldTime>>>")
 	if m != nil {
 		return m.HoldTime
 	}
@@ -3497,6 +3748,7 @@ func (m *TimersConfig) GetHoldTime() uint64 {
 }
 
 func (m *TimersConfig) GetKeepaliveInterval() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1762, gobgp.pb.go:GetKeepaliveInterval>>>")
 	if m != nil {
 		return m.KeepaliveInterval
 	}
@@ -3504,6 +3756,7 @@ func (m *TimersConfig) GetKeepaliveInterval() uint64 {
 }
 
 func (m *TimersConfig) GetMinimumAdvertisementInterval() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1763, gobgp.pb.go:GetMinimumAdvertisementInterval>>>")
 	if m != nil {
 		return m.MinimumAdvertisementInterval
 	}
@@ -3526,6 +3779,7 @@ func (*TimersState) ProtoMessage()               {}
 return fileDescriptor0, []int{117} }
 
 func (m *TimersState) GetConnectRetry() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1765, gobgp.pb.go:GetConnectRetry>>>")
 	if m != nil {
 		return m.ConnectRetry
 	}
@@ -3533,6 +3787,7 @@ func (m *TimersState) GetConnectRetry() uint64 {
 }
 
 func (m *TimersState) GetHoldTime() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1766, gobgp.pb.go:GetHoldTime>>>")
 	if m != nil {
 		return m.HoldTime
 	}
@@ -3540,6 +3795,7 @@ func (m *TimersState) GetHoldTime() uint64 {
 }
 
 func (m *TimersState) GetKeepaliveInterval() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1767, gobgp.pb.go:GetKeepaliveInterval>>>")
 	if m != nil {
 		return m.KeepaliveInterval
 	}
@@ -3547,6 +3803,7 @@ func (m *TimersState) GetKeepaliveInterval() uint64 {
 }
 
 func (m *TimersState) GetMinimumAdvertisementInterval() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1768, gobgp.pb.go:GetMinimumAdvertisementInterval>>>")
 	if m != nil {
 		return m.MinimumAdvertisementInterval
 	}
@@ -3554,6 +3811,7 @@ func (m *TimersState) GetMinimumAdvertisementInterval() uint64 {
 }
 
 func (m *TimersState) GetNegotiatedHoldTime() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1769, gobgp.pb.go:GetNegotiatedHoldTime>>>")
 	if m != nil {
 		return m.NegotiatedHoldTime
 	}
@@ -3561,6 +3819,7 @@ func (m *TimersState) GetNegotiatedHoldTime() uint64 {
 }
 
 func (m *TimersState) GetUptime() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1770, gobgp.pb.go:GetUptime>>>")
 	if m != nil {
 		return m.Uptime
 	}
@@ -3568,6 +3827,7 @@ func (m *TimersState) GetUptime() uint64 {
 }
 
 func (m *TimersState) GetDowntime() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1771, gobgp.pb.go:GetDowntime>>>")
 	if m != nil {
 		return m.Downtime
 	}
@@ -3590,6 +3850,7 @@ func (*Transport) ProtoMessage()               {}
 return fileDescriptor0, []int{118} }
 
 func (m *Transport) GetLocalAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1773, gobgp.pb.go:GetLocalAddress>>>")
 	if m != nil {
 		return m.LocalAddress
 	}
@@ -3597,6 +3858,7 @@ func (m *Transport) GetLocalAddress() string {
 }
 
 func (m *Transport) GetLocalPort() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1774, gobgp.pb.go:GetLocalPort>>>")
 	if m != nil {
 		return m.LocalPort
 	}
@@ -3604,6 +3866,7 @@ func (m *Transport) GetLocalPort() uint32 {
 }
 
 func (m *Transport) GetMtuDiscovery() bool { 
+   fmt.Print("<<<DEJDEJ id:1775, gobgp.pb.go:GetMtuDiscovery>>>")
 	if m != nil {
 		return m.MtuDiscovery
 	}
@@ -3611,6 +3874,7 @@ func (m *Transport) GetMtuDiscovery() bool {
 }
 
 func (m *Transport) GetPassiveMode() bool { 
+   fmt.Print("<<<DEJDEJ id:1776, gobgp.pb.go:GetPassiveMode>>>")
 	if m != nil {
 		return m.PassiveMode
 	}
@@ -3618,6 +3882,7 @@ func (m *Transport) GetPassiveMode() bool {
 }
 
 func (m *Transport) GetRemoteAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1777, gobgp.pb.go:GetRemoteAddress>>>")
 	if m != nil {
 		return m.RemoteAddress
 	}
@@ -3625,6 +3890,7 @@ func (m *Transport) GetRemoteAddress() string {
 }
 
 func (m *Transport) GetRemotePort() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1778, gobgp.pb.go:GetRemotePort>>>")
 	if m != nil {
 		return m.RemotePort
 	}
@@ -3632,6 +3898,7 @@ func (m *Transport) GetRemotePort() uint32 {
 }
 
 func (m *Transport) GetTcpMss() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1779, gobgp.pb.go:GetTcpMss>>>")
 	if m != nil {
 		return m.TcpMss
 	}
@@ -3648,6 +3915,7 @@ func (*RouteServer) ProtoMessage()               {}
 return fileDescriptor0, []int{119} }
 
 func (m *RouteServer) GetRouteServerClient() bool { 
+   fmt.Print("<<<DEJDEJ id:1781, gobgp.pb.go:GetRouteServerClient>>>")
 	if m != nil {
 		return m.RouteServerClient
 	}
@@ -3669,6 +3937,7 @@ func (*GracefulRestart) ProtoMessage()               {}
 return fileDescriptor0, []int{120} }
 
 func (m *GracefulRestart) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1783, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -3676,6 +3945,7 @@ func (m *GracefulRestart) GetEnabled() bool {
 }
 
 func (m *GracefulRestart) GetRestartTime() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1784, gobgp.pb.go:GetRestartTime>>>")
 	if m != nil {
 		return m.RestartTime
 	}
@@ -3683,6 +3953,7 @@ func (m *GracefulRestart) GetRestartTime() uint32 {
 }
 
 func (m *GracefulRestart) GetHelperOnly() bool { 
+   fmt.Print("<<<DEJDEJ id:1785, gobgp.pb.go:GetHelperOnly>>>")
 	if m != nil {
 		return m.HelperOnly
 	}
@@ -3690,6 +3961,7 @@ func (m *GracefulRestart) GetHelperOnly() bool {
 }
 
 func (m *GracefulRestart) GetDeferralTime() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1786, gobgp.pb.go:GetDeferralTime>>>")
 	if m != nil {
 		return m.DeferralTime
 	}
@@ -3697,6 +3969,7 @@ func (m *GracefulRestart) GetDeferralTime() uint32 {
 }
 
 func (m *GracefulRestart) GetNotificationEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1787, gobgp.pb.go:GetNotificationEnabled>>>")
 	if m != nil {
 		return m.NotificationEnabled
 	}
@@ -3704,6 +3977,7 @@ func (m *GracefulRestart) GetNotificationEnabled() bool {
 }
 
 func (m *GracefulRestart) GetLonglivedEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1788, gobgp.pb.go:GetLonglivedEnabled>>>")
 	if m != nil {
 		return m.LonglivedEnabled
 	}
@@ -3720,6 +3994,7 @@ func (*MpGracefulRestartConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{121} }
 
 func (m *MpGracefulRestartConfig) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1790, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -3740,6 +4015,7 @@ func (*MpGracefulRestartState) ProtoMessage()               {}
 return fileDescriptor0, []int{122} }
 
 func (m *MpGracefulRestartState) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1792, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -3747,6 +4023,7 @@ func (m *MpGracefulRestartState) GetEnabled() bool {
 }
 
 func (m *MpGracefulRestartState) GetReceived() bool { 
+   fmt.Print("<<<DEJDEJ id:1793, gobgp.pb.go:GetReceived>>>")
 	if m != nil {
 		return m.Received
 	}
@@ -3754,6 +4031,7 @@ func (m *MpGracefulRestartState) GetReceived() bool {
 }
 
 func (m *MpGracefulRestartState) GetAdvertised() bool { 
+   fmt.Print("<<<DEJDEJ id:1794, gobgp.pb.go:GetAdvertised>>>")
 	if m != nil {
 		return m.Advertised
 	}
@@ -3761,6 +4039,7 @@ func (m *MpGracefulRestartState) GetAdvertised() bool {
 }
 
 func (m *MpGracefulRestartState) GetEndOfRibReceived() bool { 
+   fmt.Print("<<<DEJDEJ id:1795, gobgp.pb.go:GetEndOfRibReceived>>>")
 	if m != nil {
 		return m.EndOfRibReceived
 	}
@@ -3768,6 +4047,7 @@ func (m *MpGracefulRestartState) GetEndOfRibReceived() bool {
 }
 
 func (m *MpGracefulRestartState) GetEndOfRibSent() bool { 
+   fmt.Print("<<<DEJDEJ id:1796, gobgp.pb.go:GetEndOfRibSent>>>")
 	if m != nil {
 		return m.EndOfRibSent
 	}
@@ -3785,6 +4065,7 @@ func (*MpGracefulRestart) ProtoMessage()               {}
 return fileDescriptor0, []int{123} }
 
 func (m *MpGracefulRestart) GetConfig() *MpGracefulRestartConfig { 
+   fmt.Print("<<<DEJDEJ id:1798, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -3792,6 +4073,7 @@ func (m *MpGracefulRestart) GetConfig() *MpGracefulRestartConfig {
 }
 
 func (m *MpGracefulRestart) GetState() *MpGracefulRestartState { 
+   fmt.Print("<<<DEJDEJ id:1799, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -3809,6 +4091,7 @@ func (*AfiSafiConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{124} }
 
 func (m *AfiSafiConfig) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1801, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -3816,6 +4099,7 @@ func (m *AfiSafiConfig) GetFamily() uint32 {
 }
 
 func (m *AfiSafiConfig) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1802, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -3835,6 +4119,7 @@ func (*AfiSafiState) ProtoMessage()               {}
 return fileDescriptor0, []int{125} }
 
 func (m *AfiSafiState) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1804, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -3842,6 +4127,7 @@ func (m *AfiSafiState) GetFamily() uint32 {
 }
 
 func (m *AfiSafiState) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1805, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -3849,6 +4135,7 @@ func (m *AfiSafiState) GetEnabled() bool {
 }
 
 func (m *AfiSafiState) GetTotalPaths() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1806, gobgp.pb.go:GetTotalPaths>>>")
 	if m != nil {
 		return m.TotalPaths
 	}
@@ -3856,6 +4143,7 @@ func (m *AfiSafiState) GetTotalPaths() uint32 {
 }
 
 func (m *AfiSafiState) GetTotalPrefixes() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1807, gobgp.pb.go:GetTotalPrefixes>>>")
 	if m != nil {
 		return m.TotalPrefixes
 	}
@@ -3877,6 +4165,7 @@ func (*RouteSelectionOptionsConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{126} }
 
 func (m *RouteSelectionOptionsConfig) GetAlwaysCompareMed() bool { 
+   fmt.Print("<<<DEJDEJ id:1809, gobgp.pb.go:GetAlwaysCompareMed>>>")
 	if m != nil {
 		return m.AlwaysCompareMed
 	}
@@ -3884,6 +4173,7 @@ func (m *RouteSelectionOptionsConfig) GetAlwaysCompareMed() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetIgnoreAsPathLength() bool { 
+   fmt.Print("<<<DEJDEJ id:1810, gobgp.pb.go:GetIgnoreAsPathLength>>>")
 	if m != nil {
 		return m.IgnoreAsPathLength
 	}
@@ -3891,6 +4181,7 @@ func (m *RouteSelectionOptionsConfig) GetIgnoreAsPathLength() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetExternalCompareRouterId() bool { 
+   fmt.Print("<<<DEJDEJ id:1811, gobgp.pb.go:GetExternalCompareRouterId>>>")
 	if m != nil {
 		return m.ExternalCompareRouterId
 	}
@@ -3898,6 +4189,7 @@ func (m *RouteSelectionOptionsConfig) GetExternalCompareRouterId() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetAdvertiseInactiveRoutes() bool { 
+   fmt.Print("<<<DEJDEJ id:1812, gobgp.pb.go:GetAdvertiseInactiveRoutes>>>")
 	if m != nil {
 		return m.AdvertiseInactiveRoutes
 	}
@@ -3905,6 +4197,7 @@ func (m *RouteSelectionOptionsConfig) GetAdvertiseInactiveRoutes() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetEnableAigp() bool { 
+   fmt.Print("<<<DEJDEJ id:1813, gobgp.pb.go:GetEnableAigp>>>")
 	if m != nil {
 		return m.EnableAigp
 	}
@@ -3912,6 +4205,7 @@ func (m *RouteSelectionOptionsConfig) GetEnableAigp() bool {
 }
 
 func (m *RouteSelectionOptionsConfig) GetIgnoreNextHopIgpMetric() bool { 
+   fmt.Print("<<<DEJDEJ id:1814, gobgp.pb.go:GetIgnoreNextHopIgpMetric>>>")
 	if m != nil {
 		return m.IgnoreNextHopIgpMetric
 	}
@@ -3933,6 +4227,7 @@ func (*RouteSelectionOptionsState) ProtoMessage()               {}
 return fileDescriptor0, []int{127} }
 
 func (m *RouteSelectionOptionsState) GetAlwaysCompareMed() bool { 
+   fmt.Print("<<<DEJDEJ id:1816, gobgp.pb.go:GetAlwaysCompareMed>>>")
 	if m != nil {
 		return m.AlwaysCompareMed
 	}
@@ -3940,6 +4235,7 @@ func (m *RouteSelectionOptionsState) GetAlwaysCompareMed() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetIgnoreAsPathLength() bool { 
+   fmt.Print("<<<DEJDEJ id:1817, gobgp.pb.go:GetIgnoreAsPathLength>>>")
 	if m != nil {
 		return m.IgnoreAsPathLength
 	}
@@ -3947,6 +4243,7 @@ func (m *RouteSelectionOptionsState) GetIgnoreAsPathLength() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetExternalCompareRouterId() bool { 
+   fmt.Print("<<<DEJDEJ id:1818, gobgp.pb.go:GetExternalCompareRouterId>>>")
 	if m != nil {
 		return m.ExternalCompareRouterId
 	}
@@ -3954,6 +4251,7 @@ func (m *RouteSelectionOptionsState) GetExternalCompareRouterId() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetAdvertiseInactiveRoutes() bool { 
+   fmt.Print("<<<DEJDEJ id:1819, gobgp.pb.go:GetAdvertiseInactiveRoutes>>>")
 	if m != nil {
 		return m.AdvertiseInactiveRoutes
 	}
@@ -3961,6 +4259,7 @@ func (m *RouteSelectionOptionsState) GetAdvertiseInactiveRoutes() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetEnableAigp() bool { 
+   fmt.Print("<<<DEJDEJ id:1820, gobgp.pb.go:GetEnableAigp>>>")
 	if m != nil {
 		return m.EnableAigp
 	}
@@ -3968,6 +4267,7 @@ func (m *RouteSelectionOptionsState) GetEnableAigp() bool {
 }
 
 func (m *RouteSelectionOptionsState) GetIgnoreNextHopIgpMetric() bool { 
+   fmt.Print("<<<DEJDEJ id:1821, gobgp.pb.go:GetIgnoreNextHopIgpMetric>>>")
 	if m != nil {
 		return m.IgnoreNextHopIgpMetric
 	}
@@ -3985,6 +4285,7 @@ func (*RouteSelectionOptions) ProtoMessage()               {}
 return fileDescriptor0, []int{128} }
 
 func (m *RouteSelectionOptions) GetConfig() *RouteSelectionOptionsConfig { 
+   fmt.Print("<<<DEJDEJ id:1823, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -3992,6 +4293,7 @@ func (m *RouteSelectionOptions) GetConfig() *RouteSelectionOptionsConfig {
 }
 
 func (m *RouteSelectionOptions) GetState() *RouteSelectionOptionsState { 
+   fmt.Print("<<<DEJDEJ id:1824, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -4008,6 +4310,7 @@ func (*UseMultiplePathsConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{129} }
 
 func (m *UseMultiplePathsConfig) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1826, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -4024,6 +4327,7 @@ func (*UseMultiplePathsState) ProtoMessage()               {}
 return fileDescriptor0, []int{130} }
 
 func (m *UseMultiplePathsState) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1828, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -4041,6 +4345,7 @@ func (*EbgpConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{131} }
 
 func (m *EbgpConfig) GetAllowMultipleAs() bool { 
+   fmt.Print("<<<DEJDEJ id:1830, gobgp.pb.go:GetAllowMultipleAs>>>")
 	if m != nil {
 		return m.AllowMultipleAs
 	}
@@ -4048,6 +4353,7 @@ func (m *EbgpConfig) GetAllowMultipleAs() bool {
 }
 
 func (m *EbgpConfig) GetMaximumPaths() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1831, gobgp.pb.go:GetMaximumPaths>>>")
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4065,6 +4371,7 @@ func (*EbgpState) ProtoMessage()               {}
 return fileDescriptor0, []int{132} }
 
 func (m *EbgpState) GetAllowMultipleAs() bool { 
+   fmt.Print("<<<DEJDEJ id:1833, gobgp.pb.go:GetAllowMultipleAs>>>")
 	if m != nil {
 		return m.AllowMultipleAs
 	}
@@ -4072,6 +4379,7 @@ func (m *EbgpState) GetAllowMultipleAs() bool {
 }
 
 func (m *EbgpState) GetMaximumPaths() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1834, gobgp.pb.go:GetMaximumPaths>>>")
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4089,6 +4397,7 @@ func (*Ebgp) ProtoMessage()               {}
 return fileDescriptor0, []int{133} }
 
 func (m *Ebgp) GetConfig() *EbgpConfig { 
+   fmt.Print("<<<DEJDEJ id:1836, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -4096,6 +4405,7 @@ func (m *Ebgp) GetConfig() *EbgpConfig {
 }
 
 func (m *Ebgp) GetState() *EbgpState { 
+   fmt.Print("<<<DEJDEJ id:1837, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -4112,6 +4422,7 @@ func (*IbgpConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{134} }
 
 func (m *IbgpConfig) GetMaximumPaths() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1839, gobgp.pb.go:GetMaximumPaths>>>")
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4128,6 +4439,7 @@ func (*IbgpState) ProtoMessage()               {}
 return fileDescriptor0, []int{135} }
 
 func (m *IbgpState) GetMaximumPaths() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1841, gobgp.pb.go:GetMaximumPaths>>>")
 	if m != nil {
 		return m.MaximumPaths
 	}
@@ -4145,6 +4457,7 @@ func (*Ibgp) ProtoMessage()               {}
 return fileDescriptor0, []int{136} }
 
 func (m *Ibgp) GetConfig() *IbgpConfig { 
+   fmt.Print("<<<DEJDEJ id:1843, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -4152,6 +4465,7 @@ func (m *Ibgp) GetConfig() *IbgpConfig {
 }
 
 func (m *Ibgp) GetState() *IbgpState { 
+   fmt.Print("<<<DEJDEJ id:1844, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -4171,6 +4485,7 @@ func (*UseMultiplePaths) ProtoMessage()               {}
 return fileDescriptor0, []int{137} }
 
 func (m *UseMultiplePaths) GetConfig() *UseMultiplePathsConfig { 
+   fmt.Print("<<<DEJDEJ id:1846, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -4178,6 +4493,7 @@ func (m *UseMultiplePaths) GetConfig() *UseMultiplePathsConfig {
 }
 
 func (m *UseMultiplePaths) GetState() *UseMultiplePathsState { 
+   fmt.Print("<<<DEJDEJ id:1847, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -4185,6 +4501,7 @@ func (m *UseMultiplePaths) GetState() *UseMultiplePathsState {
 }
 
 func (m *UseMultiplePaths) GetEbgp() *Ebgp { 
+   fmt.Print("<<<DEJDEJ id:1848, gobgp.pb.go:GetEbgp>>>")
 	if m != nil {
 		return m.Ebgp
 	}
@@ -4192,6 +4509,7 @@ func (m *UseMultiplePaths) GetEbgp() *Ebgp {
 }
 
 func (m *UseMultiplePaths) GetIbgp() *Ibgp { 
+   fmt.Print("<<<DEJDEJ id:1849, gobgp.pb.go:GetIbgp>>>")
 	if m != nil {
 		return m.Ibgp
 	}
@@ -4208,6 +4526,7 @@ func (*RouteTargetMembershipConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{138} }
 
 func (m *RouteTargetMembershipConfig) GetDeferralTime() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1851, gobgp.pb.go:GetDeferralTime>>>")
 	if m != nil {
 		return m.DeferralTime
 	}
@@ -4224,6 +4543,7 @@ func (*RouteTargetMembershipState) ProtoMessage()               {}
 return fileDescriptor0, []int{139} }
 
 func (m *RouteTargetMembershipState) GetDeferralTime() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1853, gobgp.pb.go:GetDeferralTime>>>")
 	if m != nil {
 		return m.DeferralTime
 	}
@@ -4241,6 +4561,7 @@ func (*RouteTargetMembership) ProtoMessage()               {}
 return fileDescriptor0, []int{140} }
 
 func (m *RouteTargetMembership) GetConfig() *RouteTargetMembershipConfig { 
+   fmt.Print("<<<DEJDEJ id:1855, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -4248,6 +4569,7 @@ func (m *RouteTargetMembership) GetConfig() *RouteTargetMembershipConfig {
 }
 
 func (m *RouteTargetMembership) GetState() *RouteTargetMembershipState { 
+   fmt.Print("<<<DEJDEJ id:1856, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -4263,10 +4585,12 @@ type LongLivedGracefulRestartConfig struct {
 return proto.CompactTextString(m) }
 func (*LongLivedGracefulRestartConfig) ProtoMessage()    {}
 func (*LongLivedGracefulRestartConfig) Descriptor() ([]byte, []int) { 
+   fmt.Print("<<<DEJDEJ id:1858, gobgp.pb.go:>>>")
 	return fileDescriptor0, []int{141}
 }
 
 func (m *LongLivedGracefulRestartConfig) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1859, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -4274,6 +4598,7 @@ func (m *LongLivedGracefulRestartConfig) GetEnabled() bool {
 }
 
 func (m *LongLivedGracefulRestartConfig) GetRestartTime() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1860, gobgp.pb.go:GetRestartTime>>>")
 	if m != nil {
 		return m.RestartTime
 	}
@@ -4294,6 +4619,7 @@ func (*LongLivedGracefulRestartState) ProtoMessage()               {}
 return fileDescriptor0, []int{142} }
 
 func (m *LongLivedGracefulRestartState) GetEnabled() bool { 
+   fmt.Print("<<<DEJDEJ id:1862, gobgp.pb.go:GetEnabled>>>")
 	if m != nil {
 		return m.Enabled
 	}
@@ -4301,6 +4627,7 @@ func (m *LongLivedGracefulRestartState) GetEnabled() bool {
 }
 
 func (m *LongLivedGracefulRestartState) GetReceived() bool { 
+   fmt.Print("<<<DEJDEJ id:1863, gobgp.pb.go:GetReceived>>>")
 	if m != nil {
 		return m.Received
 	}
@@ -4308,6 +4635,7 @@ func (m *LongLivedGracefulRestartState) GetReceived() bool {
 }
 
 func (m *LongLivedGracefulRestartState) GetAdvertised() bool { 
+   fmt.Print("<<<DEJDEJ id:1864, gobgp.pb.go:GetAdvertised>>>")
 	if m != nil {
 		return m.Advertised
 	}
@@ -4315,6 +4643,7 @@ func (m *LongLivedGracefulRestartState) GetAdvertised() bool {
 }
 
 func (m *LongLivedGracefulRestartState) GetPeerRestartTime() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1865, gobgp.pb.go:GetPeerRestartTime>>>")
 	if m != nil {
 		return m.PeerRestartTime
 	}
@@ -4322,6 +4651,7 @@ func (m *LongLivedGracefulRestartState) GetPeerRestartTime() uint32 {
 }
 
 func (m *LongLivedGracefulRestartState) GetPeerRestartTimerExpired() bool { 
+   fmt.Print("<<<DEJDEJ id:1866, gobgp.pb.go:GetPeerRestartTimerExpired>>>")
 	if m != nil {
 		return m.PeerRestartTimerExpired
 	}
@@ -4339,6 +4669,7 @@ func (*LongLivedGracefulRestart) ProtoMessage()               {}
 return fileDescriptor0, []int{143} }
 
 func (m *LongLivedGracefulRestart) GetConfig() *LongLivedGracefulRestartConfig { 
+   fmt.Print("<<<DEJDEJ id:1868, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -4346,6 +4677,7 @@ func (m *LongLivedGracefulRestart) GetConfig() *LongLivedGracefulRestartConfig {
 }
 
 func (m *LongLivedGracefulRestart) GetState() *LongLivedGracefulRestartState { 
+   fmt.Print("<<<DEJDEJ id:1869, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -4382,6 +4714,7 @@ func (*AfiSafi) ProtoMessage()               {}
 return fileDescriptor0, []int{144} }
 
 func (m *AfiSafi) GetMpGracefulRestart() *MpGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:1871, gobgp.pb.go:GetMpGracefulRestart>>>")
 	if m != nil {
 		return m.MpGracefulRestart
 	}
@@ -4389,6 +4722,7 @@ func (m *AfiSafi) GetMpGracefulRestart() *MpGracefulRestart {
 }
 
 func (m *AfiSafi) GetConfig() *AfiSafiConfig { 
+   fmt.Print("<<<DEJDEJ id:1872, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -4396,6 +4730,7 @@ func (m *AfiSafi) GetConfig() *AfiSafiConfig {
 }
 
 func (m *AfiSafi) GetApplyPolicy() *ApplyPolicy { 
+   fmt.Print("<<<DEJDEJ id:1873, gobgp.pb.go:GetApplyPolicy>>>")
 	if m != nil {
 		return m.ApplyPolicy
 	}
@@ -4403,6 +4738,7 @@ func (m *AfiSafi) GetApplyPolicy() *ApplyPolicy {
 }
 
 func (m *AfiSafi) GetRouteSelectionOptions() *RouteSelectionOptions { 
+   fmt.Print("<<<DEJDEJ id:1874, gobgp.pb.go:GetRouteSelectionOptions>>>")
 	if m != nil {
 		return m.RouteSelectionOptions
 	}
@@ -4410,6 +4746,7 @@ func (m *AfiSafi) GetRouteSelectionOptions() *RouteSelectionOptions {
 }
 
 func (m *AfiSafi) GetUseMultiplePaths() *UseMultiplePaths { 
+   fmt.Print("<<<DEJDEJ id:1875, gobgp.pb.go:GetUseMultiplePaths>>>")
 	if m != nil {
 		return m.UseMultiplePaths
 	}
@@ -4417,6 +4754,7 @@ func (m *AfiSafi) GetUseMultiplePaths() *UseMultiplePaths {
 }
 
 func (m *AfiSafi) GetPrefixLimits() *PrefixLimit { 
+   fmt.Print("<<<DEJDEJ id:1876, gobgp.pb.go:GetPrefixLimits>>>")
 	if m != nil {
 		return m.PrefixLimits
 	}
@@ -4424,6 +4762,7 @@ func (m *AfiSafi) GetPrefixLimits() *PrefixLimit {
 }
 
 func (m *AfiSafi) GetRouteTargetMembership() *RouteTargetMembership { 
+   fmt.Print("<<<DEJDEJ id:1877, gobgp.pb.go:GetRouteTargetMembership>>>")
 	if m != nil {
 		return m.RouteTargetMembership
 	}
@@ -4431,6 +4770,7 @@ func (m *AfiSafi) GetRouteTargetMembership() *RouteTargetMembership {
 }
 
 func (m *AfiSafi) GetLongLivedGracefulRestart() *LongLivedGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:1878, gobgp.pb.go:GetLongLivedGracefulRestart>>>")
 	if m != nil {
 		return m.LongLivedGracefulRestart
 	}
@@ -4438,6 +4778,7 @@ func (m *AfiSafi) GetLongLivedGracefulRestart() *LongLivedGracefulRestart {
 }
 
 func (m *AfiSafi) GetAddPaths() *AddPaths { 
+   fmt.Print("<<<DEJDEJ id:1879, gobgp.pb.go:GetAddPaths>>>")
 	if m != nil {
 		return m.AddPaths
 	}
@@ -4455,6 +4796,7 @@ func (*AddPathsConfig) ProtoMessage()               {}
 return fileDescriptor0, []int{145} }
 
 func (m *AddPathsConfig) GetReceive() bool { 
+   fmt.Print("<<<DEJDEJ id:1881, gobgp.pb.go:GetReceive>>>")
 	if m != nil {
 		return m.Receive
 	}
@@ -4462,6 +4804,7 @@ func (m *AddPathsConfig) GetReceive() bool {
 }
 
 func (m *AddPathsConfig) GetSendMax() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1882, gobgp.pb.go:GetSendMax>>>")
 	if m != nil {
 		return m.SendMax
 	}
@@ -4479,6 +4822,7 @@ func (*AddPathsState) ProtoMessage()               {}
 return fileDescriptor0, []int{146} }
 
 func (m *AddPathsState) GetReceive() bool { 
+   fmt.Print("<<<DEJDEJ id:1884, gobgp.pb.go:GetReceive>>>")
 	if m != nil {
 		return m.Receive
 	}
@@ -4486,6 +4830,7 @@ func (m *AddPathsState) GetReceive() bool {
 }
 
 func (m *AddPathsState) GetSendMax() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1885, gobgp.pb.go:GetSendMax>>>")
 	if m != nil {
 		return m.SendMax
 	}
@@ -4503,6 +4848,7 @@ func (*AddPaths) ProtoMessage()               {}
 return fileDescriptor0, []int{147} }
 
 func (m *AddPaths) GetConfig() *AddPathsConfig { 
+   fmt.Print("<<<DEJDEJ id:1887, gobgp.pb.go:GetConfig>>>")
 	if m != nil {
 		return m.Config
 	}
@@ -4510,6 +4856,7 @@ func (m *AddPaths) GetConfig() *AddPathsConfig {
 }
 
 func (m *AddPaths) GetState() *AddPathsState { 
+   fmt.Print("<<<DEJDEJ id:1888, gobgp.pb.go:GetState>>>")
 	if m != nil {
 		return m.State
 	}
@@ -4528,6 +4875,7 @@ func (*Prefix) ProtoMessage()               {}
 return fileDescriptor0, []int{148} }
 
 func (m *Prefix) GetIpPrefix() string { 
+   fmt.Print("<<<DEJDEJ id:1890, gobgp.pb.go:GetIpPrefix>>>")
 	if m != nil {
 		return m.IpPrefix
 	}
@@ -4535,6 +4883,7 @@ func (m *Prefix) GetIpPrefix() string {
 }
 
 func (m *Prefix) GetMaskLengthMin() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1891, gobgp.pb.go:GetMaskLengthMin>>>")
 	if m != nil {
 		return m.MaskLengthMin
 	}
@@ -4542,6 +4891,7 @@ func (m *Prefix) GetMaskLengthMin() uint32 {
 }
 
 func (m *Prefix) GetMaskLengthMax() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1892, gobgp.pb.go:GetMaskLengthMax>>>")
 	if m != nil {
 		return m.MaskLengthMax
 	}
@@ -4561,6 +4911,7 @@ func (*DefinedSet) ProtoMessage()               {}
 return fileDescriptor0, []int{149} }
 
 func (m *DefinedSet) GetType() DefinedType { 
+   fmt.Print("<<<DEJDEJ id:1894, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -4568,6 +4919,7 @@ func (m *DefinedSet) GetType() DefinedType {
 }
 
 func (m *DefinedSet) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1895, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -4575,6 +4927,7 @@ func (m *DefinedSet) GetName() string {
 }
 
 func (m *DefinedSet) GetList() []string { 
+   fmt.Print("<<<DEJDEJ id:1896, gobgp.pb.go:GetList>>>")
 	if m != nil {
 		return m.List
 	}
@@ -4582,6 +4935,7 @@ func (m *DefinedSet) GetList() []string {
 }
 
 func (m *DefinedSet) GetPrefixes() []*Prefix { 
+   fmt.Print("<<<DEJDEJ id:1897, gobgp.pb.go:GetPrefixes>>>")
 	if m != nil {
 		return m.Prefixes
 	}
@@ -4599,6 +4953,7 @@ func (*MatchSet) ProtoMessage()               {}
 return fileDescriptor0, []int{150} }
 
 func (m *MatchSet) GetType() MatchType { 
+   fmt.Print("<<<DEJDEJ id:1899, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -4606,6 +4961,7 @@ func (m *MatchSet) GetType() MatchType {
 }
 
 func (m *MatchSet) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1900, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -4623,6 +4979,7 @@ func (*AsPathLength) ProtoMessage()               {}
 return fileDescriptor0, []int{151} }
 
 func (m *AsPathLength) GetType() AsPathLengthType { 
+   fmt.Print("<<<DEJDEJ id:1902, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -4630,6 +4987,7 @@ func (m *AsPathLength) GetType() AsPathLengthType {
 }
 
 func (m *AsPathLength) GetLength() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1903, gobgp.pb.go:GetLength>>>")
 	if m != nil {
 		return m.Length
 	}
@@ -4654,6 +5012,7 @@ func (*Conditions) ProtoMessage()               {}
 return fileDescriptor0, []int{152} }
 
 func (m *Conditions) GetPrefixSet() *MatchSet { 
+   fmt.Print("<<<DEJDEJ id:1905, gobgp.pb.go:GetPrefixSet>>>")
 	if m != nil {
 		return m.PrefixSet
 	}
@@ -4661,6 +5020,7 @@ func (m *Conditions) GetPrefixSet() *MatchSet {
 }
 
 func (m *Conditions) GetNeighborSet() *MatchSet { 
+   fmt.Print("<<<DEJDEJ id:1906, gobgp.pb.go:GetNeighborSet>>>")
 	if m != nil {
 		return m.NeighborSet
 	}
@@ -4668,6 +5028,7 @@ func (m *Conditions) GetNeighborSet() *MatchSet {
 }
 
 func (m *Conditions) GetAsPathLength() *AsPathLength { 
+   fmt.Print("<<<DEJDEJ id:1907, gobgp.pb.go:GetAsPathLength>>>")
 	if m != nil {
 		return m.AsPathLength
 	}
@@ -4675,6 +5036,7 @@ func (m *Conditions) GetAsPathLength() *AsPathLength {
 }
 
 func (m *Conditions) GetAsPathSet() *MatchSet { 
+   fmt.Print("<<<DEJDEJ id:1908, gobgp.pb.go:GetAsPathSet>>>")
 	if m != nil {
 		return m.AsPathSet
 	}
@@ -4682,6 +5044,7 @@ func (m *Conditions) GetAsPathSet() *MatchSet {
 }
 
 func (m *Conditions) GetCommunitySet() *MatchSet { 
+   fmt.Print("<<<DEJDEJ id:1909, gobgp.pb.go:GetCommunitySet>>>")
 	if m != nil {
 		return m.CommunitySet
 	}
@@ -4689,6 +5052,7 @@ func (m *Conditions) GetCommunitySet() *MatchSet {
 }
 
 func (m *Conditions) GetExtCommunitySet() *MatchSet { 
+   fmt.Print("<<<DEJDEJ id:1910, gobgp.pb.go:GetExtCommunitySet>>>")
 	if m != nil {
 		return m.ExtCommunitySet
 	}
@@ -4696,6 +5060,7 @@ func (m *Conditions) GetExtCommunitySet() *MatchSet {
 }
 
 func (m *Conditions) GetRpkiResult() int32 { 
+   fmt.Print("<<<DEJDEJ id:1911, gobgp.pb.go:GetRpkiResult>>>")
 	if m != nil {
 		return m.RpkiResult
 	}
@@ -4703,6 +5068,7 @@ func (m *Conditions) GetRpkiResult() int32 {
 }
 
 func (m *Conditions) GetRouteType() Conditions_RouteType { 
+   fmt.Print("<<<DEJDEJ id:1912, gobgp.pb.go:GetRouteType>>>")
 	if m != nil {
 		return m.RouteType
 	}
@@ -4710,6 +5076,7 @@ func (m *Conditions) GetRouteType() Conditions_RouteType {
 }
 
 func (m *Conditions) GetLargeCommunitySet() *MatchSet { 
+   fmt.Print("<<<DEJDEJ id:1913, gobgp.pb.go:GetLargeCommunitySet>>>")
 	if m != nil {
 		return m.LargeCommunitySet
 	}
@@ -4727,6 +5094,7 @@ func (*CommunityAction) ProtoMessage()               {}
 return fileDescriptor0, []int{153} }
 
 func (m *CommunityAction) GetType() CommunityActionType { 
+   fmt.Print("<<<DEJDEJ id:1915, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -4734,6 +5102,7 @@ func (m *CommunityAction) GetType() CommunityActionType {
 }
 
 func (m *CommunityAction) GetCommunities() []string { 
+   fmt.Print("<<<DEJDEJ id:1916, gobgp.pb.go:GetCommunities>>>")
 	if m != nil {
 		return m.Communities
 	}
@@ -4751,6 +5120,7 @@ func (*MedAction) ProtoMessage()               {}
 return fileDescriptor0, []int{154} }
 
 func (m *MedAction) GetType() MedActionType { 
+   fmt.Print("<<<DEJDEJ id:1918, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -4758,6 +5128,7 @@ func (m *MedAction) GetType() MedActionType {
 }
 
 func (m *MedAction) GetValue() int64 { 
+   fmt.Print("<<<DEJDEJ id:1919, gobgp.pb.go:GetValue>>>")
 	if m != nil {
 		return m.Value
 	}
@@ -4776,6 +5147,7 @@ func (*AsPrependAction) ProtoMessage()               {}
 return fileDescriptor0, []int{155} }
 
 func (m *AsPrependAction) GetAsn() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1921, gobgp.pb.go:GetAsn>>>")
 	if m != nil {
 		return m.Asn
 	}
@@ -4783,6 +5155,7 @@ func (m *AsPrependAction) GetAsn() uint32 {
 }
 
 func (m *AsPrependAction) GetRepeat() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1922, gobgp.pb.go:GetRepeat>>>")
 	if m != nil {
 		return m.Repeat
 	}
@@ -4790,6 +5163,7 @@ func (m *AsPrependAction) GetRepeat() uint32 {
 }
 
 func (m *AsPrependAction) GetUseLeftMost() bool { 
+   fmt.Print("<<<DEJDEJ id:1923, gobgp.pb.go:GetUseLeftMost>>>")
 	if m != nil {
 		return m.UseLeftMost
 	}
@@ -4807,6 +5181,7 @@ func (*NexthopAction) ProtoMessage()               {}
 return fileDescriptor0, []int{156} }
 
 func (m *NexthopAction) GetAddress() string { 
+   fmt.Print("<<<DEJDEJ id:1925, gobgp.pb.go:GetAddress>>>")
 	if m != nil {
 		return m.Address
 	}
@@ -4814,6 +5189,7 @@ func (m *NexthopAction) GetAddress() string {
 }
 
 func (m *NexthopAction) GetSelf() bool { 
+   fmt.Print("<<<DEJDEJ id:1926, gobgp.pb.go:GetSelf>>>")
 	if m != nil {
 		return m.Self
 	}
@@ -4830,6 +5206,7 @@ func (*LocalPrefAction) ProtoMessage()               {}
 return fileDescriptor0, []int{157} }
 
 func (m *LocalPrefAction) GetValue() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1928, gobgp.pb.go:GetValue>>>")
 	if m != nil {
 		return m.Value
 	}
@@ -4853,6 +5230,7 @@ func (*Actions) ProtoMessage()               {}
 return fileDescriptor0, []int{158} }
 
 func (m *Actions) GetRouteAction() RouteAction { 
+   fmt.Print("<<<DEJDEJ id:1930, gobgp.pb.go:GetRouteAction>>>")
 	if m != nil {
 		return m.RouteAction
 	}
@@ -4860,6 +5238,7 @@ func (m *Actions) GetRouteAction() RouteAction {
 }
 
 func (m *Actions) GetCommunity() *CommunityAction { 
+   fmt.Print("<<<DEJDEJ id:1931, gobgp.pb.go:GetCommunity>>>")
 	if m != nil {
 		return m.Community
 	}
@@ -4867,6 +5246,7 @@ func (m *Actions) GetCommunity() *CommunityAction {
 }
 
 func (m *Actions) GetMed() *MedAction { 
+   fmt.Print("<<<DEJDEJ id:1932, gobgp.pb.go:GetMed>>>")
 	if m != nil {
 		return m.Med
 	}
@@ -4874,6 +5254,7 @@ func (m *Actions) GetMed() *MedAction {
 }
 
 func (m *Actions) GetAsPrepend() *AsPrependAction { 
+   fmt.Print("<<<DEJDEJ id:1933, gobgp.pb.go:GetAsPrepend>>>")
 	if m != nil {
 		return m.AsPrepend
 	}
@@ -4881,6 +5262,7 @@ func (m *Actions) GetAsPrepend() *AsPrependAction {
 }
 
 func (m *Actions) GetExtCommunity() *CommunityAction { 
+   fmt.Print("<<<DEJDEJ id:1934, gobgp.pb.go:GetExtCommunity>>>")
 	if m != nil {
 		return m.ExtCommunity
 	}
@@ -4888,6 +5270,7 @@ func (m *Actions) GetExtCommunity() *CommunityAction {
 }
 
 func (m *Actions) GetNexthop() *NexthopAction { 
+   fmt.Print("<<<DEJDEJ id:1935, gobgp.pb.go:GetNexthop>>>")
 	if m != nil {
 		return m.Nexthop
 	}
@@ -4895,6 +5278,7 @@ func (m *Actions) GetNexthop() *NexthopAction {
 }
 
 func (m *Actions) GetLocalPref() *LocalPrefAction { 
+   fmt.Print("<<<DEJDEJ id:1936, gobgp.pb.go:GetLocalPref>>>")
 	if m != nil {
 		return m.LocalPref
 	}
@@ -4902,6 +5286,7 @@ func (m *Actions) GetLocalPref() *LocalPrefAction {
 }
 
 func (m *Actions) GetLargeCommunity() *CommunityAction { 
+   fmt.Print("<<<DEJDEJ id:1937, gobgp.pb.go:GetLargeCommunity>>>")
 	if m != nil {
 		return m.LargeCommunity
 	}
@@ -4920,6 +5305,7 @@ func (*Statement) ProtoMessage()               {}
 return fileDescriptor0, []int{159} }
 
 func (m *Statement) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1939, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -4927,6 +5313,7 @@ func (m *Statement) GetName() string {
 }
 
 func (m *Statement) GetConditions() *Conditions { 
+   fmt.Print("<<<DEJDEJ id:1940, gobgp.pb.go:GetConditions>>>")
 	if m != nil {
 		return m.Conditions
 	}
@@ -4934,6 +5321,7 @@ func (m *Statement) GetConditions() *Conditions {
 }
 
 func (m *Statement) GetActions() *Actions { 
+   fmt.Print("<<<DEJDEJ id:1941, gobgp.pb.go:GetActions>>>")
 	if m != nil {
 		return m.Actions
 	}
@@ -4951,6 +5339,7 @@ func (*Policy) ProtoMessage()               {}
 return fileDescriptor0, []int{160} }
 
 func (m *Policy) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1943, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -4958,6 +5347,7 @@ func (m *Policy) GetName() string {
 }
 
 func (m *Policy) GetStatements() []*Statement { 
+   fmt.Print("<<<DEJDEJ id:1944, gobgp.pb.go:GetStatements>>>")
 	if m != nil {
 		return m.Statements
 	}
@@ -4978,6 +5368,7 @@ func (*PolicyAssignment) ProtoMessage()               {}
 return fileDescriptor0, []int{161} }
 
 func (m *PolicyAssignment) GetType() PolicyType { 
+   fmt.Print("<<<DEJDEJ id:1946, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -4985,6 +5376,7 @@ func (m *PolicyAssignment) GetType() PolicyType {
 }
 
 func (m *PolicyAssignment) GetResource() Resource { 
+   fmt.Print("<<<DEJDEJ id:1947, gobgp.pb.go:GetResource>>>")
 	if m != nil {
 		return m.Resource
 	}
@@ -4992,6 +5384,7 @@ func (m *PolicyAssignment) GetResource() Resource {
 }
 
 func (m *PolicyAssignment) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1948, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -4999,6 +5392,7 @@ func (m *PolicyAssignment) GetName() string {
 }
 
 func (m *PolicyAssignment) GetPolicies() []*Policy { 
+   fmt.Print("<<<DEJDEJ id:1949, gobgp.pb.go:GetPolicies>>>")
 	if m != nil {
 		return m.Policies
 	}
@@ -5006,6 +5400,7 @@ func (m *PolicyAssignment) GetPolicies() []*Policy {
 }
 
 func (m *PolicyAssignment) GetDefault() RouteAction { 
+   fmt.Print("<<<DEJDEJ id:1950, gobgp.pb.go:GetDefault>>>")
 	if m != nil {
 		return m.Default
 	}
@@ -5026,6 +5421,7 @@ func (*Roa) ProtoMessage()               {}
 return fileDescriptor0, []int{162} }
 
 func (m *Roa) GetAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1952, gobgp.pb.go:GetAs>>>")
 	if m != nil {
 		return m.As
 	}
@@ -5033,6 +5429,7 @@ func (m *Roa) GetAs() uint32 {
 }
 
 func (m *Roa) GetPrefixlen() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1953, gobgp.pb.go:GetPrefixlen>>>")
 	if m != nil {
 		return m.Prefixlen
 	}
@@ -5040,6 +5437,7 @@ func (m *Roa) GetPrefixlen() uint32 {
 }
 
 func (m *Roa) GetMaxlen() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1954, gobgp.pb.go:GetMaxlen>>>")
 	if m != nil {
 		return m.Maxlen
 	}
@@ -5047,6 +5445,7 @@ func (m *Roa) GetMaxlen() uint32 {
 }
 
 func (m *Roa) GetPrefix() string { 
+   fmt.Print("<<<DEJDEJ id:1955, gobgp.pb.go:GetPrefix>>>")
 	if m != nil {
 		return m.Prefix
 	}
@@ -5054,6 +5453,7 @@ func (m *Roa) GetPrefix() string {
 }
 
 func (m *Roa) GetConf() *RPKIConf { 
+   fmt.Print("<<<DEJDEJ id:1956, gobgp.pb.go:GetConf>>>")
 	if m != nil {
 		return m.Conf
 	}
@@ -5070,6 +5470,7 @@ func (*GetRoaRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{163} }
 
 func (m *GetRoaRequest) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1958, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -5086,6 +5487,7 @@ func (*GetRoaResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{164} }
 
 func (m *GetRoaResponse) GetRoas() []*Roa { 
+   fmt.Print("<<<DEJDEJ id:1960, gobgp.pb.go:GetRoas>>>")
 	if m != nil {
 		return m.Roas
 	}
@@ -5106,6 +5508,7 @@ func (*Vrf) ProtoMessage()               {}
 return fileDescriptor0, []int{165} }
 
 func (m *Vrf) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1962, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -5113,6 +5516,7 @@ func (m *Vrf) GetName() string {
 }
 
 func (m *Vrf) GetRd() []byte { 
+   fmt.Print("<<<DEJDEJ id:1963, gobgp.pb.go:GetRd>>>")
 	if m != nil {
 		return m.Rd
 	}
@@ -5120,6 +5524,7 @@ func (m *Vrf) GetRd() []byte {
 }
 
 func (m *Vrf) GetImportRt() [][]byte { 
+   fmt.Print("<<<DEJDEJ id:1964, gobgp.pb.go:GetImportRt>>>")
 	if m != nil {
 		return m.ImportRt
 	}
@@ -5127,6 +5532,7 @@ func (m *Vrf) GetImportRt() [][]byte {
 }
 
 func (m *Vrf) GetExportRt() [][]byte { 
+   fmt.Print("<<<DEJDEJ id:1965, gobgp.pb.go:GetExportRt>>>")
 	if m != nil {
 		return m.ExportRt
 	}
@@ -5134,6 +5540,7 @@ func (m *Vrf) GetExportRt() [][]byte {
 }
 
 func (m *Vrf) GetId() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1966, gobgp.pb.go:GetId>>>")
 	if m != nil {
 		return m.Id
 	}
@@ -5155,6 +5562,7 @@ func (*Global) ProtoMessage()               {}
 return fileDescriptor0, []int{166} }
 
 func (m *Global) GetAs() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1968, gobgp.pb.go:GetAs>>>")
 	if m != nil {
 		return m.As
 	}
@@ -5162,6 +5570,7 @@ func (m *Global) GetAs() uint32 {
 }
 
 func (m *Global) GetRouterId() string { 
+   fmt.Print("<<<DEJDEJ id:1969, gobgp.pb.go:GetRouterId>>>")
 	if m != nil {
 		return m.RouterId
 	}
@@ -5169,6 +5578,7 @@ func (m *Global) GetRouterId() string {
 }
 
 func (m *Global) GetListenPort() int32 { 
+   fmt.Print("<<<DEJDEJ id:1970, gobgp.pb.go:GetListenPort>>>")
 	if m != nil {
 		return m.ListenPort
 	}
@@ -5176,6 +5586,7 @@ func (m *Global) GetListenPort() int32 {
 }
 
 func (m *Global) GetListenAddresses() []string { 
+   fmt.Print("<<<DEJDEJ id:1971, gobgp.pb.go:GetListenAddresses>>>")
 	if m != nil {
 		return m.ListenAddresses
 	}
@@ -5183,6 +5594,7 @@ func (m *Global) GetListenAddresses() []string {
 }
 
 func (m *Global) GetFamilies() []uint32 { 
+   fmt.Print("<<<DEJDEJ id:1972, gobgp.pb.go:GetFamilies>>>")
 	if m != nil {
 		return m.Families
 	}
@@ -5190,6 +5602,7 @@ func (m *Global) GetFamilies() []uint32 {
 }
 
 func (m *Global) GetUseMultiplePaths() bool { 
+   fmt.Print("<<<DEJDEJ id:1973, gobgp.pb.go:GetUseMultiplePaths>>>")
 	if m != nil {
 		return m.UseMultiplePaths
 	}
@@ -5211,6 +5624,7 @@ func (*TableInfo) ProtoMessage()               {}
 return fileDescriptor0, []int{167} }
 
 func (m *TableInfo) GetType() Resource { 
+   fmt.Print("<<<DEJDEJ id:1975, gobgp.pb.go:GetType>>>")
 	if m != nil {
 		return m.Type
 	}
@@ -5218,6 +5632,7 @@ func (m *TableInfo) GetType() Resource {
 }
 
 func (m *TableInfo) GetName() string { 
+   fmt.Print("<<<DEJDEJ id:1976, gobgp.pb.go:GetName>>>")
 	if m != nil {
 		return m.Name
 	}
@@ -5225,6 +5640,7 @@ func (m *TableInfo) GetName() string {
 }
 
 func (m *TableInfo) GetFamily() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1977, gobgp.pb.go:GetFamily>>>")
 	if m != nil {
 		return m.Family
 	}
@@ -5232,6 +5648,7 @@ func (m *TableInfo) GetFamily() uint32 {
 }
 
 func (m *TableInfo) GetNumDestination() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1978, gobgp.pb.go:GetNumDestination>>>")
 	if m != nil {
 		return m.NumDestination
 	}
@@ -5239,6 +5656,7 @@ func (m *TableInfo) GetNumDestination() uint64 {
 }
 
 func (m *TableInfo) GetNumPath() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1979, gobgp.pb.go:GetNumPath>>>")
 	if m != nil {
 		return m.NumPath
 	}
@@ -5246,6 +5664,7 @@ func (m *TableInfo) GetNumPath() uint64 {
 }
 
 func (m *TableInfo) GetNumAccepted() uint64 { 
+   fmt.Print("<<<DEJDEJ id:1980, gobgp.pb.go:GetNumAccepted>>>")
 	if m != nil {
 		return m.NumAccepted
 	}
@@ -5262,6 +5681,7 @@ func (*GetRibInfoRequest) ProtoMessage()               {}
 return fileDescriptor0, []int{168} }
 
 func (m *GetRibInfoRequest) GetInfo() *TableInfo { 
+   fmt.Print("<<<DEJDEJ id:1982, gobgp.pb.go:GetInfo>>>")
 	if m != nil {
 		return m.Info
 	}
@@ -5278,6 +5698,7 @@ func (*GetRibInfoResponse) ProtoMessage()               {}
 return fileDescriptor0, []int{169} }
 
 func (m *GetRibInfoResponse) GetInfo() *TableInfo { 
+   fmt.Print("<<<DEJDEJ id:1984, gobgp.pb.go:GetInfo>>>")
 	if m != nil {
 		return m.Info
 	}
@@ -5285,6 +5706,7 @@ func (m *GetRibInfoResponse) GetInfo() *TableInfo {
 }
 
 func init() { 
+   fmt.Print("<<<DEJDEJ id:1985, gobgp.pb.go:init()>>>")
 	proto.RegisterType((*GetNeighborRequest)(nil), "gobgpapi.GetNeighborRequest")
 	proto.RegisterType((*GetNeighborResponse)(nil), "gobgpapi.GetNeighborResponse")
 	proto.RegisterType((*Arguments)(nil), "gobgpapi.Arguments")
@@ -5544,10 +5966,12 @@ type gobgpApiClient struct {
 }
 
 func NewGobgpApiClient(cc *grpc.ClientConn) GobgpApiClient { 
+   fmt.Print("<<<DEJDEJ id:1986, gobgp.pb.go:NewGobgpApiClient(cc>>>")
 	return &gobgpApiClient{cc}
 }
 
 func (c *gobgpApiClient) StartServer(ctx context.Context, in *StartServerRequest, opts ...grpc.CallOption) (*StartServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1987, gobgp.pb.go:StartServer>>>")
 	out := new(StartServerResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/StartServer", in, out, c.cc, opts...)
 	if err != nil {
@@ -5557,6 +5981,7 @@ func (c *gobgpApiClient) StartServer(ctx context.Context, in *StartServerRequest
 }
 
 func (c *gobgpApiClient) StopServer(ctx context.Context, in *StopServerRequest, opts ...grpc.CallOption) (*StopServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1988, gobgp.pb.go:StopServer>>>")
 	out := new(StopServerResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/StopServer", in, out, c.cc, opts...)
 	if err != nil {
@@ -5566,6 +5991,7 @@ func (c *gobgpApiClient) StopServer(ctx context.Context, in *StopServerRequest, 
 }
 
 func (c *gobgpApiClient) GetServer(ctx context.Context, in *GetServerRequest, opts ...grpc.CallOption) (*GetServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1989, gobgp.pb.go:GetServer>>>")
 	out := new(GetServerResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetServer", in, out, c.cc, opts...)
 	if err != nil {
@@ -5575,6 +6001,7 @@ func (c *gobgpApiClient) GetServer(ctx context.Context, in *GetServerRequest, op
 }
 
 func (c *gobgpApiClient) AddNeighbor(ctx context.Context, in *AddNeighborRequest, opts ...grpc.CallOption) (*AddNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1990, gobgp.pb.go:AddNeighbor>>>")
 	out := new(AddNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5584,6 +6011,7 @@ func (c *gobgpApiClient) AddNeighbor(ctx context.Context, in *AddNeighborRequest
 }
 
 func (c *gobgpApiClient) DeleteNeighbor(ctx context.Context, in *DeleteNeighborRequest, opts ...grpc.CallOption) (*DeleteNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1991, gobgp.pb.go:DeleteNeighbor>>>")
 	out := new(DeleteNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5593,6 +6021,7 @@ func (c *gobgpApiClient) DeleteNeighbor(ctx context.Context, in *DeleteNeighborR
 }
 
 func (c *gobgpApiClient) GetNeighbor(ctx context.Context, in *GetNeighborRequest, opts ...grpc.CallOption) (*GetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1992, gobgp.pb.go:GetNeighbor>>>")
 	out := new(GetNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5602,6 +6031,7 @@ func (c *gobgpApiClient) GetNeighbor(ctx context.Context, in *GetNeighborRequest
 }
 
 func (c *gobgpApiClient) ResetNeighbor(ctx context.Context, in *ResetNeighborRequest, opts ...grpc.CallOption) (*ResetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1993, gobgp.pb.go:ResetNeighbor>>>")
 	out := new(ResetNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ResetNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5611,6 +6041,7 @@ func (c *gobgpApiClient) ResetNeighbor(ctx context.Context, in *ResetNeighborReq
 }
 
 func (c *gobgpApiClient) SoftResetNeighbor(ctx context.Context, in *SoftResetNeighborRequest, opts ...grpc.CallOption) (*SoftResetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1994, gobgp.pb.go:SoftResetNeighbor>>>")
 	out := new(SoftResetNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/SoftResetNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5620,6 +6051,7 @@ func (c *gobgpApiClient) SoftResetNeighbor(ctx context.Context, in *SoftResetNei
 }
 
 func (c *gobgpApiClient) ShutdownNeighbor(ctx context.Context, in *ShutdownNeighborRequest, opts ...grpc.CallOption) (*ShutdownNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1995, gobgp.pb.go:ShutdownNeighbor>>>")
 	out := new(ShutdownNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ShutdownNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5629,6 +6061,7 @@ func (c *gobgpApiClient) ShutdownNeighbor(ctx context.Context, in *ShutdownNeigh
 }
 
 func (c *gobgpApiClient) EnableNeighbor(ctx context.Context, in *EnableNeighborRequest, opts ...grpc.CallOption) (*EnableNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1996, gobgp.pb.go:EnableNeighbor>>>")
 	out := new(EnableNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5638,6 +6071,7 @@ func (c *gobgpApiClient) EnableNeighbor(ctx context.Context, in *EnableNeighborR
 }
 
 func (c *gobgpApiClient) DisableNeighbor(ctx context.Context, in *DisableNeighborRequest, opts ...grpc.CallOption) (*DisableNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1997, gobgp.pb.go:DisableNeighbor>>>")
 	out := new(DisableNeighborResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DisableNeighbor", in, out, c.cc, opts...)
 	if err != nil {
@@ -5647,6 +6081,7 @@ func (c *gobgpApiClient) DisableNeighbor(ctx context.Context, in *DisableNeighbo
 }
 
 func (c *gobgpApiClient) GetRib(ctx context.Context, in *GetRibRequest, opts ...grpc.CallOption) (*GetRibResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:1998, gobgp.pb.go:GetRib>>>")
 	out := new(GetRibResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRib", in, out, c.cc, opts...)
 	if err != nil {
@@ -5656,6 +6091,7 @@ func (c *gobgpApiClient) GetRib(ctx context.Context, in *GetRibRequest, opts ...
 }
 
 func (c *gobgpApiClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (GobgpApi_GetPathClient, error) { 
+   fmt.Print("<<<DEJDEJ id:1999, gobgp.pb.go:GetPath>>>")
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[0], c.cc, "/gobgpapi.GobgpApi/GetPath", opts...)
 	if err != nil {
 		return nil, err
@@ -5680,6 +6116,7 @@ type gobgpApiGetPathClient struct {
 }
 
 func (x *gobgpApiGetPathClient) Recv() (*Path, error) { 
+   fmt.Print("<<<DEJDEJ id:2000, gobgp.pb.go:Recv>>>")
 	m := new(Path)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -5688,6 +6125,7 @@ func (x *gobgpApiGetPathClient) Recv() (*Path, error) {
 }
 
 func (c *gobgpApiClient) ValidateRib(ctx context.Context, in *ValidateRibRequest, opts ...grpc.CallOption) (*ValidateRibResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2001, gobgp.pb.go:ValidateRib>>>")
 	out := new(ValidateRibResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ValidateRib", in, out, c.cc, opts...)
 	if err != nil {
@@ -5697,6 +6135,7 @@ func (c *gobgpApiClient) ValidateRib(ctx context.Context, in *ValidateRibRequest
 }
 
 func (c *gobgpApiClient) AddPath(ctx context.Context, in *AddPathRequest, opts ...grpc.CallOption) (*AddPathResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2002, gobgp.pb.go:AddPath>>>")
 	out := new(AddPathResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddPath", in, out, c.cc, opts...)
 	if err != nil {
@@ -5706,6 +6145,7 @@ func (c *gobgpApiClient) AddPath(ctx context.Context, in *AddPathRequest, opts .
 }
 
 func (c *gobgpApiClient) DeletePath(ctx context.Context, in *DeletePathRequest, opts ...grpc.CallOption) (*DeletePathResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2003, gobgp.pb.go:DeletePath>>>")
 	out := new(DeletePathResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeletePath", in, out, c.cc, opts...)
 	if err != nil {
@@ -5715,6 +6155,7 @@ func (c *gobgpApiClient) DeletePath(ctx context.Context, in *DeletePathRequest, 
 }
 
 func (c *gobgpApiClient) MonitorRib(ctx context.Context, in *MonitorRibRequest, opts ...grpc.CallOption) (GobgpApi_MonitorRibClient, error) { 
+   fmt.Print("<<<DEJDEJ id:2004, gobgp.pb.go:MonitorRib>>>")
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[1], c.cc, "/gobgpapi.GobgpApi/MonitorRib", opts...)
 	if err != nil {
 		return nil, err
@@ -5739,6 +6180,7 @@ type gobgpApiMonitorRibClient struct {
 }
 
 func (x *gobgpApiMonitorRibClient) Recv() (*Destination, error) { 
+   fmt.Print("<<<DEJDEJ id:2005, gobgp.pb.go:Recv>>>")
 	m := new(Destination)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -5747,6 +6189,7 @@ func (x *gobgpApiMonitorRibClient) Recv() (*Destination, error) {
 }
 
 func (c *gobgpApiClient) MonitorPeerState(ctx context.Context, in *Arguments, opts ...grpc.CallOption) (GobgpApi_MonitorPeerStateClient, error) { 
+   fmt.Print("<<<DEJDEJ id:2006, gobgp.pb.go:MonitorPeerState>>>")
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[2], c.cc, "/gobgpapi.GobgpApi/MonitorPeerState", opts...)
 	if err != nil {
 		return nil, err
@@ -5771,6 +6214,7 @@ type gobgpApiMonitorPeerStateClient struct {
 }
 
 func (x *gobgpApiMonitorPeerStateClient) Recv() (*Peer, error) { 
+   fmt.Print("<<<DEJDEJ id:2007, gobgp.pb.go:Recv>>>")
 	m := new(Peer)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -5779,6 +6223,7 @@ func (x *gobgpApiMonitorPeerStateClient) Recv() (*Peer, error) {
 }
 
 func (c *gobgpApiClient) EnableMrt(ctx context.Context, in *EnableMrtRequest, opts ...grpc.CallOption) (*EnableMrtResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2008, gobgp.pb.go:EnableMrt>>>")
 	out := new(EnableMrtResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableMrt", in, out, c.cc, opts...)
 	if err != nil {
@@ -5788,6 +6233,7 @@ func (c *gobgpApiClient) EnableMrt(ctx context.Context, in *EnableMrtRequest, op
 }
 
 func (c *gobgpApiClient) DisableMrt(ctx context.Context, in *DisableMrtRequest, opts ...grpc.CallOption) (*DisableMrtResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2009, gobgp.pb.go:DisableMrt>>>")
 	out := new(DisableMrtResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DisableMrt", in, out, c.cc, opts...)
 	if err != nil {
@@ -5797,6 +6243,7 @@ func (c *gobgpApiClient) DisableMrt(ctx context.Context, in *DisableMrtRequest, 
 }
 
 func (c *gobgpApiClient) InjectMrt(ctx context.Context, opts ...grpc.CallOption) (GobgpApi_InjectMrtClient, error) { 
+   fmt.Print("<<<DEJDEJ id:2010, gobgp.pb.go:InjectMrt>>>")
 	stream, err := grpc.NewClientStream(ctx, &_GobgpApi_serviceDesc.Streams[3], c.cc, "/gobgpapi.GobgpApi/InjectMrt", opts...)
 	if err != nil {
 		return nil, err
@@ -5816,10 +6263,12 @@ type gobgpApiInjectMrtClient struct {
 }
 
 func (x *gobgpApiInjectMrtClient) Send(m *InjectMrtRequest) error { 
+   fmt.Print("<<<DEJDEJ id:2011, gobgp.pb.go:Send>>>")
 	return x.ClientStream.SendMsg(m)
 }
 
 func (x *gobgpApiInjectMrtClient) CloseAndRecv() (*InjectMrtResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2012, gobgp.pb.go:CloseAndRecv>>>")
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
@@ -5831,6 +6280,7 @@ func (x *gobgpApiInjectMrtClient) CloseAndRecv() (*InjectMrtResponse, error) {
 }
 
 func (c *gobgpApiClient) AddBmp(ctx context.Context, in *AddBmpRequest, opts ...grpc.CallOption) (*AddBmpResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2013, gobgp.pb.go:AddBmp>>>")
 	out := new(AddBmpResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddBmp", in, out, c.cc, opts...)
 	if err != nil {
@@ -5840,6 +6290,7 @@ func (c *gobgpApiClient) AddBmp(ctx context.Context, in *AddBmpRequest, opts ...
 }
 
 func (c *gobgpApiClient) DeleteBmp(ctx context.Context, in *DeleteBmpRequest, opts ...grpc.CallOption) (*DeleteBmpResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2014, gobgp.pb.go:DeleteBmp>>>")
 	out := new(DeleteBmpResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteBmp", in, out, c.cc, opts...)
 	if err != nil {
@@ -5849,6 +6300,7 @@ func (c *gobgpApiClient) DeleteBmp(ctx context.Context, in *DeleteBmpRequest, op
 }
 
 func (c *gobgpApiClient) GetRpki(ctx context.Context, in *GetRpkiRequest, opts ...grpc.CallOption) (*GetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2015, gobgp.pb.go:GetRpki>>>")
 	out := new(GetRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -5858,6 +6310,7 @@ func (c *gobgpApiClient) GetRpki(ctx context.Context, in *GetRpkiRequest, opts .
 }
 
 func (c *gobgpApiClient) AddRpki(ctx context.Context, in *AddRpkiRequest, opts ...grpc.CallOption) (*AddRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2016, gobgp.pb.go:AddRpki>>>")
 	out := new(AddRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -5867,6 +6320,7 @@ func (c *gobgpApiClient) AddRpki(ctx context.Context, in *AddRpkiRequest, opts .
 }
 
 func (c *gobgpApiClient) DeleteRpki(ctx context.Context, in *DeleteRpkiRequest, opts ...grpc.CallOption) (*DeleteRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2017, gobgp.pb.go:DeleteRpki>>>")
 	out := new(DeleteRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -5876,6 +6330,7 @@ func (c *gobgpApiClient) DeleteRpki(ctx context.Context, in *DeleteRpkiRequest, 
 }
 
 func (c *gobgpApiClient) EnableRpki(ctx context.Context, in *EnableRpkiRequest, opts ...grpc.CallOption) (*EnableRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2018, gobgp.pb.go:EnableRpki>>>")
 	out := new(EnableRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -5885,6 +6340,7 @@ func (c *gobgpApiClient) EnableRpki(ctx context.Context, in *EnableRpkiRequest, 
 }
 
 func (c *gobgpApiClient) DisableRpki(ctx context.Context, in *DisableRpkiRequest, opts ...grpc.CallOption) (*DisableRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2019, gobgp.pb.go:DisableRpki>>>")
 	out := new(DisableRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DisableRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -5894,6 +6350,7 @@ func (c *gobgpApiClient) DisableRpki(ctx context.Context, in *DisableRpkiRequest
 }
 
 func (c *gobgpApiClient) ResetRpki(ctx context.Context, in *ResetRpkiRequest, opts ...grpc.CallOption) (*ResetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2020, gobgp.pb.go:ResetRpki>>>")
 	out := new(ResetRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ResetRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -5903,6 +6360,7 @@ func (c *gobgpApiClient) ResetRpki(ctx context.Context, in *ResetRpkiRequest, op
 }
 
 func (c *gobgpApiClient) SoftResetRpki(ctx context.Context, in *SoftResetRpkiRequest, opts ...grpc.CallOption) (*SoftResetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2021, gobgp.pb.go:SoftResetRpki>>>")
 	out := new(SoftResetRpkiResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/SoftResetRpki", in, out, c.cc, opts...)
 	if err != nil {
@@ -5912,6 +6370,7 @@ func (c *gobgpApiClient) SoftResetRpki(ctx context.Context, in *SoftResetRpkiReq
 }
 
 func (c *gobgpApiClient) GetRoa(ctx context.Context, in *GetRoaRequest, opts ...grpc.CallOption) (*GetRoaResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2022, gobgp.pb.go:GetRoa>>>")
 	out := new(GetRoaResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRoa", in, out, c.cc, opts...)
 	if err != nil {
@@ -5921,6 +6380,7 @@ func (c *gobgpApiClient) GetRoa(ctx context.Context, in *GetRoaRequest, opts ...
 }
 
 func (c *gobgpApiClient) EnableZebra(ctx context.Context, in *EnableZebraRequest, opts ...grpc.CallOption) (*EnableZebraResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2023, gobgp.pb.go:EnableZebra>>>")
 	out := new(EnableZebraResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/EnableZebra", in, out, c.cc, opts...)
 	if err != nil {
@@ -5930,6 +6390,7 @@ func (c *gobgpApiClient) EnableZebra(ctx context.Context, in *EnableZebraRequest
 }
 
 func (c *gobgpApiClient) AddVrf(ctx context.Context, in *AddVrfRequest, opts ...grpc.CallOption) (*AddVrfResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2024, gobgp.pb.go:AddVrf>>>")
 	out := new(AddVrfResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddVrf", in, out, c.cc, opts...)
 	if err != nil {
@@ -5939,6 +6400,7 @@ func (c *gobgpApiClient) AddVrf(ctx context.Context, in *AddVrfRequest, opts ...
 }
 
 func (c *gobgpApiClient) DeleteVrf(ctx context.Context, in *DeleteVrfRequest, opts ...grpc.CallOption) (*DeleteVrfResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2025, gobgp.pb.go:DeleteVrf>>>")
 	out := new(DeleteVrfResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteVrf", in, out, c.cc, opts...)
 	if err != nil {
@@ -5948,6 +6410,7 @@ func (c *gobgpApiClient) DeleteVrf(ctx context.Context, in *DeleteVrfRequest, op
 }
 
 func (c *gobgpApiClient) GetVrf(ctx context.Context, in *GetVrfRequest, opts ...grpc.CallOption) (*GetVrfResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2026, gobgp.pb.go:GetVrf>>>")
 	out := new(GetVrfResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetVrf", in, out, c.cc, opts...)
 	if err != nil {
@@ -5957,6 +6420,7 @@ func (c *gobgpApiClient) GetVrf(ctx context.Context, in *GetVrfRequest, opts ...
 }
 
 func (c *gobgpApiClient) GetDefinedSet(ctx context.Context, in *GetDefinedSetRequest, opts ...grpc.CallOption) (*GetDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2027, gobgp.pb.go:GetDefinedSet>>>")
 	out := new(GetDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -5966,6 +6430,7 @@ func (c *gobgpApiClient) GetDefinedSet(ctx context.Context, in *GetDefinedSetReq
 }
 
 func (c *gobgpApiClient) AddDefinedSet(ctx context.Context, in *AddDefinedSetRequest, opts ...grpc.CallOption) (*AddDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2028, gobgp.pb.go:AddDefinedSet>>>")
 	out := new(AddDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -5975,6 +6440,7 @@ func (c *gobgpApiClient) AddDefinedSet(ctx context.Context, in *AddDefinedSetReq
 }
 
 func (c *gobgpApiClient) DeleteDefinedSet(ctx context.Context, in *DeleteDefinedSetRequest, opts ...grpc.CallOption) (*DeleteDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2029, gobgp.pb.go:DeleteDefinedSet>>>")
 	out := new(DeleteDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -5984,6 +6450,7 @@ func (c *gobgpApiClient) DeleteDefinedSet(ctx context.Context, in *DeleteDefined
 }
 
 func (c *gobgpApiClient) ReplaceDefinedSet(ctx context.Context, in *ReplaceDefinedSetRequest, opts ...grpc.CallOption) (*ReplaceDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2030, gobgp.pb.go:ReplaceDefinedSet>>>")
 	out := new(ReplaceDefinedSetResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplaceDefinedSet", in, out, c.cc, opts...)
 	if err != nil {
@@ -5993,6 +6460,7 @@ func (c *gobgpApiClient) ReplaceDefinedSet(ctx context.Context, in *ReplaceDefin
 }
 
 func (c *gobgpApiClient) GetStatement(ctx context.Context, in *GetStatementRequest, opts ...grpc.CallOption) (*GetStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2031, gobgp.pb.go:GetStatement>>>")
 	out := new(GetStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -6002,6 +6470,7 @@ func (c *gobgpApiClient) GetStatement(ctx context.Context, in *GetStatementReque
 }
 
 func (c *gobgpApiClient) AddStatement(ctx context.Context, in *AddStatementRequest, opts ...grpc.CallOption) (*AddStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2032, gobgp.pb.go:AddStatement>>>")
 	out := new(AddStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -6011,6 +6480,7 @@ func (c *gobgpApiClient) AddStatement(ctx context.Context, in *AddStatementReque
 }
 
 func (c *gobgpApiClient) DeleteStatement(ctx context.Context, in *DeleteStatementRequest, opts ...grpc.CallOption) (*DeleteStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2033, gobgp.pb.go:DeleteStatement>>>")
 	out := new(DeleteStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeleteStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -6020,6 +6490,7 @@ func (c *gobgpApiClient) DeleteStatement(ctx context.Context, in *DeleteStatemen
 }
 
 func (c *gobgpApiClient) ReplaceStatement(ctx context.Context, in *ReplaceStatementRequest, opts ...grpc.CallOption) (*ReplaceStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2034, gobgp.pb.go:ReplaceStatement>>>")
 	out := new(ReplaceStatementResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplaceStatement", in, out, c.cc, opts...)
 	if err != nil {
@@ -6029,6 +6500,7 @@ func (c *gobgpApiClient) ReplaceStatement(ctx context.Context, in *ReplaceStatem
 }
 
 func (c *gobgpApiClient) GetPolicy(ctx context.Context, in *GetPolicyRequest, opts ...grpc.CallOption) (*GetPolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2035, gobgp.pb.go:GetPolicy>>>")
 	out := new(GetPolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetPolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -6038,6 +6510,7 @@ func (c *gobgpApiClient) GetPolicy(ctx context.Context, in *GetPolicyRequest, op
 }
 
 func (c *gobgpApiClient) AddPolicy(ctx context.Context, in *AddPolicyRequest, opts ...grpc.CallOption) (*AddPolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2036, gobgp.pb.go:AddPolicy>>>")
 	out := new(AddPolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddPolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -6047,6 +6520,7 @@ func (c *gobgpApiClient) AddPolicy(ctx context.Context, in *AddPolicyRequest, op
 }
 
 func (c *gobgpApiClient) DeletePolicy(ctx context.Context, in *DeletePolicyRequest, opts ...grpc.CallOption) (*DeletePolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2037, gobgp.pb.go:DeletePolicy>>>")
 	out := new(DeletePolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeletePolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -6056,6 +6530,7 @@ func (c *gobgpApiClient) DeletePolicy(ctx context.Context, in *DeletePolicyReque
 }
 
 func (c *gobgpApiClient) ReplacePolicy(ctx context.Context, in *ReplacePolicyRequest, opts ...grpc.CallOption) (*ReplacePolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2038, gobgp.pb.go:ReplacePolicy>>>")
 	out := new(ReplacePolicyResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplacePolicy", in, out, c.cc, opts...)
 	if err != nil {
@@ -6065,6 +6540,7 @@ func (c *gobgpApiClient) ReplacePolicy(ctx context.Context, in *ReplacePolicyReq
 }
 
 func (c *gobgpApiClient) GetPolicyAssignment(ctx context.Context, in *GetPolicyAssignmentRequest, opts ...grpc.CallOption) (*GetPolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2039, gobgp.pb.go:GetPolicyAssignment>>>")
 	out := new(GetPolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetPolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -6074,6 +6550,7 @@ func (c *gobgpApiClient) GetPolicyAssignment(ctx context.Context, in *GetPolicyA
 }
 
 func (c *gobgpApiClient) AddPolicyAssignment(ctx context.Context, in *AddPolicyAssignmentRequest, opts ...grpc.CallOption) (*AddPolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2040, gobgp.pb.go:AddPolicyAssignment>>>")
 	out := new(AddPolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/AddPolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -6083,6 +6560,7 @@ func (c *gobgpApiClient) AddPolicyAssignment(ctx context.Context, in *AddPolicyA
 }
 
 func (c *gobgpApiClient) DeletePolicyAssignment(ctx context.Context, in *DeletePolicyAssignmentRequest, opts ...grpc.CallOption) (*DeletePolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2041, gobgp.pb.go:DeletePolicyAssignment>>>")
 	out := new(DeletePolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/DeletePolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -6092,6 +6570,7 @@ func (c *gobgpApiClient) DeletePolicyAssignment(ctx context.Context, in *DeleteP
 }
 
 func (c *gobgpApiClient) ReplacePolicyAssignment(ctx context.Context, in *ReplacePolicyAssignmentRequest, opts ...grpc.CallOption) (*ReplacePolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2042, gobgp.pb.go:ReplacePolicyAssignment>>>")
 	out := new(ReplacePolicyAssignmentResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/ReplacePolicyAssignment", in, out, c.cc, opts...)
 	if err != nil {
@@ -6101,6 +6580,7 @@ func (c *gobgpApiClient) ReplacePolicyAssignment(ctx context.Context, in *Replac
 }
 
 func (c *gobgpApiClient) GetRibInfo(ctx context.Context, in *GetRibInfoRequest, opts ...grpc.CallOption) (*GetRibInfoResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2043, gobgp.pb.go:GetRibInfo>>>")
 	out := new(GetRibInfoResponse)
 	err := grpc.Invoke(ctx, "/gobgpapi.GobgpApi/GetRibInfo", in, out, c.cc, opts...)
 	if err != nil {
@@ -6167,10 +6647,12 @@ type GobgpApiServer interface {
 }
 
 func RegisterGobgpApiServer(s *grpc.Server, srv GobgpApiServer) { 
+   fmt.Print("<<<DEJDEJ id:2044, gobgp.pb.go:RegisterGobgpApiServer(s>>>")
 	s.RegisterService(&_GobgpApi_serviceDesc, srv)
 }
 
 func _GobgpApi_StartServer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2045, gobgp.pb.go:_GobgpApi_StartServer_Handler(srv>>>")
 	in := new(StartServerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6189,6 +6671,7 @@ func _GobgpApi_StartServer_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_StopServer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2046, gobgp.pb.go:_GobgpApi_StopServer_Handler(srv>>>")
 	in := new(StopServerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6207,6 +6690,7 @@ func _GobgpApi_StopServer_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_GetServer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2047, gobgp.pb.go:_GobgpApi_GetServer_Handler(srv>>>")
 	in := new(GetServerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6225,6 +6709,7 @@ func _GobgpApi_GetServer_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_AddNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2048, gobgp.pb.go:_GobgpApi_AddNeighbor_Handler(srv>>>")
 	in := new(AddNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6243,6 +6728,7 @@ func _GobgpApi_AddNeighbor_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_DeleteNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2049, gobgp.pb.go:_GobgpApi_DeleteNeighbor_Handler(srv>>>")
 	in := new(DeleteNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6261,6 +6747,7 @@ func _GobgpApi_DeleteNeighbor_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _GobgpApi_GetNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2050, gobgp.pb.go:_GobgpApi_GetNeighbor_Handler(srv>>>")
 	in := new(GetNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6279,6 +6766,7 @@ func _GobgpApi_GetNeighbor_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_ResetNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2051, gobgp.pb.go:_GobgpApi_ResetNeighbor_Handler(srv>>>")
 	in := new(ResetNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6297,6 +6785,7 @@ func _GobgpApi_ResetNeighbor_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_SoftResetNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2052, gobgp.pb.go:_GobgpApi_SoftResetNeighbor_Handler(srv>>>")
 	in := new(SoftResetNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6315,6 +6804,7 @@ func _GobgpApi_SoftResetNeighbor_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _GobgpApi_ShutdownNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2053, gobgp.pb.go:_GobgpApi_ShutdownNeighbor_Handler(srv>>>")
 	in := new(ShutdownNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6333,6 +6823,7 @@ func _GobgpApi_ShutdownNeighbor_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _GobgpApi_EnableNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2054, gobgp.pb.go:_GobgpApi_EnableNeighbor_Handler(srv>>>")
 	in := new(EnableNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6351,6 +6842,7 @@ func _GobgpApi_EnableNeighbor_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _GobgpApi_DisableNeighbor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2055, gobgp.pb.go:_GobgpApi_DisableNeighbor_Handler(srv>>>")
 	in := new(DisableNeighborRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6369,6 +6861,7 @@ func _GobgpApi_DisableNeighbor_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _GobgpApi_GetRib_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2056, gobgp.pb.go:_GobgpApi_GetRib_Handler(srv>>>")
 	in := new(GetRibRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6387,6 +6880,7 @@ func _GobgpApi_GetRib_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_GetPath_Handler(srv interface{}, stream grpc.ServerStream) error { 
+   fmt.Print("<<<DEJDEJ id:2057, gobgp.pb.go:_GobgpApi_GetPath_Handler(srv>>>")
 	m := new(GetPathRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -6404,10 +6898,12 @@ type gobgpApiGetPathServer struct {
 }
 
 func (x *gobgpApiGetPathServer) Send(m *Path) error { 
+   fmt.Print("<<<DEJDEJ id:2058, gobgp.pb.go:Send>>>")
 	return x.ServerStream.SendMsg(m)
 }
 
 func _GobgpApi_ValidateRib_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2059, gobgp.pb.go:_GobgpApi_ValidateRib_Handler(srv>>>")
 	in := new(ValidateRibRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6426,6 +6922,7 @@ func _GobgpApi_ValidateRib_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_AddPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2060, gobgp.pb.go:_GobgpApi_AddPath_Handler(srv>>>")
 	in := new(AddPathRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6444,6 +6941,7 @@ func _GobgpApi_AddPath_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 func _GobgpApi_DeletePath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2061, gobgp.pb.go:_GobgpApi_DeletePath_Handler(srv>>>")
 	in := new(DeletePathRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6462,6 +6960,7 @@ func _GobgpApi_DeletePath_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_MonitorRib_Handler(srv interface{}, stream grpc.ServerStream) error { 
+   fmt.Print("<<<DEJDEJ id:2062, gobgp.pb.go:_GobgpApi_MonitorRib_Handler(srv>>>")
 	m := new(MonitorRibRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -6479,10 +6978,12 @@ type gobgpApiMonitorRibServer struct {
 }
 
 func (x *gobgpApiMonitorRibServer) Send(m *Destination) error { 
+   fmt.Print("<<<DEJDEJ id:2063, gobgp.pb.go:Send>>>")
 	return x.ServerStream.SendMsg(m)
 }
 
 func _GobgpApi_MonitorPeerState_Handler(srv interface{}, stream grpc.ServerStream) error { 
+   fmt.Print("<<<DEJDEJ id:2064, gobgp.pb.go:_GobgpApi_MonitorPeerState_Handler(srv>>>")
 	m := new(Arguments)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -6500,10 +7001,12 @@ type gobgpApiMonitorPeerStateServer struct {
 }
 
 func (x *gobgpApiMonitorPeerStateServer) Send(m *Peer) error { 
+   fmt.Print("<<<DEJDEJ id:2065, gobgp.pb.go:Send>>>")
 	return x.ServerStream.SendMsg(m)
 }
 
 func _GobgpApi_EnableMrt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2066, gobgp.pb.go:_GobgpApi_EnableMrt_Handler(srv>>>")
 	in := new(EnableMrtRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6522,6 +7025,7 @@ func _GobgpApi_EnableMrt_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_DisableMrt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2067, gobgp.pb.go:_GobgpApi_DisableMrt_Handler(srv>>>")
 	in := new(DisableMrtRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6540,6 +7044,7 @@ func _GobgpApi_DisableMrt_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_InjectMrt_Handler(srv interface{}, stream grpc.ServerStream) error { 
+   fmt.Print("<<<DEJDEJ id:2068, gobgp.pb.go:_GobgpApi_InjectMrt_Handler(srv>>>")
 	return srv.(GobgpApiServer).InjectMrt(&gobgpApiInjectMrtServer{stream})
 }
 
@@ -6554,10 +7059,12 @@ type gobgpApiInjectMrtServer struct {
 }
 
 func (x *gobgpApiInjectMrtServer) SendAndClose(m *InjectMrtResponse) error { 
+   fmt.Print("<<<DEJDEJ id:2069, gobgp.pb.go:SendAndClose>>>")
 	return x.ServerStream.SendMsg(m)
 }
 
 func (x *gobgpApiInjectMrtServer) Recv() (*InjectMrtRequest, error) { 
+   fmt.Print("<<<DEJDEJ id:2070, gobgp.pb.go:Recv>>>")
 	m := new(InjectMrtRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -6566,6 +7073,7 @@ func (x *gobgpApiInjectMrtServer) Recv() (*InjectMrtRequest, error) {
 }
 
 func _GobgpApi_AddBmp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2071, gobgp.pb.go:_GobgpApi_AddBmp_Handler(srv>>>")
 	in := new(AddBmpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6584,6 +7092,7 @@ func _GobgpApi_AddBmp_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_DeleteBmp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2072, gobgp.pb.go:_GobgpApi_DeleteBmp_Handler(srv>>>")
 	in := new(DeleteBmpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6602,6 +7111,7 @@ func _GobgpApi_DeleteBmp_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_GetRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2073, gobgp.pb.go:_GobgpApi_GetRpki_Handler(srv>>>")
 	in := new(GetRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6620,6 +7130,7 @@ func _GobgpApi_GetRpki_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 func _GobgpApi_AddRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2074, gobgp.pb.go:_GobgpApi_AddRpki_Handler(srv>>>")
 	in := new(AddRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6638,6 +7149,7 @@ func _GobgpApi_AddRpki_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 func _GobgpApi_DeleteRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2075, gobgp.pb.go:_GobgpApi_DeleteRpki_Handler(srv>>>")
 	in := new(DeleteRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6656,6 +7168,7 @@ func _GobgpApi_DeleteRpki_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_EnableRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2076, gobgp.pb.go:_GobgpApi_EnableRpki_Handler(srv>>>")
 	in := new(EnableRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6674,6 +7187,7 @@ func _GobgpApi_EnableRpki_Handler(srv interface{}, ctx context.Context, dec func
 }
 
 func _GobgpApi_DisableRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2077, gobgp.pb.go:_GobgpApi_DisableRpki_Handler(srv>>>")
 	in := new(DisableRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6692,6 +7206,7 @@ func _GobgpApi_DisableRpki_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_ResetRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2078, gobgp.pb.go:_GobgpApi_ResetRpki_Handler(srv>>>")
 	in := new(ResetRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6710,6 +7225,7 @@ func _GobgpApi_ResetRpki_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_SoftResetRpki_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2079, gobgp.pb.go:_GobgpApi_SoftResetRpki_Handler(srv>>>")
 	in := new(SoftResetRpkiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6728,6 +7244,7 @@ func _GobgpApi_SoftResetRpki_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_GetRoa_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2080, gobgp.pb.go:_GobgpApi_GetRoa_Handler(srv>>>")
 	in := new(GetRoaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6746,6 +7263,7 @@ func _GobgpApi_GetRoa_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_EnableZebra_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2081, gobgp.pb.go:_GobgpApi_EnableZebra_Handler(srv>>>")
 	in := new(EnableZebraRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6764,6 +7282,7 @@ func _GobgpApi_EnableZebra_Handler(srv interface{}, ctx context.Context, dec fun
 }
 
 func _GobgpApi_AddVrf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2082, gobgp.pb.go:_GobgpApi_AddVrf_Handler(srv>>>")
 	in := new(AddVrfRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6782,6 +7301,7 @@ func _GobgpApi_AddVrf_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_DeleteVrf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2083, gobgp.pb.go:_GobgpApi_DeleteVrf_Handler(srv>>>")
 	in := new(DeleteVrfRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6800,6 +7320,7 @@ func _GobgpApi_DeleteVrf_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_GetVrf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2084, gobgp.pb.go:_GobgpApi_GetVrf_Handler(srv>>>")
 	in := new(GetVrfRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6818,6 +7339,7 @@ func _GobgpApi_GetVrf_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _GobgpApi_GetDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2085, gobgp.pb.go:_GobgpApi_GetDefinedSet_Handler(srv>>>")
 	in := new(GetDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6836,6 +7358,7 @@ func _GobgpApi_GetDefinedSet_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_AddDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2086, gobgp.pb.go:_GobgpApi_AddDefinedSet_Handler(srv>>>")
 	in := new(AddDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6854,6 +7377,7 @@ func _GobgpApi_AddDefinedSet_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_DeleteDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2087, gobgp.pb.go:_GobgpApi_DeleteDefinedSet_Handler(srv>>>")
 	in := new(DeleteDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6872,6 +7396,7 @@ func _GobgpApi_DeleteDefinedSet_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _GobgpApi_ReplaceDefinedSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2088, gobgp.pb.go:_GobgpApi_ReplaceDefinedSet_Handler(srv>>>")
 	in := new(ReplaceDefinedSetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6890,6 +7415,7 @@ func _GobgpApi_ReplaceDefinedSet_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _GobgpApi_GetStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2089, gobgp.pb.go:_GobgpApi_GetStatement_Handler(srv>>>")
 	in := new(GetStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6908,6 +7434,7 @@ func _GobgpApi_GetStatement_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _GobgpApi_AddStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2090, gobgp.pb.go:_GobgpApi_AddStatement_Handler(srv>>>")
 	in := new(AddStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6926,6 +7453,7 @@ func _GobgpApi_AddStatement_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _GobgpApi_DeleteStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2091, gobgp.pb.go:_GobgpApi_DeleteStatement_Handler(srv>>>")
 	in := new(DeleteStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6944,6 +7472,7 @@ func _GobgpApi_DeleteStatement_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _GobgpApi_ReplaceStatement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2092, gobgp.pb.go:_GobgpApi_ReplaceStatement_Handler(srv>>>")
 	in := new(ReplaceStatementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6962,6 +7491,7 @@ func _GobgpApi_ReplaceStatement_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _GobgpApi_GetPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2093, gobgp.pb.go:_GobgpApi_GetPolicy_Handler(srv>>>")
 	in := new(GetPolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6980,6 +7510,7 @@ func _GobgpApi_GetPolicy_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_AddPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2094, gobgp.pb.go:_GobgpApi_AddPolicy_Handler(srv>>>")
 	in := new(AddPolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -6998,6 +7529,7 @@ func _GobgpApi_AddPolicy_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _GobgpApi_DeletePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2095, gobgp.pb.go:_GobgpApi_DeletePolicy_Handler(srv>>>")
 	in := new(DeletePolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7016,6 +7548,7 @@ func _GobgpApi_DeletePolicy_Handler(srv interface{}, ctx context.Context, dec fu
 }
 
 func _GobgpApi_ReplacePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2096, gobgp.pb.go:_GobgpApi_ReplacePolicy_Handler(srv>>>")
 	in := new(ReplacePolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7034,6 +7567,7 @@ func _GobgpApi_ReplacePolicy_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _GobgpApi_GetPolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2097, gobgp.pb.go:_GobgpApi_GetPolicyAssignment_Handler(srv>>>")
 	in := new(GetPolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7052,6 +7586,7 @@ func _GobgpApi_GetPolicyAssignment_Handler(srv interface{}, ctx context.Context,
 }
 
 func _GobgpApi_AddPolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2098, gobgp.pb.go:_GobgpApi_AddPolicyAssignment_Handler(srv>>>")
 	in := new(AddPolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7070,6 +7605,7 @@ func _GobgpApi_AddPolicyAssignment_Handler(srv interface{}, ctx context.Context,
 }
 
 func _GobgpApi_DeletePolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2099, gobgp.pb.go:_GobgpApi_DeletePolicyAssignment_Handler(srv>>>")
 	in := new(DeletePolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7088,6 +7624,7 @@ func _GobgpApi_DeletePolicyAssignment_Handler(srv interface{}, ctx context.Conte
 }
 
 func _GobgpApi_ReplacePolicyAssignment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2100, gobgp.pb.go:_GobgpApi_ReplacePolicyAssignment_Handler(srv>>>")
 	in := new(ReplacePolicyAssignmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -7106,6 +7643,7 @@ func _GobgpApi_ReplacePolicyAssignment_Handler(srv interface{}, ctx context.Cont
 }
 
 func _GobgpApi_GetRibInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:2101, gobgp.pb.go:_GobgpApi_GetRibInfo_Handler(srv>>>")
 	in := new(GetRibInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err

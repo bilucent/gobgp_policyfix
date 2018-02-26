@@ -29,6 +29,7 @@ import (
 )
 
 func TestEqual(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:303, bgp_configs_test.go:TestEqual(t>>>")
 	assert := assert.New(t)
 	p1 := Prefix{
 		IpPrefix:        "192.168.0.0",
@@ -63,6 +64,7 @@ func TestEqual(t *testing.T) {
 }
 
 func extractTomlFromMarkdown(fileMd string, fileToml string) error { 
+   fmt.Print("<<<DEJDEJ id:304, bgp_configs_test.go:extractTomlFromMarkdown(fileMd>>>")
 	fMd, err := os.Open(fileMd)
 	if err != nil {
 		return err
@@ -98,6 +100,7 @@ func extractTomlFromMarkdown(fileMd string, fileToml string) error {
 }
 
 func TestConfigExample(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:305, bgp_configs_test.go:TestConfigExample(t>>>")
 	assert := assert.New(t)
 
 	_, f, _, _ := runtime.Caller(0)

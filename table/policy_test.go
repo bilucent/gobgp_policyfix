@@ -32,6 +32,7 @@ import (
 )
 
 func TestPrefixCalcurateNoRange(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:892, policy_test.go:TestPrefixCalcurateNoRange(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -56,6 +57,7 @@ func TestPrefixCalcurateNoRange(t *testing.T) {
 }
 
 func TestPrefixCalcurateAddress(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:893, policy_test.go:TestPrefixCalcurateAddress(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -77,6 +79,7 @@ func TestPrefixCalcurateAddress(t *testing.T) {
 }
 
 func TestPrefixCalcurateLength(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:894, policy_test.go:TestPrefixCalcurateLength(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -98,6 +101,7 @@ func TestPrefixCalcurateLength(t *testing.T) {
 }
 
 func TestPrefixCalcurateLengthRange(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:895, policy_test.go:TestPrefixCalcurateLengthRange(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -122,6 +126,7 @@ func TestPrefixCalcurateLengthRange(t *testing.T) {
 }
 
 func TestPrefixCalcurateNoRangeIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:896, policy_test.go:TestPrefixCalcurateNoRangeIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -146,6 +151,7 @@ func TestPrefixCalcurateNoRangeIPv6(t *testing.T) {
 }
 
 func TestPrefixCalcurateAddressIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:897, policy_test.go:TestPrefixCalcurateAddressIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -167,6 +173,7 @@ func TestPrefixCalcurateAddressIPv6(t *testing.T) {
 }
 
 func TestPrefixCalcurateLengthIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:898, policy_test.go:TestPrefixCalcurateLengthIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -188,6 +195,7 @@ func TestPrefixCalcurateLengthIPv6(t *testing.T) {
 }
 
 func TestPrefixCalcurateLengthRangeIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:899, policy_test.go:TestPrefixCalcurateLengthRangeIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -212,6 +220,7 @@ func TestPrefixCalcurateLengthRangeIPv6(t *testing.T) {
 }
 
 func TestPolicyNotMatch(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:900, policy_test.go:TestPolicyNotMatch(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -243,6 +252,7 @@ func TestPolicyNotMatch(t *testing.T) {
 }
 
 func TestPolicyMatchAndReject(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:901, policy_test.go:TestPolicyMatchAndReject(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -274,6 +284,7 @@ func TestPolicyMatchAndReject(t *testing.T) {
 }
 
 func TestPolicyMatchAndAccept(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:902, policy_test.go:TestPolicyMatchAndAccept(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -306,6 +317,7 @@ func TestPolicyMatchAndAccept(t *testing.T) {
 }
 
 func TestPolicyRejectOnlyPrefixSet(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:903, policy_test.go:TestPolicyRejectOnlyPrefixSet(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.1.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -353,6 +365,7 @@ func TestPolicyRejectOnlyPrefixSet(t *testing.T) {
 }
 
 func TestPolicyRejectOnlyNeighborSet(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:904, policy_test.go:TestPolicyRejectOnlyNeighborSet(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.1.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -399,6 +412,7 @@ func TestPolicyRejectOnlyNeighborSet(t *testing.T) {
 }
 
 func TestPolicyDifferentRoutefamilyOfPathAndPolicy(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:905, policy_test.go:TestPolicyDifferentRoutefamilyOfPathAndPolicy(t>>>")
 	// create path ipv4
 	peerIPv4 := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	originIPv4 := bgp.NewPathAttributeOrigin(0)
@@ -453,6 +467,7 @@ func TestPolicyDifferentRoutefamilyOfPathAndPolicy(t *testing.T) {
 }
 
 func TestAsPathLengthConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:906, policy_test.go:TestAsPathLengthConditionEvaluate(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -502,6 +517,7 @@ func TestAsPathLengthConditionEvaluate(t *testing.T) {
 }
 
 func TestAsPathLengthConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:907, policy_test.go:TestAsPathLengthConditionWithOtherCondition(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -550,6 +566,7 @@ func TestAsPathLengthConditionWithOtherCondition(t *testing.T) {
 }
 
 func TestAs4PathLengthConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:908, policy_test.go:TestAs4PathLengthConditionEvaluate(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -609,6 +626,7 @@ func TestAs4PathLengthConditionEvaluate(t *testing.T) {
 }
 
 func addPolicy(r *RoutingPolicy, x *Policy) { 
+   fmt.Print("<<<DEJDEJ id:909, policy_test.go:addPolicy(r>>>")
 	for _, s := range x.Statements {
 		for _, c := range s.Conditions {
 			r.validateCondition(c)
@@ -617,6 +635,7 @@ func addPolicy(r *RoutingPolicy, x *Policy) {
 }
 
 func TestAs4PathLengthConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:910, policy_test.go:TestAs4PathLengthConditionWithOtherCondition(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -676,6 +695,7 @@ func TestAs4PathLengthConditionWithOtherCondition(t *testing.T) {
 }
 
 func TestAsPathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:911, policy_test.go:TestAsPathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -773,6 +793,7 @@ func TestAsPathConditionEvaluate(t *testing.T) {
 }
 
 func TestMultipleAsPathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:912, policy_test.go:TestMultipleAsPathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -877,6 +898,7 @@ func TestMultipleAsPathConditionEvaluate(t *testing.T) {
 }
 
 func TestAsPathCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:913, policy_test.go:TestAsPathCondition(t>>>")
 	type astest struct {
 		path   *Path
 		result bool
@@ -959,6 +981,7 @@ func TestAsPathCondition(t *testing.T) {
 }
 
 func TestAsPathConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:914, policy_test.go:TestAsPathConditionWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -1009,6 +1032,7 @@ func TestAsPathConditionWithOtherCondition(t *testing.T) {
 }
 
 func TestAs4PathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:915, policy_test.go:TestAs4PathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -1125,6 +1149,7 @@ func TestAs4PathConditionEvaluate(t *testing.T) {
 }
 
 func TestMultipleAs4PathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:916, policy_test.go:TestMultipleAs4PathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -1248,6 +1273,7 @@ func TestMultipleAs4PathConditionEvaluate(t *testing.T) {
 }
 
 func TestAs4PathConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:917, policy_test.go:TestAs4PathConditionWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -1309,6 +1335,7 @@ func TestAs4PathConditionWithOtherCondition(t *testing.T) {
 }
 
 func TestAs4PathConditionEvaluateMixedWith2byteAS(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:918, policy_test.go:TestAs4PathConditionEvaluateMixedWith2byteAS(t>>>")
 
 	// setup
 	// create path
@@ -1410,6 +1437,7 @@ func TestAs4PathConditionEvaluateMixedWith2byteAS(t *testing.T) {
 }
 
 func TestCommunityConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:919, policy_test.go:TestCommunityConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -1557,6 +1585,7 @@ func TestCommunityConditionEvaluate(t *testing.T) {
 }
 
 func TestCommunityConditionEvaluateWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:920, policy_test.go:TestCommunityConditionEvaluateWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -1638,6 +1667,7 @@ func TestCommunityConditionEvaluateWithOtherCondition(t *testing.T) {
 }
 
 func TestPolicyMatchAndAddCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:921, policy_test.go:TestPolicyMatchAndAddCommunities(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -1679,6 +1709,7 @@ func TestPolicyMatchAndAddCommunities(t *testing.T) {
 }
 
 func TestPolicyMatchAndReplaceCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:922, policy_test.go:TestPolicyMatchAndReplaceCommunities(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -1723,6 +1754,7 @@ func TestPolicyMatchAndReplaceCommunities(t *testing.T) {
 }
 
 func TestPolicyMatchAndRemoveCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:923, policy_test.go:TestPolicyMatchAndRemoveCommunities(t>>>")
 
 	// create path
 	community1 := "65000:100"
@@ -1767,6 +1799,7 @@ func TestPolicyMatchAndRemoveCommunities(t *testing.T) {
 }
 
 func TestPolicyMatchAndRemoveCommunitiesRegexp(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:924, policy_test.go:TestPolicyMatchAndRemoveCommunitiesRegexp(t>>>")
 
 	// create path
 	community1 := "65000:100"
@@ -1813,6 +1846,7 @@ func TestPolicyMatchAndRemoveCommunitiesRegexp(t *testing.T) {
 }
 
 func TestPolicyMatchAndRemoveCommunitiesRegexp2(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:925, policy_test.go:TestPolicyMatchAndRemoveCommunitiesRegexp2(t>>>")
 
 	// create path
 	community1 := "0:1"
@@ -1859,6 +1893,7 @@ func TestPolicyMatchAndRemoveCommunitiesRegexp2(t *testing.T) {
 }
 
 func TestPolicyMatchAndClearCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:926, policy_test.go:TestPolicyMatchAndClearCommunities(t>>>")
 
 	// create path
 	community1 := "65000:100"
@@ -1906,6 +1941,7 @@ func TestPolicyMatchAndClearCommunities(t *testing.T) {
 }
 
 func TestExtCommunityConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:927, policy_test.go:TestExtCommunityConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -2087,6 +2123,7 @@ func TestExtCommunityConditionEvaluate(t *testing.T) {
 }
 
 func TestExtCommunityConditionEvaluateWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:928, policy_test.go:TestExtCommunityConditionEvaluateWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -2215,6 +2252,7 @@ func TestExtCommunityConditionEvaluateWithOtherCondition(t *testing.T) {
 }
 
 func TestPolicyMatchAndReplaceMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:929, policy_test.go:TestPolicyMatchAndReplaceMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2259,6 +2297,7 @@ func TestPolicyMatchAndReplaceMed(t *testing.T) {
 }
 
 func TestPolicyMatchAndAddingMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:930, policy_test.go:TestPolicyMatchAndAddingMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2303,6 +2342,7 @@ func TestPolicyMatchAndAddingMed(t *testing.T) {
 }
 
 func TestPolicyMatchAndAddingMedOverFlow(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:931, policy_test.go:TestPolicyMatchAndAddingMedOverFlow(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2349,6 +2389,7 @@ func TestPolicyMatchAndAddingMedOverFlow(t *testing.T) {
 }
 
 func TestPolicyMatchAndSubtractMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:932, policy_test.go:TestPolicyMatchAndSubtractMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2395,6 +2436,7 @@ func TestPolicyMatchAndSubtractMed(t *testing.T) {
 }
 
 func TestPolicyMatchAndSubtractMedUnderFlow(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:933, policy_test.go:TestPolicyMatchAndSubtractMedUnderFlow(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2441,6 +2483,7 @@ func TestPolicyMatchAndSubtractMedUnderFlow(t *testing.T) {
 }
 
 func TestPolicyMatchWhenPathHaveNotMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:934, policy_test.go:TestPolicyMatchWhenPathHaveNotMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2482,6 +2525,7 @@ func TestPolicyMatchWhenPathHaveNotMed(t *testing.T) {
 }
 
 func TestPolicyAsPathPrepend(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:935, policy_test.go:TestPolicyAsPathPrepend(t>>>")
 
 	assert := assert.New(t)
 
@@ -2527,6 +2571,7 @@ func TestPolicyAsPathPrepend(t *testing.T) {
 }
 
 func TestPolicyAsPathPrependLastAs(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:936, policy_test.go:TestPolicyAsPathPrependLastAs(t>>>")
 
 	assert := assert.New(t)
 	// create path
@@ -2571,6 +2616,7 @@ func TestPolicyAsPathPrependLastAs(t *testing.T) {
 }
 
 func TestPolicyAs4PathPrepend(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:937, policy_test.go:TestPolicyAs4PathPrepend(t>>>")
 
 	assert := assert.New(t)
 
@@ -2628,6 +2674,7 @@ func TestPolicyAs4PathPrepend(t *testing.T) {
 }
 
 func TestPolicyAs4PathPrependLastAs(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:938, policy_test.go:TestPolicyAs4PathPrependLastAs(t>>>")
 
 	assert := assert.New(t)
 	// create path
@@ -2685,6 +2732,7 @@ func TestPolicyAs4PathPrependLastAs(t *testing.T) {
 }
 
 func TestParseCommunityRegexp(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:939, policy_test.go:TestParseCommunityRegexp(t>>>")
 	exp, err := ParseCommunityRegexp("65000:1")
 	assert.Equal(t, nil, err)
 	assert.Equal(t, true, exp.MatchString("65000:1"))
@@ -2692,6 +2740,7 @@ func TestParseCommunityRegexp(t *testing.T) {
 }
 
 func TestLocalPrefAction(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:940, policy_test.go:TestLocalPrefAction(t>>>")
 	action, err := NewLocalPrefAction(10)
 	assert.Nil(t, err)
 
@@ -2722,6 +2771,7 @@ func TestLocalPrefAction(t *testing.T) {
 }
 
 func createStatement(name, psname, nsname string, accept bool) config.Statement { 
+   fmt.Print("<<<DEJDEJ id:941, policy_test.go:createStatement(name,>>>")
 	c := config.Conditions{
 		MatchPrefixSet: config.MatchPrefixSet{
 			PrefixSet: psname,
@@ -2746,6 +2796,7 @@ func createStatement(name, psname, nsname string, accept bool) config.Statement 
 }
 
 func createSetCommunity(operation string, community ...string) config.SetCommunity { 
+   fmt.Print("<<<DEJDEJ id:942, policy_test.go:createSetCommunity(operation>>>")
 
 	s := config.SetCommunity{
 		SetCommunityMethod: config.SetCommunityMethod{
@@ -2757,6 +2808,7 @@ func createSetCommunity(operation string, community ...string) config.SetCommuni
 }
 
 func stringToCommunityValue(comStr string) uint32 { 
+   fmt.Print("<<<DEJDEJ id:943, policy_test.go:stringToCommunityValue(comStr>>>")
 	elem := strings.Split(comStr, ":")
 	asn, _ := strconv.ParseUint(elem[0], 10, 16)
 	val, _ := strconv.ParseUint(elem[1], 10, 16)
@@ -2764,6 +2816,7 @@ func stringToCommunityValue(comStr string) uint32 {
 }
 
 func createPolicyDefinition(defName string, stmt ...config.Statement) config.PolicyDefinition { 
+   fmt.Print("<<<DEJDEJ id:944, policy_test.go:createPolicyDefinition(defName>>>")
 	pd := config.PolicyDefinition{
 		Name:       defName,
 		Statements: []config.Statement(stmt),
@@ -2772,6 +2825,7 @@ func createPolicyDefinition(defName string, stmt ...config.Statement) config.Pol
 }
 
 func createRoutingPolicy(ds config.DefinedSets, pd ...config.PolicyDefinition) config.RoutingPolicy { 
+   fmt.Print("<<<DEJDEJ id:945, policy_test.go:createRoutingPolicy(ds>>>")
 	pl := config.RoutingPolicy{
 		DefinedSets:       ds,
 		PolicyDefinitions: []config.PolicyDefinition(pd),
@@ -2780,6 +2834,7 @@ func createRoutingPolicy(ds config.DefinedSets, pd ...config.PolicyDefinition) c
 }
 
 func createPrefixSet(name string, prefix string, maskLength string) config.PrefixSet { 
+   fmt.Print("<<<DEJDEJ id:946, policy_test.go:createPrefixSet(name>>>")
 	ps := config.PrefixSet{
 		PrefixSetName: name,
 		PrefixList: []config.Prefix{
@@ -2792,6 +2847,7 @@ func createPrefixSet(name string, prefix string, maskLength string) config.Prefi
 }
 
 func createNeighborSet(name string, addr string) config.NeighborSet { 
+   fmt.Print("<<<DEJDEJ id:947, policy_test.go:createNeighborSet(name>>>")
 	ns := config.NeighborSet{
 		NeighborSetName:  name,
 		NeighborInfoList: []string{addr},
@@ -2800,6 +2856,7 @@ func createNeighborSet(name string, addr string) config.NeighborSet {
 }
 
 func createAs4Value(s string) uint32 { 
+   fmt.Print("<<<DEJDEJ id:948, policy_test.go:createAs4Value(s>>>")
 	v := strings.Split(s, ".")
 	upper, _ := strconv.ParseUint(v[0], 10, 16)
 	lower, _ := strconv.ParseUint(v[1], 10, 16)
@@ -2807,6 +2864,7 @@ func createAs4Value(s string) uint32 {
 }
 
 func TestPrefixSetOperation(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:949, policy_test.go:TestPrefixSetOperation(t>>>")
 	// tryp to create prefixset with multiple families
 	p1 := config.Prefix{
 		IpPrefix:        "0.0.0.0/0",
@@ -2839,6 +2897,7 @@ func TestPrefixSetOperation(t *testing.T) {
 }
 
 func TestPrefixSetMatch(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:950, policy_test.go:TestPrefixSetMatch(t>>>")
 	p1 := config.Prefix{
 		IpPrefix:        "0.0.0.0/0",
 		MasklengthRange: "0..7",
@@ -2896,6 +2955,7 @@ func TestPrefixSetMatch(t *testing.T) {
 }
 
 func TestPrefixSetMatchV4withV6Prefix(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:951, policy_test.go:TestPrefixSetMatchV4withV6Prefix(t>>>")
 	p1 := config.Prefix{
 		IpPrefix:        "c000::/3",
 		MasklengthRange: "3..128",
@@ -2914,6 +2974,7 @@ func TestPrefixSetMatchV4withV6Prefix(t *testing.T) {
 }
 
 func TestLargeCommunityMatchAction(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:952, policy_test.go:TestLargeCommunityMatchAction(t>>>")
 	coms := []*bgp.LargeCommunity{
 		&bgp.LargeCommunity{ASN: 100, LocalData1: 100, LocalData2: 100},
 		&bgp.LargeCommunity{ASN: 100, LocalData1: 200, LocalData2: 200},
@@ -2995,6 +3056,7 @@ func TestLargeCommunityMatchAction(t *testing.T) {
 }
 
 func TestMultipleStatementPolicy(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:953, policy_test.go:TestMultipleStatementPolicy(t>>>")
 	r := NewRoutingPolicy()
 	rp := config.RoutingPolicy{
 		PolicyDefinitions: []config.PolicyDefinition{config.PolicyDefinition{

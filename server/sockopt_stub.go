@@ -22,17 +22,21 @@ import (
 )
 
 func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:461, sockopt_stub.go:setTcpMD5SigSockopt(l>>>")
 	return fmt.Errorf("setting md5 is not supported")
 }
 
 func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:462, sockopt_stub.go:setListenTcpTTLSockopt(l>>>")
 	return fmt.Errorf("setting ttl is not supported")
 }
 
 func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:463, sockopt_stub.go:setTcpTTLSockopt(conn>>>")
 	return fmt.Errorf("setting ttl is not supported")
 }
 
 func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:464, sockopt_stub.go:setTcpMinTTLSockopt(conn>>>")
 	return fmt.Errorf("setting min ttl is not supported")
 }

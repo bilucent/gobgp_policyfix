@@ -24,18 +24,22 @@ import (
 )
 
 func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:602, sockopt.go:SetTcpMD5SigSockopt(l>>>")
 	return setTcpMD5SigSockopt(l, address, key)
 }
 
 func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:603, sockopt.go:SetListenTcpTTLSockopt(l>>>")
 	return setListenTcpTTLSockopt(l, ttl)
 }
 
 func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:604, sockopt.go:SetTcpTTLSockopt(conn>>>")
 	return setTcpTTLSockopt(conn, ttl)
 }
 
 func SetTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:605, sockopt.go:SetTcpMinTTLSockopt(conn>>>")
 	return setTcpMinTTLSockopt(conn, ttl)
 }
 
@@ -53,6 +57,7 @@ type TCPDialer struct {
 }
 
 func (d *TCPDialer) DialTCP(addr string, port int) (*net.TCPConn, error) { 
+   fmt.Print("<<<DEJDEJ id:606, sockopt.go:DialTCP>>>")
 	if d.AuthPassword != "" {
 		log.WithFields(log.Fields{
 			"Topic": "Peer",

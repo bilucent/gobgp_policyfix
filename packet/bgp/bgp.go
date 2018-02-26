@@ -34,6 +34,7 @@ type MarshallingOption struct {
 }
 
 func IsAddPathEnabled(decode bool, f RouteFamily, options []*MarshallingOption) bool { 
+   fmt.Print("<<<DEJDEJ id:2535, bgp.go:IsAddPathEnabled(decode>>>")
 	for _, opt := range options {
 		if opt == nil {
 			continue
@@ -171,6 +172,7 @@ const (
 )
 
 func (p TunnelType) String() string { 
+   fmt.Print("<<<DEJDEJ id:2536, bgp.go:String>>>")
 	switch p {
 	case TUNNEL_TYPE_L2TP3:
 		return "l2tp3"
@@ -209,6 +211,7 @@ const (
 )
 
 func (p PmsiTunnelType) String() string { 
+   fmt.Print("<<<DEJDEJ id:2537, bgp.go:String>>>")
 	switch p {
 	case PMSI_TUNNEL_TYPE_NO_TUNNEL:
 		return "no-tunnel"
@@ -281,6 +284,7 @@ var CapNameMap = map[BGPCapabilityCode]string{
 }
 
 func (c BGPCapabilityCode) String() string { 
+   fmt.Print("<<<DEJDEJ id:2538, bgp.go:String>>>")
 	if n, y := CapNameMap[c]; y {
 		return n
 	}
@@ -301,10 +305,12 @@ type DefaultParameterCapability struct {
 }
 
 func (c *DefaultParameterCapability) Code() BGPCapabilityCode { 
+   fmt.Print("<<<DEJDEJ id:2539, bgp.go:Code>>>")
 	return c.CapCode
 }
 
 func (c *DefaultParameterCapability) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2540, bgp.go:DecodeFromBytes>>>")
 	c.CapCode = BGPCapabilityCode(data[0])
 	c.CapLen = data[1]
 	if len(data) < 2+int(c.CapLen) {
@@ -317,6 +323,7 @@ func (c *DefaultParameterCapability) DecodeFromBytes(data []byte) error {
 }
 
 func (c *DefaultParameterCapability) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2541, bgp.go:Serialize>>>")
 	c.CapLen = uint8(len(c.CapValue))
 	buf := make([]byte, 2)
 	buf[0] = uint8(c.CapCode)
@@ -326,6 +333,7 @@ func (c *DefaultParameterCapability) Serialize() ([]byte, error) {
 }
 
 func (c *DefaultParameterCapability) Len() int { 
+   fmt.Print("<<<DEJDEJ id:2542, bgp.go:Len>>>")
 	return int(c.CapLen + 2)
 }
 
@@ -335,6 +343,7 @@ type CapMultiProtocol struct {
 }
 
 func (c *CapMultiProtocol) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2543, bgp.go:DecodeFromBytes>>>")
 	c.DefaultParameterCapability.DecodeFromBytes(data)
 	data = data[2:]
 	if len(data) < 4 {
@@ -345,6 +354,7 @@ func (c *CapMultiProtocol) DecodeFromBytes(data []byte) error {
 }
 
 func (c *CapMultiProtocol) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2544, bgp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	afi, safi := RouteFamilyToAfiSafi(c.CapValue)
 	binary.BigEndian.PutUint16(buf[0:], afi)
@@ -354,6 +364,7 @@ func (c *CapMultiProtocol) Serialize() ([]byte, error) {
 }
 
 func (c *CapMultiProtocol) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2545, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Code  BGPCapabilityCode `json:"code"`
 		Value RouteFamily       `json:"value"`
@@ -364,6 +375,7 @@ func (c *CapMultiProtocol) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapMultiProtocol(rf RouteFamily) *CapMultiProtocol { 
+   fmt.Print("<<<DEJDEJ id:2546, bgp.go:NewCapMultiProtocol(rf>>>")
 	return &CapMultiProtocol{
 		DefaultParameterCapability{
 			CapCode: BGP_CAP_MULTIPROTOCOL,
@@ -377,6 +389,7 @@ type CapRouteRefresh struct {
 }
 
 func NewCapRouteRefresh() *CapRouteRefresh { 
+   fmt.Print("<<<DEJDEJ id:2547, bgp.go:NewCapRouteRefresh()>>>")
 	return &CapRouteRefresh{
 		DefaultParameterCapability{
 			CapCode: BGP_CAP_ROUTE_REFRESH,
@@ -395,6 +408,7 @@ type CapExtendedNexthopTuple struct {
 }
 
 func (c *CapExtendedNexthopTuple) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2548, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		NLRIAddressFamily    RouteFamily `json:"nlri_address_family"`
 		NexthopAddressFamily uint16      `json:"nexthop_address_family"`
@@ -405,6 +419,7 @@ func (c *CapExtendedNexthopTuple) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapExtendedNexthopTuple(af RouteFamily, nexthop uint16) *CapExtendedNexthopTuple { 
+   fmt.Print("<<<DEJDEJ id:2549, bgp.go:NewCapExtendedNexthopTuple(af>>>")
 	afi, safi := RouteFamilyToAfiSafi(af)
 	return &CapExtendedNexthopTuple{
 		NLRIAFI:    afi,
@@ -419,6 +434,7 @@ type CapExtendedNexthop struct {
 }
 
 func (c *CapExtendedNexthop) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2550, bgp.go:DecodeFromBytes>>>")
 	c.DefaultParameterCapability.DecodeFromBytes(data)
 	data = data[2:]
 	if len(data) < 6 {
@@ -438,6 +454,7 @@ func (c *CapExtendedNexthop) DecodeFromBytes(data []byte) error {
 }
 
 func (c *CapExtendedNexthop) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2551, bgp.go:Serialize>>>")
 	buf := make([]byte, len(c.Tuples)*6)
 	for i, t := range c.Tuples {
 		binary.BigEndian.PutUint16(buf[i*6:i*6+2], t.NLRIAFI)
@@ -449,6 +466,7 @@ func (c *CapExtendedNexthop) Serialize() ([]byte, error) {
 }
 
 func (c *CapExtendedNexthop) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2552, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Code   BGPCapabilityCode          `json:"code"`
 		Tuples []*CapExtendedNexthopTuple `json:"tuples"`
@@ -459,6 +477,7 @@ func (c *CapExtendedNexthop) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapExtendedNexthop(tuples []*CapExtendedNexthopTuple) *CapExtendedNexthop { 
+   fmt.Print("<<<DEJDEJ id:2553, bgp.go:NewCapExtendedNexthop(tuples>>>")
 	return &CapExtendedNexthop{
 		DefaultParameterCapability{
 			CapCode: BGP_CAP_EXTENDED_NEXTHOP,
@@ -474,6 +493,7 @@ type CapGracefulRestartTuple struct {
 }
 
 func (c *CapGracefulRestartTuple) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2554, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RouteFamily RouteFamily `json:"route_family"`
 		Flags       uint8       `json:"flags"`
@@ -484,6 +504,7 @@ func (c *CapGracefulRestartTuple) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapGracefulRestartTuple(rf RouteFamily, forward bool) *CapGracefulRestartTuple { 
+   fmt.Print("<<<DEJDEJ id:2555, bgp.go:NewCapGracefulRestartTuple(rf>>>")
 	afi, safi := RouteFamilyToAfiSafi(rf)
 	flags := 0
 	if forward {
@@ -504,6 +525,7 @@ type CapGracefulRestart struct {
 }
 
 func (c *CapGracefulRestart) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2556, bgp.go:DecodeFromBytes>>>")
 	c.DefaultParameterCapability.DecodeFromBytes(data)
 	data = data[2:]
 	if len(data) < 2 {
@@ -530,6 +552,7 @@ func (c *CapGracefulRestart) DecodeFromBytes(data []byte) error {
 }
 
 func (c *CapGracefulRestart) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2557, bgp.go:Serialize>>>")
 	buf := make([]byte, 2)
 	binary.BigEndian.PutUint16(buf[0:], uint16(c.Flags)<<12|c.Time)
 	for _, t := range c.Tuples {
@@ -544,6 +567,7 @@ func (c *CapGracefulRestart) Serialize() ([]byte, error) {
 }
 
 func (c *CapGracefulRestart) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2558, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Code   BGPCapabilityCode          `json:"code"`
 		Flags  uint8                      `json:"flags"`
@@ -558,6 +582,7 @@ func (c *CapGracefulRestart) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapGracefulRestart(restarting, notification bool, time uint16, tuples []*CapGracefulRestartTuple) *CapGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:2559, bgp.go:NewCapGracefulRestart(restarting,>>>")
 	flags := 0
 	if restarting {
 		flags = 0x08
@@ -581,6 +606,7 @@ type CapFourOctetASNumber struct {
 }
 
 func (c *CapFourOctetASNumber) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2560, bgp.go:DecodeFromBytes>>>")
 	c.DefaultParameterCapability.DecodeFromBytes(data)
 	data = data[2:]
 	if len(data) < 4 {
@@ -591,6 +617,7 @@ func (c *CapFourOctetASNumber) DecodeFromBytes(data []byte) error {
 }
 
 func (c *CapFourOctetASNumber) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2561, bgp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint32(buf, c.CapValue)
 	c.DefaultParameterCapability.CapValue = buf
@@ -598,6 +625,7 @@ func (c *CapFourOctetASNumber) Serialize() ([]byte, error) {
 }
 
 func (c *CapFourOctetASNumber) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2562, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Code  BGPCapabilityCode `json:"code"`
 		Value uint32            `json:"value"`
@@ -608,6 +636,7 @@ func (c *CapFourOctetASNumber) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapFourOctetASNumber(asnum uint32) *CapFourOctetASNumber { 
+   fmt.Print("<<<DEJDEJ id:2563, bgp.go:NewCapFourOctetASNumber(asnum>>>")
 	return &CapFourOctetASNumber{
 		DefaultParameterCapability{
 			CapCode: BGP_CAP_FOUR_OCTET_AS_NUMBER,
@@ -626,6 +655,7 @@ const (
 )
 
 func (m BGPAddPathMode) String() string { 
+   fmt.Print("<<<DEJDEJ id:2564, bgp.go:String>>>")
 	switch m {
 	case BGP_ADD_PATH_NONE:
 		return "none"
@@ -646,6 +676,7 @@ type CapAddPathTuple struct {
 }
 
 func (t *CapAddPathTuple) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2565, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RouteFamily RouteFamily `json:"family"`
 		Mode        uint8       `json:"mode"`
@@ -656,6 +687,7 @@ func (t *CapAddPathTuple) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapAddPathTuple(family RouteFamily, mode BGPAddPathMode) *CapAddPathTuple { 
+   fmt.Print("<<<DEJDEJ id:2566, bgp.go:NewCapAddPathTuple(family>>>")
 	return &CapAddPathTuple{
 		RouteFamily: family,
 		Mode:        mode,
@@ -668,6 +700,7 @@ type CapAddPath struct {
 }
 
 func (c *CapAddPath) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2567, bgp.go:DecodeFromBytes>>>")
 	c.DefaultParameterCapability.DecodeFromBytes(data)
 	data = data[2:]
 	if len(data) < 4 {
@@ -686,6 +719,7 @@ func (c *CapAddPath) DecodeFromBytes(data []byte) error {
 }
 
 func (c *CapAddPath) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2568, bgp.go:Serialize>>>")
 	buf := make([]byte, len(c.Tuples)*4)
 	for i, t := range c.Tuples {
 		afi, safi := RouteFamilyToAfiSafi(t.RouteFamily)
@@ -698,6 +732,7 @@ func (c *CapAddPath) Serialize() ([]byte, error) {
 }
 
 func (c *CapAddPath) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2569, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Code   BGPCapabilityCode  `json:"code"`
 		Tuples []*CapAddPathTuple `json:"tuples"`
@@ -708,6 +743,7 @@ func (c *CapAddPath) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapAddPath(tuples []*CapAddPathTuple) *CapAddPath { 
+   fmt.Print("<<<DEJDEJ id:2570, bgp.go:NewCapAddPath(tuples>>>")
 	return &CapAddPath{
 		DefaultParameterCapability: DefaultParameterCapability{
 			CapCode: BGP_CAP_ADD_PATH,
@@ -721,6 +757,7 @@ type CapEnhancedRouteRefresh struct {
 }
 
 func NewCapEnhancedRouteRefresh() *CapEnhancedRouteRefresh { 
+   fmt.Print("<<<DEJDEJ id:2571, bgp.go:NewCapEnhancedRouteRefresh()>>>")
 	return &CapEnhancedRouteRefresh{
 		DefaultParameterCapability{
 			CapCode: BGP_CAP_ENHANCED_ROUTE_REFRESH,
@@ -733,6 +770,7 @@ type CapRouteRefreshCisco struct {
 }
 
 func NewCapRouteRefreshCisco() *CapRouteRefreshCisco { 
+   fmt.Print("<<<DEJDEJ id:2572, bgp.go:NewCapRouteRefreshCisco()>>>")
 	return &CapRouteRefreshCisco{
 		DefaultParameterCapability{
 			CapCode: BGP_CAP_ROUTE_REFRESH_CISCO,
@@ -748,6 +786,7 @@ type CapLongLivedGracefulRestartTuple struct {
 }
 
 func (c *CapLongLivedGracefulRestartTuple) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2573, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RouteFamily RouteFamily `json:"route_family"`
 		Flags       uint8       `json:"flags"`
@@ -760,6 +799,7 @@ func (c *CapLongLivedGracefulRestartTuple) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapLongLivedGracefulRestartTuple(rf RouteFamily, forward bool, restartTime uint32) *CapLongLivedGracefulRestartTuple { 
+   fmt.Print("<<<DEJDEJ id:2574, bgp.go:NewCapLongLivedGracefulRestartTuple(rf>>>")
 	afi, safi := RouteFamilyToAfiSafi(rf)
 	flags := 0
 	if forward {
@@ -779,6 +819,7 @@ type CapLongLivedGracefulRestart struct {
 }
 
 func (c *CapLongLivedGracefulRestart) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2575, bgp.go:DecodeFromBytes>>>")
 	c.DefaultParameterCapability.DecodeFromBytes(data)
 	data = data[2:]
 
@@ -800,6 +841,7 @@ func (c *CapLongLivedGracefulRestart) DecodeFromBytes(data []byte) error {
 }
 
 func (c *CapLongLivedGracefulRestart) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2576, bgp.go:Serialize>>>")
 	buf := make([]byte, 7*len(c.Tuples))
 	for idx, t := range c.Tuples {
 		binary.BigEndian.PutUint16(buf[idx*7:], t.AFI)
@@ -814,6 +856,7 @@ func (c *CapLongLivedGracefulRestart) Serialize() ([]byte, error) {
 }
 
 func (c *CapLongLivedGracefulRestart) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2577, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Code   BGPCapabilityCode                   `json:"code"`
 		Tuples []*CapLongLivedGracefulRestartTuple `json:"tuples"`
@@ -824,6 +867,7 @@ func (c *CapLongLivedGracefulRestart) MarshalJSON() ([]byte, error) {
 }
 
 func NewCapLongLivedGracefulRestart(tuples []*CapLongLivedGracefulRestartTuple) *CapLongLivedGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:2578, bgp.go:NewCapLongLivedGracefulRestart(tuples>>>")
 	return &CapLongLivedGracefulRestart{
 		DefaultParameterCapability: DefaultParameterCapability{
 			CapCode: BGP_CAP_LONG_LIVED_GRACEFUL_RESTART,
@@ -837,6 +881,7 @@ type CapUnknown struct {
 }
 
 func DecodeCapability(data []byte) (ParameterCapabilityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2579, bgp.go:DecodeCapability(data>>>")
 	if len(data) < 2 {
 		return nil, NewMessageError(BGP_ERROR_OPEN_MESSAGE_ERROR, BGP_ERROR_SUB_UNSUPPORTED_CAPABILITY, nil, "Not all ParameterCapability bytes available")
 	}
@@ -880,6 +925,7 @@ type OptionParameterCapability struct {
 }
 
 func (o *OptionParameterCapability) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2580, bgp.go:DecodeFromBytes>>>")
 	if uint8(len(data)) < o.ParamLen {
 		return NewMessageError(BGP_ERROR_OPEN_MESSAGE_ERROR, BGP_ERROR_SUB_UNSUPPORTED_OPTIONAL_PARAMETER, nil, "Not all OptionParameterCapability bytes available")
 	}
@@ -895,6 +941,7 @@ func (o *OptionParameterCapability) DecodeFromBytes(data []byte) error {
 }
 
 func (o *OptionParameterCapability) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2581, bgp.go:Serialize>>>")
 	buf := make([]byte, 2)
 	buf[0] = o.ParamType
 	for _, p := range o.Capability {
@@ -910,6 +957,7 @@ func (o *OptionParameterCapability) Serialize() ([]byte, error) {
 }
 
 func NewOptionParameterCapability(capability []ParameterCapabilityInterface) *OptionParameterCapability { 
+   fmt.Print("<<<DEJDEJ id:2582, bgp.go:NewOptionParameterCapability(capability>>>")
 	return &OptionParameterCapability{
 		ParamType:  BGP_OPT_CAPABILITY,
 		Capability: capability,
@@ -923,6 +971,7 @@ type OptionParameterUnknown struct {
 }
 
 func (o *OptionParameterUnknown) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2583, bgp.go:Serialize>>>")
 	buf := make([]byte, 2)
 	buf[0] = o.ParamType
 	if o.ParamLen == 0 {
@@ -942,6 +991,7 @@ type BGPOpen struct {
 }
 
 func (msg *BGPOpen) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2584, bgp.go:DecodeFromBytes>>>")
 	msg.Version = data[0]
 	msg.MyAS = binary.BigEndian.Uint16(data[1:3])
 	msg.HoldTime = binary.BigEndian.Uint16(data[3:5])
@@ -983,6 +1033,7 @@ func (msg *BGPOpen) DecodeFromBytes(data []byte, options ...*MarshallingOption) 
 }
 
 func (msg *BGPOpen) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2585, bgp.go:Serialize>>>")
 	buf := make([]byte, 10)
 	buf[0] = msg.Version
 	binary.BigEndian.PutUint16(buf[1:3], msg.MyAS)
@@ -1002,6 +1053,7 @@ func (msg *BGPOpen) Serialize(options ...*MarshallingOption) ([]byte, error) {
 }
 
 func NewBGPOpenMessage(myas uint16, holdtime uint16, id string, optparams []OptionParameterInterface) *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:2586, bgp.go:NewBGPOpenMessage(myas>>>")
 	return &BGPMessage{
 		Header: BGPHeader{Type: BGP_MSG_OPEN},
 		Body:   &BGPOpen{4, myas, holdtime, net.ParseIP(id).To4(), 0, optparams},
@@ -1031,22 +1083,27 @@ type PrefixDefault struct {
 }
 
 func (p *PrefixDefault) PathIdentifier() uint32 { 
+   fmt.Print("<<<DEJDEJ id:2587, bgp.go:PathIdentifier>>>")
 	return p.id
 }
 
 func (p *PrefixDefault) SetPathIdentifier(id uint32) { 
+   fmt.Print("<<<DEJDEJ id:2588, bgp.go:SetPathIdentifier>>>")
 	p.id = id
 }
 
 func (p *PrefixDefault) PathLocalIdentifier() uint32 { 
+   fmt.Print("<<<DEJDEJ id:2589, bgp.go:PathLocalIdentifier>>>")
 	return p.localId
 }
 
 func (p *PrefixDefault) SetPathLocalIdentifier(id uint32) { 
+   fmt.Print("<<<DEJDEJ id:2590, bgp.go:SetPathLocalIdentifier>>>")
 	p.localId = id
 }
 
 func (p *PrefixDefault) decodePathIdentifier(data []byte) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2591, bgp.go:decodePathIdentifier>>>")
 	if len(data) < 4 {
 		code := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 		subcode := uint8(BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST)
@@ -1057,6 +1114,7 @@ func (p *PrefixDefault) decodePathIdentifier(data []byte) ([]byte, error) {
 }
 
 func (p *PrefixDefault) serializeIdentifier() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2592, bgp.go:serializeIdentifier>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint32(buf, p.PathLocalIdentifier())
 	return buf, nil
@@ -1069,6 +1127,7 @@ type IPAddrPrefixDefault struct {
 }
 
 func (r *IPAddrPrefixDefault) decodePrefix(data []byte, bitlen uint8, addrlen uint8) error { 
+   fmt.Print("<<<DEJDEJ id:2593, bgp.go:decodePrefix>>>")
 	bytelen := (int(bitlen) + 7) / 8
 	if len(data) < bytelen {
 		eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
@@ -1082,6 +1141,7 @@ func (r *IPAddrPrefixDefault) decodePrefix(data []byte, bitlen uint8, addrlen ui
 }
 
 func (r *IPAddrPrefixDefault) serializePrefix(bitLen uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2594, bgp.go:serializePrefix>>>")
 	byteLen := (int(bitLen) + 7) / 8
 	buf := make([]byte, byteLen)
 	copy(buf, r.Prefix)
@@ -1099,14 +1159,17 @@ func (r *IPAddrPrefixDefault) serializePrefix(bitLen uint8) ([]byte, error) {
 }
 
 func (r *IPAddrPrefixDefault) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2595, bgp.go:Len>>>")
 	return 1 + ((int(r.Length) + 7) / 8)
 }
 
 func (r *IPAddrPrefixDefault) String() string { 
+   fmt.Print("<<<DEJDEJ id:2596, bgp.go:String>>>")
 	return fmt.Sprintf("%s/%d", r.Prefix.String(), r.Length)
 }
 
 func (r *IPAddrPrefixDefault) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2597, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Prefix string `json:"prefix"`
 	}{
@@ -1120,6 +1183,7 @@ type IPAddrPrefix struct {
 }
 
 func (r *IPAddrPrefix) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2598, bgp.go:DecodeFromBytes>>>")
 	if r.addrlen == 0 {
 		r.addrlen = 4
 	}
@@ -1144,6 +1208,7 @@ func (r *IPAddrPrefix) DecodeFromBytes(data []byte, options ...*MarshallingOptio
 }
 
 func (r *IPAddrPrefix) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2599, bgp.go:Serialize>>>")
 	f := RF_IPv4_UC
 	if r.addrlen == 16 {
 		f = RF_IPv6_UC
@@ -1165,14 +1230,17 @@ func (r *IPAddrPrefix) Serialize(options ...*MarshallingOption) ([]byte, error) 
 }
 
 func (r *IPAddrPrefix) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2600, bgp.go:AFI>>>")
 	return AFI_IP
 }
 
 func (r *IPAddrPrefix) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2601, bgp.go:SAFI>>>")
 	return SAFI_UNICAST
 }
 
 func NewIPAddrPrefix(length uint8, prefix string) *IPAddrPrefix { 
+   fmt.Print("<<<DEJDEJ id:2602, bgp.go:NewIPAddrPrefix(length>>>")
 	return &IPAddrPrefix{
 		IPAddrPrefixDefault{
 			Length: length,
@@ -1183,6 +1251,7 @@ func NewIPAddrPrefix(length uint8, prefix string) *IPAddrPrefix {
 }
 
 func isIPv4MappedIPv6(ip net.IP) bool { 
+   fmt.Print("<<<DEJDEJ id:2603, bgp.go:isIPv4MappedIPv6(ip>>>")
 	return len(ip) == net.IPv6len && ip.To4() != nil
 }
 
@@ -1191,10 +1260,12 @@ type IPv6AddrPrefix struct {
 }
 
 func (r *IPv6AddrPrefix) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2604, bgp.go:AFI>>>")
 	return AFI_IP6
 }
 
 func (r *IPv6AddrPrefix) String() string { 
+   fmt.Print("<<<DEJDEJ id:2605, bgp.go:String>>>")
 	prefix := r.Prefix.String()
 	if isIPv4MappedIPv6(r.Prefix) {
 		prefix = "::ffff:" + prefix
@@ -1203,6 +1274,7 @@ func (r *IPv6AddrPrefix) String() string {
 }
 
 func NewIPv6AddrPrefix(length uint8, prefix string) *IPv6AddrPrefix { 
+   fmt.Print("<<<DEJDEJ id:2606, bgp.go:NewIPv6AddrPrefix(length>>>")
 	return &IPv6AddrPrefix{
 		IPAddrPrefix{
 			IPAddrPrefixDefault{
@@ -1234,12 +1306,14 @@ type DefaultRouteDistinguisher struct {
 }
 
 func (rd *DefaultRouteDistinguisher) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2607, bgp.go:DecodeFromBytes>>>")
 	rd.Type = binary.BigEndian.Uint16(data[0:2])
 	rd.Value = data[2:8]
 	return nil
 }
 
 func (rd *DefaultRouteDistinguisher) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2608, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	binary.BigEndian.PutUint16(buf, rd.Type)
 	copy(buf[2:], rd.Value)
@@ -1247,10 +1321,12 @@ func (rd *DefaultRouteDistinguisher) Serialize() ([]byte, error) {
 }
 
 func (rd *DefaultRouteDistinguisher) String() string { 
+   fmt.Print("<<<DEJDEJ id:2609, bgp.go:String>>>")
 	return fmt.Sprintf("%v", rd.Value)
 }
 
 func (rd *DefaultRouteDistinguisher) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2610, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  uint16 `json:"type"`
 		Value []byte `json:"value"`
@@ -1261,6 +1337,7 @@ func (rd *DefaultRouteDistinguisher) MarshalJSON() ([]byte, error) {
 }
 
 func (rd *DefaultRouteDistinguisher) Len() int { 
+   fmt.Print("<<<DEJDEJ id:2611, bgp.go:Len>>>")
 	return 8
 }
 
@@ -1271,6 +1348,7 @@ type RouteDistinguisherTwoOctetAS struct {
 }
 
 func (rd *RouteDistinguisherTwoOctetAS) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2612, bgp.go:Serialize>>>")
 	buf := make([]byte, 6)
 	binary.BigEndian.PutUint16(buf[0:], rd.Admin)
 	binary.BigEndian.PutUint32(buf[2:], rd.Assigned)
@@ -1279,10 +1357,12 @@ func (rd *RouteDistinguisherTwoOctetAS) Serialize() ([]byte, error) {
 }
 
 func (rd *RouteDistinguisherTwoOctetAS) String() string { 
+   fmt.Print("<<<DEJDEJ id:2613, bgp.go:String>>>")
 	return fmt.Sprintf("%d:%d", rd.Admin, rd.Assigned)
 }
 
 func (rd *RouteDistinguisherTwoOctetAS) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2614, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type     uint16 `json:"type"`
 		Admin    uint16 `json:"admin"`
@@ -1295,6 +1375,7 @@ func (rd *RouteDistinguisherTwoOctetAS) MarshalJSON() ([]byte, error) {
 }
 
 func NewRouteDistinguisherTwoOctetAS(admin uint16, assigned uint32) *RouteDistinguisherTwoOctetAS { 
+   fmt.Print("<<<DEJDEJ id:2615, bgp.go:NewRouteDistinguisherTwoOctetAS(admin>>>")
 	return &RouteDistinguisherTwoOctetAS{
 		DefaultRouteDistinguisher: DefaultRouteDistinguisher{
 			Type: BGP_RD_TWO_OCTET_AS,
@@ -1311,6 +1392,7 @@ type RouteDistinguisherIPAddressAS struct {
 }
 
 func (rd *RouteDistinguisherIPAddressAS) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2616, bgp.go:Serialize>>>")
 	buf := make([]byte, 6)
 	copy(buf[0:], rd.Admin.To4())
 	binary.BigEndian.PutUint16(buf[4:], rd.Assigned)
@@ -1319,10 +1401,12 @@ func (rd *RouteDistinguisherIPAddressAS) Serialize() ([]byte, error) {
 }
 
 func (rd *RouteDistinguisherIPAddressAS) String() string { 
+   fmt.Print("<<<DEJDEJ id:2617, bgp.go:String>>>")
 	return fmt.Sprintf("%s:%d", rd.Admin.String(), rd.Assigned)
 }
 
 func (rd *RouteDistinguisherIPAddressAS) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2618, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type     uint16 `json:"type"`
 		Admin    string `json:"admin"`
@@ -1335,6 +1419,7 @@ func (rd *RouteDistinguisherIPAddressAS) MarshalJSON() ([]byte, error) {
 }
 
 func NewRouteDistinguisherIPAddressAS(admin string, assigned uint16) *RouteDistinguisherIPAddressAS { 
+   fmt.Print("<<<DEJDEJ id:2619, bgp.go:NewRouteDistinguisherIPAddressAS(admin>>>")
 	return &RouteDistinguisherIPAddressAS{
 		DefaultRouteDistinguisher: DefaultRouteDistinguisher{
 			Type: BGP_RD_IPV4_ADDRESS,
@@ -1351,6 +1436,7 @@ type RouteDistinguisherFourOctetAS struct {
 }
 
 func (rd *RouteDistinguisherFourOctetAS) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2620, bgp.go:Serialize>>>")
 	buf := make([]byte, 6)
 	binary.BigEndian.PutUint32(buf[0:], rd.Admin)
 	binary.BigEndian.PutUint16(buf[4:], rd.Assigned)
@@ -1359,12 +1445,14 @@ func (rd *RouteDistinguisherFourOctetAS) Serialize() ([]byte, error) {
 }
 
 func (rd *RouteDistinguisherFourOctetAS) String() string { 
+   fmt.Print("<<<DEJDEJ id:2621, bgp.go:String>>>")
 	fst := rd.Admin >> 16 & 0xffff
 	snd := rd.Admin & 0xffff
 	return fmt.Sprintf("%d.%d:%d", fst, snd, rd.Assigned)
 }
 
 func (rd *RouteDistinguisherFourOctetAS) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2622, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type     uint16 `json:"type"`
 		Admin    uint32 `json:"admin"`
@@ -1377,6 +1465,7 @@ func (rd *RouteDistinguisherFourOctetAS) MarshalJSON() ([]byte, error) {
 }
 
 func NewRouteDistinguisherFourOctetAS(admin uint32, assigned uint16) *RouteDistinguisherFourOctetAS { 
+   fmt.Print("<<<DEJDEJ id:2623, bgp.go:NewRouteDistinguisherFourOctetAS(admin>>>")
 	return &RouteDistinguisherFourOctetAS{
 		DefaultRouteDistinguisher: DefaultRouteDistinguisher{
 			Type: BGP_RD_FOUR_OCTET_AS,
@@ -1391,6 +1480,7 @@ type RouteDistinguisherUnknown struct {
 }
 
 func GetRouteDistinguisher(data []byte) RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2624, bgp.go:GetRouteDistinguisher(data>>>")
 	rdtype := binary.BigEndian.Uint16(data[0:2])
 	switch rdtype {
 	case BGP_RD_TWO_OCTET_AS:
@@ -1406,6 +1496,7 @@ func GetRouteDistinguisher(data []byte) RouteDistinguisherInterface {
 }
 
 func parseRdAndRt(input string) ([]string, error) { 
+   fmt.Print("<<<DEJDEJ id:2625, bgp.go:parseRdAndRt(input>>>")
 	exp := regexp.MustCompile("^((\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)|((\\d+)\\.)?(\\d+)|([\\w]+:[\\w:]*:[\\w]+)):(\\d+)$")
 	elems := exp.FindStringSubmatch(input)
 	if len(elems) != 11 {
@@ -1415,6 +1506,7 @@ func parseRdAndRt(input string) ([]string, error) {
 }
 
 func ParseRouteDistinguisher(rd string) (RouteDistinguisherInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2626, bgp.go:ParseRouteDistinguisher(rd>>>")
 	elems, err := parseRdAndRt(rd)
 	if err != nil {
 		return nil, err
@@ -1472,6 +1564,7 @@ type MPLSLabelStack struct {
 }
 
 func (l *MPLSLabelStack) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2627, bgp.go:DecodeFromBytes>>>")
 	labels := []uint32{}
 	foundBottom := false
 	for len(data) >= 3 {
@@ -1496,6 +1589,7 @@ func (l *MPLSLabelStack) DecodeFromBytes(data []byte) error {
 }
 
 func (l *MPLSLabelStack) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2628, bgp.go:Serialize>>>")
 	buf := make([]byte, len(l.Labels)*3)
 	for i, label := range l.Labels {
 		if label == WITHDRAW_LABEL {
@@ -1511,10 +1605,12 @@ func (l *MPLSLabelStack) Serialize() ([]byte, error) {
 }
 
 func (l *MPLSLabelStack) Len() int { 
+   fmt.Print("<<<DEJDEJ id:2629, bgp.go:Len>>>")
 	return 3 * len(l.Labels)
 }
 
 func (l *MPLSLabelStack) String() string { 
+   fmt.Print("<<<DEJDEJ id:2630, bgp.go:String>>>")
 	if len(l.Labels) == 0 {
 		return ""
 	}
@@ -1530,6 +1626,7 @@ func (l *MPLSLabelStack) String() string {
 }
 
 func NewMPLSLabelStack(labels ...uint32) *MPLSLabelStack { 
+   fmt.Print("<<<DEJDEJ id:2631, bgp.go:NewMPLSLabelStack(labels>>>")
 	if len(labels) == 0 {
 		labels = []uint32{0}
 	}
@@ -1537,6 +1634,7 @@ func NewMPLSLabelStack(labels ...uint32) *MPLSLabelStack {
 }
 
 func ParseMPLSLabelStack(buf string) (*MPLSLabelStack, error) { 
+   fmt.Print("<<<DEJDEJ id:2632, bgp.go:ParseMPLSLabelStack(buf>>>")
 	elems := strings.Split(buf, "/")
 	labels := make([]uint32, 0, len(elems))
 	if len(elems) == 0 {
@@ -1589,6 +1687,7 @@ type LabeledVPNIPAddrPrefix struct {
 }
 
 func (l *LabeledVPNIPAddrPrefix) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2633, bgp.go:DecodeFromBytes>>>")
 	f := RF_IPv4_VPN
 	if l.addrlen == 16 {
 		f = RF_IPv6_VPN
@@ -1617,6 +1716,7 @@ func (l *LabeledVPNIPAddrPrefix) DecodeFromBytes(data []byte, options ...*Marsha
 }
 
 func (l *LabeledVPNIPAddrPrefix) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2634, bgp.go:Serialize>>>")
 	f := RF_IPv4_VPN
 	if l.addrlen == 16 {
 		f = RF_IPv6_VPN
@@ -1650,23 +1750,28 @@ func (l *LabeledVPNIPAddrPrefix) Serialize(options ...*MarshallingOption) ([]byt
 }
 
 func (l *LabeledVPNIPAddrPrefix) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2635, bgp.go:AFI>>>")
 	return AFI_IP
 }
 
 func (l *LabeledVPNIPAddrPrefix) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2636, bgp.go:SAFI>>>")
 	return SAFI_MPLS_VPN
 }
 
 func (l *LabeledVPNIPAddrPrefix) String() string { 
+   fmt.Print("<<<DEJDEJ id:2637, bgp.go:String>>>")
 	return fmt.Sprintf("%s:%s", l.RD, l.IPPrefix())
 }
 
 func (l *LabeledVPNIPAddrPrefix) IPPrefix() string { 
+   fmt.Print("<<<DEJDEJ id:2638, bgp.go:IPPrefix>>>")
 	masklen := l.IPAddrPrefixDefault.Length - uint8(8*(l.Labels.Len()+l.RD.Len()))
 	return fmt.Sprintf("%s/%d", l.IPAddrPrefixDefault.Prefix, masklen)
 }
 
 func (l *LabeledVPNIPAddrPrefix) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2639, bgp.go:MarshalJSON>>>")
 	masklen := l.IPAddrPrefixDefault.Length - uint8(8*(l.Labels.Len()+l.RD.Len()))
 	return json.Marshal(struct {
 		Prefix string                      `json:"prefix"`
@@ -1680,6 +1785,7 @@ func (l *LabeledVPNIPAddrPrefix) MarshalJSON() ([]byte, error) {
 }
 
 func NewLabeledVPNIPAddrPrefix(length uint8, prefix string, label MPLSLabelStack, rd RouteDistinguisherInterface) *LabeledVPNIPAddrPrefix { 
+   fmt.Print("<<<DEJDEJ id:2640, bgp.go:NewLabeledVPNIPAddrPrefix(length>>>")
 	rdlen := 0
 	if rd != nil {
 		rdlen = rd.Len()
@@ -1700,10 +1806,12 @@ type LabeledVPNIPv6AddrPrefix struct {
 }
 
 func (l *LabeledVPNIPv6AddrPrefix) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2641, bgp.go:AFI>>>")
 	return AFI_IP6
 }
 
 func NewLabeledVPNIPv6AddrPrefix(length uint8, prefix string, label MPLSLabelStack, rd RouteDistinguisherInterface) *LabeledVPNIPv6AddrPrefix { 
+   fmt.Print("<<<DEJDEJ id:2642, bgp.go:NewLabeledVPNIPv6AddrPrefix(length>>>")
 	rdlen := 0
 	if rd != nil {
 		rdlen = rd.Len()
@@ -1728,14 +1836,17 @@ type LabeledIPAddrPrefix struct {
 }
 
 func (r *LabeledIPAddrPrefix) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2643, bgp.go:AFI>>>")
 	return AFI_IP
 }
 
 func (r *LabeledIPAddrPrefix) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2644, bgp.go:SAFI>>>")
 	return SAFI_MPLS_LABEL
 }
 
 func (l *LabeledIPAddrPrefix) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2645, bgp.go:DecodeFromBytes>>>")
 	f := RF_IPv4_MPLS
 	if l.addrlen == 16 {
 		f = RF_IPv6_MPLS
@@ -1760,6 +1871,7 @@ func (l *LabeledIPAddrPrefix) DecodeFromBytes(data []byte, options ...*Marshalli
 }
 
 func (l *LabeledIPAddrPrefix) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2646, bgp.go:Serialize>>>")
 	f := RF_IPv4_MPLS
 	if l.addrlen == 16 {
 		f = RF_IPv6_MPLS
@@ -1788,6 +1900,7 @@ func (l *LabeledIPAddrPrefix) Serialize(options ...*MarshallingOption) ([]byte, 
 }
 
 func (l *LabeledIPAddrPrefix) String() string { 
+   fmt.Print("<<<DEJDEJ id:2647, bgp.go:String>>>")
 	prefix := l.Prefix.String()
 	if isIPv4MappedIPv6(l.Prefix) {
 		prefix = "::ffff:" + prefix
@@ -1796,6 +1909,7 @@ func (l *LabeledIPAddrPrefix) String() string {
 }
 
 func (l *LabeledIPAddrPrefix) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2648, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Prefix string   `json:"prefix"`
 		Labels []uint32 `json:"labels"`
@@ -1806,6 +1920,7 @@ func (l *LabeledIPAddrPrefix) MarshalJSON() ([]byte, error) {
 }
 
 func NewLabeledIPAddrPrefix(length uint8, prefix string, label MPLSLabelStack) *LabeledIPAddrPrefix { 
+   fmt.Print("<<<DEJDEJ id:2649, bgp.go:NewLabeledIPAddrPrefix(length>>>")
 	return &LabeledIPAddrPrefix{
 		IPAddrPrefixDefault{
 			Length: length + uint8(label.Len()*8),
@@ -1821,10 +1936,12 @@ type LabeledIPv6AddrPrefix struct {
 }
 
 func (l *LabeledIPv6AddrPrefix) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2650, bgp.go:AFI>>>")
 	return AFI_IP6
 }
 
 func NewLabeledIPv6AddrPrefix(length uint8, prefix string, label MPLSLabelStack) *LabeledIPv6AddrPrefix { 
+   fmt.Print("<<<DEJDEJ id:2651, bgp.go:NewLabeledIPv6AddrPrefix(length>>>")
 	return &LabeledIPv6AddrPrefix{
 		LabeledIPAddrPrefix{
 			IPAddrPrefixDefault{
@@ -1845,6 +1962,7 @@ type RouteTargetMembershipNLRI struct {
 }
 
 func (n *RouteTargetMembershipNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2652, bgp.go:DecodeFromBytes>>>")
 	if IsAddPathEnabled(true, RF_RTC_UC, options) {
 		var err error
 		data, err = n.decodePathIdentifier(data)
@@ -1872,6 +1990,7 @@ func (n *RouteTargetMembershipNLRI) DecodeFromBytes(data []byte, options ...*Mar
 }
 
 func (n *RouteTargetMembershipNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2653, bgp.go:Serialize>>>")
 	var buf []byte
 	if IsAddPathEnabled(false, RF_RTC_UC, options) {
 		var err error
@@ -1895,14 +2014,17 @@ func (n *RouteTargetMembershipNLRI) Serialize(options ...*MarshallingOption) ([]
 }
 
 func (n *RouteTargetMembershipNLRI) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2654, bgp.go:AFI>>>")
 	return AFI_IP
 }
 
 func (n *RouteTargetMembershipNLRI) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2655, bgp.go:SAFI>>>")
 	return SAFI_ROUTE_TARGET_CONSTRAINTS
 }
 
 func (n *RouteTargetMembershipNLRI) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2656, bgp.go:Len>>>")
 	if n.AS == 0 && n.RouteTarget == nil {
 		return 1
 	}
@@ -1910,6 +2032,7 @@ func (n *RouteTargetMembershipNLRI) Len(options ...*MarshallingOption) int {
 }
 
 func (n *RouteTargetMembershipNLRI) String() string { 
+   fmt.Print("<<<DEJDEJ id:2657, bgp.go:String>>>")
 	target := "default"
 	if n.RouteTarget != nil {
 		target = n.RouteTarget.String()
@@ -1918,6 +2041,7 @@ func (n *RouteTargetMembershipNLRI) String() string {
 }
 
 func (n *RouteTargetMembershipNLRI) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2658, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Prefix string `json:"prefix"`
 	}{
@@ -1926,6 +2050,7 @@ func (n *RouteTargetMembershipNLRI) MarshalJSON() ([]byte, error) {
 }
 
 func NewRouteTargetMembershipNLRI(as uint32, target ExtendedCommunityInterface) *RouteTargetMembershipNLRI { 
+   fmt.Print("<<<DEJDEJ id:2659, bgp.go:NewRouteTargetMembershipNLRI(as>>>")
 	l := 12 * 8
 	if as == 0 && target == nil {
 		l = 1
@@ -1954,6 +2079,7 @@ type EthernetSegmentIdentifier struct {
 }
 
 func (esi *EthernetSegmentIdentifier) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2660, bgp.go:DecodeFromBytes>>>")
 	esi.Type = ESIType(data[0])
 	esi.Value = data[1:10]
 	switch esi.Type {
@@ -1966,6 +2092,7 @@ func (esi *EthernetSegmentIdentifier) DecodeFromBytes(data []byte) error {
 }
 
 func (esi *EthernetSegmentIdentifier) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2661, bgp.go:Serialize>>>")
 	buf := make([]byte, 10)
 	buf[0] = uint8(esi.Type)
 	copy(buf[1:], esi.Value)
@@ -1973,6 +2100,7 @@ func (esi *EthernetSegmentIdentifier) Serialize() ([]byte, error) {
 }
 
 func isZeroBuf(buf []byte) bool { 
+   fmt.Print("<<<DEJDEJ id:2662, bgp.go:isZeroBuf(buf>>>")
 	for _, b := range buf {
 		if b != 0 {
 			return false
@@ -1982,6 +2110,7 @@ func isZeroBuf(buf []byte) bool {
 }
 
 func (esi *EthernetSegmentIdentifier) String() string { 
+   fmt.Print("<<<DEJDEJ id:2663, bgp.go:String>>>")
 	toHexArray := func(data []byte) string {
 		// Converts byte slice into the colon separated hex values and the
 		// number of elements are 9 at most (excluding Type field).
@@ -2033,6 +2162,7 @@ func (esi *EthernetSegmentIdentifier) String() string {
 // format of ESI.
 //   e.g.) args := []string{"lacp", "aa:bb:cc:dd:ee:ff", "100"}
 func ParseEthernetSegmentIdentifier(args []string) (EthernetSegmentIdentifier, error) { 
+   fmt.Print("<<<DEJDEJ id:2664, bgp.go:ParseEthernetSegmentIdentifier(args>>>")
 	esi := EthernetSegmentIdentifier{}
 	argLen := len(args)
 	if argLen == 0 || args[0] == "single-homed" {
@@ -2169,6 +2299,7 @@ func ParseEthernetSegmentIdentifier(args []string) (EthernetSegmentIdentifier, e
 //
 
 func labelDecode(data []byte) (uint32, error) { 
+   fmt.Print("<<<DEJDEJ id:2665, bgp.go:labelDecode(data>>>")
 	if len(data) < 3 {
 		return 0, NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, "Not all Label bytes available")
 	}
@@ -2176,6 +2307,7 @@ func labelDecode(data []byte) (uint32, error) {
 }
 
 func labelSerialize(label uint32) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2666, bgp.go:labelSerialize(label>>>")
 	if label > 0xffffff {
 		return nil, NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, fmt.Sprintf("Out of range Label: %d", label))
 	}
@@ -2194,6 +2326,7 @@ type EVPNEthernetAutoDiscoveryRoute struct {
 }
 
 func (er *EVPNEthernetAutoDiscoveryRoute) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2667, bgp.go:DecodeFromBytes>>>")
 	er.RD = GetRouteDistinguisher(data)
 	data = data[er.RD.Len():]
 	err := er.ESI.DecodeFromBytes(data)
@@ -2210,6 +2343,7 @@ func (er *EVPNEthernetAutoDiscoveryRoute) DecodeFromBytes(data []byte) error {
 }
 
 func (er *EVPNEthernetAutoDiscoveryRoute) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2668, bgp.go:Serialize>>>")
 	var buf []byte
 	var err error
 	if er.RD != nil {
@@ -2240,6 +2374,7 @@ func (er *EVPNEthernetAutoDiscoveryRoute) Serialize() ([]byte, error) {
 }
 
 func (er *EVPNEthernetAutoDiscoveryRoute) String() string { 
+   fmt.Print("<<<DEJDEJ id:2669, bgp.go:String>>>")
 	// RFC7432: BGP MPLS-Based Ethernet VPN
 	// 7.1. Ethernet Auto-discovery Route
 	// For the purpose of BGP route key processing, only the Ethernet
@@ -2250,6 +2385,7 @@ func (er *EVPNEthernetAutoDiscoveryRoute) String() string {
 }
 
 func (er *EVPNEthernetAutoDiscoveryRoute) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2670, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RD    RouteDistinguisherInterface `json:"rd"`
 		ESI   string                      `json:"esi"`
@@ -2264,6 +2400,7 @@ func (er *EVPNEthernetAutoDiscoveryRoute) MarshalJSON() ([]byte, error) {
 }
 
 func (er *EVPNEthernetAutoDiscoveryRoute) rd() RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2671, bgp.go:rd>>>")
 	return er.RD
 }
 
@@ -2279,6 +2416,7 @@ type EVPNMacIPAdvertisementRoute struct {
 }
 
 func (er *EVPNMacIPAdvertisementRoute) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2672, bgp.go:DecodeFromBytes>>>")
 	er.RD = GetRouteDistinguisher(data)
 	data = data[er.RD.Len():]
 	err := er.ESI.DecodeFromBytes(data)
@@ -2314,6 +2452,7 @@ func (er *EVPNMacIPAdvertisementRoute) DecodeFromBytes(data []byte) error {
 }
 
 func (er *EVPNMacIPAdvertisementRoute) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2673, bgp.go:Serialize>>>")
 	var buf []byte
 	var err error
 	if er.RD != nil {
@@ -2362,6 +2501,7 @@ func (er *EVPNMacIPAdvertisementRoute) Serialize() ([]byte, error) {
 }
 
 func (er *EVPNMacIPAdvertisementRoute) String() string { 
+   fmt.Print("<<<DEJDEJ id:2674, bgp.go:String>>>")
 	// RFC7432: BGP MPLS-Based Ethernet VPN
 	// 7.2. MAC/IP Advertisement Route
 	// For the purpose of BGP route key processing, only the Ethernet Tag
@@ -2374,6 +2514,7 @@ func (er *EVPNMacIPAdvertisementRoute) String() string {
 }
 
 func (er *EVPNMacIPAdvertisementRoute) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2675, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RD         RouteDistinguisherInterface `json:"rd"`
 		ESI        string                      `json:"esi"`
@@ -2392,6 +2533,7 @@ func (er *EVPNMacIPAdvertisementRoute) MarshalJSON() ([]byte, error) {
 }
 
 func (er *EVPNMacIPAdvertisementRoute) rd() RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2676, bgp.go:rd>>>")
 	return er.RD
 }
 
@@ -2403,6 +2545,7 @@ type EVPNMulticastEthernetTagRoute struct {
 }
 
 func (er *EVPNMulticastEthernetTagRoute) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2677, bgp.go:DecodeFromBytes>>>")
 	er.RD = GetRouteDistinguisher(data)
 	data = data[er.RD.Len():]
 	er.ETag = binary.BigEndian.Uint32(data[0:4])
@@ -2417,6 +2560,7 @@ func (er *EVPNMulticastEthernetTagRoute) DecodeFromBytes(data []byte) error {
 }
 
 func (er *EVPNMulticastEthernetTagRoute) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2678, bgp.go:Serialize>>>")
 	var buf []byte
 	var err error
 	if er.RD != nil {
@@ -2446,6 +2590,7 @@ func (er *EVPNMulticastEthernetTagRoute) Serialize() ([]byte, error) {
 }
 
 func (er *EVPNMulticastEthernetTagRoute) String() string { 
+   fmt.Print("<<<DEJDEJ id:2679, bgp.go:String>>>")
 	// RFC7432: BGP MPLS-Based Ethernet VPN
 	// 7.3. Inclusive Multicast Ethernet Tag Route
 	// ...(snip)... For the purpose of BGP route key
@@ -2456,6 +2601,7 @@ func (er *EVPNMulticastEthernetTagRoute) String() string {
 }
 
 func (er *EVPNMulticastEthernetTagRoute) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2680, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RD        RouteDistinguisherInterface `json:"rd"`
 		Etag      uint32                      `json:"etag"`
@@ -2468,6 +2614,7 @@ func (er *EVPNMulticastEthernetTagRoute) MarshalJSON() ([]byte, error) {
 }
 
 func (er *EVPNMulticastEthernetTagRoute) rd() RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2681, bgp.go:rd>>>")
 	return er.RD
 }
 
@@ -2479,6 +2626,7 @@ type EVPNEthernetSegmentRoute struct {
 }
 
 func (er *EVPNEthernetSegmentRoute) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2682, bgp.go:DecodeFromBytes>>>")
 	er.RD = GetRouteDistinguisher(data)
 	data = data[er.RD.Len():]
 	er.ESI.DecodeFromBytes(data)
@@ -2494,6 +2642,7 @@ func (er *EVPNEthernetSegmentRoute) DecodeFromBytes(data []byte) error {
 }
 
 func (er *EVPNEthernetSegmentRoute) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2683, bgp.go:Serialize>>>")
 	var buf []byte
 	var err error
 	if er.RD != nil {
@@ -2522,6 +2671,7 @@ func (er *EVPNEthernetSegmentRoute) Serialize() ([]byte, error) {
 }
 
 func (er *EVPNEthernetSegmentRoute) String() string { 
+   fmt.Print("<<<DEJDEJ id:2684, bgp.go:String>>>")
 	// RFC7432: BGP MPLS-Based Ethernet VPN
 	// 7.4. Ethernet Segment Route
 	// For the purpose of BGP route key processing, only the Ethernet
@@ -2531,6 +2681,7 @@ func (er *EVPNEthernetSegmentRoute) String() string {
 }
 
 func (er *EVPNEthernetSegmentRoute) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2685, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RD        RouteDistinguisherInterface `json:"rd"`
 		ESI       string                      `json:"esi"`
@@ -2543,6 +2694,7 @@ func (er *EVPNEthernetSegmentRoute) MarshalJSON() ([]byte, error) {
 }
 
 func (er *EVPNEthernetSegmentRoute) rd() RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2686, bgp.go:rd>>>")
 	return er.RD
 }
 
@@ -2557,6 +2709,7 @@ type EVPNIPPrefixRoute struct {
 }
 
 func (er *EVPNIPPrefixRoute) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2687, bgp.go:DecodeFromBytes>>>")
 	addrLen := net.IPv4len
 	switch len(data) {
 	case 34:
@@ -2595,6 +2748,7 @@ func (er *EVPNIPPrefixRoute) DecodeFromBytes(data []byte) error {
 }
 
 func (er *EVPNIPPrefixRoute) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2688, bgp.go:Serialize>>>")
 	buf := make([]byte, 23) // RD(8) + ESI(10) + ETag(4) + IPPrefixLength(1)
 
 	if er.RD != nil {
@@ -2643,6 +2797,7 @@ func (er *EVPNIPPrefixRoute) Serialize() ([]byte, error) {
 }
 
 func (er *EVPNIPPrefixRoute) String() string { 
+   fmt.Print("<<<DEJDEJ id:2689, bgp.go:String>>>")
 	// draft-ietf-bess-evpn-prefix-advertisement: IP Prefix Advertisement in EVPN
 	// 3.1 IP Prefix Route Encoding
 	// The RD, Eth-Tag ID, IP Prefix Length and IP Prefix will be part of
@@ -2652,6 +2807,7 @@ func (er *EVPNIPPrefixRoute) String() string {
 }
 
 func (er *EVPNIPPrefixRoute) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2690, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		RD      RouteDistinguisherInterface `json:"rd"`
 		ESI     string                      `json:"esi"`
@@ -2670,6 +2826,7 @@ func (er *EVPNIPPrefixRoute) MarshalJSON() ([]byte, error) {
 }
 
 func (er *EVPNIPPrefixRoute) rd() RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2691, bgp.go:rd>>>")
 	return er.RD
 }
 
@@ -2682,6 +2839,7 @@ type EVPNRouteTypeInterface interface {
 }
 
 func getEVPNRouteType(t uint8) (EVPNRouteTypeInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2692, bgp.go:getEVPNRouteType(t>>>")
 	switch t {
 	case EVPN_ROUTE_TYPE_ETHERNET_AUTO_DISCOVERY:
 		return &EVPNEthernetAutoDiscoveryRoute{}, nil
@@ -2713,6 +2871,7 @@ type EVPNNLRI struct {
 }
 
 func (n *EVPNNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2693, bgp.go:DecodeFromBytes>>>")
 	if IsAddPathEnabled(true, RF_EVPN, options) {
 		var err error
 		data, err = n.decodePathIdentifier(data)
@@ -2738,6 +2897,7 @@ func (n *EVPNNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) e
 }
 
 func (n *EVPNNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2694, bgp.go:Serialize>>>")
 	var buf []byte
 	if IsAddPathEnabled(false, RF_EVPN, options) {
 		var err error
@@ -2759,18 +2919,22 @@ func (n *EVPNNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) {
 }
 
 func (n *EVPNNLRI) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2695, bgp.go:AFI>>>")
 	return AFI_L2VPN
 }
 
 func (n *EVPNNLRI) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2696, bgp.go:SAFI>>>")
 	return SAFI_EVPN
 }
 
 func (n *EVPNNLRI) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2697, bgp.go:Len>>>")
 	return int(n.Length) + 2
 }
 
 func (n *EVPNNLRI) String() string { 
+   fmt.Print("<<<DEJDEJ id:2698, bgp.go:String>>>")
 	if n.RouteTypeData != nil {
 		return n.RouteTypeData.String()
 	}
@@ -2778,6 +2942,7 @@ func (n *EVPNNLRI) String() string {
 }
 
 func (n *EVPNNLRI) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2699, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  uint8                  `json:"type"`
 		Value EVPNRouteTypeInterface `json:"value"`
@@ -2788,10 +2953,12 @@ func (n *EVPNNLRI) MarshalJSON() ([]byte, error) {
 }
 
 func (n *EVPNNLRI) RD() RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2700, bgp.go:RD>>>")
 	return n.RouteTypeData.rd()
 }
 
 func NewEVPNNLRI(routetype uint8, length uint8, routetypedata EVPNRouteTypeInterface) *EVPNNLRI { 
+   fmt.Print("<<<DEJDEJ id:2701, bgp.go:NewEVPNNLRI(routetype>>>")
 	return &EVPNNLRI{
 		RouteType:     routetype,
 		Length:        length,
@@ -2805,6 +2972,7 @@ type EncapNLRI struct {
 }
 
 func (n *EncapNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2702, bgp.go:DecodeFromBytes>>>")
 	if n.addrlen == 0 {
 		n.addrlen = 4
 	}
@@ -2832,6 +3000,7 @@ func (n *EncapNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) 
 }
 
 func (n *EncapNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2703, bgp.go:Serialize>>>")
 	var buf []byte
 	f := RF_IPv4_ENCAP
 	if n.addrlen == 16 {
@@ -2859,18 +3028,22 @@ func (n *EncapNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) {
 }
 
 func (n *EncapNLRI) String() string { 
+   fmt.Print("<<<DEJDEJ id:2704, bgp.go:String>>>")
 	return n.Prefix.String()
 }
 
 func (n *EncapNLRI) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2705, bgp.go:AFI>>>")
 	return AFI_IP
 }
 
 func (n *EncapNLRI) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2706, bgp.go:SAFI>>>")
 	return SAFI_ENCAPSULATION
 }
 
 func NewEncapNLRI(endpoint string) *EncapNLRI { 
+   fmt.Print("<<<DEJDEJ id:2707, bgp.go:NewEncapNLRI(endpoint>>>")
 	return &EncapNLRI{
 		IPAddrPrefixDefault{Length: 32, Prefix: net.ParseIP(endpoint).To4()},
 		4,
@@ -2882,10 +3055,12 @@ type Encapv6NLRI struct {
 }
 
 func (n *Encapv6NLRI) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2708, bgp.go:AFI>>>")
 	return AFI_IP6
 }
 
 func NewEncapv6NLRI(endpoint string) *Encapv6NLRI { 
+   fmt.Print("<<<DEJDEJ id:2709, bgp.go:NewEncapv6NLRI(endpoint>>>")
 	return &Encapv6NLRI{
 		EncapNLRI{
 			IPAddrPrefixDefault{Length: 128, Prefix: net.ParseIP(endpoint)},
@@ -2985,6 +3160,7 @@ var FlowSpecValueMap = map[string]BGPFlowSpecType{
 // fmt.Printf("%q", normalizeFlowSpecOpValues(args))
 // >>> ["<=80" "tcp" "!=udp" "=!SA" "&=U" "!F" "=is-fragment+last-fragment"]
 func normalizeFlowSpecOpValues(args []string) []string { 
+   fmt.Print("<<<DEJDEJ id:2710, bgp.go:normalizeFlowSpecOpValues(args>>>")
 	// Note:
 	// - "=!" is used in the old style format of "tcp-flags" and "fragment".
 	// - The value field should be one of the followings:
@@ -3018,6 +3194,7 @@ func normalizeFlowSpecOpValues(args []string) []string {
 // Parses the FlowSpec numeric operator using the given submatch which should be
 // the return value of func (*Regexp) FindStringSubmatch.
 func parseFlowSpecNumericOperator(submatch []string) (operator uint8, err error) { 
+   fmt.Print("<<<DEJDEJ id:2712, bgp.go:parseFlowSpecNumericOperator(submatch>>>")
 	if submatch[1] == "&" {
 		operator = DEC_NUM_OP_AND
 	}
@@ -3036,6 +3213,7 @@ func parseFlowSpecNumericOperator(submatch []string) (operator uint8, err error)
 // value before calling this function.
 // e.g.) "&==100", ">=200" or "&<300"
 func parseFlowSpecNumericOpValues(typ BGPFlowSpecType, args []string, validationFunc func(uint64) error) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2713, bgp.go:parseFlowSpecNumericOpValues(typ>>>")
 	argsLen := len(args)
 	items := make([]*FlowSpecComponentItem, 0, argsLen)
 	re := regexp.MustCompile("(&?)(==|=|>|>=|<|<=|!|!=|=!)?(\\d+|-\\d|true|false)")
@@ -3077,6 +3255,7 @@ func parseFlowSpecNumericOpValues(typ BGPFlowSpecType, args []string, validation
 }
 
 func flowSpecNumeric1ByteParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2714, bgp.go:flowSpecNumeric1ByteParser(_>>>")
 	args = normalizeFlowSpecOpValues(args)
 
 	f := func(i uint64) error {
@@ -3090,6 +3269,7 @@ func flowSpecNumeric1ByteParser(_ RouteFamily, typ BGPFlowSpecType, args []strin
 }
 
 func flowSpecNumeric2BytesParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2715, bgp.go:flowSpecNumeric2BytesParser(_>>>")
 	args = normalizeFlowSpecOpValues(args)
 
 	f := func(i uint64) error {
@@ -3105,6 +3285,7 @@ func flowSpecNumeric2BytesParser(_ RouteFamily, typ BGPFlowSpecType, args []stri
 // Parses the FlowSpec bitmask operand using the given submatch which should be
 // the return value of func (*Regexp) FindStringSubmatch.
 func parseFlowSpecBitmaskOperand(submatch []string) (operand uint8, err error) { 
+   fmt.Print("<<<DEJDEJ id:2717, bgp.go:parseFlowSpecBitmaskOperand(submatch>>>")
 	if submatch[1] == "&" {
 		operand = BITMASK_FLAG_OP_AND
 	}
@@ -3117,6 +3298,7 @@ func parseFlowSpecBitmaskOperand(submatch []string) (operand uint8, err error) {
 }
 
 func flowSpecPrefixParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2718, bgp.go:flowSpecPrefixParser(rf>>>")
 	// args[0]: IP Prefix or IP Address (suppose prefix length is 32)
 	// args[1]: Offset in bit (IPv6 only)
 	//
@@ -3226,6 +3408,7 @@ func flowSpecPrefixParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (F
 }
 
 func flowSpecIpProtoParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2719, bgp.go:flowSpecIpProtoParser(_>>>")
 	// args: List of pairs of Operator and IP protocol type
 	//
 	// Example:
@@ -3251,6 +3434,7 @@ func flowSpecIpProtoParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (F
 }
 
 func flowSpecTcpFlagParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2720, bgp.go:flowSpecTcpFlagParser(_>>>")
 	// args: List of pairs of Operand and TCP Flags
 	//
 	// Example:
@@ -3294,6 +3478,7 @@ func flowSpecTcpFlagParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (F
 }
 
 func flowSpecDscpParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2721, bgp.go:flowSpecDscpParser(_>>>")
 	args = normalizeFlowSpecOpValues(args)
 
 	f := func(i uint64) error {
@@ -3307,6 +3492,7 @@ func flowSpecDscpParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (Flow
 }
 
 func flowSpecFragmentParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2722, bgp.go:flowSpecFragmentParser(_>>>")
 	// args: List of pairs of Operator and Fragment flags
 	//
 	// Example:
@@ -3352,6 +3538,7 @@ func flowSpecFragmentParser(_ RouteFamily, typ BGPFlowSpecType, args []string) (
 }
 
 func flowSpecLabelParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2723, bgp.go:flowSpecLabelParser(rf>>>")
 	afi, _ := RouteFamilyToAfiSafi(rf)
 	if afi == AFI_IP {
 		return nil, fmt.Errorf("%s is not supported for ipv4", typ.String())
@@ -3370,6 +3557,7 @@ func flowSpecLabelParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (Fl
 }
 
 func flowSpecEtherTypeParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2724, bgp.go:flowSpecEtherTypeParser(rf>>>")
 	// args: List of pairs of Operator and Ether Types
 	//
 	// Example:
@@ -3399,6 +3587,7 @@ func flowSpecEtherTypeParser(rf RouteFamily, typ BGPFlowSpecType, args []string)
 }
 
 func flowSpecMacParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2725, bgp.go:flowSpecMacParser(rf>>>")
 	// args[0]: MAC address
 	if rf != RF_FS_L2_VPN {
 		return nil, fmt.Errorf("%s is supported for only l2vpn", typ.String())
@@ -3419,6 +3608,7 @@ func flowSpecMacParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (Flow
 }
 
 func flowSpecLlcParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2726, bgp.go:flowSpecLlcParser(rf>>>")
 	if rf != RF_FS_L2_VPN {
 		return nil, fmt.Errorf("%s is supported for only l2vpn", typ.String())
 	}
@@ -3427,6 +3617,7 @@ func flowSpecLlcParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (Flow
 }
 
 func flowSpecSnapParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2727, bgp.go:flowSpecSnapParser(rf>>>")
 	if rf != RF_FS_L2_VPN {
 		return nil, fmt.Errorf("%s is supported for only l2vpn", typ.String())
 	}
@@ -3444,6 +3635,7 @@ func flowSpecSnapParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (Flo
 }
 
 func flowSpecVlanIDParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2728, bgp.go:flowSpecVlanIDParser(rf>>>")
 	if rf != RF_FS_L2_VPN {
 		return nil, fmt.Errorf("%s is supported for only l2vpn", typ.String())
 	}
@@ -3466,6 +3658,7 @@ func flowSpecVlanIDParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (F
 }
 
 func flowSpecVlanCosParser(rf RouteFamily, typ BGPFlowSpecType, args []string) (FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2729, bgp.go:flowSpecVlanCosParser(rf>>>")
 	if rf != RF_FS_L2_VPN {
 		return nil, fmt.Errorf("%s is supported for only l2vpn", typ.String())
 	}
@@ -3515,6 +3708,7 @@ var flowSpecParserMap = map[BGPFlowSpecType]func(RouteFamily, BGPFlowSpecType, [
 }
 
 func extractFlowSpecArgs(args []string) map[BGPFlowSpecType][]string { 
+   fmt.Print("<<<DEJDEJ id:2730, bgp.go:extractFlowSpecArgs(args>>>")
 	m := make(map[BGPFlowSpecType][]string, len(FlowSpecValueMap))
 	var typ BGPFlowSpecType
 	for _, arg := range args {
@@ -3529,6 +3723,7 @@ func extractFlowSpecArgs(args []string) map[BGPFlowSpecType][]string {
 }
 
 func ParseFlowSpecComponents(rf RouteFamily, arg string) ([]FlowSpecComponentInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2731, bgp.go:ParseFlowSpecComponents(rf>>>")
 	_, safi := RouteFamilyToAfiSafi(rf)
 	switch safi {
 	case SAFI_FLOW_SPEC_UNICAST, SAFI_FLOW_SPEC_VPN:
@@ -3557,6 +3752,7 @@ func ParseFlowSpecComponents(rf RouteFamily, arg string) ([]FlowSpecComponentInt
 }
 
 func (t BGPFlowSpecType) String() string { 
+   fmt.Print("<<<DEJDEJ id:2732, bgp.go:String>>>")
 	name, ok := FlowSpecNameMap[t]
 	if !ok {
 		return fmt.Sprintf("%s(%d)", FlowSpecNameMap[FLOW_SPEC_TYPE_UNKNOWN], t)
@@ -3578,11 +3774,13 @@ type flowSpecPrefix struct {
 }
 
 func (p *flowSpecPrefix) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2733, bgp.go:DecodeFromBytes>>>")
 	p.typ = BGPFlowSpecType(data[0])
 	return p.Prefix.DecodeFromBytes(data[1:], options...)
 }
 
 func (p *flowSpecPrefix) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2734, bgp.go:Serialize>>>")
 	buf := []byte{byte(p.Type())}
 	bbuf, err := p.Prefix.Serialize(options...)
 	if err != nil {
@@ -3592,19 +3790,23 @@ func (p *flowSpecPrefix) Serialize(options ...*MarshallingOption) ([]byte, error
 }
 
 func (p *flowSpecPrefix) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2735, bgp.go:Len>>>")
 	buf, _ := p.Serialize(options...)
 	return len(buf)
 }
 
 func (p *flowSpecPrefix) Type() BGPFlowSpecType { 
+   fmt.Print("<<<DEJDEJ id:2736, bgp.go:Type>>>")
 	return p.typ
 }
 
 func (p *flowSpecPrefix) String() string { 
+   fmt.Print("<<<DEJDEJ id:2737, bgp.go:String>>>")
 	return fmt.Sprintf("[%s: %s]", p.Type(), p.Prefix.String())
 }
 
 func (p *flowSpecPrefix) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2738, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPFlowSpecType     `json:"type"`
 		Value AddrPrefixInterface `json:"value"`
@@ -3623,6 +3825,7 @@ type flowSpecPrefix6 struct {
 // draft-ietf-idr-flow-spec-v6-06
 // <type (1 octet), prefix length (1 octet), prefix offset(1 octet), prefix>
 func (p *flowSpecPrefix6) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2739, bgp.go:DecodeFromBytes>>>")
 	p.typ = BGPFlowSpecType(data[0])
 	p.Offset = data[2]
 	prefix := append([]byte{data[1]}, data[3:]...)
@@ -3630,6 +3833,7 @@ func (p *flowSpecPrefix6) DecodeFromBytes(data []byte, options ...*MarshallingOp
 }
 
 func (p *flowSpecPrefix6) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2740, bgp.go:Serialize>>>")
 	buf := []byte{byte(p.Type())}
 	bbuf, err := p.Prefix.Serialize(options...)
 	if err != nil {
@@ -3641,19 +3845,23 @@ func (p *flowSpecPrefix6) Serialize(options ...*MarshallingOption) ([]byte, erro
 }
 
 func (p *flowSpecPrefix6) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2741, bgp.go:Len>>>")
 	buf, _ := p.Serialize(options...)
 	return len(buf)
 }
 
 func (p *flowSpecPrefix6) Type() BGPFlowSpecType { 
+   fmt.Print("<<<DEJDEJ id:2742, bgp.go:Type>>>")
 	return p.typ
 }
 
 func (p *flowSpecPrefix6) String() string { 
+   fmt.Print("<<<DEJDEJ id:2743, bgp.go:String>>>")
 	return fmt.Sprintf("[%s: %s/%d]", p.Type(), p.Prefix.String(), p.Offset)
 }
 
 func (p *flowSpecPrefix6) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2744, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type   BGPFlowSpecType     `json:"type"`
 		Value  AddrPrefixInterface `json:"value"`
@@ -3670,6 +3878,7 @@ type FlowSpecDestinationPrefix struct {
 }
 
 func NewFlowSpecDestinationPrefix(prefix AddrPrefixInterface) *FlowSpecDestinationPrefix { 
+   fmt.Print("<<<DEJDEJ id:2745, bgp.go:NewFlowSpecDestinationPrefix(prefix>>>")
 	return &FlowSpecDestinationPrefix{flowSpecPrefix{prefix, FLOW_SPEC_TYPE_DST_PREFIX}}
 }
 
@@ -3678,6 +3887,7 @@ type FlowSpecSourcePrefix struct {
 }
 
 func NewFlowSpecSourcePrefix(prefix AddrPrefixInterface) *FlowSpecSourcePrefix { 
+   fmt.Print("<<<DEJDEJ id:2746, bgp.go:NewFlowSpecSourcePrefix(prefix>>>")
 	return &FlowSpecSourcePrefix{flowSpecPrefix{prefix, FLOW_SPEC_TYPE_SRC_PREFIX}}
 }
 
@@ -3686,6 +3896,7 @@ type FlowSpecDestinationPrefix6 struct {
 }
 
 func NewFlowSpecDestinationPrefix6(prefix AddrPrefixInterface, offset uint8) *FlowSpecDestinationPrefix6 { 
+   fmt.Print("<<<DEJDEJ id:2747, bgp.go:NewFlowSpecDestinationPrefix6(prefix>>>")
 	return &FlowSpecDestinationPrefix6{flowSpecPrefix6{prefix, offset, FLOW_SPEC_TYPE_DST_PREFIX}}
 }
 
@@ -3694,6 +3905,7 @@ type FlowSpecSourcePrefix6 struct {
 }
 
 func NewFlowSpecSourcePrefix6(prefix AddrPrefixInterface, offset uint8) *FlowSpecSourcePrefix6 { 
+   fmt.Print("<<<DEJDEJ id:2748, bgp.go:NewFlowSpecSourcePrefix6(prefix>>>")
 	return &FlowSpecSourcePrefix6{flowSpecPrefix6{prefix, offset, FLOW_SPEC_TYPE_SRC_PREFIX}}
 }
 
@@ -3703,6 +3915,7 @@ type flowSpecMac struct {
 }
 
 func (p *flowSpecMac) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2749, bgp.go:DecodeFromBytes>>>")
 	if len(data) < 2 || len(data) < 2+int(data[1]) {
 		return NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, "not all mac bits available")
 	}
@@ -3712,6 +3925,7 @@ func (p *flowSpecMac) DecodeFromBytes(data []byte, options ...*MarshallingOption
 }
 
 func (p *flowSpecMac) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2750, bgp.go:Serialize>>>")
 	if len(p.Mac) == 0 {
 		return nil, fmt.Errorf("mac unset")
 	}
@@ -3720,18 +3934,22 @@ func (p *flowSpecMac) Serialize(options ...*MarshallingOption) ([]byte, error) {
 }
 
 func (p *flowSpecMac) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2751, bgp.go:Len>>>")
 	return 2 + len(p.Mac)
 }
 
 func (p *flowSpecMac) Type() BGPFlowSpecType { 
+   fmt.Print("<<<DEJDEJ id:2752, bgp.go:Type>>>")
 	return p.typ
 }
 
 func (p *flowSpecMac) String() string { 
+   fmt.Print("<<<DEJDEJ id:2753, bgp.go:String>>>")
 	return fmt.Sprintf("[%s: %s]", p.Type(), p.Mac.String())
 }
 
 func (p *flowSpecMac) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2754, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPFlowSpecType `json:"type"`
 		Value string          `json:"value"`
@@ -3746,6 +3964,7 @@ type FlowSpecSourceMac struct {
 }
 
 func NewFlowSpecSourceMac(mac net.HardwareAddr) *FlowSpecSourceMac { 
+   fmt.Print("<<<DEJDEJ id:2755, bgp.go:NewFlowSpecSourceMac(mac>>>")
 	return &FlowSpecSourceMac{flowSpecMac{Mac: mac, typ: FLOW_SPEC_TYPE_SRC_MAC}}
 }
 
@@ -3754,6 +3973,7 @@ type FlowSpecDestinationMac struct {
 }
 
 func NewFlowSpecDestinationMac(mac net.HardwareAddr) *FlowSpecDestinationMac { 
+   fmt.Print("<<<DEJDEJ id:2756, bgp.go:NewFlowSpecDestinationMac(mac>>>")
 	return &FlowSpecDestinationMac{flowSpecMac{Mac: mac, typ: FLOW_SPEC_TYPE_DST_MAC}}
 }
 
@@ -3763,10 +3983,12 @@ type FlowSpecComponentItem struct {
 }
 
 func (v *FlowSpecComponentItem) Len() int { 
+   fmt.Print("<<<DEJDEJ id:2757, bgp.go:Len>>>")
 	return 1 << ((uint32(v.Op) >> 4) & 0x3)
 }
 
 func (v *FlowSpecComponentItem) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2758, bgp.go:Serialize>>>")
 	if v.Value < 0 {
 		return nil, fmt.Errorf("invalid value size(too small): %d", v.Value)
 	}
@@ -3793,6 +4015,7 @@ func (v *FlowSpecComponentItem) Serialize() ([]byte, error) {
 }
 
 func NewFlowSpecComponentItem(op uint8, value uint64) *FlowSpecComponentItem { 
+   fmt.Print("<<<DEJDEJ id:2759, bgp.go:NewFlowSpecComponentItem(op>>>")
 	v := &FlowSpecComponentItem{op, value}
 	order := uint32(math.Log2(float64(v.Len())))
 	// we don't know if not initialized properly or initialized to
@@ -3821,6 +4044,7 @@ type FlowSpecComponent struct {
 }
 
 func (p *FlowSpecComponent) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2760, bgp.go:DecodeFromBytes>>>")
 	p.typ = BGPFlowSpecType(data[0])
 	data = data[1:]
 	p.Items = make([]*FlowSpecComponentItem, 0)
@@ -3845,6 +4069,7 @@ func (p *FlowSpecComponent) DecodeFromBytes(data []byte, options ...*Marshalling
 }
 
 func (p *FlowSpecComponent) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2761, bgp.go:Serialize>>>")
 	buf := []byte{byte(p.Type())}
 	for i, v := range p.Items {
 		//set end-of-list bit
@@ -3863,6 +4088,7 @@ func (p *FlowSpecComponent) Serialize(options ...*MarshallingOption) ([]byte, er
 }
 
 func (p *FlowSpecComponent) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2762, bgp.go:Len>>>")
 	l := 1
 	for _, item := range p.Items {
 		l += item.Len() + 1
@@ -3871,14 +4097,17 @@ func (p *FlowSpecComponent) Len(options ...*MarshallingOption) int {
 }
 
 func (p *FlowSpecComponent) Type() BGPFlowSpecType { 
+   fmt.Print("<<<DEJDEJ id:2763, bgp.go:Type>>>")
 	return p.typ
 }
 
 func formatRaw(op uint8, value uint64) string { 
+   fmt.Print("<<<DEJDEJ id:2764, bgp.go:formatRaw(op>>>")
 	return fmt.Sprintf("op:%b,value:%d", op, value)
 }
 
 func formatNumeric(op uint8, value uint64) string { 
+   fmt.Print("<<<DEJDEJ id:2765, bgp.go:formatNumeric(op>>>")
 	cmpFlag := DECNumOp(op & 0x7) // lower 3 bits
 	if cmpFlag == DEC_NUM_OP_TRUE || cmpFlag == DEC_NUM_OP_FALSE {
 		// Omit value field
@@ -3888,6 +4117,7 @@ func formatNumeric(op uint8, value uint64) string {
 }
 
 func formatProto(op uint8, value uint64) string { 
+   fmt.Print("<<<DEJDEJ id:2766, bgp.go:formatProto(op>>>")
 	cmpFlag := DECNumOp(op & 0x7) // lower 3 bits
 	if cmpFlag == DEC_NUM_OP_TRUE || cmpFlag == DEC_NUM_OP_FALSE {
 		// Omit value field
@@ -3897,14 +4127,17 @@ func formatProto(op uint8, value uint64) string {
 }
 
 func formatTCPFlag(op uint8, value uint64) string { 
+   fmt.Print("<<<DEJDEJ id:2767, bgp.go:formatTCPFlag(op>>>")
 	return fmt.Sprint(BitmaskFlagOp(op).String(), TCPFlag(value).String())
 }
 
 func formatFragment(op uint8, value uint64) string { 
+   fmt.Print("<<<DEJDEJ id:2768, bgp.go:formatFragment(op>>>")
 	return fmt.Sprint(BitmaskFlagOp(op).String(), FragmentFlag(value).String())
 }
 
 func formatEtherType(op uint8, value uint64) string { 
+   fmt.Print("<<<DEJDEJ id:2769, bgp.go:formatEtherType(op>>>")
 	cmpFlag := DECNumOp(op & 0x7) // lower 3 bits
 	if cmpFlag == DEC_NUM_OP_TRUE || cmpFlag == DEC_NUM_OP_FALSE {
 		// Omit value field
@@ -3938,6 +4171,7 @@ var flowSpecFormatMap = map[BGPFlowSpecType]func(op uint8, value uint64) string{
 }
 
 func (p *FlowSpecComponent) String() string { 
+   fmt.Print("<<<DEJDEJ id:2770, bgp.go:String>>>")
 	f := flowSpecFormatMap[FLOW_SPEC_TYPE_UNKNOWN]
 	if _, ok := flowSpecFormatMap[p.typ]; ok {
 		f = flowSpecFormatMap[p.typ]
@@ -3954,6 +4188,7 @@ func (p *FlowSpecComponent) String() string {
 }
 
 func (p *FlowSpecComponent) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2771, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPFlowSpecType          `json:"type"`
 		Value []*FlowSpecComponentItem `json:"value"`
@@ -3964,6 +4199,7 @@ func (p *FlowSpecComponent) MarshalJSON() ([]byte, error) {
 }
 
 func NewFlowSpecComponent(typ BGPFlowSpecType, items []*FlowSpecComponentItem) *FlowSpecComponent { 
+   fmt.Print("<<<DEJDEJ id:2772, bgp.go:NewFlowSpecComponent(typ>>>")
 	return &FlowSpecComponent{
 		Items: items,
 		typ:   typ,
@@ -3975,19 +4211,23 @@ type FlowSpecUnknown struct {
 }
 
 func (p *FlowSpecUnknown) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2773, bgp.go:DecodeFromBytes>>>")
 	p.Value = data
 	return nil
 }
 
 func (p *FlowSpecUnknown) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2774, bgp.go:Serialize>>>")
 	return p.Value, nil
 }
 
 func (p *FlowSpecUnknown) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2775, bgp.go:Len>>>")
 	return len(p.Value)
 }
 
 func (p *FlowSpecUnknown) Type() BGPFlowSpecType { 
+   fmt.Print("<<<DEJDEJ id:2776, bgp.go:Type>>>")
 	if len(p.Value) > 0 {
 		return BGPFlowSpecType(p.Value[0])
 	}
@@ -3995,10 +4235,12 @@ func (p *FlowSpecUnknown) Type() BGPFlowSpecType {
 }
 
 func (p *FlowSpecUnknown) String() string { 
+   fmt.Print("<<<DEJDEJ id:2777, bgp.go:String>>>")
 	return fmt.Sprintf("[unknown:%v]", p.Value)
 }
 
 func (p *FlowSpecUnknown) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2778, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPFlowSpecType `json:"type"`
 		Value string          `json:"value"`
@@ -4016,20 +4258,24 @@ type FlowSpecNLRI struct {
 }
 
 func (n *FlowSpecNLRI) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2779, bgp.go:AFI>>>")
 	afi, _ := RouteFamilyToAfiSafi(n.rf)
 	return afi
 }
 
 func (n *FlowSpecNLRI) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2780, bgp.go:SAFI>>>")
 	_, safi := RouteFamilyToAfiSafi(n.rf)
 	return safi
 }
 
 func (n *FlowSpecNLRI) RD() RouteDistinguisherInterface { 
+   fmt.Print("<<<DEJDEJ id:2781, bgp.go:RD>>>")
 	return n.rd
 }
 
 func (n *FlowSpecNLRI) decodeFromBytes(rf RouteFamily, data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2782, bgp.go:decodeFromBytes>>>")
 	if IsAddPathEnabled(true, rf, options) {
 		var err error
 		data, err = n.decodePathIdentifier(data)
@@ -4125,6 +4371,7 @@ func (n *FlowSpecNLRI) decodeFromBytes(rf RouteFamily, data []byte, options ...*
 }
 
 func (n *FlowSpecNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2783, bgp.go:Serialize>>>")
 	buf := make([]byte, 0, 32)
 	if n.SAFI() == SAFI_FLOW_SPEC_VPN {
 		if n.rd == nil {
@@ -4167,6 +4414,7 @@ func (n *FlowSpecNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) 
 }
 
 func (n *FlowSpecNLRI) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2784, bgp.go:Len>>>")
 	l := 0
 	if n.SAFI() == SAFI_FLOW_SPEC_VPN {
 		l += n.RD().Len()
@@ -4182,6 +4430,7 @@ func (n *FlowSpecNLRI) Len(options ...*MarshallingOption) int {
 }
 
 func (n *FlowSpecNLRI) String() string { 
+   fmt.Print("<<<DEJDEJ id:2785, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	if n.SAFI() == SAFI_FLOW_SPEC_VPN {
 		buf.WriteString(fmt.Sprintf("[rd: %s]", n.rd))
@@ -4193,6 +4442,7 @@ func (n *FlowSpecNLRI) String() string {
 }
 
 func (n *FlowSpecNLRI) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2786, bgp.go:MarshalJSON>>>")
 	if n.rd != nil {
 		return json.Marshal(struct {
 			RD    RouteDistinguisherInterface  `json:"rd"`
@@ -4217,6 +4467,7 @@ func (n *FlowSpecNLRI) MarshalJSON() ([]byte, error) {
 //  1 when n has precedence
 //
 func CompareFlowSpecNLRI(n, m *FlowSpecNLRI) (int, error) { 
+   fmt.Print("<<<DEJDEJ id:2787, bgp.go:CompareFlowSpecNLRI(n,>>>")
 	family := AfiSafiToRouteFamily(n.AFI(), n.SAFI())
 	if family != AfiSafiToRouteFamily(m.AFI(), m.SAFI()) {
 		return 0, fmt.Errorf("address family mismatch")
@@ -4336,10 +4587,12 @@ type FlowSpecIPv4Unicast struct {
 }
 
 func (n *FlowSpecIPv4Unicast) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2788, bgp.go:DecodeFromBytes>>>")
 	return n.decodeFromBytes(AfiSafiToRouteFamily(n.AFI(), n.SAFI()), data, options...)
 }
 
 func NewFlowSpecIPv4Unicast(value []FlowSpecComponentInterface) *FlowSpecIPv4Unicast { 
+   fmt.Print("<<<DEJDEJ id:2789, bgp.go:NewFlowSpecIPv4Unicast(value>>>")
 	sort.SliceStable(value, func(i, j int) bool { return value[i].Type() < value[j].Type() })
 	return &FlowSpecIPv4Unicast{
 		FlowSpecNLRI: FlowSpecNLRI{
@@ -4354,10 +4607,12 @@ type FlowSpecIPv4VPN struct {
 }
 
 func (n *FlowSpecIPv4VPN) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2790, bgp.go:DecodeFromBytes>>>")
 	return n.decodeFromBytes(AfiSafiToRouteFamily(n.AFI(), n.SAFI()), data, options...)
 }
 
 func NewFlowSpecIPv4VPN(rd RouteDistinguisherInterface, value []FlowSpecComponentInterface) *FlowSpecIPv4VPN { 
+   fmt.Print("<<<DEJDEJ id:2791, bgp.go:NewFlowSpecIPv4VPN(rd>>>")
 	sort.SliceStable(value, func(i, j int) bool { return value[i].Type() < value[j].Type() })
 	return &FlowSpecIPv4VPN{
 		FlowSpecNLRI: FlowSpecNLRI{
@@ -4373,10 +4628,12 @@ type FlowSpecIPv6Unicast struct {
 }
 
 func (n *FlowSpecIPv6Unicast) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2792, bgp.go:DecodeFromBytes>>>")
 	return n.decodeFromBytes(AfiSafiToRouteFamily(n.AFI(), n.SAFI()), data, options...)
 }
 
 func NewFlowSpecIPv6Unicast(value []FlowSpecComponentInterface) *FlowSpecIPv6Unicast { 
+   fmt.Print("<<<DEJDEJ id:2793, bgp.go:NewFlowSpecIPv6Unicast(value>>>")
 	sort.SliceStable(value, func(i, j int) bool { return value[i].Type() < value[j].Type() })
 	return &FlowSpecIPv6Unicast{
 		FlowSpecNLRI: FlowSpecNLRI{
@@ -4391,10 +4648,12 @@ type FlowSpecIPv6VPN struct {
 }
 
 func (n *FlowSpecIPv6VPN) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2794, bgp.go:DecodeFromBytes>>>")
 	return n.decodeFromBytes(AfiSafiToRouteFamily(n.AFI(), n.SAFI()), data, options...)
 }
 
 func NewFlowSpecIPv6VPN(rd RouteDistinguisherInterface, value []FlowSpecComponentInterface) *FlowSpecIPv6VPN { 
+   fmt.Print("<<<DEJDEJ id:2795, bgp.go:NewFlowSpecIPv6VPN(rd>>>")
 	sort.SliceStable(value, func(i, j int) bool { return value[i].Type() < value[j].Type() })
 	return &FlowSpecIPv6VPN{
 		FlowSpecNLRI: FlowSpecNLRI{
@@ -4410,10 +4669,12 @@ type FlowSpecL2VPN struct {
 }
 
 func (n *FlowSpecL2VPN) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2796, bgp.go:DecodeFromBytes>>>")
 	return n.decodeFromBytes(AfiSafiToRouteFamily(n.AFI(), n.SAFI()), data)
 }
 
 func NewFlowSpecL2VPN(rd RouteDistinguisherInterface, value []FlowSpecComponentInterface) *FlowSpecL2VPN { 
+   fmt.Print("<<<DEJDEJ id:2797, bgp.go:NewFlowSpecL2VPN(rd>>>")
 	sort.SliceStable(value, func(i, j int) bool { return value[i].Type() < value[j].Type() })
 	return &FlowSpecL2VPN{
 		FlowSpecNLRI: FlowSpecNLRI{
@@ -4432,6 +4693,7 @@ type OpaqueNLRI struct {
 }
 
 func (n *OpaqueNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2798, bgp.go:DecodeFromBytes>>>")
 	if len(data) < 2 {
 		return NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, "Not all OpaqueNLRI bytes available")
 	}
@@ -4452,6 +4714,7 @@ func (n *OpaqueNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption)
 }
 
 func (n *OpaqueNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2799, bgp.go:Serialize>>>")
 	if len(n.Key) > math.MaxUint16 {
 		return nil, fmt.Errorf("Key length too big")
 	}
@@ -4470,22 +4733,27 @@ func (n *OpaqueNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) {
 }
 
 func (n *OpaqueNLRI) AFI() uint16 { 
+   fmt.Print("<<<DEJDEJ id:2800, bgp.go:AFI>>>")
 	return AFI_OPAQUE
 }
 
 func (n *OpaqueNLRI) SAFI() uint8 { 
+   fmt.Print("<<<DEJDEJ id:2801, bgp.go:SAFI>>>")
 	return SAFI_KEY_VALUE
 }
 
 func (n *OpaqueNLRI) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2802, bgp.go:Len>>>")
 	return 2 + len(n.Key) + len(n.Value)
 }
 
 func (n *OpaqueNLRI) String() string { 
+   fmt.Print("<<<DEJDEJ id:2803, bgp.go:String>>>")
 	return fmt.Sprintf("%s", n.Key)
 }
 
 func (n *OpaqueNLRI) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2804, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Key   string `json:"key"`
 		Value string `json:"value"`
@@ -4496,6 +4764,7 @@ func (n *OpaqueNLRI) MarshalJSON() ([]byte, error) {
 }
 
 func NewOpaqueNLRI(key, value []byte) *OpaqueNLRI { 
+   fmt.Print("<<<DEJDEJ id:2805, bgp.go:NewOpaqueNLRI(key,>>>")
 	return &OpaqueNLRI{
 		Key:   key,
 		Value: value,
@@ -4503,16 +4772,19 @@ func NewOpaqueNLRI(key, value []byte) *OpaqueNLRI {
 }
 
 func AfiSafiToRouteFamily(afi uint16, safi uint8) RouteFamily { 
+   fmt.Print("<<<DEJDEJ id:2806, bgp.go:AfiSafiToRouteFamily(afi>>>")
 	return RouteFamily(int(afi)<<16 | int(safi))
 }
 
 func RouteFamilyToAfiSafi(rf RouteFamily) (uint16, uint8) { 
+   fmt.Print("<<<DEJDEJ id:2807, bgp.go:RouteFamilyToAfiSafi(rf>>>")
 	return uint16(int(rf) >> 16), uint8(int(rf) & 0xff)
 }
 
 type RouteFamily int
 
 func (f RouteFamily) String() string { 
+   fmt.Print("<<<DEJDEJ id:2808, bgp.go:String>>>")
 	if n, y := AddressFamilyNameMap[f]; y {
 		return n
 	}
@@ -4592,6 +4864,7 @@ var AddressFamilyValueMap = map[string]RouteFamily{
 }
 
 func GetRouteFamily(name string) (RouteFamily, error) { 
+   fmt.Print("<<<DEJDEJ id:2809, bgp.go:GetRouteFamily(name>>>")
 	if v, ok := AddressFamilyValueMap[name]; ok {
 		return v, nil
 	}
@@ -4599,6 +4872,7 @@ func GetRouteFamily(name string) (RouteFamily, error) {
 }
 
 func NewPrefixFromRouteFamily(afi uint16, safi uint8) (prefix AddrPrefixInterface, err error) { 
+   fmt.Print("<<<DEJDEJ id:2810, bgp.go:NewPrefixFromRouteFamily(afi>>>")
 	switch AfiSafiToRouteFamily(afi, safi) {
 	case RF_IPv4_UC, RF_IPv4_MC:
 		prefix = NewIPAddrPrefix(0, "")
@@ -4648,6 +4922,7 @@ const (
 )
 
 func (f BGPAttrFlag) String() string { 
+   fmt.Print("<<<DEJDEJ id:2811, bgp.go:String>>>")
 	strs := make([]string, 0, 4)
 	if f&BGP_ATTR_FLAG_EXTENDED_LENGTH > 0 {
 		strs = append(strs, "EXTENDED_LENGTH")
@@ -4787,6 +5062,7 @@ const (
 type NotificationErrorCode uint16
 
 func (c NotificationErrorCode) String() string { 
+   fmt.Print("<<<DEJDEJ id:2812, bgp.go:String>>>")
 	code := uint8(uint16(c) >> 8)
 	subcode := uint8(uint16(c) & 0xff)
 	UNDEFINED := "undefined"
@@ -4864,6 +5140,7 @@ func (c NotificationErrorCode) String() string {
 }
 
 func NewNotificationErrorCode(code, subcode uint8) NotificationErrorCode { 
+   fmt.Print("<<<DEJDEJ id:2813, bgp.go:NewNotificationErrorCode(code,>>>")
 	return NotificationErrorCode(uint16(code)<<8 | uint16(subcode))
 }
 
@@ -4908,6 +5185,7 @@ type PathAttribute struct {
 }
 
 func (p *PathAttribute) Len(options ...*MarshallingOption) int { 
+   fmt.Print("<<<DEJDEJ id:2814, bgp.go:Len>>>")
 	if p.Flags&BGP_ATTR_FLAG_EXTENDED_LENGTH != 0 {
 		return 4 + int(p.Length)
 	}
@@ -4915,14 +5193,17 @@ func (p *PathAttribute) Len(options ...*MarshallingOption) int {
 }
 
 func (p *PathAttribute) GetFlags() BGPAttrFlag { 
+   fmt.Print("<<<DEJDEJ id:2815, bgp.go:GetFlags>>>")
 	return p.Flags
 }
 
 func (p *PathAttribute) GetType() BGPAttrType { 
+   fmt.Print("<<<DEJDEJ id:2816, bgp.go:GetType>>>")
 	return p.Type
 }
 
 func (p *PathAttribute) DecodeFromBytes(data []byte, options ...*MarshallingOption) (value []byte, err error) { 
+   fmt.Print("<<<DEJDEJ id:2817, bgp.go:DecodeFromBytes>>>")
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 	eSubCode := uint8(BGP_ERROR_SUB_ATTRIBUTE_LENGTH_ERROR)
 	if len(data) < 2 {
@@ -4955,6 +5236,7 @@ func (p *PathAttribute) DecodeFromBytes(data []byte, options ...*MarshallingOpti
 }
 
 func (p *PathAttribute) Serialize(value []byte, options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2818, bgp.go:Serialize>>>")
 	p.Length = uint16(len(value))
 	if p.Flags&BGP_ATTR_FLAG_EXTENDED_LENGTH == 0 && p.Length > 255 {
 		p.Flags |= BGP_ATTR_FLAG_EXTENDED_LENGTH
@@ -4978,6 +5260,7 @@ type PathAttributeOrigin struct {
 }
 
 func (p *PathAttributeOrigin) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2819, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -4992,10 +5275,12 @@ func (p *PathAttributeOrigin) DecodeFromBytes(data []byte, options ...*Marshalli
 }
 
 func (p *PathAttributeOrigin) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2820, bgp.go:Serialize>>>")
 	return p.PathAttribute.Serialize([]byte{p.Value}, options...)
 }
 
 func (p *PathAttributeOrigin) String() string { 
+   fmt.Print("<<<DEJDEJ id:2821, bgp.go:String>>>")
 	typ := "-"
 	switch p.Value {
 	case BGP_ORIGIN_ATTR_TYPE_IGP:
@@ -5009,6 +5294,7 @@ func (p *PathAttributeOrigin) String() string {
 }
 
 func (p *PathAttributeOrigin) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2822, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType `json:"type"`
 		Value uint8       `json:"value"`
@@ -5019,6 +5305,7 @@ func (p *PathAttributeOrigin) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeOrigin(value uint8) *PathAttributeOrigin { 
+   fmt.Print("<<<DEJDEJ id:2823, bgp.go:NewPathAttributeOrigin(value>>>")
 	t := BGP_ATTR_TYPE_ORIGIN
 	return &PathAttributeOrigin{
 		PathAttribute: PathAttribute{
@@ -5058,6 +5345,7 @@ type AsPathParam struct {
 }
 
 func (a *AsPathParam) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2824, bgp.go:Serialize>>>")
 	buf := make([]byte, 2+len(a.AS)*2)
 	buf[0] = uint8(a.Type)
 	buf[1] = a.Num
@@ -5068,6 +5356,7 @@ func (a *AsPathParam) Serialize() ([]byte, error) {
 }
 
 func (a *AsPathParam) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2825, bgp.go:DecodeFromBytes>>>")
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 	eSubCode := uint8(BGP_ERROR_SUB_MALFORMED_AS_PATH)
 	if len(data) < 2 {
@@ -5087,10 +5376,12 @@ func (a *AsPathParam) DecodeFromBytes(data []byte) error {
 }
 
 func (a *AsPathParam) Len() int { 
+   fmt.Print("<<<DEJDEJ id:2826, bgp.go:Len>>>")
 	return 2 + len(a.AS)*2
 }
 
 func (a *AsPathParam) ASLen() int { 
+   fmt.Print("<<<DEJDEJ id:2827, bgp.go:ASLen>>>")
 	switch a.Type {
 	case BGP_ASPATH_ATTR_TYPE_SEQ:
 		return len(a.AS)
@@ -5103,6 +5394,7 @@ func (a *AsPathParam) ASLen() int {
 }
 
 func (a *AsPathParam) String() string { 
+   fmt.Print("<<<DEJDEJ id:2828, bgp.go:String>>>")
 	format, ok := asPathParamFormatMap[a.Type]
 	if !ok {
 		return fmt.Sprintf("%v", a.AS)
@@ -5119,6 +5411,7 @@ func (a *AsPathParam) String() string {
 }
 
 func (a *AsPathParam) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2829, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type uint8    `json:"segment_type"`
 		Num  uint8    `json:"num"`
@@ -5131,6 +5424,7 @@ func (a *AsPathParam) MarshalJSON() ([]byte, error) {
 }
 
 func NewAsPathParam(segType uint8, as []uint16) *AsPathParam { 
+   fmt.Print("<<<DEJDEJ id:2830, bgp.go:NewAsPathParam(segType>>>")
 	return &AsPathParam{
 		Type: segType,
 		Num:  uint8(len(as)),
@@ -5145,6 +5439,7 @@ type As4PathParam struct {
 }
 
 func (a *As4PathParam) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2831, bgp.go:Serialize>>>")
 	buf := make([]byte, 2+len(a.AS)*4)
 	buf[0] = a.Type
 	buf[1] = a.Num
@@ -5155,6 +5450,7 @@ func (a *As4PathParam) Serialize() ([]byte, error) {
 }
 
 func (a *As4PathParam) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2832, bgp.go:DecodeFromBytes>>>")
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 	eSubCode := uint8(BGP_ERROR_SUB_MALFORMED_AS_PATH)
 	if len(data) < 2 {
@@ -5174,10 +5470,12 @@ func (a *As4PathParam) DecodeFromBytes(data []byte) error {
 }
 
 func (a *As4PathParam) Len() int { 
+   fmt.Print("<<<DEJDEJ id:2833, bgp.go:Len>>>")
 	return 2 + len(a.AS)*4
 }
 
 func (a *As4PathParam) ASLen() int { 
+   fmt.Print("<<<DEJDEJ id:2834, bgp.go:ASLen>>>")
 	switch a.Type {
 	case BGP_ASPATH_ATTR_TYPE_SEQ:
 		return len(a.AS)
@@ -5190,6 +5488,7 @@ func (a *As4PathParam) ASLen() int {
 }
 
 func (a *As4PathParam) String() string { 
+   fmt.Print("<<<DEJDEJ id:2835, bgp.go:String>>>")
 	format, ok := asPathParamFormatMap[a.Type]
 	if !ok {
 		return fmt.Sprintf("%v", a.AS)
@@ -5206,6 +5505,7 @@ func (a *As4PathParam) String() string {
 }
 
 func (a *As4PathParam) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2836, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type uint8    `json:"segment_type"`
 		Num  uint8    `json:"num"`
@@ -5218,6 +5518,7 @@ func (a *As4PathParam) MarshalJSON() ([]byte, error) {
 }
 
 func NewAs4PathParam(segType uint8, as []uint32) *As4PathParam { 
+   fmt.Print("<<<DEJDEJ id:2837, bgp.go:NewAs4PathParam(segType>>>")
 	return &As4PathParam{
 		Type: segType,
 		Num:  uint8(len(as)),
@@ -5231,6 +5532,7 @@ type PathAttributeAsPath struct {
 }
 
 func (p *PathAttributeAsPath) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2838, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5265,6 +5567,7 @@ func (p *PathAttributeAsPath) DecodeFromBytes(data []byte, options ...*Marshalli
 }
 
 func (p *PathAttributeAsPath) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2839, bgp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, v := range p.Value {
 		vbuf, err := v.Serialize()
@@ -5277,6 +5580,7 @@ func (p *PathAttributeAsPath) Serialize(options ...*MarshallingOption) ([]byte, 
 }
 
 func (p *PathAttributeAsPath) String() string { 
+   fmt.Print("<<<DEJDEJ id:2840, bgp.go:String>>>")
 	params := make([]string, 0, len(p.Value))
 	for _, param := range p.Value {
 		params = append(params, param.String())
@@ -5285,6 +5589,7 @@ func (p *PathAttributeAsPath) String() string {
 }
 
 func (p *PathAttributeAsPath) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2841, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType            `json:"type"`
 		Value []AsPathParamInterface `json:"as_paths"`
@@ -5295,6 +5600,7 @@ func (p *PathAttributeAsPath) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeAsPath(value []AsPathParamInterface) *PathAttributeAsPath { 
+   fmt.Print("<<<DEJDEJ id:2842, bgp.go:NewPathAttributeAsPath(value>>>")
 	t := BGP_ATTR_TYPE_AS_PATH
 	return &PathAttributeAsPath{
 		PathAttribute: PathAttribute{
@@ -5311,6 +5617,7 @@ type PathAttributeNextHop struct {
 }
 
 func (p *PathAttributeNextHop) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2843, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5325,14 +5632,17 @@ func (p *PathAttributeNextHop) DecodeFromBytes(data []byte, options ...*Marshall
 }
 
 func (p *PathAttributeNextHop) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2844, bgp.go:Serialize>>>")
 	return p.PathAttribute.Serialize(p.Value, options...)
 }
 
 func (p *PathAttributeNextHop) String() string { 
+   fmt.Print("<<<DEJDEJ id:2845, bgp.go:String>>>")
 	return fmt.Sprintf("{Nexthop: %s}", p.Value)
 }
 
 func (p *PathAttributeNextHop) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2846, bgp.go:MarshalJSON>>>")
 	value := "0.0.0.0"
 	if p.Value != nil {
 		value = p.Value.String()
@@ -5347,6 +5657,7 @@ func (p *PathAttributeNextHop) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeNextHop(value string) *PathAttributeNextHop { 
+   fmt.Print("<<<DEJDEJ id:2847, bgp.go:NewPathAttributeNextHop(value>>>")
 	t := BGP_ATTR_TYPE_NEXT_HOP
 	return &PathAttributeNextHop{
 		PathAttribute: PathAttribute{
@@ -5363,6 +5674,7 @@ type PathAttributeMultiExitDisc struct {
 }
 
 func (p *PathAttributeMultiExitDisc) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2848, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5377,16 +5689,19 @@ func (p *PathAttributeMultiExitDisc) DecodeFromBytes(data []byte, options ...*Ma
 }
 
 func (p *PathAttributeMultiExitDisc) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2849, bgp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint32(buf, p.Value)
 	return p.PathAttribute.Serialize(buf, options...)
 }
 
 func (p *PathAttributeMultiExitDisc) String() string { 
+   fmt.Print("<<<DEJDEJ id:2850, bgp.go:String>>>")
 	return fmt.Sprintf("{Med: %d}", p.Value)
 }
 
 func (p *PathAttributeMultiExitDisc) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2851, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType `json:"type"`
 		Value uint32      `json:"metric"`
@@ -5397,6 +5712,7 @@ func (p *PathAttributeMultiExitDisc) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeMultiExitDisc(value uint32) *PathAttributeMultiExitDisc { 
+   fmt.Print("<<<DEJDEJ id:2852, bgp.go:NewPathAttributeMultiExitDisc(value>>>")
 	t := BGP_ATTR_TYPE_MULTI_EXIT_DISC
 	return &PathAttributeMultiExitDisc{
 		PathAttribute: PathAttribute{
@@ -5413,6 +5729,7 @@ type PathAttributeLocalPref struct {
 }
 
 func (p *PathAttributeLocalPref) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2853, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5427,16 +5744,19 @@ func (p *PathAttributeLocalPref) DecodeFromBytes(data []byte, options ...*Marsha
 }
 
 func (p *PathAttributeLocalPref) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2854, bgp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint32(buf, p.Value)
 	return p.PathAttribute.Serialize(buf, options...)
 }
 
 func (p *PathAttributeLocalPref) String() string { 
+   fmt.Print("<<<DEJDEJ id:2855, bgp.go:String>>>")
 	return fmt.Sprintf("{LocalPref: %d}", p.Value)
 }
 
 func (p *PathAttributeLocalPref) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2856, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType `json:"type"`
 		Value uint32      `json:"value"`
@@ -5447,6 +5767,7 @@ func (p *PathAttributeLocalPref) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeLocalPref(value uint32) *PathAttributeLocalPref { 
+   fmt.Print("<<<DEJDEJ id:2857, bgp.go:NewPathAttributeLocalPref(value>>>")
 	t := BGP_ATTR_TYPE_LOCAL_PREF
 	return &PathAttributeLocalPref{
 		PathAttribute: PathAttribute{
@@ -5462,6 +5783,7 @@ type PathAttributeAtomicAggregate struct {
 }
 
 func (p *PathAttributeAtomicAggregate) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2858, bgp.go:DecodeFromBytes>>>")
 	_, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5475,14 +5797,17 @@ func (p *PathAttributeAtomicAggregate) DecodeFromBytes(data []byte, options ...*
 }
 
 func (p *PathAttributeAtomicAggregate) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2859, bgp.go:Serialize>>>")
 	return p.PathAttribute.Serialize(nil, options...)
 }
 
 func (p *PathAttributeAtomicAggregate) String() string { 
+   fmt.Print("<<<DEJDEJ id:2860, bgp.go:String>>>")
 	return "{AtomicAggregate}"
 }
 
 func (p *PathAttributeAtomicAggregate) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2861, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type BGPAttrType `json:"type"`
 	}{
@@ -5491,6 +5816,7 @@ func (p *PathAttributeAtomicAggregate) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeAtomicAggregate() *PathAttributeAtomicAggregate { 
+   fmt.Print("<<<DEJDEJ id:2862, bgp.go:NewPathAttributeAtomicAggregate()>>>")
 	t := BGP_ATTR_TYPE_ATOMIC_AGGREGATE
 	return &PathAttributeAtomicAggregate{
 		PathAttribute: PathAttribute{
@@ -5512,6 +5838,7 @@ type PathAttributeAggregator struct {
 }
 
 func (p *PathAttributeAggregator) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2863, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5534,6 +5861,7 @@ func (p *PathAttributeAggregator) DecodeFromBytes(data []byte, options ...*Marsh
 }
 
 func (p *PathAttributeAggregator) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2864, bgp.go:Serialize>>>")
 	var buf []byte
 	switch p.Value.Askind {
 	case reflect.Uint16:
@@ -5549,10 +5877,12 @@ func (p *PathAttributeAggregator) Serialize(options ...*MarshallingOption) ([]by
 }
 
 func (p *PathAttributeAggregator) String() string { 
+   fmt.Print("<<<DEJDEJ id:2865, bgp.go:String>>>")
 	return fmt.Sprintf("{Aggregate: {AS: %d, Address: %s}}", p.Value.AS, p.Value.Address)
 }
 
 func (p *PathAttributeAggregator) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2866, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type    BGPAttrType `json:"type"`
 		AS      uint32      `json:"as"`
@@ -5565,6 +5895,7 @@ func (p *PathAttributeAggregator) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeAggregator(as interface{}, address string) *PathAttributeAggregator { 
+   fmt.Print("<<<DEJDEJ id:2867, bgp.go:NewPathAttributeAggregator(as>>>")
 	v := reflect.ValueOf(as)
 	t := BGP_ATTR_TYPE_AGGREGATOR
 	return &PathAttributeAggregator{
@@ -5586,6 +5917,7 @@ type PathAttributeCommunities struct {
 }
 
 func (p *PathAttributeCommunities) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2868, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5603,6 +5935,7 @@ func (p *PathAttributeCommunities) DecodeFromBytes(data []byte, options ...*Mars
 }
 
 func (p *PathAttributeCommunities) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2869, bgp.go:Serialize>>>")
 	buf := make([]byte, len(p.Value)*4)
 	for i, v := range p.Value {
 		binary.BigEndian.PutUint32(buf[i*4:], v)
@@ -5664,6 +5997,7 @@ var WellKnownCommunityValueMap = map[string]WellKnownCommunity{
 }
 
 func (p *PathAttributeCommunities) String() string { 
+   fmt.Print("<<<DEJDEJ id:2870, bgp.go:String>>>")
 	l := []string{}
 	for _, v := range p.Value {
 		n, ok := WellKnownCommunityNameMap[WellKnownCommunity(v)]
@@ -5677,6 +6011,7 @@ func (p *PathAttributeCommunities) String() string {
 }
 
 func (p *PathAttributeCommunities) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2871, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType `json:"type"`
 		Value []uint32    `json:"communities"`
@@ -5687,6 +6022,7 @@ func (p *PathAttributeCommunities) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeCommunities(value []uint32) *PathAttributeCommunities { 
+   fmt.Print("<<<DEJDEJ id:2872, bgp.go:NewPathAttributeCommunities(value>>>")
 	t := BGP_ATTR_TYPE_COMMUNITIES
 	return &PathAttributeCommunities{
 		PathAttribute: PathAttribute{
@@ -5703,6 +6039,7 @@ type PathAttributeOriginatorId struct {
 }
 
 func (p *PathAttributeOriginatorId) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2873, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5717,10 +6054,12 @@ func (p *PathAttributeOriginatorId) DecodeFromBytes(data []byte, options ...*Mar
 }
 
 func (p *PathAttributeOriginatorId) String() string { 
+   fmt.Print("<<<DEJDEJ id:2874, bgp.go:String>>>")
 	return fmt.Sprintf("{Originator: %s}", p.Value)
 }
 
 func (p *PathAttributeOriginatorId) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2875, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType `json:"type"`
 		Value string      `json:"value"`
@@ -5731,12 +6070,14 @@ func (p *PathAttributeOriginatorId) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PathAttributeOriginatorId) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2876, bgp.go:Serialize>>>")
 	buf := make([]byte, 4, 4)
 	copy(buf, p.Value)
 	return p.PathAttribute.Serialize(buf, options...)
 }
 
 func NewPathAttributeOriginatorId(value string) *PathAttributeOriginatorId { 
+   fmt.Print("<<<DEJDEJ id:2877, bgp.go:NewPathAttributeOriginatorId(value>>>")
 	t := BGP_ATTR_TYPE_ORIGINATOR_ID
 	return &PathAttributeOriginatorId{
 		PathAttribute: PathAttribute{
@@ -5753,6 +6094,7 @@ type PathAttributeClusterList struct {
 }
 
 func (p *PathAttributeClusterList) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2878, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5770,6 +6112,7 @@ func (p *PathAttributeClusterList) DecodeFromBytes(data []byte, options ...*Mars
 }
 
 func (p *PathAttributeClusterList) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2879, bgp.go:Serialize>>>")
 	buf := make([]byte, len(p.Value)*4)
 	for i, v := range p.Value {
 		copy(buf[i*4:], v)
@@ -5778,10 +6121,12 @@ func (p *PathAttributeClusterList) Serialize(options ...*MarshallingOption) ([]b
 }
 
 func (p *PathAttributeClusterList) String() string { 
+   fmt.Print("<<<DEJDEJ id:2880, bgp.go:String>>>")
 	return fmt.Sprintf("{ClusterList: %v}", p.Value)
 }
 
 func (p *PathAttributeClusterList) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2881, bgp.go:MarshalJSON>>>")
 	value := make([]string, 0, len(p.Value))
 	for _, v := range p.Value {
 		value = append(value, v.String())
@@ -5796,6 +6141,7 @@ func (p *PathAttributeClusterList) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeClusterList(value []string) *PathAttributeClusterList { 
+   fmt.Print("<<<DEJDEJ id:2882, bgp.go:NewPathAttributeClusterList(value>>>")
 	l := make([]net.IP, len(value))
 	for i, v := range value {
 		l[i] = net.ParseIP(v).To4()
@@ -5820,6 +6166,7 @@ type PathAttributeMpReachNLRI struct {
 }
 
 func (p *PathAttributeMpReachNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2883, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -5891,6 +6238,7 @@ func (p *PathAttributeMpReachNLRI) DecodeFromBytes(data []byte, options ...*Mars
 }
 
 func (p *PathAttributeMpReachNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2884, bgp.go:Serialize>>>")
 	afi := p.AFI
 	safi := p.SAFI
 	nexthoplen := 4
@@ -5934,6 +6282,7 @@ func (p *PathAttributeMpReachNLRI) Serialize(options ...*MarshallingOption) ([]b
 }
 
 func (p *PathAttributeMpReachNLRI) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2885, bgp.go:MarshalJSON>>>")
 	nexthop := p.Nexthop.String()
 	if p.Nexthop == nil {
 		switch p.AFI {
@@ -5961,10 +6310,12 @@ func (p *PathAttributeMpReachNLRI) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PathAttributeMpReachNLRI) String() string { 
+   fmt.Print("<<<DEJDEJ id:2886, bgp.go:String>>>")
 	return fmt.Sprintf("{MpReach(%s): {Nexthop: %s, NLRIs: %s}}", AfiSafiToRouteFamily(p.AFI, p.SAFI), p.Nexthop, p.Value)
 }
 
 func NewPathAttributeMpReachNLRI(nexthop string, nlri []AddrPrefixInterface) *PathAttributeMpReachNLRI { 
+   fmt.Print("<<<DEJDEJ id:2887, bgp.go:NewPathAttributeMpReachNLRI(nexthop>>>")
 	t := BGP_ATTR_TYPE_MP_REACH_NLRI
 	p := &PathAttributeMpReachNLRI{
 		PathAttribute: PathAttribute{
@@ -5993,6 +6344,7 @@ type PathAttributeMpUnreachNLRI struct {
 }
 
 func (p *PathAttributeMpUnreachNLRI) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:2888, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -6035,6 +6387,7 @@ func (p *PathAttributeMpUnreachNLRI) DecodeFromBytes(data []byte, options ...*Ma
 }
 
 func (p *PathAttributeMpUnreachNLRI) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2889, bgp.go:Serialize>>>")
 	buf := make([]byte, 3)
 	binary.BigEndian.PutUint16(buf, p.AFI)
 	buf[2] = p.SAFI
@@ -6049,6 +6402,7 @@ func (p *PathAttributeMpUnreachNLRI) Serialize(options ...*MarshallingOption) ([
 }
 
 func (p *PathAttributeMpUnreachNLRI) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2890, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType           `json:"type"`
 		AFI   uint16                `json:"afi"`
@@ -6063,6 +6417,7 @@ func (p *PathAttributeMpUnreachNLRI) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PathAttributeMpUnreachNLRI) String() string { 
+   fmt.Print("<<<DEJDEJ id:2891, bgp.go:String>>>")
 	if len(p.Value) > 0 {
 		return fmt.Sprintf("{MpUnreach(%s): {NLRIs: %s}}", AfiSafiToRouteFamily(p.AFI, p.SAFI), p.Value)
 	}
@@ -6070,6 +6425,7 @@ func (p *PathAttributeMpUnreachNLRI) String() string {
 }
 
 func NewPathAttributeMpUnreachNLRI(nlri []AddrPrefixInterface) *PathAttributeMpUnreachNLRI { 
+   fmt.Print("<<<DEJDEJ id:2892, bgp.go:NewPathAttributeMpUnreachNLRI(nlri>>>")
 	t := BGP_ATTR_TYPE_MP_UNREACH_NLRI
 	p := &PathAttributeMpUnreachNLRI{
 		PathAttribute: PathAttribute{
@@ -6101,6 +6457,7 @@ type TwoOctetAsSpecificExtended struct {
 }
 
 func (e *TwoOctetAsSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2893, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	if e.IsTransitive {
 		buf[0] = byte(EC_TYPE_TRANSITIVE_TWO_OCTET_AS_SPECIFIC)
@@ -6114,10 +6471,12 @@ func (e *TwoOctetAsSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *TwoOctetAsSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2894, bgp.go:String>>>")
 	return fmt.Sprintf("%d:%d", e.AS, e.LocalAdmin)
 }
 
 func (e *TwoOctetAsSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2895, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6131,6 +6490,7 @@ func (e *TwoOctetAsSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *TwoOctetAsSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2896, bgp.go:GetTypes>>>")
 	t := EC_TYPE_TRANSITIVE_TWO_OCTET_AS_SPECIFIC
 	if !e.IsTransitive {
 		t = EC_TYPE_NON_TRANSITIVE_TWO_OCTET_AS_SPECIFIC
@@ -6139,6 +6499,7 @@ func (e *TwoOctetAsSpecificExtended) GetTypes() (ExtendedCommunityAttrType, Exte
 }
 
 func NewTwoOctetAsSpecificExtended(subtype ExtendedCommunityAttrSubType, as uint16, localAdmin uint32, isTransitive bool) *TwoOctetAsSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2897, bgp.go:NewTwoOctetAsSpecificExtended(subtype>>>")
 	return &TwoOctetAsSpecificExtended{
 		SubType:      subtype,
 		AS:           as,
@@ -6155,6 +6516,7 @@ type IPv4AddressSpecificExtended struct {
 }
 
 func (e *IPv4AddressSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2898, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	if e.IsTransitive {
 		buf[0] = byte(EC_TYPE_TRANSITIVE_IP4_SPECIFIC)
@@ -6168,10 +6530,12 @@ func (e *IPv4AddressSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *IPv4AddressSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2899, bgp.go:String>>>")
 	return fmt.Sprintf("%s:%d", e.IPv4.String(), e.LocalAdmin)
 }
 
 func (e *IPv4AddressSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2900, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6185,6 +6549,7 @@ func (e *IPv4AddressSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *IPv4AddressSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2901, bgp.go:GetTypes>>>")
 	t := EC_TYPE_TRANSITIVE_IP4_SPECIFIC
 	if !e.IsTransitive {
 		t = EC_TYPE_NON_TRANSITIVE_IP4_SPECIFIC
@@ -6193,6 +6558,7 @@ func (e *IPv4AddressSpecificExtended) GetTypes() (ExtendedCommunityAttrType, Ext
 }
 
 func NewIPv4AddressSpecificExtended(subtype ExtendedCommunityAttrSubType, ip string, localAdmin uint16, isTransitive bool) *IPv4AddressSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2902, bgp.go:NewIPv4AddressSpecificExtended(subtype>>>")
 	ipv4 := net.ParseIP(ip)
 	if ipv4.To4() == nil {
 		return nil
@@ -6213,6 +6579,7 @@ type IPv6AddressSpecificExtended struct {
 }
 
 func (e *IPv6AddressSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2903, bgp.go:Serialize>>>")
 	buf := make([]byte, 20)
 	if e.IsTransitive {
 		buf[0] = byte(EC_TYPE_TRANSITIVE_IP6_SPECIFIC)
@@ -6226,10 +6593,12 @@ func (e *IPv6AddressSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *IPv6AddressSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2904, bgp.go:String>>>")
 	return fmt.Sprintf("%s:%d", e.IPv6.String(), e.LocalAdmin)
 }
 
 func (e *IPv6AddressSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2905, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6243,6 +6612,7 @@ func (e *IPv6AddressSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *IPv6AddressSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2906, bgp.go:GetTypes>>>")
 	t := EC_TYPE_TRANSITIVE_IP6_SPECIFIC
 	if !e.IsTransitive {
 		t = EC_TYPE_NON_TRANSITIVE_IP6_SPECIFIC
@@ -6251,6 +6621,7 @@ func (e *IPv6AddressSpecificExtended) GetTypes() (ExtendedCommunityAttrType, Ext
 }
 
 func NewIPv6AddressSpecificExtended(subtype ExtendedCommunityAttrSubType, ip string, localAdmin uint16, isTransitive bool) *IPv6AddressSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2907, bgp.go:NewIPv6AddressSpecificExtended(subtype>>>")
 	ipv6 := net.ParseIP(ip)
 	if ipv6.To16() == nil {
 		return nil
@@ -6271,6 +6642,7 @@ type FourOctetAsSpecificExtended struct {
 }
 
 func (e *FourOctetAsSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2908, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	if e.IsTransitive {
 		buf[0] = byte(EC_TYPE_TRANSITIVE_FOUR_OCTET_AS_SPECIFIC)
@@ -6284,6 +6656,7 @@ func (e *FourOctetAsSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *FourOctetAsSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2909, bgp.go:String>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint32(buf, e.AS)
 	asUpper := binary.BigEndian.Uint16(buf[0:2])
@@ -6292,6 +6665,7 @@ func (e *FourOctetAsSpecificExtended) String() string {
 }
 
 func (e *FourOctetAsSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2910, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6305,6 +6679,7 @@ func (e *FourOctetAsSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *FourOctetAsSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2911, bgp.go:GetTypes>>>")
 	t := EC_TYPE_TRANSITIVE_FOUR_OCTET_AS_SPECIFIC
 	if !e.IsTransitive {
 		t = EC_TYPE_NON_TRANSITIVE_FOUR_OCTET_AS_SPECIFIC
@@ -6313,6 +6688,7 @@ func (e *FourOctetAsSpecificExtended) GetTypes() (ExtendedCommunityAttrType, Ext
 }
 
 func NewFourOctetAsSpecificExtended(subtype ExtendedCommunityAttrSubType, as uint32, localAdmin uint16, isTransitive bool) *FourOctetAsSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2912, bgp.go:NewFourOctetAsSpecificExtended(subtype>>>")
 	return &FourOctetAsSpecificExtended{
 		SubType:      subtype,
 		AS:           as,
@@ -6322,6 +6698,7 @@ func NewFourOctetAsSpecificExtended(subtype ExtendedCommunityAttrSubType, as uin
 }
 
 func ParseExtendedCommunity(subtype ExtendedCommunityAttrSubType, com string) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2913, bgp.go:ParseExtendedCommunity(subtype>>>")
 	if subtype == EC_SUBTYPE_ORIGIN_VALIDATION {
 		var state ValidationState
 		switch com {
@@ -6362,6 +6739,7 @@ func ParseExtendedCommunity(subtype ExtendedCommunityAttrSubType, com string) (E
 }
 
 func ParseRouteTarget(rt string) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2914, bgp.go:ParseRouteTarget(rt>>>")
 	return ParseExtendedCommunity(EC_SUBTYPE_ROUTE_TARGET, rt)
 }
 
@@ -6374,6 +6752,7 @@ const (
 )
 
 func (s ValidationState) String() string { 
+   fmt.Print("<<<DEJDEJ id:2915, bgp.go:String>>>")
 	switch s {
 	case VALIDATION_STATE_VALID:
 		return "valid"
@@ -6390,6 +6769,7 @@ type ValidationExtended struct {
 }
 
 func (e *ValidationExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2916, bgp.go:Serialize>>>")
 	buf := make([]byte, 8, 8)
 	typ, subType := e.GetTypes()
 	buf[0] = byte(typ)
@@ -6399,14 +6779,17 @@ func (e *ValidationExtended) Serialize() ([]byte, error) {
 }
 
 func (e *ValidationExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2917, bgp.go:String>>>")
 	return e.State.String()
 }
 
 func (e *ValidationExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2918, bgp.go:GetTypes>>>")
 	return EC_TYPE_NON_TRANSITIVE_OPAQUE, EC_SUBTYPE_ORIGIN_VALIDATION
 }
 
 func (e *ValidationExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2919, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6420,6 +6803,7 @@ func (e *ValidationExtended) MarshalJSON() ([]byte, error) {
 }
 
 func NewValidationExtended(state ValidationState) *ValidationExtended { 
+   fmt.Print("<<<DEJDEJ id:2920, bgp.go:NewValidationExtended(state>>>")
 	return &ValidationExtended{
 		State: state,
 	}
@@ -6430,6 +6814,7 @@ type ColorExtended struct {
 }
 
 func (e *ColorExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2921, bgp.go:Serialize>>>")
 	buf := make([]byte, 8, 8)
 	typ, subType := e.GetTypes()
 	buf[0] = byte(typ)
@@ -6439,14 +6824,17 @@ func (e *ColorExtended) Serialize() ([]byte, error) {
 }
 
 func (e *ColorExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2922, bgp.go:String>>>")
 	return fmt.Sprintf("%d", e.Color)
 }
 
 func (e *ColorExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2923, bgp.go:GetTypes>>>")
 	return EC_TYPE_TRANSITIVE_OPAQUE, EC_SUBTYPE_COLOR
 }
 
 func (e *ColorExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2924, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6460,6 +6848,7 @@ func (e *ColorExtended) MarshalJSON() ([]byte, error) {
 }
 
 func NewColorExtended(color uint32) *ColorExtended { 
+   fmt.Print("<<<DEJDEJ id:2925, bgp.go:NewColorExtended(color>>>")
 	return &ColorExtended{
 		Color: color,
 	}
@@ -6470,6 +6859,7 @@ type EncapExtended struct {
 }
 
 func (e *EncapExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2926, bgp.go:Serialize>>>")
 	buf := make([]byte, 8, 8)
 	typ, subType := e.GetTypes()
 	buf[0] = byte(typ)
@@ -6479,6 +6869,7 @@ func (e *EncapExtended) Serialize() ([]byte, error) {
 }
 
 func (e *EncapExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2927, bgp.go:String>>>")
 	switch e.TunnelType {
 	case TUNNEL_TYPE_L2TP3:
 		return "L2TPv3 over IP"
@@ -6504,10 +6895,12 @@ func (e *EncapExtended) String() string {
 }
 
 func (e *EncapExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2928, bgp.go:GetTypes>>>")
 	return EC_TYPE_TRANSITIVE_OPAQUE, EC_SUBTYPE_ENCAPSULATION
 }
 
 func (e *EncapExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2929, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type       ExtendedCommunityAttrType    `json:"type"`
@@ -6521,6 +6914,7 @@ func (e *EncapExtended) MarshalJSON() ([]byte, error) {
 }
 
 func NewEncapExtended(tunnelType TunnelType) *EncapExtended { 
+   fmt.Print("<<<DEJDEJ id:2930, bgp.go:NewEncapExtended(tunnelType>>>")
 	return &EncapExtended{
 		TunnelType: tunnelType,
 	}
@@ -6530,6 +6924,7 @@ type DefaultGatewayExtended struct {
 }
 
 func (e *DefaultGatewayExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2931, bgp.go:Serialize>>>")
 	buf := make([]byte, 8, 8)
 	typ, subType := e.GetTypes()
 	buf[0] = byte(typ)
@@ -6538,14 +6933,17 @@ func (e *DefaultGatewayExtended) Serialize() ([]byte, error) {
 }
 
 func (e *DefaultGatewayExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2932, bgp.go:String>>>")
 	return "default-gateway"
 }
 
 func (e *DefaultGatewayExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2933, bgp.go:GetTypes>>>")
 	return EC_TYPE_TRANSITIVE_OPAQUE, EC_SUBTYPE_DEFAULT_GATEWAY
 }
 
 func (e *DefaultGatewayExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2934, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6557,6 +6955,7 @@ func (e *DefaultGatewayExtended) MarshalJSON() ([]byte, error) {
 }
 
 func NewDefaultGatewayExtended() *DefaultGatewayExtended { 
+   fmt.Print("<<<DEJDEJ id:2935, bgp.go:NewDefaultGatewayExtended()>>>")
 	return &DefaultGatewayExtended{}
 }
 
@@ -6566,6 +6965,7 @@ type OpaqueExtended struct {
 }
 
 func (e *OpaqueExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2936, bgp.go:Serialize>>>")
 	if len(e.Value) != 7 {
 		return nil, fmt.Errorf("invalid value length for opaque extended community: %d", len(e.Value))
 	}
@@ -6580,12 +6980,14 @@ func (e *OpaqueExtended) Serialize() ([]byte, error) {
 }
 
 func (e *OpaqueExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2937, bgp.go:String>>>")
 	buf := make([]byte, 8, 8)
 	copy(buf[1:], e.Value)
 	return fmt.Sprintf("%d", binary.BigEndian.Uint64(buf))
 }
 
 func (e *OpaqueExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2938, bgp.go:GetTypes>>>")
 	var subType ExtendedCommunityAttrSubType
 	if len(e.Value) > 0 {
 		// Use the first byte of value as the sub type
@@ -6598,6 +7000,7 @@ func (e *OpaqueExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunit
 }
 
 func (e *OpaqueExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2939, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6611,6 +7014,7 @@ func (e *OpaqueExtended) MarshalJSON() ([]byte, error) {
 }
 
 func NewOpaqueExtended(isTransitive bool, value []byte) *OpaqueExtended { 
+   fmt.Print("<<<DEJDEJ id:2940, bgp.go:NewOpaqueExtended(isTransitive>>>")
 	v := make([]byte, 7, 7)
 	copy(v, value)
 	return &OpaqueExtended{
@@ -6620,6 +7024,7 @@ func NewOpaqueExtended(isTransitive bool, value []byte) *OpaqueExtended {
 }
 
 func parseOpaqueExtended(data []byte) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2941, bgp.go:parseOpaqueExtended(data>>>")
 	typ := ExtendedCommunityAttrType(data[0])
 	isTransitive := false
 	switch typ {
@@ -6662,6 +7067,7 @@ type ESILabelExtended struct {
 }
 
 func (e *ESILabelExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2942, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	buf[0] = byte(EC_TYPE_EVPN)
 	buf[1] = byte(EC_SUBTYPE_ESI_LABEL)
@@ -6677,6 +7083,7 @@ func (e *ESILabelExtended) Serialize() ([]byte, error) {
 }
 
 func (e *ESILabelExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2943, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	buf.WriteString(fmt.Sprintf("esi-label: %d", e.Label))
 	if e.IsSingleActive {
@@ -6686,6 +7093,7 @@ func (e *ESILabelExtended) String() string {
 }
 
 func (e *ESILabelExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2944, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type           ExtendedCommunityAttrType    `json:"type"`
@@ -6701,10 +7109,12 @@ func (e *ESILabelExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *ESILabelExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2945, bgp.go:GetTypes>>>")
 	return EC_TYPE_EVPN, EC_SUBTYPE_ESI_LABEL
 }
 
 func NewESILabelExtended(label uint32, isSingleActive bool) *ESILabelExtended { 
+   fmt.Print("<<<DEJDEJ id:2946, bgp.go:NewESILabelExtended(label>>>")
 	return &ESILabelExtended{
 		Label:          label,
 		IsSingleActive: isSingleActive,
@@ -6716,6 +7126,7 @@ type ESImportRouteTarget struct {
 }
 
 func (e *ESImportRouteTarget) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2947, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	buf[0] = byte(EC_TYPE_EVPN)
 	buf[1] = byte(EC_SUBTYPE_ES_IMPORT)
@@ -6724,10 +7135,12 @@ func (e *ESImportRouteTarget) Serialize() ([]byte, error) {
 }
 
 func (e *ESImportRouteTarget) String() string { 
+   fmt.Print("<<<DEJDEJ id:2948, bgp.go:String>>>")
 	return fmt.Sprintf("es-import rt: %s", e.ESImport.String())
 }
 
 func (e *ESImportRouteTarget) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2949, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6741,10 +7154,12 @@ func (e *ESImportRouteTarget) MarshalJSON() ([]byte, error) {
 }
 
 func (e *ESImportRouteTarget) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2950, bgp.go:GetTypes>>>")
 	return EC_TYPE_EVPN, EC_SUBTYPE_ES_IMPORT
 }
 
 func NewESImportRouteTarget(mac string) *ESImportRouteTarget { 
+   fmt.Print("<<<DEJDEJ id:2951, bgp.go:NewESImportRouteTarget(mac>>>")
 	esImport, err := net.ParseMAC(mac)
 	if err != nil {
 		return nil
@@ -6760,6 +7175,7 @@ type MacMobilityExtended struct {
 }
 
 func (e *MacMobilityExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2952, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	buf[0] = byte(EC_TYPE_EVPN)
 	buf[1] = byte(EC_SUBTYPE_MAC_MOBILITY)
@@ -6771,6 +7187,7 @@ func (e *MacMobilityExtended) Serialize() ([]byte, error) {
 }
 
 func (e *MacMobilityExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2953, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	buf.WriteString(fmt.Sprintf("mac-mobility: %d", e.Sequence))
 	if e.IsSticky {
@@ -6780,6 +7197,7 @@ func (e *MacMobilityExtended) String() string {
 }
 
 func (e *MacMobilityExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2954, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type     ExtendedCommunityAttrType    `json:"type"`
@@ -6795,10 +7213,12 @@ func (e *MacMobilityExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *MacMobilityExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2955, bgp.go:GetTypes>>>")
 	return EC_TYPE_EVPN, EC_SUBTYPE_MAC_MOBILITY
 }
 
 func NewMacMobilityExtended(seq uint32, isSticky bool) *MacMobilityExtended { 
+   fmt.Print("<<<DEJDEJ id:2956, bgp.go:NewMacMobilityExtended(seq>>>")
 	return &MacMobilityExtended{
 		Sequence: seq,
 		IsSticky: isSticky,
@@ -6810,6 +7230,7 @@ type RouterMacExtended struct {
 }
 
 func (e *RouterMacExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2957, bgp.go:Serialize>>>")
 	buf := make([]byte, 2, 8)
 	buf[0] = byte(EC_TYPE_EVPN)
 	buf[1] = byte(EC_SUBTYPE_ROUTER_MAC)
@@ -6818,10 +7239,12 @@ func (e *RouterMacExtended) Serialize() ([]byte, error) {
 }
 
 func (e *RouterMacExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2958, bgp.go:String>>>")
 	return fmt.Sprintf("router's mac: %s", e.Mac.String())
 }
 
 func (e *RouterMacExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2959, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6835,10 +7258,12 @@ func (e *RouterMacExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *RouterMacExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2960, bgp.go:GetTypes>>>")
 	return EC_TYPE_EVPN, EC_SUBTYPE_ROUTER_MAC
 }
 
 func NewRoutersMacExtended(mac string) *RouterMacExtended { 
+   fmt.Print("<<<DEJDEJ id:2961, bgp.go:NewRoutersMacExtended(mac>>>")
 	hw, err := net.ParseMAC(mac)
 	if err != nil {
 		return nil
@@ -6849,6 +7274,7 @@ func NewRoutersMacExtended(mac string) *RouterMacExtended {
 }
 
 func parseEvpnExtended(data []byte) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2962, bgp.go:parseEvpnExtended(data>>>")
 	if ExtendedCommunityAttrType(data[0]) != EC_TYPE_EVPN {
 		return nil, NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, fmt.Sprintf("ext comm type is not EC_TYPE_EVPN: %d", data[0]))
 	}
@@ -6892,6 +7318,7 @@ type TrafficRateExtended struct {
 }
 
 func (e *TrafficRateExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2963, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	buf[0] = byte(EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL)
 	buf[1] = byte(EC_SUBTYPE_FLOWSPEC_TRAFFIC_RATE)
@@ -6901,6 +7328,7 @@ func (e *TrafficRateExtended) Serialize() ([]byte, error) {
 }
 
 func (e *TrafficRateExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2964, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	if e.Rate == 0 {
 		buf.WriteString("discard")
@@ -6914,6 +7342,7 @@ func (e *TrafficRateExtended) String() string {
 }
 
 func (e *TrafficRateExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2965, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -6924,10 +7353,12 @@ func (e *TrafficRateExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *TrafficRateExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2966, bgp.go:GetTypes>>>")
 	return EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL, EC_SUBTYPE_FLOWSPEC_TRAFFIC_RATE
 }
 
 func NewTrafficRateExtended(as uint16, rate float32) *TrafficRateExtended { 
+   fmt.Print("<<<DEJDEJ id:2967, bgp.go:NewTrafficRateExtended(as>>>")
 	return &TrafficRateExtended{
 		AS:   as,
 		Rate: rate,
@@ -6940,6 +7371,7 @@ type TrafficActionExtended struct {
 }
 
 func (e *TrafficActionExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2968, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	buf[0] = byte(EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL)
 	buf[1] = byte(EC_SUBTYPE_FLOWSPEC_TRAFFIC_ACTION)
@@ -6953,6 +7385,7 @@ func (e *TrafficActionExtended) Serialize() ([]byte, error) {
 }
 
 func (e *TrafficActionExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2969, bgp.go:String>>>")
 	ss := make([]string, 0, 2)
 	if e.Terminal {
 		ss = append(ss, "terminal")
@@ -6964,6 +7397,7 @@ func (e *TrafficActionExtended) String() string {
 }
 
 func (e *TrafficActionExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2970, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type     ExtendedCommunityAttrType    `json:"type"`
@@ -6974,10 +7408,12 @@ func (e *TrafficActionExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *TrafficActionExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2971, bgp.go:GetTypes>>>")
 	return EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL, EC_SUBTYPE_FLOWSPEC_TRAFFIC_ACTION
 }
 
 func NewTrafficActionExtended(terminal bool, sample bool) *TrafficActionExtended { 
+   fmt.Print("<<<DEJDEJ id:2972, bgp.go:NewTrafficActionExtended(terminal>>>")
 	return &TrafficActionExtended{
 		Terminal: terminal,
 		Sample:   sample,
@@ -6989,6 +7425,7 @@ type RedirectTwoOctetAsSpecificExtended struct {
 }
 
 func (e *RedirectTwoOctetAsSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2973, bgp.go:Serialize>>>")
 	buf, err := e.TwoOctetAsSpecificExtended.Serialize()
 	buf[0] = byte(EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL)
 	buf[1] = byte(EC_SUBTYPE_FLOWSPEC_REDIRECT)
@@ -6996,10 +7433,12 @@ func (e *RedirectTwoOctetAsSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *RedirectTwoOctetAsSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2974, bgp.go:String>>>")
 	return fmt.Sprintf("redirect: %s", e.TwoOctetAsSpecificExtended.String())
 }
 
 func (e *RedirectTwoOctetAsSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2975, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -7009,10 +7448,12 @@ func (e *RedirectTwoOctetAsSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *RedirectTwoOctetAsSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2976, bgp.go:GetTypes>>>")
 	return EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL, EC_SUBTYPE_FLOWSPEC_REDIRECT
 }
 
 func NewRedirectTwoOctetAsSpecificExtended(as uint16, localAdmin uint32) *RedirectTwoOctetAsSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2977, bgp.go:NewRedirectTwoOctetAsSpecificExtended(as>>>")
 	return &RedirectTwoOctetAsSpecificExtended{*NewTwoOctetAsSpecificExtended(EC_SUBTYPE_ROUTE_TARGET, as, localAdmin, false)}
 }
 
@@ -7021,6 +7462,7 @@ type RedirectIPv4AddressSpecificExtended struct {
 }
 
 func (e *RedirectIPv4AddressSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2978, bgp.go:Serialize>>>")
 	buf, err := e.IPv4AddressSpecificExtended.Serialize()
 	buf[0] = byte(EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL2)
 	buf[1] = byte(EC_SUBTYPE_FLOWSPEC_REDIRECT)
@@ -7028,10 +7470,12 @@ func (e *RedirectIPv4AddressSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *RedirectIPv4AddressSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2979, bgp.go:String>>>")
 	return fmt.Sprintf("redirect: %s", e.IPv4AddressSpecificExtended.String())
 }
 
 func (e *RedirectIPv4AddressSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2980, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -7041,10 +7485,12 @@ func (e *RedirectIPv4AddressSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *RedirectIPv4AddressSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2981, bgp.go:GetTypes>>>")
 	return EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL2, EC_SUBTYPE_FLOWSPEC_REDIRECT
 }
 
 func NewRedirectIPv4AddressSpecificExtended(ipv4 string, localAdmin uint16) *RedirectIPv4AddressSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2982, bgp.go:NewRedirectIPv4AddressSpecificExtended(ipv4>>>")
 	return &RedirectIPv4AddressSpecificExtended{*NewIPv4AddressSpecificExtended(EC_SUBTYPE_ROUTE_TARGET, ipv4, localAdmin, false)}
 }
 
@@ -7053,6 +7499,7 @@ type RedirectIPv6AddressSpecificExtended struct {
 }
 
 func (e *RedirectIPv6AddressSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2983, bgp.go:Serialize>>>")
 	buf, err := e.IPv6AddressSpecificExtended.Serialize()
 	buf[0] = byte(EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL)
 	buf[1] = byte(EC_SUBTYPE_FLOWSPEC_REDIRECT_IP6)
@@ -7060,10 +7507,12 @@ func (e *RedirectIPv6AddressSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *RedirectIPv6AddressSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2984, bgp.go:String>>>")
 	return fmt.Sprintf("redirect: %s", e.IPv6AddressSpecificExtended.String())
 }
 
 func (e *RedirectIPv6AddressSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2985, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -7073,10 +7522,12 @@ func (e *RedirectIPv6AddressSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *RedirectIPv6AddressSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2986, bgp.go:GetTypes>>>")
 	return EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL, EC_SUBTYPE_FLOWSPEC_REDIRECT_IP6
 }
 
 func NewRedirectIPv6AddressSpecificExtended(ipv6 string, localAdmin uint16) *RedirectIPv6AddressSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2987, bgp.go:NewRedirectIPv6AddressSpecificExtended(ipv6>>>")
 	return &RedirectIPv6AddressSpecificExtended{*NewIPv6AddressSpecificExtended(EC_SUBTYPE_ROUTE_TARGET, ipv6, localAdmin, false)}
 }
 
@@ -7085,6 +7536,7 @@ type RedirectFourOctetAsSpecificExtended struct {
 }
 
 func (e *RedirectFourOctetAsSpecificExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2988, bgp.go:Serialize>>>")
 	buf, err := e.FourOctetAsSpecificExtended.Serialize()
 	buf[0] = byte(EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL3)
 	buf[1] = byte(EC_SUBTYPE_FLOWSPEC_REDIRECT)
@@ -7092,10 +7544,12 @@ func (e *RedirectFourOctetAsSpecificExtended) Serialize() ([]byte, error) {
 }
 
 func (e *RedirectFourOctetAsSpecificExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2989, bgp.go:String>>>")
 	return fmt.Sprintf("redirect: %s", e.FourOctetAsSpecificExtended.String())
 }
 
 func (e *RedirectFourOctetAsSpecificExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2990, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -7105,10 +7559,12 @@ func (e *RedirectFourOctetAsSpecificExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *RedirectFourOctetAsSpecificExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2991, bgp.go:GetTypes>>>")
 	return EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL3, EC_SUBTYPE_FLOWSPEC_REDIRECT
 }
 
 func NewRedirectFourOctetAsSpecificExtended(as uint32, localAdmin uint16) *RedirectFourOctetAsSpecificExtended { 
+   fmt.Print("<<<DEJDEJ id:2992, bgp.go:NewRedirectFourOctetAsSpecificExtended(as>>>")
 	return &RedirectFourOctetAsSpecificExtended{*NewFourOctetAsSpecificExtended(EC_SUBTYPE_ROUTE_TARGET, as, localAdmin, false)}
 }
 
@@ -7117,6 +7573,7 @@ type TrafficRemarkExtended struct {
 }
 
 func (e *TrafficRemarkExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2993, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	buf[0] = byte(EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL)
 	buf[1] = byte(EC_SUBTYPE_FLOWSPEC_TRAFFIC_REMARK)
@@ -7125,10 +7582,12 @@ func (e *TrafficRemarkExtended) Serialize() ([]byte, error) {
 }
 
 func (e *TrafficRemarkExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:2994, bgp.go:String>>>")
 	return fmt.Sprintf("remark: %d", e.DSCP)
 }
 
 func (e *TrafficRemarkExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2995, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -7138,16 +7597,19 @@ func (e *TrafficRemarkExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *TrafficRemarkExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:2996, bgp.go:GetTypes>>>")
 	return EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL, EC_SUBTYPE_FLOWSPEC_TRAFFIC_REMARK
 }
 
 func NewTrafficRemarkExtended(dscp uint8) *TrafficRemarkExtended { 
+   fmt.Print("<<<DEJDEJ id:2997, bgp.go:NewTrafficRemarkExtended(dscp>>>")
 	return &TrafficRemarkExtended{
 		DSCP: dscp,
 	}
 }
 
 func parseFlowSpecExtended(data []byte) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2998, bgp.go:parseFlowSpecExtended(data>>>")
 	typ := ExtendedCommunityAttrType(data[0])
 	if typ != EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL && typ != EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL2 && typ != EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL3 {
 		return nil, NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, fmt.Sprintf("ext comm type is not EC_TYPE_FLOWSPEC: %d", data[0]))
@@ -7194,6 +7656,7 @@ func parseFlowSpecExtended(data []byte) (ExtendedCommunityInterface, error) {
 }
 
 func parseIP6FlowSpecExtended(data []byte) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2999, bgp.go:parseIP6FlowSpecExtended(data>>>")
 	typ := ExtendedCommunityAttrType(data[0])
 	if typ != EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL && typ != EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL2 && typ != EC_TYPE_GENERIC_TRANSITIVE_EXPERIMENTAL3 {
 		return nil, NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, fmt.Sprintf("ext comm type is not EC_TYPE_FLOWSPEC: %d", data[0]))
@@ -7221,6 +7684,7 @@ type UnknownExtended struct {
 }
 
 func (e *UnknownExtended) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3000, bgp.go:Serialize>>>")
 	if len(e.Value) != 7 {
 		return nil, fmt.Errorf("invalid value length for unknown extended community: %d", len(e.Value))
 	}
@@ -7231,12 +7695,14 @@ func (e *UnknownExtended) Serialize() ([]byte, error) {
 }
 
 func (e *UnknownExtended) String() string { 
+   fmt.Print("<<<DEJDEJ id:3001, bgp.go:String>>>")
 	buf := make([]byte, 8)
 	copy(buf[1:], e.Value)
 	return fmt.Sprintf("%d", binary.BigEndian.Uint64(buf))
 }
 
 func (e *UnknownExtended) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3002, bgp.go:MarshalJSON>>>")
 	t, s := e.GetTypes()
 	return json.Marshal(struct {
 		Type    ExtendedCommunityAttrType    `json:"type"`
@@ -7250,6 +7716,7 @@ func (e *UnknownExtended) MarshalJSON() ([]byte, error) {
 }
 
 func (e *UnknownExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:3003, bgp.go:GetTypes>>>")
 	var subType ExtendedCommunityAttrSubType
 	if len(e.Value) > 0 {
 		// Use the first byte of value as the sub type
@@ -7259,6 +7726,7 @@ func (e *UnknownExtended) GetTypes() (ExtendedCommunityAttrType, ExtendedCommuni
 }
 
 func NewUnknownExtended(typ ExtendedCommunityAttrType, value []byte) *UnknownExtended { 
+   fmt.Print("<<<DEJDEJ id:3004, bgp.go:NewUnknownExtended(typ>>>")
 	v := make([]byte, 7, 7)
 	copy(v, value)
 	return &UnknownExtended{
@@ -7273,6 +7741,7 @@ type PathAttributeExtendedCommunities struct {
 }
 
 func ParseExtended(data []byte) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:3005, bgp.go:ParseExtended(data>>>")
 	if len(data) < 8 {
 		return nil, NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, "not all extended community bytes are available")
 	}
@@ -7319,6 +7788,7 @@ func ParseExtended(data []byte) (ExtendedCommunityInterface, error) {
 }
 
 func (p *PathAttributeExtendedCommunities) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3006, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -7340,6 +7810,7 @@ func (p *PathAttributeExtendedCommunities) DecodeFromBytes(data []byte, options 
 }
 
 func (p *PathAttributeExtendedCommunities) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3007, bgp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, p := range p.Value {
 		ebuf, err := p.Serialize()
@@ -7352,6 +7823,7 @@ func (p *PathAttributeExtendedCommunities) Serialize(options ...*MarshallingOpti
 }
 
 func (p *PathAttributeExtendedCommunities) String() string { 
+   fmt.Print("<<<DEJDEJ id:3008, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	for idx, v := range p.Value {
 		buf.WriteString("[")
@@ -7365,6 +7837,7 @@ func (p *PathAttributeExtendedCommunities) String() string {
 }
 
 func (p *PathAttributeExtendedCommunities) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3009, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType                  `json:"type"`
 		Value []ExtendedCommunityInterface `json:"value"`
@@ -7375,6 +7848,7 @@ func (p *PathAttributeExtendedCommunities) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeExtendedCommunities(value []ExtendedCommunityInterface) *PathAttributeExtendedCommunities { 
+   fmt.Print("<<<DEJDEJ id:3010, bgp.go:NewPathAttributeExtendedCommunities(value>>>")
 	t := BGP_ATTR_TYPE_EXTENDED_COMMUNITIES
 	return &PathAttributeExtendedCommunities{
 		PathAttribute: PathAttribute{
@@ -7391,6 +7865,7 @@ type PathAttributeAs4Path struct {
 }
 
 func (p *PathAttributeAs4Path) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3011, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -7417,6 +7892,7 @@ func (p *PathAttributeAs4Path) DecodeFromBytes(data []byte, options ...*Marshall
 }
 
 func (p *PathAttributeAs4Path) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3012, bgp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, v := range p.Value {
 		vbuf, err := v.Serialize()
@@ -7429,6 +7905,7 @@ func (p *PathAttributeAs4Path) Serialize(options ...*MarshallingOption) ([]byte,
 }
 
 func (p *PathAttributeAs4Path) String() string { 
+   fmt.Print("<<<DEJDEJ id:3013, bgp.go:String>>>")
 	params := make([]string, 0, len(p.Value))
 	for _, param := range p.Value {
 		params = append(params, param.String())
@@ -7437,6 +7914,7 @@ func (p *PathAttributeAs4Path) String() string {
 }
 
 func (p *PathAttributeAs4Path) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3014, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType     `json:"type"`
 		Value []*As4PathParam `json:"as_paths"`
@@ -7447,6 +7925,7 @@ func (p *PathAttributeAs4Path) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeAs4Path(value []*As4PathParam) *PathAttributeAs4Path { 
+   fmt.Print("<<<DEJDEJ id:3015, bgp.go:NewPathAttributeAs4Path(value>>>")
 	t := BGP_ATTR_TYPE_AS4_PATH
 	return &PathAttributeAs4Path{
 		PathAttribute: PathAttribute{
@@ -7463,6 +7942,7 @@ type PathAttributeAs4Aggregator struct {
 }
 
 func (p *PathAttributeAs4Aggregator) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3016, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -7478,6 +7958,7 @@ func (p *PathAttributeAs4Aggregator) DecodeFromBytes(data []byte, options ...*Ma
 }
 
 func (p *PathAttributeAs4Aggregator) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3017, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	binary.BigEndian.PutUint32(buf[0:], p.Value.AS)
 	copy(buf[4:], p.Value.Address.To4())
@@ -7485,10 +7966,12 @@ func (p *PathAttributeAs4Aggregator) Serialize(options ...*MarshallingOption) ([
 }
 
 func (p *PathAttributeAs4Aggregator) String() string { 
+   fmt.Print("<<<DEJDEJ id:3018, bgp.go:String>>>")
 	return fmt.Sprintf("{As4Aggregator: {AS: %d, Address: %s}}", p.Value.AS, p.Value.Address)
 }
 
 func (p *PathAttributeAs4Aggregator) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3019, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type    BGPAttrType `json:"type"`
 		AS      uint32      `json:"as"`
@@ -7501,6 +7984,7 @@ func (p *PathAttributeAs4Aggregator) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeAs4Aggregator(as uint32, address string) *PathAttributeAs4Aggregator { 
+   fmt.Print("<<<DEJDEJ id:3020, bgp.go:NewPathAttributeAs4Aggregator(as>>>")
 	t := BGP_ATTR_TYPE_AS4_AGGREGATOR
 	return &PathAttributeAs4Aggregator{
 		PathAttribute: PathAttribute{
@@ -7528,6 +8012,7 @@ type TunnelEncapSubTLV struct {
 }
 
 func (t *TunnelEncapSubTLV) Len() int { 
+   fmt.Print("<<<DEJDEJ id:3021, bgp.go:Len>>>")
 	if t.Type >= 0x80 {
 		return 3 + int(t.Length)
 	}
@@ -7535,6 +8020,7 @@ func (t *TunnelEncapSubTLV) Len() int {
 }
 
 func (t *TunnelEncapSubTLV) DecodeFromBytes(data []byte) (value []byte, err error) { 
+   fmt.Print("<<<DEJDEJ id:3022, bgp.go:DecodeFromBytes>>>")
 	t.Type = EncapSubTLVType(data[0])
 	if t.Type >= 0x80 {
 		t.Length = binary.BigEndian.Uint16(data[1:3])
@@ -7550,6 +8036,7 @@ func (t *TunnelEncapSubTLV) DecodeFromBytes(data []byte) (value []byte, err erro
 }
 
 func (t *TunnelEncapSubTLV) Serialize(value []byte) (buf []byte, err error) { 
+   fmt.Print("<<<DEJDEJ id:3023, bgp.go:Serialize>>>")
 	t.Length = uint16(len(value))
 	if t.Type >= 0x80 {
 		buf = append(make([]byte, 3), value...)
@@ -7568,6 +8055,7 @@ type TunnelEncapSubTLVUnknown struct {
 }
 
 func (t *TunnelEncapSubTLVUnknown) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3024, bgp.go:DecodeFromBytes>>>")
 	value, err := t.TunnelEncapSubTLV.DecodeFromBytes(data)
 	if err != nil {
 		return err
@@ -7577,14 +8065,17 @@ func (t *TunnelEncapSubTLVUnknown) DecodeFromBytes(data []byte) error {
 }
 
 func (t *TunnelEncapSubTLVUnknown) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3025, bgp.go:Serialize>>>")
 	return t.TunnelEncapSubTLV.Serialize(t.Value)
 }
 
 func (t *TunnelEncapSubTLVUnknown) String() string { 
+   fmt.Print("<<<DEJDEJ id:3026, bgp.go:String>>>")
 	return fmt.Sprintf("{Type: %d, Value: %x}", t.Type, t.Value)
 }
 
 func (t *TunnelEncapSubTLVUnknown) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3027, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  EncapSubTLVType `json:"type"`
 		Value []byte          `json:"value"`
@@ -7595,6 +8086,7 @@ func (t *TunnelEncapSubTLVUnknown) MarshalJSON() ([]byte, error) {
 }
 
 func NewTunnelEncapSubTLVUnknown(typ EncapSubTLVType, value []byte) *TunnelEncapSubTLVUnknown { 
+   fmt.Print("<<<DEJDEJ id:3028, bgp.go:NewTunnelEncapSubTLVUnknown(typ>>>")
 	return &TunnelEncapSubTLVUnknown{
 		TunnelEncapSubTLV: TunnelEncapSubTLV{
 			Type: typ,
@@ -7610,6 +8102,7 @@ type TunnelEncapSubTLVEncapsulation struct {
 }
 
 func (t *TunnelEncapSubTLVEncapsulation) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3029, bgp.go:DecodeFromBytes>>>")
 	value, err := t.TunnelEncapSubTLV.DecodeFromBytes(data)
 	if err != nil {
 		return err
@@ -7623,6 +8116,7 @@ func (t *TunnelEncapSubTLVEncapsulation) DecodeFromBytes(data []byte) error {
 }
 
 func (t *TunnelEncapSubTLVEncapsulation) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3030, bgp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint32(buf, t.Key)
 	buf = append(buf, t.Cookie...)
@@ -7630,10 +8124,12 @@ func (t *TunnelEncapSubTLVEncapsulation) Serialize() ([]byte, error) {
 }
 
 func (t *TunnelEncapSubTLVEncapsulation) String() string { 
+   fmt.Print("<<<DEJDEJ id:3031, bgp.go:String>>>")
 	return fmt.Sprintf("{Key: %d, Cookie: %x}", t.Key, t.Cookie)
 }
 
 func (t *TunnelEncapSubTLVEncapsulation) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3032, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type   EncapSubTLVType `json:"type"`
 		Key    uint32          `json:"key"`
@@ -7646,6 +8142,7 @@ func (t *TunnelEncapSubTLVEncapsulation) MarshalJSON() ([]byte, error) {
 }
 
 func NewTunnelEncapSubTLVEncapsulation(key uint32, cookie []byte) *TunnelEncapSubTLVEncapsulation { 
+   fmt.Print("<<<DEJDEJ id:3033, bgp.go:NewTunnelEncapSubTLVEncapsulation(key>>>")
 	return &TunnelEncapSubTLVEncapsulation{
 		TunnelEncapSubTLV: TunnelEncapSubTLV{
 			Type: ENCAP_SUBTLV_TYPE_ENCAPSULATION,
@@ -7661,6 +8158,7 @@ type TunnelEncapSubTLVProtocol struct {
 }
 
 func (t *TunnelEncapSubTLVProtocol) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3034, bgp.go:DecodeFromBytes>>>")
 	value, err := t.TunnelEncapSubTLV.DecodeFromBytes(data)
 	if err != nil {
 		return err
@@ -7673,16 +8171,19 @@ func (t *TunnelEncapSubTLVProtocol) DecodeFromBytes(data []byte) error {
 }
 
 func (t *TunnelEncapSubTLVProtocol) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3035, bgp.go:Serialize>>>")
 	buf := make([]byte, 2)
 	binary.BigEndian.PutUint16(buf, t.Protocol)
 	return t.TunnelEncapSubTLV.Serialize(buf)
 }
 
 func (t *TunnelEncapSubTLVProtocol) String() string { 
+   fmt.Print("<<<DEJDEJ id:3036, bgp.go:String>>>")
 	return fmt.Sprintf("{Protocol: %d}", t.Protocol)
 }
 
 func (t *TunnelEncapSubTLVProtocol) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3037, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type     EncapSubTLVType `json:"type"`
 		Protocol uint16          `json:"protocol"`
@@ -7693,6 +8194,7 @@ func (t *TunnelEncapSubTLVProtocol) MarshalJSON() ([]byte, error) {
 }
 
 func NewTunnelEncapSubTLVProtocol(protocol uint16) *TunnelEncapSubTLVProtocol { 
+   fmt.Print("<<<DEJDEJ id:3038, bgp.go:NewTunnelEncapSubTLVProtocol(protocol>>>")
 	return &TunnelEncapSubTLVProtocol{
 		TunnelEncapSubTLV: TunnelEncapSubTLV{
 			Type: ENCAP_SUBTLV_TYPE_PROTOCOL,
@@ -7707,6 +8209,7 @@ type TunnelEncapSubTLVColor struct {
 }
 
 func (t *TunnelEncapSubTLVColor) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3039, bgp.go:DecodeFromBytes>>>")
 	value, err := t.TunnelEncapSubTLV.DecodeFromBytes(data)
 	if err != nil {
 		return err
@@ -7719,6 +8222,7 @@ func (t *TunnelEncapSubTLVColor) DecodeFromBytes(data []byte) error {
 }
 
 func (t *TunnelEncapSubTLVColor) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3040, bgp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	buf[0] = byte(EC_TYPE_TRANSITIVE_OPAQUE)
 	buf[1] = byte(EC_SUBTYPE_COLOR)
@@ -7727,10 +8231,12 @@ func (t *TunnelEncapSubTLVColor) Serialize() ([]byte, error) {
 }
 
 func (t *TunnelEncapSubTLVColor) String() string { 
+   fmt.Print("<<<DEJDEJ id:3041, bgp.go:String>>>")
 	return fmt.Sprintf("{Color: %d}", t.Color)
 }
 
 func (t *TunnelEncapSubTLVColor) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3042, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  EncapSubTLVType `json:"type"`
 		Color uint32          `json:"color"`
@@ -7741,6 +8247,7 @@ func (t *TunnelEncapSubTLVColor) MarshalJSON() ([]byte, error) {
 }
 
 func NewTunnelEncapSubTLVColor(color uint32) *TunnelEncapSubTLVColor { 
+   fmt.Print("<<<DEJDEJ id:3043, bgp.go:NewTunnelEncapSubTLVColor(color>>>")
 	return &TunnelEncapSubTLVColor{
 		TunnelEncapSubTLV: TunnelEncapSubTLV{
 			Type: ENCAP_SUBTLV_TYPE_COLOR,
@@ -7756,6 +8263,7 @@ type TunnelEncapTLV struct {
 }
 
 func (t *TunnelEncapTLV) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3044, bgp.go:DecodeFromBytes>>>")
 	t.Type = TunnelType(binary.BigEndian.Uint16(data[0:2]))
 	t.Length = binary.BigEndian.Uint16(data[2:4])
 	data = data[4:]
@@ -7791,6 +8299,7 @@ func (t *TunnelEncapTLV) DecodeFromBytes(data []byte) error {
 }
 
 func (p *TunnelEncapTLV) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3045, bgp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	for _, t := range p.Value {
 		tBuf, err := t.Serialize()
@@ -7805,6 +8314,7 @@ func (p *TunnelEncapTLV) Serialize() ([]byte, error) {
 }
 
 func (p *TunnelEncapTLV) String() string { 
+   fmt.Print("<<<DEJDEJ id:3046, bgp.go:String>>>")
 	tlvList := make([]string, len(p.Value), len(p.Value))
 	for i, v := range p.Value {
 		tlvList[i] = v.String()
@@ -7813,6 +8323,7 @@ func (p *TunnelEncapTLV) String() string {
 }
 
 func (p *TunnelEncapTLV) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3047, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  TunnelType                   `json:"type"`
 		Value []TunnelEncapSubTLVInterface `json:"value"`
@@ -7823,6 +8334,7 @@ func (p *TunnelEncapTLV) MarshalJSON() ([]byte, error) {
 }
 
 func NewTunnelEncapTLV(typ TunnelType, value []TunnelEncapSubTLVInterface) *TunnelEncapTLV { 
+   fmt.Print("<<<DEJDEJ id:3048, bgp.go:NewTunnelEncapTLV(typ>>>")
 	return &TunnelEncapTLV{
 		Type:  typ,
 		Value: value,
@@ -7835,6 +8347,7 @@ type PathAttributeTunnelEncap struct {
 }
 
 func (p *PathAttributeTunnelEncap) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3049, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -7852,6 +8365,7 @@ func (p *PathAttributeTunnelEncap) DecodeFromBytes(data []byte, options ...*Mars
 }
 
 func (p *PathAttributeTunnelEncap) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3050, bgp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, t := range p.Value {
 		bbuf, err := t.Serialize()
@@ -7864,6 +8378,7 @@ func (p *PathAttributeTunnelEncap) Serialize(options ...*MarshallingOption) ([]b
 }
 
 func (p *PathAttributeTunnelEncap) String() string { 
+   fmt.Print("<<<DEJDEJ id:3051, bgp.go:String>>>")
 	tlvList := make([]string, len(p.Value), len(p.Value))
 	for i, v := range p.Value {
 		tlvList[i] = v.String()
@@ -7872,6 +8387,7 @@ func (p *PathAttributeTunnelEncap) String() string {
 }
 
 func (p *PathAttributeTunnelEncap) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3052, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType       `json:"type"`
 		Value []*TunnelEncapTLV `json:"value"`
@@ -7882,6 +8398,7 @@ func (p *PathAttributeTunnelEncap) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeTunnelEncap(value []*TunnelEncapTLV) *PathAttributeTunnelEncap { 
+   fmt.Print("<<<DEJDEJ id:3053, bgp.go:NewPathAttributeTunnelEncap(value>>>")
 	t := BGP_ATTR_TYPE_TUNNEL_ENCAP
 	return &PathAttributeTunnelEncap{
 		PathAttribute: PathAttribute{
@@ -7902,10 +8419,12 @@ type DefaultPmsiTunnelID struct {
 }
 
 func (i *DefaultPmsiTunnelID) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3054, bgp.go:Serialize>>>")
 	return i.Value, nil
 }
 
 func (i *DefaultPmsiTunnelID) String() string { 
+   fmt.Print("<<<DEJDEJ id:3055, bgp.go:String>>>")
 	return string(i.Value)
 }
 
@@ -7914,6 +8433,7 @@ type IngressReplTunnelID struct {
 }
 
 func (i *IngressReplTunnelID) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3056, bgp.go:Serialize>>>")
 	if i.Value.To4() != nil {
 		return []byte(i.Value.To4()), nil
 	}
@@ -7921,6 +8441,7 @@ func (i *IngressReplTunnelID) Serialize() ([]byte, error) {
 }
 
 func (i *IngressReplTunnelID) String() string { 
+   fmt.Print("<<<DEJDEJ id:3057, bgp.go:String>>>")
 	return i.Value.String()
 }
 
@@ -7933,6 +8454,7 @@ type PathAttributePmsiTunnel struct {
 }
 
 func (p *PathAttributePmsiTunnel) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3058, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -7961,6 +8483,7 @@ func (p *PathAttributePmsiTunnel) DecodeFromBytes(data []byte, options ...*Marsh
 }
 
 func (p *PathAttributePmsiTunnel) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3059, bgp.go:Serialize>>>")
 	buf := make([]byte, 2)
 	if p.IsLeafInfoRequired {
 		buf[0] = 0x01
@@ -7980,6 +8503,7 @@ func (p *PathAttributePmsiTunnel) Serialize(options ...*MarshallingOption) ([]by
 }
 
 func (p *PathAttributePmsiTunnel) String() string { 
+   fmt.Print("<<<DEJDEJ id:3060, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	buf.WriteString(fmt.Sprintf("{Pmsi: type: %s,", p.TunnelType))
 	if p.IsLeafInfoRequired {
@@ -7990,6 +8514,7 @@ func (p *PathAttributePmsiTunnel) String() string {
 }
 
 func (p *PathAttributePmsiTunnel) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3061, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type               BGPAttrType `json:"type"`
 		IsLeafInfoRequired bool        `json:"is-leaf-info-required"`
@@ -8006,6 +8531,7 @@ func (p *PathAttributePmsiTunnel) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributePmsiTunnel(typ PmsiTunnelType, isLeafInfoRequired bool, label uint32, id PmsiTunnelIDInterface) *PathAttributePmsiTunnel { 
+   fmt.Print("<<<DEJDEJ id:3062, bgp.go:NewPathAttributePmsiTunnel(typ>>>")
 	t := BGP_ATTR_TYPE_PMSI_TUNNEL
 	return &PathAttributePmsiTunnel{
 		PathAttribute: PathAttribute{
@@ -8020,6 +8546,7 @@ func NewPathAttributePmsiTunnel(typ PmsiTunnelType, isLeafInfoRequired bool, lab
 }
 
 func ParsePmsiTunnel(args []string) (*PathAttributePmsiTunnel, error) { 
+   fmt.Print("<<<DEJDEJ id:3063, bgp.go:ParsePmsiTunnel(args>>>")
 	// Format:
 	// "<type>" ["leaf-info-required"] "<label>" "<tunnel-id>"
 	if len(args) < 3 {
@@ -8072,6 +8599,7 @@ type PathAttributeIP6ExtendedCommunities struct {
 }
 
 func ParseIP6Extended(data []byte) (ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:3064, bgp.go:ParseIP6Extended(data>>>")
 	if len(data) < 8 {
 		return nil, NewMessageError(BGP_ERROR_UPDATE_MESSAGE_ERROR, BGP_ERROR_SUB_MALFORMED_ATTRIBUTE_LIST, nil, "not all extended community bytes are available")
 	}
@@ -8097,6 +8625,7 @@ func ParseIP6Extended(data []byte) (ExtendedCommunityInterface, error) {
 }
 
 func (p *PathAttributeIP6ExtendedCommunities) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3065, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data)
 	if err != nil {
 		return err
@@ -8118,6 +8647,7 @@ func (p *PathAttributeIP6ExtendedCommunities) DecodeFromBytes(data []byte, optio
 }
 
 func (p *PathAttributeIP6ExtendedCommunities) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3066, bgp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, p := range p.Value {
 		ebuf, err := p.Serialize()
@@ -8130,6 +8660,7 @@ func (p *PathAttributeIP6ExtendedCommunities) Serialize(options ...*MarshallingO
 }
 
 func (p *PathAttributeIP6ExtendedCommunities) String() string { 
+   fmt.Print("<<<DEJDEJ id:3067, bgp.go:String>>>")
 	var buf []string
 	for _, v := range p.Value {
 		buf = append(buf, fmt.Sprintf("[%s]", v.String()))
@@ -8138,6 +8669,7 @@ func (p *PathAttributeIP6ExtendedCommunities) String() string {
 }
 
 func (p *PathAttributeIP6ExtendedCommunities) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3068, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType                  `json:"type"`
 		Value []ExtendedCommunityInterface `json:"value"`
@@ -8148,6 +8680,7 @@ func (p *PathAttributeIP6ExtendedCommunities) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeIP6ExtendedCommunities(value []ExtendedCommunityInterface) *PathAttributeIP6ExtendedCommunities { 
+   fmt.Print("<<<DEJDEJ id:3069, bgp.go:NewPathAttributeIP6ExtendedCommunities(value>>>")
 	t := BGP_ATTR_TYPE_IP6_EXTENDED_COMMUNITIES
 	return &PathAttributeIP6ExtendedCommunities{
 		PathAttribute: PathAttribute{
@@ -8178,6 +8711,7 @@ type AigpTLVDefault struct {
 }
 
 func (t *AigpTLVDefault) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3070, bgp.go:Serialize>>>")
 	buf := make([]byte, 3+len(t.Value))
 	buf[0] = uint8(t.Type())
 	binary.BigEndian.PutUint16(buf[1:], uint16(3+len(t.Value)))
@@ -8186,10 +8720,12 @@ func (t *AigpTLVDefault) Serialize() ([]byte, error) {
 }
 
 func (t *AigpTLVDefault) String() string { 
+   fmt.Print("<<<DEJDEJ id:3071, bgp.go:String>>>")
 	return fmt.Sprintf("{Type: %d, Value: %v}", t.Type(), t.Value)
 }
 
 func (t *AigpTLVDefault) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3072, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  AigpTLVType `json:"type"`
 		Value []byte      `json:"value"`
@@ -8200,10 +8736,12 @@ func (t *AigpTLVDefault) MarshalJSON() ([]byte, error) {
 }
 
 func (t *AigpTLVDefault) Type() AigpTLVType { 
+   fmt.Print("<<<DEJDEJ id:3073, bgp.go:Type>>>")
 	return t.typ
 }
 
 func NewAigpTLVDefault(typ AigpTLVType, value []byte) *AigpTLVDefault { 
+   fmt.Print("<<<DEJDEJ id:3074, bgp.go:NewAigpTLVDefault(typ>>>")
 	return &AigpTLVDefault{
 		typ:   typ,
 		Value: value,
@@ -8215,6 +8753,7 @@ type AigpTLVIgpMetric struct {
 }
 
 func (t *AigpTLVIgpMetric) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3075, bgp.go:Serialize>>>")
 	buf := make([]byte, 11)
 	buf[0] = uint8(AIGP_TLV_IGP_METRIC)
 	binary.BigEndian.PutUint16(buf[1:], uint16(11))
@@ -8223,10 +8762,12 @@ func (t *AigpTLVIgpMetric) Serialize() ([]byte, error) {
 }
 
 func (t *AigpTLVIgpMetric) String() string { 
+   fmt.Print("<<<DEJDEJ id:3076, bgp.go:String>>>")
 	return fmt.Sprintf("{Metric: %d}", t.Metric)
 }
 
 func (t *AigpTLVIgpMetric) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3077, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type   AigpTLVType `json:"type"`
 		Metric uint64      `json:"metric"`
@@ -8237,12 +8778,14 @@ func (t *AigpTLVIgpMetric) MarshalJSON() ([]byte, error) {
 }
 
 func NewAigpTLVIgpMetric(metric uint64) *AigpTLVIgpMetric { 
+   fmt.Print("<<<DEJDEJ id:3078, bgp.go:NewAigpTLVIgpMetric(metric>>>")
 	return &AigpTLVIgpMetric{
 		Metric: metric,
 	}
 }
 
 func (t *AigpTLVIgpMetric) Type() AigpTLVType { 
+   fmt.Print("<<<DEJDEJ id:3079, bgp.go:Type>>>")
 	return AIGP_TLV_IGP_METRIC
 }
 
@@ -8252,6 +8795,7 @@ type PathAttributeAigp struct {
 }
 
 func (p *PathAttributeAigp) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3080, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data, options...)
 	if err != nil {
 		return err
@@ -8284,6 +8828,7 @@ func (p *PathAttributeAigp) DecodeFromBytes(data []byte, options ...*Marshalling
 }
 
 func (p *PathAttributeAigp) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3081, bgp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, t := range p.Values {
 		bbuf, err := t.Serialize()
@@ -8296,6 +8841,7 @@ func (p *PathAttributeAigp) Serialize(options ...*MarshallingOption) ([]byte, er
 }
 
 func (p *PathAttributeAigp) String() string { 
+   fmt.Print("<<<DEJDEJ id:3082, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	buf.WriteString("{Aigp: [")
 	for _, v := range p.Values {
@@ -8306,6 +8852,7 @@ func (p *PathAttributeAigp) String() string {
 }
 
 func (p *PathAttributeAigp) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3083, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType        `json:"type"`
 		Value []AigpTLVInterface `json:"value"`
@@ -8316,6 +8863,7 @@ func (p *PathAttributeAigp) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeAigp(values []AigpTLVInterface) *PathAttributeAigp { 
+   fmt.Print("<<<DEJDEJ id:3084, bgp.go:NewPathAttributeAigp(values>>>")
 	t := BGP_ATTR_TYPE_AIGP
 	return &PathAttributeAigp{
 		PathAttribute: PathAttribute{
@@ -8333,6 +8881,7 @@ type LargeCommunity struct {
 }
 
 func (c *LargeCommunity) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3085, bgp.go:Serialize>>>")
 	buf := make([]byte, 12)
 	binary.BigEndian.PutUint32(buf, c.ASN)
 	binary.BigEndian.PutUint32(buf[4:], c.LocalData1)
@@ -8341,10 +8890,12 @@ func (c *LargeCommunity) Serialize() ([]byte, error) {
 }
 
 func (c *LargeCommunity) String() string { 
+   fmt.Print("<<<DEJDEJ id:3086, bgp.go:String>>>")
 	return fmt.Sprintf("%d:%d:%d", c.ASN, c.LocalData1, c.LocalData2)
 }
 
 func NewLargeCommunity(asn, data1, data2 uint32) *LargeCommunity { 
+   fmt.Print("<<<DEJDEJ id:3087, bgp.go:NewLargeCommunity(asn,>>>")
 	return &LargeCommunity{
 		ASN:        asn,
 		LocalData1: data1,
@@ -8353,6 +8904,7 @@ func NewLargeCommunity(asn, data1, data2 uint32) *LargeCommunity {
 }
 
 func ParseLargeCommunity(value string) (*LargeCommunity, error) { 
+   fmt.Print("<<<DEJDEJ id:3088, bgp.go:ParseLargeCommunity(value>>>")
 	elems := strings.Split(value, ":")
 	if len(elems) != 3 {
 		return nil, fmt.Errorf("invalid large community format")
@@ -8374,6 +8926,7 @@ type PathAttributeLargeCommunities struct {
 }
 
 func (p *PathAttributeLargeCommunities) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3089, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data)
 	if err != nil {
 		return err
@@ -8395,6 +8948,7 @@ func (p *PathAttributeLargeCommunities) DecodeFromBytes(data []byte, options ...
 }
 
 func (p *PathAttributeLargeCommunities) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3090, bgp.go:Serialize>>>")
 	buf := make([]byte, 0, len(p.Values)*12)
 	for _, t := range p.Values {
 		bbuf, err := t.Serialize()
@@ -8407,6 +8961,7 @@ func (p *PathAttributeLargeCommunities) Serialize(options ...*MarshallingOption)
 }
 
 func (p *PathAttributeLargeCommunities) String() string { 
+   fmt.Print("<<<DEJDEJ id:3091, bgp.go:String>>>")
 	buf := bytes.NewBuffer(make([]byte, 0, 32))
 	buf.WriteString("{LargeCommunity: [ ")
 	ss := []string{}
@@ -8419,6 +8974,7 @@ func (p *PathAttributeLargeCommunities) String() string {
 }
 
 func (p *PathAttributeLargeCommunities) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3092, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Type  BGPAttrType       `json:"type"`
 		Value []*LargeCommunity `json:"value"`
@@ -8429,6 +8985,7 @@ func (p *PathAttributeLargeCommunities) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeLargeCommunities(values []*LargeCommunity) *PathAttributeLargeCommunities { 
+   fmt.Print("<<<DEJDEJ id:3093, bgp.go:NewPathAttributeLargeCommunities(values>>>")
 	t := BGP_ATTR_TYPE_LARGE_COMMUNITY
 	return &PathAttributeLargeCommunities{
 		PathAttribute: PathAttribute{
@@ -8445,6 +9002,7 @@ type PathAttributeUnknown struct {
 }
 
 func (p *PathAttributeUnknown) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3094, bgp.go:DecodeFromBytes>>>")
 	value, err := p.PathAttribute.DecodeFromBytes(data)
 	if err != nil {
 		return err
@@ -8454,14 +9012,17 @@ func (p *PathAttributeUnknown) DecodeFromBytes(data []byte, options ...*Marshall
 }
 
 func (p *PathAttributeUnknown) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3095, bgp.go:Serialize>>>")
 	return p.PathAttribute.Serialize(p.Value, options...)
 }
 
 func (p *PathAttributeUnknown) String() string { 
+   fmt.Print("<<<DEJDEJ id:3096, bgp.go:String>>>")
 	return fmt.Sprintf("{Flags: %s, Type: %s, Value: %s}", p.Flags, p.Type, p.Value)
 }
 
 func (p *PathAttributeUnknown) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3097, bgp.go:MarshalJSON>>>")
 	return json.Marshal(struct {
 		Flags BGPAttrFlag `json:"flags"`
 		Type  BGPAttrType `json:"type"`
@@ -8474,6 +9035,7 @@ func (p *PathAttributeUnknown) MarshalJSON() ([]byte, error) {
 }
 
 func NewPathAttributeUnknown(flags BGPAttrFlag, typ BGPAttrType, value []byte) *PathAttributeUnknown { 
+   fmt.Print("<<<DEJDEJ id:3098, bgp.go:NewPathAttributeUnknown(flags>>>")
 	return &PathAttributeUnknown{
 		PathAttribute: PathAttribute{
 			Flags: flags,
@@ -8484,6 +9046,7 @@ func NewPathAttributeUnknown(flags BGPAttrFlag, typ BGPAttrType, value []byte) *
 }
 
 func GetPathAttribute(data []byte) (PathAttributeInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:3099, bgp.go:GetPathAttribute(data>>>")
 	if len(data) < 2 {
 		eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 		eSubCode := uint8(BGP_ERROR_SUB_ATTRIBUTE_LENGTH_ERROR)
@@ -8543,6 +9106,7 @@ type BGPUpdate struct {
 }
 
 func (msg *BGPUpdate) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3100, bgp.go:DecodeFromBytes>>>")
 	var strongestError error
 
 	// cache error codes
@@ -8661,6 +9225,7 @@ func (msg *BGPUpdate) DecodeFromBytes(data []byte, options ...*MarshallingOption
 }
 
 func (msg *BGPUpdate) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3101, bgp.go:Serialize>>>")
 	wbuf := make([]byte, 2)
 	for _, w := range msg.WithdrawnRoutes {
 		onewbuf, err := w.Serialize(options...)
@@ -8695,6 +9260,7 @@ func (msg *BGPUpdate) Serialize(options ...*MarshallingOption) ([]byte, error) {
 }
 
 func (msg *BGPUpdate) IsEndOfRib() (bool, RouteFamily) { 
+   fmt.Print("<<<DEJDEJ id:3102, bgp.go:IsEndOfRib>>>")
 	if len(msg.WithdrawnRoutes) == 0 && len(msg.NLRI) == 0 {
 		if len(msg.PathAttributes) == 0 {
 			return true, RF_IPv4_UC
@@ -8709,6 +9275,7 @@ func (msg *BGPUpdate) IsEndOfRib() (bool, RouteFamily) {
 }
 
 func TreatAsWithdraw(msg *BGPUpdate) *BGPUpdate { 
+   fmt.Print("<<<DEJDEJ id:3103, bgp.go:TreatAsWithdraw(msg>>>")
 	withdraw := &BGPUpdate{
 		WithdrawnRoutesLen:    0,
 		WithdrawnRoutes:       []*IPAddrPrefix{},
@@ -8734,6 +9301,7 @@ func TreatAsWithdraw(msg *BGPUpdate) *BGPUpdate {
 }
 
 func NewBGPUpdateMessage(withdrawnRoutes []*IPAddrPrefix, pathattrs []PathAttributeInterface, nlri []*IPAddrPrefix) *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3104, bgp.go:NewBGPUpdateMessage(withdrawnRoutes>>>")
 	return &BGPMessage{
 		Header: BGPHeader{Type: BGP_MSG_UPDATE},
 		Body:   &BGPUpdate{0, withdrawnRoutes, 0, pathattrs, nlri},
@@ -8741,6 +9309,7 @@ func NewBGPUpdateMessage(withdrawnRoutes []*IPAddrPrefix, pathattrs []PathAttrib
 }
 
 func NewEndOfRib(family RouteFamily) *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3105, bgp.go:NewEndOfRib(family>>>")
 	if family == RF_IPv4_UC {
 		return NewBGPUpdateMessage(nil, nil, nil)
 	} else {
@@ -8765,6 +9334,7 @@ type BGPNotification struct {
 }
 
 func (msg *BGPNotification) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3106, bgp.go:DecodeFromBytes>>>")
 	if len(data) < 2 {
 		return NewMessageError(BGP_ERROR_MESSAGE_HEADER_ERROR, BGP_ERROR_SUB_BAD_MESSAGE_LENGTH, nil, "Not all Notificaiton bytes available")
 	}
@@ -8777,6 +9347,7 @@ func (msg *BGPNotification) DecodeFromBytes(data []byte, options ...*Marshalling
 }
 
 func (msg *BGPNotification) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3107, bgp.go:Serialize>>>")
 	buf := make([]byte, 2)
 	buf[0] = msg.ErrorCode
 	buf[1] = msg.ErrorSubcode
@@ -8785,6 +9356,7 @@ func (msg *BGPNotification) Serialize(options ...*MarshallingOption) ([]byte, er
 }
 
 func NewBGPNotificationMessage(errcode uint8, errsubcode uint8, data []byte) *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3108, bgp.go:NewBGPNotificationMessage(errcode>>>")
 	return &BGPMessage{
 		Header: BGPHeader{Type: BGP_MSG_NOTIFICATION},
 		Body:   &BGPNotification{errcode, errsubcode, data},
@@ -8795,14 +9367,17 @@ type BGPKeepAlive struct {
 }
 
 func (msg *BGPKeepAlive) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3109, bgp.go:DecodeFromBytes>>>")
 	return nil
 }
 
 func (msg *BGPKeepAlive) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3110, bgp.go:Serialize>>>")
 	return nil, nil
 }
 
 func NewBGPKeepAliveMessage() *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3111, bgp.go:NewBGPKeepAliveMessage()>>>")
 	return &BGPMessage{
 		Header: BGPHeader{Len: 19, Type: BGP_MSG_KEEPALIVE},
 		Body:   &BGPKeepAlive{},
@@ -8816,6 +9391,7 @@ type BGPRouteRefresh struct {
 }
 
 func (msg *BGPRouteRefresh) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3112, bgp.go:DecodeFromBytes>>>")
 	if len(data) < 4 {
 		return NewMessageError(BGP_ERROR_ROUTE_REFRESH_MESSAGE_ERROR, BGP_ERROR_SUB_INVALID_MESSAGE_LENGTH, nil, "Not all RouteRefresh bytes available")
 	}
@@ -8826,6 +9402,7 @@ func (msg *BGPRouteRefresh) DecodeFromBytes(data []byte, options ...*Marshalling
 }
 
 func (msg *BGPRouteRefresh) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3113, bgp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint16(buf[0:2], msg.AFI)
 	buf[2] = msg.Demarcation
@@ -8834,6 +9411,7 @@ func (msg *BGPRouteRefresh) Serialize(options ...*MarshallingOption) ([]byte, er
 }
 
 func NewBGPRouteRefreshMessage(afi uint16, demarcation uint8, safi uint8) *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3114, bgp.go:NewBGPRouteRefreshMessage(afi>>>")
 	return &BGPMessage{
 		Header: BGPHeader{Type: BGP_MSG_ROUTE_REFRESH},
 		Body:   &BGPRouteRefresh{afi, demarcation, safi},
@@ -8857,6 +9435,7 @@ type BGPHeader struct {
 }
 
 func (msg *BGPHeader) DecodeFromBytes(data []byte, options ...*MarshallingOption) error { 
+   fmt.Print("<<<DEJDEJ id:3115, bgp.go:DecodeFromBytes>>>")
 	// minimum BGP message length
 	if uint16(len(data)) < BGP_HEADER_LENGTH {
 		return NewMessageError(BGP_ERROR_MESSAGE_HEADER_ERROR, BGP_ERROR_SUB_BAD_MESSAGE_LENGTH, nil, "not all BGP message header")
@@ -8870,6 +9449,7 @@ func (msg *BGPHeader) DecodeFromBytes(data []byte, options ...*MarshallingOption
 }
 
 func (msg *BGPHeader) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3116, bgp.go:Serialize>>>")
 	buf := make([]byte, 19)
 	for i := range buf[:16] {
 		buf[i] = 0xff
@@ -8885,6 +9465,7 @@ type BGPMessage struct {
 }
 
 func parseBody(h *BGPHeader, data []byte, options ...*MarshallingOption) (*BGPMessage, error) { 
+   fmt.Print("<<<DEJDEJ id:3117, bgp.go:parseBody(h>>>")
 	if len(data) < int(h.Len)-BGP_HEADER_LENGTH {
 		return nil, NewMessageError(BGP_ERROR_MESSAGE_HEADER_ERROR, BGP_ERROR_SUB_BAD_MESSAGE_LENGTH, nil, "Not all BGP message bytes available")
 	}
@@ -8909,6 +9490,7 @@ func parseBody(h *BGPHeader, data []byte, options ...*MarshallingOption) (*BGPMe
 }
 
 func ParseBGPMessage(data []byte, options ...*MarshallingOption) (*BGPMessage, error) { 
+   fmt.Print("<<<DEJDEJ id:3118, bgp.go:ParseBGPMessage(data>>>")
 	h := &BGPHeader{}
 	err := h.DecodeFromBytes(data, options...)
 	if err != nil {
@@ -8918,10 +9500,12 @@ func ParseBGPMessage(data []byte, options ...*MarshallingOption) (*BGPMessage, e
 }
 
 func ParseBGPBody(h *BGPHeader, data []byte, options ...*MarshallingOption) (*BGPMessage, error) { 
+   fmt.Print("<<<DEJDEJ id:3119, bgp.go:ParseBGPBody(h>>>")
 	return parseBody(h, data, options...)
 }
 
 func (msg *BGPMessage) Serialize(options ...*MarshallingOption) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3120, bgp.go:Serialize>>>")
 	b, err := msg.Body.Serialize(options...)
 	if err != nil {
 		return nil, err
@@ -8950,6 +9534,7 @@ const (
 )
 
 func getErrorHandlingFromPathAttribute(t BGPAttrType) ErrorHandling { 
+   fmt.Print("<<<DEJDEJ id:3121, bgp.go:getErrorHandlingFromPathAttribute(t>>>")
 	switch t {
 	case BGP_ATTR_TYPE_ORIGIN:
 		return ERROR_HANDLING_TREAT_AS_WITHDRAW
@@ -9006,6 +9591,7 @@ type MessageError struct {
 }
 
 func NewMessageError(typeCode, subTypeCode uint8, data []byte, msg string) error { 
+   fmt.Print("<<<DEJDEJ id:3122, bgp.go:NewMessageError(typeCode,>>>")
 	return &MessageError{
 		TypeCode:       typeCode,
 		SubTypeCode:    subTypeCode,
@@ -9017,6 +9603,7 @@ func NewMessageError(typeCode, subTypeCode uint8, data []byte, msg string) error
 }
 
 func NewMessageErrorWithErrorHandling(typeCode, subTypeCode uint8, data []byte, errorHandling ErrorHandling, errorAttribute *PathAttributeInterface, msg string) error { 
+   fmt.Print("<<<DEJDEJ id:3123, bgp.go:NewMessageErrorWithErrorHandling(typeCode,>>>")
 	return &MessageError{
 		TypeCode:       typeCode,
 		SubTypeCode:    subTypeCode,
@@ -9028,10 +9615,12 @@ func NewMessageErrorWithErrorHandling(typeCode, subTypeCode uint8, data []byte, 
 }
 
 func (e *MessageError) Error() string { 
+   fmt.Print("<<<DEJDEJ id:3124, bgp.go:Error>>>")
 	return e.Message
 }
 
 func (e *MessageError) Stronger(err error) bool { 
+   fmt.Print("<<<DEJDEJ id:3125, bgp.go:Stronger>>>")
 	if err == nil {
 		return true
 	}
@@ -9042,6 +9631,7 @@ func (e *MessageError) Stronger(err error) bool {
 }
 
 func (e *TwoOctetAsSpecificExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3126, bgp.go:Flat>>>")
 	if e.SubType == EC_SUBTYPE_ROUTE_TARGET {
 		return map[string]string{"routeTarget": e.String()}
 	}
@@ -9049,82 +9639,102 @@ func (e *TwoOctetAsSpecificExtended) Flat() map[string]string {
 }
 
 func (e *ColorExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3127, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *EncapExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3128, bgp.go:Flat>>>")
 	return map[string]string{"encaspulation": e.TunnelType.String()}
 }
 
 func (e *DefaultGatewayExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3129, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *ValidationExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3130, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *OpaqueExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3131, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *IPv4AddressSpecificExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3132, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *IPv6AddressSpecificExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3133, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *FourOctetAsSpecificExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3134, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *ESILabelExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3135, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *ESImportRouteTarget) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3136, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *MacMobilityExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3137, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *RouterMacExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3138, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *TrafficRateExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3139, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *TrafficRemarkExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3140, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *RedirectIPv4AddressSpecificExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3141, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *RedirectIPv6AddressSpecificExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3142, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *RedirectFourOctetAsSpecificExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3143, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *UnknownExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3144, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (e *TrafficActionExtended) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3145, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (p *PathAttributeExtendedCommunities) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3146, bgp.go:Flat>>>")
 	flat := map[string]string{}
 	for _, ec := range p.Value {
 		FlatUpdate(flat, ec.Flat())
@@ -9133,10 +9743,12 @@ func (p *PathAttributeExtendedCommunities) Flat() map[string]string {
 }
 
 func (p *PathAttribute) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3147, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
 func (l *LabeledVPNIPAddrPrefix) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3148, bgp.go:Flat>>>")
 	prefixLen := l.IPAddrPrefixDefault.Length - uint8(8*(l.Labels.Len()+l.RD.Len()))
 	return map[string]string{
 		"Prefix":    l.IPAddrPrefixDefault.Prefix.String(),
@@ -9147,6 +9759,7 @@ func (l *LabeledVPNIPAddrPrefix) Flat() map[string]string {
 }
 
 func (p *IPAddrPrefixDefault) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3149, bgp.go:Flat>>>")
 	l := strings.Split(p.String(), "/")
 	if len(l) == 2 {
 		return map[string]string{
@@ -9158,27 +9771,35 @@ func (p *IPAddrPrefixDefault) Flat() map[string]string {
 }
 
 func (l *EVPNNLRI) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3150, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 func (l *RouteTargetMembershipNLRI) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3151, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 func (l *FlowSpecIPv4Unicast) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3152, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 func (l *FlowSpecIPv4VPN) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3153, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 func (l *FlowSpecIPv6Unicast) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3154, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 func (l *FlowSpecIPv6VPN) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3155, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 func (l *FlowSpecL2VPN) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3156, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 func (l *OpaqueNLRI) Flat() map[string]string { 
+   fmt.Print("<<<DEJDEJ id:3157, bgp.go:Flat>>>")
 	return map[string]string{}
 }
 
@@ -9187,6 +9808,7 @@ func (l *OpaqueNLRI) Flat() map[string]string {
 // ';'. In this case, it returns an error but the update has been
 // realized.
 func FlatUpdate(f1, f2 map[string]string) error { 
+   fmt.Print("<<<DEJDEJ id:3158, bgp.go:FlatUpdate(f1,>>>")
 	conflict := false
 	for k2, v2 := range f2 {
 		if v1, ok := f1[k2]; ok {

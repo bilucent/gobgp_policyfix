@@ -27,6 +27,7 @@ import (
 )
 
 func TestMrtHdr(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2345, mrt_test.go:TestMrtHdr(t>>>")
 	h1, err := NewMRTHeader(10, TABLE_DUMPv2, RIB_IPV4_MULTICAST, 20)
 	if err != nil {
 		t.Fatal(err)
@@ -44,6 +45,7 @@ func TestMrtHdr(t *testing.T) {
 }
 
 func TestMrtHdrTime(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2346, mrt_test.go:TestMrtHdrTime(t>>>")
 	h1, err := NewMRTHeader(10, TABLE_DUMPv2, RIB_IPV4_MULTICAST, 20)
 	if err != nil {
 		t.Fatal(err)
@@ -55,6 +57,7 @@ func TestMrtHdrTime(t *testing.T) {
 }
 
 func testPeer(t *testing.T, p1 *Peer) { 
+   fmt.Print("<<<DEJDEJ id:2347, mrt_test.go:testPeer(t>>>")
 	b1, err := p1.Serialize()
 	if err != nil {
 		t.Fatal(err)
@@ -69,21 +72,25 @@ func testPeer(t *testing.T, p1 *Peer) {
 }
 
 func TestMrtPeer(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2348, mrt_test.go:TestMrtPeer(t>>>")
 	p := NewPeer("192.168.0.1", "10.0.0.1", 65000, false)
 	testPeer(t, p)
 }
 
 func TestMrtPeerv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2349, mrt_test.go:TestMrtPeerv6(t>>>")
 	p := NewPeer("192.168.0.1", "2001::1", 65000, false)
 	testPeer(t, p)
 }
 
 func TestMrtPeerAS4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2350, mrt_test.go:TestMrtPeerAS4(t>>>")
 	p := NewPeer("192.168.0.1", "2001::1", 135500, true)
 	testPeer(t, p)
 }
 
 func TestMrtPeerIndexTable(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2351, mrt_test.go:TestMrtPeerIndexTable(t>>>")
 	p1 := NewPeer("192.168.0.1", "10.0.0.1", 65000, false)
 	p2 := NewPeer("192.168.0.1", "2001::1", 65000, false)
 	p3 := NewPeer("192.168.0.1", "2001::1", 135500, true)
@@ -101,6 +108,7 @@ func TestMrtPeerIndexTable(t *testing.T) {
 }
 
 func TestMrtRibEntry(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2352, mrt_test.go:TestMrtRibEntry(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -131,6 +139,7 @@ func TestMrtRibEntry(t *testing.T) {
 }
 
 func TestMrtRibEntryWithAddPath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2353, mrt_test.go:TestMrtRibEntryWithAddPath(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -160,6 +169,7 @@ func TestMrtRibEntryWithAddPath(t *testing.T) {
 }
 
 func TestMrtRib(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2354, mrt_test.go:TestMrtRib(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -194,6 +204,7 @@ func TestMrtRib(t *testing.T) {
 }
 
 func TestMrtRibWithAddPath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2355, mrt_test.go:TestMrtRibWithAddPath(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -229,6 +240,7 @@ func TestMrtRibWithAddPath(t *testing.T) {
 }
 
 func TestMrtGeoPeerTable(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2356, mrt_test.go:TestMrtGeoPeerTable(t>>>")
 	p1 := NewGeoPeer("192.168.0.1", 28.031157, 86.899684)
 	p2 := NewGeoPeer("192.168.0.1", 35.360556, 138.727778)
 	pt1 := NewGeoPeerTable("192.168.0.1", 12.345678, 98.765432, []*GeoPeer{p1, p2})
@@ -245,6 +257,7 @@ func TestMrtGeoPeerTable(t *testing.T) {
 }
 
 func TestMrtBgp4mpStateChange(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2357, mrt_test.go:TestMrtBgp4mpStateChange(t>>>")
 	c1 := NewBGP4MPStateChange(65000, 65001, 1, "192.168.0.1", "192.168.0.2", false, ACTIVE, ESTABLISHED)
 	b1, err := c1.Serialize()
 	if err != nil {
@@ -263,6 +276,7 @@ func TestMrtBgp4mpStateChange(t *testing.T) {
 }
 
 func TestMrtBgp4mpMessage(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2358, mrt_test.go:TestMrtBgp4mpMessage(t>>>")
 	msg := bgp.NewBGPKeepAliveMessage()
 	m1 := NewBGP4MPMessage(65000, 65001, 1, "192.168.0.1", "192.168.0.2", false, msg)
 	b1, err := m1.Serialize()
@@ -278,6 +292,7 @@ func TestMrtBgp4mpMessage(t *testing.T) {
 }
 
 func TestMrtSplit(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2359, mrt_test.go:TestMrtSplit(t>>>")
 	var b bytes.Buffer
 	numwrite, numread := 10, 0
 	for i := 0; i < numwrite; i++ {

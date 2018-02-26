@@ -26,6 +26,7 @@ import (
 )
 
 func Test_Header(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:410, zapi_test.go:Test_Header(t>>>")
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -57,6 +58,7 @@ func Test_Header(t *testing.T) {
 }
 
 func Test_InterfaceUpdateBody(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:411, zapi_test.go:Test_InterfaceUpdateBody(t>>>")
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -93,6 +95,7 @@ func Test_InterfaceUpdateBody(t *testing.T) {
 }
 
 func Test_InterfaceAddressUpdateBody(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:412, zapi_test.go:Test_InterfaceAddressUpdateBody(t>>>")
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -129,6 +132,7 @@ func Test_InterfaceAddressUpdateBody(t *testing.T) {
 }
 
 func Test_RouterIDUpdateBody(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:413, zapi_test.go:Test_RouterIDUpdateBody(t>>>")
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -156,6 +160,7 @@ func Test_RouterIDUpdateBody(t *testing.T) {
 }
 
 func Test_IPRouteBody_IPv4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:414, zapi_test.go:Test_IPRouteBody_IPv4(t>>>")
 	assert := assert.New(t)
 
 	//DecodeFromBytes IPV4_ROUTE
@@ -241,6 +246,7 @@ func Test_IPRouteBody_IPv4(t *testing.T) {
 }
 
 func Test_IPRouteBody_IPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:415, zapi_test.go:Test_IPRouteBody_IPv6(t>>>")
 	assert := assert.New(t)
 
 	//DecodeFromBytes IPV6_ROUTE
@@ -333,6 +339,7 @@ func Test_IPRouteBody_IPv6(t *testing.T) {
 }
 
 func Test_NexthopLookupBody(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:416, zapi_test.go:Test_NexthopLookupBody(t>>>")
 	assert := assert.New(t)
 
 	//ipv4
@@ -415,6 +422,7 @@ func Test_NexthopLookupBody(t *testing.T) {
 }
 
 func Test_ImportLookupBody(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:417, zapi_test.go:Test_ImportLookupBody(t>>>")
 	assert := assert.New(t)
 
 	//DecodeFromBytes
@@ -459,6 +467,7 @@ func Test_ImportLookupBody(t *testing.T) {
 }
 
 func Test_NexthopRegisterBody(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:418, zapi_test.go:Test_NexthopRegisterBody(t>>>")
 	assert := assert.New(t)
 
 	// Input binary
@@ -496,6 +505,7 @@ func Test_NexthopRegisterBody(t *testing.T) {
 }
 
 func Test_NexthopUpdateBody(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:419, zapi_test.go:Test_NexthopUpdateBody(t>>>")
 	assert := assert.New(t)
 
 	// Input binary

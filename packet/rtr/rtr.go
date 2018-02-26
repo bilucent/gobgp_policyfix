@@ -83,6 +83,7 @@ type RTRCommon struct {
 }
 
 func (m *RTRCommon) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2315, rtr.go:DecodeFromBytes>>>")
 	m.Version = data[0]
 	m.Type = data[1]
 	m.SessionID = binary.BigEndian.Uint16(data[2:4])
@@ -92,6 +93,7 @@ func (m *RTRCommon) DecodeFromBytes(data []byte) error {
 }
 
 func (m *RTRCommon) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2316, rtr.go:Serialize>>>")
 	data := make([]byte, m.Len)
 	data[0] = m.Version
 	data[1] = m.Type
@@ -106,6 +108,7 @@ type RTRSerialNotify struct {
 }
 
 func NewRTRSerialNotify(id uint16, sn uint32) *RTRSerialNotify { 
+   fmt.Print("<<<DEJDEJ id:2317, rtr.go:NewRTRSerialNotify(id>>>")
 	return &RTRSerialNotify{
 		RTRCommon{
 			Type:         RTR_SERIAL_NOTIFY,
@@ -121,6 +124,7 @@ type RTRSerialQuery struct {
 }
 
 func NewRTRSerialQuery(id uint16, sn uint32) *RTRSerialQuery { 
+   fmt.Print("<<<DEJDEJ id:2318, rtr.go:NewRTRSerialQuery(id>>>")
 	return &RTRSerialQuery{
 		RTRCommon{
 			Type:         RTR_SERIAL_QUERY,
@@ -138,6 +142,7 @@ type RTRReset struct {
 }
 
 func (m *RTRReset) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2319, rtr.go:DecodeFromBytes>>>")
 	m.Version = data[0]
 	m.Type = data[1]
 	m.Len = binary.BigEndian.Uint32(data[4:8])
@@ -145,6 +150,7 @@ func (m *RTRReset) DecodeFromBytes(data []byte) error {
 }
 
 func (m *RTRReset) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2320, rtr.go:Serialize>>>")
 	data := make([]byte, m.Len)
 	data[0] = m.Version
 	data[1] = m.Type
@@ -157,6 +163,7 @@ type RTRResetQuery struct {
 }
 
 func NewRTRResetQuery() *RTRResetQuery { 
+   fmt.Print("<<<DEJDEJ id:2321, rtr.go:NewRTRResetQuery()>>>")
 	return &RTRResetQuery{
 		RTRReset{
 			Type: RTR_RESET_QUERY,
@@ -173,6 +180,7 @@ type RTRCacheResponse struct {
 }
 
 func (m *RTRCacheResponse) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2322, rtr.go:DecodeFromBytes>>>")
 	m.Version = data[0]
 	m.Type = data[1]
 	m.SessionID = binary.BigEndian.Uint16(data[2:4])
@@ -181,6 +189,7 @@ func (m *RTRCacheResponse) DecodeFromBytes(data []byte) error {
 }
 
 func (m *RTRCacheResponse) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2323, rtr.go:Serialize>>>")
 	data := make([]byte, m.Len)
 	data[0] = m.Version
 	data[1] = m.Type
@@ -190,6 +199,7 @@ func (m *RTRCacheResponse) Serialize() ([]byte, error) {
 }
 
 func NewRTRCacheResponse(id uint16) *RTRCacheResponse { 
+   fmt.Print("<<<DEJDEJ id:2324, rtr.go:NewRTRCacheResponse(id>>>")
 	return &RTRCacheResponse{
 		Type:      RTR_CACHE_RESPONSE,
 		SessionID: id,
@@ -209,6 +219,7 @@ type RTRIPPrefix struct {
 }
 
 func (m *RTRIPPrefix) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2325, rtr.go:DecodeFromBytes>>>")
 	m.Version = data[0]
 	m.Type = data[1]
 	m.Len = binary.BigEndian.Uint32(data[4:8])
@@ -226,6 +237,7 @@ func (m *RTRIPPrefix) DecodeFromBytes(data []byte) error {
 }
 
 func (m *RTRIPPrefix) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2326, rtr.go:Serialize>>>")
 	data := make([]byte, m.Len)
 	data[0] = m.Version
 	data[1] = m.Type
@@ -244,6 +256,7 @@ func (m *RTRIPPrefix) Serialize() ([]byte, error) {
 }
 
 func NewRTRIPPrefix(prefix net.IP, prefixLen, maxLen uint8, as uint32, flags uint8) *RTRIPPrefix { 
+   fmt.Print("<<<DEJDEJ id:2327, rtr.go:NewRTRIPPrefix(prefix>>>")
 	var pduType uint8
 	var pduLen uint32
 	if prefix.To4() != nil && prefixLen <= 32 {
@@ -270,6 +283,7 @@ type RTREndOfData struct {
 }
 
 func NewRTREndOfData(id uint16, sn uint32) *RTREndOfData { 
+   fmt.Print("<<<DEJDEJ id:2328, rtr.go:NewRTREndOfData(id>>>")
 	return &RTREndOfData{
 		RTRCommon{
 			Type:         RTR_END_OF_DATA,
@@ -285,6 +299,7 @@ type RTRCacheReset struct {
 }
 
 func NewRTRCacheReset() *RTRCacheReset { 
+   fmt.Print("<<<DEJDEJ id:2329, rtr.go:NewRTRCacheReset()>>>")
 	return &RTRCacheReset{
 		RTRReset{
 			Type: RTR_CACHE_RESET,
@@ -305,6 +320,7 @@ type RTRErrorReport struct {
 }
 
 func (m *RTRErrorReport) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2330, rtr.go:DecodeFromBytes>>>")
 	m.Version = data[0]
 	m.Type = data[1]
 	m.ErrorCode = binary.BigEndian.Uint16(data[2:4])
@@ -319,6 +335,7 @@ func (m *RTRErrorReport) DecodeFromBytes(data []byte) error {
 }
 
 func (m *RTRErrorReport) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2331, rtr.go:Serialize>>>")
 	data := make([]byte, m.Len)
 	data[0] = m.Version
 	data[1] = m.Type
@@ -332,6 +349,7 @@ func (m *RTRErrorReport) Serialize() ([]byte, error) {
 }
 
 func NewRTRErrorReport(errCode uint16, errPDU []byte, errMsg []byte) *RTRErrorReport { 
+   fmt.Print("<<<DEJDEJ id:2332, rtr.go:NewRTRErrorReport(errCode>>>")
 	pdu := &RTRErrorReport{Type: RTR_ERROR_REPORT, ErrorCode: errCode}
 	if errPDU != nil {
 		if errPDU[1] == RTR_ERROR_REPORT {
@@ -349,6 +367,7 @@ func NewRTRErrorReport(errCode uint16, errPDU []byte, errMsg []byte) *RTRErrorRe
 }
 
 func SplitRTR(data []byte, atEOF bool) (advance int, token []byte, err error) { 
+   fmt.Print("<<<DEJDEJ id:2333, rtr.go:SplitRTR(data>>>")
 	if atEOF && len(data) == 0 || len(data) < RTR_MIN_LEN {
 		return 0, nil, nil
 	}
@@ -364,6 +383,7 @@ func SplitRTR(data []byte, atEOF bool) (advance int, token []byte, err error) {
 }
 
 func ParseRTR(data []byte) (RTRMessage, error) { 
+   fmt.Print("<<<DEJDEJ id:2334, rtr.go:ParseRTR(data>>>")
 	var msg RTRMessage
 	switch data[1] {
 	case RTR_SERIAL_NOTIFY:

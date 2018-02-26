@@ -24,6 +24,7 @@ import (
 )
 
 func Test_ParsePath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:112, global_test.go:Test_ParsePath(t>>>")
 	assert := assert.New(t)
 	buf := "10.0.0.0/24 rt 100:100 med 10 nexthop 10.0.0.1 aigp metric 10 local-pref 100"
 

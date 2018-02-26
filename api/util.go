@@ -34,6 +34,7 @@ type ToNativeOption struct {
 }
 
 func (t *Table) ToNativeTable(option ...ToNativeOption) (*table.Table, error) { 
+   fmt.Print("<<<DEJDEJ id:2216, util.go:ToNativeTable>>>")
 	dsts := make([]*table.Destination, 0, len(t.Destinations))
 	for _, d := range t.Destinations {
 		dst, err := d.ToNativeDestination(option...)
@@ -46,6 +47,7 @@ func (t *Table) ToNativeTable(option ...ToNativeOption) (*table.Table, error) {
 }
 
 func getNLRI(family bgp.RouteFamily, buf []byte) (bgp.AddrPrefixInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2217, util.go:getNLRI(family>>>")
 	afi, safi := bgp.RouteFamilyToAfiSafi(family)
 	nlri, err := bgp.NewPrefixFromRouteFamily(afi, safi)
 	if err != nil {
@@ -58,6 +60,7 @@ func getNLRI(family bgp.RouteFamily, buf []byte) (bgp.AddrPrefixInterface, error
 }
 
 func (d *Destination) ToNativeDestination(option ...ToNativeOption) (*table.Destination, error) { 
+   fmt.Print("<<<DEJDEJ id:2218, util.go:ToNativeDestination>>>")
 	if len(d.Paths) == 0 {
 		return nil, fmt.Errorf("no path in destination")
 	}
@@ -86,10 +89,12 @@ func (d *Destination) ToNativeDestination(option ...ToNativeOption) (*table.Dest
 }
 
 func (p *Path) GetNativeNlri() (bgp.AddrPrefixInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:2219, util.go:GetNativeNlri>>>")
 	return getNLRI(bgp.RouteFamily(p.Family), p.Nlri)
 }
 
 func (p *Path) ToNativePath(option ...ToNativeOption) (*table.Path, error) { 
+   fmt.Print("<<<DEJDEJ id:2220, util.go:ToNativePath>>>")
 	info := &table.PeerInfo{
 		AS:      p.SourceAsn,
 		ID:      net.ParseIP(p.SourceId),
@@ -143,6 +148,7 @@ func (p *Path) ToNativePath(option ...ToNativeOption) (*table.Path, error) {
 }
 
 func NewROAListFromApiStructList(l []*Roa) []*table.ROA { 
+   fmt.Print("<<<DEJDEJ id:2221, util.go:NewROAListFromApiStructList(l>>>")
 	roas := make([]*table.ROA, 0, len(l))
 	for _, r := range l {
 		ip := net.ParseIP(r.Prefix)
@@ -162,6 +168,7 @@ func NewROAListFromApiStructList(l []*Roa) []*table.ROA {
 }
 
 func extractFamilyFromConfigAfiSafi(c *config.AfiSafi) uint32 { 
+   fmt.Print("<<<DEJDEJ id:2222, util.go:extractFamilyFromConfigAfiSafi(c>>>")
 	if c == nil {
 		return 0
 	}

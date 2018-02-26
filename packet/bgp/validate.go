@@ -10,6 +10,7 @@ import (
 
 // Validator for BGPUpdate
 func ValidateUpdateMsg(m *BGPUpdate, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:3162, validate.go:ValidateUpdateMsg(m>>>")
 	var strongestError error
 
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
@@ -81,6 +82,7 @@ func ValidateUpdateMsg(m *BGPUpdate, rfs map[RouteFamily]BGPAddPathMode, isEBGP 
 }
 
 func ValidateAttribute(a PathAttributeInterface, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:3163, validate.go:ValidateAttribute(a>>>")
 	var strongestError error
 
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
@@ -228,6 +230,7 @@ func ValidateAttribute(a PathAttributeInterface, rfs map[RouteFamily]BGPAddPathM
 
 // validator for PathAttribute
 func validatePathAttributeFlags(t BGPAttrType, flags BGPAttrFlag) string { 
+   fmt.Print("<<<DEJDEJ id:3164, validate.go:validatePathAttributeFlags(t>>>")
 
 	/*
 	 * RFC 4271 P.17 For well-known attributes, the Transitive bit MUST be set to 1.
@@ -260,6 +263,7 @@ func validatePathAttributeFlags(t BGPAttrType, flags BGPAttrFlag) string {
 }
 
 func validateAsPathValueBytes(data []byte) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:3165, validate.go:validateAsPathValueBytes(data>>>")
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 	eSubCode := uint8(BGP_ERROR_SUB_MALFORMED_AS_PATH)
 	if len(data)%2 != 0 {
@@ -306,6 +310,7 @@ func validateAsPathValueBytes(data []byte) (bool, error) {
 }
 
 func ValidateBGPMessage(m *BGPMessage) error { 
+   fmt.Print("<<<DEJDEJ id:3166, validate.go:ValidateBGPMessage(m>>>")
 	if m.Header.Len > BGP_MAX_MESSAGE_LENGTH {
 		buf := make([]byte, 2)
 		binary.BigEndian.PutUint16(buf, m.Header.Len)
@@ -316,6 +321,7 @@ func ValidateBGPMessage(m *BGPMessage) error {
 }
 
 func ValidateOpenMsg(m *BGPOpen, expectedAS uint32) (uint32, error) { 
+   fmt.Print("<<<DEJDEJ id:3167, validate.go:ValidateOpenMsg(m>>>")
 	if m.Version != 4 {
 		return 0, NewMessageError(BGP_ERROR_OPEN_MESSAGE_ERROR, BGP_ERROR_SUB_UNSUPPORTED_VERSION_NUMBER, nil, fmt.Sprintf("unsupported version %d", m.Version))
 	}

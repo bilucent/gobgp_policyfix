@@ -41,6 +41,7 @@ var cmds []string
 var client *cli.Client
 
 func NewRootCmd() *cobra.Command { 
+   fmt.Print("<<<DEJDEJ id:113, root.go:NewRootCmd()>>>")
 	cobra.EnablePrefixMatching = true
 	rootCmd := &cobra.Command{
 		Use: "gobgp",

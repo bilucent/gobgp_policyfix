@@ -38,6 +38,7 @@ type Client struct {
 }
 
 func defaultGRPCOptions() []grpc.DialOption { 
+   fmt.Print("<<<DEJDEJ id:2223, client.go:defaultGRPCOptions()>>>")
 	return []grpc.DialOption{grpc.WithTimeout(time.Second), grpc.WithBlock(), grpc.WithInsecure()}
 }
 
@@ -45,12 +46,14 @@ func defaultGRPCOptions() []grpc.DialOption {
 // to the grpc server. If an error occurs during dialing it will be returned and
 // Client will be nil.
 func New(target string, opts ...grpc.DialOption) (*Client, error) { 
+   fmt.Print("<<<DEJDEJ id:2224, client.go:New(target>>>")
 	return NewWith(context.Background(), target, opts...)
 }
 
 // NewWith is like New, but uses the given ctx to cancel or expire the current
 // attempt to connect if it becomes Done before the connection succeeds.
 func NewWith(ctx context.Context, target string, opts ...grpc.DialOption) (*Client, error) { 
+   fmt.Print("<<<DEJDEJ id:2225, client.go:NewWith(ctx>>>")
 	if target == "" {
 		target = ":50051"
 	}
@@ -70,14 +73,17 @@ func NewWith(ctx context.Context, target string, opts ...grpc.DialOption) (*Clie
 // initialized and paired with the api client. See New to have the connection
 // dialed for you.
 func NewFrom(conn *grpc.ClientConn, cli api.GobgpApiClient) *Client { 
+   fmt.Print("<<<DEJDEJ id:2226, client.go:NewFrom(conn>>>")
 	return &Client{conn: conn, cli: cli}
 }
 
 func (cli *Client) Close() error { 
+   fmt.Print("<<<DEJDEJ id:2227, client.go:Close>>>")
 	return cli.conn.Close()
 }
 
 func (cli *Client) StartServer(c *config.Global) error { 
+   fmt.Print("<<<DEJDEJ id:2228, client.go:StartServer>>>")
 	_, err := cli.cli.StartServer(context.Background(), &api.StartServerRequest{
 		Global: &api.Global{
 			As:               c.Config.As,
@@ -91,11 +97,13 @@ func (cli *Client) StartServer(c *config.Global) error {
 }
 
 func (cli *Client) StopServer() error { 
+   fmt.Print("<<<DEJDEJ id:2229, client.go:StopServer>>>")
 	_, err := cli.cli.StopServer(context.Background(), &api.StopServerRequest{})
 	return err
 }
 
 func (cli *Client) GetServer() (*config.Global, error) { 
+   fmt.Print("<<<DEJDEJ id:2230, client.go:GetServer>>>")
 	ret, err := cli.cli.GetServer(context.Background(), &api.GetServerRequest{})
 	if err != nil {
 		return nil, err
@@ -116,6 +124,7 @@ func (cli *Client) GetServer() (*config.Global, error) {
 }
 
 func (cli *Client) EnableZebra(c *config.Zebra) error { 
+   fmt.Print("<<<DEJDEJ id:2231, client.go:EnableZebra>>>")
 	req := &api.EnableZebraRequest{
 		Url:                  c.Config.Url,
 		Version:              uint32(c.Config.Version),
@@ -130,6 +139,7 @@ func (cli *Client) EnableZebra(c *config.Zebra) error {
 }
 
 func (cli *Client) getNeighbor(name string, afi int, vrf string, enableAdvertised bool) ([]*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2232, client.go:getNeighbor>>>")
 	ret, err := cli.cli.GetNeighbor(context.Background(), &api.GetNeighborRequest{EnableAdvertised: enableAdvertised, Address: name})
 	if err != nil {
 		return nil, err
@@ -160,18 +170,22 @@ func (cli *Client) getNeighbor(name string, afi int, vrf string, enableAdvertise
 }
 
 func (cli *Client) ListNeighbor() ([]*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2233, client.go:ListNeighbor>>>")
 	return cli.getNeighbor("", 0, "", false)
 }
 
 func (cli *Client) ListNeighborByTransport(afi int) ([]*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2234, client.go:ListNeighborByTransport>>>")
 	return cli.getNeighbor("", afi, "", false)
 }
 
 func (cli *Client) ListNeighborByVRF(vrf string) ([]*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2235, client.go:ListNeighborByVRF>>>")
 	return cli.getNeighbor("", 0, vrf, false)
 }
 
 func (cli *Client) GetNeighbor(name string, options ...bool) (*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2236, client.go:GetNeighbor>>>")
 	enableAdvertised := false
 	if len(options) > 0 && options[0] {
 		enableAdvertised = true
@@ -187,41 +201,49 @@ func (cli *Client) GetNeighbor(name string, options ...bool) (*config.Neighbor, 
 }
 
 func (cli *Client) AddNeighbor(c *config.Neighbor) error { 
+   fmt.Print("<<<DEJDEJ id:2237, client.go:AddNeighbor>>>")
 	peer := api.NewPeerFromConfigStruct(c)
 	_, err := cli.cli.AddNeighbor(context.Background(), &api.AddNeighborRequest{Peer: peer})
 	return err
 }
 
 func (cli *Client) DeleteNeighbor(c *config.Neighbor) error { 
+   fmt.Print("<<<DEJDEJ id:2238, client.go:DeleteNeighbor>>>")
 	peer := api.NewPeerFromConfigStruct(c)
 	_, err := cli.cli.DeleteNeighbor(context.Background(), &api.DeleteNeighborRequest{Peer: peer})
 	return err
 }
 
 //func (cli *Client) UpdateNeighbor(c *config.Neighbor) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:2239, client.go:UpdateNeighbor>>>")
 //}
 
 func (cli *Client) ShutdownNeighbor(addr, communication string) error { 
+   fmt.Print("<<<DEJDEJ id:2240, client.go:ShutdownNeighbor>>>")
 	_, err := cli.cli.ShutdownNeighbor(context.Background(), &api.ShutdownNeighborRequest{Address: addr, Communication: communication})
 	return err
 }
 
 func (cli *Client) ResetNeighbor(addr, communication string) error { 
+   fmt.Print("<<<DEJDEJ id:2241, client.go:ResetNeighbor>>>")
 	_, err := cli.cli.ResetNeighbor(context.Background(), &api.ResetNeighborRequest{Address: addr, Communication: communication})
 	return err
 }
 
 func (cli *Client) EnableNeighbor(addr string) error { 
+   fmt.Print("<<<DEJDEJ id:2242, client.go:EnableNeighbor>>>")
 	_, err := cli.cli.EnableNeighbor(context.Background(), &api.EnableNeighborRequest{Address: addr})
 	return err
 }
 
 func (cli *Client) DisableNeighbor(addr, communication string) error { 
+   fmt.Print("<<<DEJDEJ id:2243, client.go:DisableNeighbor>>>")
 	_, err := cli.cli.DisableNeighbor(context.Background(), &api.DisableNeighborRequest{Address: addr, Communication: communication})
 	return err
 }
 
 func (cli *Client) softreset(addr string, family bgp.RouteFamily, dir api.SoftResetNeighborRequest_SoftResetDirection) error { 
+   fmt.Print("<<<DEJDEJ id:2244, client.go:softreset>>>")
 	_, err := cli.cli.SoftResetNeighbor(context.Background(), &api.SoftResetNeighborRequest{
 		Address:   addr,
 		Direction: dir,
@@ -230,18 +252,22 @@ func (cli *Client) softreset(addr string, family bgp.RouteFamily, dir api.SoftRe
 }
 
 func (cli *Client) SoftResetIn(addr string, family bgp.RouteFamily) error { 
+   fmt.Print("<<<DEJDEJ id:2245, client.go:SoftResetIn>>>")
 	return cli.softreset(addr, family, api.SoftResetNeighborRequest_IN)
 }
 
 func (cli *Client) SoftResetOut(addr string, family bgp.RouteFamily) error { 
+   fmt.Print("<<<DEJDEJ id:2246, client.go:SoftResetOut>>>")
 	return cli.softreset(addr, family, api.SoftResetNeighborRequest_OUT)
 }
 
 func (cli *Client) SoftReset(addr string, family bgp.RouteFamily) error { 
+   fmt.Print("<<<DEJDEJ id:2247, client.go:SoftReset>>>")
 	return cli.softreset(addr, family, api.SoftResetNeighborRequest_BOTH)
 }
 
 func (cli *Client) getRIB(resource api.Resource, name string, family bgp.RouteFamily, prefixes []*table.LookupPrefix) (*table.Table, error) { 
+   fmt.Print("<<<DEJDEJ id:2248, client.go:getRIB>>>")
 	prefixList := make([]*api.TableLookupPrefix, 0, len(prefixes))
 	for _, p := range prefixes {
 		prefixList = append(prefixList, &api.TableLookupPrefix{
@@ -293,26 +319,32 @@ func (cli *Client) getRIB(resource api.Resource, name string, family bgp.RouteFa
 }
 
 func (cli *Client) GetRIB(family bgp.RouteFamily, prefixes []*table.LookupPrefix) (*table.Table, error) { 
+   fmt.Print("<<<DEJDEJ id:2249, client.go:GetRIB>>>")
 	return cli.getRIB(api.Resource_GLOBAL, "", family, prefixes)
 }
 
 func (cli *Client) GetLocalRIB(name string, family bgp.RouteFamily, prefixes []*table.LookupPrefix) (*table.Table, error) { 
+   fmt.Print("<<<DEJDEJ id:2250, client.go:GetLocalRIB>>>")
 	return cli.getRIB(api.Resource_LOCAL, name, family, prefixes)
 }
 
 func (cli *Client) GetAdjRIBIn(name string, family bgp.RouteFamily, prefixes []*table.LookupPrefix) (*table.Table, error) { 
+   fmt.Print("<<<DEJDEJ id:2251, client.go:GetAdjRIBIn>>>")
 	return cli.getRIB(api.Resource_ADJ_IN, name, family, prefixes)
 }
 
 func (cli *Client) GetAdjRIBOut(name string, family bgp.RouteFamily, prefixes []*table.LookupPrefix) (*table.Table, error) { 
+   fmt.Print("<<<DEJDEJ id:2252, client.go:GetAdjRIBOut>>>")
 	return cli.getRIB(api.Resource_ADJ_OUT, name, family, prefixes)
 }
 
 func (cli *Client) GetVRFRIB(name string, family bgp.RouteFamily, prefixes []*table.LookupPrefix) (*table.Table, error) { 
+   fmt.Print("<<<DEJDEJ id:2253, client.go:GetVRFRIB>>>")
 	return cli.getRIB(api.Resource_VRF, name, family, prefixes)
 }
 
 func (cli *Client) getRIBInfo(resource api.Resource, name string, family bgp.RouteFamily) (*table.TableInfo, error) { 
+   fmt.Print("<<<DEJDEJ id:2254, client.go:getRIBInfo>>>")
 	res, err := cli.cli.GetRibInfo(context.Background(), &api.GetRibInfoRequest{
 		Info: &api.TableInfo{
 			Type:   resource,
@@ -332,18 +364,22 @@ func (cli *Client) getRIBInfo(resource api.Resource, name string, family bgp.Rou
 }
 
 func (cli *Client) GetRIBInfo(family bgp.RouteFamily) (*table.TableInfo, error) { 
+   fmt.Print("<<<DEJDEJ id:2255, client.go:GetRIBInfo>>>")
 	return cli.getRIBInfo(api.Resource_GLOBAL, "", family)
 }
 
 func (cli *Client) GetLocalRIBInfo(name string, family bgp.RouteFamily) (*table.TableInfo, error) { 
+   fmt.Print("<<<DEJDEJ id:2256, client.go:GetLocalRIBInfo>>>")
 	return cli.getRIBInfo(api.Resource_LOCAL, name, family)
 }
 
 func (cli *Client) GetAdjRIBInInfo(name string, family bgp.RouteFamily) (*table.TableInfo, error) { 
+   fmt.Print("<<<DEJDEJ id:2257, client.go:GetAdjRIBInInfo>>>")
 	return cli.getRIBInfo(api.Resource_ADJ_IN, name, family)
 }
 
 func (cli *Client) GetAdjRIBOutInfo(name string, family bgp.RouteFamily) (*table.TableInfo, error) { 
+   fmt.Print("<<<DEJDEJ id:2258, client.go:GetAdjRIBOutInfo>>>")
 	return cli.getRIBInfo(api.Resource_ADJ_OUT, name, family)
 }
 
@@ -352,6 +388,7 @@ type AddPathByStreamClient struct {
 }
 
 func (c *AddPathByStreamClient) Send(paths ...*table.Path) error { 
+   fmt.Print("<<<DEJDEJ id:2259, client.go:Send>>>")
 	ps := make([]*api.Path, 0, len(paths))
 	for _, p := range paths {
 		ps = append(ps, api.ToPathApi(p))
@@ -363,11 +400,13 @@ func (c *AddPathByStreamClient) Send(paths ...*table.Path) error {
 }
 
 func (c *AddPathByStreamClient) Close() error { 
+   fmt.Print("<<<DEJDEJ id:2260, client.go:Close>>>")
 	_, err := c.stream.CloseAndRecv()
 	return err
 }
 
 func (cli *Client) AddPathByStream() (*AddPathByStreamClient, error) { 
+   fmt.Print("<<<DEJDEJ id:2261, client.go:AddPathByStream>>>")
 	stream, err := cli.cli.InjectMrt(context.Background())
 	if err != nil {
 		return nil, err
@@ -376,6 +415,7 @@ func (cli *Client) AddPathByStream() (*AddPathByStreamClient, error) {
 }
 
 func (cli *Client) addPath(vrfID string, pathList []*table.Path) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2262, client.go:addPath>>>")
 	resource := api.Resource_GLOBAL
 	if vrfID != "" {
 		resource = api.Resource_VRF
@@ -396,10 +436,12 @@ func (cli *Client) addPath(vrfID string, pathList []*table.Path) ([]byte, error)
 }
 
 func (cli *Client) AddPath(pathList []*table.Path) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2263, client.go:AddPath>>>")
 	return cli.addPath("", pathList)
 }
 
 func (cli *Client) AddVRFPath(vrfID string, pathList []*table.Path) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2264, client.go:AddVRFPath>>>")
 	if vrfID == "" {
 		return nil, fmt.Errorf("VRF ID is empty")
 	}
@@ -407,6 +449,7 @@ func (cli *Client) AddVRFPath(vrfID string, pathList []*table.Path) ([]byte, err
 }
 
 func (cli *Client) deletePath(uuid []byte, f bgp.RouteFamily, vrfID string, pathList []*table.Path) error { 
+   fmt.Print("<<<DEJDEJ id:2265, client.go:deletePath>>>")
 	var reqs []*api.DeletePathRequest
 
 	resource := api.Resource_GLOBAL
@@ -451,10 +494,12 @@ func (cli *Client) deletePath(uuid []byte, f bgp.RouteFamily, vrfID string, path
 }
 
 func (cli *Client) DeletePath(pathList []*table.Path) error { 
+   fmt.Print("<<<DEJDEJ id:2266, client.go:DeletePath>>>")
 	return cli.deletePath(nil, bgp.RouteFamily(0), "", pathList)
 }
 
 func (cli *Client) DeleteVRFPath(vrfID string, pathList []*table.Path) error { 
+   fmt.Print("<<<DEJDEJ id:2267, client.go:DeleteVRFPath>>>")
 	if vrfID == "" {
 		return fmt.Errorf("VRF ID is empty")
 	}
@@ -462,14 +507,17 @@ func (cli *Client) DeleteVRFPath(vrfID string, pathList []*table.Path) error {
 }
 
 func (cli *Client) DeletePathByUUID(uuid []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2268, client.go:DeletePathByUUID>>>")
 	return cli.deletePath(uuid, bgp.RouteFamily(0), "", nil)
 }
 
 func (cli *Client) DeletePathByFamily(family bgp.RouteFamily) error { 
+   fmt.Print("<<<DEJDEJ id:2269, client.go:DeletePathByFamily>>>")
 	return cli.deletePath(nil, family, "", nil)
 }
 
 func (cli *Client) GetVRF() ([]*table.Vrf, error) { 
+   fmt.Print("<<<DEJDEJ id:2270, client.go:GetVRF>>>")
 	ret, err := cli.cli.GetVrf(context.Background(), &api.GetVrfRequest{})
 	if err != nil {
 		return nil, err
@@ -510,6 +558,7 @@ func (cli *Client) GetVRF() ([]*table.Vrf, error) {
 }
 
 func (cli *Client) AddVRF(name string, id int, rd bgp.RouteDistinguisherInterface, im, ex []bgp.ExtendedCommunityInterface) error { 
+   fmt.Print("<<<DEJDEJ id:2271, client.go:AddVRF>>>")
 	buf, err := rd.Serialize()
 	if err != nil {
 		return err
@@ -550,6 +599,7 @@ func (cli *Client) AddVRF(name string, id int, rd bgp.RouteDistinguisherInterfac
 }
 
 func (cli *Client) DeleteVRF(name string) error { 
+   fmt.Print("<<<DEJDEJ id:2272, client.go:DeleteVRF>>>")
 	arg := &api.DeleteVrfRequest{
 		Vrf: &api.Vrf{
 			Name: name,
@@ -560,6 +610,7 @@ func (cli *Client) DeleteVRF(name string) error {
 }
 
 func (cli *Client) getDefinedSet(typ table.DefinedType, name string) ([]table.DefinedSet, error) { 
+   fmt.Print("<<<DEJDEJ id:2273, client.go:getDefinedSet>>>")
 	ret, err := cli.cli.GetDefinedSet(context.Background(), &api.GetDefinedSetRequest{
 		Type: api.DefinedType(typ),
 		Name: name,
@@ -579,10 +630,12 @@ func (cli *Client) getDefinedSet(typ table.DefinedType, name string) ([]table.De
 }
 
 func (cli *Client) GetDefinedSet(typ table.DefinedType) ([]table.DefinedSet, error) { 
+   fmt.Print("<<<DEJDEJ id:2274, client.go:GetDefinedSet>>>")
 	return cli.getDefinedSet(typ, "")
 }
 
 func (cli *Client) GetDefinedSetByName(typ table.DefinedType, name string) (table.DefinedSet, error) { 
+   fmt.Print("<<<DEJDEJ id:2275, client.go:GetDefinedSetByName>>>")
 	sets, err := cli.getDefinedSet(typ, name)
 	if err != nil {
 		return nil, err
@@ -596,6 +649,7 @@ func (cli *Client) GetDefinedSetByName(typ table.DefinedType, name string) (tabl
 }
 
 func (cli *Client) AddDefinedSet(d table.DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:2276, client.go:AddDefinedSet>>>")
 	a, err := api.NewAPIDefinedSetFromTableStruct(d)
 	if err != nil {
 		return err
@@ -607,6 +661,7 @@ func (cli *Client) AddDefinedSet(d table.DefinedSet) error {
 }
 
 func (cli *Client) DeleteDefinedSet(d table.DefinedSet, all bool) error { 
+   fmt.Print("<<<DEJDEJ id:2277, client.go:DeleteDefinedSet>>>")
 	a, err := api.NewAPIDefinedSetFromTableStruct(d)
 	if err != nil {
 		return err
@@ -619,6 +674,7 @@ func (cli *Client) DeleteDefinedSet(d table.DefinedSet, all bool) error {
 }
 
 func (cli *Client) ReplaceDefinedSet(d table.DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:2278, client.go:ReplaceDefinedSet>>>")
 	a, err := api.NewAPIDefinedSetFromTableStruct(d)
 	if err != nil {
 		return err
@@ -630,6 +686,7 @@ func (cli *Client) ReplaceDefinedSet(d table.DefinedSet) error {
 }
 
 func (cli *Client) GetStatement() ([]*table.Statement, error) { 
+   fmt.Print("<<<DEJDEJ id:2279, client.go:GetStatement>>>")
 	ret, err := cli.cli.GetStatement(context.Background(), &api.GetStatementRequest{})
 	if err != nil {
 		return nil, err
@@ -646,6 +703,7 @@ func (cli *Client) GetStatement() ([]*table.Statement, error) {
 }
 
 func (cli *Client) AddStatement(t *table.Statement) error { 
+   fmt.Print("<<<DEJDEJ id:2280, client.go:AddStatement>>>")
 	a := api.NewAPIStatementFromTableStruct(t)
 	_, err := cli.cli.AddStatement(context.Background(), &api.AddStatementRequest{
 		Statement: a,
@@ -654,6 +712,7 @@ func (cli *Client) AddStatement(t *table.Statement) error {
 }
 
 func (cli *Client) DeleteStatement(t *table.Statement, all bool) error { 
+   fmt.Print("<<<DEJDEJ id:2281, client.go:DeleteStatement>>>")
 	a := api.NewAPIStatementFromTableStruct(t)
 	_, err := cli.cli.DeleteStatement(context.Background(), &api.DeleteStatementRequest{
 		Statement: a,
@@ -663,6 +722,7 @@ func (cli *Client) DeleteStatement(t *table.Statement, all bool) error {
 }
 
 func (cli *Client) ReplaceStatement(t *table.Statement) error { 
+   fmt.Print("<<<DEJDEJ id:2282, client.go:ReplaceStatement>>>")
 	a := api.NewAPIStatementFromTableStruct(t)
 	_, err := cli.cli.ReplaceStatement(context.Background(), &api.ReplaceStatementRequest{
 		Statement: a,
@@ -671,6 +731,7 @@ func (cli *Client) ReplaceStatement(t *table.Statement) error {
 }
 
 func (cli *Client) GetPolicy() ([]*table.Policy, error) { 
+   fmt.Print("<<<DEJDEJ id:2283, client.go:GetPolicy>>>")
 	ret, err := cli.cli.GetPolicy(context.Background(), &api.GetPolicyRequest{})
 	if err != nil {
 		return nil, err
@@ -687,6 +748,7 @@ func (cli *Client) GetPolicy() ([]*table.Policy, error) {
 }
 
 func (cli *Client) AddPolicy(t *table.Policy, refer bool) error { 
+   fmt.Print("<<<DEJDEJ id:2284, client.go:AddPolicy>>>")
 	a := api.NewAPIPolicyFromTableStruct(t)
 	_, err := cli.cli.AddPolicy(context.Background(), &api.AddPolicyRequest{
 		Policy:                  a,
@@ -696,6 +758,7 @@ func (cli *Client) AddPolicy(t *table.Policy, refer bool) error {
 }
 
 func (cli *Client) DeletePolicy(t *table.Policy, all, preserve bool) error { 
+   fmt.Print("<<<DEJDEJ id:2285, client.go:DeletePolicy>>>")
 	a := api.NewAPIPolicyFromTableStruct(t)
 	_, err := cli.cli.DeletePolicy(context.Background(), &api.DeletePolicyRequest{
 		Policy:             a,
@@ -706,6 +769,7 @@ func (cli *Client) DeletePolicy(t *table.Policy, all, preserve bool) error {
 }
 
 func (cli *Client) ReplacePolicy(t *table.Policy, refer, preserve bool) error { 
+   fmt.Print("<<<DEJDEJ id:2286, client.go:ReplacePolicy>>>")
 	a := api.NewAPIPolicyFromTableStruct(t)
 	_, err := cli.cli.ReplacePolicy(context.Background(), &api.ReplacePolicyRequest{
 		Policy:                  a,
@@ -716,6 +780,7 @@ func (cli *Client) ReplacePolicy(t *table.Policy, refer, preserve bool) error {
 }
 
 func (cli *Client) getPolicyAssignment(name string, dir table.PolicyDirection) (*table.PolicyAssignment, error) { 
+   fmt.Print("<<<DEJDEJ id:2287, client.go:getPolicyAssignment>>>")
 	var typ api.PolicyType
 	switch dir {
 	case table.POLICY_DIRECTION_IN:
@@ -763,26 +828,32 @@ func (cli *Client) getPolicyAssignment(name string, dir table.PolicyDirection) (
 }
 
 func (cli *Client) GetImportPolicy() (*table.PolicyAssignment, error) { 
+   fmt.Print("<<<DEJDEJ id:2288, client.go:GetImportPolicy>>>")
 	return cli.getPolicyAssignment("", table.POLICY_DIRECTION_IMPORT)
 }
 
 func (cli *Client) GetExportPolicy() (*table.PolicyAssignment, error) { 
+   fmt.Print("<<<DEJDEJ id:2289, client.go:GetExportPolicy>>>")
 	return cli.getPolicyAssignment("", table.POLICY_DIRECTION_EXPORT)
 }
 
 func (cli *Client) GetRouteServerInPolicy(name string) (*table.PolicyAssignment, error) { 
+   fmt.Print("<<<DEJDEJ id:2290, client.go:GetRouteServerInPolicy>>>")
 	return cli.getPolicyAssignment(name, table.POLICY_DIRECTION_IN)
 }
 
 func (cli *Client) GetRouteServerImportPolicy(name string) (*table.PolicyAssignment, error) { 
+   fmt.Print("<<<DEJDEJ id:2291, client.go:GetRouteServerImportPolicy>>>")
 	return cli.getPolicyAssignment(name, table.POLICY_DIRECTION_IMPORT)
 }
 
 func (cli *Client) GetRouteServerExportPolicy(name string) (*table.PolicyAssignment, error) { 
+   fmt.Print("<<<DEJDEJ id:2292, client.go:GetRouteServerExportPolicy>>>")
 	return cli.getPolicyAssignment(name, table.POLICY_DIRECTION_EXPORT)
 }
 
 func (cli *Client) AddPolicyAssignment(assignment *table.PolicyAssignment) error { 
+   fmt.Print("<<<DEJDEJ id:2293, client.go:AddPolicyAssignment>>>")
 	_, err := cli.cli.AddPolicyAssignment(context.Background(), &api.AddPolicyAssignmentRequest{
 		Assignment: api.NewAPIPolicyAssignmentFromTableStruct(assignment),
 	})
@@ -790,6 +861,7 @@ func (cli *Client) AddPolicyAssignment(assignment *table.PolicyAssignment) error
 }
 
 func (cli *Client) DeletePolicyAssignment(assignment *table.PolicyAssignment, all bool) error { 
+   fmt.Print("<<<DEJDEJ id:2294, client.go:DeletePolicyAssignment>>>")
 	a := api.NewAPIPolicyAssignmentFromTableStruct(assignment)
 	_, err := cli.cli.DeletePolicyAssignment(context.Background(), &api.DeletePolicyAssignmentRequest{
 		Assignment: a,
@@ -798,6 +870,7 @@ func (cli *Client) DeletePolicyAssignment(assignment *table.PolicyAssignment, al
 }
 
 func (cli *Client) ReplacePolicyAssignment(assignment *table.PolicyAssignment) error { 
+   fmt.Print("<<<DEJDEJ id:2295, client.go:ReplacePolicyAssignment>>>")
 	_, err := cli.cli.ReplacePolicyAssignment(context.Background(), &api.ReplacePolicyAssignmentRequest{
 		Assignment: api.NewAPIPolicyAssignmentFromTableStruct(assignment),
 	})
@@ -805,13 +878,16 @@ func (cli *Client) ReplacePolicyAssignment(assignment *table.PolicyAssignment) e
 }
 
 //func (cli *Client) EnableMrt(c *config.MrtConfig) error { 
+   fmt.Print("<<<DEJDEJ id:2296, client.go:EnableMrt>>>")
 //}
 //
 //func (cli *Client) DisableMrt(c *config.MrtConfig) error { 
+   fmt.Print("<<<DEJDEJ id:2297, client.go:DisableMrt>>>")
 //}
 //
 
 func (cli *Client) GetRPKI() ([]*config.RpkiServer, error) { 
+   fmt.Print("<<<DEJDEJ id:2298, client.go:GetRPKI>>>")
 	rsp, err := cli.cli.GetRpki(context.Background(), &api.GetRpkiRequest{})
 	if err != nil {
 		return nil, err
@@ -861,6 +937,7 @@ func (cli *Client) GetRPKI() ([]*config.RpkiServer, error) {
 }
 
 func (cli *Client) GetROA(family bgp.RouteFamily) ([]*table.ROA, error) { 
+   fmt.Print("<<<DEJDEJ id:2299, client.go:GetROA>>>")
 	rsp, err := cli.cli.GetRoa(context.Background(), &api.GetRoaRequest{
 		Family: uint32(family),
 	})
@@ -871,6 +948,7 @@ func (cli *Client) GetROA(family bgp.RouteFamily) ([]*table.ROA, error) {
 }
 
 func (cli *Client) AddRPKIServer(address string, port, lifetime int) error { 
+   fmt.Print("<<<DEJDEJ id:2300, client.go:AddRPKIServer>>>")
 	_, err := cli.cli.AddRpki(context.Background(), &api.AddRpkiRequest{
 		Address:  address,
 		Port:     uint32(port),
@@ -880,6 +958,7 @@ func (cli *Client) AddRPKIServer(address string, port, lifetime int) error {
 }
 
 func (cli *Client) DeleteRPKIServer(address string) error { 
+   fmt.Print("<<<DEJDEJ id:2301, client.go:DeleteRPKIServer>>>")
 	_, err := cli.cli.DeleteRpki(context.Background(), &api.DeleteRpkiRequest{
 		Address: address,
 	})
@@ -887,6 +966,7 @@ func (cli *Client) DeleteRPKIServer(address string) error {
 }
 
 func (cli *Client) EnableRPKIServer(address string) error { 
+   fmt.Print("<<<DEJDEJ id:2302, client.go:EnableRPKIServer>>>")
 	_, err := cli.cli.EnableRpki(context.Background(), &api.EnableRpkiRequest{
 		Address: address,
 	})
@@ -894,6 +974,7 @@ func (cli *Client) EnableRPKIServer(address string) error {
 }
 
 func (cli *Client) DisableRPKIServer(address string) error { 
+   fmt.Print("<<<DEJDEJ id:2303, client.go:DisableRPKIServer>>>")
 	_, err := cli.cli.DisableRpki(context.Background(), &api.DisableRpkiRequest{
 		Address: address,
 	})
@@ -901,6 +982,7 @@ func (cli *Client) DisableRPKIServer(address string) error {
 }
 
 func (cli *Client) ResetRPKIServer(address string) error { 
+   fmt.Print("<<<DEJDEJ id:2304, client.go:ResetRPKIServer>>>")
 	_, err := cli.cli.ResetRpki(context.Background(), &api.ResetRpkiRequest{
 		Address: address,
 	})
@@ -908,6 +990,7 @@ func (cli *Client) ResetRPKIServer(address string) error {
 }
 
 func (cli *Client) SoftResetRPKIServer(address string) error { 
+   fmt.Print("<<<DEJDEJ id:2305, client.go:SoftResetRPKIServer>>>")
 	_, err := cli.cli.SoftResetRpki(context.Background(), &api.SoftResetRpkiRequest{
 		Address: address,
 	})
@@ -915,6 +998,7 @@ func (cli *Client) SoftResetRPKIServer(address string) error {
 }
 
 func (cli *Client) ValidateRIBWithRPKI(prefixes ...string) error { 
+   fmt.Print("<<<DEJDEJ id:2306, client.go:ValidateRIBWithRPKI>>>")
 	req := &api.ValidateRibRequest{}
 	if len(prefixes) > 1 {
 		return fmt.Errorf("too many prefixes: %d", len(prefixes))
@@ -926,6 +1010,7 @@ func (cli *Client) ValidateRIBWithRPKI(prefixes ...string) error {
 }
 
 func (cli *Client) AddBMP(c *config.BmpServerConfig) error { 
+   fmt.Print("<<<DEJDEJ id:2307, client.go:AddBMP>>>")
 	_, err := cli.cli.AddBmp(context.Background(), &api.AddBmpRequest{
 		Address: c.Address,
 		Port:    c.Port,
@@ -935,6 +1020,7 @@ func (cli *Client) AddBMP(c *config.BmpServerConfig) error {
 }
 
 func (cli *Client) DeleteBMP(c *config.BmpServerConfig) error { 
+   fmt.Print("<<<DEJDEJ id:2308, client.go:DeleteBMP>>>")
 	_, err := cli.cli.DeleteBmp(context.Background(), &api.DeleteBmpRequest{
 		Address: c.Address,
 		Port:    c.Port,
@@ -947,6 +1033,7 @@ type MonitorRIBClient struct {
 }
 
 func (c *MonitorRIBClient) Recv() (*table.Destination, error) { 
+   fmt.Print("<<<DEJDEJ id:2309, client.go:Recv>>>")
 	d, err := c.stream.Recv()
 	if err != nil {
 		return nil, err
@@ -955,6 +1042,7 @@ func (c *MonitorRIBClient) Recv() (*table.Destination, error) {
 }
 
 func (cli *Client) MonitorRIB(family bgp.RouteFamily, current bool) (*MonitorRIBClient, error) { 
+   fmt.Print("<<<DEJDEJ id:2310, client.go:MonitorRIB>>>")
 	stream, err := cli.cli.MonitorRib(context.Background(), &api.MonitorRibRequest{
 		Table: &api.Table{
 			Type:   api.Resource_GLOBAL,
@@ -969,6 +1057,7 @@ func (cli *Client) MonitorRIB(family bgp.RouteFamily, current bool) (*MonitorRIB
 }
 
 func (cli *Client) MonitorAdjRIBIn(name string, family bgp.RouteFamily, current bool) (*MonitorRIBClient, error) { 
+   fmt.Print("<<<DEJDEJ id:2311, client.go:MonitorAdjRIBIn>>>")
 	stream, err := cli.cli.MonitorRib(context.Background(), &api.MonitorRibRequest{
 		Table: &api.Table{
 			Type:   api.Resource_ADJ_IN,
@@ -988,6 +1077,7 @@ type MonitorNeighborStateClient struct {
 }
 
 func (c *MonitorNeighborStateClient) Recv() (*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2312, client.go:Recv>>>")
 	p, err := c.stream.Recv()
 	if err != nil {
 		return nil, err
@@ -996,6 +1086,7 @@ func (c *MonitorNeighborStateClient) Recv() (*config.Neighbor, error) {
 }
 
 func (cli *Client) MonitorNeighborState(name string, current bool) (*MonitorNeighborStateClient, error) { 
+   fmt.Print("<<<DEJDEJ id:2313, client.go:MonitorNeighborState>>>")
 	stream, err := cli.cli.MonitorPeerState(context.Background(), &api.Arguments{
 		Name:    name,
 		Current: current,

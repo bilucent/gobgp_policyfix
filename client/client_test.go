@@ -27,6 +27,7 @@ import (
 )
 
 func TestGetNeighbor(test *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2314, client_test.go:TestGetNeighbor(test>>>")
 	assert := assert.New(test)
 	s := server.NewBgpServer()
 	go s.Serve()

@@ -54,6 +54,7 @@ type Table struct {
 }
 
 func NewTable(rf bgp.RouteFamily, dsts ...*Destination) *Table { 
+   fmt.Print("<<<DEJDEJ id:1365, table.go:NewTable(rf>>>")
 	destinations := make(map[string]*Destination)
 	for _, dst := range dsts {
 		destinations[dst.GetNlri().String()] = dst
@@ -65,10 +66,12 @@ func NewTable(rf bgp.RouteFamily, dsts ...*Destination) *Table {
 }
 
 func (t *Table) GetRoutefamily() bgp.RouteFamily { 
+   fmt.Print("<<<DEJDEJ id:1366, table.go:GetRoutefamily>>>")
 	return t.routeFamily
 }
 
 func (t *Table) insert(path *Path) *Destination { 
+   fmt.Print("<<<DEJDEJ id:1367, table.go:insert>>>")
 	t.validatePath(path)
 	dest := t.getOrCreateDest(path.GetNlri())
 
@@ -83,6 +86,7 @@ func (t *Table) insert(path *Path) *Destination {
 }
 
 func (t *Table) DeleteDestByPeer(peerInfo *PeerInfo) []*Destination { 
+   fmt.Print("<<<DEJDEJ id:1368, table.go:DeleteDestByPeer>>>")
 	dsts := []*Destination{}
 	for _, dst := range t.destinations {
 		match := false
@@ -100,6 +104,7 @@ func (t *Table) DeleteDestByPeer(peerInfo *PeerInfo) []*Destination {
 }
 
 func (t *Table) deletePathsByVrf(vrf *Vrf) []*Path { 
+   fmt.Print("<<<DEJDEJ id:1369, table.go:deletePathsByVrf>>>")
 	pathList := make([]*Path, 0)
 	for _, dest := range t.destinations {
 		for _, p := range dest.knownPathList {
@@ -125,6 +130,7 @@ func (t *Table) deletePathsByVrf(vrf *Vrf) []*Path {
 }
 
 func (t *Table) deleteRTCPathsByVrf(vrf *Vrf, vrfs map[string]*Vrf) []*Path { 
+   fmt.Print("<<<DEJDEJ id:1370, table.go:deleteRTCPathsByVrf>>>")
 	pathList := make([]*Path, 0)
 	if t.routeFamily != bgp.RF_RTC_UC {
 		return pathList
@@ -148,6 +154,7 @@ func (t *Table) deleteRTCPathsByVrf(vrf *Vrf, vrfs map[string]*Vrf) []*Path {
 }
 
 func (t *Table) deleteDestByNlri(nlri bgp.AddrPrefixInterface) *Destination { 
+   fmt.Print("<<<DEJDEJ id:1371, table.go:deleteDestByNlri>>>")
 	destinations := t.GetDestinations()
 	dest := destinations[t.tableKey(nlri)]
 	if dest != nil {
@@ -160,6 +167,7 @@ func (t *Table) deleteDestByNlri(nlri bgp.AddrPrefixInterface) *Destination {
 }
 
 func (t *Table) deleteDest(dest *Destination) { 
+   fmt.Print("<<<DEJDEJ id:1372, table.go:deleteDest>>>")
 	destinations := t.GetDestinations()
 	delete(destinations, t.tableKey(dest.GetNlri()))
 	if len(destinations) == 0 {
@@ -168,6 +176,7 @@ func (t *Table) deleteDest(dest *Destination) {
 }
 
 func (t *Table) validatePath(path *Path) { 
+   fmt.Print("<<<DEJDEJ id:1373, table.go:validatePath>>>")
 	if path == nil {
 		log.WithFields(log.Fields{
 			"Topic": "Table",
@@ -210,6 +219,7 @@ func (t *Table) validatePath(path *Path) {
 }
 
 func (t *Table) getOrCreateDest(nlri bgp.AddrPrefixInterface) *Destination { 
+   fmt.Print("<<<DEJDEJ id:1374, table.go:getOrCreateDest>>>")
 	tableKey := t.tableKey(nlri)
 	dest := t.GetDestination(tableKey)
 	// If destination for given prefix does not exist we create it.
@@ -225,6 +235,7 @@ func (t *Table) getOrCreateDest(nlri bgp.AddrPrefixInterface) *Destination {
 }
 
 func (t *Table) GetSortedDestinations() []*Destination { 
+   fmt.Print("<<<DEJDEJ id:1375, table.go:GetSortedDestinations>>>")
 	results := make([]*Destination, 0, len(t.GetDestinations()))
 	switch t.routeFamily {
 	case bgp.RF_IPv4_UC, bgp.RF_IPv6_UC:
@@ -246,12 +257,15 @@ func (t *Table) GetSortedDestinations() []*Destination {
 }
 
 func (t *Table) GetDestinations() map[string]*Destination { 
+   fmt.Print("<<<DEJDEJ id:1376, table.go:GetDestinations>>>")
 	return t.destinations
 }
 func (t *Table) setDestinations(destinations map[string]*Destination) { 
+   fmt.Print("<<<DEJDEJ id:1377, table.go:setDestinations>>>")
 	t.destinations = destinations
 }
 func (t *Table) GetDestination(key string) *Destination { 
+   fmt.Print("<<<DEJDEJ id:1378, table.go:GetDestination>>>")
 	dest, ok := t.destinations[key]
 	if ok {
 		return dest
@@ -261,6 +275,7 @@ func (t *Table) GetDestination(key string) *Destination {
 }
 
 func (t *Table) GetLongerPrefixDestinations(key string) ([]*Destination, error) { 
+   fmt.Print("<<<DEJDEJ id:1379, table.go:GetLongerPrefixDestinations>>>")
 	results := make([]*Destination, 0, len(t.GetDestinations()))
 	switch t.routeFamily {
 	case bgp.RF_IPv4_UC, bgp.RF_IPv6_UC, bgp.RF_IPv4_MPLS, bgp.RF_IPv6_MPLS:
@@ -286,6 +301,7 @@ func (t *Table) GetLongerPrefixDestinations(key string) ([]*Destination, error) 
 }
 
 func (t *Table) GetEvpnDestinationsWithRouteType(typ string) ([]*Destination, error) { 
+   fmt.Print("<<<DEJDEJ id:1380, table.go:GetEvpnDestinationsWithRouteType>>>")
 	var routeType uint8
 	switch strings.ToLower(typ) {
 	case "a-d":
@@ -321,14 +337,17 @@ func (t *Table) GetEvpnDestinationsWithRouteType(typ string) ([]*Destination, er
 }
 
 func (t *Table) setDestination(key string, dest *Destination) { 
+   fmt.Print("<<<DEJDEJ id:1381, table.go:setDestination>>>")
 	t.destinations[key] = dest
 }
 
 func (t *Table) tableKey(nlri bgp.AddrPrefixInterface) string { 
+   fmt.Print("<<<DEJDEJ id:1382, table.go:tableKey>>>")
 	return nlri.String()
 }
 
 func (t *Table) Bests(id string) []*Path { 
+   fmt.Print("<<<DEJDEJ id:1383, table.go:Bests>>>")
 	paths := make([]*Path, 0, len(t.destinations))
 	for _, dst := range t.destinations {
 		path := dst.GetBestPath(id)
@@ -340,6 +359,7 @@ func (t *Table) Bests(id string) []*Path {
 }
 
 func (t *Table) MultiBests(id string) [][]*Path { 
+   fmt.Print("<<<DEJDEJ id:1384, table.go:MultiBests>>>")
 	paths := make([][]*Path, 0, len(t.destinations))
 	for _, dst := range t.destinations {
 		path := dst.GetMultiBestPath(id)
@@ -351,6 +371,7 @@ func (t *Table) MultiBests(id string) [][]*Path {
 }
 
 func (t *Table) GetKnownPathList(id string) []*Path { 
+   fmt.Print("<<<DEJDEJ id:1385, table.go:GetKnownPathList>>>")
 	paths := make([]*Path, 0, len(t.destinations))
 	for _, dst := range t.destinations {
 		paths = append(paths, dst.GetKnownPathList(id)...)
@@ -359,6 +380,7 @@ func (t *Table) GetKnownPathList(id string) []*Path {
 }
 
 func (t *Table) Select(option ...TableSelectOption) (*Table, error) { 
+   fmt.Print("<<<DEJDEJ id:1386, table.go:Select>>>")
 	id := GLOBAL_RIB_NAME
 	var vrf *Vrf
 	adj := false
@@ -472,6 +494,7 @@ type TableInfo struct {
 }
 
 func (t *Table) Info(id string) *TableInfo { 
+   fmt.Print("<<<DEJDEJ id:1387, table.go:Info>>>")
 	var numD, numP int
 	for _, d := range t.destinations {
 		ps := d.GetKnownPathList(id)

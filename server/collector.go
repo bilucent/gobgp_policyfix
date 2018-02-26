@@ -39,6 +39,7 @@ const (
 )
 
 func (c *Collector) writePoints(points []*client.Point) error { 
+   fmt.Print("<<<DEJDEJ id:586, collector.go:writePoints>>>")
 	bp, _ := client.NewBatchPoints(client.BatchPointsConfig{
 		Database:  c.dbName,
 		Precision: "ms",
@@ -48,6 +49,7 @@ func (c *Collector) writePoints(points []*client.Point) error {
 }
 
 func (c *Collector) writePeer(msg *WatchEventPeerState) error { 
+   fmt.Print("<<<DEJDEJ id:587, collector.go:writePeer>>>")
 	var state string
 	switch msg.State {
 	case bgp.BGP_FSM_ESTABLISHED:
@@ -76,6 +78,7 @@ func (c *Collector) writePeer(msg *WatchEventPeerState) error {
 }
 
 func path2data(path *table.Path) (map[string]interface{}, map[string]string) { 
+   fmt.Print("<<<DEJDEJ id:588, collector.go:path2data(path>>>")
 	fields := map[string]interface{}{
 		"RouterID": path.GetSource().ID,
 	}
@@ -122,6 +125,7 @@ func path2data(path *table.Path) (map[string]interface{}, map[string]string) {
 }
 
 func (c *Collector) writeUpdate(msg *WatchEventUpdate) error { 
+   fmt.Print("<<<DEJDEJ id:589, collector.go:writeUpdate>>>")
 	if len(msg.PathList) == 0 {
 		// EOR
 		return nil
@@ -141,6 +145,7 @@ func (c *Collector) writeUpdate(msg *WatchEventUpdate) error {
 }
 
 func (c *Collector) writeTable(msg *WatchEventAdjIn) error { 
+   fmt.Print("<<<DEJDEJ id:590, collector.go:writeTable>>>")
 	now := time.Now()
 	points := make([]*client.Point, 0, len(msg.PathList))
 	for _, path := range msg.PathList {
@@ -155,6 +160,7 @@ func (c *Collector) writeTable(msg *WatchEventAdjIn) error {
 }
 
 func (c *Collector) loop() { 
+   fmt.Print("<<<DEJDEJ id:591, collector.go:loop>>>")
 	w := c.s.Watch(WatchPeerState(true), WatchUpdate(false))
 	defer w.Stop()
 
@@ -189,6 +195,7 @@ func (c *Collector) loop() {
 }
 
 func NewCollector(s *BgpServer, url, dbName string, interval uint64) (*Collector, error) { 
+   fmt.Print("<<<DEJDEJ id:592, collector.go:NewCollector(s>>>")
 	c, err := client.NewHTTPClient(client.HTTPConfig{
 		Addr: url,
 	})

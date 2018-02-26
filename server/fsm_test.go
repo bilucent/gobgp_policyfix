@@ -44,6 +44,7 @@ type MockConnection struct {
 }
 
 func NewMockConnection(t *testing.T) *MockConnection { 
+   fmt.Print("<<<DEJDEJ id:777, fsm_test.go:NewMockConnection(t>>>")
 	m := &MockConnection{
 		T:        t,
 		recvCh:   make(chan chan byte, 128),
@@ -54,10 +55,12 @@ func NewMockConnection(t *testing.T) *MockConnection {
 }
 
 func (m *MockConnection) SetWriteDeadline(t time.Time) error { 
+   fmt.Print("<<<DEJDEJ id:778, fsm_test.go:SetWriteDeadline>>>")
 	return nil
 }
 
 func (m *MockConnection) setData(data []byte) int { 
+   fmt.Print("<<<DEJDEJ id:779, fsm_test.go:setData>>>")
 	dataChan := make(chan byte, 4096)
 	for _, b := range data {
 		dataChan <- b
@@ -67,6 +70,7 @@ func (m *MockConnection) setData(data []byte) int {
 }
 
 func (m *MockConnection) Read(buf []byte) (int, error) { 
+   fmt.Print("<<<DEJDEJ id:780, fsm_test.go:Read>>>")
 	m.mtx.Lock()
 	closed := m.isClosed
 	m.mtx.Unlock()
@@ -96,6 +100,7 @@ func (m *MockConnection) Read(buf []byte) (int, error) {
 }
 
 func (m *MockConnection) Write(buf []byte) (int, error) { 
+   fmt.Print("<<<DEJDEJ id:781, fsm_test.go:Write>>>")
 	time.Sleep(time.Duration(m.wait) * time.Millisecond)
 	m.sendBuf = append(m.sendBuf, buf)
 	msg, _ := bgp.ParseBGPMessage(buf)
@@ -105,6 +110,7 @@ func (m *MockConnection) Write(buf []byte) (int, error) {
 }
 
 func showMessageType(t uint8) string { 
+   fmt.Print("<<<DEJDEJ id:782, fsm_test.go:showMessageType(t>>>")
 	switch t {
 	case bgp.BGP_MSG_KEEPALIVE:
 		return "BGP_MSG_KEEPALIVE"
@@ -121,6 +127,7 @@ func showMessageType(t uint8) string {
 }
 
 func (m *MockConnection) Close() error { 
+   fmt.Print("<<<DEJDEJ id:783, fsm_test.go:Close>>>")
 	m.mtx.Lock()
 	defer m.mtx.Unlock()
 	if !m.isClosed {
@@ -131,12 +138,14 @@ func (m *MockConnection) Close() error {
 }
 
 func (m *MockConnection) LocalAddr() net.Addr { 
+   fmt.Print("<<<DEJDEJ id:784, fsm_test.go:LocalAddr>>>")
 	return &net.TCPAddr{
 		IP:   net.ParseIP("10.10.10.10"),
 		Port: bgp.BGP_PORT}
 }
 
 func TestReadAll(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:785, fsm_test.go:TestReadAll(t>>>")
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 	msg := open()
@@ -166,6 +175,7 @@ func TestReadAll(t *testing.T) {
 }
 
 func TestFSMHandlerOpensent_HoldTimerExpired(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:786, fsm_test.go:TestFSMHandlerOpensent_HoldTimerExpired(t>>>")
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 
@@ -192,6 +202,7 @@ func TestFSMHandlerOpensent_HoldTimerExpired(t *testing.T) {
 }
 
 func TestFSMHandlerOpenconfirm_HoldTimerExpired(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:787, fsm_test.go:TestFSMHandlerOpenconfirm_HoldTimerExpired(t>>>")
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 
@@ -217,6 +228,7 @@ func TestFSMHandlerOpenconfirm_HoldTimerExpired(t *testing.T) {
 }
 
 func TestFSMHandlerEstablish_HoldTimerExpired(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:788, fsm_test.go:TestFSMHandlerEstablish_HoldTimerExpired(t>>>")
 	assert := assert.New(t)
 	m := NewMockConnection(t)
 
@@ -256,6 +268,7 @@ func TestFSMHandlerEstablish_HoldTimerExpired(t *testing.T) {
 }
 
 func TestFSMHandlerOpenconfirm_HoldtimeZero(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:789, fsm_test.go:TestFSMHandlerOpenconfirm_HoldtimeZero(t>>>")
 	log.SetLevel(log.DebugLevel)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
@@ -279,6 +292,7 @@ func TestFSMHandlerOpenconfirm_HoldtimeZero(t *testing.T) {
 }
 
 func TestFSMHandlerEstablished_HoldtimeZero(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:790, fsm_test.go:TestFSMHandlerEstablished_HoldtimeZero(t>>>")
 	log.SetLevel(log.DebugLevel)
 	assert := assert.New(t)
 	m := NewMockConnection(t)
@@ -300,6 +314,7 @@ func TestFSMHandlerEstablished_HoldtimeZero(t *testing.T) {
 }
 
 func TestCheckOwnASLoop(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:791, fsm_test.go:TestCheckOwnASLoop(t>>>")
 	assert := assert.New(t)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65100})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -309,6 +324,7 @@ func TestCheckOwnASLoop(t *testing.T) {
 }
 
 func makePeerAndHandler() (*Peer, *FSMHandler) { 
+   fmt.Print("<<<DEJDEJ id:792, fsm_test.go:makePeerAndHandler()>>>")
 	p := &Peer{
 		fsm:      NewFSM(&config.Global{}, &config.Neighbor{}, table.NewRoutingPolicy()),
 		outgoing: channels.NewInfiniteChannel(),
@@ -326,6 +342,7 @@ func makePeerAndHandler() (*Peer, *FSMHandler) {
 }
 
 func open() *bgp.BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:793, fsm_test.go:open()>>>")
 	p1 := bgp.NewOptionParameterCapability(
 		[]bgp.ParameterCapabilityInterface{bgp.NewCapRouteRefresh()})
 	p2 := bgp.NewOptionParameterCapability(
@@ -341,5 +358,6 @@ func open() *bgp.BGPMessage {
 }
 
 func keepalive() *bgp.BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:794, fsm_test.go:keepalive()>>>")
 	return bgp.NewBGPKeepAliveMessage()
 }

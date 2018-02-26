@@ -32,6 +32,7 @@ import (
 )
 
 func init() { 
+   fmt.Print("<<<DEJDEJ id:1390, util.go:init()>>>")
 	go func() {
 		sigCh := make(chan os.Signal, 1)
 		signal.Notify(sigCh, syscall.SIGUSR1)
@@ -43,6 +44,7 @@ func init() {
 }
 
 func addSyslogHook(host, facility string) error { 
+   fmt.Print("<<<DEJDEJ id:1391, util.go:addSyslogHook(host,>>>")
 	dst := strings.SplitN(host, ":", 2)
 	network := ""
 	addr := ""

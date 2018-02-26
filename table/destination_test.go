@@ -27,12 +27,14 @@ import (
 )
 
 func TestDestinationNewIPv4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:795, destination_test.go:TestDestinationNewIPv4(t>>>")
 	peerD := DestCreatePeer()
 	pathD := DestCreatePath(peerD)
 	ipv4d := NewDestination(pathD[0].GetNlri(), 0)
 	assert.NotNil(t, ipv4d)
 }
 func TestDestinationNewIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:796, destination_test.go:TestDestinationNewIPv6(t>>>")
 	peerD := DestCreatePeer()
 	pathD := DestCreatePath(peerD)
 	ipv6d := NewDestination(pathD[0].GetNlri(), 0)
@@ -40,18 +42,21 @@ func TestDestinationNewIPv6(t *testing.T) {
 }
 
 func TestDestinationSetRouteFamily(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:797, destination_test.go:TestDestinationSetRouteFamily(t>>>")
 	dd := &Destination{}
 	dd.setRouteFamily(bgp.RF_IPv4_UC)
 	rf := dd.Family()
 	assert.Equal(t, rf, bgp.RF_IPv4_UC)
 }
 func TestDestinationGetRouteFamily(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:798, destination_test.go:TestDestinationGetRouteFamily(t>>>")
 	dd := &Destination{}
 	dd.setRouteFamily(bgp.RF_IPv6_UC)
 	rf := dd.Family()
 	assert.Equal(t, rf, bgp.RF_IPv6_UC)
 }
 func TestDestinationSetNlri(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:799, destination_test.go:TestDestinationSetNlri(t>>>")
 	dd := &Destination{}
 	nlri := bgp.NewIPAddrPrefix(24, "13.2.3.1")
 	dd.setNlri(nlri)
@@ -59,6 +64,7 @@ func TestDestinationSetNlri(t *testing.T) {
 	assert.Equal(t, r_nlri, nlri)
 }
 func TestDestinationGetNlri(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:800, destination_test.go:TestDestinationGetNlri(t>>>")
 	dd := &Destination{}
 	nlri := bgp.NewIPAddrPrefix(24, "10.110.123.1")
 	dd.setNlri(nlri)
@@ -67,6 +73,7 @@ func TestDestinationGetNlri(t *testing.T) {
 }
 
 func TestCalculate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:801, destination_test.go:TestCalculate(t>>>")
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -108,6 +115,7 @@ func TestCalculate(t *testing.T) {
 }
 
 func TestCalculate2(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:802, destination_test.go:TestCalculate2(t>>>")
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
@@ -163,6 +171,7 @@ func TestCalculate2(t *testing.T) {
 }
 
 func TestImplicitWithdrawCalculate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:803, destination_test.go:TestImplicitWithdrawCalculate(t>>>")
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -220,6 +229,7 @@ func TestImplicitWithdrawCalculate(t *testing.T) {
 }
 
 func TestMedTieBreaker(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:804, destination_test.go:TestMedTieBreaker(t>>>")
 	nlri := bgp.NewIPAddrPrefix(24, "10.10.0.0")
 
 	p0 := func() *Path {
@@ -276,6 +286,7 @@ func TestMedTieBreaker(t *testing.T) {
 }
 
 func TestTimeTieBreaker(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:805, destination_test.go:TestTimeTieBreaker(t>>>")
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65001})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -312,6 +323,7 @@ func TestTimeTieBreaker(t *testing.T) {
 }
 
 func DestCreatePeer() []*PeerInfo { 
+   fmt.Print("<<<DEJDEJ id:806, destination_test.go:DestCreatePeer()>>>")
 	peerD1 := &PeerInfo{AS: 65000}
 	peerD2 := &PeerInfo{AS: 65001}
 	peerD3 := &PeerInfo{AS: 65002}
@@ -320,6 +332,7 @@ func DestCreatePeer() []*PeerInfo {
 }
 
 func DestCreatePath(peerD []*PeerInfo) []*Path { 
+   fmt.Print("<<<DEJDEJ id:807, destination_test.go:DestCreatePath(peerD>>>")
 	bgpMsgD1 := updateMsgD1()
 	bgpMsgD2 := updateMsgD2()
 	bgpMsgD3 := updateMsgD3()
@@ -335,6 +348,7 @@ func DestCreatePath(peerD []*PeerInfo) []*Path {
 }
 
 func updateMsgD1() *bgp.BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:808, destination_test.go:updateMsgD1()>>>")
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65000})}
@@ -356,6 +370,7 @@ func updateMsgD1() *bgp.BGPMessage {
 }
 
 func updateMsgD2() *bgp.BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:809, destination_test.go:updateMsgD2()>>>")
 
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
@@ -376,6 +391,7 @@ func updateMsgD2() *bgp.BGPMessage {
 	return updateMsg
 }
 func updateMsgD3() *bgp.BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:810, destination_test.go:updateMsgD3()>>>")
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAsPathParam(2, []uint16{65100})}
 	aspath := bgp.NewPathAttributeAsPath(aspathParam)
@@ -398,6 +414,7 @@ func updateMsgD3() *bgp.BGPMessage {
 }
 
 func TestRadixkey(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:811, destination_test.go:TestRadixkey(t>>>")
 	assert.Equal(t, "000010100000001100100000", CidrToRadixkey("10.3.32.0/24"))
 	assert.Equal(t, "000010100000001100100000", IpToRadixkey(net.ParseIP("10.3.32.0").To4(), 24))
 	assert.Equal(t, "000010100000001100100000", IpToRadixkey(net.ParseIP("10.3.32.0").To4(), 24))
@@ -405,6 +422,7 @@ func TestRadixkey(t *testing.T) {
 }
 
 func TestIpToRadixkey(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:812, destination_test.go:TestIpToRadixkey(t>>>")
 	for i := byte(0); i < 255; i += 3 {
 		for y := byte(1); y < 128; y *= 2 {
 			ip := net.IPv4(i, i+2, i+3, i-y)
@@ -427,6 +445,7 @@ func TestIpToRadixkey(t *testing.T) {
 }
 
 func TestMultipath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:813, destination_test.go:TestMultipath(t>>>")
 	UseMultiplePaths.Enabled = true
 	origin := bgp.NewPathAttributeOrigin(0)
 	aspathParam := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(2, []uint32{65000})}
@@ -515,6 +534,7 @@ func TestMultipath(t *testing.T) {
 }
 
 func TestIdMap(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:814, destination_test.go:TestIdMap(t>>>")
 	d := NewDestination(bgp.NewIPAddrPrefix(24, "10.10.0.101"), 64)
 	for i := 0; ; i++ {
 		if id, err := d.localIdMap.FindandSetZeroBit(); err == nil {

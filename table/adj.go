@@ -28,6 +28,7 @@ type AdjRib struct {
 }
 
 func NewAdjRib(id string, rfList []bgp.RouteFamily) *AdjRib { 
+   fmt.Print("<<<DEJDEJ id:1013, adj.go:NewAdjRib(id>>>")
 	table := make(map[bgp.RouteFamily]map[string]*Path)
 	for _, rf := range rfList {
 		table[rf] = make(map[string]*Path)
@@ -40,6 +41,7 @@ func NewAdjRib(id string, rfList []bgp.RouteFamily) *AdjRib {
 }
 
 func (adj *AdjRib) Update(pathList []*Path) { 
+   fmt.Print("<<<DEJDEJ id:1014, adj.go:Update>>>")
 	for _, path := range pathList {
 		if path == nil || path.IsEOR() {
 			continue
@@ -78,6 +80,7 @@ func (adj *AdjRib) Update(pathList []*Path) {
 }
 
 func (adj *AdjRib) RefreshAcceptedNumber(rfList []bgp.RouteFamily) { 
+   fmt.Print("<<<DEJDEJ id:1015, adj.go:RefreshAcceptedNumber>>>")
 	for _, rf := range rfList {
 		adj.accepted[rf] = 0
 		for _, p := range adj.table[rf] {
@@ -89,6 +92,7 @@ func (adj *AdjRib) RefreshAcceptedNumber(rfList []bgp.RouteFamily) {
 }
 
 func (adj *AdjRib) PathList(rfList []bgp.RouteFamily, accepted bool) []*Path { 
+   fmt.Print("<<<DEJDEJ id:1016, adj.go:PathList>>>")
 	pathList := make([]*Path, 0, adj.Count(rfList))
 	for _, rf := range rfList {
 		for _, rr := range adj.table[rf] {
@@ -102,6 +106,7 @@ func (adj *AdjRib) PathList(rfList []bgp.RouteFamily, accepted bool) []*Path {
 }
 
 func (adj *AdjRib) Count(rfList []bgp.RouteFamily) int { 
+   fmt.Print("<<<DEJDEJ id:1017, adj.go:Count>>>")
 	count := 0
 	for _, rf := range rfList {
 		if table, ok := adj.table[rf]; ok {
@@ -112,6 +117,7 @@ func (adj *AdjRib) Count(rfList []bgp.RouteFamily) int {
 }
 
 func (adj *AdjRib) Accepted(rfList []bgp.RouteFamily) int { 
+   fmt.Print("<<<DEJDEJ id:1018, adj.go:Accepted>>>")
 	count := 0
 	for _, rf := range rfList {
 		if n, ok := adj.accepted[rf]; ok {
@@ -122,6 +128,7 @@ func (adj *AdjRib) Accepted(rfList []bgp.RouteFamily) int {
 }
 
 func (adj *AdjRib) Drop(rfList []bgp.RouteFamily) { 
+   fmt.Print("<<<DEJDEJ id:1019, adj.go:Drop>>>")
 	for _, rf := range rfList {
 		if _, ok := adj.table[rf]; ok {
 			adj.table[rf] = make(map[string]*Path)
@@ -131,6 +138,7 @@ func (adj *AdjRib) Drop(rfList []bgp.RouteFamily) {
 }
 
 func (adj *AdjRib) DropStale(rfList []bgp.RouteFamily) []*Path { 
+   fmt.Print("<<<DEJDEJ id:1020, adj.go:DropStale>>>")
 	pathList := make([]*Path, 0, adj.Count(rfList))
 	for _, rf := range rfList {
 		if table, ok := adj.table[rf]; ok {
@@ -149,6 +157,7 @@ func (adj *AdjRib) DropStale(rfList []bgp.RouteFamily) []*Path {
 }
 
 func (adj *AdjRib) StaleAll(rfList []bgp.RouteFamily) { 
+   fmt.Print("<<<DEJDEJ id:1021, adj.go:StaleAll>>>")
 	for _, rf := range rfList {
 		if table, ok := adj.table[rf]; ok {
 			for _, p := range table {
@@ -159,6 +168,7 @@ func (adj *AdjRib) StaleAll(rfList []bgp.RouteFamily) {
 }
 
 func (adj *AdjRib) Exists(path *Path) bool { 
+   fmt.Print("<<<DEJDEJ id:1022, adj.go:Exists>>>")
 	if path == nil {
 		return false
 	}
@@ -172,6 +182,7 @@ func (adj *AdjRib) Exists(path *Path) bool {
 }
 
 func (adj *AdjRib) Select(family bgp.RouteFamily, accepted bool, option ...TableSelectOption) (*Table, error) { 
+   fmt.Print("<<<DEJDEJ id:1023, adj.go:Select>>>")
 	paths := adj.PathList([]bgp.RouteFamily{family}, accepted)
 	dsts := make(map[string]*Destination, len(paths))
 	for _, path := range paths {
@@ -192,6 +203,7 @@ func (adj *AdjRib) Select(family bgp.RouteFamily, accepted bool, option ...Table
 }
 
 func (adj *AdjRib) TableInfo(family bgp.RouteFamily) (*TableInfo, error) { 
+   fmt.Print("<<<DEJDEJ id:1024, adj.go:TableInfo>>>")
 	if _, ok := adj.table[family]; !ok {
 		return nil, fmt.Errorf("%s unsupported", family)
 	}

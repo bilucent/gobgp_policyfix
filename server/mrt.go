@@ -43,10 +43,12 @@ type mrtWriter struct {
 }
 
 func (m *mrtWriter) Stop() { 
+   fmt.Print("<<<DEJDEJ id:622, mrt.go:Stop>>>")
 	close(m.dead)
 }
 
 func (m *mrtWriter) loop() error { 
+   fmt.Print("<<<DEJDEJ id:623, mrt.go:loop>>>")
 	ops := []WatchOption{}
 	switch m.c.DumpType {
 	case config.MRT_TYPE_UPDATES:
@@ -276,6 +278,7 @@ func (m *mrtWriter) loop() error {
 }
 
 func mrtFileOpen(filename string, interval uint64) (*os.File, error) { 
+   fmt.Print("<<<DEJDEJ id:624, mrt.go:mrtFileOpen(filename>>>")
 	realname := filename
 	if interval != 0 {
 		realname = time.Now().Format(filename)
@@ -318,6 +321,7 @@ func mrtFileOpen(filename string, interval uint64) (*os.File, error) {
 }
 
 func newMrtWriter(s *BgpServer, c *config.MrtConfig, rInterval, dInterval uint64) (*mrtWriter, error) { 
+   fmt.Print("<<<DEJDEJ id:625, mrt.go:newMrtWriter(s>>>")
 	file, err := mrtFileOpen(c.FileName, rInterval)
 	if err != nil {
 		return nil, err
@@ -339,6 +343,7 @@ type mrtManager struct {
 }
 
 func (m *mrtManager) enable(c *config.MrtConfig) error { 
+   fmt.Print("<<<DEJDEJ id:626, mrt.go:enable>>>")
 	if _, ok := m.writer[c.FileName]; ok {
 		return fmt.Errorf("%s already exists", c.FileName)
 	}
@@ -385,6 +390,7 @@ func (m *mrtManager) enable(c *config.MrtConfig) error {
 }
 
 func (m *mrtManager) disable(c *config.MrtConfig) error { 
+   fmt.Print("<<<DEJDEJ id:627, mrt.go:disable>>>")
 	if w, ok := m.writer[c.FileName]; !ok {
 		return fmt.Errorf("%s doesn't exists", c.FileName)
 	} else {
@@ -395,6 +401,7 @@ func (m *mrtManager) disable(c *config.MrtConfig) error {
 }
 
 func newMrtManager(s *BgpServer) *mrtManager { 
+   fmt.Print("<<<DEJDEJ id:628, mrt.go:newMrtManager(s>>>")
 	return &mrtManager{
 		bgpServer: s,
 		writer:    make(map[string]*mrtWriter),

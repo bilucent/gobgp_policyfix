@@ -93,6 +93,7 @@ const (
 )
 
 func (s AdminState) String() string { 
+   fmt.Print("<<<DEJDEJ id:732, fsm.go:String>>>")
 	switch s {
 	case ADMIN_STATE_UP:
 		return "ADMIN_STATE_UP"
@@ -138,6 +139,7 @@ type FSM struct {
 }
 
 func (fsm *FSM) bgpMessageStateUpdate(MessageType uint8, isIn bool) { 
+   fmt.Print("<<<DEJDEJ id:733, fsm.go:bgpMessageStateUpdate>>>")
 	state := &fsm.pConf.State.Messages
 	timer := &fsm.pConf.Timers
 	if isIn {
@@ -187,6 +189,7 @@ func (fsm *FSM) bgpMessageStateUpdate(MessageType uint8, isIn bool) {
 }
 
 func (fsm *FSM) bmpStatsUpdate(statType uint16, increment int) { 
+   fmt.Print("<<<DEJDEJ id:734, fsm.go:bmpStatsUpdate>>>")
 	stats := &fsm.pConf.State.Messages.Received
 	switch statType {
 	// TODO
@@ -199,6 +202,7 @@ func (fsm *FSM) bmpStatsUpdate(statType uint16, increment int) {
 }
 
 func NewFSM(gConf *config.Global, pConf *config.Neighbor, policy *table.RoutingPolicy) *FSM { 
+   fmt.Print("<<<DEJDEJ id:735, fsm.go:NewFSM(gConf>>>")
 	adminState := ADMIN_STATE_UP
 	if pConf.Config.AdminDown {
 		adminState = ADMIN_STATE_DOWN
@@ -228,6 +232,7 @@ func NewFSM(gConf *config.Global, pConf *config.Neighbor, policy *table.RoutingP
 }
 
 func (fsm *FSM) StateChange(nextState bgp.FSMState) { 
+   fmt.Print("<<<DEJDEJ id:736, fsm.go:StateChange>>>")
 	log.WithFields(log.Fields{
 		"Topic":  "Peer",
 		"Key":    fsm.pConf.State.NeighborAddress,
@@ -269,6 +274,7 @@ func (fsm *FSM) StateChange(nextState bgp.FSMState) {
 }
 
 func hostport(addr net.Addr) (string, uint16) { 
+   fmt.Print("<<<DEJDEJ id:737, fsm.go:hostport(addr>>>")
 	if addr != nil {
 		host, port, err := net.SplitHostPort(addr.String())
 		if err != nil {
@@ -281,15 +287,18 @@ func hostport(addr net.Addr) (string, uint16) {
 }
 
 func (fsm *FSM) RemoteHostPort() (string, uint16) { 
+   fmt.Print("<<<DEJDEJ id:738, fsm.go:RemoteHostPort>>>")
 	return hostport(fsm.conn.RemoteAddr())
 
 }
 
 func (fsm *FSM) LocalHostPort() (string, uint16) { 
+   fmt.Print("<<<DEJDEJ id:739, fsm.go:LocalHostPort>>>")
 	return hostport(fsm.conn.LocalAddr())
 }
 
 func (fsm *FSM) sendNotificationFromErrorMsg(e *bgp.MessageError) error { 
+   fmt.Print("<<<DEJDEJ id:740, fsm.go:sendNotificationFromErrorMsg>>>")
 	if fsm.h != nil && fsm.h.conn != nil {
 		m := bgp.NewBGPNotificationMessage(e.TypeCode, e.SubTypeCode, e.Data)
 		b, _ := m.Serialize()
@@ -310,11 +319,13 @@ func (fsm *FSM) sendNotificationFromErrorMsg(e *bgp.MessageError) error {
 }
 
 func (fsm *FSM) sendNotification(code, subType uint8, data []byte, msg string) error { 
+   fmt.Print("<<<DEJDEJ id:741, fsm.go:sendNotification>>>")
 	e := bgp.NewMessageError(code, subType, data, msg)
 	return fsm.sendNotificationFromErrorMsg(e.(*bgp.MessageError))
 }
 
 func (fsm *FSM) connectLoop() error { 
+   fmt.Print("<<<DEJDEJ id:742, fsm.go:connectLoop>>>")
 	tick := int(fsm.pConf.Timers.Config.ConnectRetry)
 	if tick < MIN_CONNECT_RETRY {
 		tick = MIN_CONNECT_RETRY
@@ -412,6 +423,7 @@ type FSMHandler struct {
 }
 
 func NewFSMHandler(fsm *FSM, incoming *channels.InfiniteChannel, stateCh chan *FsmMsg, outgoing *channels.InfiniteChannel) *FSMHandler { 
+   fmt.Print("<<<DEJDEJ id:743, fsm.go:NewFSMHandler(fsm>>>")
 	h := &FSMHandler{
 		fsm:              fsm,
 		errorCh:          make(chan FsmStateReason, 2),
@@ -425,6 +437,7 @@ func NewFSMHandler(fsm *FSM, incoming *channels.InfiniteChannel, stateCh chan *F
 }
 
 func (h *FSMHandler) idle() (bgp.FSMState, FsmStateReason) { 
+   fmt.Print("<<<DEJDEJ id:744, fsm.go:idle>>>")
 	fsm := h.fsm
 
 	idleHoldTimer := time.NewTimer(time.Second * time.Duration(fsm.idleHoldTime))
@@ -484,6 +497,7 @@ func (h *FSMHandler) idle() (bgp.FSMState, FsmStateReason) {
 }
 
 func (h *FSMHandler) active() (bgp.FSMState, FsmStateReason) { 
+   fmt.Print("<<<DEJDEJ id:745, fsm.go:active>>>")
 	fsm := h.fsm
 	for {
 		select {
@@ -562,6 +576,7 @@ func (h *FSMHandler) active() (bgp.FSMState, FsmStateReason) {
 }
 
 func capAddPathFromConfig(pConf *config.Neighbor) bgp.ParameterCapabilityInterface { 
+   fmt.Print("<<<DEJDEJ id:746, fsm.go:capAddPathFromConfig(pConf>>>")
 	tuples := make([]*bgp.CapAddPathTuple, 0, len(pConf.AfiSafis))
 	for _, af := range pConf.AfiSafis {
 		var mode bgp.BGPAddPathMode
@@ -582,6 +597,7 @@ func capAddPathFromConfig(pConf *config.Neighbor) bgp.ParameterCapabilityInterfa
 }
 
 func capabilitiesFromConfig(pConf *config.Neighbor) []bgp.ParameterCapabilityInterface { 
+   fmt.Print("<<<DEJDEJ id:747, fsm.go:capabilitiesFromConfig(pConf>>>")
 	caps := make([]bgp.ParameterCapabilityInterface, 0, 4)
 	caps = append(caps, bgp.NewCapRouteRefresh())
 	for _, af := range pConf.AfiSafis {
@@ -648,6 +664,7 @@ func capabilitiesFromConfig(pConf *config.Neighbor) []bgp.ParameterCapabilityInt
 }
 
 func buildopen(gConf *config.Global, pConf *config.Neighbor) *bgp.BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:748, fsm.go:buildopen(gConf>>>")
 	caps := capabilitiesFromConfig(pConf)
 	opt := bgp.NewOptionParameterCapability(caps)
 	holdTime := uint16(pConf.Timers.Config.HoldTime)
@@ -660,6 +677,7 @@ func buildopen(gConf *config.Global, pConf *config.Neighbor) *bgp.BGPMessage {
 }
 
 func readAll(conn net.Conn, length int) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:749, fsm.go:readAll(conn>>>")
 	buf := make([]byte, length)
 	_, err := io.ReadFull(conn, buf)
 	if err != nil {
@@ -669,6 +687,7 @@ func readAll(conn net.Conn, length int) ([]byte, error) {
 }
 
 func getPathAttrFromBGPUpdate(m *bgp.BGPUpdate, typ bgp.BGPAttrType) bgp.PathAttributeInterface { 
+   fmt.Print("<<<DEJDEJ id:750, fsm.go:getPathAttrFromBGPUpdate(m>>>")
 	for _, a := range m.PathAttributes {
 		if a.GetType() == typ {
 			return a
@@ -678,6 +697,7 @@ func getPathAttrFromBGPUpdate(m *bgp.BGPUpdate, typ bgp.BGPAttrType) bgp.PathAtt
 }
 
 func hasOwnASLoop(ownAS uint32, limit int, aspath *bgp.PathAttributeAsPath) bool { 
+   fmt.Print("<<<DEJDEJ id:751, fsm.go:hasOwnASLoop(ownAS>>>")
 	cnt := 0
 	for _, i := range aspath.Value {
 		for _, as := range i.(*bgp.As4PathParam).AS {
@@ -693,6 +713,7 @@ func hasOwnASLoop(ownAS uint32, limit int, aspath *bgp.PathAttributeAsPath) bool
 }
 
 func extractRouteFamily(p *bgp.PathAttributeInterface) *bgp.RouteFamily { 
+   fmt.Print("<<<DEJDEJ id:752, fsm.go:extractRouteFamily(p>>>")
 	attr := *p
 
 	var afi uint16
@@ -714,6 +735,7 @@ func extractRouteFamily(p *bgp.PathAttributeInterface) *bgp.RouteFamily {
 }
 
 func (h *FSMHandler) afiSafiDisable(rf bgp.RouteFamily) string { 
+   fmt.Print("<<<DEJDEJ id:753, fsm.go:afiSafiDisable>>>")
 	n := bgp.AddressFamilyNameMap[rf]
 
 	for i, a := range h.fsm.pConf.AfiSafis {
@@ -734,6 +756,7 @@ func (h *FSMHandler) afiSafiDisable(rf bgp.RouteFamily) string {
 }
 
 func (h *FSMHandler) handlingError(m *bgp.BGPMessage, e error, useRevisedError bool) bgp.ErrorHandling { 
+   fmt.Print("<<<DEJDEJ id:754, fsm.go:handlingError>>>")
 	handling := bgp.ERROR_HANDLING_NONE
 	if m.Header.Type == bgp.BGP_MSG_UPDATE && useRevisedError {
 		factor := e.(*bgp.MessageError)
@@ -779,6 +802,7 @@ func (h *FSMHandler) handlingError(m *bgp.BGPMessage, e error, useRevisedError b
 }
 
 func (h *FSMHandler) recvMessageWithError() (*FsmMsg, error) { 
+   fmt.Print("<<<DEJDEJ id:755, fsm.go:recvMessageWithError>>>")
 	sendToErrorCh := func(reason FsmStateReason) {
 		// probably doesn't happen but be cautious
 		select {
@@ -963,6 +987,7 @@ func (h *FSMHandler) recvMessageWithError() (*FsmMsg, error) {
 }
 
 func (h *FSMHandler) recvMessage() error { 
+   fmt.Print("<<<DEJDEJ id:756, fsm.go:recvMessage>>>")
 	defer h.msgCh.Close()
 	fmsg, _ := h.recvMessageWithError()
 	if fmsg != nil {
@@ -972,6 +997,7 @@ func (h *FSMHandler) recvMessage() error {
 }
 
 func open2Cap(open *bgp.BGPOpen, n *config.Neighbor) (map[bgp.BGPCapabilityCode][]bgp.ParameterCapabilityInterface, map[bgp.RouteFamily]bgp.BGPAddPathMode) { 
+   fmt.Print("<<<DEJDEJ id:757, fsm.go:open2Cap(open>>>")
 	capMap := make(map[bgp.BGPCapabilityCode][]bgp.ParameterCapabilityInterface)
 	for _, p := range open.OptParams {
 		if paramCap, y := p.(*bgp.OptionParameterCapability); y {
@@ -1031,6 +1057,7 @@ func open2Cap(open *bgp.BGPOpen, n *config.Neighbor) (map[bgp.BGPCapabilityCode]
 }
 
 func (h *FSMHandler) opensent() (bgp.FSMState, FsmStateReason) { 
+   fmt.Print("<<<DEJDEJ id:758, fsm.go:opensent>>>")
 	fsm := h.fsm
 	m := buildopen(fsm.gConf, fsm.pConf)
 	b, _ := m.Serialize()
@@ -1237,6 +1264,7 @@ func (h *FSMHandler) opensent() (bgp.FSMState, FsmStateReason) {
 }
 
 func keepaliveTicker(fsm *FSM) *time.Ticker { 
+   fmt.Print("<<<DEJDEJ id:759, fsm.go:keepaliveTicker(fsm>>>")
 	negotiatedTime := fsm.pConf.Timers.State.NegotiatedHoldTime
 	if negotiatedTime == 0 {
 		return &time.Ticker{}
@@ -1249,6 +1277,7 @@ func keepaliveTicker(fsm *FSM) *time.Ticker {
 }
 
 func (h *FSMHandler) openconfirm() (bgp.FSMState, FsmStateReason) { 
+   fmt.Print("<<<DEJDEJ id:760, fsm.go:openconfirm>>>")
 	fsm := h.fsm
 	ticker := keepaliveTicker(fsm)
 	h.msgCh = channels.NewInfiniteChannel()
@@ -1349,6 +1378,7 @@ func (h *FSMHandler) openconfirm() (bgp.FSMState, FsmStateReason) {
 }
 
 func (h *FSMHandler) sendMessageloop() error { 
+   fmt.Print("<<<DEJDEJ id:761, fsm.go:sendMessageloop>>>")
 	conn := h.conn
 	fsm := h.fsm
 	ticker := keepaliveTicker(fsm)
@@ -1471,6 +1501,7 @@ func (h *FSMHandler) sendMessageloop() error {
 }
 
 func (h *FSMHandler) recvMessageloop() error { 
+   fmt.Print("<<<DEJDEJ id:762, fsm.go:recvMessageloop>>>")
 	for {
 		fmsg, err := h.recvMessageWithError()
 		if fmsg != nil {
@@ -1483,6 +1514,7 @@ func (h *FSMHandler) recvMessageloop() error {
 }
 
 func (h *FSMHandler) established() (bgp.FSMState, FsmStateReason) { 
+   fmt.Print("<<<DEJDEJ id:763, fsm.go:established>>>")
 	fsm := h.fsm
 	h.conn = fsm.conn
 	h.t.Go(h.sendMessageloop)
@@ -1552,6 +1584,7 @@ func (h *FSMHandler) established() (bgp.FSMState, FsmStateReason) {
 }
 
 func (h *FSMHandler) loop() error { 
+   fmt.Print("<<<DEJDEJ id:764, fsm.go:loop>>>")
 	fsm := h.fsm
 	ch := make(chan bgp.FSMState)
 	oldState := fsm.state
@@ -1625,6 +1658,7 @@ func (h *FSMHandler) loop() error {
 }
 
 func (h *FSMHandler) changeAdminState(s AdminState) error { 
+   fmt.Print("<<<DEJDEJ id:765, fsm.go:changeAdminState>>>")
 	fsm := h.fsm
 	if fsm.adminState != s {
 		log.WithFields(log.Fields{

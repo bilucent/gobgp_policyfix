@@ -9,6 +9,7 @@ const _ESIType_name = "ESI_ARBITRARYESI_LACPESI_MSTPESI_MACESI_ROUTERIDESI_AS"
 var _ESIType_index = [...]uint8{0, 13, 21, 29, 36, 48, 54}
 
 func (i ESIType) String() string { 
+   fmt.Print("<<<DEJDEJ id:3161, esitype_string.go:String>>>")
 	if i+1 >= ESIType(len(_ESIType_index)) {
 		return fmt.Sprintf("ESIType(%d)", i)
 	}

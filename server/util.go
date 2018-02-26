@@ -28,6 +28,7 @@ import (
 )
 
 func cleanInfiniteChannel(ch *channels.InfiniteChannel) { 
+   fmt.Print("<<<DEJDEJ id:607, util.go:cleanInfiniteChannel(ch>>>")
 	ch.Close()
 	// drain all remaining items
 	for range ch.Out() {
@@ -37,6 +38,7 @@ func cleanInfiniteChannel(ch *channels.InfiniteChannel) {
 // Returns the binary formatted Administrative Shutdown Communication from the
 // given string value.
 func newAdministrativeCommunication(communication string) (data []byte) { 
+   fmt.Print("<<<DEJDEJ id:608, util.go:newAdministrativeCommunication(communication>>>")
 	if communication == "" {
 		return nil
 	}
@@ -54,6 +56,7 @@ func newAdministrativeCommunication(communication string) (data []byte) {
 // Parses the given NOTIFICATION message data as a binary value and returns
 // the Administrative Shutdown Communication in string and the rest binary.
 func decodeAdministrativeCommunication(data []byte) (string, []byte) { 
+   fmt.Print("<<<DEJDEJ id:609, util.go:decodeAdministrativeCommunication(data>>>")
 	if len(data) == 0 {
 		return "", data
 	}
@@ -68,6 +71,7 @@ func decodeAdministrativeCommunication(data []byte) (string, []byte) {
 }
 
 func extractFileAndFamilyFromTCPListener(l *net.TCPListener) (*os.File, int, error) { 
+   fmt.Print("<<<DEJDEJ id:610, util.go:extractFileAndFamilyFromTCPListener(l>>>")
 	// Note #1: TCPListener.File() has the unexpected side-effect of putting
 	// the original socket into blocking mode. See Note #2.
 	fi, err := l.File()
@@ -93,6 +97,7 @@ func extractFileAndFamilyFromTCPListener(l *net.TCPListener) (*os.File, int, err
 }
 
 func extractFileAndFamilyFromTCPConn(conn *net.TCPConn) (*os.File, int, error) { 
+   fmt.Print("<<<DEJDEJ id:611, util.go:extractFileAndFamilyFromTCPConn(conn>>>")
 	// Note #1: TCPConn.File() has the unexpected side-effect of putting
 	// the original socket into blocking mode. See Note #2.
 	fi, err := conn.File()

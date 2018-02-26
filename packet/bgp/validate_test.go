@@ -10,6 +10,7 @@ import (
 )
 
 func bgpupdate() *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:2482, validate_test.go:bgpupdate()>>>")
 	aspath := []AsPathParamInterface{
 		NewAsPathParam(2, []uint16{65001}),
 	}
@@ -25,6 +26,7 @@ func bgpupdate() *BGPMessage {
 }
 
 func bgpupdateV6() *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:2483, validate_test.go:bgpupdateV6()>>>")
 	aspath := []AsPathParamInterface{
 		NewAsPathParam(2, []uint16{65001}),
 	}
@@ -41,6 +43,7 @@ func bgpupdateV6() *BGPMessage {
 }
 
 func Test_Validate_CapV4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2484, validate_test.go:Test_Validate_CapV4(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv6_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -52,6 +55,7 @@ func Test_Validate_CapV4(t *testing.T) {
 }
 
 func Test_Validate_CapV6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2485, validate_test.go:Test_Validate_CapV6(t>>>")
 	assert := assert.New(t)
 	message := bgpupdateV6().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv6_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -63,6 +67,7 @@ func Test_Validate_CapV6(t *testing.T) {
 }
 
 func Test_Validate_OK(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2486, validate_test.go:Test_Validate_OK(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv4_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -72,6 +77,7 @@ func Test_Validate_OK(t *testing.T) {
 }
 
 // func Test_Validate_wellknown_but_nontransitive(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2487, validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -90,6 +96,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 // func Test_Validate_wellknown_but_partial(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2488, validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -108,6 +115,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 // func Test_Validate_optional_nontransitive_but_partial(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2489, validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 // 	f := BGP_ATTR_FLAG_OPTIONAL | BGP_ATTR_FLAG_PARTIAL
@@ -126,6 +134,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 // func Test_Validate_flag_mismatch(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2490, validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 // 	f := BGP_ATTR_FLAG_OPTIONAL
@@ -145,6 +154,7 @@ func Test_Validate_OK(t *testing.T) {
 // }
 
 func Test_Validate_duplicate_attribute(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2491, validate_test.go:Test_Validate_duplicate_attribute(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	// duplicate origin path attribute
@@ -164,6 +174,7 @@ func Test_Validate_duplicate_attribute(t *testing.T) {
 }
 
 func Test_Validate_mandatory_missing(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2492, validate_test.go:Test_Validate_mandatory_missing(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	message.PathAttributes = message.PathAttributes[1:]
@@ -179,6 +190,7 @@ func Test_Validate_mandatory_missing(t *testing.T) {
 }
 
 func Test_Validate_mandatory_missing_nocheck(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2493, validate_test.go:Test_Validate_mandatory_missing_nocheck(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	message.PathAttributes = message.PathAttributes[1:]
@@ -190,6 +202,7 @@ func Test_Validate_mandatory_missing_nocheck(t *testing.T) {
 }
 
 func Test_Validate_invalid_origin(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2494, validate_test.go:Test_Validate_invalid_origin(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	// origin needs to be well-known
@@ -209,6 +222,7 @@ func Test_Validate_invalid_origin(t *testing.T) {
 }
 
 func Test_Validate_invalid_nexthop_zero(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2495, validate_test.go:Test_Validate_invalid_nexthop_zero(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -231,6 +245,7 @@ func Test_Validate_invalid_nexthop_zero(t *testing.T) {
 }
 
 func Test_Validate_invalid_nexthop_lo(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2496, validate_test.go:Test_Validate_invalid_nexthop_lo(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -253,6 +268,7 @@ func Test_Validate_invalid_nexthop_lo(t *testing.T) {
 }
 
 func Test_Validate_invalid_nexthop_de(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2497, validate_test.go:Test_Validate_invalid_nexthop_de(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -276,6 +292,7 @@ func Test_Validate_invalid_nexthop_de(t *testing.T) {
 }
 
 func Test_Validate_unrecognized_well_known(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2498, validate_test.go:Test_Validate_unrecognized_well_known(t>>>")
 
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
@@ -296,6 +313,7 @@ func Test_Validate_unrecognized_well_known(t *testing.T) {
 }
 
 func Test_Validate_aspath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2499, validate_test.go:Test_Validate_aspath(t>>>")
 
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
@@ -365,6 +383,7 @@ func Test_Validate_aspath(t *testing.T) {
 }
 
 func Test_Validate_flowspec(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2500, validate_test.go:Test_Validate_flowspec(t>>>")
 	assert := assert.New(t)
 	cmp := make([]FlowSpecComponentInterface, 0)
 	cmp = append(cmp, NewFlowSpecDestinationPrefix(NewIPAddrPrefix(24, "10.0.0.0")))
@@ -405,6 +424,7 @@ func Test_Validate_flowspec(t *testing.T) {
 }
 
 func TestValidateLargeCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2501, validate_test.go:TestValidateLargeCommunities(t>>>")
 	assert := assert.New(t)
 	c1, err := ParseLargeCommunity("10:10:10")
 	assert.Nil(err)

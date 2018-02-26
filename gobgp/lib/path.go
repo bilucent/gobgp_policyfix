@@ -44,6 +44,7 @@ import (
 
 //export get_route_family
 func get_route_family(input *C.char) C.int { 
+   fmt.Print("<<<DEJDEJ id:114, path.go:get_route_family(input>>>")
 	rf, err := bgp.GetRouteFamily(C.GoString(input))
 	if err != nil {
 		return C.int(-1)
@@ -53,6 +54,7 @@ func get_route_family(input *C.char) C.int {
 
 //export serialize_path
 func serialize_path(rf C.int, input *C.char) *C.path { 
+   fmt.Print("<<<DEJDEJ id:115, path.go:serialize_path(rf>>>")
 	args := strings.Split(C.GoString(input), " ")
 	pp, err := cmd.ParsePath(bgp.RouteFamily(rf), args)
 	if err != nil {
@@ -72,6 +74,7 @@ func serialize_path(rf C.int, input *C.char) *C.path {
 
 //export decode_path
 func decode_path(p *C.path) *C.char { 
+   fmt.Print("<<<DEJDEJ id:116, path.go:decode_path(p>>>")
 	var buf []byte
 	var nlri bgp.AddrPrefixInterface
 	if p.nlri.len > 0 {
@@ -119,6 +122,7 @@ func decode_path(p *C.path) *C.char {
 
 //export decode_capabilities
 func decode_capabilities(p *C.buf) *C.char { 
+   fmt.Print("<<<DEJDEJ id:117, path.go:decode_capabilities(p>>>")
 	buf := []byte(C.GoStringN(p.value, p.len))
 	c, err := bgp.DecodeCapability(buf)
 	if err != nil {
@@ -130,6 +134,7 @@ func decode_capabilities(p *C.buf) *C.char {
 }
 
 func main() { 
+   fmt.Print("<<<DEJDEJ id:118, path.go:main()>>>")
 	// We need the main function to make possible
 	// CGO compiler to compile the package as C shared library
 }

@@ -30,6 +30,7 @@ import (
 )
 
 func injectMrt() error { 
+   fmt.Print("<<<DEJDEJ id:88, mrt.go:injectMrt()>>>")
 
 	file, err := os.Open(mrtOpts.Filename)
 	if err != nil {
@@ -186,6 +187,7 @@ func injectMrt() error {
 }
 
 func NewMrtCmd() *cobra.Command { 
+   fmt.Print("<<<DEJDEJ id:89, mrt.go:NewMrtCmd()>>>")
 	globalInjectCmd := &cobra.Command{
 		Use: CMD_GLOBAL,
 		Run: func(cmd *cobra.Command, args []string) {
