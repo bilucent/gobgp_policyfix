@@ -18,6 +18,7 @@
 package main
 
 import (
+  "fmt"
 	"log/syslog"
 	"os"
 	"os/signal"

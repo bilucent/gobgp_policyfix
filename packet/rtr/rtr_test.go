@@ -16,6 +16,7 @@
 package rtr
 
 import (
+  "fmt"
 	"encoding/hex"
 	"math/rand"
 	"net"
