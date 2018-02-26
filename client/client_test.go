@@ -26,8 +26,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGetNeighbor(test *testing.T) {
-   fmt.Printf("DEJDEJ id:",1728)
+func TestGetNeighbor(test *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2846::client_test.go:TestGetNeighbor(test>>>")
 	assert := assert.New(test)
 	s := server.NewBgpServer()
 	go s.Serve()

@@ -53,8 +53,8 @@ const (
 	BMP_PEER_FLAG_FILTERED    = 1 << 6
 )
 
-func (h *BMPHeader) DecodeFromBytes(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1850)
+func (h *BMPHeader) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2949::bmp.go:DecodeFromBytes>>>")
 	h.Version = data[0]
 	if data[0] != BMP_VERSION {
 		return fmt.Errorf("error version")
@@ -64,8 +64,8 @@ func (h *BMPHeader) DecodeFromBytes(data []byte) error {
 	return nil
 }
 
-func (h *BMPHeader) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1851)
+func (h *BMPHeader) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2950::bmp.go:Serialize>>>")
 	buf := make([]byte, BMP_HEADER_SIZE)
 	buf[0] = h.Version
 	binary.BigEndian.PutUint32(buf[1:], h.Length)
@@ -83,8 +83,8 @@ type BMPPeerHeader struct {
 	Timestamp         float64
 }
 
-func NewBMPPeerHeader(t uint8, flags uint8, dist uint64, address string, as uint32, id string, stamp float64) *BMPPeerHeader {
-   fmt.Printf("DEJDEJ id:",1852)
+func NewBMPPeerHeader(t uint8, flags uint8, dist uint64, address string, as uint32, id string, stamp float64) *BMPPeerHeader { 
+   fmt.Print("<<<DEJDEJ id:2951::bmp.go:NewBMPPeerHeader(t>>>")
 	h := &BMPPeerHeader{
 		PeerType:          t,
 		Flags:             flags,
@@ -102,8 +102,8 @@ func NewBMPPeerHeader(t uint8, flags uint8, dist uint64, address string, as uint
 	return h
 }
 
-func (h *BMPPeerHeader) IsPostPolicy() bool {
-   fmt.Printf("DEJDEJ id:",1853)
+func (h *BMPPeerHeader) IsPostPolicy() bool { 
+   fmt.Print("<<<DEJDEJ id:2952::bmp.go:IsPostPolicy>>>")
 	if h.Flags&BMP_PEER_FLAG_POST_POLICY != 0 {
 		return true
 	} else {
@@ -111,8 +111,8 @@ func (h *BMPPeerHeader) IsPostPolicy() bool {
 	}
 }
 
-func (h *BMPPeerHeader) DecodeFromBytes(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1854)
+func (h *BMPPeerHeader) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2953::bmp.go:DecodeFromBytes>>>")
 	h.PeerType = data[0]
 	h.Flags = data[1]
 	h.PeerDistinguisher = binary.BigEndian.Uint64(data[2:10])
@@ -130,8 +130,8 @@ func (h *BMPPeerHeader) DecodeFromBytes(data []byte) error {
 	return nil
 }
 
-func (h *BMPPeerHeader) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1855)
+func (h *BMPPeerHeader) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2954::bmp.go:Serialize>>>")
 	buf := make([]byte, BMP_PEER_HEADER_SIZE)
 	buf[0] = h.PeerType
 	buf[1] = h.Flags
@@ -155,8 +155,8 @@ type BMPRouteMonitoring struct {
 	BGPUpdatePayload []byte
 }
 
-func NewBMPRouteMonitoring(p BMPPeerHeader, update *bgp.BGPMessage) *BMPMessage {
-   fmt.Printf("DEJDEJ id:",1856)
+func NewBMPRouteMonitoring(p BMPPeerHeader, update *bgp.BGPMessage) *BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:2955::bmp.go:NewBMPRouteMonitoring(p>>>")
 	return &BMPMessage{
 		Header: BMPHeader{
 			Version: BMP_VERSION,
@@ -169,8 +169,8 @@ func NewBMPRouteMonitoring(p BMPPeerHeader, update *bgp.BGPMessage) *BMPMessage 
 	}
 }
 
-func (body *BMPRouteMonitoring) ParseBody(msg *BMPMessage, data []byte) error {
-   fmt.Printf("DEJDEJ id:",1857)
+func (body *BMPRouteMonitoring) ParseBody(msg *BMPMessage, data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2956::bmp.go:ParseBody>>>")
 	update, err := bgp.ParseBGPMessage(data)
 	if err != nil {
 		return err
@@ -179,8 +179,8 @@ func (body *BMPRouteMonitoring) ParseBody(msg *BMPMessage, data []byte) error {
 	return nil
 }
 
-func (body *BMPRouteMonitoring) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1858)
+func (body *BMPRouteMonitoring) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2957::bmp.go:Serialize>>>")
 	if body.BGPUpdatePayload != nil {
 		return body.BGPUpdatePayload, nil
 	}
@@ -219,8 +219,8 @@ type BMPStatsTLV32 struct {
 	Value uint32
 }
 
-func NewBMPStatsTLV32(t uint16, v uint32) *BMPStatsTLV32 {
-   fmt.Printf("DEJDEJ id:",1859)
+func NewBMPStatsTLV32(t uint16, v uint32) *BMPStatsTLV32 { 
+   fmt.Print("<<<DEJDEJ id:2958::bmp.go:NewBMPStatsTLV32(t>>>")
 	return &BMPStatsTLV32{
 		BMPStatsTLV: BMPStatsTLV{
 			Type:   t,
@@ -230,8 +230,8 @@ func NewBMPStatsTLV32(t uint16, v uint32) *BMPStatsTLV32 {
 	}
 }
 
-func (s *BMPStatsTLV32) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1860)
+func (s *BMPStatsTLV32) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2959::bmp.go:ParseValue>>>")
 	if s.Length != 4 {
 		return fmt.Errorf("invalid length: %d bytes (%d bytes expected)", s.Length, 4)
 	}
@@ -239,8 +239,8 @@ func (s *BMPStatsTLV32) ParseValue(data []byte) error {
 	return nil
 }
 
-func (s *BMPStatsTLV32) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1861)
+func (s *BMPStatsTLV32) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2960::bmp.go:Serialize>>>")
 	buf := make([]byte, 8)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
 	binary.BigEndian.PutUint16(buf[2:4], 4)
@@ -253,8 +253,8 @@ type BMPStatsTLV64 struct {
 	Value uint64
 }
 
-func NewBMPStatsTLV64(t uint16, v uint64) *BMPStatsTLV64 {
-   fmt.Printf("DEJDEJ id:",1862)
+func NewBMPStatsTLV64(t uint16, v uint64) *BMPStatsTLV64 { 
+   fmt.Print("<<<DEJDEJ id:2961::bmp.go:NewBMPStatsTLV64(t>>>")
 	return &BMPStatsTLV64{
 		BMPStatsTLV: BMPStatsTLV{
 			Type:   t,
@@ -264,8 +264,8 @@ func NewBMPStatsTLV64(t uint16, v uint64) *BMPStatsTLV64 {
 	}
 }
 
-func (s *BMPStatsTLV64) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1863)
+func (s *BMPStatsTLV64) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2962::bmp.go:ParseValue>>>")
 	if s.Length != 8 {
 		return fmt.Errorf("invalid length: %d bytes (%d bytes expected)", s.Length, 8)
 	}
@@ -273,8 +273,8 @@ func (s *BMPStatsTLV64) ParseValue(data []byte) error {
 	return nil
 }
 
-func (s *BMPStatsTLV64) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1864)
+func (s *BMPStatsTLV64) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2963::bmp.go:Serialize>>>")
 	buf := make([]byte, 12)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
 	binary.BigEndian.PutUint16(buf[2:4], 8)
@@ -289,8 +289,8 @@ type BMPStatsTLVPerAfiSafi64 struct {
 	Value uint64
 }
 
-func NewBMPStatsTLVPerAfiSafi64(t uint16, afi uint16, safi uint8, v uint64) *BMPStatsTLVPerAfiSafi64 {
-   fmt.Printf("DEJDEJ id:",1865)
+func NewBMPStatsTLVPerAfiSafi64(t uint16, afi uint16, safi uint8, v uint64) *BMPStatsTLVPerAfiSafi64 { 
+   fmt.Print("<<<DEJDEJ id:2964::bmp.go:NewBMPStatsTLVPerAfiSafi64(t>>>")
 	return &BMPStatsTLVPerAfiSafi64{
 		BMPStatsTLV: BMPStatsTLV{
 			Type:   t,
@@ -302,8 +302,8 @@ func NewBMPStatsTLVPerAfiSafi64(t uint16, afi uint16, safi uint8, v uint64) *BMP
 	}
 }
 
-func (s *BMPStatsTLVPerAfiSafi64) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1866)
+func (s *BMPStatsTLVPerAfiSafi64) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2965::bmp.go:ParseValue>>>")
 	if s.Length != 11 {
 		return fmt.Errorf("invalid length: %d bytes (%d bytes expected)", s.Length, 11)
 	}
@@ -313,8 +313,8 @@ func (s *BMPStatsTLVPerAfiSafi64) ParseValue(data []byte) error {
 	return nil
 }
 
-func (s *BMPStatsTLVPerAfiSafi64) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1867)
+func (s *BMPStatsTLVPerAfiSafi64) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2966::bmp.go:Serialize>>>")
 	buf := make([]byte, 15)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
 	binary.BigEndian.PutUint16(buf[2:4], 11)
@@ -329,8 +329,8 @@ type BMPStatisticsReport struct {
 	Stats []BMPStatsTLVInterface
 }
 
-func NewBMPStatisticsReport(p BMPPeerHeader, stats []BMPStatsTLVInterface) *BMPMessage {
-   fmt.Printf("DEJDEJ id:",1868)
+func NewBMPStatisticsReport(p BMPPeerHeader, stats []BMPStatsTLVInterface) *BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:2967::bmp.go:NewBMPStatisticsReport(p>>>")
 	return &BMPMessage{
 		Header: BMPHeader{
 			Version: BMP_VERSION,
@@ -344,8 +344,8 @@ func NewBMPStatisticsReport(p BMPPeerHeader, stats []BMPStatsTLVInterface) *BMPM
 	}
 }
 
-func (body *BMPStatisticsReport) ParseBody(msg *BMPMessage, data []byte) error {
-   fmt.Printf("DEJDEJ id:",1869)
+func (body *BMPStatisticsReport) ParseBody(msg *BMPMessage, data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2968::bmp.go:ParseBody>>>")
 	body.Count = binary.BigEndian.Uint32(data[0:4])
 	data = data[4:]
 	for len(data) >= 4 {
@@ -375,8 +375,8 @@ func (body *BMPStatisticsReport) ParseBody(msg *BMPMessage, data []byte) error {
 	return nil
 }
 
-func (body *BMPStatisticsReport) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1870)
+func (body *BMPStatisticsReport) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2969::bmp.go:Serialize>>>")
 	buf := make([]byte, 4)
 	body.Count = uint32(len(body.Stats))
 	binary.BigEndian.PutUint32(buf[0:4], body.Count)
@@ -405,8 +405,8 @@ type BMPPeerDownNotification struct {
 	Data            []byte
 }
 
-func NewBMPPeerDownNotification(p BMPPeerHeader, reason uint8, notification *bgp.BGPMessage, data []byte) *BMPMessage {
-   fmt.Printf("DEJDEJ id:",1871)
+func NewBMPPeerDownNotification(p BMPPeerHeader, reason uint8, notification *bgp.BGPMessage, data []byte) *BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:2970::bmp.go:NewBMPPeerDownNotification(p>>>")
 	b := &BMPPeerDownNotification{
 		Reason: reason,
 	}
@@ -426,8 +426,8 @@ func NewBMPPeerDownNotification(p BMPPeerHeader, reason uint8, notification *bgp
 	}
 }
 
-func (body *BMPPeerDownNotification) ParseBody(msg *BMPMessage, data []byte) error {
-   fmt.Printf("DEJDEJ id:",1872)
+func (body *BMPPeerDownNotification) ParseBody(msg *BMPMessage, data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2971::bmp.go:ParseBody>>>")
 	body.Reason = data[0]
 	data = data[1:]
 	if body.Reason == BMP_PEER_DOWN_REASON_LOCAL_BGP_NOTIFICATION || body.Reason == BMP_PEER_DOWN_REASON_REMOTE_BGP_NOTIFICATION {
@@ -442,8 +442,8 @@ func (body *BMPPeerDownNotification) ParseBody(msg *BMPMessage, data []byte) err
 	return nil
 }
 
-func (body *BMPPeerDownNotification) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1873)
+func (body *BMPPeerDownNotification) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2972::bmp.go:Serialize>>>")
 	buf := make([]byte, 1)
 	buf[0] = body.Reason
 	switch body.Reason {
@@ -472,8 +472,8 @@ type BMPPeerUpNotification struct {
 	ReceivedOpenMsg *bgp.BGPMessage
 }
 
-func NewBMPPeerUpNotification(p BMPPeerHeader, lAddr string, lPort, rPort uint16, sent, recv *bgp.BGPMessage) *BMPMessage {
-   fmt.Printf("DEJDEJ id:",1874)
+func NewBMPPeerUpNotification(p BMPPeerHeader, lAddr string, lPort, rPort uint16, sent, recv *bgp.BGPMessage) *BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:2973::bmp.go:NewBMPPeerUpNotification(p>>>")
 	b := &BMPPeerUpNotification{
 		LocalPort:       lPort,
 		RemotePort:      rPort,
@@ -496,8 +496,8 @@ func NewBMPPeerUpNotification(p BMPPeerHeader, lAddr string, lPort, rPort uint16
 	}
 }
 
-func (body *BMPPeerUpNotification) ParseBody(msg *BMPMessage, data []byte) error {
-   fmt.Printf("DEJDEJ id:",1875)
+func (body *BMPPeerUpNotification) ParseBody(msg *BMPMessage, data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2974::bmp.go:ParseBody>>>")
 	if msg.PeerHeader.Flags&BMP_PEER_FLAG_IPV6 != 0 {
 		body.LocalAddress = net.IP(data[:16]).To16()
 	} else {
@@ -521,8 +521,8 @@ func (body *BMPPeerUpNotification) ParseBody(msg *BMPMessage, data []byte) error
 	return nil
 }
 
-func (body *BMPPeerUpNotification) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1876)
+func (body *BMPPeerUpNotification) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2975::bmp.go:Serialize>>>")
 	buf := make([]byte, 20)
 	if body.LocalAddress.To4() != nil {
 		copy(buf[12:16], body.LocalAddress.To4())
@@ -561,22 +561,22 @@ type BMPInfoTLVString struct {
 	Value string
 }
 
-func NewBMPInfoTLVString(t uint16, v string) *BMPInfoTLVString {
-   fmt.Printf("DEJDEJ id:",1877)
+func NewBMPInfoTLVString(t uint16, v string) *BMPInfoTLVString { 
+   fmt.Print("<<<DEJDEJ id:2976::bmp.go:NewBMPInfoTLVString(t>>>")
 	return &BMPInfoTLVString{
 		BMPInfoTLV: BMPInfoTLV{Type: t},
 		Value:      v,
 	}
 }
 
-func (s *BMPInfoTLVString) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1878)
+func (s *BMPInfoTLVString) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2977::bmp.go:ParseValue>>>")
 	s.Value = string(data[:s.Length])
 	return nil
 }
 
-func (s *BMPInfoTLVString) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1879)
+func (s *BMPInfoTLVString) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2978::bmp.go:Serialize>>>")
 	s.Length = uint16(len([]byte(s.Value)))
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
@@ -590,22 +590,22 @@ type BMPInfoTLVUnknown struct {
 	Value []byte
 }
 
-func NewBMPInfoTLVUnknown(t uint16, v []byte) *BMPInfoTLVUnknown {
-   fmt.Printf("DEJDEJ id:",1880)
+func NewBMPInfoTLVUnknown(t uint16, v []byte) *BMPInfoTLVUnknown { 
+   fmt.Print("<<<DEJDEJ id:2979::bmp.go:NewBMPInfoTLVUnknown(t>>>")
 	return &BMPInfoTLVUnknown{
 		BMPInfoTLV: BMPInfoTLV{Type: t},
 		Value:      v,
 	}
 }
 
-func (s *BMPInfoTLVUnknown) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1881)
+func (s *BMPInfoTLVUnknown) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2980::bmp.go:ParseValue>>>")
 	s.Value = data[:s.Length]
 	return nil
 }
 
-func (s *BMPInfoTLVUnknown) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1882)
+func (s *BMPInfoTLVUnknown) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2981::bmp.go:Serialize>>>")
 	s.Length = uint16(len([]byte(s.Value)))
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
@@ -618,8 +618,8 @@ type BMPInitiation struct {
 	Info []BMPInfoTLVInterface
 }
 
-func NewBMPInitiation(info []BMPInfoTLVInterface) *BMPMessage {
-   fmt.Printf("DEJDEJ id:",1883)
+func NewBMPInitiation(info []BMPInfoTLVInterface) *BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:2982::bmp.go:NewBMPInitiation(info>>>")
 	return &BMPMessage{
 		Header: BMPHeader{
 			Version: BMP_VERSION,
@@ -631,8 +631,8 @@ func NewBMPInitiation(info []BMPInfoTLVInterface) *BMPMessage {
 	}
 }
 
-func (body *BMPInitiation) ParseBody(msg *BMPMessage, data []byte) error {
-   fmt.Printf("DEJDEJ id:",1884)
+func (body *BMPInitiation) ParseBody(msg *BMPMessage, data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2983::bmp.go:ParseBody>>>")
 	for len(data) >= 4 {
 		tl := BMPInfoTLV{
 			Type:   binary.BigEndian.Uint16(data[0:2]),
@@ -658,8 +658,8 @@ func (body *BMPInitiation) ParseBody(msg *BMPMessage, data []byte) error {
 	return nil
 }
 
-func (body *BMPInitiation) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1885)
+func (body *BMPInitiation) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2984::bmp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, tlv := range body.Info {
 		b, err := tlv.Serialize()
@@ -699,22 +699,22 @@ type BMPTermTLVString struct {
 	Value string
 }
 
-func NewBMPTermTLVString(t uint16, v string) *BMPTermTLVString {
-   fmt.Printf("DEJDEJ id:",1886)
+func NewBMPTermTLVString(t uint16, v string) *BMPTermTLVString { 
+   fmt.Print("<<<DEJDEJ id:2985::bmp.go:NewBMPTermTLVString(t>>>")
 	return &BMPTermTLVString{
 		BMPTermTLV: BMPTermTLV{Type: t},
 		Value:      v,
 	}
 }
 
-func (s *BMPTermTLVString) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1887)
+func (s *BMPTermTLVString) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2986::bmp.go:ParseValue>>>")
 	s.Value = string(data[:s.Length])
 	return nil
 }
 
-func (s *BMPTermTLVString) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1888)
+func (s *BMPTermTLVString) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2987::bmp.go:Serialize>>>")
 	s.Length = uint16(len([]byte(s.Value)))
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
@@ -728,22 +728,22 @@ type BMPTermTLV16 struct {
 	Value uint16
 }
 
-func NewBMPTermTLV16(t uint16, v uint16) *BMPTermTLV16 {
-   fmt.Printf("DEJDEJ id:",1889)
+func NewBMPTermTLV16(t uint16, v uint16) *BMPTermTLV16 { 
+   fmt.Print("<<<DEJDEJ id:2988::bmp.go:NewBMPTermTLV16(t>>>")
 	return &BMPTermTLV16{
 		BMPTermTLV: BMPTermTLV{Type: t},
 		Value:      v,
 	}
 }
 
-func (s *BMPTermTLV16) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1890)
+func (s *BMPTermTLV16) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2989::bmp.go:ParseValue>>>")
 	s.Value = binary.BigEndian.Uint16(data[:2])
 	return nil
 }
 
-func (s *BMPTermTLV16) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1891)
+func (s *BMPTermTLV16) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2990::bmp.go:Serialize>>>")
 	s.Length = 2
 	buf := make([]byte, 6)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
@@ -757,22 +757,22 @@ type BMPTermTLVUnknown struct {
 	Value []byte
 }
 
-func NewBMPTermTLVUnknown(t uint16, v []byte) *BMPTermTLVUnknown {
-   fmt.Printf("DEJDEJ id:",1892)
+func NewBMPTermTLVUnknown(t uint16, v []byte) *BMPTermTLVUnknown { 
+   fmt.Print("<<<DEJDEJ id:2991::bmp.go:NewBMPTermTLVUnknown(t>>>")
 	return &BMPTermTLVUnknown{
 		BMPTermTLV: BMPTermTLV{Type: t},
 		Value:      v,
 	}
 }
 
-func (s *BMPTermTLVUnknown) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1893)
+func (s *BMPTermTLVUnknown) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2992::bmp.go:ParseValue>>>")
 	s.Value = data[:s.Length]
 	return nil
 }
 
-func (s *BMPTermTLVUnknown) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1894)
+func (s *BMPTermTLVUnknown) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2993::bmp.go:Serialize>>>")
 	s.Length = uint16(len([]byte(s.Value)))
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
@@ -785,8 +785,8 @@ type BMPTermination struct {
 	Info []BMPTermTLVInterface
 }
 
-func NewBMPTermination(info []BMPTermTLVInterface) *BMPMessage {
-   fmt.Printf("DEJDEJ id:",1895)
+func NewBMPTermination(info []BMPTermTLVInterface) *BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:2994::bmp.go:NewBMPTermination(info>>>")
 	return &BMPMessage{
 		Header: BMPHeader{
 			Version: BMP_VERSION,
@@ -798,8 +798,8 @@ func NewBMPTermination(info []BMPTermTLVInterface) *BMPMessage {
 	}
 }
 
-func (body *BMPTermination) ParseBody(msg *BMPMessage, data []byte) error {
-   fmt.Printf("DEJDEJ id:",1896)
+func (body *BMPTermination) ParseBody(msg *BMPMessage, data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2995::bmp.go:ParseBody>>>")
 	for len(data) >= 4 {
 		tl := BMPTermTLV{
 			Type:   binary.BigEndian.Uint16(data[0:2]),
@@ -827,8 +827,8 @@ func (body *BMPTermination) ParseBody(msg *BMPMessage, data []byte) error {
 	return nil
 }
 
-func (body *BMPTermination) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1897)
+func (body *BMPTermination) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2996::bmp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, tlv := range body.Info {
 		b, err := tlv.Serialize()
@@ -865,16 +865,16 @@ type BMPRouteMirrTLVBGPMsg struct {
 	Value *bgp.BGPMessage
 }
 
-func NewBMPRouteMirrTLVBGPMsg(t uint16, v *bgp.BGPMessage) *BMPRouteMirrTLVBGPMsg {
-   fmt.Printf("DEJDEJ id:",1898)
+func NewBMPRouteMirrTLVBGPMsg(t uint16, v *bgp.BGPMessage) *BMPRouteMirrTLVBGPMsg { 
+   fmt.Print("<<<DEJDEJ id:2997::bmp.go:NewBMPRouteMirrTLVBGPMsg(t>>>")
 	return &BMPRouteMirrTLVBGPMsg{
 		BMPRouteMirrTLV: BMPRouteMirrTLV{Type: t},
 		Value:           v,
 	}
 }
 
-func (s *BMPRouteMirrTLVBGPMsg) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1899)
+func (s *BMPRouteMirrTLVBGPMsg) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:2998::bmp.go:ParseValue>>>")
 	v, err := bgp.ParseBGPMessage(data)
 	if err != nil {
 		return err
@@ -883,8 +883,8 @@ func (s *BMPRouteMirrTLVBGPMsg) ParseValue(data []byte) error {
 	return nil
 }
 
-func (s *BMPRouteMirrTLVBGPMsg) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1900)
+func (s *BMPRouteMirrTLVBGPMsg) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:2999::bmp.go:Serialize>>>")
 	m, err := s.Value.Serialize()
 	if err != nil {
 		return nil, err
@@ -902,22 +902,22 @@ type BMPRouteMirrTLV16 struct {
 	Value uint16
 }
 
-func NewBMPRouteMirrTLV16(t uint16, v uint16) *BMPRouteMirrTLV16 {
-   fmt.Printf("DEJDEJ id:",1901)
+func NewBMPRouteMirrTLV16(t uint16, v uint16) *BMPRouteMirrTLV16 { 
+   fmt.Print("<<<DEJDEJ id:3000::bmp.go:NewBMPRouteMirrTLV16(t>>>")
 	return &BMPRouteMirrTLV16{
 		BMPRouteMirrTLV: BMPRouteMirrTLV{Type: t},
 		Value:           v,
 	}
 }
 
-func (s *BMPRouteMirrTLV16) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1902)
+func (s *BMPRouteMirrTLV16) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3001::bmp.go:ParseValue>>>")
 	s.Value = binary.BigEndian.Uint16(data[:2])
 	return nil
 }
 
-func (s *BMPRouteMirrTLV16) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1903)
+func (s *BMPRouteMirrTLV16) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3002::bmp.go:Serialize>>>")
 	s.Length = 2
 	buf := make([]byte, 6)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
@@ -931,22 +931,22 @@ type BMPRouteMirrTLVUnknown struct {
 	Value []byte
 }
 
-func NewBMPRouteMirrTLVUnknown(t uint16, v []byte) *BMPRouteMirrTLVUnknown {
-   fmt.Printf("DEJDEJ id:",1904)
+func NewBMPRouteMirrTLVUnknown(t uint16, v []byte) *BMPRouteMirrTLVUnknown { 
+   fmt.Print("<<<DEJDEJ id:3003::bmp.go:NewBMPRouteMirrTLVUnknown(t>>>")
 	return &BMPRouteMirrTLVUnknown{
 		BMPRouteMirrTLV: BMPRouteMirrTLV{Type: t},
 		Value:           v,
 	}
 }
 
-func (s *BMPRouteMirrTLVUnknown) ParseValue(data []byte) error {
-   fmt.Printf("DEJDEJ id:",1905)
+func (s *BMPRouteMirrTLVUnknown) ParseValue(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3004::bmp.go:ParseValue>>>")
 	s.Value = data[:s.Length]
 	return nil
 }
 
-func (s *BMPRouteMirrTLVUnknown) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1906)
+func (s *BMPRouteMirrTLVUnknown) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3005::bmp.go:Serialize>>>")
 	s.Length = uint16(len([]byte(s.Value)))
 	buf := make([]byte, 4)
 	binary.BigEndian.PutUint16(buf[0:2], s.Type)
@@ -959,8 +959,8 @@ type BMPRouteMirroring struct {
 	Info []BMPRouteMirrTLVInterface
 }
 
-func NewBMPRouteMirroring(p BMPPeerHeader, info []BMPRouteMirrTLVInterface) *BMPMessage {
-   fmt.Printf("DEJDEJ id:",1907)
+func NewBMPRouteMirroring(p BMPPeerHeader, info []BMPRouteMirrTLVInterface) *BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:3006::bmp.go:NewBMPRouteMirroring(p>>>")
 	return &BMPMessage{
 		Header: BMPHeader{
 			Version: BMP_VERSION,
@@ -973,8 +973,8 @@ func NewBMPRouteMirroring(p BMPPeerHeader, info []BMPRouteMirrTLVInterface) *BMP
 	}
 }
 
-func (body *BMPRouteMirroring) ParseBody(msg *BMPMessage, data []byte) error {
-   fmt.Printf("DEJDEJ id:",1908)
+func (body *BMPRouteMirroring) ParseBody(msg *BMPMessage, data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:3007::bmp.go:ParseBody>>>")
 	for len(data) >= 4 {
 		tl := BMPRouteMirrTLV{
 			Type:   binary.BigEndian.Uint16(data[0:2]),
@@ -1002,8 +1002,8 @@ func (body *BMPRouteMirroring) ParseBody(msg *BMPMessage, data []byte) error {
 	return nil
 }
 
-func (body *BMPRouteMirroring) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1909)
+func (body *BMPRouteMirroring) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3008::bmp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	for _, tlv := range body.Info {
 		b, err := tlv.Serialize()
@@ -1029,8 +1029,8 @@ type BMPMessage struct {
 	Body       BMPBody
 }
 
-func (msg *BMPMessage) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",1910)
+func (msg *BMPMessage) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:3009::bmp.go:Serialize>>>")
 	buf := make([]byte, 0)
 	if msg.Header.Type != BMP_MSG_INITIATION && msg.Header.Type != BMP_MSG_TERMINATION {
 		p, err := msg.PeerHeader.Serialize()
@@ -1057,8 +1057,8 @@ func (msg *BMPMessage) Serialize() ([]byte, error) {
 	return append(h, buf...), nil
 }
 
-func (msg *BMPMessage) Len() int {
-   fmt.Printf("DEJDEJ id:",1911)
+func (msg *BMPMessage) Len() int { 
+   fmt.Print("<<<DEJDEJ id:3010::bmp.go:Len>>>")
 	return int(msg.Header.Length)
 }
 
@@ -1072,8 +1072,8 @@ const (
 	BMP_MSG_ROUTE_MIRRORING
 )
 
-func ParseBMPMessage(data []byte) (msg *BMPMessage, err error) {
-   fmt.Printf("DEJDEJ id:",1912)
+func ParseBMPMessage(data []byte) (msg *BMPMessage, err error) { 
+   fmt.Print("<<<DEJDEJ id:3011::bmp.go:ParseBMPMessage(data>>>")
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("not all data bytes are available")
@@ -1118,8 +1118,8 @@ func ParseBMPMessage(data []byte) (msg *BMPMessage, err error) {
 	return msg, nil
 }
 
-func SplitBMP(data []byte, atEOF bool) (advance int, token []byte, err error) {
-   fmt.Printf("DEJDEJ id:",1913)
+func SplitBMP(data []byte, atEOF bool) (advance int, token []byte, err error) { 
+   fmt.Print("<<<DEJDEJ id:3012::bmp.go:SplitBMP(data>>>")
 	if atEOF && len(data) == 0 || len(data) < BMP_HEADER_SIZE {
 		return 0, nil, nil
 	}

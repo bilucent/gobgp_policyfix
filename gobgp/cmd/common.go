@@ -121,8 +121,8 @@ var mrtOpts struct {
 	NextHop     net.IP `long:"nexthop" description:"Rewrite nexthop"`
 }
 
-func formatTimedelta(d int64) string {
-   fmt.Printf("DEJDEJ id:",3614)
+func formatTimedelta(d int64) string { 
+   fmt.Print("<<<DEJDEJ id:90::common.go:formatTimedelta(d>>>")
 	u := uint64(d)
 	neg := d < 0
 	if neg {
@@ -142,8 +142,8 @@ func formatTimedelta(d int64) string {
 	}
 }
 
-func cidr2prefix(cidr string) string {
-   fmt.Printf("DEJDEJ id:",3615)
+func cidr2prefix(cidr string) string { 
+   fmt.Print("<<<DEJDEJ id:91::common.go:cidr2prefix(cidr>>>")
 	_, n, err := net.ParseCIDR(cidr)
 	if err != nil {
 		return cidr
@@ -156,8 +156,8 @@ func cidr2prefix(cidr string) string {
 	return buffer.String()[:ones]
 }
 
-func extractReserved(args, keys []string) map[string][]string {
-   fmt.Printf("DEJDEJ id:",3616)
+func extractReserved(args, keys []string) map[string][]string { 
+   fmt.Print("<<<DEJDEJ id:92::common.go:extractReserved(args,>>>")
 	m := make(map[string][]string, len(keys))
 	var k string
 	isReserved := func(s string) bool {
@@ -181,18 +181,18 @@ func extractReserved(args, keys []string) map[string][]string {
 
 type neighbors []*config.Neighbor
 
-func (n neighbors) Len() int {
-   fmt.Printf("DEJDEJ id:",3617)
+func (n neighbors) Len() int { 
+   fmt.Print("<<<DEJDEJ id:93::common.go:Len>>>")
 	return len(n)
 }
 
-func (n neighbors) Swap(i, j int) {
-   fmt.Printf("DEJDEJ id:",3618)
+func (n neighbors) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:94::common.go:Swap>>>")
 	n[i], n[j] = n[j], n[i]
 }
 
-func (n neighbors) Less(i, j int) bool {
-   fmt.Printf("DEJDEJ id:",3619)
+func (n neighbors) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:95::common.go:Less>>>")
 	p1 := n[i].State.NeighborAddress
 	p2 := n[j].State.NeighborAddress
 	p1Isv4 := !strings.Contains(p1, ":")
@@ -214,40 +214,40 @@ func (n neighbors) Less(i, j int) bool {
 
 type capabilities []bgp.ParameterCapabilityInterface
 
-func (c capabilities) Len() int {
-   fmt.Printf("DEJDEJ id:",3620)
+func (c capabilities) Len() int { 
+   fmt.Print("<<<DEJDEJ id:96::common.go:Len>>>")
 	return len(c)
 }
 
-func (c capabilities) Swap(i, j int) {
-   fmt.Printf("DEJDEJ id:",3621)
+func (c capabilities) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:97::common.go:Swap>>>")
 	c[i], c[j] = c[j], c[i]
 }
 
-func (c capabilities) Less(i, j int) bool {
-   fmt.Printf("DEJDEJ id:",3622)
+func (c capabilities) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:98::common.go:Less>>>")
 	return c[i].Code() < c[j].Code()
 }
 
 type vrfs []*table.Vrf
 
-func (v vrfs) Len() int {
-   fmt.Printf("DEJDEJ id:",3623)
+func (v vrfs) Len() int { 
+   fmt.Print("<<<DEJDEJ id:99::common.go:Len>>>")
 	return len(v)
 }
 
-func (v vrfs) Swap(i, j int) {
-   fmt.Printf("DEJDEJ id:",3624)
+func (v vrfs) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:100::common.go:Swap>>>")
 	v[i], v[j] = v[j], v[i]
 }
 
-func (v vrfs) Less(i, j int) bool {
-   fmt.Printf("DEJDEJ id:",3625)
+func (v vrfs) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:101::common.go:Less>>>")
 	return v[i].Name < v[j].Name
 }
 
-func newClient() *cli.Client {
-   fmt.Printf("DEJDEJ id:",3626)
+func newClient() *cli.Client { 
+   fmt.Print("<<<DEJDEJ id:102::common.go:newClient()>>>")
 	var grpcOpts []grpc.DialOption
 	if globalOpts.TLS {
 		var creds credentials.TransportCredentials
@@ -274,8 +274,8 @@ func newClient() *cli.Client {
 	return client
 }
 
-func addr2AddressFamily(a net.IP) bgp.RouteFamily {
-   fmt.Printf("DEJDEJ id:",3627)
+func addr2AddressFamily(a net.IP) bgp.RouteFamily { 
+   fmt.Print("<<<DEJDEJ id:103::common.go:addr2AddressFamily(a>>>")
 	if a.To4() != nil {
 		return bgp.RF_IPv4_UC
 	} else if a.To16() != nil {
@@ -284,8 +284,8 @@ func addr2AddressFamily(a net.IP) bgp.RouteFamily {
 	return bgp.RouteFamily(0)
 }
 
-func checkAddressFamily(def bgp.RouteFamily) (bgp.RouteFamily, error) {
-   fmt.Printf("DEJDEJ id:",3628)
+func checkAddressFamily(def bgp.RouteFamily) (bgp.RouteFamily, error) { 
+   fmt.Print("<<<DEJDEJ id:104::common.go:checkAddressFamily(def>>>")
 	var rf bgp.RouteFamily
 	var e error
 	switch subOpts.AddressFamily {
@@ -329,8 +329,8 @@ func checkAddressFamily(def bgp.RouteFamily) (bgp.RouteFamily, error) {
 	return rf, e
 }
 
-func printError(err error) {
-   fmt.Printf("DEJDEJ id:",3629)
+func printError(err error) { 
+   fmt.Print("<<<DEJDEJ id:105::common.go:printError(err>>>")
 	if globalOpts.Json {
 		j, _ := json.Marshal(struct {
 			Error string `json:"error"`
@@ -341,8 +341,8 @@ func printError(err error) {
 	}
 }
 
-func exitWithError(err error) {
-   fmt.Printf("DEJDEJ id:",3630)
+func exitWithError(err error) { 
+   fmt.Print("<<<DEJDEJ id:106::common.go:exitWithError(err>>>")
 	printError(err)
 	os.Exit(1)
 }

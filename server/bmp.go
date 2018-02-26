@@ -29,14 +29,14 @@ import (
 
 type ribout map[string][]*table.Path
 
-func newribout() ribout {
-   fmt.Printf("DEJDEJ id:",5)
+func newribout() ribout { 
+   fmt.Print("<<<DEJDEJ id:663::bmp.go:newribout()>>>")
 	return make(map[string][]*table.Path)
 }
 
 // return true if we need to send the path to the BMP server
-func (r ribout) update(p *table.Path) bool {
-   fmt.Printf("DEJDEJ id:",6)
+func (r ribout) update(p *table.Path) bool { 
+   fmt.Print("<<<DEJDEJ id:664::bmp.go:update>>>")
 	key := p.GetNlri().String() // TODO expose (*Path).getPrefix()
 	l := r[key]
 	if p.IsWithdraw {
@@ -80,8 +80,8 @@ func (r ribout) update(p *table.Path) bool {
 	return true
 }
 
-func (b *bmpClient) tryConnect() *net.TCPConn {
-   fmt.Printf("DEJDEJ id:",7)
+func (b *bmpClient) tryConnect() *net.TCPConn { 
+   fmt.Print("<<<DEJDEJ id:665::bmp.go:tryConnect>>>")
 	interval := 1
 	for {
 		log.WithFields(log.Fields{"Topic": "bmp"}).Debugf("Connecting BMP server:%s", b.host)
@@ -103,13 +103,13 @@ func (b *bmpClient) tryConnect() *net.TCPConn {
 	}
 }
 
-func (b *bmpClient) Stop() {
-   fmt.Printf("DEJDEJ id:",8)
+func (b *bmpClient) Stop() { 
+   fmt.Print("<<<DEJDEJ id:666::bmp.go:Stop>>>")
 	close(b.dead)
 }
 
-func (b *bmpClient) loop() {
-   fmt.Printf("DEJDEJ id:",9)
+func (b *bmpClient) loop() { 
+   fmt.Print("<<<DEJDEJ id:667::bmp.go:loop>>>")
 	for {
 		conn := b.tryConnect()
 		if conn == nil {
@@ -262,8 +262,8 @@ type bmpClient struct {
 	ribout ribout
 }
 
-func bmpPeerUp(laddr string, lport, rport uint16, sent, recv *bgp.BGPMessage, t uint8, policy bool, pd uint64, peeri *table.PeerInfo, timestamp int64) *bmp.BMPMessage {
-   fmt.Printf("DEJDEJ id:",10)
+func bmpPeerUp(laddr string, lport, rport uint16, sent, recv *bgp.BGPMessage, t uint8, policy bool, pd uint64, peeri *table.PeerInfo, timestamp int64) *bmp.BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:668::bmp.go:bmpPeerUp(laddr>>>")
 	var flags uint8 = 0
 	if policy {
 		flags |= bmp.BMP_PEER_FLAG_POST_POLICY
@@ -272,8 +272,8 @@ func bmpPeerUp(laddr string, lport, rport uint16, sent, recv *bgp.BGPMessage, t 
 	return bmp.NewBMPPeerUpNotification(*ph, laddr, lport, rport, sent, recv)
 }
 
-func bmpPeerDown(reason uint8, t uint8, policy bool, pd uint64, peeri *table.PeerInfo, timestamp int64) *bmp.BMPMessage {
-   fmt.Printf("DEJDEJ id:",11)
+func bmpPeerDown(reason uint8, t uint8, policy bool, pd uint64, peeri *table.PeerInfo, timestamp int64) *bmp.BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:669::bmp.go:bmpPeerDown(reason>>>")
 	var flags uint8 = 0
 	if policy {
 		flags |= bmp.BMP_PEER_FLAG_POST_POLICY
@@ -282,8 +282,8 @@ func bmpPeerDown(reason uint8, t uint8, policy bool, pd uint64, peeri *table.Pee
 	return bmp.NewBMPPeerDownNotification(*ph, reason, nil, []byte{})
 }
 
-func bmpPeerRoute(t uint8, policy bool, pd uint64, fourBytesAs bool, peeri *table.PeerInfo, timestamp int64, payload []byte) *bmp.BMPMessage {
-   fmt.Printf("DEJDEJ id:",12)
+func bmpPeerRoute(t uint8, policy bool, pd uint64, fourBytesAs bool, peeri *table.PeerInfo, timestamp int64, payload []byte) *bmp.BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:670::bmp.go:bmpPeerRoute(t>>>")
 	var flags uint8 = 0
 	if policy {
 		flags |= bmp.BMP_PEER_FLAG_POST_POLICY
@@ -298,8 +298,8 @@ func bmpPeerRoute(t uint8, policy bool, pd uint64, fourBytesAs bool, peeri *tabl
 	return m
 }
 
-func bmpPeerStats(peerType uint8, peerDist uint64, timestamp int64, neighConf *config.Neighbor) *bmp.BMPMessage {
-   fmt.Printf("DEJDEJ id:",13)
+func bmpPeerStats(peerType uint8, peerDist uint64, timestamp int64, neighConf *config.Neighbor) *bmp.BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:671::bmp.go:bmpPeerStats(peerType>>>")
 	var peerFlags uint8 = 0
 	ph := bmp.NewBMPPeerHeader(peerType, peerFlags, peerDist, neighConf.State.NeighborAddress, neighConf.State.PeerAs, neighConf.State.RemoteRouterId, float64(timestamp))
 	return bmp.NewBMPStatisticsReport(
@@ -313,8 +313,8 @@ func bmpPeerStats(peerType uint8, peerDist uint64, timestamp int64, neighConf *c
 	)
 }
 
-func bmpPeerRouteMirroring(peerType uint8, peerDist uint64, peerInfo *table.PeerInfo, timestamp int64, msg *bgp.BGPMessage) *bmp.BMPMessage {
-   fmt.Printf("DEJDEJ id:",14)
+func bmpPeerRouteMirroring(peerType uint8, peerDist uint64, peerInfo *table.PeerInfo, timestamp int64, msg *bgp.BGPMessage) *bmp.BMPMessage { 
+   fmt.Print("<<<DEJDEJ id:672::bmp.go:bmpPeerRouteMirroring(peerType>>>")
 	var peerFlags uint8 = 0
 	ph := bmp.NewBMPPeerHeader(peerType, peerFlags, peerDist, peerInfo.Address.String(), peerInfo.AS, peerInfo.ID.String(), float64(timestamp))
 	return bmp.NewBMPRouteMirroring(
@@ -326,8 +326,8 @@ func bmpPeerRouteMirroring(peerType uint8, peerDist uint64, peerInfo *table.Peer
 	)
 }
 
-func (b *bmpClientManager) addServer(c *config.BmpServerConfig) error {
-   fmt.Printf("DEJDEJ id:",15)
+func (b *bmpClientManager) addServer(c *config.BmpServerConfig) error { 
+   fmt.Print("<<<DEJDEJ id:673::bmp.go:addServer>>>")
 	host := net.JoinHostPort(c.Address, strconv.Itoa(int(c.Port)))
 	if _, y := b.clientMap[host]; y {
 		return fmt.Errorf("bmp client %s is already configured", host)
@@ -343,8 +343,8 @@ func (b *bmpClientManager) addServer(c *config.BmpServerConfig) error {
 	return nil
 }
 
-func (b *bmpClientManager) deleteServer(c *config.BmpServerConfig) error {
-   fmt.Printf("DEJDEJ id:",16)
+func (b *bmpClientManager) deleteServer(c *config.BmpServerConfig) error { 
+   fmt.Print("<<<DEJDEJ id:674::bmp.go:deleteServer>>>")
 	host := net.JoinHostPort(c.Address, strconv.Itoa(int(c.Port)))
 	if c, y := b.clientMap[host]; !y {
 		return fmt.Errorf("bmp client %s isn't found", host)
@@ -360,8 +360,8 @@ type bmpClientManager struct {
 	clientMap map[string]*bmpClient
 }
 
-func newBmpClientManager(s *BgpServer) *bmpClientManager {
-   fmt.Printf("DEJDEJ id:",17)
+func newBmpClientManager(s *BgpServer) *bmpClientManager { 
+   fmt.Print("<<<DEJDEJ id:675::bmp.go:newBmpClientManager(s>>>")
 	return &bmpClientManager{
 		s:         s,
 		clientMap: make(map[string]*bmpClient),

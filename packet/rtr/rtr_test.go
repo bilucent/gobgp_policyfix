@@ -25,8 +25,8 @@ import (
 	"time"
 )
 
-func verifyRTRMessage(t *testing.T, m1 RTRMessage) {
-   fmt.Printf("DEJDEJ id:",1820)
+func verifyRTRMessage(t *testing.T, m1 RTRMessage) { 
+   fmt.Print("<<<DEJDEJ id:2867::rtr_test.go:verifyRTRMessage(t>>>")
 	buf1, _ := m1.Serialize()
 	m2, err := ParseRTR(buf1)
 	if err != nil {
@@ -43,33 +43,33 @@ func verifyRTRMessage(t *testing.T, m1 RTRMessage) {
 	}
 }
 
-func randUint32() uint32 {
-   fmt.Printf("DEJDEJ id:",1821)
+func randUint32() uint32 { 
+   fmt.Print("<<<DEJDEJ id:2868::rtr_test.go:randUint32()>>>")
 	rand.Seed(time.Now().UnixNano())
 	return rand.Uint32()
 }
 
-func Test_RTRSerialNotify(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1822)
+func Test_RTRSerialNotify(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2869::rtr_test.go:Test_RTRSerialNotify(t>>>")
 	id := uint16(time.Now().Unix())
 	sn := randUint32()
 	verifyRTRMessage(t, NewRTRSerialNotify(id, sn))
 }
 
-func Test_RTRSerialQuery(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1823)
+func Test_RTRSerialQuery(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2870::rtr_test.go:Test_RTRSerialQuery(t>>>")
 	id := uint16(time.Now().Unix())
 	sn := randUint32()
 	verifyRTRMessage(t, NewRTRSerialQuery(id, sn))
 }
 
-func Test_RTRResetQuery(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1824)
+func Test_RTRResetQuery(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2871::rtr_test.go:Test_RTRResetQuery(t>>>")
 	verifyRTRMessage(t, NewRTRResetQuery())
 }
 
-func Test_RTRCacheResponse(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1825)
+func Test_RTRCacheResponse(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2872::rtr_test.go:Test_RTRCacheResponse(t>>>")
 	id := uint16(time.Now().Unix())
 	verifyRTRMessage(t, NewRTRCacheResponse(id))
 }
@@ -91,8 +91,8 @@ var rtrIPPrefixTestCases = []rtrIPPrefixTestCase{
 	{"::ffff:0.0.0.0", 96, 128, 65001, WITHDRAWAL},
 }
 
-func Test_RTRIPPrefix(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1826)
+func Test_RTRIPPrefix(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2873::rtr_test.go:Test_RTRIPPrefix(t>>>")
 	for i := range rtrIPPrefixTestCases {
 		test := &rtrIPPrefixTestCases[i]
 		addr := net.ParseIP(test.pString)
@@ -100,20 +100,20 @@ func Test_RTRIPPrefix(t *testing.T) {
 	}
 }
 
-func Test_RTREndOfData(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1827)
+func Test_RTREndOfData(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2874::rtr_test.go:Test_RTREndOfData(t>>>")
 	id := uint16(time.Now().Unix())
 	sn := randUint32()
 	verifyRTRMessage(t, NewRTREndOfData(id, sn))
 }
 
-func Test_RTRCacheReset(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1828)
+func Test_RTRCacheReset(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2875::rtr_test.go:Test_RTRCacheReset(t>>>")
 	verifyRTRMessage(t, NewRTRCacheReset())
 }
 
-func Test_RTRErrorReport(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1829)
+func Test_RTRErrorReport(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2876::rtr_test.go:Test_RTRErrorReport(t>>>")
 	errPDU, _ := NewRTRResetQuery().Serialize()
 	errText1 := []byte("Couldn't send CacheResponce PDU")
 	errText2 := []byte("Wrong Length of PDU: 10 bytes")

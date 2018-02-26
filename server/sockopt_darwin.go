@@ -23,13 +23,13 @@ import (
 	"syscall"
 )
 
-func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
-   fmt.Printf("DEJDEJ id:",329)
+func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:581::sockopt_darwin.go:setTcpMD5SigSockopt(l>>>")
 	return fmt.Errorf("setting md5 is not supported")
 }
 
-func setsockoptIpTtl(fd int, family int, value int) error {
-   fmt.Printf("DEJDEJ id:",330)
+func setsockoptIpTtl(fd int, family int, value int) error { 
+   fmt.Print("<<<DEJDEJ id:582::sockopt_darwin.go:setsockoptIpTtl(fd>>>")
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_TTL
 	if family == syscall.AF_INET6 {
@@ -39,8 +39,8 @@ func setsockoptIpTtl(fd int, family int, value int) error {
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(fd, level, name, value))
 }
 
-func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
-   fmt.Printf("DEJDEJ id:",331)
+func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:583::sockopt_darwin.go:setListenTcpTTLSockopt(l>>>")
 	fi, family, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -49,8 +49,8 @@ func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",332)
+func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:584::sockopt_darwin.go:setTcpTTLSockopt(conn>>>")
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -59,7 +59,7 @@ func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",333)
+func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:585::sockopt_darwin.go:setTcpMinTTLSockopt(conn>>>")
 	return fmt.Errorf("setting min ttl is not supported")
 }

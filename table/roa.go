@@ -25,8 +25,8 @@ type IPPrefix struct {
 	Length uint8
 }
 
-func (p *IPPrefix) String() string {
-   fmt.Printf("DEJDEJ id:",2815)
+func (p *IPPrefix) String() string { 
+   fmt.Print("<<<DEJDEJ id:1288::roa.go:String>>>")
 	return fmt.Sprintf("%s/%d", p.Prefix, p.Length)
 }
 
@@ -38,8 +38,8 @@ type ROA struct {
 	Src    string
 }
 
-func NewROA(family int, prefixByte []byte, prefixLen uint8, maxLen uint8, as uint32, src string) *ROA {
-   fmt.Printf("DEJDEJ id:",2816)
+func NewROA(family int, prefixByte []byte, prefixLen uint8, maxLen uint8, as uint32, src string) *ROA { 
+   fmt.Print("<<<DEJDEJ id:1289::roa.go:NewROA(family>>>")
 	p := make([]byte, len(prefixByte))
 	copy(p, prefixByte)
 	return &ROA{
@@ -54,8 +54,8 @@ func NewROA(family int, prefixByte []byte, prefixLen uint8, maxLen uint8, as uin
 	}
 }
 
-func (r *ROA) Equal(roa *ROA) bool {
-   fmt.Printf("DEJDEJ id:",2817)
+func (r *ROA) Equal(roa *ROA) bool { 
+   fmt.Print("<<<DEJDEJ id:1290::roa.go:Equal>>>")
 	if r.MaxLen == roa.MaxLen && r.Src == roa.Src && r.AS == roa.AS {
 		return true
 	}

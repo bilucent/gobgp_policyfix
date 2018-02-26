@@ -24,16 +24,16 @@ var forcedOverwrittenConfig = []string{
 
 var configuredFields map[string]interface{}
 
-func RegisterConfiguredFields(addr string, n interface{}) {
-   fmt.Printf("DEJDEJ id:",3463)
+func RegisterConfiguredFields(addr string, n interface{}) { 
+   fmt.Print("<<<DEJDEJ id:325::default.go:RegisterConfiguredFields(addr>>>")
 	if configuredFields == nil {
 		configuredFields = make(map[string]interface{}, 0)
 	}
 	configuredFields[addr] = n
 }
 
-func defaultAfiSafi(typ AfiSafiType, enable bool) AfiSafi {
-   fmt.Printf("DEJDEJ id:",3464)
+func defaultAfiSafi(typ AfiSafiType, enable bool) AfiSafi { 
+   fmt.Print("<<<DEJDEJ id:326::default.go:defaultAfiSafi(typ>>>")
 	return AfiSafi{
 		Config: AfiSafiConfig{
 			AfiSafiName: typ,
@@ -46,8 +46,8 @@ func defaultAfiSafi(typ AfiSafiType, enable bool) AfiSafi {
 	}
 }
 
-func SetDefaultNeighborConfigValues(n *Neighbor, pg *PeerGroup, g *Global) error {
-   fmt.Printf("DEJDEJ id:",3465)
+func SetDefaultNeighborConfigValues(n *Neighbor, pg *PeerGroup, g *Global) error { 
+   fmt.Print("<<<DEJDEJ id:327::default.go:SetDefaultNeighborConfigValues(n>>>")
 	// Determines this function is called against the same Neighbor struct,
 	// and if already called, returns immediately.
 	if n.State.LocalAs != 0 {
@@ -57,8 +57,8 @@ func SetDefaultNeighborConfigValues(n *Neighbor, pg *PeerGroup, g *Global) error
 	return setDefaultNeighborConfigValuesWithViper(nil, n, g, pg)
 }
 
-func setDefaultNeighborConfigValuesWithViper(v *viper.Viper, n *Neighbor, g *Global, pg *PeerGroup) error {
-   fmt.Printf("DEJDEJ id:",3466)
+func setDefaultNeighborConfigValuesWithViper(v *viper.Viper, n *Neighbor, g *Global, pg *PeerGroup) error { 
+   fmt.Print("<<<DEJDEJ id:328::default.go:setDefaultNeighborConfigValuesWithViper(v>>>")
 	if n == nil {
 		return fmt.Errorf("neighbor config is nil")
 	}
@@ -251,8 +251,8 @@ func setDefaultNeighborConfigValuesWithViper(v *viper.Viper, n *Neighbor, g *Glo
 	return nil
 }
 
-func SetDefaultGlobalConfigValues(g *Global) error {
-   fmt.Printf("DEJDEJ id:",3467)
+func SetDefaultGlobalConfigValues(g *Global) error { 
+   fmt.Print("<<<DEJDEJ id:329::default.go:SetDefaultGlobalConfigValues(g>>>")
 	if len(g.AfiSafis) == 0 {
 		g.AfiSafis = []AfiSafi{}
 		for k, _ := range AfiSafiTypeToIntMap {
@@ -270,13 +270,13 @@ func SetDefaultGlobalConfigValues(g *Global) error {
 	return nil
 }
 
-func SetDefaultConfigValues(b *BgpConfigSet) error {
-   fmt.Printf("DEJDEJ id:",3468)
+func SetDefaultConfigValues(b *BgpConfigSet) error { 
+   fmt.Print("<<<DEJDEJ id:330::default.go:SetDefaultConfigValues(b>>>")
 	return setDefaultConfigValuesWithViper(nil, b)
 }
 
-func setDefaultPolicyConfigValuesWithViper(v *viper.Viper, p *PolicyDefinition) error {
-   fmt.Printf("DEJDEJ id:",3469)
+func setDefaultPolicyConfigValuesWithViper(v *viper.Viper, p *PolicyDefinition) error { 
+   fmt.Print("<<<DEJDEJ id:331::default.go:setDefaultPolicyConfigValuesWithViper(v>>>")
 	stmts, err := extractArray(v.Get("policy.statements"))
 	if err != nil {
 		return err
@@ -293,8 +293,8 @@ func setDefaultPolicyConfigValuesWithViper(v *viper.Viper, p *PolicyDefinition) 
 	return nil
 }
 
-func setDefaultConfigValuesWithViper(v *viper.Viper, b *BgpConfigSet) error {
-   fmt.Printf("DEJDEJ id:",3470)
+func setDefaultConfigValuesWithViper(v *viper.Viper, b *BgpConfigSet) error { 
+   fmt.Print("<<<DEJDEJ id:332::default.go:setDefaultConfigValuesWithViper(v>>>")
 	if v == nil {
 		v = viper.New()
 	}
@@ -393,8 +393,8 @@ func setDefaultConfigValuesWithViper(v *viper.Viper, b *BgpConfigSet) error {
 	return nil
 }
 
-func OverwriteNeighborConfigWithPeerGroup(c *Neighbor, pg *PeerGroup) error {
-   fmt.Printf("DEJDEJ id:",3471)
+func OverwriteNeighborConfigWithPeerGroup(c *Neighbor, pg *PeerGroup) error { 
+   fmt.Print("<<<DEJDEJ id:333::default.go:OverwriteNeighborConfigWithPeerGroup(c>>>")
 	v := viper.New()
 
 	val, ok := configuredFields[c.Config.NeighborAddress]
@@ -426,8 +426,8 @@ func OverwriteNeighborConfigWithPeerGroup(c *Neighbor, pg *PeerGroup) error {
 	return nil
 }
 
-func overwriteConfig(c, pg interface{}, tagPrefix string, v *viper.Viper) {
-   fmt.Printf("DEJDEJ id:",3472)
+func overwriteConfig(c, pg interface{}, tagPrefix string, v *viper.Viper) { 
+   fmt.Print("<<<DEJDEJ id:334::default.go:overwriteConfig(c,>>>")
 	nValue := reflect.Indirect(reflect.ValueOf(c))
 	nType := reflect.Indirect(nValue).Type()
 	pgValue := reflect.Indirect(reflect.ValueOf(pg))

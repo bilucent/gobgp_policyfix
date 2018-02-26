@@ -21,8 +21,8 @@ import (
 	"syscall"
 )
 
-func intfflag2string(flag uint64) string {
-   fmt.Printf("DEJDEJ id:",3492)
+func intfflag2string(flag uint64) string { 
+   fmt.Print("<<<DEJDEJ id:422::zapi_windows.go:intfflag2string(flag>>>")
 	ss := make([]string, 0, 10)
 	if flag&syscall.IFF_UP > 0 {
 		ss = append(ss, "UP")

@@ -9,8 +9,8 @@ import (
 )
 
 // Validator for BGPUpdate
-func ValidateUpdateMsg(m *BGPUpdate, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) {
-   fmt.Printf("DEJDEJ id:",2673)
+func ValidateUpdateMsg(m *BGPUpdate, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:3694::validate.go:ValidateUpdateMsg(m>>>")
 	var strongestError error
 
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
@@ -81,8 +81,8 @@ func ValidateUpdateMsg(m *BGPUpdate, rfs map[RouteFamily]BGPAddPathMode, isEBGP 
 	return strongestError == nil, strongestError
 }
 
-func ValidateAttribute(a PathAttributeInterface, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) {
-   fmt.Printf("DEJDEJ id:",2674)
+func ValidateAttribute(a PathAttributeInterface, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:3695::validate.go:ValidateAttribute(a>>>")
 	var strongestError error
 
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
@@ -229,8 +229,8 @@ func ValidateAttribute(a PathAttributeInterface, rfs map[RouteFamily]BGPAddPathM
 }
 
 // validator for PathAttribute
-func validatePathAttributeFlags(t BGPAttrType, flags BGPAttrFlag) string {
-   fmt.Printf("DEJDEJ id:",2675)
+func validatePathAttributeFlags(t BGPAttrType, flags BGPAttrFlag) string { 
+   fmt.Print("<<<DEJDEJ id:3696::validate.go:validatePathAttributeFlags(t>>>")
 
 	/*
 	 * RFC 4271 P.17 For well-known attributes, the Transitive bit MUST be set to 1.
@@ -262,8 +262,8 @@ func validatePathAttributeFlags(t BGPAttrType, flags BGPAttrFlag) string {
 	return ""
 }
 
-func validateAsPathValueBytes(data []byte) (bool, error) {
-   fmt.Printf("DEJDEJ id:",2676)
+func validateAsPathValueBytes(data []byte) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:3697::validate.go:validateAsPathValueBytes(data>>>")
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 	eSubCode := uint8(BGP_ERROR_SUB_MALFORMED_AS_PATH)
 	if len(data)%2 != 0 {
@@ -309,8 +309,8 @@ func validateAsPathValueBytes(data []byte) (bool, error) {
 	return false, NewMessageError(eCode, eSubCode, nil, "can't parse AS_PATH")
 }
 
-func ValidateBGPMessage(m *BGPMessage) error {
-   fmt.Printf("DEJDEJ id:",2677)
+func ValidateBGPMessage(m *BGPMessage) error { 
+   fmt.Print("<<<DEJDEJ id:3698::validate.go:ValidateBGPMessage(m>>>")
 	if m.Header.Len > BGP_MAX_MESSAGE_LENGTH {
 		buf := make([]byte, 2)
 		binary.BigEndian.PutUint16(buf, m.Header.Len)
@@ -320,8 +320,8 @@ func ValidateBGPMessage(m *BGPMessage) error {
 	return nil
 }
 
-func ValidateOpenMsg(m *BGPOpen, expectedAS uint32) (uint32, error) {
-   fmt.Printf("DEJDEJ id:",2678)
+func ValidateOpenMsg(m *BGPOpen, expectedAS uint32) (uint32, error) { 
+   fmt.Print("<<<DEJDEJ id:3699::validate.go:ValidateOpenMsg(m>>>")
 	if m.Version != 4 {
 		return 0, NewMessageError(BGP_ERROR_OPEN_MESSAGE_ERROR, BGP_ERROR_SUB_UNSUPPORTED_VERSION_NUMBER, nil, fmt.Sprintf("unsupported version %d", m.Version))
 	}

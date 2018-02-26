@@ -24,8 +24,8 @@ import (
 	"github.com/osrg/gobgp/packet/bgp"
 )
 
-func mapkey(index int, name string) string {
-   fmt.Printf("DEJDEJ id:",3286)
+func mapkey(index int, name string) string { 
+   fmt.Print("<<<DEJDEJ id:125::bgp_configs.go:mapkey(index>>>")
 	if name != "" {
 		return name
 	}
@@ -56,8 +56,8 @@ var RemovePrivateAsOptionToIntMap = map[RemovePrivateAsOption]int{
 	REMOVE_PRIVATE_AS_OPTION_REPLACE: 1,
 }
 
-func (v RemovePrivateAsOption) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3287)
+func (v RemovePrivateAsOption) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:126::bgp_configs.go:ToInt>>>")
 	i, ok := RemovePrivateAsOptionToIntMap[v]
 	if !ok {
 		return -1
@@ -70,8 +70,8 @@ var IntToRemovePrivateAsOptionMap = map[int]RemovePrivateAsOption{
 	1: REMOVE_PRIVATE_AS_OPTION_REPLACE,
 }
 
-func (v RemovePrivateAsOption) Validate() error {
-   fmt.Printf("DEJDEJ id:",3288)
+func (v RemovePrivateAsOption) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:127::bgp_configs.go:Validate>>>")
 	if _, ok := RemovePrivateAsOptionToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RemovePrivateAsOption: %s", v)
 	}
@@ -102,8 +102,8 @@ var CommunityTypeToIntMap = map[CommunityType]int{
 	COMMUNITY_TYPE_NONE:     3,
 }
 
-func (v CommunityType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3289)
+func (v CommunityType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:128::bgp_configs.go:ToInt>>>")
 	i, ok := CommunityTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -118,8 +118,8 @@ var IntToCommunityTypeMap = map[int]CommunityType{
 	3: COMMUNITY_TYPE_NONE,
 }
 
-func (v CommunityType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3290)
+func (v CommunityType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:129::bgp_configs.go:Validate>>>")
 	if _, ok := CommunityTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid CommunityType: %s", v)
 	}
@@ -147,8 +147,8 @@ var PeerTypeToIntMap = map[PeerType]int{
 	PEER_TYPE_EXTERNAL: 1,
 }
 
-func (v PeerType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3291)
+func (v PeerType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:130::bgp_configs.go:ToInt>>>")
 	i, ok := PeerTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -161,8 +161,8 @@ var IntToPeerTypeMap = map[int]PeerType{
 	1: PEER_TYPE_EXTERNAL,
 }
 
-func (v PeerType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3292)
+func (v PeerType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:131::bgp_configs.go:Validate>>>")
 	if _, ok := PeerTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid PeerType: %s", v)
 	}
@@ -183,8 +183,8 @@ var BgpSessionDirectionToIntMap = map[BgpSessionDirection]int{
 	BGP_SESSION_DIRECTION_OUTBOUND: 1,
 }
 
-func (v BgpSessionDirection) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3293)
+func (v BgpSessionDirection) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:132::bgp_configs.go:ToInt>>>")
 	i, ok := BgpSessionDirectionToIntMap[v]
 	if !ok {
 		return -1
@@ -197,8 +197,8 @@ var IntToBgpSessionDirectionMap = map[int]BgpSessionDirection{
 	1: BGP_SESSION_DIRECTION_OUTBOUND,
 }
 
-func (v BgpSessionDirection) Validate() error {
-   fmt.Printf("DEJDEJ id:",3294)
+func (v BgpSessionDirection) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:133::bgp_configs.go:Validate>>>")
 	if _, ok := BgpSessionDirectionToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpSessionDirection: %s", v)
 	}
@@ -221,8 +221,8 @@ var BgpOriginAttrTypeToIntMap = map[BgpOriginAttrType]int{
 	BGP_ORIGIN_ATTR_TYPE_INCOMPLETE: 2,
 }
 
-func (v BgpOriginAttrType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3295)
+func (v BgpOriginAttrType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:134::bgp_configs.go:ToInt>>>")
 	i, ok := BgpOriginAttrTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -236,8 +236,8 @@ var IntToBgpOriginAttrTypeMap = map[int]BgpOriginAttrType{
 	2: BGP_ORIGIN_ATTR_TYPE_INCOMPLETE,
 }
 
-func (v BgpOriginAttrType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3296)
+func (v BgpOriginAttrType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:135::bgp_configs.go:Validate>>>")
 	if _, ok := BgpOriginAttrTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpOriginAttrType: %s", v)
 	}
@@ -296,8 +296,8 @@ var AfiSafiTypeToIntMap = map[AfiSafiType]int{
 	AFI_SAFI_TYPE_OPAQUE:                20,
 }
 
-func (v AfiSafiType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3297)
+func (v AfiSafiType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:136::bgp_configs.go:ToInt>>>")
 	i, ok := AfiSafiTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -329,8 +329,8 @@ var IntToAfiSafiTypeMap = map[int]AfiSafiType{
 	20: AFI_SAFI_TYPE_OPAQUE,
 }
 
-func (v AfiSafiType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3298)
+func (v AfiSafiType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:137::bgp_configs.go:Validate>>>")
 	if _, ok := AfiSafiTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid AfiSafiType: %s", v)
 	}
@@ -357,8 +357,8 @@ var BgpCapabilityToIntMap = map[BgpCapability]int{
 	BGP_CAPABILITY_ADD_PATHS:        4,
 }
 
-func (v BgpCapability) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3299)
+func (v BgpCapability) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:138::bgp_configs.go:ToInt>>>")
 	i, ok := BgpCapabilityToIntMap[v]
 	if !ok {
 		return -1
@@ -374,8 +374,8 @@ var IntToBgpCapabilityMap = map[int]BgpCapability{
 	4: BGP_CAPABILITY_ADD_PATHS,
 }
 
-func (v BgpCapability) Validate() error {
-   fmt.Printf("DEJDEJ id:",3300)
+func (v BgpCapability) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:139::bgp_configs.go:Validate>>>")
 	if _, ok := BgpCapabilityToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpCapability: %s", v)
 	}
@@ -402,8 +402,8 @@ var BgpWellKnownStdCommunityToIntMap = map[BgpWellKnownStdCommunity]int{
 	BGP_WELL_KNOWN_STD_COMMUNITY_NOPEER:              3,
 }
 
-func (v BgpWellKnownStdCommunity) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3301)
+func (v BgpWellKnownStdCommunity) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:140::bgp_configs.go:ToInt>>>")
 	i, ok := BgpWellKnownStdCommunityToIntMap[v]
 	if !ok {
 		return -1
@@ -418,8 +418,8 @@ var IntToBgpWellKnownStdCommunityMap = map[int]BgpWellKnownStdCommunity{
 	3: BGP_WELL_KNOWN_STD_COMMUNITY_NOPEER,
 }
 
-func (v BgpWellKnownStdCommunity) Validate() error {
-   fmt.Printf("DEJDEJ id:",3302)
+func (v BgpWellKnownStdCommunity) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:141::bgp_configs.go:Validate>>>")
 	if _, ok := BgpWellKnownStdCommunityToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpWellKnownStdCommunity: %s", v)
 	}
@@ -443,8 +443,8 @@ var MatchSetOptionsRestrictedTypeToIntMap = map[MatchSetOptionsRestrictedType]in
 	MATCH_SET_OPTIONS_RESTRICTED_TYPE_INVERT: 1,
 }
 
-func (v MatchSetOptionsRestrictedType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3303)
+func (v MatchSetOptionsRestrictedType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:142::bgp_configs.go:ToInt>>>")
 	i, ok := MatchSetOptionsRestrictedTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -457,21 +457,21 @@ var IntToMatchSetOptionsRestrictedTypeMap = map[int]MatchSetOptionsRestrictedTyp
 	1: MATCH_SET_OPTIONS_RESTRICTED_TYPE_INVERT,
 }
 
-func (v MatchSetOptionsRestrictedType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3304)
+func (v MatchSetOptionsRestrictedType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:143::bgp_configs.go:Validate>>>")
 	if _, ok := MatchSetOptionsRestrictedTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid MatchSetOptionsRestrictedType: %s", v)
 	}
 	return nil
 }
 
-func (v MatchSetOptionsRestrictedType) Default() MatchSetOptionsRestrictedType {
-   fmt.Printf("DEJDEJ id:",3305)
+func (v MatchSetOptionsRestrictedType) Default() MatchSetOptionsRestrictedType { 
+   fmt.Print("<<<DEJDEJ id:144::bgp_configs.go:Default>>>")
 	return MATCH_SET_OPTIONS_RESTRICTED_TYPE_ANY
 }
 
-func (v MatchSetOptionsRestrictedType) DefaultAsNeeded() MatchSetOptionsRestrictedType {
-   fmt.Printf("DEJDEJ id:",3306)
+func (v MatchSetOptionsRestrictedType) DefaultAsNeeded() MatchSetOptionsRestrictedType { 
+   fmt.Print("<<<DEJDEJ id:145::bgp_configs.go:DefaultAsNeeded>>>")
 	if string(v) == "" {
 		return v.Default()
 	}
@@ -496,8 +496,8 @@ var MatchSetOptionsTypeToIntMap = map[MatchSetOptionsType]int{
 	MATCH_SET_OPTIONS_TYPE_INVERT: 2,
 }
 
-func (v MatchSetOptionsType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3307)
+func (v MatchSetOptionsType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:146::bgp_configs.go:ToInt>>>")
 	i, ok := MatchSetOptionsTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -511,21 +511,21 @@ var IntToMatchSetOptionsTypeMap = map[int]MatchSetOptionsType{
 	2: MATCH_SET_OPTIONS_TYPE_INVERT,
 }
 
-func (v MatchSetOptionsType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3308)
+func (v MatchSetOptionsType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:147::bgp_configs.go:Validate>>>")
 	if _, ok := MatchSetOptionsTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid MatchSetOptionsType: %s", v)
 	}
 	return nil
 }
 
-func (v MatchSetOptionsType) Default() MatchSetOptionsType {
-   fmt.Printf("DEJDEJ id:",3309)
+func (v MatchSetOptionsType) Default() MatchSetOptionsType { 
+   fmt.Print("<<<DEJDEJ id:148::bgp_configs.go:Default>>>")
 	return MATCH_SET_OPTIONS_TYPE_ANY
 }
 
-func (v MatchSetOptionsType) DefaultAsNeeded() MatchSetOptionsType {
-   fmt.Printf("DEJDEJ id:",3310)
+func (v MatchSetOptionsType) DefaultAsNeeded() MatchSetOptionsType { 
+   fmt.Print("<<<DEJDEJ id:149::bgp_configs.go:DefaultAsNeeded>>>")
 	if string(v) == "" {
 		return v.Default()
 	}
@@ -560,8 +560,8 @@ var InstallProtocolTypeToIntMap = map[InstallProtocolType]int{
 	INSTALL_PROTOCOL_TYPE_LOCAL_AGGREGATE:    6,
 }
 
-func (v InstallProtocolType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3311)
+func (v InstallProtocolType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:150::bgp_configs.go:ToInt>>>")
 	i, ok := InstallProtocolTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -579,8 +579,8 @@ var IntToInstallProtocolTypeMap = map[int]InstallProtocolType{
 	6: INSTALL_PROTOCOL_TYPE_LOCAL_AGGREGATE,
 }
 
-func (v InstallProtocolType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3312)
+func (v InstallProtocolType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:151::bgp_configs.go:Validate>>>")
 	if _, ok := InstallProtocolTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid InstallProtocolType: %s", v)
 	}
@@ -610,8 +610,8 @@ var AttributeComparisonToIntMap = map[AttributeComparison]int{
 	ATTRIBUTE_COMPARISON_LE:           5,
 }
 
-func (v AttributeComparison) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3313)
+func (v AttributeComparison) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:152::bgp_configs.go:ToInt>>>")
 	i, ok := AttributeComparisonToIntMap[v]
 	if !ok {
 		return -1
@@ -628,8 +628,8 @@ var IntToAttributeComparisonMap = map[int]AttributeComparison{
 	5: ATTRIBUTE_COMPARISON_LE,
 }
 
-func (v AttributeComparison) Validate() error {
-   fmt.Printf("DEJDEJ id:",3314)
+func (v AttributeComparison) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:153::bgp_configs.go:Validate>>>")
 	if _, ok := AttributeComparisonToIntMap[v]; !ok {
 		return fmt.Errorf("invalid AttributeComparison: %s", v)
 	}
@@ -653,8 +653,8 @@ var RouteDispositionToIntMap = map[RouteDisposition]int{
 	ROUTE_DISPOSITION_REJECT_ROUTE: 2,
 }
 
-func (v RouteDisposition) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3315)
+func (v RouteDisposition) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:154::bgp_configs.go:ToInt>>>")
 	i, ok := RouteDispositionToIntMap[v]
 	if !ok {
 		return -1
@@ -668,8 +668,8 @@ var IntToRouteDispositionMap = map[int]RouteDisposition{
 	2: ROUTE_DISPOSITION_REJECT_ROUTE,
 }
 
-func (v RouteDisposition) Validate() error {
-   fmt.Printf("DEJDEJ id:",3316)
+func (v RouteDisposition) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:155::bgp_configs.go:Validate>>>")
 	if _, ok := RouteDispositionToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RouteDisposition: %s", v)
 	}
@@ -694,8 +694,8 @@ var RouteTypeToIntMap = map[RouteType]int{
 	ROUTE_TYPE_LOCAL:    3,
 }
 
-func (v RouteType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3317)
+func (v RouteType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:156::bgp_configs.go:ToInt>>>")
 	i, ok := RouteTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -710,8 +710,8 @@ var IntToRouteTypeMap = map[int]RouteType{
 	3: ROUTE_TYPE_LOCAL,
 }
 
-func (v RouteType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3318)
+func (v RouteType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:157::bgp_configs.go:Validate>>>")
 	if _, ok := RouteTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RouteType: %s", v)
 	}
@@ -733,8 +733,8 @@ var DefaultPolicyTypeToIntMap = map[DefaultPolicyType]int{
 	DEFAULT_POLICY_TYPE_REJECT_ROUTE: 1,
 }
 
-func (v DefaultPolicyType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3319)
+func (v DefaultPolicyType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:158::bgp_configs.go:ToInt>>>")
 	i, ok := DefaultPolicyTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -747,8 +747,8 @@ var IntToDefaultPolicyTypeMap = map[int]DefaultPolicyType{
 	1: DEFAULT_POLICY_TYPE_REJECT_ROUTE,
 }
 
-func (v DefaultPolicyType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3320)
+func (v DefaultPolicyType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:159::bgp_configs.go:Validate>>>")
 	if _, ok := DefaultPolicyTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid DefaultPolicyType: %s", v)
 	}
@@ -777,8 +777,8 @@ var SessionStateToIntMap = map[SessionState]int{
 	SESSION_STATE_ESTABLISHED: 5,
 }
 
-func (v SessionState) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3321)
+func (v SessionState) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:160::bgp_configs.go:ToInt>>>")
 	i, ok := SessionStateToIntMap[v]
 	if !ok {
 		return -1
@@ -795,8 +795,8 @@ var IntToSessionStateMap = map[int]SessionState{
 	5: SESSION_STATE_ESTABLISHED,
 }
 
-func (v SessionState) Validate() error {
-   fmt.Printf("DEJDEJ id:",3322)
+func (v SessionState) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:161::bgp_configs.go:Validate>>>")
 	if _, ok := SessionStateToIntMap[v]; !ok {
 		return fmt.Errorf("invalid SessionState: %s", v)
 	}
@@ -818,8 +818,8 @@ var AdminStateToIntMap = map[AdminState]int{
 	ADMIN_STATE_PFX_CT: 2,
 }
 
-func (v AdminState) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3323)
+func (v AdminState) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:162::bgp_configs.go:ToInt>>>")
 	i, ok := AdminStateToIntMap[v]
 	if !ok {
 		return -1
@@ -833,8 +833,8 @@ var IntToAdminStateMap = map[int]AdminState{
 	2: ADMIN_STATE_PFX_CT,
 }
 
-func (v AdminState) Validate() error {
-   fmt.Printf("DEJDEJ id:",3324)
+func (v AdminState) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:163::bgp_configs.go:Validate>>>")
 	if _, ok := AdminStateToIntMap[v]; !ok {
 		return fmt.Errorf("invalid AdminState: %s", v)
 	}
@@ -858,8 +858,8 @@ var ModeToIntMap = map[Mode]int{
 	MODE_REMOTE_HELPER: 2,
 }
 
-func (v Mode) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3325)
+func (v Mode) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:164::bgp_configs.go:ToInt>>>")
 	i, ok := ModeToIntMap[v]
 	if !ok {
 		return -1
@@ -873,8 +873,8 @@ var IntToModeMap = map[int]Mode{
 	2: MODE_REMOTE_HELPER,
 }
 
-func (v Mode) Validate() error {
-   fmt.Printf("DEJDEJ id:",3326)
+func (v Mode) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:165::bgp_configs.go:Validate>>>")
 	if _, ok := ModeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid Mode: %s", v)
 	}
@@ -907,8 +907,8 @@ var BgpSetCommunityOptionTypeToIntMap = map[BgpSetCommunityOptionType]int{
 	BGP_SET_COMMUNITY_OPTION_TYPE_REPLACE: 2,
 }
 
-func (v BgpSetCommunityOptionType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3327)
+func (v BgpSetCommunityOptionType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:166::bgp_configs.go:ToInt>>>")
 	i, ok := BgpSetCommunityOptionTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -922,8 +922,8 @@ var IntToBgpSetCommunityOptionTypeMap = map[int]BgpSetCommunityOptionType{
 	2: BGP_SET_COMMUNITY_OPTION_TYPE_REPLACE,
 }
 
-func (v BgpSetCommunityOptionType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3328)
+func (v BgpSetCommunityOptionType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:167::bgp_configs.go:Validate>>>")
 	if _, ok := BgpSetCommunityOptionTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BgpSetCommunityOptionType: %s", v)
 	}
@@ -949,8 +949,8 @@ var BmpRouteMonitoringPolicyTypeToIntMap = map[BmpRouteMonitoringPolicyType]int{
 	BMP_ROUTE_MONITORING_POLICY_TYPE_ALL:         4,
 }
 
-func (v BmpRouteMonitoringPolicyType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3329)
+func (v BmpRouteMonitoringPolicyType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:168::bgp_configs.go:ToInt>>>")
 	i, ok := BmpRouteMonitoringPolicyTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -966,8 +966,8 @@ var IntToBmpRouteMonitoringPolicyTypeMap = map[int]BmpRouteMonitoringPolicyType{
 	4: BMP_ROUTE_MONITORING_POLICY_TYPE_ALL,
 }
 
-func (v BmpRouteMonitoringPolicyType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3330)
+func (v BmpRouteMonitoringPolicyType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:169::bgp_configs.go:Validate>>>")
 	if _, ok := BmpRouteMonitoringPolicyTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid BmpRouteMonitoringPolicyType: %s", v)
 	}
@@ -987,8 +987,8 @@ var MrtTypeToIntMap = map[MrtType]int{
 	MRT_TYPE_TABLE:   1,
 }
 
-func (v MrtType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3331)
+func (v MrtType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:170::bgp_configs.go:ToInt>>>")
 	i, ok := MrtTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -1001,8 +1001,8 @@ var IntToMrtTypeMap = map[int]MrtType{
 	1: MRT_TYPE_TABLE,
 }
 
-func (v MrtType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3332)
+func (v MrtType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:171::bgp_configs.go:Validate>>>")
 	if _, ok := MrtTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid MrtType: %s", v)
 	}
@@ -1027,8 +1027,8 @@ var RpkiValidationResultTypeToIntMap = map[RpkiValidationResultType]int{
 	RPKI_VALIDATION_RESULT_TYPE_INVALID:   3,
 }
 
-func (v RpkiValidationResultType) ToInt() int {
-   fmt.Printf("DEJDEJ id:",3333)
+func (v RpkiValidationResultType) ToInt() int { 
+   fmt.Print("<<<DEJDEJ id:172::bgp_configs.go:ToInt>>>")
 	i, ok := RpkiValidationResultTypeToIntMap[v]
 	if !ok {
 		return -1
@@ -1043,8 +1043,8 @@ var IntToRpkiValidationResultTypeMap = map[int]RpkiValidationResultType{
 	3: RPKI_VALIDATION_RESULT_TYPE_INVALID,
 }
 
-func (v RpkiValidationResultType) Validate() error {
-   fmt.Printf("DEJDEJ id:",3334)
+func (v RpkiValidationResultType) Validate() error { 
+   fmt.Print("<<<DEJDEJ id:173::bgp_configs.go:Validate>>>")
 	if _, ok := RpkiValidationResultTypeToIntMap[v]; !ok {
 		return fmt.Errorf("invalid RpkiValidationResultType: %s", v)
 	}
@@ -1067,8 +1067,8 @@ type DynamicNeighborConfig struct {
 	PeerGroup string `mapstructure:"peer-group" json:"peer-group,omitempty"`
 }
 
-func (lhs *DynamicNeighborConfig) Equal(rhs *DynamicNeighborConfig) bool {
-   fmt.Printf("DEJDEJ id:",3335)
+func (lhs *DynamicNeighborConfig) Equal(rhs *DynamicNeighborConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:174::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1090,8 +1090,8 @@ type DynamicNeighbor struct {
 	State DynamicNeighborState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *DynamicNeighbor) Equal(rhs *DynamicNeighbor) bool {
-   fmt.Printf("DEJDEJ id:",3336)
+func (lhs *DynamicNeighbor) Equal(rhs *DynamicNeighbor) bool { 
+   fmt.Print("<<<DEJDEJ id:175::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1121,8 +1121,8 @@ type CollectorConfig struct {
 	TableDumpInterval uint64 `mapstructure:"table-dump-interval" json:"table-dump-interval,omitempty"`
 }
 
-func (lhs *CollectorConfig) Equal(rhs *CollectorConfig) bool {
-   fmt.Printf("DEJDEJ id:",3337)
+func (lhs *CollectorConfig) Equal(rhs *CollectorConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:176::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1146,8 +1146,8 @@ type Collector struct {
 	State CollectorState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Collector) Equal(rhs *Collector) bool {
-   fmt.Printf("DEJDEJ id:",3338)
+func (lhs *Collector) Equal(rhs *Collector) bool { 
+   fmt.Print("<<<DEJDEJ id:177::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1199,8 +1199,8 @@ type ZebraConfig struct {
 	NexthopTriggerDelay uint8 `mapstructure:"nexthop-trigger-delay" json:"nexthop-trigger-delay,omitempty"`
 }
 
-func (lhs *ZebraConfig) Equal(rhs *ZebraConfig) bool {
-   fmt.Printf("DEJDEJ id:",3339)
+func (lhs *ZebraConfig) Equal(rhs *ZebraConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:178::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1238,8 +1238,8 @@ type Zebra struct {
 	State ZebraState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Zebra) Equal(rhs *Zebra) bool {
-   fmt.Printf("DEJDEJ id:",3340)
+func (lhs *Zebra) Equal(rhs *Zebra) bool { 
+   fmt.Print("<<<DEJDEJ id:179::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1265,8 +1265,8 @@ type MrtConfig struct {
 	RotationInterval uint64 `mapstructure:"rotation-interval" json:"rotation-interval,omitempty"`
 }
 
-func (lhs *MrtConfig) Equal(rhs *MrtConfig) bool {
-   fmt.Printf("DEJDEJ id:",3341)
+func (lhs *MrtConfig) Equal(rhs *MrtConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:180::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1295,8 +1295,8 @@ type Mrt struct {
 	Config MrtConfig `mapstructure:"config" json:"config,omitempty"`
 }
 
-func (lhs *Mrt) Equal(rhs *Mrt) bool {
-   fmt.Printf("DEJDEJ id:",3342)
+func (lhs *Mrt) Equal(rhs *Mrt) bool { 
+   fmt.Print("<<<DEJDEJ id:181::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1352,8 +1352,8 @@ type BmpServerConfig struct {
 	RouteMirroringEnabled bool `mapstructure:"route-mirroring-enabled" json:"route-mirroring-enabled,omitempty"`
 }
 
-func (lhs *BmpServerConfig) Equal(rhs *BmpServerConfig) bool {
-   fmt.Printf("DEJDEJ id:",3343)
+func (lhs *BmpServerConfig) Equal(rhs *BmpServerConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:182::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1387,8 +1387,8 @@ type BmpServer struct {
 	State BmpServerState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *BmpServer) Equal(rhs *BmpServer) bool {
-   fmt.Printf("DEJDEJ id:",3344)
+func (lhs *BmpServer) Equal(rhs *BmpServer) bool { 
+   fmt.Print("<<<DEJDEJ id:183::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1424,8 +1424,8 @@ type RpkiReceived struct {
 	Error int64 `mapstructure:"error" json:"error,omitempty"`
 }
 
-func (lhs *RpkiReceived) Equal(rhs *RpkiReceived) bool {
-   fmt.Printf("DEJDEJ id:",3345)
+func (lhs *RpkiReceived) Equal(rhs *RpkiReceived) bool { 
+   fmt.Print("<<<DEJDEJ id:184::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1467,8 +1467,8 @@ type RpkiSent struct {
 	Error int64 `mapstructure:"error" json:"error,omitempty"`
 }
 
-func (lhs *RpkiSent) Equal(rhs *RpkiSent) bool {
-   fmt.Printf("DEJDEJ id:",3346)
+func (lhs *RpkiSent) Equal(rhs *RpkiSent) bool { 
+   fmt.Print("<<<DEJDEJ id:185::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1495,8 +1495,8 @@ type RpkiMessages struct {
 	RpkiReceived RpkiReceived `mapstructure:"rpki-received" json:"rpki-received,omitempty"`
 }
 
-func (lhs *RpkiMessages) Equal(rhs *RpkiMessages) bool {
-   fmt.Printf("DEJDEJ id:",3347)
+func (lhs *RpkiMessages) Equal(rhs *RpkiMessages) bool { 
+   fmt.Print("<<<DEJDEJ id:186::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1570,8 +1570,8 @@ type RpkiServerConfig struct {
 	Preference uint8 `mapstructure:"preference" json:"preference,omitempty"`
 }
 
-func (lhs *RpkiServerConfig) Equal(rhs *RpkiServerConfig) bool {
-   fmt.Printf("DEJDEJ id:",3348)
+func (lhs *RpkiServerConfig) Equal(rhs *RpkiServerConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:187::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1608,8 +1608,8 @@ type RpkiServer struct {
 	State RpkiServerState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *RpkiServer) Equal(rhs *RpkiServer) bool {
-   fmt.Printf("DEJDEJ id:",3349)
+func (lhs *RpkiServer) Equal(rhs *RpkiServer) bool { 
+   fmt.Print("<<<DEJDEJ id:188::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1712,8 +1712,8 @@ type PeerGroupConfig struct {
 	PeerGroupName string `mapstructure:"peer-group-name" json:"peer-group-name,omitempty"`
 }
 
-func (lhs *PeerGroupConfig) Equal(rhs *PeerGroupConfig) bool {
-   fmt.Printf("DEJDEJ id:",3350)
+func (lhs *PeerGroupConfig) Equal(rhs *PeerGroupConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:189::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1812,8 +1812,8 @@ type PeerGroup struct {
 	TtlSecurity TtlSecurity `mapstructure:"ttl-security" json:"ttl-security,omitempty"`
 }
 
-func (lhs *PeerGroup) Equal(rhs *PeerGroup) bool {
-   fmt.Printf("DEJDEJ id:",3351)
+func (lhs *PeerGroup) Equal(rhs *PeerGroup) bool { 
+   fmt.Print("<<<DEJDEJ id:190::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1902,8 +1902,8 @@ type TtlSecurityConfig struct {
 	TtlMin uint8 `mapstructure:"ttl-min" json:"ttl-min,omitempty"`
 }
 
-func (lhs *TtlSecurityConfig) Equal(rhs *TtlSecurityConfig) bool {
-   fmt.Printf("DEJDEJ id:",3352)
+func (lhs *TtlSecurityConfig) Equal(rhs *TtlSecurityConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:191::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1927,8 +1927,8 @@ type TtlSecurity struct {
 	State TtlSecurityState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *TtlSecurity) Equal(rhs *TtlSecurity) bool {
-   fmt.Printf("DEJDEJ id:",3353)
+func (lhs *TtlSecurity) Equal(rhs *TtlSecurity) bool { 
+   fmt.Print("<<<DEJDEJ id:192::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1958,8 +1958,8 @@ type RouteServerConfig struct {
 	RouteServerClient bool `mapstructure:"route-server-client" json:"route-server-client,omitempty"`
 }
 
-func (lhs *RouteServerConfig) Equal(rhs *RouteServerConfig) bool {
-   fmt.Printf("DEJDEJ id:",3354)
+func (lhs *RouteServerConfig) Equal(rhs *RouteServerConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:193::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -1982,8 +1982,8 @@ type RouteServer struct {
 	State RouteServerState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *RouteServer) Equal(rhs *RouteServer) bool {
-   fmt.Printf("DEJDEJ id:",3355)
+func (lhs *RouteServer) Equal(rhs *RouteServer) bool { 
+   fmt.Print("<<<DEJDEJ id:194::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2008,8 +2008,8 @@ type Prefixes struct {
 	Installed uint32 `mapstructure:"installed" json:"installed,omitempty"`
 }
 
-func (lhs *Prefixes) Equal(rhs *Prefixes) bool {
-   fmt.Printf("DEJDEJ id:",3356)
+func (lhs *Prefixes) Equal(rhs *Prefixes) bool { 
+   fmt.Print("<<<DEJDEJ id:195::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2053,8 +2053,8 @@ type AddPathsConfig struct {
 	SendMax uint8 `mapstructure:"send-max" json:"send-max,omitempty"`
 }
 
-func (lhs *AddPathsConfig) Equal(rhs *AddPathsConfig) bool {
-   fmt.Printf("DEJDEJ id:",3357)
+func (lhs *AddPathsConfig) Equal(rhs *AddPathsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:196::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2079,8 +2079,8 @@ type AddPaths struct {
 	State AddPathsState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *AddPaths) Equal(rhs *AddPaths) bool {
-   fmt.Printf("DEJDEJ id:",3358)
+func (lhs *AddPaths) Equal(rhs *AddPaths) bool { 
+   fmt.Print("<<<DEJDEJ id:197::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2120,8 +2120,8 @@ type AsPathOptionsConfig struct {
 	ReplacePeerAs bool `mapstructure:"replace-peer-as" json:"replace-peer-as,omitempty"`
 }
 
-func (lhs *AsPathOptionsConfig) Equal(rhs *AsPathOptionsConfig) bool {
-   fmt.Printf("DEJDEJ id:",3359)
+func (lhs *AsPathOptionsConfig) Equal(rhs *AsPathOptionsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:198::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2148,8 +2148,8 @@ type AsPathOptions struct {
 	State AsPathOptionsState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *AsPathOptions) Equal(rhs *AsPathOptions) bool {
-   fmt.Printf("DEJDEJ id:",3360)
+func (lhs *AsPathOptions) Equal(rhs *AsPathOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:199::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2191,8 +2191,8 @@ type RouteReflectorConfig struct {
 	RouteReflectorClient bool `mapstructure:"route-reflector-client" json:"route-reflector-client,omitempty"`
 }
 
-func (lhs *RouteReflectorConfig) Equal(rhs *RouteReflectorConfig) bool {
-   fmt.Printf("DEJDEJ id:",3361)
+func (lhs *RouteReflectorConfig) Equal(rhs *RouteReflectorConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:200::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2218,8 +2218,8 @@ type RouteReflector struct {
 	State RouteReflectorState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *RouteReflector) Equal(rhs *RouteReflector) bool {
-   fmt.Printf("DEJDEJ id:",3362)
+func (lhs *RouteReflector) Equal(rhs *RouteReflector) bool { 
+   fmt.Print("<<<DEJDEJ id:201::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2261,8 +2261,8 @@ type EbgpMultihopConfig struct {
 	MultihopTtl uint8 `mapstructure:"multihop-ttl" json:"multihop-ttl,omitempty"`
 }
 
-func (lhs *EbgpMultihopConfig) Equal(rhs *EbgpMultihopConfig) bool {
-   fmt.Printf("DEJDEJ id:",3363)
+func (lhs *EbgpMultihopConfig) Equal(rhs *EbgpMultihopConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:202::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2288,8 +2288,8 @@ type EbgpMultihop struct {
 	State EbgpMultihopState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *EbgpMultihop) Equal(rhs *EbgpMultihop) bool {
-   fmt.Printf("DEJDEJ id:",3364)
+func (lhs *EbgpMultihop) Equal(rhs *EbgpMultihop) bool { 
+   fmt.Print("<<<DEJDEJ id:203::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2321,8 +2321,8 @@ type LoggingOptionsConfig struct {
 	LogNeighborStateChanges bool `mapstructure:"log-neighbor-state-changes" json:"log-neighbor-state-changes,omitempty"`
 }
 
-func (lhs *LoggingOptionsConfig) Equal(rhs *LoggingOptionsConfig) bool {
-   fmt.Printf("DEJDEJ id:",3365)
+func (lhs *LoggingOptionsConfig) Equal(rhs *LoggingOptionsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:204::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2346,8 +2346,8 @@ type LoggingOptions struct {
 	State LoggingOptionsState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *LoggingOptions) Equal(rhs *LoggingOptions) bool {
-   fmt.Printf("DEJDEJ id:",3366)
+func (lhs *LoggingOptions) Equal(rhs *LoggingOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:205::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2387,8 +2387,8 @@ type ErrorHandlingConfig struct {
 	TreatAsWithdraw bool `mapstructure:"treat-as-withdraw" json:"treat-as-withdraw,omitempty"`
 }
 
-func (lhs *ErrorHandlingConfig) Equal(rhs *ErrorHandlingConfig) bool {
-   fmt.Printf("DEJDEJ id:",3367)
+func (lhs *ErrorHandlingConfig) Equal(rhs *ErrorHandlingConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:206::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2413,8 +2413,8 @@ type ErrorHandling struct {
 	State ErrorHandlingState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *ErrorHandling) Equal(rhs *ErrorHandling) bool {
-   fmt.Printf("DEJDEJ id:",3368)
+func (lhs *ErrorHandling) Equal(rhs *ErrorHandling) bool { 
+   fmt.Print("<<<DEJDEJ id:207::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2497,8 +2497,8 @@ type TransportConfig struct {
 	Ttl uint8 `mapstructure:"ttl" json:"ttl,omitempty"`
 }
 
-func (lhs *TransportConfig) Equal(rhs *TransportConfig) bool {
-   fmt.Printf("DEJDEJ id:",3369)
+func (lhs *TransportConfig) Equal(rhs *TransportConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:208::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2536,8 +2536,8 @@ type Transport struct {
 	State TransportState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Transport) Equal(rhs *Transport) bool {
-   fmt.Printf("DEJDEJ id:",3370)
+func (lhs *Transport) Equal(rhs *Transport) bool { 
+   fmt.Print("<<<DEJDEJ id:209::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2642,8 +2642,8 @@ type TimersConfig struct {
 	IdleHoldTimeAfterReset float64 `mapstructure:"idle-hold-time-after-reset" json:"idle-hold-time-after-reset,omitempty"`
 }
 
-func (lhs *TimersConfig) Equal(rhs *TimersConfig) bool {
-   fmt.Printf("DEJDEJ id:",3371)
+func (lhs *TimersConfig) Equal(rhs *TimersConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:210::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2678,8 +2678,8 @@ type Timers struct {
 	State TimersState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Timers) Equal(rhs *Timers) bool {
-   fmt.Printf("DEJDEJ id:",3372)
+func (lhs *Timers) Equal(rhs *Timers) bool { 
+   fmt.Print("<<<DEJDEJ id:211::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2701,8 +2701,8 @@ type AdjTable struct {
 	Accepted uint32 `mapstructure:"accepted" json:"accepted,omitempty"`
 }
 
-func (lhs *AdjTable) Equal(rhs *AdjTable) bool {
-   fmt.Printf("DEJDEJ id:",3373)
+func (lhs *AdjTable) Equal(rhs *AdjTable) bool { 
+   fmt.Print("<<<DEJDEJ id:212::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2734,8 +2734,8 @@ type Queues struct {
 	Output uint32 `mapstructure:"output" json:"output,omitempty"`
 }
 
-func (lhs *Queues) Equal(rhs *Queues) bool {
-   fmt.Printf("DEJDEJ id:",3374)
+func (lhs *Queues) Equal(rhs *Queues) bool { 
+   fmt.Print("<<<DEJDEJ id:213::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2791,8 +2791,8 @@ type Received struct {
 	Total uint64 `mapstructure:"total" json:"total,omitempty"`
 }
 
-func (lhs *Received) Equal(rhs *Received) bool {
-   fmt.Printf("DEJDEJ id:",3375)
+func (lhs *Received) Equal(rhs *Received) bool { 
+   fmt.Print("<<<DEJDEJ id:214::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2872,8 +2872,8 @@ type Sent struct {
 	Total uint64 `mapstructure:"total" json:"total,omitempty"`
 }
 
-func (lhs *Sent) Equal(rhs *Sent) bool {
-   fmt.Printf("DEJDEJ id:",3376)
+func (lhs *Sent) Equal(rhs *Sent) bool { 
+   fmt.Print("<<<DEJDEJ id:215::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -2922,8 +2922,8 @@ type Messages struct {
 	Received Received `mapstructure:"received" json:"received,omitempty"`
 }
 
-func (lhs *Messages) Equal(rhs *Messages) bool {
-   fmt.Printf("DEJDEJ id:",3377)
+func (lhs *Messages) Equal(rhs *Messages) bool { 
+   fmt.Print("<<<DEJDEJ id:216::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3082,8 +3082,8 @@ type NeighborConfig struct {
 	Vrf string `mapstructure:"vrf" json:"vrf,omitempty"`
 }
 
-func (lhs *NeighborConfig) Equal(rhs *NeighborConfig) bool {
-   fmt.Printf("DEJDEJ id:",3378)
+func (lhs *NeighborConfig) Equal(rhs *NeighborConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:217::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3194,8 +3194,8 @@ type Neighbor struct {
 	TtlSecurity TtlSecurity `mapstructure:"ttl-security" json:"ttl-security,omitempty"`
 }
 
-func (lhs *Neighbor) Equal(rhs *Neighbor) bool {
-   fmt.Printf("DEJDEJ id:",3379)
+func (lhs *Neighbor) Equal(rhs *Neighbor) bool { 
+   fmt.Print("<<<DEJDEJ id:218::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3287,8 +3287,8 @@ type LongLivedGracefulRestartConfig struct {
 	RestartTime uint32 `mapstructure:"restart-time" json:"restart-time,omitempty"`
 }
 
-func (lhs *LongLivedGracefulRestartConfig) Equal(rhs *LongLivedGracefulRestartConfig) bool {
-   fmt.Printf("DEJDEJ id:",3380)
+func (lhs *LongLivedGracefulRestartConfig) Equal(rhs *LongLivedGracefulRestartConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:219::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3309,8 +3309,8 @@ type LongLivedGracefulRestart struct {
 	State LongLivedGracefulRestartState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *LongLivedGracefulRestart) Equal(rhs *LongLivedGracefulRestart) bool {
-   fmt.Printf("DEJDEJ id:",3381)
+func (lhs *LongLivedGracefulRestart) Equal(rhs *LongLivedGracefulRestart) bool { 
+   fmt.Print("<<<DEJDEJ id:220::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3332,8 +3332,8 @@ type RouteTargetMembershipConfig struct {
 	DeferralTime uint16 `mapstructure:"deferral-time" json:"deferral-time,omitempty"`
 }
 
-func (lhs *RouteTargetMembershipConfig) Equal(rhs *RouteTargetMembershipConfig) bool {
-   fmt.Printf("DEJDEJ id:",3382)
+func (lhs *RouteTargetMembershipConfig) Equal(rhs *RouteTargetMembershipConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:221::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3351,8 +3351,8 @@ type RouteTargetMembership struct {
 	State RouteTargetMembershipState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *RouteTargetMembership) Equal(rhs *RouteTargetMembership) bool {
-   fmt.Printf("DEJDEJ id:",3383)
+func (lhs *RouteTargetMembership) Equal(rhs *RouteTargetMembership) bool { 
+   fmt.Print("<<<DEJDEJ id:222::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3371,8 +3371,8 @@ type L2vpnEvpn struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *L2vpnEvpn) Equal(rhs *L2vpnEvpn) bool {
-   fmt.Printf("DEJDEJ id:",3384)
+func (lhs *L2vpnEvpn) Equal(rhs *L2vpnEvpn) bool { 
+   fmt.Print("<<<DEJDEJ id:223::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3391,8 +3391,8 @@ type L2vpnVpls struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *L2vpnVpls) Equal(rhs *L2vpnVpls) bool {
-   fmt.Printf("DEJDEJ id:",3385)
+func (lhs *L2vpnVpls) Equal(rhs *L2vpnVpls) bool { 
+   fmt.Print("<<<DEJDEJ id:224::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3411,8 +3411,8 @@ type L3vpnIpv6Multicast struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *L3vpnIpv6Multicast) Equal(rhs *L3vpnIpv6Multicast) bool {
-   fmt.Printf("DEJDEJ id:",3386)
+func (lhs *L3vpnIpv6Multicast) Equal(rhs *L3vpnIpv6Multicast) bool { 
+   fmt.Print("<<<DEJDEJ id:225::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3431,8 +3431,8 @@ type L3vpnIpv4Multicast struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *L3vpnIpv4Multicast) Equal(rhs *L3vpnIpv4Multicast) bool {
-   fmt.Printf("DEJDEJ id:",3387)
+func (lhs *L3vpnIpv4Multicast) Equal(rhs *L3vpnIpv4Multicast) bool { 
+   fmt.Print("<<<DEJDEJ id:226::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3451,8 +3451,8 @@ type L3vpnIpv6Unicast struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *L3vpnIpv6Unicast) Equal(rhs *L3vpnIpv6Unicast) bool {
-   fmt.Printf("DEJDEJ id:",3388)
+func (lhs *L3vpnIpv6Unicast) Equal(rhs *L3vpnIpv6Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:227::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3471,8 +3471,8 @@ type L3vpnIpv4Unicast struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *L3vpnIpv4Unicast) Equal(rhs *L3vpnIpv4Unicast) bool {
-   fmt.Printf("DEJDEJ id:",3389)
+func (lhs *L3vpnIpv4Unicast) Equal(rhs *L3vpnIpv4Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:228::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3491,8 +3491,8 @@ type Ipv6LabelledUnicast struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *Ipv6LabelledUnicast) Equal(rhs *Ipv6LabelledUnicast) bool {
-   fmt.Printf("DEJDEJ id:",3390)
+func (lhs *Ipv6LabelledUnicast) Equal(rhs *Ipv6LabelledUnicast) bool { 
+   fmt.Print("<<<DEJDEJ id:229::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3511,8 +3511,8 @@ type Ipv4LabelledUnicast struct {
 	PrefixLimit PrefixLimit `mapstructure:"prefix-limit" json:"prefix-limit,omitempty"`
 }
 
-func (lhs *Ipv4LabelledUnicast) Equal(rhs *Ipv4LabelledUnicast) bool {
-   fmt.Printf("DEJDEJ id:",3391)
+func (lhs *Ipv4LabelledUnicast) Equal(rhs *Ipv4LabelledUnicast) bool { 
+   fmt.Print("<<<DEJDEJ id:230::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3542,8 +3542,8 @@ type Ipv6UnicastConfig struct {
 	SendDefaultRoute bool `mapstructure:"send-default-route" json:"send-default-route,omitempty"`
 }
 
-func (lhs *Ipv6UnicastConfig) Equal(rhs *Ipv6UnicastConfig) bool {
-   fmt.Printf("DEJDEJ id:",3392)
+func (lhs *Ipv6UnicastConfig) Equal(rhs *Ipv6UnicastConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:231::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3570,8 +3570,8 @@ type Ipv6Unicast struct {
 	State Ipv6UnicastState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Ipv6Unicast) Equal(rhs *Ipv6Unicast) bool {
-   fmt.Printf("DEJDEJ id:",3393)
+func (lhs *Ipv6Unicast) Equal(rhs *Ipv6Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:232::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3604,8 +3604,8 @@ type Ipv4UnicastConfig struct {
 	SendDefaultRoute bool `mapstructure:"send-default-route" json:"send-default-route,omitempty"`
 }
 
-func (lhs *Ipv4UnicastConfig) Equal(rhs *Ipv4UnicastConfig) bool {
-   fmt.Printf("DEJDEJ id:",3394)
+func (lhs *Ipv4UnicastConfig) Equal(rhs *Ipv4UnicastConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:233::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3659,8 +3659,8 @@ type PrefixLimitConfig struct {
 	RestartTimer float64 `mapstructure:"restart-timer" json:"restart-timer,omitempty"`
 }
 
-func (lhs *PrefixLimitConfig) Equal(rhs *PrefixLimitConfig) bool {
-   fmt.Printf("DEJDEJ id:",3395)
+func (lhs *PrefixLimitConfig) Equal(rhs *PrefixLimitConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:234::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3690,8 +3690,8 @@ type PrefixLimit struct {
 	State PrefixLimitState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *PrefixLimit) Equal(rhs *PrefixLimit) bool {
-   fmt.Printf("DEJDEJ id:",3396)
+func (lhs *PrefixLimit) Equal(rhs *PrefixLimit) bool { 
+   fmt.Print("<<<DEJDEJ id:235::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3718,8 +3718,8 @@ type Ipv4Unicast struct {
 	State Ipv4UnicastState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Ipv4Unicast) Equal(rhs *Ipv4Unicast) bool {
-   fmt.Printf("DEJDEJ id:",3397)
+func (lhs *Ipv4Unicast) Equal(rhs *Ipv4Unicast) bool { 
+   fmt.Print("<<<DEJDEJ id:236::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3800,8 +3800,8 @@ type ApplyPolicyConfig struct {
 	DefaultInPolicy DefaultPolicyType `mapstructure:"default-in-policy" json:"default-in-policy,omitempty"`
 }
 
-func (lhs *ApplyPolicyConfig) Equal(rhs *ApplyPolicyConfig) bool {
-   fmt.Printf("DEJDEJ id:",3398)
+func (lhs *ApplyPolicyConfig) Equal(rhs *ApplyPolicyConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:237::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3855,8 +3855,8 @@ type ApplyPolicy struct {
 	State ApplyPolicyState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *ApplyPolicy) Equal(rhs *ApplyPolicy) bool {
-   fmt.Printf("DEJDEJ id:",3399)
+func (lhs *ApplyPolicy) Equal(rhs *ApplyPolicy) bool { 
+   fmt.Print("<<<DEJDEJ id:238::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3902,8 +3902,8 @@ type AfiSafiConfig struct {
 	Enabled bool `mapstructure:"enabled" json:"enabled,omitempty"`
 }
 
-func (lhs *AfiSafiConfig) Equal(rhs *AfiSafiConfig) bool {
-   fmt.Printf("DEJDEJ id:",3400)
+func (lhs *AfiSafiConfig) Equal(rhs *AfiSafiConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:239::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3952,8 +3952,8 @@ type MpGracefulRestartConfig struct {
 	Enabled bool `mapstructure:"enabled" json:"enabled,omitempty"`
 }
 
-func (lhs *MpGracefulRestartConfig) Equal(rhs *MpGracefulRestartConfig) bool {
-   fmt.Printf("DEJDEJ id:",3401)
+func (lhs *MpGracefulRestartConfig) Equal(rhs *MpGracefulRestartConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:240::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -3974,8 +3974,8 @@ type MpGracefulRestart struct {
 	State MpGracefulRestartState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *MpGracefulRestart) Equal(rhs *MpGracefulRestart) bool {
-   fmt.Printf("DEJDEJ id:",3402)
+func (lhs *MpGracefulRestart) Equal(rhs *MpGracefulRestart) bool { 
+   fmt.Print("<<<DEJDEJ id:241::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4055,8 +4055,8 @@ type AfiSafi struct {
 	AddPaths AddPaths `mapstructure:"add-paths" json:"add-paths,omitempty"`
 }
 
-func (lhs *AfiSafi) Equal(rhs *AfiSafi) bool {
-   fmt.Printf("DEJDEJ id:",3403)
+func (lhs *AfiSafi) Equal(rhs *AfiSafi) bool { 
+   fmt.Print("<<<DEJDEJ id:242::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4224,8 +4224,8 @@ type GracefulRestartConfig struct {
 	LongLivedEnabled bool `mapstructure:"long-lived-enabled" json:"long-lived-enabled,omitempty"`
 }
 
-func (lhs *GracefulRestartConfig) Equal(rhs *GracefulRestartConfig) bool {
-   fmt.Printf("DEJDEJ id:",3404)
+func (lhs *GracefulRestartConfig) Equal(rhs *GracefulRestartConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:243::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4264,8 +4264,8 @@ type GracefulRestart struct {
 	State GracefulRestartState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *GracefulRestart) Equal(rhs *GracefulRestart) bool {
-   fmt.Printf("DEJDEJ id:",3405)
+func (lhs *GracefulRestart) Equal(rhs *GracefulRestart) bool { 
+   fmt.Print("<<<DEJDEJ id:244::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4293,8 +4293,8 @@ type IbgpConfig struct {
 	MaximumPaths uint32 `mapstructure:"maximum-paths" json:"maximum-paths,omitempty"`
 }
 
-func (lhs *IbgpConfig) Equal(rhs *IbgpConfig) bool {
-   fmt.Printf("DEJDEJ id:",3406)
+func (lhs *IbgpConfig) Equal(rhs *IbgpConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:245::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4315,8 +4315,8 @@ type Ibgp struct {
 	State IbgpState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Ibgp) Equal(rhs *Ibgp) bool {
-   fmt.Printf("DEJDEJ id:",3407)
+func (lhs *Ibgp) Equal(rhs *Ibgp) bool { 
+   fmt.Print("<<<DEJDEJ id:246::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4356,8 +4356,8 @@ type EbgpConfig struct {
 	MaximumPaths uint32 `mapstructure:"maximum-paths" json:"maximum-paths,omitempty"`
 }
 
-func (lhs *EbgpConfig) Equal(rhs *EbgpConfig) bool {
-   fmt.Printf("DEJDEJ id:",3408)
+func (lhs *EbgpConfig) Equal(rhs *EbgpConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:247::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4381,8 +4381,8 @@ type Ebgp struct {
 	State EbgpState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Ebgp) Equal(rhs *Ebgp) bool {
-   fmt.Printf("DEJDEJ id:",3409)
+func (lhs *Ebgp) Equal(rhs *Ebgp) bool { 
+   fmt.Print("<<<DEJDEJ id:248::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4414,8 +4414,8 @@ type UseMultiplePathsConfig struct {
 	Enabled bool `mapstructure:"enabled" json:"enabled,omitempty"`
 }
 
-func (lhs *UseMultiplePathsConfig) Equal(rhs *UseMultiplePathsConfig) bool {
-   fmt.Printf("DEJDEJ id:",3410)
+func (lhs *UseMultiplePathsConfig) Equal(rhs *UseMultiplePathsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:249::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4443,8 +4443,8 @@ type UseMultiplePaths struct {
 	Ibgp Ibgp `mapstructure:"ibgp" json:"ibgp,omitempty"`
 }
 
-func (lhs *UseMultiplePaths) Equal(rhs *UseMultiplePaths) bool {
-   fmt.Printf("DEJDEJ id:",3411)
+func (lhs *UseMultiplePaths) Equal(rhs *UseMultiplePaths) bool { 
+   fmt.Print("<<<DEJDEJ id:250::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4498,8 +4498,8 @@ type ConfederationConfig struct {
 	MemberAsList []uint32 `mapstructure:"member-as-list" json:"member-as-list,omitempty"`
 }
 
-func (lhs *ConfederationConfig) Equal(rhs *ConfederationConfig) bool {
-   fmt.Printf("DEJDEJ id:",3412)
+func (lhs *ConfederationConfig) Equal(rhs *ConfederationConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:251::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4532,8 +4532,8 @@ type Confederation struct {
 	State ConfederationState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *Confederation) Equal(rhs *Confederation) bool {
-   fmt.Printf("DEJDEJ id:",3413)
+func (lhs *Confederation) Equal(rhs *Confederation) bool { 
+   fmt.Print("<<<DEJDEJ id:252::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4570,8 +4570,8 @@ type DefaultRouteDistanceConfig struct {
 	InternalRouteDistance uint8 `mapstructure:"internal-route-distance" json:"internal-route-distance,omitempty"`
 }
 
-func (lhs *DefaultRouteDistanceConfig) Equal(rhs *DefaultRouteDistanceConfig) bool {
-   fmt.Printf("DEJDEJ id:",3414)
+func (lhs *DefaultRouteDistanceConfig) Equal(rhs *DefaultRouteDistanceConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:253::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4598,8 +4598,8 @@ type DefaultRouteDistance struct {
 	State DefaultRouteDistanceState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *DefaultRouteDistance) Equal(rhs *DefaultRouteDistance) bool {
-   fmt.Printf("DEJDEJ id:",3415)
+func (lhs *DefaultRouteDistance) Equal(rhs *DefaultRouteDistance) bool { 
+   fmt.Print("<<<DEJDEJ id:254::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4698,8 +4698,8 @@ type RouteSelectionOptionsConfig struct {
 	DisableBestPathSelection bool `mapstructure:"disable-best-path-selection" json:"disable-best-path-selection,omitempty"`
 }
 
-func (lhs *RouteSelectionOptionsConfig) Equal(rhs *RouteSelectionOptionsConfig) bool {
-   fmt.Printf("DEJDEJ id:",3416)
+func (lhs *RouteSelectionOptionsConfig) Equal(rhs *RouteSelectionOptionsConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:255::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4739,8 +4739,8 @@ type RouteSelectionOptions struct {
 	State RouteSelectionOptionsState `mapstructure:"state" json:"state,omitempty"`
 }
 
-func (lhs *RouteSelectionOptions) Equal(rhs *RouteSelectionOptions) bool {
-   fmt.Printf("DEJDEJ id:",3417)
+func (lhs *RouteSelectionOptions) Equal(rhs *RouteSelectionOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:256::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4794,8 +4794,8 @@ type GlobalConfig struct {
 	LocalAddressList []string `mapstructure:"local-address-list" json:"local-address-list,omitempty"`
 }
 
-func (lhs *GlobalConfig) Equal(rhs *GlobalConfig) bool {
-   fmt.Printf("DEJDEJ id:",3418)
+func (lhs *GlobalConfig) Equal(rhs *GlobalConfig) bool { 
+   fmt.Print("<<<DEJDEJ id:257::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4858,8 +4858,8 @@ type Global struct {
 	ApplyPolicy ApplyPolicy `mapstructure:"apply-policy" json:"apply-policy,omitempty"`
 }
 
-func (lhs *Global) Equal(rhs *Global) bool {
-   fmt.Printf("DEJDEJ id:",3419)
+func (lhs *Global) Equal(rhs *Global) bool { 
+   fmt.Print("<<<DEJDEJ id:258::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -4929,8 +4929,8 @@ type Bgp struct {
 	DynamicNeighbors []DynamicNeighbor `mapstructure:"dynamic-neighbors" json:"dynamic-neighbors,omitempty"`
 }
 
-func (lhs *Bgp) Equal(rhs *Bgp) bool {
-   fmt.Printf("DEJDEJ id:",3420)
+func (lhs *Bgp) Equal(rhs *Bgp) bool { 
+   fmt.Print("<<<DEJDEJ id:259::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5048,8 +5048,8 @@ type SetLargeCommunityMethod struct {
 	CommunitiesList []string `mapstructure:"communities-list" json:"communities-list,omitempty"`
 }
 
-func (lhs *SetLargeCommunityMethod) Equal(rhs *SetLargeCommunityMethod) bool {
-   fmt.Printf("DEJDEJ id:",3421)
+func (lhs *SetLargeCommunityMethod) Equal(rhs *SetLargeCommunityMethod) bool { 
+   fmt.Print("<<<DEJDEJ id:260::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5072,8 +5072,8 @@ type SetLargeCommunity struct {
 	Options BgpSetCommunityOptionType `mapstructure:"options" json:"options,omitempty"`
 }
 
-func (lhs *SetLargeCommunity) Equal(rhs *SetLargeCommunity) bool {
-   fmt.Printf("DEJDEJ id:",3422)
+func (lhs *SetLargeCommunity) Equal(rhs *SetLargeCommunity) bool { 
+   fmt.Print("<<<DEJDEJ id:261::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5101,8 +5101,8 @@ type SetExtCommunityMethod struct {
 	ExtCommunitySetRef string `mapstructure:"ext-community-set-ref" json:"ext-community-set-ref,omitempty"`
 }
 
-func (lhs *SetExtCommunityMethod) Equal(rhs *SetExtCommunityMethod) bool {
-   fmt.Printf("DEJDEJ id:",3423)
+func (lhs *SetExtCommunityMethod) Equal(rhs *SetExtCommunityMethod) bool { 
+   fmt.Print("<<<DEJDEJ id:262::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5138,8 +5138,8 @@ type SetExtCommunity struct {
 	Options string `mapstructure:"options" json:"options,omitempty"`
 }
 
-func (lhs *SetExtCommunity) Equal(rhs *SetExtCommunity) bool {
-   fmt.Printf("DEJDEJ id:",3424)
+func (lhs *SetExtCommunity) Equal(rhs *SetExtCommunity) bool { 
+   fmt.Print("<<<DEJDEJ id:263::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5166,8 +5166,8 @@ type SetCommunityMethod struct {
 	CommunitySetRef string `mapstructure:"community-set-ref" json:"community-set-ref,omitempty"`
 }
 
-func (lhs *SetCommunityMethod) Equal(rhs *SetCommunityMethod) bool {
-   fmt.Printf("DEJDEJ id:",3425)
+func (lhs *SetCommunityMethod) Equal(rhs *SetCommunityMethod) bool { 
+   fmt.Print("<<<DEJDEJ id:264::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5201,8 +5201,8 @@ type SetCommunity struct {
 	Options string `mapstructure:"options" json:"options,omitempty"`
 }
 
-func (lhs *SetCommunity) Equal(rhs *SetCommunity) bool {
-   fmt.Printf("DEJDEJ id:",3426)
+func (lhs *SetCommunity) Equal(rhs *SetCommunity) bool { 
+   fmt.Print("<<<DEJDEJ id:265::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5230,8 +5230,8 @@ type SetAsPathPrepend struct {
 	As string `mapstructure:"as" json:"as,omitempty"`
 }
 
-func (lhs *SetAsPathPrepend) Equal(rhs *SetAsPathPrepend) bool {
-   fmt.Printf("DEJDEJ id:",3427)
+func (lhs *SetAsPathPrepend) Equal(rhs *SetAsPathPrepend) bool { 
+   fmt.Print("<<<DEJDEJ id:266::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5280,8 +5280,8 @@ type BgpActions struct {
 	SetLargeCommunity SetLargeCommunity `mapstructure:"set-large-community" json:"set-large-community,omitempty"`
 }
 
-func (lhs *BgpActions) Equal(rhs *BgpActions) bool {
-   fmt.Printf("DEJDEJ id:",3428)
+func (lhs *BgpActions) Equal(rhs *BgpActions) bool { 
+   fmt.Print("<<<DEJDEJ id:267::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5321,8 +5321,8 @@ type IgpActions struct {
 	SetTag TagType `mapstructure:"set-tag" json:"set-tag,omitempty"`
 }
 
-func (lhs *IgpActions) Equal(rhs *IgpActions) bool {
-   fmt.Printf("DEJDEJ id:",3429)
+func (lhs *IgpActions) Equal(rhs *IgpActions) bool { 
+   fmt.Print("<<<DEJDEJ id:268::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5350,8 +5350,8 @@ type Actions struct {
 	BgpActions BgpActions `mapstructure:"bgp-actions" json:"bgp-actions,omitempty"`
 }
 
-func (lhs *Actions) Equal(rhs *Actions) bool {
-   fmt.Printf("DEJDEJ id:",3430)
+func (lhs *Actions) Equal(rhs *Actions) bool { 
+   fmt.Print("<<<DEJDEJ id:269::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5377,8 +5377,8 @@ type MatchLargeCommunitySet struct {
 	MatchSetOptions MatchSetOptionsType `mapstructure:"match-set-options" json:"match-set-options,omitempty"`
 }
 
-func (lhs *MatchLargeCommunitySet) Equal(rhs *MatchLargeCommunitySet) bool {
-   fmt.Printf("DEJDEJ id:",3431)
+func (lhs *MatchLargeCommunitySet) Equal(rhs *MatchLargeCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:270::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5403,8 +5403,8 @@ type AsPathLength struct {
 	Value uint32 `mapstructure:"value" json:"value,omitempty"`
 }
 
-func (lhs *AsPathLength) Equal(rhs *AsPathLength) bool {
-   fmt.Printf("DEJDEJ id:",3432)
+func (lhs *AsPathLength) Equal(rhs *AsPathLength) bool { 
+   fmt.Print("<<<DEJDEJ id:271::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5429,8 +5429,8 @@ type CommunityCount struct {
 	Value uint32 `mapstructure:"value" json:"value,omitempty"`
 }
 
-func (lhs *CommunityCount) Equal(rhs *CommunityCount) bool {
-   fmt.Printf("DEJDEJ id:",3433)
+func (lhs *CommunityCount) Equal(rhs *CommunityCount) bool { 
+   fmt.Print("<<<DEJDEJ id:272::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5456,8 +5456,8 @@ type MatchAsPathSet struct {
 	MatchSetOptions MatchSetOptionsType `mapstructure:"match-set-options" json:"match-set-options,omitempty"`
 }
 
-func (lhs *MatchAsPathSet) Equal(rhs *MatchAsPathSet) bool {
-   fmt.Printf("DEJDEJ id:",3434)
+func (lhs *MatchAsPathSet) Equal(rhs *MatchAsPathSet) bool { 
+   fmt.Print("<<<DEJDEJ id:273::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5483,8 +5483,8 @@ type MatchExtCommunitySet struct {
 	MatchSetOptions MatchSetOptionsType `mapstructure:"match-set-options" json:"match-set-options,omitempty"`
 }
 
-func (lhs *MatchExtCommunitySet) Equal(rhs *MatchExtCommunitySet) bool {
-   fmt.Printf("DEJDEJ id:",3435)
+func (lhs *MatchExtCommunitySet) Equal(rhs *MatchExtCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:274::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5510,8 +5510,8 @@ type MatchCommunitySet struct {
 	MatchSetOptions MatchSetOptionsType `mapstructure:"match-set-options" json:"match-set-options,omitempty"`
 }
 
-func (lhs *MatchCommunitySet) Equal(rhs *MatchCommunitySet) bool {
-   fmt.Printf("DEJDEJ id:",3436)
+func (lhs *MatchCommunitySet) Equal(rhs *MatchCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:275::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5580,8 +5580,8 @@ type BgpConditions struct {
 	MatchLargeCommunitySet MatchLargeCommunitySet `mapstructure:"match-large-community-set" json:"match-large-community-set,omitempty"`
 }
 
-func (lhs *BgpConditions) Equal(rhs *BgpConditions) bool {
-   fmt.Printf("DEJDEJ id:",3437)
+func (lhs *BgpConditions) Equal(rhs *BgpConditions) bool { 
+   fmt.Print("<<<DEJDEJ id:276::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5642,8 +5642,8 @@ func (lhs *BgpConditions) Equal(rhs *BgpConditions) bool {
 type IgpConditions struct {
 }
 
-func (lhs *IgpConditions) Equal(rhs *IgpConditions) bool {
-   fmt.Printf("DEJDEJ id:",3438)
+func (lhs *IgpConditions) Equal(rhs *IgpConditions) bool { 
+   fmt.Print("<<<DEJDEJ id:277::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5665,8 +5665,8 @@ type MatchTagSet struct {
 	MatchSetOptions MatchSetOptionsRestrictedType `mapstructure:"match-set-options" json:"match-set-options,omitempty"`
 }
 
-func (lhs *MatchTagSet) Equal(rhs *MatchTagSet) bool {
-   fmt.Printf("DEJDEJ id:",3439)
+func (lhs *MatchTagSet) Equal(rhs *MatchTagSet) bool { 
+   fmt.Print("<<<DEJDEJ id:278::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5694,8 +5694,8 @@ type MatchNeighborSet struct {
 	MatchSetOptions MatchSetOptionsRestrictedType `mapstructure:"match-set-options" json:"match-set-options,omitempty"`
 }
 
-func (lhs *MatchNeighborSet) Equal(rhs *MatchNeighborSet) bool {
-   fmt.Printf("DEJDEJ id:",3440)
+func (lhs *MatchNeighborSet) Equal(rhs *MatchNeighborSet) bool { 
+   fmt.Print("<<<DEJDEJ id:279::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5723,8 +5723,8 @@ type MatchPrefixSet struct {
 	MatchSetOptions MatchSetOptionsRestrictedType `mapstructure:"match-set-options" json:"match-set-options,omitempty"`
 }
 
-func (lhs *MatchPrefixSet) Equal(rhs *MatchPrefixSet) bool {
-   fmt.Printf("DEJDEJ id:",3441)
+func (lhs *MatchPrefixSet) Equal(rhs *MatchPrefixSet) bool { 
+   fmt.Print("<<<DEJDEJ id:280::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5780,8 +5780,8 @@ type Conditions struct {
 	BgpConditions BgpConditions `mapstructure:"bgp-conditions" json:"bgp-conditions,omitempty"`
 }
 
-func (lhs *Conditions) Equal(rhs *Conditions) bool {
-   fmt.Printf("DEJDEJ id:",3442)
+func (lhs *Conditions) Equal(rhs *Conditions) bool { 
+   fmt.Print("<<<DEJDEJ id:281::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5828,8 +5828,8 @@ type Statement struct {
 	Actions Actions `mapstructure:"actions" json:"actions,omitempty"`
 }
 
-func (lhs *Statement) Equal(rhs *Statement) bool {
-   fmt.Printf("DEJDEJ id:",3443)
+func (lhs *Statement) Equal(rhs *Statement) bool { 
+   fmt.Print("<<<DEJDEJ id:282::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5860,8 +5860,8 @@ type PolicyDefinition struct {
 	Statements []Statement `mapstructure:"statements" json:"statements,omitempty"`
 }
 
-func (lhs *PolicyDefinition) Equal(rhs *PolicyDefinition) bool {
-   fmt.Printf("DEJDEJ id:",3444)
+func (lhs *PolicyDefinition) Equal(rhs *PolicyDefinition) bool { 
+   fmt.Print("<<<DEJDEJ id:283::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5896,8 +5896,8 @@ type LargeCommunitySet struct {
 	LargeCommunityList []string `mapstructure:"large-community-list" json:"large-community-list,omitempty"`
 }
 
-func (lhs *LargeCommunitySet) Equal(rhs *LargeCommunitySet) bool {
-   fmt.Printf("DEJDEJ id:",3445)
+func (lhs *LargeCommunitySet) Equal(rhs *LargeCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:284::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5927,8 +5927,8 @@ type AsPathSet struct {
 	AsPathList []string `mapstructure:"as-path-list" json:"as-path-list,omitempty"`
 }
 
-func (lhs *AsPathSet) Equal(rhs *AsPathSet) bool {
-   fmt.Printf("DEJDEJ id:",3446)
+func (lhs *AsPathSet) Equal(rhs *AsPathSet) bool { 
+   fmt.Print("<<<DEJDEJ id:285::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5958,8 +5958,8 @@ type ExtCommunitySet struct {
 	ExtCommunityList []string `mapstructure:"ext-community-list" json:"ext-community-list,omitempty"`
 }
 
-func (lhs *ExtCommunitySet) Equal(rhs *ExtCommunitySet) bool {
-   fmt.Printf("DEJDEJ id:",3447)
+func (lhs *ExtCommunitySet) Equal(rhs *ExtCommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:286::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -5989,8 +5989,8 @@ type CommunitySet struct {
 	CommunityList []string `mapstructure:"community-list" json:"community-list,omitempty"`
 }
 
-func (lhs *CommunitySet) Equal(rhs *CommunitySet) bool {
-   fmt.Printf("DEJDEJ id:",3448)
+func (lhs *CommunitySet) Equal(rhs *CommunitySet) bool { 
+   fmt.Print("<<<DEJDEJ id:287::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6024,8 +6024,8 @@ type BgpDefinedSets struct {
 	LargeCommunitySets []LargeCommunitySet `mapstructure:"large-community-sets" json:"large-community-sets,omitempty"`
 }
 
-func (lhs *BgpDefinedSets) Equal(rhs *BgpDefinedSets) bool {
-   fmt.Printf("DEJDEJ id:",3449)
+func (lhs *BgpDefinedSets) Equal(rhs *BgpDefinedSets) bool { 
+   fmt.Print("<<<DEJDEJ id:288::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6104,8 +6104,8 @@ type Tag struct {
 	Value TagType `mapstructure:"value" json:"value,omitempty"`
 }
 
-func (lhs *Tag) Equal(rhs *Tag) bool {
-   fmt.Printf("DEJDEJ id:",3450)
+func (lhs *Tag) Equal(rhs *Tag) bool { 
+   fmt.Print("<<<DEJDEJ id:289::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6127,8 +6127,8 @@ type TagSet struct {
 	TagList []Tag `mapstructure:"tag-list" json:"tag-list,omitempty"`
 }
 
-func (lhs *TagSet) Equal(rhs *TagSet) bool {
-   fmt.Printf("DEJDEJ id:",3451)
+func (lhs *TagSet) Equal(rhs *TagSet) bool { 
+   fmt.Print("<<<DEJDEJ id:290::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6167,8 +6167,8 @@ type NeighborSet struct {
 	NeighborInfoList []string `mapstructure:"neighbor-info-list" json:"neighbor-info-list,omitempty"`
 }
 
-func (lhs *NeighborSet) Equal(rhs *NeighborSet) bool {
-   fmt.Printf("DEJDEJ id:",3452)
+func (lhs *NeighborSet) Equal(rhs *NeighborSet) bool { 
+   fmt.Print("<<<DEJDEJ id:291::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6211,8 +6211,8 @@ type Prefix struct {
 	MasklengthRange string `mapstructure:"masklength-range" json:"masklength-range,omitempty"`
 }
 
-func (lhs *Prefix) Equal(rhs *Prefix) bool {
-   fmt.Printf("DEJDEJ id:",3453)
+func (lhs *Prefix) Equal(rhs *Prefix) bool { 
+   fmt.Print("<<<DEJDEJ id:292::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6237,8 +6237,8 @@ type PrefixSet struct {
 	PrefixList []Prefix `mapstructure:"prefix-list" json:"prefix-list,omitempty"`
 }
 
-func (lhs *PrefixSet) Equal(rhs *PrefixSet) bool {
-   fmt.Printf("DEJDEJ id:",3454)
+func (lhs *PrefixSet) Equal(rhs *PrefixSet) bool { 
+   fmt.Print("<<<DEJDEJ id:293::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6282,8 +6282,8 @@ type DefinedSets struct {
 	BgpDefinedSets BgpDefinedSets `mapstructure:"bgp-defined-sets" json:"bgp-defined-sets,omitempty"`
 }
 
-func (lhs *DefinedSets) Equal(rhs *DefinedSets) bool {
-   fmt.Printf("DEJDEJ id:",3455)
+func (lhs *DefinedSets) Equal(rhs *DefinedSets) bool { 
+   fmt.Print("<<<DEJDEJ id:294::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}
@@ -6354,8 +6354,8 @@ type RoutingPolicy struct {
 	PolicyDefinitions []PolicyDefinition `mapstructure:"policy-definitions" json:"policy-definitions,omitempty"`
 }
 
-func (lhs *RoutingPolicy) Equal(rhs *RoutingPolicy) bool {
-   fmt.Printf("DEJDEJ id:",3456)
+func (lhs *RoutingPolicy) Equal(rhs *RoutingPolicy) bool { 
+   fmt.Print("<<<DEJDEJ id:295::bgp_configs.go:Equal>>>")
 	if lhs == nil || rhs == nil {
 		return false
 	}

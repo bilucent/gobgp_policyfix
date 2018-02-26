@@ -20,7 +20,7 @@ import (
 	"errors"
 )
 
-func addSyslogHook(_, _ string) error {
-   fmt.Printf("DEJDEJ id:",4)
+func addSyslogHook(_, _ string) error { 
+   fmt.Print("<<<DEJDEJ id:1401::util_windows.go:addSyslogHook(_,>>>")
 	return errors.New("syslog is not supported on this OS")
 }

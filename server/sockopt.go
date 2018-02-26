@@ -23,23 +23,23 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
-   fmt.Printf("DEJDEJ id:",266)
+func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:602::sockopt.go:SetTcpMD5SigSockopt(l>>>")
 	return setTcpMD5SigSockopt(l, address, key)
 }
 
-func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
-   fmt.Printf("DEJDEJ id:",267)
+func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:603::sockopt.go:SetListenTcpTTLSockopt(l>>>")
 	return setListenTcpTTLSockopt(l, ttl)
 }
 
-func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",268)
+func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:604::sockopt.go:SetTcpTTLSockopt(conn>>>")
 	return setTcpTTLSockopt(conn, ttl)
 }
 
-func SetTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",269)
+func SetTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:605::sockopt.go:SetTcpMinTTLSockopt(conn>>>")
 	return setTcpMinTTLSockopt(conn, ttl)
 }
 
@@ -56,8 +56,8 @@ type TCPDialer struct {
 	TtlMin uint8
 }
 
-func (d *TCPDialer) DialTCP(addr string, port int) (*net.TCPConn, error) {
-   fmt.Printf("DEJDEJ id:",270)
+func (d *TCPDialer) DialTCP(addr string, port int) (*net.TCPConn, error) { 
+   fmt.Print("<<<DEJDEJ id:606::sockopt.go:DialTCP>>>")
 	if d.AuthPassword != "" {
 		log.WithFields(log.Fields{
 			"Topic": "Peer",

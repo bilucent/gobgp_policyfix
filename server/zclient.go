@@ -43,8 +43,8 @@ type nexthopTrackingManager struct {
 	pathListCh        chan pathList
 }
 
-func newNexthopTrackingManager(server *BgpServer, delay int) *nexthopTrackingManager {
-   fmt.Printf("DEJDEJ id:",230)
+func newNexthopTrackingManager(server *BgpServer, delay int) *nexthopTrackingManager { 
+   fmt.Print("<<<DEJDEJ id:441::zclient.go:newNexthopTrackingManager(server>>>")
 	return &nexthopTrackingManager{
 		dead:              make(chan struct{}),
 		nexthopCache:      make(map[string]struct{}),
@@ -56,22 +56,22 @@ func newNexthopTrackingManager(server *BgpServer, delay int) *nexthopTrackingMan
 	}
 }
 
-func (m *nexthopTrackingManager) stop() {
-   fmt.Printf("DEJDEJ id:",231)
+func (m *nexthopTrackingManager) stop() { 
+   fmt.Print("<<<DEJDEJ id:442::zclient.go:stop>>>")
 	close(m.pathListCh)
 	close(m.trigger)
 	close(m.dead)
 }
 
-func (m *nexthopTrackingManager) isRegisteredNexthop(nexthop net.IP) bool {
-   fmt.Printf("DEJDEJ id:",232)
+func (m *nexthopTrackingManager) isRegisteredNexthop(nexthop net.IP) bool { 
+   fmt.Print("<<<DEJDEJ id:443::zclient.go:isRegisteredNexthop>>>")
 	key := nexthop.String()
 	_, ok := m.nexthopCache[key]
 	return ok
 }
 
-func (m *nexthopTrackingManager) registerNexthop(nexthop net.IP) bool {
-   fmt.Printf("DEJDEJ id:",233)
+func (m *nexthopTrackingManager) registerNexthop(nexthop net.IP) bool { 
+   fmt.Print("<<<DEJDEJ id:444::zclient.go:registerNexthop>>>")
 	key := nexthop.String()
 	if _, ok := m.nexthopCache[key]; ok {
 		return false
@@ -80,14 +80,14 @@ func (m *nexthopTrackingManager) registerNexthop(nexthop net.IP) bool {
 	return true
 }
 
-func (m *nexthopTrackingManager) unregisterNexthop(nexthop net.IP) {
-   fmt.Printf("DEJDEJ id:",234)
+func (m *nexthopTrackingManager) unregisterNexthop(nexthop net.IP) { 
+   fmt.Print("<<<DEJDEJ id:445::zclient.go:unregisterNexthop>>>")
 	key := nexthop.String()
 	delete(m.nexthopCache, key)
 }
 
-func (m *nexthopTrackingManager) appendPathList(paths pathList) {
-   fmt.Printf("DEJDEJ id:",235)
+func (m *nexthopTrackingManager) appendPathList(paths pathList) { 
+   fmt.Print("<<<DEJDEJ id:446::zclient.go:appendPathList>>>")
 	if len(paths) == 0 {
 		return
 	}
@@ -96,8 +96,8 @@ func (m *nexthopTrackingManager) appendPathList(paths pathList) {
 	m.scheduledPathList[path.GetNexthop().String()] = paths
 }
 
-func (m *nexthopTrackingManager) calculateDelay(penalty int) int {
-   fmt.Printf("DEJDEJ id:",236)
+func (m *nexthopTrackingManager) calculateDelay(penalty int) int { 
+   fmt.Print("<<<DEJDEJ id:447::zclient.go:calculateDelay>>>")
 	if penalty <= 950 {
 		return m.delay
 	}
@@ -110,15 +110,15 @@ func (m *nexthopTrackingManager) calculateDelay(penalty int) int {
 	return delay
 }
 
-func (m *nexthopTrackingManager) triggerUpdatePathAfter(delay int) {
-   fmt.Printf("DEJDEJ id:",237)
+func (m *nexthopTrackingManager) triggerUpdatePathAfter(delay int) { 
+   fmt.Print("<<<DEJDEJ id:448::zclient.go:triggerUpdatePathAfter>>>")
 	time.Sleep(time.Duration(delay) * time.Second)
 
 	m.trigger <- struct{}{}
 }
 
-func (m *nexthopTrackingManager) loop() {
-   fmt.Printf("DEJDEJ id:",238)
+func (m *nexthopTrackingManager) loop() { 
+   fmt.Print("<<<DEJDEJ id:449::zclient.go:loop>>>")
 	t := time.NewTicker(8 * time.Second)
 	defer t.Stop()
 
@@ -184,16 +184,16 @@ func (m *nexthopTrackingManager) loop() {
 	}
 }
 
-func (m *nexthopTrackingManager) scheduleUpdate(paths pathList) {
-   fmt.Printf("DEJDEJ id:",239)
+func (m *nexthopTrackingManager) scheduleUpdate(paths pathList) { 
+   fmt.Print("<<<DEJDEJ id:450::zclient.go:scheduleUpdate>>>")
 	if len(paths) == 0 {
 		return
 	}
 	m.pathListCh <- paths
 }
 
-func (m *nexthopTrackingManager) filterPathToRegister(paths pathList) pathList {
-   fmt.Printf("DEJDEJ id:",240)
+func (m *nexthopTrackingManager) filterPathToRegister(paths pathList) pathList { 
+   fmt.Print("<<<DEJDEJ id:451::zclient.go:filterPathToRegister>>>")
 	filteredPaths := make(pathList, 0, len(paths))
 	for _, path := range paths {
 		if path == nil || path.IsFromExternal() {
@@ -218,8 +218,8 @@ func (m *nexthopTrackingManager) filterPathToRegister(paths pathList) pathList {
 	return filteredPaths
 }
 
-func filterOutExternalPath(paths pathList) pathList {
-   fmt.Printf("DEJDEJ id:",241)
+func filterOutExternalPath(paths pathList) pathList { 
+   fmt.Print("<<<DEJDEJ id:452::zclient.go:filterOutExternalPath(paths>>>")
 	filteredPaths := make(pathList, 0, len(paths))
 	for _, path := range paths {
 		if path == nil || path.IsFromExternal() {
@@ -230,8 +230,8 @@ func filterOutExternalPath(paths pathList) pathList {
 	return filteredPaths
 }
 
-func newIPRouteBody(dst pathList) (body *zebra.IPRouteBody, isWithdraw bool) {
-   fmt.Printf("DEJDEJ id:",242)
+func newIPRouteBody(dst pathList) (body *zebra.IPRouteBody, isWithdraw bool) { 
+   fmt.Print("<<<DEJDEJ id:453::zclient.go:newIPRouteBody(dst>>>")
 	paths := filterOutExternalPath(dst)
 	if len(paths) == 0 {
 		return nil, false
@@ -288,8 +288,8 @@ func newIPRouteBody(dst pathList) (body *zebra.IPRouteBody, isWithdraw bool) {
 	}, path.IsWithdraw
 }
 
-func newNexthopRegisterBody(dst pathList, nhtManager *nexthopTrackingManager) (body *zebra.NexthopRegisterBody, isWithdraw bool) {
-   fmt.Printf("DEJDEJ id:",243)
+func newNexthopRegisterBody(dst pathList, nhtManager *nexthopTrackingManager) (body *zebra.NexthopRegisterBody, isWithdraw bool) { 
+   fmt.Print("<<<DEJDEJ id:454::zclient.go:newNexthopRegisterBody(dst>>>")
 	if nhtManager == nil {
 		return nil, false
 	}
@@ -341,8 +341,8 @@ func newNexthopRegisterBody(dst pathList, nhtManager *nexthopTrackingManager) (b
 	}, path.IsWithdraw
 }
 
-func createPathFromIPRouteMessage(m *zebra.Message) *table.Path {
-   fmt.Printf("DEJDEJ id:",244)
+func createPathFromIPRouteMessage(m *zebra.Message) *table.Path { 
+   fmt.Print("<<<DEJDEJ id:455::zclient.go:createPathFromIPRouteMessage(m>>>")
 	header := m.Header
 	body := m.Body.(*zebra.IPRouteBody)
 	family := body.RouteFamily()
@@ -396,8 +396,8 @@ func createPathFromIPRouteMessage(m *zebra.Message) *table.Path {
 	return path
 }
 
-func rfListFromNexthopUpdateBody(body *zebra.NexthopUpdateBody) (rfList []bgp.RouteFamily) {
-   fmt.Printf("DEJDEJ id:",245)
+func rfListFromNexthopUpdateBody(body *zebra.NexthopUpdateBody) (rfList []bgp.RouteFamily) { 
+   fmt.Print("<<<DEJDEJ id:456::zclient.go:rfListFromNexthopUpdateBody(body>>>")
 	switch body.Family {
 	case uint16(syscall.AF_INET):
 		return []bgp.RouteFamily{bgp.RF_IPv4_UC, bgp.RF_IPv4_VPN}
@@ -407,8 +407,8 @@ func rfListFromNexthopUpdateBody(body *zebra.NexthopUpdateBody) (rfList []bgp.Ro
 	return nil
 }
 
-func createPathListFromNexthopUpdateMessage(body *zebra.NexthopUpdateBody, manager *table.TableManager, nhtManager *nexthopTrackingManager) (pathList, *zebra.NexthopRegisterBody, error) {
-   fmt.Printf("DEJDEJ id:",246)
+func createPathListFromNexthopUpdateMessage(body *zebra.NexthopUpdateBody, manager *table.TableManager, nhtManager *nexthopTrackingManager) (pathList, *zebra.NexthopRegisterBody, error) { 
+   fmt.Print("<<<DEJDEJ id:457::zclient.go:createPathListFromNexthopUpdateMessage(body>>>")
 	isNexthopInvalid := len(body.Nexthops) == 0
 	paths := manager.GetPathListWithNexthop(table.GLOBAL_RIB_NAME, rfListFromNexthopUpdateBody(body), body.Prefix)
 	pathsLen := len(paths)
@@ -452,13 +452,13 @@ type zebraClient struct {
 	nhtManager *nexthopTrackingManager
 }
 
-func (z *zebraClient) stop() {
-   fmt.Printf("DEJDEJ id:",247)
+func (z *zebraClient) stop() { 
+   fmt.Print("<<<DEJDEJ id:458::zclient.go:stop>>>")
 	close(z.dead)
 }
 
-func (z *zebraClient) loop() {
-   fmt.Printf("DEJDEJ id:",248)
+func (z *zebraClient) loop() { 
+   fmt.Print("<<<DEJDEJ id:459::zclient.go:loop>>>")
 	w := z.server.Watch([]WatchOption{
 		WatchBestPath(true),
 		WatchPostUpdate(true),
@@ -548,8 +548,8 @@ func (z *zebraClient) loop() {
 	}
 }
 
-func newZebraClient(s *BgpServer, url string, protos []string, version uint8, nhtEnable bool, nhtDelay uint8) (*zebraClient, error) {
-   fmt.Printf("DEJDEJ id:",249)
+func newZebraClient(s *BgpServer, url string, protos []string, version uint8, nhtEnable bool, nhtDelay uint8) (*zebraClient, error) { 
+   fmt.Print("<<<DEJDEJ id:460::zclient.go:newZebraClient(s>>>")
 	l := strings.SplitN(url, ":", 2)
 	if len(l) != 2 {
 		return nil, fmt.Errorf("unsupported url: %s", url)

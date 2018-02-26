@@ -103,8 +103,8 @@ const (
 
 const VRF_DEFAULT = 0
 
-func HeaderSize(version uint8) uint16 {
-   fmt.Printf("DEJDEJ id:",3512)
+func HeaderSize(version uint8) uint16 { 
+   fmt.Print("<<<DEJDEJ id:337::zapi.go:HeaderSize(version>>>")
 	switch version {
 	case 3, 4:
 		return 8
@@ -113,8 +113,8 @@ func HeaderSize(version uint8) uint16 {
 	}
 }
 
-func (t INTERFACE_STATUS) String() string {
-   fmt.Printf("DEJDEJ id:",3513)
+func (t INTERFACE_STATUS) String() string { 
+   fmt.Print("<<<DEJDEJ id:338::zapi.go:String>>>")
 	ss := make([]string, 0, 3)
 	if t&INTERFACE_ACTIVE > 0 {
 		ss = append(ss, "ACTIVE")
@@ -140,8 +140,8 @@ const (
 	INTERFACE_ADDRESS_UNNUMBERED INTERFACE_ADDRESS_FLAG = 0x04
 )
 
-func (t INTERFACE_ADDRESS_FLAG) String() string {
-   fmt.Printf("DEJDEJ id:",3514)
+func (t INTERFACE_ADDRESS_FLAG) String() string { 
+   fmt.Print("<<<DEJDEJ id:339::zapi.go:String>>>")
 	ss := make([]string, 0, 3)
 	if t&INTERFACE_ADDRESS_SECONDARY > 0 {
 		ss = append(ss, "SECONDARY")
@@ -357,8 +357,8 @@ var routeTypeValueMap = map[string]ROUTE_TYPE{
 	"all":                FRR_ROUTE_ALL,
 }
 
-func RouteTypeFromString(typ string) (ROUTE_TYPE, error) {
-   fmt.Printf("DEJDEJ id:",3515)
+func RouteTypeFromString(typ string) (ROUTE_TYPE, error) { 
+   fmt.Print("<<<DEJDEJ id:340::zapi.go:RouteTypeFromString(typ>>>")
 	t, ok := routeTypeValueMap[typ]
 	if ok {
 		return t, nil
@@ -379,8 +379,8 @@ const (
 	MESSAGE_TAG      MESSAGE_FLAG = 0x20
 )
 
-func (t MESSAGE_FLAG) String() string {
-   fmt.Printf("DEJDEJ id:",3516)
+func (t MESSAGE_FLAG) String() string { 
+   fmt.Print("<<<DEJDEJ id:341::zapi.go:String>>>")
 	var ss []string
 	if t&MESSAGE_NEXTHOP > 0 {
 		ss = append(ss, "NEXTHOP")
@@ -430,8 +430,8 @@ const (
 	FLAG_FIB_OVERRIDE FLAG = 0x200
 )
 
-func (t FLAG) String() string {
-   fmt.Printf("DEJDEJ id:",3517)
+func (t FLAG) String() string { 
+   fmt.Print("<<<DEJDEJ id:342::zapi.go:String>>>")
 	var ss []string
 	if t&FLAG_INTERNAL > 0 {
 		ss = append(ss, "FLAG_INTERNAL")
@@ -523,8 +523,8 @@ type Client struct {
 	Version       uint8
 }
 
-func NewClient(network, address string, typ ROUTE_TYPE, version uint8) (*Client, error) {
-   fmt.Printf("DEJDEJ id:",3518)
+func NewClient(network, address string, typ ROUTE_TYPE, version uint8) (*Client, error) { 
+   fmt.Print("<<<DEJDEJ id:343::zapi.go:NewClient(network,>>>")
 	conn, err := net.Dial(network, address)
 	if err != nil {
 		return nil, err
@@ -642,20 +642,20 @@ func NewClient(network, address string, typ ROUTE_TYPE, version uint8) (*Client,
 	return c, nil
 }
 
-func readAll(conn net.Conn, length int) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3519)
+func readAll(conn net.Conn, length int) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:344::zapi.go:readAll(conn>>>")
 	buf := make([]byte, length)
 	_, err := io.ReadFull(conn, buf)
 	return buf, err
 }
 
-func (c *Client) Receive() chan *Message {
-   fmt.Printf("DEJDEJ id:",3520)
+func (c *Client) Receive() chan *Message { 
+   fmt.Print("<<<DEJDEJ id:345::zapi.go:Receive>>>")
 	return c.incoming
 }
 
-func (c *Client) Send(m *Message) {
-   fmt.Printf("DEJDEJ id:",3521)
+func (c *Client) Send(m *Message) { 
+   fmt.Print("<<<DEJDEJ id:346::zapi.go:Send>>>")
 	defer func() {
 		if err := recover(); err != nil {
 			log.WithFields(log.Fields{
@@ -671,8 +671,8 @@ func (c *Client) Send(m *Message) {
 	c.outgoing <- m
 }
 
-func (c *Client) SendCommand(command API_TYPE, vrfId uint16, body Body) error {
-   fmt.Printf("DEJDEJ id:",3522)
+func (c *Client) SendCommand(command API_TYPE, vrfId uint16, body Body) error { 
+   fmt.Print("<<<DEJDEJ id:347::zapi.go:SendCommand>>>")
 	var marker uint8 = HEADER_MARKER
 	if c.Version >= 4 {
 		marker = FRR_HEADER_MARKER
@@ -691,8 +691,8 @@ func (c *Client) SendCommand(command API_TYPE, vrfId uint16, body Body) error {
 	return nil
 }
 
-func (c *Client) SendHello() error {
-   fmt.Printf("DEJDEJ id:",3523)
+func (c *Client) SendHello() error { 
+   fmt.Print("<<<DEJDEJ id:348::zapi.go:SendHello>>>")
 	if c.redistDefault > 0 {
 		command := HELLO
 		body := &HelloBody{
@@ -707,8 +707,8 @@ func (c *Client) SendHello() error {
 	return nil
 }
 
-func (c *Client) SendRouterIDAdd() error {
-   fmt.Printf("DEJDEJ id:",3524)
+func (c *Client) SendRouterIDAdd() error { 
+   fmt.Print("<<<DEJDEJ id:349::zapi.go:SendRouterIDAdd>>>")
 	command := ROUTER_ID_ADD
 	if c.Version >= 4 {
 		command = FRR_ROUTER_ID_ADD
@@ -716,8 +716,8 @@ func (c *Client) SendRouterIDAdd() error {
 	return c.SendCommand(command, VRF_DEFAULT, nil)
 }
 
-func (c *Client) SendInterfaceAdd() error {
-   fmt.Printf("DEJDEJ id:",3525)
+func (c *Client) SendInterfaceAdd() error { 
+   fmt.Print("<<<DEJDEJ id:350::zapi.go:SendInterfaceAdd>>>")
 	command := INTERFACE_ADD
 	if c.Version >= 4 {
 		command = FRR_INTERFACE_ADD
@@ -725,8 +725,8 @@ func (c *Client) SendInterfaceAdd() error {
 	return c.SendCommand(command, VRF_DEFAULT, nil)
 }
 
-func (c *Client) SendRedistribute(t ROUTE_TYPE, vrfId uint16) error {
-   fmt.Printf("DEJDEJ id:",3526)
+func (c *Client) SendRedistribute(t ROUTE_TYPE, vrfId uint16) error { 
+   fmt.Print("<<<DEJDEJ id:351::zapi.go:SendRedistribute>>>")
 	command := REDISTRIBUTE_ADD
 	if c.redistDefault != t {
 		bodies := make([]*RedistributeBody, 0)
@@ -753,8 +753,8 @@ func (c *Client) SendRedistribute(t ROUTE_TYPE, vrfId uint16) error {
 	return nil
 }
 
-func (c *Client) SendRedistributeDelete(t ROUTE_TYPE) error {
-   fmt.Printf("DEJDEJ id:",3527)
+func (c *Client) SendRedistributeDelete(t ROUTE_TYPE) error { 
+   fmt.Print("<<<DEJDEJ id:352::zapi.go:SendRedistributeDelete>>>")
 	if t < ROUTE_MAX {
 		command := REDISTRIBUTE_DELETE
 		if c.Version >= 4 {
@@ -769,8 +769,8 @@ func (c *Client) SendRedistributeDelete(t ROUTE_TYPE) error {
 	}
 }
 
-func (c *Client) SendIPRoute(vrfId uint16, body *IPRouteBody, isWithdraw bool) error {
-   fmt.Printf("DEJDEJ id:",3528)
+func (c *Client) SendIPRoute(vrfId uint16, body *IPRouteBody, isWithdraw bool) error { 
+   fmt.Print("<<<DEJDEJ id:353::zapi.go:SendIPRoute>>>")
 	command := IPV4_ROUTE_ADD
 	if c.Version <= 3 {
 		if body.Prefix.To4() != nil {
@@ -802,8 +802,8 @@ func (c *Client) SendIPRoute(vrfId uint16, body *IPRouteBody, isWithdraw bool) e
 	return c.SendCommand(command, vrfId, body)
 }
 
-func (c *Client) SendNexthopRegister(vrfId uint16, body *NexthopRegisterBody, isWithdraw bool) error {
-   fmt.Printf("DEJDEJ id:",3529)
+func (c *Client) SendNexthopRegister(vrfId uint16, body *NexthopRegisterBody, isWithdraw bool) error { 
+   fmt.Print("<<<DEJDEJ id:354::zapi.go:SendNexthopRegister>>>")
 	// Note: NEXTHOP_REGISTER and NEXTHOP_UNREGISTER messages are not
 	// supported in Zebra protocol version<3.
 	if c.Version < 3 {
@@ -824,8 +824,8 @@ func (c *Client) SendNexthopRegister(vrfId uint16, body *NexthopRegisterBody, is
 	return c.SendCommand(command, vrfId, body)
 }
 
-func (c *Client) Close() error {
-   fmt.Printf("DEJDEJ id:",3530)
+func (c *Client) Close() error { 
+   fmt.Print("<<<DEJDEJ id:355::zapi.go:Close>>>")
 	close(c.outgoing)
 	return c.conn.Close()
 }
@@ -838,8 +838,8 @@ type Header struct {
 	Command API_TYPE
 }
 
-func (h *Header) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3531)
+func (h *Header) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:356::zapi.go:Serialize>>>")
 	buf := make([]byte, HeaderSize(h.Version))
 	binary.BigEndian.PutUint16(buf[0:2], h.Len)
 	buf[2] = h.Marker
@@ -856,8 +856,8 @@ func (h *Header) Serialize() ([]byte, error) {
 	return buf, nil
 }
 
-func (h *Header) DecodeFromBytes(data []byte) error {
-   fmt.Printf("DEJDEJ id:",3532)
+func (h *Header) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:357::zapi.go:DecodeFromBytes>>>")
 	if uint16(len(data)) < 4 {
 		return fmt.Errorf("Not all ZAPI message header")
 	}
@@ -889,19 +889,19 @@ type UnknownBody struct {
 	Data []byte
 }
 
-func (b *UnknownBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3533)
+func (b *UnknownBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:358::zapi.go:DecodeFromBytes>>>")
 	b.Data = data
 	return nil
 }
 
-func (b *UnknownBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3534)
+func (b *UnknownBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:359::zapi.go:Serialize>>>")
 	return b.Data, nil
 }
 
-func (b *UnknownBody) String() string {
-   fmt.Printf("DEJDEJ id:",3535)
+func (b *UnknownBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:360::zapi.go:String>>>")
 	return fmt.Sprintf("data: %v", b.Data)
 }
 
@@ -910,8 +910,8 @@ type HelloBody struct {
 	Instance      uint16
 }
 
-func (b *HelloBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3536)
+func (b *HelloBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:361::zapi.go:DecodeFromBytes>>>")
 	b.RedistDefault = ROUTE_TYPE(data[0])
 	if version >= 4 {
 		b.Instance = binary.BigEndian.Uint16(data[1:3])
@@ -919,8 +919,8 @@ func (b *HelloBody) DecodeFromBytes(data []byte, version uint8) error {
 	return nil
 }
 
-func (b *HelloBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3537)
+func (b *HelloBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:362::zapi.go:Serialize>>>")
 	if version <= 3 {
 		return []byte{uint8(b.RedistDefault)}, nil
 	} else { // version >= 4
@@ -932,8 +932,8 @@ func (b *HelloBody) Serialize(version uint8) ([]byte, error) {
 	}
 }
 
-func (b *HelloBody) String() string {
-   fmt.Printf("DEJDEJ id:",3538)
+func (b *HelloBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:363::zapi.go:String>>>")
 	return fmt.Sprintf(
 		"route_type: %s, instance :%d",
 		b.RedistDefault.String(), b.Instance)
@@ -945,8 +945,8 @@ type RedistributeBody struct {
 	Instance uint16
 }
 
-func (b *RedistributeBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3539)
+func (b *RedistributeBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:364::zapi.go:DecodeFromBytes>>>")
 	if version <= 3 {
 		b.Redist = ROUTE_TYPE(data[0])
 	} else { // version >= 4
@@ -957,8 +957,8 @@ func (b *RedistributeBody) DecodeFromBytes(data []byte, version uint8) error {
 	return nil
 }
 
-func (b *RedistributeBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3540)
+func (b *RedistributeBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:365::zapi.go:Serialize>>>")
 	if version <= 3 {
 		return []byte{uint8(b.Redist)}, nil
 	} else { // version >= 4
@@ -970,8 +970,8 @@ func (b *RedistributeBody) Serialize(version uint8) ([]byte, error) {
 	}
 }
 
-func (b *RedistributeBody) String() string {
-   fmt.Printf("DEJDEJ id:",3541)
+func (b *RedistributeBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:366::zapi.go:String>>>")
 	return fmt.Sprintf(
 		"afi: %s, route_type: %s, instance :%d",
 		b.Afi.String(), b.Redist.String(), b.Instance)
@@ -993,8 +993,8 @@ type InterfaceUpdateBody struct {
 	HardwareAddr net.HardwareAddr
 }
 
-func (b *InterfaceUpdateBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3542)
+func (b *InterfaceUpdateBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:367::zapi.go:DecodeFromBytes>>>")
 	if len(data) < INTERFACE_NAMSIZ+29 {
 		return fmt.Errorf("lack of bytes. need %d but %d", INTERFACE_NAMSIZ+29, len(data))
 	}
@@ -1033,13 +1033,13 @@ func (b *InterfaceUpdateBody) DecodeFromBytes(data []byte, version uint8) error 
 	return nil
 }
 
-func (b *InterfaceUpdateBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3543)
+func (b *InterfaceUpdateBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:368::zapi.go:Serialize>>>")
 	return []byte{}, nil
 }
 
-func (b *InterfaceUpdateBody) String() string {
-   fmt.Printf("DEJDEJ id:",3544)
+func (b *InterfaceUpdateBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:369::zapi.go:String>>>")
 	s := fmt.Sprintf(
 		"name: %s, idx: %d, status: %s, flags: %s, ptm_enable: %s, ptm_status: %s, metric: %d, speed: %d, mtu: %d, mtu6: %d, bandwidth: %d, linktype: %s",
 		b.Name, b.Index, b.Status.String(), intfflag2string(b.Flags), b.PTMEnable.String(), b.PTMStatus.String(), b.Metric, b.Speed, b.MTU, b.MTU6, b.Bandwidth, b.Linktype.String())
@@ -1057,8 +1057,8 @@ type InterfaceAddressUpdateBody struct {
 	Destination net.IP
 }
 
-func (b *InterfaceAddressUpdateBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3545)
+func (b *InterfaceAddressUpdateBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:370::zapi.go:DecodeFromBytes>>>")
 	b.Index = binary.BigEndian.Uint32(data[:4])
 	b.Flags = INTERFACE_ADDRESS_FLAG(data[4])
 	family := data[5]
@@ -1077,13 +1077,13 @@ func (b *InterfaceAddressUpdateBody) DecodeFromBytes(data []byte, version uint8)
 	return nil
 }
 
-func (b *InterfaceAddressUpdateBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3546)
+func (b *InterfaceAddressUpdateBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:371::zapi.go:Serialize>>>")
 	return []byte{}, nil
 }
 
-func (b *InterfaceAddressUpdateBody) String() string {
-   fmt.Printf("DEJDEJ id:",3547)
+func (b *InterfaceAddressUpdateBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:372::zapi.go:String>>>")
 	return fmt.Sprintf(
 		"idx: %d, flags: %s, addr: %s/%d",
 		b.Index, b.Flags.String(), b.Prefix.String(), b.Length)
@@ -1094,8 +1094,8 @@ type RouterIDUpdateBody struct {
 	Prefix net.IP
 }
 
-func (b *RouterIDUpdateBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3548)
+func (b *RouterIDUpdateBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:373::zapi.go:DecodeFromBytes>>>")
 	family := data[0]
 	var addrlen int8
 	switch family {
@@ -1111,13 +1111,13 @@ func (b *RouterIDUpdateBody) DecodeFromBytes(data []byte, version uint8) error {
 	return nil
 }
 
-func (b *RouterIDUpdateBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3549)
+func (b *RouterIDUpdateBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:374::zapi.go:Serialize>>>")
 	return []byte{}, nil
 }
 
-func (b *RouterIDUpdateBody) String() string {
-   fmt.Printf("DEJDEJ id:",3550)
+func (b *RouterIDUpdateBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:375::zapi.go:String>>>")
 	return fmt.Sprintf("id: %s/%d", b.Prefix.String(), b.Length)
 }
 
@@ -1140,8 +1140,8 @@ type IPRouteBody struct {
 	Api             API_TYPE
 }
 
-func (b *IPRouteBody) RouteFamily() bgp.RouteFamily {
-   fmt.Printf("DEJDEJ id:",3551)
+func (b *IPRouteBody) RouteFamily() bgp.RouteFamily { 
+   fmt.Print("<<<DEJDEJ id:376::zapi.go:RouteFamily>>>")
 	switch b.Api {
 	case IPV4_ROUTE_ADD, IPV4_ROUTE_DELETE, FRR_REDISTRIBUTE_IPV4_ADD, FRR_REDISTRIBUTE_IPV4_DEL:
 		return bgp.RF_IPv4_UC
@@ -1152,8 +1152,8 @@ func (b *IPRouteBody) RouteFamily() bgp.RouteFamily {
 	}
 }
 
-func (b *IPRouteBody) IsWithdraw() bool {
-   fmt.Printf("DEJDEJ id:",3552)
+func (b *IPRouteBody) IsWithdraw() bool { 
+   fmt.Print("<<<DEJDEJ id:377::zapi.go:IsWithdraw>>>")
 	switch b.Api {
 	case IPV4_ROUTE_DELETE, FRR_REDISTRIBUTE_IPV4_DEL, IPV6_ROUTE_DELETE, FRR_REDISTRIBUTE_IPV6_DEL:
 		return true
@@ -1162,8 +1162,8 @@ func (b *IPRouteBody) IsWithdraw() bool {
 	}
 }
 
-func (b *IPRouteBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3553)
+func (b *IPRouteBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:378::zapi.go:Serialize>>>")
 
 	var buf []byte
 	nhfIPv4 := uint8(NEXTHOP_IPV4)
@@ -1256,8 +1256,8 @@ func (b *IPRouteBody) Serialize(version uint8) ([]byte, error) {
 	return buf, nil
 }
 
-func (b *IPRouteBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3554)
+func (b *IPRouteBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:379::zapi.go:DecodeFromBytes>>>")
 	isV4 := true
 	if version <= 3 {
 		isV4 = b.Api == IPV4_ROUTE_ADD || b.Api == IPV4_ROUTE_DELETE
@@ -1404,8 +1404,8 @@ func (b *IPRouteBody) DecodeFromBytes(data []byte, version uint8) error {
 	return nil
 }
 
-func (b *IPRouteBody) String() string {
-   fmt.Printf("DEJDEJ id:",3555)
+func (b *IPRouteBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:380::zapi.go:String>>>")
 	s := fmt.Sprintf(
 		"type: %s, instance: %d, flags: %s, message: %d, safi: %s, prefix: %s/%d, src_prefix: %s/%d",
 		b.Type.String(), b.Instance, b.Flags.String(), b.Message, b.SAFI.String(), b.Prefix.String(), b.PrefixLength, b.SrcPrefix.String(), b.SrcPrefixLength)
@@ -1435,16 +1435,16 @@ type Nexthop struct {
 	Addr    net.IP
 }
 
-func (n *Nexthop) String() string {
-   fmt.Printf("DEJDEJ id:",3556)
+func (n *Nexthop) String() string { 
+   fmt.Print("<<<DEJDEJ id:381::zapi.go:String>>>")
 	s := fmt.Sprintf(
 		"type: %s, addr: %s, ifindex: %d, ifname: %s",
 		n.Type.String(), n.Addr.String(), n.Ifindex, n.Ifname)
 	return s
 }
 
-func serializeNexthops(nexthops []*Nexthop, isV4 bool, version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3557)
+func serializeNexthops(nexthops []*Nexthop, isV4 bool, version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:382::zapi.go:serializeNexthops(nexthops>>>")
 	buf := make([]byte, 0)
 	if len(nexthops) == 0 {
 		return buf, nil
@@ -1509,8 +1509,8 @@ func serializeNexthops(nexthops []*Nexthop, isV4 bool, version uint8) ([]byte, e
 	return buf, nil
 }
 
-func decodeNexthopsFromBytes(nexthops *[]*Nexthop, data []byte, isV4 bool, version uint8) (int, error) {
-   fmt.Printf("DEJDEJ id:",3558)
+func decodeNexthopsFromBytes(nexthops *[]*Nexthop, data []byte, isV4 bool, version uint8) (int, error) { 
+   fmt.Print("<<<DEJDEJ id:383::zapi.go:decodeNexthopsFromBytes(nexthops>>>")
 	addrLen := net.IPv4len
 	if !isV4 {
 		addrLen = net.IPv6len
@@ -1578,8 +1578,8 @@ func decodeNexthopsFromBytes(nexthops *[]*Nexthop, data []byte, isV4 bool, versi
 	return offset, nil
 }
 
-func (b *NexthopLookupBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3559)
+func (b *NexthopLookupBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:384::zapi.go:Serialize>>>")
 	isV4 := false
 	if version <= 3 {
 		isV4 = b.Api == IPV4_NEXTHOP_LOOKUP
@@ -1597,8 +1597,8 @@ func (b *NexthopLookupBody) Serialize(version uint8) ([]byte, error) {
 	return buf, nil
 }
 
-func (b *NexthopLookupBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3560)
+func (b *NexthopLookupBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:385::zapi.go:DecodeFromBytes>>>")
 	isV4 := false
 	if version <= 3 {
 		isV4 = b.Api == IPV4_NEXTHOP_LOOKUP
@@ -1643,8 +1643,8 @@ func (b *NexthopLookupBody) DecodeFromBytes(data []byte, version uint8) error {
 	return nil
 }
 
-func (b *NexthopLookupBody) String() string {
-   fmt.Printf("DEJDEJ id:",3561)
+func (b *NexthopLookupBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:386::zapi.go:String>>>")
 	s := fmt.Sprintf(
 		"addr: %s, distance:%d, metric: %d",
 		b.Addr.String(), b.Distance, b.Metric)
@@ -1665,16 +1665,16 @@ type ImportLookupBody struct {
 	Nexthops     []*Nexthop
 }
 
-func (b *ImportLookupBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3562)
+func (b *ImportLookupBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:387::zapi.go:Serialize>>>")
 	buf := make([]byte, 1)
 	buf[0] = b.PrefixLength
 	buf = append(buf, b.Addr.To4()...)
 	return buf, nil
 }
 
-func (b *ImportLookupBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3563)
+func (b *ImportLookupBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:388::zapi.go:DecodeFromBytes>>>")
 	isV4 := b.Api == IPV4_IMPORT_LOOKUP
 	addrLen := net.IPv4len
 	if !isV4 {
@@ -1705,8 +1705,8 @@ func (b *ImportLookupBody) DecodeFromBytes(data []byte, version uint8) error {
 	return nil
 }
 
-func (b *ImportLookupBody) String() string {
-   fmt.Printf("DEJDEJ id:",3564)
+func (b *ImportLookupBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:389::zapi.go:String>>>")
 	s := fmt.Sprintf(
 		"prefix: %s/%d, addr: %s, metric: %d",
 		b.Prefix.String(), b.PrefixLength, b.Addr.String(), b.Metric)
@@ -1728,8 +1728,8 @@ type RegisteredNexthop struct {
 	Prefix net.IP
 }
 
-func (n *RegisteredNexthop) Len() int {
-   fmt.Printf("DEJDEJ id:",3565)
+func (n *RegisteredNexthop) Len() int { 
+   fmt.Print("<<<DEJDEJ id:390::zapi.go:Len>>>")
 	// Connected (1 byte) + Address Family (2 bytes) + Prefix Length (1 byte) + Prefix (variable)
 	if n.Family == uint16(syscall.AF_INET) {
 		return 4 + net.IPv4len
@@ -1738,8 +1738,8 @@ func (n *RegisteredNexthop) Len() int {
 	}
 }
 
-func (n *RegisteredNexthop) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3566)
+func (n *RegisteredNexthop) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:391::zapi.go:Serialize>>>")
 	// Connected (1 byte)
 	buf := make([]byte, 4)
 	buf[0] = byte(n.Connected)
@@ -1762,8 +1762,8 @@ func (n *RegisteredNexthop) Serialize() ([]byte, error) {
 	return buf, nil
 }
 
-func (n *RegisteredNexthop) DecodeFromBytes(data []byte) error {
-   fmt.Printf("DEJDEJ id:",3567)
+func (n *RegisteredNexthop) DecodeFromBytes(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:392::zapi.go:DecodeFromBytes>>>")
 	// Connected (1 byte)
 	n.Connected = uint8(data[0])
 	offset := 1
@@ -1788,8 +1788,8 @@ func (n *RegisteredNexthop) DecodeFromBytes(data []byte) error {
 	return nil
 }
 
-func (n *RegisteredNexthop) String() string {
-   fmt.Printf("DEJDEJ id:",3568)
+func (n *RegisteredNexthop) String() string { 
+   fmt.Print("<<<DEJDEJ id:393::zapi.go:String>>>")
 	return fmt.Sprintf(
 		"connected: %d, family: %d, prefix: %s",
 		n.Connected, n.Family, n.Prefix.String())
@@ -1800,8 +1800,8 @@ type NexthopRegisterBody struct {
 	Nexthops []*RegisteredNexthop
 }
 
-func (b *NexthopRegisterBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3569)
+func (b *NexthopRegisterBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:394::zapi.go:Serialize>>>")
 	buf := make([]byte, 0)
 
 	// List of Registered Nexthops
@@ -1816,8 +1816,8 @@ func (b *NexthopRegisterBody) Serialize(version uint8) ([]byte, error) {
 	return buf, nil
 }
 
-func (b *NexthopRegisterBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3570)
+func (b *NexthopRegisterBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:395::zapi.go:DecodeFromBytes>>>")
 	offset := 0
 
 	// List of Registered Nexthops
@@ -1839,8 +1839,8 @@ func (b *NexthopRegisterBody) DecodeFromBytes(data []byte, version uint8) error 
 	return nil
 }
 
-func (b *NexthopRegisterBody) String() string {
-   fmt.Printf("DEJDEJ id:",3571)
+func (b *NexthopRegisterBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:396::zapi.go:String>>>")
 	s := make([]string, 0)
 	for _, nh := range b.Nexthops {
 		s = append(s, fmt.Sprintf("nexthop:{%s}", nh.String()))
@@ -1861,8 +1861,8 @@ type NexthopUpdateBody struct {
 	Nexthops []*Nexthop
 }
 
-func (b *NexthopUpdateBody) Serialize(version uint8) ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3572)
+func (b *NexthopUpdateBody) Serialize(version uint8) ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:397::zapi.go:Serialize>>>")
 	// Address Family (2 bytes)
 	buf := make([]byte, 3)
 	binary.BigEndian.PutUint16(buf, b.Family)
@@ -1882,8 +1882,8 @@ func (b *NexthopUpdateBody) Serialize(version uint8) ([]byte, error) {
 	return buf, nil
 }
 
-func (b *NexthopUpdateBody) DecodeFromBytes(data []byte, version uint8) error {
-   fmt.Printf("DEJDEJ id:",3573)
+func (b *NexthopUpdateBody) DecodeFromBytes(data []byte, version uint8) error { 
+   fmt.Print("<<<DEJDEJ id:398::zapi.go:DecodeFromBytes>>>")
 	// Address Family (2 bytes)
 	b.Family = binary.BigEndian.Uint16(data[0:2])
 	isV4 := b.Family == uint16(syscall.AF_INET)
@@ -1928,8 +1928,8 @@ func (b *NexthopUpdateBody) DecodeFromBytes(data []byte, version uint8) error {
 	return nil
 }
 
-func (b *NexthopUpdateBody) String() string {
-   fmt.Printf("DEJDEJ id:",3574)
+func (b *NexthopUpdateBody) String() string { 
+   fmt.Print("<<<DEJDEJ id:399::zapi.go:String>>>")
 	s := fmt.Sprintf(
 		"family: %d, prefix: %s, distance: %d, metric: %d",
 		b.Family, b.Prefix.String(), b.Distance, b.Metric)
@@ -1944,8 +1944,8 @@ type Message struct {
 	Body   Body
 }
 
-func (m *Message) Serialize() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3575)
+func (m *Message) Serialize() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:400::zapi.go:Serialize>>>")
 	var body []byte
 	if m.Body != nil {
 		var err error
@@ -1962,8 +1962,8 @@ func (m *Message) Serialize() ([]byte, error) {
 	return append(hdr, body...), nil
 }
 
-func (m *Message) parseMessage(data []byte) error {
-   fmt.Printf("DEJDEJ id:",3576)
+func (m *Message) parseMessage(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:401::zapi.go:parseMessage>>>")
 	switch m.Header.Command {
 	case INTERFACE_ADD, INTERFACE_DELETE, INTERFACE_UP, INTERFACE_DOWN:
 		m.Body = &InterfaceUpdateBody{}
@@ -1985,8 +1985,8 @@ func (m *Message) parseMessage(data []byte) error {
 	return m.Body.DecodeFromBytes(data, m.Header.Version)
 }
 
-func (m *Message) parseFrrMessage(data []byte) error {
-   fmt.Printf("DEJDEJ id:",3577)
+func (m *Message) parseFrrMessage(data []byte) error { 
+   fmt.Print("<<<DEJDEJ id:402::zapi.go:parseFrrMessage>>>")
 	switch m.Header.Command {
 	case FRR_INTERFACE_ADD, FRR_INTERFACE_DELETE, FRR_INTERFACE_UP, FRR_INTERFACE_DOWN:
 		m.Body = &InterfaceUpdateBody{}
@@ -2025,8 +2025,8 @@ func (m *Message) parseFrrMessage(data []byte) error {
 	return m.Body.DecodeFromBytes(data, m.Header.Version)
 }
 
-func ParseMessage(hdr *Header, data []byte) (m *Message, err error) {
-   fmt.Printf("DEJDEJ id:",3578)
+func ParseMessage(hdr *Header, data []byte) (m *Message, err error) { 
+   fmt.Print("<<<DEJDEJ id:403::zapi.go:ParseMessage(hdr>>>")
 	m = &Message{Header: *hdr}
 	if m.Header.Version == 4 {
 		err = m.parseFrrMessage(data)

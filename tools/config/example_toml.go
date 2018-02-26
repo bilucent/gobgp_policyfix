@@ -7,8 +7,8 @@ import (
 	"github.com/osrg/gobgp/config"
 )
 
-func main() {
-   fmt.Printf("DEJDEJ id:",3698)
+func main() { 
+   fmt.Print("<<<DEJDEJ id:119::example_toml.go:main()>>>")
 	b := config.Bgp{
 		Global: config.Global{
 			Config: config.GlobalConfig{
@@ -76,8 +76,8 @@ func main() {
 	fmt.Printf("%v\n", buffer.String())
 }
 
-func policy() config.RoutingPolicy {
-   fmt.Printf("DEJDEJ id:",3699)
+func policy() config.RoutingPolicy { 
+   fmt.Print("<<<DEJDEJ id:120::example_toml.go:policy()>>>")
 
 	ps := config.PrefixSet{
 		PrefixSetName: "ps1",

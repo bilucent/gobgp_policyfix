@@ -31,8 +31,8 @@ import (
 	lSyslog "github.com/sirupsen/logrus/hooks/syslog"
 )
 
-func init() {
-   fmt.Printf("DEJDEJ id:",2)
+func init() { 
+   fmt.Print("<<<DEJDEJ id:1399::util.go:init()>>>")
 	go func() {
 		sigCh := make(chan os.Signal, 1)
 		signal.Notify(sigCh, syscall.SIGUSR1)
@@ -43,8 +43,8 @@ func init() {
 	}()
 }
 
-func addSyslogHook(host, facility string) error {
-   fmt.Printf("DEJDEJ id:",3)
+func addSyslogHook(host, facility string) error { 
+   fmt.Print("<<<DEJDEJ id:1400::util.go:addSyslogHook(host,>>>")
 	dst := strings.SplitN(host, ":", 2)
 	network := ""
 	addr := ""

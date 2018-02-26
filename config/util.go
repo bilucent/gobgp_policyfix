@@ -27,8 +27,8 @@ import (
 
 // Returns config file type by retrieving extension from the given path.
 // If no corresponding type found, returns the given def as the default value.
-func detectConfigFileType(path, def string) string {
-   fmt.Printf("DEJDEJ id:",3473)
+func detectConfigFileType(path, def string) string { 
+   fmt.Print("<<<DEJDEJ id:306::util.go:detectConfigFileType(path,>>>")
 	switch ext := filepath.Ext(path); ext {
 	case ".toml":
 		return "toml"
@@ -45,8 +45,8 @@ func detectConfigFileType(path, def string) string {
 // but toml is decoded as []map[string]interface{}.
 // currently, viper can't hide this difference.
 // handle the difference here.
-func extractArray(intf interface{}) ([]interface{}, error) {
-   fmt.Printf("DEJDEJ id:",3474)
+func extractArray(intf interface{}) ([]interface{}, error) { 
+   fmt.Print("<<<DEJDEJ id:307::util.go:extractArray(intf>>>")
 	if intf != nil {
 		list, ok := intf.([]interface{})
 		if ok {
@@ -65,8 +65,8 @@ func extractArray(intf interface{}) ([]interface{}, error) {
 	return nil, nil
 }
 
-func getIPv6LinkLocalAddress(ifname string) (string, error) {
-   fmt.Printf("DEJDEJ id:",3475)
+func getIPv6LinkLocalAddress(ifname string) (string, error) { 
+   fmt.Print("<<<DEJDEJ id:308::util.go:getIPv6LinkLocalAddress(ifname>>>")
 	ifi, err := net.InterfaceByName(ifname)
 	if err != nil {
 		return "", err
@@ -84,8 +84,8 @@ func getIPv6LinkLocalAddress(ifname string) (string, error) {
 	return "", fmt.Errorf("no ipv6 link local address for %s", ifname)
 }
 
-func isLocalLinkLocalAddress(ifindex int, addr net.IP) (bool, error) {
-   fmt.Printf("DEJDEJ id:",3476)
+func isLocalLinkLocalAddress(ifindex int, addr net.IP) (bool, error) { 
+   fmt.Print("<<<DEJDEJ id:309::util.go:isLocalLinkLocalAddress(ifindex>>>")
 	ifi, err := net.InterfaceByIndex(ifindex)
 	if err != nil {
 		return false, err
@@ -102,8 +102,8 @@ func isLocalLinkLocalAddress(ifindex int, addr net.IP) (bool, error) {
 	return false, nil
 }
 
-func (b *BgpConfigSet) getPeerGroup(n string) (*PeerGroup, error) {
-   fmt.Printf("DEJDEJ id:",3477)
+func (b *BgpConfigSet) getPeerGroup(n string) (*PeerGroup, error) { 
+   fmt.Print("<<<DEJDEJ id:310::util.go:getPeerGroup>>>")
 	if n == "" {
 		return nil, nil
 	}
@@ -115,8 +115,8 @@ func (b *BgpConfigSet) getPeerGroup(n string) (*PeerGroup, error) {
 	return nil, fmt.Errorf("no such peer-group: %s", n)
 }
 
-func (d *DynamicNeighbor) validate(b *BgpConfigSet) error {
-   fmt.Printf("DEJDEJ id:",3478)
+func (d *DynamicNeighbor) validate(b *BgpConfigSet) error { 
+   fmt.Print("<<<DEJDEJ id:311::util.go:validate>>>")
 	if d.Config.PeerGroup == "" {
 		return fmt.Errorf("dynamic neighbor requires the peer group config")
 	}
@@ -130,8 +130,8 @@ func (d *DynamicNeighbor) validate(b *BgpConfigSet) error {
 	return nil
 }
 
-func (n *Neighbor) IsConfederationMember(g *Global) bool {
-   fmt.Printf("DEJDEJ id:",3479)
+func (n *Neighbor) IsConfederationMember(g *Global) bool { 
+   fmt.Print("<<<DEJDEJ id:312::util.go:IsConfederationMember>>>")
 	for _, member := range g.Confederation.Config.MemberAsList {
 		if member == n.Config.PeerAs {
 			return true
@@ -140,21 +140,21 @@ func (n *Neighbor) IsConfederationMember(g *Global) bool {
 	return false
 }
 
-func (n *Neighbor) IsConfederation(g *Global) bool {
-   fmt.Printf("DEJDEJ id:",3480)
+func (n *Neighbor) IsConfederation(g *Global) bool { 
+   fmt.Print("<<<DEJDEJ id:313::util.go:IsConfederation>>>")
 	if n.Config.PeerAs == g.Config.As {
 		return true
 	}
 	return n.IsConfederationMember(g)
 }
 
-func (n *Neighbor) IsEBGPPeer(g *Global) bool {
-   fmt.Printf("DEJDEJ id:",3481)
+func (n *Neighbor) IsEBGPPeer(g *Global) bool { 
+   fmt.Print("<<<DEJDEJ id:314::util.go:IsEBGPPeer>>>")
 	return n.Config.PeerAs != g.Config.As
 }
 
-func (n *Neighbor) CreateRfMap() map[bgp.RouteFamily]bgp.BGPAddPathMode {
-   fmt.Printf("DEJDEJ id:",3482)
+func (n *Neighbor) CreateRfMap() map[bgp.RouteFamily]bgp.BGPAddPathMode { 
+   fmt.Print("<<<DEJDEJ id:315::util.go:CreateRfMap>>>")
 	rfMap := make(map[bgp.RouteFamily]bgp.BGPAddPathMode)
 	for _, af := range n.AfiSafis {
 		mode := bgp.BGP_ADD_PATH_NONE
@@ -169,8 +169,8 @@ func (n *Neighbor) CreateRfMap() map[bgp.RouteFamily]bgp.BGPAddPathMode {
 	return rfMap
 }
 
-func (n *Neighbor) GetAfiSafi(family bgp.RouteFamily) *AfiSafi {
-   fmt.Printf("DEJDEJ id:",3483)
+func (n *Neighbor) GetAfiSafi(family bgp.RouteFamily) *AfiSafi { 
+   fmt.Print("<<<DEJDEJ id:316::util.go:GetAfiSafi>>>")
 	for _, a := range n.AfiSafis {
 		if string(a.Config.AfiSafiName) == family.String() {
 			return &a
@@ -179,8 +179,8 @@ func (n *Neighbor) GetAfiSafi(family bgp.RouteFamily) *AfiSafi {
 	return nil
 }
 
-func (n *Neighbor) ExtractNeighborAddress() (string, error) {
-   fmt.Printf("DEJDEJ id:",3484)
+func (n *Neighbor) ExtractNeighborAddress() (string, error) { 
+   fmt.Print("<<<DEJDEJ id:317::util.go:ExtractNeighborAddress>>>")
 	addr := n.State.NeighborAddress
 	if addr == "" {
 		addr = n.Config.NeighborAddress
@@ -191,8 +191,8 @@ func (n *Neighbor) ExtractNeighborAddress() (string, error) {
 	return addr, nil
 }
 
-func (n *Neighbor) IsAddPathReceiveEnabled(family bgp.RouteFamily) bool {
-   fmt.Printf("DEJDEJ id:",3485)
+func (n *Neighbor) IsAddPathReceiveEnabled(family bgp.RouteFamily) bool { 
+   fmt.Print("<<<DEJDEJ id:318::util.go:IsAddPathReceiveEnabled>>>")
 	for _, af := range n.AfiSafis {
 		if af.State.Family == family {
 			return af.AddPaths.State.Receive
@@ -203,8 +203,8 @@ func (n *Neighbor) IsAddPathReceiveEnabled(family bgp.RouteFamily) bool {
 
 type AfiSafis []AfiSafi
 
-func (c AfiSafis) ToRfList() ([]bgp.RouteFamily, error) {
-   fmt.Printf("DEJDEJ id:",3486)
+func (c AfiSafis) ToRfList() ([]bgp.RouteFamily, error) { 
+   fmt.Print("<<<DEJDEJ id:319::util.go:ToRfList>>>")
 	rfs := make([]bgp.RouteFamily, 0, len(c))
 	for _, af := range c {
 		rfs = append(rfs, af.State.Family)
@@ -212,8 +212,8 @@ func (c AfiSafis) ToRfList() ([]bgp.RouteFamily, error) {
 	return rfs, nil
 }
 
-func inSlice(n Neighbor, b []Neighbor) int {
-   fmt.Printf("DEJDEJ id:",3487)
+func inSlice(n Neighbor, b []Neighbor) int { 
+   fmt.Print("<<<DEJDEJ id:320::util.go:inSlice(n>>>")
 	for i, nb := range b {
 		if nb.State.NeighborAddress == n.State.NeighborAddress {
 			return i
@@ -222,8 +222,8 @@ func inSlice(n Neighbor, b []Neighbor) int {
 	return -1
 }
 
-func existPeerGroup(n string, b []PeerGroup) int {
-   fmt.Printf("DEJDEJ id:",3488)
+func existPeerGroup(n string, b []PeerGroup) int { 
+   fmt.Print("<<<DEJDEJ id:321::util.go:existPeerGroup(n>>>")
 	for i, nb := range b {
 		if nb.Config.PeerGroupName == n {
 			return i
@@ -232,8 +232,8 @@ func existPeerGroup(n string, b []PeerGroup) int {
 	return -1
 }
 
-func CheckAfiSafisChange(x, y []AfiSafi) bool {
-   fmt.Printf("DEJDEJ id:",3489)
+func CheckAfiSafisChange(x, y []AfiSafi) bool { 
+   fmt.Print("<<<DEJDEJ id:322::util.go:CheckAfiSafisChange(x,>>>")
 	if len(x) != len(y) {
 		return true
 	}
@@ -249,8 +249,8 @@ func CheckAfiSafisChange(x, y []AfiSafi) bool {
 	return false
 }
 
-func ParseMaskLength(prefix, mask string) (int, int, error) {
-   fmt.Printf("DEJDEJ id:",3490)
+func ParseMaskLength(prefix, mask string) (int, int, error) { 
+   fmt.Print("<<<DEJDEJ id:323::util.go:ParseMaskLength(prefix,>>>")
 	_, ipNet, err := net.ParseCIDR(prefix)
 	if err != nil {
 		return 0, 0, fmt.Errorf("invalid prefix: %s", prefix)

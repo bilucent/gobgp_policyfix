@@ -41,8 +41,8 @@ import (
 
 var version = "master"
 
-func main() {
-   fmt.Printf("DEJDEJ id:",1)
+func main() { 
+   fmt.Print("<<<DEJDEJ id:1402::main.go:main()>>>")
 	sigCh := make(chan os.Signal, 1)
 	signal.Notify(sigCh, syscall.SIGTERM)
 

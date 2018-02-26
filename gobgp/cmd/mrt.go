@@ -29,8 +29,8 @@ import (
 	"github.com/osrg/gobgp/table"
 )
 
-func injectMrt() error {
-   fmt.Printf("DEJDEJ id:",3631)
+func injectMrt() error { 
+   fmt.Print("<<<DEJDEJ id:88::mrt.go:injectMrt()>>>")
 
 	file, err := os.Open(mrtOpts.Filename)
 	if err != nil {
@@ -186,8 +186,8 @@ func injectMrt() error {
 	return nil
 }
 
-func NewMrtCmd() *cobra.Command {
-   fmt.Printf("DEJDEJ id:",3632)
+func NewMrtCmd() *cobra.Command { 
+   fmt.Print("<<<DEJDEJ id:89::mrt.go:NewMrtCmd()>>>")
 	globalInjectCmd := &cobra.Command{
 		Use: CMD_GLOBAL,
 		Run: func(cmd *cobra.Command, args []string) {

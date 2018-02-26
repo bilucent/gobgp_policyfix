@@ -21,8 +21,8 @@ type QuaggaConfig struct {
 	serverIP    net.IP
 }
 
-func NewQuaggaConfig(id int, gConfig *config.Global, myConfig *config.Neighbor, server net.IP) *QuaggaConfig {
-   fmt.Printf("DEJDEJ id:",3700)
+func NewQuaggaConfig(id int, gConfig *config.Global, myConfig *config.Neighbor, server net.IP) *QuaggaConfig { 
+   fmt.Print("<<<DEJDEJ id:121::quagga-rsconfig.go:NewQuaggaConfig(id>>>")
 	return &QuaggaConfig{
 		id:          id,
 		config:      myConfig,
@@ -31,8 +31,8 @@ func NewQuaggaConfig(id int, gConfig *config.Global, myConfig *config.Neighbor, 
 	}
 }
 
-func (qt *QuaggaConfig) Config() *bytes.Buffer {
-   fmt.Printf("DEJDEJ id:",3701)
+func (qt *QuaggaConfig) Config() *bytes.Buffer { 
+   fmt.Print("<<<DEJDEJ id:122::quagga-rsconfig.go:Config>>>")
 	buf := bytes.NewBuffer(nil)
 
 	buf.WriteString("hostname bgpd\n")
@@ -46,8 +46,8 @@ func (qt *QuaggaConfig) Config() *bytes.Buffer {
 	return buf
 }
 
-func create_config_files(nr int, outputDir string) {
-   fmt.Printf("DEJDEJ id:",3702)
+func create_config_files(nr int, outputDir string) { 
+   fmt.Print("<<<DEJDEJ id:123::quagga-rsconfig.go:create_config_files(nr>>>")
 	quaggaConfigList := make([]*QuaggaConfig, 0)
 
 	gobgpConf := config.Bgp{}
@@ -81,8 +81,8 @@ func create_config_files(nr int, outputDir string) {
 	}
 }
 
-func main() {
-   fmt.Printf("DEJDEJ id:",3703)
+func main() { 
+   fmt.Print("<<<DEJDEJ id:124::quagga-rsconfig.go:main()>>>")
 	var opts struct {
 		ClientNumber int    `short:"n" long:"client-number" description:"specfying the number of clients" default:"8"`
 		OutputDir    string `short:"c" long:"output" description:"specifying the output directory"`

@@ -44,14 +44,14 @@ type Server struct {
 	hosts      string
 }
 
-func NewGrpcServer(b *server.BgpServer, hosts string) *Server {
-   fmt.Printf("DEJDEJ id:",376)
+func NewGrpcServer(b *server.BgpServer, hosts string) *Server { 
+   fmt.Print("<<<DEJDEJ id:2634::grpc_server.go:NewGrpcServer(b>>>")
 	size := 256 << 20
 	return NewServer(b, grpc.NewServer(grpc.MaxRecvMsgSize(size), grpc.MaxSendMsgSize(size)), hosts)
 }
 
-func NewServer(b *server.BgpServer, g *grpc.Server, hosts string) *Server {
-   fmt.Printf("DEJDEJ id:",377)
+func NewServer(b *server.BgpServer, g *grpc.Server, hosts string) *Server { 
+   fmt.Print("<<<DEJDEJ id:2635::grpc_server.go:NewServer(b>>>")
 	grpc.EnableTracing = false
 	s := &Server{
 		bgpServer:  b,
@@ -62,8 +62,8 @@ func NewServer(b *server.BgpServer, g *grpc.Server, hosts string) *Server {
 	return s
 }
 
-func (s *Server) Serve() error {
-   fmt.Printf("DEJDEJ id:",378)
+func (s *Server) Serve() error { 
+   fmt.Print("<<<DEJDEJ id:2636::grpc_server.go:Serve>>>")
 	var wg sync.WaitGroup
 	l := strings.Split(s.hosts, ",")
 	wg.Add(len(l))
@@ -94,8 +94,8 @@ func (s *Server) Serve() error {
 	return nil
 }
 
-func NewMpGracefulRestartFromConfigStruct(c *config.MpGracefulRestart) *MpGracefulRestart {
-   fmt.Printf("DEJDEJ id:",379)
+func NewMpGracefulRestartFromConfigStruct(c *config.MpGracefulRestart) *MpGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:2637::grpc_server.go:NewMpGracefulRestartFromConfigStruct(c>>>")
 	return &MpGracefulRestart{
 		Config: &MpGracefulRestartConfig{
 			Enabled: c.Config.Enabled,
@@ -103,16 +103,16 @@ func NewMpGracefulRestartFromConfigStruct(c *config.MpGracefulRestart) *MpGracef
 	}
 }
 
-func NewAfiSafiConfigFromConfigStruct(c *config.AfiSafi) *AfiSafiConfig {
-   fmt.Printf("DEJDEJ id:",380)
+func NewAfiSafiConfigFromConfigStruct(c *config.AfiSafi) *AfiSafiConfig { 
+   fmt.Print("<<<DEJDEJ id:2638::grpc_server.go:NewAfiSafiConfigFromConfigStruct(c>>>")
 	return &AfiSafiConfig{
 		Family:  extractFamilyFromConfigAfiSafi(c),
 		Enabled: c.Config.Enabled,
 	}
 }
 
-func NewApplyPolicyFromConfigStruct(c *config.ApplyPolicy) *ApplyPolicy {
-   fmt.Printf("DEJDEJ id:",381)
+func NewApplyPolicyFromConfigStruct(c *config.ApplyPolicy) *ApplyPolicy { 
+   fmt.Print("<<<DEJDEJ id:2639::grpc_server.go:NewApplyPolicyFromConfigStruct(c>>>")
 	applyPolicy := &ApplyPolicy{
 		ImportPolicy: &PolicyAssignment{
 			Type:    PolicyType_IMPORT,
@@ -141,8 +141,8 @@ func NewApplyPolicyFromConfigStruct(c *config.ApplyPolicy) *ApplyPolicy {
 	return applyPolicy
 }
 
-func NewRouteSelectionOptionsFromConfigStruct(c *config.RouteSelectionOptions) *RouteSelectionOptions {
-   fmt.Printf("DEJDEJ id:",382)
+func NewRouteSelectionOptionsFromConfigStruct(c *config.RouteSelectionOptions) *RouteSelectionOptions { 
+   fmt.Print("<<<DEJDEJ id:2640::grpc_server.go:NewRouteSelectionOptionsFromConfigStruct(c>>>")
 	return &RouteSelectionOptions{
 		Config: &RouteSelectionOptionsConfig{
 			AlwaysCompareMed:        c.Config.AlwaysCompareMed,
@@ -155,8 +155,8 @@ func NewRouteSelectionOptionsFromConfigStruct(c *config.RouteSelectionOptions) *
 	}
 }
 
-func NewUseMultiplePathsFromConfigStruct(c *config.UseMultiplePaths) *UseMultiplePaths {
-   fmt.Printf("DEJDEJ id:",383)
+func NewUseMultiplePathsFromConfigStruct(c *config.UseMultiplePaths) *UseMultiplePaths { 
+   fmt.Print("<<<DEJDEJ id:2641::grpc_server.go:NewUseMultiplePathsFromConfigStruct(c>>>")
 	return &UseMultiplePaths{
 		Config: &UseMultiplePathsConfig{
 			Enabled: c.Config.Enabled,
@@ -175,8 +175,8 @@ func NewUseMultiplePathsFromConfigStruct(c *config.UseMultiplePaths) *UseMultipl
 	}
 }
 
-func NewPrefixLimitFromConfigStruct(c *config.AfiSafi) *PrefixLimit {
-   fmt.Printf("DEJDEJ id:",384)
+func NewPrefixLimitFromConfigStruct(c *config.AfiSafi) *PrefixLimit { 
+   fmt.Print("<<<DEJDEJ id:2642::grpc_server.go:NewPrefixLimitFromConfigStruct(c>>>")
 	if c.PrefixLimit.Config.MaxPrefixes == 0 {
 		return nil
 	}
@@ -188,8 +188,8 @@ func NewPrefixLimitFromConfigStruct(c *config.AfiSafi) *PrefixLimit {
 	}
 }
 
-func NewRouteTargetMembershipFromConfigStruct(c *config.RouteTargetMembership) *RouteTargetMembership {
-   fmt.Printf("DEJDEJ id:",385)
+func NewRouteTargetMembershipFromConfigStruct(c *config.RouteTargetMembership) *RouteTargetMembership { 
+   fmt.Print("<<<DEJDEJ id:2643::grpc_server.go:NewRouteTargetMembershipFromConfigStruct(c>>>")
 	return &RouteTargetMembership{
 		Config: &RouteTargetMembershipConfig{
 			DeferralTime: uint32(c.Config.DeferralTime),
@@ -197,8 +197,8 @@ func NewRouteTargetMembershipFromConfigStruct(c *config.RouteTargetMembership) *
 	}
 }
 
-func NewLongLivedGracefulRestartFromConfigStruct(c *config.LongLivedGracefulRestart) *LongLivedGracefulRestart {
-   fmt.Printf("DEJDEJ id:",386)
+func NewLongLivedGracefulRestartFromConfigStruct(c *config.LongLivedGracefulRestart) *LongLivedGracefulRestart { 
+   fmt.Print("<<<DEJDEJ id:2644::grpc_server.go:NewLongLivedGracefulRestartFromConfigStruct(c>>>")
 	return &LongLivedGracefulRestart{
 		Config: &LongLivedGracefulRestartConfig{
 			Enabled:     c.Config.Enabled,
@@ -207,8 +207,8 @@ func NewLongLivedGracefulRestartFromConfigStruct(c *config.LongLivedGracefulRest
 	}
 }
 
-func NewAddPathsFromConfigStruct(c *config.AddPaths) *AddPaths {
-   fmt.Printf("DEJDEJ id:",387)
+func NewAddPathsFromConfigStruct(c *config.AddPaths) *AddPaths { 
+   fmt.Print("<<<DEJDEJ id:2645::grpc_server.go:NewAddPathsFromConfigStruct(c>>>")
 	return &AddPaths{
 		Config: &AddPathsConfig{
 			Receive: c.Config.Receive,
@@ -217,8 +217,8 @@ func NewAddPathsFromConfigStruct(c *config.AddPaths) *AddPaths {
 	}
 }
 
-func NewAfiSafiFromConfigStruct(c *config.AfiSafi) *AfiSafi {
-   fmt.Printf("DEJDEJ id:",388)
+func NewAfiSafiFromConfigStruct(c *config.AfiSafi) *AfiSafi { 
+   fmt.Print("<<<DEJDEJ id:2646::grpc_server.go:NewAfiSafiFromConfigStruct(c>>>")
 	return &AfiSafi{
 		MpGracefulRestart:        NewMpGracefulRestartFromConfigStruct(&c.MpGracefulRestart),
 		Config:                   NewAfiSafiConfigFromConfigStruct(c),
@@ -232,8 +232,8 @@ func NewAfiSafiFromConfigStruct(c *config.AfiSafi) *AfiSafi {
 	}
 }
 
-func NewPeerFromConfigStruct(pconf *config.Neighbor) *Peer {
-   fmt.Printf("DEJDEJ id:",389)
+func NewPeerFromConfigStruct(pconf *config.Neighbor) *Peer { 
+   fmt.Print("<<<DEJDEJ id:2647::grpc_server.go:NewPeerFromConfigStruct(pconf>>>")
 	families := make([]uint32, 0, len(pconf.AfiSafis))
 	prefixLimits := make([]*PrefixLimit, 0, len(pconf.AfiSafis))
 	afiSafis := make([]*AfiSafi, 0, len(pconf.AfiSafis))
@@ -359,8 +359,8 @@ func NewPeerFromConfigStruct(pconf *config.Neighbor) *Peer {
 	}
 }
 
-func (s *Server) GetNeighbor(ctx context.Context, arg *GetNeighborRequest) (*GetNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",390)
+func (s *Server) GetNeighbor(ctx context.Context, arg *GetNeighborRequest) (*GetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2648::grpc_server.go:GetNeighbor>>>")
 	if arg == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -372,8 +372,8 @@ func (s *Server) GetNeighbor(ctx context.Context, arg *GetNeighborRequest) (*Get
 	return &GetNeighborResponse{Peers: peers}, nil
 }
 
-func NewValidationFromTableStruct(v *table.Validation) *RPKIValidation {
-   fmt.Printf("DEJDEJ id:",391)
+func NewValidationFromTableStruct(v *table.Validation) *RPKIValidation { 
+   fmt.Print("<<<DEJDEJ id:2649::grpc_server.go:NewValidationFromTableStruct(v>>>")
 	if v == nil {
 		return &RPKIValidation{}
 	}
@@ -385,8 +385,8 @@ func NewValidationFromTableStruct(v *table.Validation) *RPKIValidation {
 	}
 }
 
-func ToPathApi(path *table.Path) *Path {
-   fmt.Printf("DEJDEJ id:",392)
+func ToPathApi(path *table.Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:2650::grpc_server.go:ToPathApi(path>>>")
 	nlri := path.GetNlri()
 	n, _ := nlri.Serialize()
 	family := uint32(bgp.AfiSafiToRouteFamily(nlri.AFI(), nlri.SAFI()))
@@ -423,8 +423,8 @@ func ToPathApi(path *table.Path) *Path {
 	return p
 }
 
-func (s *Server) GetRib(ctx context.Context, arg *GetRibRequest) (*GetRibResponse, error) {
-   fmt.Printf("DEJDEJ id:",393)
+func (s *Server) GetRib(ctx context.Context, arg *GetRibRequest) (*GetRibResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2651::grpc_server.go:GetRib>>>")
 	if arg == nil || arg.Table == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -498,8 +498,8 @@ func (s *Server) GetRib(ctx context.Context, arg *GetRibRequest) (*GetRibRespons
 	}, err
 }
 
-func (s *Server) GetPath(arg *GetPathRequest, stream GobgpApi_GetPathServer) error {
-   fmt.Printf("DEJDEJ id:",394)
+func (s *Server) GetPath(arg *GetPathRequest, stream GobgpApi_GetPathServer) error { 
+   fmt.Print("<<<DEJDEJ id:2652::grpc_server.go:GetPath>>>")
 	f := func() []*table.LookupPrefix {
 		l := make([]*table.LookupPrefix, 0, len(arg.Prefixes))
 		for _, p := range arg.Prefixes {
@@ -551,8 +551,8 @@ func (s *Server) GetPath(arg *GetPathRequest, stream GobgpApi_GetPathServer) err
 	}()
 }
 
-func (s *Server) MonitorRib(arg *MonitorRibRequest, stream GobgpApi_MonitorRibServer) error {
-   fmt.Printf("DEJDEJ id:",395)
+func (s *Server) MonitorRib(arg *MonitorRibRequest, stream GobgpApi_MonitorRibServer) error { 
+   fmt.Print("<<<DEJDEJ id:2653::grpc_server.go:MonitorRib>>>")
 	if arg == nil || arg.Table == nil {
 		return fmt.Errorf("invalid request")
 	}
@@ -627,8 +627,8 @@ func (s *Server) MonitorRib(arg *MonitorRibRequest, stream GobgpApi_MonitorRibSe
 	}()
 }
 
-func (s *Server) MonitorPeerState(arg *Arguments, stream GobgpApi_MonitorPeerStateServer) error {
-   fmt.Printf("DEJDEJ id:",396)
+func (s *Server) MonitorPeerState(arg *Arguments, stream GobgpApi_MonitorPeerStateServer) error { 
+   fmt.Print("<<<DEJDEJ id:2654::grpc_server.go:MonitorPeerState>>>")
 	if arg == nil {
 		return fmt.Errorf("invalid request")
 	}
@@ -673,13 +673,13 @@ func (s *Server) MonitorPeerState(arg *Arguments, stream GobgpApi_MonitorPeerSta
 	}()
 }
 
-func (s *Server) ResetNeighbor(ctx context.Context, arg *ResetNeighborRequest) (*ResetNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",397)
+func (s *Server) ResetNeighbor(ctx context.Context, arg *ResetNeighborRequest) (*ResetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2655::grpc_server.go:ResetNeighbor>>>")
 	return &ResetNeighborResponse{}, s.bgpServer.ResetNeighbor(arg.Address, arg.Communication)
 }
 
-func (s *Server) SoftResetNeighbor(ctx context.Context, arg *SoftResetNeighborRequest) (*SoftResetNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",398)
+func (s *Server) SoftResetNeighbor(ctx context.Context, arg *SoftResetNeighborRequest) (*SoftResetNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2656::grpc_server.go:SoftResetNeighbor>>>")
 	var err error
 	addr := arg.Address
 	if addr == "all" {
@@ -697,23 +697,23 @@ func (s *Server) SoftResetNeighbor(ctx context.Context, arg *SoftResetNeighborRe
 	return &SoftResetNeighborResponse{}, err
 }
 
-func (s *Server) ShutdownNeighbor(ctx context.Context, arg *ShutdownNeighborRequest) (*ShutdownNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",399)
+func (s *Server) ShutdownNeighbor(ctx context.Context, arg *ShutdownNeighborRequest) (*ShutdownNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2657::grpc_server.go:ShutdownNeighbor>>>")
 	return &ShutdownNeighborResponse{}, s.bgpServer.ShutdownNeighbor(arg.Address, arg.Communication)
 }
 
-func (s *Server) EnableNeighbor(ctx context.Context, arg *EnableNeighborRequest) (*EnableNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",400)
+func (s *Server) EnableNeighbor(ctx context.Context, arg *EnableNeighborRequest) (*EnableNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2658::grpc_server.go:EnableNeighbor>>>")
 	return &EnableNeighborResponse{}, s.bgpServer.EnableNeighbor(arg.Address)
 }
 
-func (s *Server) DisableNeighbor(ctx context.Context, arg *DisableNeighborRequest) (*DisableNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",401)
+func (s *Server) DisableNeighbor(ctx context.Context, arg *DisableNeighborRequest) (*DisableNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2659::grpc_server.go:DisableNeighbor>>>")
 	return &DisableNeighborResponse{}, s.bgpServer.DisableNeighbor(arg.Address, arg.Communication)
 }
 
-func (s *Server) api2PathList(resource Resource, ApiPathList []*Path) ([]*table.Path, error) {
-   fmt.Printf("DEJDEJ id:",402)
+func (s *Server) api2PathList(resource Resource, ApiPathList []*Path) ([]*table.Path, error) { 
+   fmt.Print("<<<DEJDEJ id:2660::grpc_server.go:api2PathList>>>")
 	var nlri bgp.AddrPrefixInterface
 	var nexthop string
 	var pi *table.PeerInfo
@@ -812,8 +812,8 @@ func (s *Server) api2PathList(resource Resource, ApiPathList []*Path) ([]*table.
 	return pathList, nil
 }
 
-func (s *Server) AddPath(ctx context.Context, arg *AddPathRequest) (*AddPathResponse, error) {
-   fmt.Printf("DEJDEJ id:",403)
+func (s *Server) AddPath(ctx context.Context, arg *AddPathRequest) (*AddPathResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2661::grpc_server.go:AddPath>>>")
 	pathList, err := s.api2PathList(arg.Resource, []*Path{arg.Path})
 	var uuid []byte
 	if err == nil {
@@ -822,8 +822,8 @@ func (s *Server) AddPath(ctx context.Context, arg *AddPathRequest) (*AddPathResp
 	return &AddPathResponse{Uuid: uuid}, err
 }
 
-func (s *Server) DeletePath(ctx context.Context, arg *DeletePathRequest) (*DeletePathResponse, error) {
-   fmt.Printf("DEJDEJ id:",404)
+func (s *Server) DeletePath(ctx context.Context, arg *DeletePathRequest) (*DeletePathResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2662::grpc_server.go:DeletePath>>>")
 	pathList, err := func() ([]*table.Path, error) {
 		if arg.Path != nil {
 			arg.Path.IsWithdraw = true
@@ -837,8 +837,8 @@ func (s *Server) DeletePath(ctx context.Context, arg *DeletePathRequest) (*Delet
 	return &DeletePathResponse{}, s.bgpServer.DeletePath(arg.Uuid, bgp.RouteFamily(arg.Family), arg.VrfId, pathList)
 }
 
-func (s *Server) EnableMrt(ctx context.Context, arg *EnableMrtRequest) (*EnableMrtResponse, error) {
-   fmt.Printf("DEJDEJ id:",405)
+func (s *Server) EnableMrt(ctx context.Context, arg *EnableMrtRequest) (*EnableMrtResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2663::grpc_server.go:EnableMrt>>>")
 	return &EnableMrtResponse{}, s.bgpServer.EnableMrt(&config.MrtConfig{
 		RotationInterval: arg.Interval,
 		DumpType:         config.IntToMrtTypeMap[int(arg.DumpType)],
@@ -846,13 +846,13 @@ func (s *Server) EnableMrt(ctx context.Context, arg *EnableMrtRequest) (*EnableM
 	})
 }
 
-func (s *Server) DisableMrt(ctx context.Context, arg *DisableMrtRequest) (*DisableMrtResponse, error) {
-   fmt.Printf("DEJDEJ id:",406)
+func (s *Server) DisableMrt(ctx context.Context, arg *DisableMrtRequest) (*DisableMrtResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2664::grpc_server.go:DisableMrt>>>")
 	return &DisableMrtResponse{}, s.bgpServer.DisableMrt(&config.MrtConfig{})
 }
 
-func (s *Server) InjectMrt(stream GobgpApi_InjectMrtServer) error {
-   fmt.Printf("DEJDEJ id:",407)
+func (s *Server) InjectMrt(stream GobgpApi_InjectMrtServer) error { 
+   fmt.Print("<<<DEJDEJ id:2665::grpc_server.go:InjectMrt>>>")
 	for {
 		arg, err := stream.Recv()
 
@@ -877,8 +877,8 @@ func (s *Server) InjectMrt(stream GobgpApi_InjectMrtServer) error {
 	return stream.SendAndClose(&InjectMrtResponse{})
 }
 
-func (s *Server) AddBmp(ctx context.Context, arg *AddBmpRequest) (*AddBmpResponse, error) {
-   fmt.Printf("DEJDEJ id:",408)
+func (s *Server) AddBmp(ctx context.Context, arg *AddBmpRequest) (*AddBmpResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2666::grpc_server.go:AddBmp>>>")
 	t, ok := config.IntToBmpRouteMonitoringPolicyTypeMap[int(arg.Type)]
 	if !ok {
 		return nil, fmt.Errorf("invalid bmp route monitoring policy: %d", arg.Type)
@@ -890,21 +890,21 @@ func (s *Server) AddBmp(ctx context.Context, arg *AddBmpRequest) (*AddBmpRespons
 	})
 }
 
-func (s *Server) DeleteBmp(ctx context.Context, arg *DeleteBmpRequest) (*DeleteBmpResponse, error) {
-   fmt.Printf("DEJDEJ id:",409)
+func (s *Server) DeleteBmp(ctx context.Context, arg *DeleteBmpRequest) (*DeleteBmpResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2667::grpc_server.go:DeleteBmp>>>")
 	return &DeleteBmpResponse{}, s.bgpServer.DeleteBmp(&config.BmpServerConfig{
 		Address: arg.Address,
 		Port:    arg.Port,
 	})
 }
 
-func (s *Server) ValidateRib(ctx context.Context, arg *ValidateRibRequest) (*ValidateRibResponse, error) {
-   fmt.Printf("DEJDEJ id:",410)
+func (s *Server) ValidateRib(ctx context.Context, arg *ValidateRibRequest) (*ValidateRibResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2668::grpc_server.go:ValidateRib>>>")
 	return &ValidateRibResponse{}, s.bgpServer.ValidateRib(arg.Prefix)
 }
 
-func (s *Server) AddRpki(ctx context.Context, arg *AddRpkiRequest) (*AddRpkiResponse, error) {
-   fmt.Printf("DEJDEJ id:",411)
+func (s *Server) AddRpki(ctx context.Context, arg *AddRpkiRequest) (*AddRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2669::grpc_server.go:AddRpki>>>")
 	return &AddRpkiResponse{}, s.bgpServer.AddRpki(&config.RpkiServerConfig{
 		Address:        arg.Address,
 		Port:           arg.Port,
@@ -912,44 +912,44 @@ func (s *Server) AddRpki(ctx context.Context, arg *AddRpkiRequest) (*AddRpkiResp
 	})
 }
 
-func (s *Server) DeleteRpki(ctx context.Context, arg *DeleteRpkiRequest) (*DeleteRpkiResponse, error) {
-   fmt.Printf("DEJDEJ id:",412)
+func (s *Server) DeleteRpki(ctx context.Context, arg *DeleteRpkiRequest) (*DeleteRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2670::grpc_server.go:DeleteRpki>>>")
 	return &DeleteRpkiResponse{}, s.bgpServer.DeleteRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 		Port:    arg.Port,
 	})
 }
 
-func (s *Server) EnableRpki(ctx context.Context, arg *EnableRpkiRequest) (*EnableRpkiResponse, error) {
-   fmt.Printf("DEJDEJ id:",413)
+func (s *Server) EnableRpki(ctx context.Context, arg *EnableRpkiRequest) (*EnableRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2671::grpc_server.go:EnableRpki>>>")
 	return &EnableRpkiResponse{}, s.bgpServer.EnableRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
-func (s *Server) DisableRpki(ctx context.Context, arg *DisableRpkiRequest) (*DisableRpkiResponse, error) {
-   fmt.Printf("DEJDEJ id:",414)
+func (s *Server) DisableRpki(ctx context.Context, arg *DisableRpkiRequest) (*DisableRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2672::grpc_server.go:DisableRpki>>>")
 	return &DisableRpkiResponse{}, s.bgpServer.DisableRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
-func (s *Server) ResetRpki(ctx context.Context, arg *ResetRpkiRequest) (*ResetRpkiResponse, error) {
-   fmt.Printf("DEJDEJ id:",415)
+func (s *Server) ResetRpki(ctx context.Context, arg *ResetRpkiRequest) (*ResetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2673::grpc_server.go:ResetRpki>>>")
 	return &ResetRpkiResponse{}, s.bgpServer.ResetRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
-func (s *Server) SoftResetRpki(ctx context.Context, arg *SoftResetRpkiRequest) (*SoftResetRpkiResponse, error) {
-   fmt.Printf("DEJDEJ id:",416)
+func (s *Server) SoftResetRpki(ctx context.Context, arg *SoftResetRpkiRequest) (*SoftResetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2674::grpc_server.go:SoftResetRpki>>>")
 	return &SoftResetRpkiResponse{}, s.bgpServer.SoftResetRpki(&config.RpkiServerConfig{
 		Address: arg.Address,
 	})
 }
 
-func (s *Server) GetRpki(ctx context.Context, arg *GetRpkiRequest) (*GetRpkiResponse, error) {
-   fmt.Printf("DEJDEJ id:",417)
+func (s *Server) GetRpki(ctx context.Context, arg *GetRpkiRequest) (*GetRpkiResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2675::grpc_server.go:GetRpki>>>")
 	servers, err := s.bgpServer.GetRpki()
 	if err != nil {
 		return nil, err
@@ -988,8 +988,8 @@ func (s *Server) GetRpki(ctx context.Context, arg *GetRpkiRequest) (*GetRpkiResp
 	return &GetRpkiResponse{Servers: l}, nil
 }
 
-func (s *Server) GetRoa(ctx context.Context, arg *GetRoaRequest) (*GetRoaResponse, error) {
-   fmt.Printf("DEJDEJ id:",418)
+func (s *Server) GetRoa(ctx context.Context, arg *GetRoaRequest) (*GetRoaResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2676::grpc_server.go:GetRoa>>>")
 	roas, err := s.bgpServer.GetRoa(bgp.RouteFamily(arg.Family))
 	if err != nil {
 		return nil, err
@@ -997,8 +997,8 @@ func (s *Server) GetRoa(ctx context.Context, arg *GetRoaRequest) (*GetRoaRespons
 	return &GetRoaResponse{Roas: NewRoaListFromTableStructList(roas)}, nil
 }
 
-func (s *Server) EnableZebra(ctx context.Context, arg *EnableZebraRequest) (*EnableZebraResponse, error) {
-   fmt.Printf("DEJDEJ id:",419)
+func (s *Server) EnableZebra(ctx context.Context, arg *EnableZebraRequest) (*EnableZebraResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2677::grpc_server.go:EnableZebra>>>")
 	l := make([]config.InstallProtocolType, 0, len(arg.RouteTypes))
 	for _, p := range arg.RouteTypes {
 		if err := config.InstallProtocolType(p).Validate(); err != nil {
@@ -1016,8 +1016,8 @@ func (s *Server) EnableZebra(ctx context.Context, arg *EnableZebraRequest) (*Ena
 	})
 }
 
-func (s *Server) GetVrf(ctx context.Context, arg *GetVrfRequest) (*GetVrfResponse, error) {
-   fmt.Printf("DEJDEJ id:",420)
+func (s *Server) GetVrf(ctx context.Context, arg *GetVrfRequest) (*GetVrfResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2678::grpc_server.go:GetVrf>>>")
 	toApi := func(v *table.Vrf) *Vrf {
 		f := func(rts []bgp.ExtendedCommunityInterface) [][]byte {
 			ret := make([][]byte, 0, len(rts))
@@ -1044,8 +1044,8 @@ func (s *Server) GetVrf(ctx context.Context, arg *GetVrfRequest) (*GetVrfRespons
 	return &GetVrfResponse{Vrfs: l}, nil
 }
 
-func (s *Server) AddVrf(ctx context.Context, arg *AddVrfRequest) (r *AddVrfResponse, err error) {
-   fmt.Printf("DEJDEJ id:",421)
+func (s *Server) AddVrf(ctx context.Context, arg *AddVrfRequest) (r *AddVrfResponse, err error) { 
+   fmt.Print("<<<DEJDEJ id:2679::grpc_server.go:AddVrf>>>")
 	if arg == nil || arg.Vrf == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1072,16 +1072,16 @@ func (s *Server) AddVrf(ctx context.Context, arg *AddVrfRequest) (r *AddVrfRespo
 	return &AddVrfResponse{}, s.bgpServer.AddVrf(arg.Vrf.Name, arg.Vrf.Id, rd, im, ex)
 }
 
-func (s *Server) DeleteVrf(ctx context.Context, arg *DeleteVrfRequest) (*DeleteVrfResponse, error) {
-   fmt.Printf("DEJDEJ id:",422)
+func (s *Server) DeleteVrf(ctx context.Context, arg *DeleteVrfRequest) (*DeleteVrfResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2680::grpc_server.go:DeleteVrf>>>")
 	if arg == nil || arg.Vrf == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
 	return &DeleteVrfResponse{}, s.bgpServer.DeleteVrf(arg.Vrf.Name)
 }
 
-func ReadMpGracefulRestartFromAPIStruct(c *config.MpGracefulRestart, a *MpGracefulRestart) {
-   fmt.Printf("DEJDEJ id:",423)
+func ReadMpGracefulRestartFromAPIStruct(c *config.MpGracefulRestart, a *MpGracefulRestart) { 
+   fmt.Print("<<<DEJDEJ id:2681::grpc_server.go:ReadMpGracefulRestartFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1090,8 +1090,8 @@ func ReadMpGracefulRestartFromAPIStruct(c *config.MpGracefulRestart, a *MpGracef
 	}
 }
 
-func ReadAfiSafiConfigFromAPIStruct(c *config.AfiSafiConfig, a *AfiSafiConfig) {
-   fmt.Printf("DEJDEJ id:",424)
+func ReadAfiSafiConfigFromAPIStruct(c *config.AfiSafiConfig, a *AfiSafiConfig) { 
+   fmt.Print("<<<DEJDEJ id:2682::grpc_server.go:ReadAfiSafiConfigFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1099,8 +1099,8 @@ func ReadAfiSafiConfigFromAPIStruct(c *config.AfiSafiConfig, a *AfiSafiConfig) {
 	c.Enabled = a.Enabled
 }
 
-func ReadAfiSafiStateFromAPIStruct(s *config.AfiSafiState, a *AfiSafiConfig) {
-   fmt.Printf("DEJDEJ id:",425)
+func ReadAfiSafiStateFromAPIStruct(s *config.AfiSafiState, a *AfiSafiConfig) { 
+   fmt.Print("<<<DEJDEJ id:2683::grpc_server.go:ReadAfiSafiStateFromAPIStruct(s>>>")
 	if s == nil || a == nil {
 		return
 	}
@@ -1108,8 +1108,8 @@ func ReadAfiSafiStateFromAPIStruct(s *config.AfiSafiState, a *AfiSafiConfig) {
 	s.Family = bgp.RouteFamily(a.Family)
 }
 
-func ReadPrefixLimitFromAPIStruct(c *config.PrefixLimit, a *PrefixLimit) {
-   fmt.Printf("DEJDEJ id:",426)
+func ReadPrefixLimitFromAPIStruct(c *config.PrefixLimit, a *PrefixLimit) { 
+   fmt.Print("<<<DEJDEJ id:2684::grpc_server.go:ReadPrefixLimitFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1117,8 +1117,8 @@ func ReadPrefixLimitFromAPIStruct(c *config.PrefixLimit, a *PrefixLimit) {
 	c.Config.ShutdownThresholdPct = config.Percentage(a.ShutdownThresholdPct)
 }
 
-func ReadApplyPolicyFromAPIStruct(c *config.ApplyPolicy, a *ApplyPolicy) {
-   fmt.Printf("DEJDEJ id:",427)
+func ReadApplyPolicyFromAPIStruct(c *config.ApplyPolicy, a *ApplyPolicy) { 
+   fmt.Print("<<<DEJDEJ id:2685::grpc_server.go:ReadApplyPolicyFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1142,8 +1142,8 @@ func ReadApplyPolicyFromAPIStruct(c *config.ApplyPolicy, a *ApplyPolicy) {
 	}
 }
 
-func ReadRouteSelectionOptionsFromAPIStruct(c *config.RouteSelectionOptions, a *RouteSelectionOptions) {
-   fmt.Printf("DEJDEJ id:",428)
+func ReadRouteSelectionOptionsFromAPIStruct(c *config.RouteSelectionOptions, a *RouteSelectionOptions) { 
+   fmt.Print("<<<DEJDEJ id:2686::grpc_server.go:ReadRouteSelectionOptionsFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1157,8 +1157,8 @@ func ReadRouteSelectionOptionsFromAPIStruct(c *config.RouteSelectionOptions, a *
 	}
 }
 
-func ReadUseMultiplePathsFromAPIStruct(c *config.UseMultiplePaths, a *UseMultiplePaths) {
-   fmt.Printf("DEJDEJ id:",429)
+func ReadUseMultiplePathsFromAPIStruct(c *config.UseMultiplePaths, a *UseMultiplePaths) { 
+   fmt.Print("<<<DEJDEJ id:2687::grpc_server.go:ReadUseMultiplePathsFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1182,8 +1182,8 @@ func ReadUseMultiplePathsFromAPIStruct(c *config.UseMultiplePaths, a *UseMultipl
 	}
 }
 
-func ReadRouteTargetMembershipFromAPIStruct(c *config.RouteTargetMembership, a *RouteTargetMembership) {
-   fmt.Printf("DEJDEJ id:",430)
+func ReadRouteTargetMembershipFromAPIStruct(c *config.RouteTargetMembership, a *RouteTargetMembership) { 
+   fmt.Print("<<<DEJDEJ id:2688::grpc_server.go:ReadRouteTargetMembershipFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1192,8 +1192,8 @@ func ReadRouteTargetMembershipFromAPIStruct(c *config.RouteTargetMembership, a *
 	}
 }
 
-func ReadLongLivedGracefulRestartFromAPIStruct(c *config.LongLivedGracefulRestart, a *LongLivedGracefulRestart) {
-   fmt.Printf("DEJDEJ id:",431)
+func ReadLongLivedGracefulRestartFromAPIStruct(c *config.LongLivedGracefulRestart, a *LongLivedGracefulRestart) { 
+   fmt.Print("<<<DEJDEJ id:2689::grpc_server.go:ReadLongLivedGracefulRestartFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1203,8 +1203,8 @@ func ReadLongLivedGracefulRestartFromAPIStruct(c *config.LongLivedGracefulRestar
 	}
 }
 
-func ReadAddPathsFromAPIStruct(c *config.AddPaths, a *AddPaths) {
-   fmt.Printf("DEJDEJ id:",432)
+func ReadAddPathsFromAPIStruct(c *config.AddPaths, a *AddPaths) { 
+   fmt.Print("<<<DEJDEJ id:2690::grpc_server.go:ReadAddPathsFromAPIStruct(c>>>")
 	if c == nil || a == nil {
 		return
 	}
@@ -1214,8 +1214,8 @@ func ReadAddPathsFromAPIStruct(c *config.AddPaths, a *AddPaths) {
 	}
 }
 
-func NewNeighborFromAPIStruct(a *Peer) (*config.Neighbor, error) {
-   fmt.Printf("DEJDEJ id:",433)
+func NewNeighborFromAPIStruct(a *Peer) (*config.Neighbor, error) { 
+   fmt.Print("<<<DEJDEJ id:2691::grpc_server.go:NewNeighborFromAPIStruct(a>>>")
 	pconf := &config.Neighbor{}
 	if a.Conf != nil {
 		pconf.Config.PeerAs = a.Conf.PeerAs
@@ -1386,8 +1386,8 @@ func NewNeighborFromAPIStruct(a *Peer) (*config.Neighbor, error) {
 	return pconf, nil
 }
 
-func (s *Server) AddNeighbor(ctx context.Context, arg *AddNeighborRequest) (*AddNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",434)
+func (s *Server) AddNeighbor(ctx context.Context, arg *AddNeighborRequest) (*AddNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2692::grpc_server.go:AddNeighbor>>>")
 	c, err := NewNeighborFromAPIStruct(arg.Peer)
 	if err != nil {
 		return nil, err
@@ -1395,16 +1395,16 @@ func (s *Server) AddNeighbor(ctx context.Context, arg *AddNeighborRequest) (*Add
 	return &AddNeighborResponse{}, s.bgpServer.AddNeighbor(c)
 }
 
-func (s *Server) DeleteNeighbor(ctx context.Context, arg *DeleteNeighborRequest) (*DeleteNeighborResponse, error) {
-   fmt.Printf("DEJDEJ id:",435)
+func (s *Server) DeleteNeighbor(ctx context.Context, arg *DeleteNeighborRequest) (*DeleteNeighborResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2693::grpc_server.go:DeleteNeighbor>>>")
 	return &DeleteNeighborResponse{}, s.bgpServer.DeleteNeighbor(&config.Neighbor{Config: config.NeighborConfig{
 		NeighborAddress:   arg.Peer.Conf.NeighborAddress,
 		NeighborInterface: arg.Peer.Conf.NeighborInterface,
 	}})
 }
 
-func NewPrefixFromApiStruct(a *Prefix) (*table.Prefix, error) {
-   fmt.Printf("DEJDEJ id:",436)
+func NewPrefixFromApiStruct(a *Prefix) (*table.Prefix, error) { 
+   fmt.Print("<<<DEJDEJ id:2694::grpc_server.go:NewPrefixFromApiStruct(a>>>")
 	_, prefix, err := net.ParseCIDR(a.IpPrefix)
 	if err != nil {
 		return nil, err
@@ -1421,8 +1421,8 @@ func NewPrefixFromApiStruct(a *Prefix) (*table.Prefix, error) {
 	}, nil
 }
 
-func NewAPIPrefixFromConfigStruct(c config.Prefix) (*Prefix, error) {
-   fmt.Printf("DEJDEJ id:",437)
+func NewAPIPrefixFromConfigStruct(c config.Prefix) (*Prefix, error) { 
+   fmt.Print("<<<DEJDEJ id:2695::grpc_server.go:NewAPIPrefixFromConfigStruct(c>>>")
 	min, max, err := config.ParseMaskLength(c.IpPrefix, c.MasklengthRange)
 	if err != nil {
 		return nil, err
@@ -1434,8 +1434,8 @@ func NewAPIPrefixFromConfigStruct(c config.Prefix) (*Prefix, error) {
 	}, nil
 }
 
-func NewAPIDefinedSetFromTableStruct(t table.DefinedSet) (*DefinedSet, error) {
-   fmt.Printf("DEJDEJ id:",438)
+func NewAPIDefinedSetFromTableStruct(t table.DefinedSet) (*DefinedSet, error) { 
+   fmt.Print("<<<DEJDEJ id:2696::grpc_server.go:NewAPIDefinedSetFromTableStruct(t>>>")
 	a := &DefinedSet{
 		Type: DefinedType(t.Type()),
 		Name: t.Name(),
@@ -1487,8 +1487,8 @@ func NewAPIDefinedSetFromTableStruct(t table.DefinedSet) (*DefinedSet, error) {
 	return a, nil
 }
 
-func NewDefinedSetFromApiStruct(a *DefinedSet) (table.DefinedSet, error) {
-   fmt.Printf("DEJDEJ id:",439)
+func NewDefinedSetFromApiStruct(a *DefinedSet) (table.DefinedSet, error) { 
+   fmt.Print("<<<DEJDEJ id:2697::grpc_server.go:NewDefinedSetFromApiStruct(a>>>")
 	if a.Name == "" {
 		return nil, fmt.Errorf("empty neighbor set name")
 	}
@@ -1538,8 +1538,8 @@ func NewDefinedSetFromApiStruct(a *DefinedSet) (table.DefinedSet, error) {
 	}
 }
 
-func (s *Server) GetDefinedSet(ctx context.Context, arg *GetDefinedSetRequest) (*GetDefinedSetResponse, error) {
-   fmt.Printf("DEJDEJ id:",440)
+func (s *Server) GetDefinedSet(ctx context.Context, arg *GetDefinedSetRequest) (*GetDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2698::grpc_server.go:GetDefinedSet>>>")
 	cd, err := s.bgpServer.GetDefinedSet(table.DefinedType(arg.Type), arg.Name)
 	if err != nil {
 		return nil, err
@@ -1609,8 +1609,8 @@ func (s *Server) GetDefinedSet(ctx context.Context, arg *GetDefinedSetRequest) (
 	return &GetDefinedSetResponse{Sets: sets}, nil
 }
 
-func (s *Server) AddDefinedSet(ctx context.Context, arg *AddDefinedSetRequest) (*AddDefinedSetResponse, error) {
-   fmt.Printf("DEJDEJ id:",441)
+func (s *Server) AddDefinedSet(ctx context.Context, arg *AddDefinedSetRequest) (*AddDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2699::grpc_server.go:AddDefinedSet>>>")
 	if arg == nil || arg.Set == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1621,8 +1621,8 @@ func (s *Server) AddDefinedSet(ctx context.Context, arg *AddDefinedSetRequest) (
 	return &AddDefinedSetResponse{}, s.bgpServer.AddDefinedSet(set)
 }
 
-func (s *Server) DeleteDefinedSet(ctx context.Context, arg *DeleteDefinedSetRequest) (*DeleteDefinedSetResponse, error) {
-   fmt.Printf("DEJDEJ id:",442)
+func (s *Server) DeleteDefinedSet(ctx context.Context, arg *DeleteDefinedSetRequest) (*DeleteDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2700::grpc_server.go:DeleteDefinedSet>>>")
 	if arg == nil || arg.Set == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1633,8 +1633,8 @@ func (s *Server) DeleteDefinedSet(ctx context.Context, arg *DeleteDefinedSetRequ
 	return &DeleteDefinedSetResponse{}, s.bgpServer.DeleteDefinedSet(set, arg.All)
 }
 
-func (s *Server) ReplaceDefinedSet(ctx context.Context, arg *ReplaceDefinedSetRequest) (*ReplaceDefinedSetResponse, error) {
-   fmt.Printf("DEJDEJ id:",443)
+func (s *Server) ReplaceDefinedSet(ctx context.Context, arg *ReplaceDefinedSetRequest) (*ReplaceDefinedSetResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2701::grpc_server.go:ReplaceDefinedSet>>>")
 	if arg == nil || arg.Set == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -1645,13 +1645,13 @@ func (s *Server) ReplaceDefinedSet(ctx context.Context, arg *ReplaceDefinedSetRe
 	return &ReplaceDefinedSetResponse{}, s.bgpServer.ReplaceDefinedSet(set)
 }
 
-func NewAPIStatementFromTableStruct(t *table.Statement) *Statement {
-   fmt.Printf("DEJDEJ id:",444)
+func NewAPIStatementFromTableStruct(t *table.Statement) *Statement { 
+   fmt.Print("<<<DEJDEJ id:2702::grpc_server.go:NewAPIStatementFromTableStruct(t>>>")
 	return toStatementApi(t.ToConfig())
 }
 
-func toStatementApi(s *config.Statement) *Statement {
-   fmt.Printf("DEJDEJ id:",445)
+func toStatementApi(s *config.Statement) *Statement { 
+   fmt.Print("<<<DEJDEJ id:2703::grpc_server.go:toStatementApi(s>>>")
 	cs := &Conditions{}
 	if s.Conditions.MatchPrefixSet.PrefixSet != "" {
 		o, _ := table.NewMatchOption(s.Conditions.MatchPrefixSet.MatchSetOptions)
@@ -1806,8 +1806,8 @@ func toStatementApi(s *config.Statement) *Statement {
 	}
 }
 
-func toConfigMatchSetOption(a MatchType) (config.MatchSetOptionsType, error) {
-   fmt.Printf("DEJDEJ id:",446)
+func toConfigMatchSetOption(a MatchType) (config.MatchSetOptionsType, error) { 
+   fmt.Print("<<<DEJDEJ id:2704::grpc_server.go:toConfigMatchSetOption(a>>>")
 	var typ config.MatchSetOptionsType
 	switch a {
 	case MatchType_ANY:
@@ -1822,8 +1822,8 @@ func toConfigMatchSetOption(a MatchType) (config.MatchSetOptionsType, error) {
 	return typ, nil
 }
 
-func toConfigMatchSetOptionRestricted(a MatchType) (config.MatchSetOptionsRestrictedType, error) {
-   fmt.Printf("DEJDEJ id:",447)
+func toConfigMatchSetOptionRestricted(a MatchType) (config.MatchSetOptionsRestrictedType, error) { 
+   fmt.Print("<<<DEJDEJ id:2705::grpc_server.go:toConfigMatchSetOptionRestricted(a>>>")
 	var typ config.MatchSetOptionsRestrictedType
 	switch a {
 	case MatchType_ANY:
@@ -1836,8 +1836,8 @@ func toConfigMatchSetOptionRestricted(a MatchType) (config.MatchSetOptionsRestri
 	return typ, nil
 }
 
-func NewPrefixConditionFromApiStruct(a *MatchSet) (*table.PrefixCondition, error) {
-   fmt.Printf("DEJDEJ id:",448)
+func NewPrefixConditionFromApiStruct(a *MatchSet) (*table.PrefixCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2706::grpc_server.go:NewPrefixConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1852,8 +1852,8 @@ func NewPrefixConditionFromApiStruct(a *MatchSet) (*table.PrefixCondition, error
 	return table.NewPrefixCondition(c)
 }
 
-func NewNeighborConditionFromApiStruct(a *MatchSet) (*table.NeighborCondition, error) {
-   fmt.Printf("DEJDEJ id:",449)
+func NewNeighborConditionFromApiStruct(a *MatchSet) (*table.NeighborCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2707::grpc_server.go:NewNeighborConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1868,8 +1868,8 @@ func NewNeighborConditionFromApiStruct(a *MatchSet) (*table.NeighborCondition, e
 	return table.NewNeighborCondition(c)
 }
 
-func NewAsPathLengthConditionFromApiStruct(a *AsPathLength) (*table.AsPathLengthCondition, error) {
-   fmt.Printf("DEJDEJ id:",450)
+func NewAsPathLengthConditionFromApiStruct(a *AsPathLength) (*table.AsPathLengthCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2708::grpc_server.go:NewAsPathLengthConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1879,8 +1879,8 @@ func NewAsPathLengthConditionFromApiStruct(a *AsPathLength) (*table.AsPathLength
 	})
 }
 
-func NewAsPathConditionFromApiStruct(a *MatchSet) (*table.AsPathCondition, error) {
-   fmt.Printf("DEJDEJ id:",451)
+func NewAsPathConditionFromApiStruct(a *MatchSet) (*table.AsPathCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2709::grpc_server.go:NewAsPathConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1895,16 +1895,16 @@ func NewAsPathConditionFromApiStruct(a *MatchSet) (*table.AsPathCondition, error
 	return table.NewAsPathCondition(c)
 }
 
-func NewRpkiValidationConditionFromApiStruct(a int32) (*table.RpkiValidationCondition, error) {
-   fmt.Printf("DEJDEJ id:",452)
+func NewRpkiValidationConditionFromApiStruct(a int32) (*table.RpkiValidationCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2710::grpc_server.go:NewRpkiValidationConditionFromApiStruct(a>>>")
 	if a < 1 {
 		return nil, nil
 	}
 	return table.NewRpkiValidationCondition(config.IntToRpkiValidationResultTypeMap[int(a)])
 }
 
-func NewRouteTypeConditionFromApiStruct(a Conditions_RouteType) (*table.RouteTypeCondition, error) {
-   fmt.Printf("DEJDEJ id:",453)
+func NewRouteTypeConditionFromApiStruct(a Conditions_RouteType) (*table.RouteTypeCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2711::grpc_server.go:NewRouteTypeConditionFromApiStruct(a>>>")
 	if a == 0 {
 		return nil, nil
 	}
@@ -1915,8 +1915,8 @@ func NewRouteTypeConditionFromApiStruct(a Conditions_RouteType) (*table.RouteTyp
 	return table.NewRouteTypeCondition(typ)
 }
 
-func NewCommunityConditionFromApiStruct(a *MatchSet) (*table.CommunityCondition, error) {
-   fmt.Printf("DEJDEJ id:",454)
+func NewCommunityConditionFromApiStruct(a *MatchSet) (*table.CommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2712::grpc_server.go:NewCommunityConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1931,8 +1931,8 @@ func NewCommunityConditionFromApiStruct(a *MatchSet) (*table.CommunityCondition,
 	return table.NewCommunityCondition(c)
 }
 
-func NewExtCommunityConditionFromApiStruct(a *MatchSet) (*table.ExtCommunityCondition, error) {
-   fmt.Printf("DEJDEJ id:",455)
+func NewExtCommunityConditionFromApiStruct(a *MatchSet) (*table.ExtCommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2713::grpc_server.go:NewExtCommunityConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1947,8 +1947,8 @@ func NewExtCommunityConditionFromApiStruct(a *MatchSet) (*table.ExtCommunityCond
 	return table.NewExtCommunityCondition(c)
 }
 
-func NewLargeCommunityConditionFromApiStruct(a *MatchSet) (*table.LargeCommunityCondition, error) {
-   fmt.Printf("DEJDEJ id:",456)
+func NewLargeCommunityConditionFromApiStruct(a *MatchSet) (*table.LargeCommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:2714::grpc_server.go:NewLargeCommunityConditionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1963,8 +1963,8 @@ func NewLargeCommunityConditionFromApiStruct(a *MatchSet) (*table.LargeCommunity
 	return table.NewLargeCommunityCondition(c)
 }
 
-func NewRoutingActionFromApiStruct(a RouteAction) (*table.RoutingAction, error) {
-   fmt.Printf("DEJDEJ id:",457)
+func NewRoutingActionFromApiStruct(a RouteAction) (*table.RoutingAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2715::grpc_server.go:NewRoutingActionFromApiStruct(a>>>")
 	if a == RouteAction_NONE {
 		return nil, nil
 	}
@@ -1977,8 +1977,8 @@ func NewRoutingActionFromApiStruct(a RouteAction) (*table.RoutingAction, error) 
 	}, nil
 }
 
-func NewCommunityActionFromApiStruct(a *CommunityAction) (*table.CommunityAction, error) {
-   fmt.Printf("DEJDEJ id:",458)
+func NewCommunityActionFromApiStruct(a *CommunityAction) (*table.CommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2716::grpc_server.go:NewCommunityActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -1990,8 +1990,8 @@ func NewCommunityActionFromApiStruct(a *CommunityAction) (*table.CommunityAction
 	})
 }
 
-func NewExtCommunityActionFromApiStruct(a *CommunityAction) (*table.ExtCommunityAction, error) {
-   fmt.Printf("DEJDEJ id:",459)
+func NewExtCommunityActionFromApiStruct(a *CommunityAction) (*table.ExtCommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2717::grpc_server.go:NewExtCommunityActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -2003,8 +2003,8 @@ func NewExtCommunityActionFromApiStruct(a *CommunityAction) (*table.ExtCommunity
 	})
 }
 
-func NewLargeCommunityActionFromApiStruct(a *CommunityAction) (*table.LargeCommunityAction, error) {
-   fmt.Printf("DEJDEJ id:",460)
+func NewLargeCommunityActionFromApiStruct(a *CommunityAction) (*table.LargeCommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2718::grpc_server.go:NewLargeCommunityActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -2016,24 +2016,24 @@ func NewLargeCommunityActionFromApiStruct(a *CommunityAction) (*table.LargeCommu
 	})
 }
 
-func NewMedActionFromApiStruct(a *MedAction) (*table.MedAction, error) {
-   fmt.Printf("DEJDEJ id:",461)
+func NewMedActionFromApiStruct(a *MedAction) (*table.MedAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2719::grpc_server.go:NewMedActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
 	return table.NewMedActionFromApiStruct(table.MedActionType(a.Type), a.Value), nil
 }
 
-func NewLocalPrefActionFromApiStruct(a *LocalPrefAction) (*table.LocalPrefAction, error) {
-   fmt.Printf("DEJDEJ id:",462)
+func NewLocalPrefActionFromApiStruct(a *LocalPrefAction) (*table.LocalPrefAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2720::grpc_server.go:NewLocalPrefActionFromApiStruct(a>>>")
 	if a == nil || a.Value == 0 {
 		return nil, nil
 	}
 	return table.NewLocalPrefAction(a.Value)
 }
 
-func NewAsPathPrependActionFromApiStruct(a *AsPrependAction) (*table.AsPathPrependAction, error) {
-   fmt.Printf("DEJDEJ id:",463)
+func NewAsPathPrependActionFromApiStruct(a *AsPrependAction) (*table.AsPathPrependAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2721::grpc_server.go:NewAsPathPrependActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -2048,8 +2048,8 @@ func NewAsPathPrependActionFromApiStruct(a *AsPrependAction) (*table.AsPathPrepe
 	})
 }
 
-func NewNexthopActionFromApiStruct(a *NexthopAction) (*table.NexthopAction, error) {
-   fmt.Printf("DEJDEJ id:",464)
+func NewNexthopActionFromApiStruct(a *NexthopAction) (*table.NexthopAction, error) { 
+   fmt.Print("<<<DEJDEJ id:2722::grpc_server.go:NewNexthopActionFromApiStruct(a>>>")
 	if a == nil {
 		return nil, nil
 	}
@@ -2063,8 +2063,8 @@ func NewNexthopActionFromApiStruct(a *NexthopAction) (*table.NexthopAction, erro
 	))
 }
 
-func NewStatementFromApiStruct(a *Statement) (*table.Statement, error) {
-   fmt.Printf("DEJDEJ id:",465)
+func NewStatementFromApiStruct(a *Statement) (*table.Statement, error) { 
+   fmt.Print("<<<DEJDEJ id:2723::grpc_server.go:NewStatementFromApiStruct(a>>>")
 	if a.Name == "" {
 		return nil, fmt.Errorf("empty statement name")
 	}
@@ -2160,8 +2160,8 @@ func NewStatementFromApiStruct(a *Statement) (*table.Statement, error) {
 	}, nil
 }
 
-func (s *Server) GetStatement(ctx context.Context, arg *GetStatementRequest) (*GetStatementResponse, error) {
-   fmt.Printf("DEJDEJ id:",466)
+func (s *Server) GetStatement(ctx context.Context, arg *GetStatementRequest) (*GetStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2724::grpc_server.go:GetStatement>>>")
 	l := make([]*Statement, 0)
 	for _, s := range s.bgpServer.GetStatement() {
 		l = append(l, toStatementApi(s))
@@ -2169,8 +2169,8 @@ func (s *Server) GetStatement(ctx context.Context, arg *GetStatementRequest) (*G
 	return &GetStatementResponse{Statements: l}, nil
 }
 
-func (s *Server) AddStatement(ctx context.Context, arg *AddStatementRequest) (*AddStatementResponse, error) {
-   fmt.Printf("DEJDEJ id:",467)
+func (s *Server) AddStatement(ctx context.Context, arg *AddStatementRequest) (*AddStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2725::grpc_server.go:AddStatement>>>")
 	if arg == nil || arg.Statement == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2181,8 +2181,8 @@ func (s *Server) AddStatement(ctx context.Context, arg *AddStatementRequest) (*A
 	return &AddStatementResponse{}, err
 }
 
-func (s *Server) DeleteStatement(ctx context.Context, arg *DeleteStatementRequest) (*DeleteStatementResponse, error) {
-   fmt.Printf("DEJDEJ id:",468)
+func (s *Server) DeleteStatement(ctx context.Context, arg *DeleteStatementRequest) (*DeleteStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2726::grpc_server.go:DeleteStatement>>>")
 	if arg == nil || arg.Statement == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2193,8 +2193,8 @@ func (s *Server) DeleteStatement(ctx context.Context, arg *DeleteStatementReques
 	return &DeleteStatementResponse{}, err
 }
 
-func (s *Server) ReplaceStatement(ctx context.Context, arg *ReplaceStatementRequest) (*ReplaceStatementResponse, error) {
-   fmt.Printf("DEJDEJ id:",469)
+func (s *Server) ReplaceStatement(ctx context.Context, arg *ReplaceStatementRequest) (*ReplaceStatementResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2727::grpc_server.go:ReplaceStatement>>>")
 	if arg == nil || arg.Statement == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2205,13 +2205,13 @@ func (s *Server) ReplaceStatement(ctx context.Context, arg *ReplaceStatementRequ
 	return &ReplaceStatementResponse{}, err
 }
 
-func NewAPIPolicyFromTableStruct(p *table.Policy) *Policy {
-   fmt.Printf("DEJDEJ id:",470)
+func NewAPIPolicyFromTableStruct(p *table.Policy) *Policy { 
+   fmt.Print("<<<DEJDEJ id:2728::grpc_server.go:NewAPIPolicyFromTableStruct(p>>>")
 	return toPolicyApi(p.ToConfig())
 }
 
-func toPolicyApi(p *config.PolicyDefinition) *Policy {
-   fmt.Printf("DEJDEJ id:",471)
+func toPolicyApi(p *config.PolicyDefinition) *Policy { 
+   fmt.Print("<<<DEJDEJ id:2729::grpc_server.go:toPolicyApi(p>>>")
 	return &Policy{
 		Name: p.Name,
 		Statements: func() []*Statement {
@@ -2224,8 +2224,8 @@ func toPolicyApi(p *config.PolicyDefinition) *Policy {
 	}
 }
 
-func NewAPIPolicyAssignmentFromTableStruct(t *table.PolicyAssignment) *PolicyAssignment {
-   fmt.Printf("DEJDEJ id:",472)
+func NewAPIPolicyAssignmentFromTableStruct(t *table.PolicyAssignment) *PolicyAssignment { 
+   fmt.Print("<<<DEJDEJ id:2730::grpc_server.go:NewAPIPolicyAssignmentFromTableStruct(t>>>")
 	return &PolicyAssignment{
 		Type: func() PolicyType {
 			switch t.Type {
@@ -2265,8 +2265,8 @@ func NewAPIPolicyAssignmentFromTableStruct(t *table.PolicyAssignment) *PolicyAss
 	}
 }
 
-func NewPolicyFromApiStruct(a *Policy) (*table.Policy, error) {
-   fmt.Printf("DEJDEJ id:",473)
+func NewPolicyFromApiStruct(a *Policy) (*table.Policy, error) { 
+   fmt.Print("<<<DEJDEJ id:2731::grpc_server.go:NewPolicyFromApiStruct(a>>>")
 	if a.Name == "" {
 		return nil, fmt.Errorf("empty policy name")
 	}
@@ -2287,8 +2287,8 @@ func NewPolicyFromApiStruct(a *Policy) (*table.Policy, error) {
 	}, nil
 }
 
-func NewRoaListFromTableStructList(origin []*table.ROA) []*Roa {
-   fmt.Printf("DEJDEJ id:",474)
+func NewRoaListFromTableStructList(origin []*table.ROA) []*Roa { 
+   fmt.Print("<<<DEJDEJ id:2732::grpc_server.go:NewRoaListFromTableStructList(origin>>>")
 	l := make([]*Roa, 0)
 	for _, r := range origin {
 		host, port, _ := net.SplitHostPort(r.Src)
@@ -2306,8 +2306,8 @@ func NewRoaListFromTableStructList(origin []*table.ROA) []*Roa {
 	return l
 }
 
-func (s *Server) GetPolicy(ctx context.Context, arg *GetPolicyRequest) (*GetPolicyResponse, error) {
-   fmt.Printf("DEJDEJ id:",475)
+func (s *Server) GetPolicy(ctx context.Context, arg *GetPolicyRequest) (*GetPolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2733::grpc_server.go:GetPolicy>>>")
 	l := make([]*Policy, 0)
 	for _, p := range s.bgpServer.GetPolicy() {
 		l = append(l, toPolicyApi(p))
@@ -2315,8 +2315,8 @@ func (s *Server) GetPolicy(ctx context.Context, arg *GetPolicyRequest) (*GetPoli
 	return &GetPolicyResponse{Policies: l}, nil
 }
 
-func (s *Server) AddPolicy(ctx context.Context, arg *AddPolicyRequest) (*AddPolicyResponse, error) {
-   fmt.Printf("DEJDEJ id:",476)
+func (s *Server) AddPolicy(ctx context.Context, arg *AddPolicyRequest) (*AddPolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2734::grpc_server.go:AddPolicy>>>")
 	if arg == nil || arg.Policy == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2327,8 +2327,8 @@ func (s *Server) AddPolicy(ctx context.Context, arg *AddPolicyRequest) (*AddPoli
 	return &AddPolicyResponse{}, s.bgpServer.AddPolicy(x, arg.ReferExistingStatements)
 }
 
-func (s *Server) DeletePolicy(ctx context.Context, arg *DeletePolicyRequest) (*DeletePolicyResponse, error) {
-   fmt.Printf("DEJDEJ id:",477)
+func (s *Server) DeletePolicy(ctx context.Context, arg *DeletePolicyRequest) (*DeletePolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2735::grpc_server.go:DeletePolicy>>>")
 	if arg == nil || arg.Policy == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2339,8 +2339,8 @@ func (s *Server) DeletePolicy(ctx context.Context, arg *DeletePolicyRequest) (*D
 	return &DeletePolicyResponse{}, s.bgpServer.DeletePolicy(x, arg.All, arg.PreserveStatements)
 }
 
-func (s *Server) ReplacePolicy(ctx context.Context, arg *ReplacePolicyRequest) (*ReplacePolicyResponse, error) {
-   fmt.Printf("DEJDEJ id:",478)
+func (s *Server) ReplacePolicy(ctx context.Context, arg *ReplacePolicyRequest) (*ReplacePolicyResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2736::grpc_server.go:ReplacePolicy>>>")
 	if arg == nil || arg.Policy == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2351,8 +2351,8 @@ func (s *Server) ReplacePolicy(ctx context.Context, arg *ReplacePolicyRequest) (
 	return &ReplacePolicyResponse{}, s.bgpServer.ReplacePolicy(x, arg.ReferExistingStatements, arg.PreserveStatements)
 }
 
-func toPolicyAssignmentName(a *PolicyAssignment) (string, table.PolicyDirection, error) {
-   fmt.Printf("DEJDEJ id:",479)
+func toPolicyAssignmentName(a *PolicyAssignment) (string, table.PolicyDirection, error) { 
+   fmt.Print("<<<DEJDEJ id:2737::grpc_server.go:toPolicyAssignmentName(a>>>")
 	switch a.Resource {
 	case Resource_GLOBAL:
 		switch a.Type {
@@ -2380,8 +2380,8 @@ func toPolicyAssignmentName(a *PolicyAssignment) (string, table.PolicyDirection,
 
 }
 
-func (s *Server) GetPolicyAssignment(ctx context.Context, arg *GetPolicyAssignmentRequest) (*GetPolicyAssignmentResponse, error) {
-   fmt.Printf("DEJDEJ id:",480)
+func (s *Server) GetPolicyAssignment(ctx context.Context, arg *GetPolicyAssignmentRequest) (*GetPolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2738::grpc_server.go:GetPolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2410,8 +2410,8 @@ func (s *Server) GetPolicyAssignment(ctx context.Context, arg *GetPolicyAssignme
 	return &GetPolicyAssignmentResponse{NewAPIPolicyAssignmentFromTableStruct(t)}, err
 }
 
-func defaultRouteType(d RouteAction) table.RouteType {
-   fmt.Printf("DEJDEJ id:",481)
+func defaultRouteType(d RouteAction) table.RouteType { 
+   fmt.Print("<<<DEJDEJ id:2739::grpc_server.go:defaultRouteType(d>>>")
 	switch d {
 	case RouteAction_ACCEPT:
 		return table.ROUTE_TYPE_ACCEPT
@@ -2422,8 +2422,8 @@ func defaultRouteType(d RouteAction) table.RouteType {
 	}
 }
 
-func toPolicyDefinition(policies []*Policy) []*config.PolicyDefinition {
-   fmt.Printf("DEJDEJ id:",482)
+func toPolicyDefinition(policies []*Policy) []*config.PolicyDefinition { 
+   fmt.Print("<<<DEJDEJ id:2740::grpc_server.go:toPolicyDefinition(policies>>>")
 	l := make([]*config.PolicyDefinition, 0, len(policies))
 	for _, p := range policies {
 		l = append(l, &config.PolicyDefinition{Name: p.Name})
@@ -2431,8 +2431,8 @@ func toPolicyDefinition(policies []*Policy) []*config.PolicyDefinition {
 	return l
 }
 
-func (s *Server) AddPolicyAssignment(ctx context.Context, arg *AddPolicyAssignmentRequest) (*AddPolicyAssignmentResponse, error) {
-   fmt.Printf("DEJDEJ id:",483)
+func (s *Server) AddPolicyAssignment(ctx context.Context, arg *AddPolicyAssignmentRequest) (*AddPolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2741::grpc_server.go:AddPolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2443,8 +2443,8 @@ func (s *Server) AddPolicyAssignment(ctx context.Context, arg *AddPolicyAssignme
 	return &AddPolicyAssignmentResponse{}, s.bgpServer.AddPolicyAssignment(name, dir, toPolicyDefinition(arg.Assignment.Policies), defaultRouteType(arg.Assignment.Default))
 }
 
-func (s *Server) DeletePolicyAssignment(ctx context.Context, arg *DeletePolicyAssignmentRequest) (*DeletePolicyAssignmentResponse, error) {
-   fmt.Printf("DEJDEJ id:",484)
+func (s *Server) DeletePolicyAssignment(ctx context.Context, arg *DeletePolicyAssignmentRequest) (*DeletePolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2742::grpc_server.go:DeletePolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2455,8 +2455,8 @@ func (s *Server) DeletePolicyAssignment(ctx context.Context, arg *DeletePolicyAs
 	return &DeletePolicyAssignmentResponse{}, s.bgpServer.DeletePolicyAssignment(name, dir, toPolicyDefinition(arg.Assignment.Policies), arg.All)
 }
 
-func (s *Server) ReplacePolicyAssignment(ctx context.Context, arg *ReplacePolicyAssignmentRequest) (*ReplacePolicyAssignmentResponse, error) {
-   fmt.Printf("DEJDEJ id:",485)
+func (s *Server) ReplacePolicyAssignment(ctx context.Context, arg *ReplacePolicyAssignmentRequest) (*ReplacePolicyAssignmentResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2743::grpc_server.go:ReplacePolicyAssignment>>>")
 	if arg == nil || arg.Assignment == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2467,8 +2467,8 @@ func (s *Server) ReplacePolicyAssignment(ctx context.Context, arg *ReplacePolicy
 	return &ReplacePolicyAssignmentResponse{}, s.bgpServer.ReplacePolicyAssignment(name, dir, toPolicyDefinition(arg.Assignment.Policies), defaultRouteType(arg.Assignment.Default))
 }
 
-func (s *Server) GetServer(ctx context.Context, arg *GetServerRequest) (*GetServerResponse, error) {
-   fmt.Printf("DEJDEJ id:",486)
+func (s *Server) GetServer(ctx context.Context, arg *GetServerRequest) (*GetServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2744::grpc_server.go:GetServer>>>")
 	g := s.bgpServer.GetServer()
 	return &GetServerResponse{
 		Global: &Global{
@@ -2481,8 +2481,8 @@ func (s *Server) GetServer(ctx context.Context, arg *GetServerRequest) (*GetServ
 	}, nil
 }
 
-func (s *Server) StartServer(ctx context.Context, arg *StartServerRequest) (*StartServerResponse, error) {
-   fmt.Printf("DEJDEJ id:",487)
+func (s *Server) StartServer(ctx context.Context, arg *StartServerRequest) (*StartServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2745::grpc_server.go:StartServer>>>")
 	if arg == nil || arg.Global == nil {
 		return nil, fmt.Errorf("invalid request")
 	}
@@ -2522,13 +2522,13 @@ func (s *Server) StartServer(ctx context.Context, arg *StartServerRequest) (*Sta
 	return &StartServerResponse{}, s.bgpServer.Start(&b.Global)
 }
 
-func (s *Server) StopServer(ctx context.Context, arg *StopServerRequest) (*StopServerResponse, error) {
-   fmt.Printf("DEJDEJ id:",488)
+func (s *Server) StopServer(ctx context.Context, arg *StopServerRequest) (*StopServerResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2746::grpc_server.go:StopServer>>>")
 	return &StopServerResponse{}, s.bgpServer.Stop()
 }
 
-func (s *Server) GetRibInfo(ctx context.Context, arg *GetRibInfoRequest) (*GetRibInfoResponse, error) {
-   fmt.Printf("DEJDEJ id:",489)
+func (s *Server) GetRibInfo(ctx context.Context, arg *GetRibInfoRequest) (*GetRibInfoResponse, error) { 
+   fmt.Print("<<<DEJDEJ id:2747::grpc_server.go:GetRibInfo>>>")
 	if arg == nil || arg.Info == nil {
 		return nil, fmt.Errorf("invalid request")
 	}

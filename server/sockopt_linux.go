@@ -38,8 +38,8 @@ type tcpmd5sig struct {
 	key       [80]byte
 }
 
-func buildTcpMD5Sig(address string, key string) (tcpmd5sig, error) {
-   fmt.Printf("DEJDEJ id:",250)
+func buildTcpMD5Sig(address string, key string) (tcpmd5sig, error) { 
+   fmt.Print("<<<DEJDEJ id:593::sockopt_linux.go:buildTcpMD5Sig(address>>>")
 	t := tcpmd5sig{}
 	addr := net.ParseIP(address)
 	if addr.To4() != nil {
@@ -56,8 +56,8 @@ func buildTcpMD5Sig(address string, key string) (tcpmd5sig, error) {
 	return t, nil
 }
 
-func setsockoptTcpMD5Sig(fd int, address string, key string) error {
-   fmt.Printf("DEJDEJ id:",251)
+func setsockoptTcpMD5Sig(fd int, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:594::sockopt_linux.go:setsockoptTcpMD5Sig(fd>>>")
 	t, err := buildTcpMD5Sig(address, key)
 	if err != nil {
 		return err
@@ -66,8 +66,8 @@ func setsockoptTcpMD5Sig(fd int, address string, key string) error {
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptString(fd, syscall.IPPROTO_TCP, TCP_MD5SIG, string(b[:])))
 }
 
-func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
-   fmt.Printf("DEJDEJ id:",252)
+func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:595::sockopt_linux.go:SetTcpMD5SigSockopt(l>>>")
 	fi, _, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -76,8 +76,8 @@ func SetTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
 	return setsockoptTcpMD5Sig(int(fi.Fd()), address, key)
 }
 
-func setsockoptIpTtl(fd int, family int, value int) error {
-   fmt.Printf("DEJDEJ id:",253)
+func setsockoptIpTtl(fd int, family int, value int) error { 
+   fmt.Print("<<<DEJDEJ id:596::sockopt_linux.go:setsockoptIpTtl(fd>>>")
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_TTL
 	if family == syscall.AF_INET6 {
@@ -87,8 +87,8 @@ func setsockoptIpTtl(fd int, family int, value int) error {
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(fd, level, name, value))
 }
 
-func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
-   fmt.Printf("DEJDEJ id:",254)
+func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:597::sockopt_linux.go:SetListenTcpTTLSockopt(l>>>")
 	fi, family, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -97,8 +97,8 @@ func SetListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",255)
+func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:598::sockopt_linux.go:SetTcpTTLSockopt(conn>>>")
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -107,8 +107,8 @@ func SetTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func setsockoptIpMinTtl(fd int, family int, value int) error {
-   fmt.Printf("DEJDEJ id:",256)
+func setsockoptIpMinTtl(fd int, family int, value int) error { 
+   fmt.Print("<<<DEJDEJ id:599::sockopt_linux.go:setsockoptIpMinTtl(fd>>>")
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_MINTTL
 	if family == syscall.AF_INET6 {
@@ -118,8 +118,8 @@ func setsockoptIpMinTtl(fd int, family int, value int) error {
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(fd, level, name, value))
 }
 
-func SetTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",257)
+func SetTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:600::sockopt_linux.go:SetTcpMinTTLSockopt(conn>>>")
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -141,8 +141,8 @@ type TCPDialer struct {
 	TtlMin uint8
 }
 
-func (d *TCPDialer) DialTCP(addr string, port int) (*net.TCPConn, error) {
-   fmt.Printf("DEJDEJ id:",258)
+func (d *TCPDialer) DialTCP(addr string, port int) (*net.TCPConn, error) { 
+   fmt.Print("<<<DEJDEJ id:601::sockopt_linux.go:DialTCP>>>")
 	var family int
 	var ra, la syscall.Sockaddr
 

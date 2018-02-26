@@ -28,14 +28,14 @@ const (
 	IPV6_MINHOPCOUNT = 73   // Generalized TTL Security Mechanism (RFC5082)
 )
 
-func setsockoptTcpMD5Sig(fd int, address string, key string) error {
-   fmt.Printf("DEJDEJ id:",52)
+func setsockoptTcpMD5Sig(fd int, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:612::sockopt_bsd.go:setsockoptTcpMD5Sig(fd>>>")
 	// always enable and assumes that the configuration is done by setkey()
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(fd, syscall.IPPROTO_TCP, TCP_MD5SIG, 1))
 }
 
-func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
-   fmt.Printf("DEJDEJ id:",53)
+func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error { 
+   fmt.Print("<<<DEJDEJ id:613::sockopt_bsd.go:setTcpMD5SigSockopt(l>>>")
 	fi, _, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -44,8 +44,8 @@ func setTcpMD5SigSockopt(l *net.TCPListener, address string, key string) error {
 	return setsockoptTcpMD5Sig(int(fi.Fd()), address, key)
 }
 
-func setsockoptIpTtl(fd int, family int, value int) error {
-   fmt.Printf("DEJDEJ id:",54)
+func setsockoptIpTtl(fd int, family int, value int) error { 
+   fmt.Print("<<<DEJDEJ id:614::sockopt_bsd.go:setsockoptIpTtl(fd>>>")
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_TTL
 	if family == syscall.AF_INET6 {
@@ -55,8 +55,8 @@ func setsockoptIpTtl(fd int, family int, value int) error {
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(fd, level, name, value))
 }
 
-func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
-   fmt.Printf("DEJDEJ id:",55)
+func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:615::sockopt_bsd.go:setListenTcpTTLSockopt(l>>>")
 	fi, family, err := extractFileAndFamilyFromTCPListener(l)
 	defer fi.Close()
 	if err != nil {
@@ -65,8 +65,8 @@ func setListenTcpTTLSockopt(l *net.TCPListener, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",56)
+func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:616::sockopt_bsd.go:setTcpTTLSockopt(conn>>>")
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {
@@ -75,8 +75,8 @@ func setTcpTTLSockopt(conn *net.TCPConn, ttl int) error {
 	return setsockoptIpTtl(int(fi.Fd()), family, ttl)
 }
 
-func setsockoptIpMinTtl(fd int, family int, value int) error {
-   fmt.Printf("DEJDEJ id:",57)
+func setsockoptIpMinTtl(fd int, family int, value int) error { 
+   fmt.Print("<<<DEJDEJ id:617::sockopt_bsd.go:setsockoptIpMinTtl(fd>>>")
 	level := syscall.IPPROTO_IP
 	name := syscall.IP_MINTTL
 	if family == syscall.AF_INET6 {
@@ -86,8 +86,8 @@ func setsockoptIpMinTtl(fd int, family int, value int) error {
 	return os.NewSyscallError("setsockopt", syscall.SetsockoptInt(fd, level, name, value))
 }
 
-func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error {
-   fmt.Printf("DEJDEJ id:",58)
+func setTcpMinTTLSockopt(conn *net.TCPConn, ttl int) error { 
+   fmt.Print("<<<DEJDEJ id:618::sockopt_bsd.go:setTcpMinTTLSockopt(conn>>>")
 	fi, family, err := extractFileAndFamilyFromTCPConn(conn)
 	defer fi.Close()
 	if err != nil {

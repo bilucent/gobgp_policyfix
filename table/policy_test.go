@@ -31,8 +31,8 @@ import (
 	"github.com/osrg/gobgp/packet/bgp"
 )
 
-func TestPrefixCalcurateNoRange(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2989)
+func TestPrefixCalcurateNoRange(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:892::policy_test.go:TestPrefixCalcurateNoRange(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -56,8 +56,8 @@ func TestPrefixCalcurateNoRange(t *testing.T) {
 	assert.Equal(t, true, match3)
 }
 
-func TestPrefixCalcurateAddress(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2990)
+func TestPrefixCalcurateAddress(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:893::policy_test.go:TestPrefixCalcurateAddress(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -78,8 +78,8 @@ func TestPrefixCalcurateAddress(t *testing.T) {
 	assert.Equal(t, true, match2)
 }
 
-func TestPrefixCalcurateLength(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2991)
+func TestPrefixCalcurateLength(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:894::policy_test.go:TestPrefixCalcurateLength(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -100,8 +100,8 @@ func TestPrefixCalcurateLength(t *testing.T) {
 	assert.Equal(t, true, match2)
 }
 
-func TestPrefixCalcurateLengthRange(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2992)
+func TestPrefixCalcurateLengthRange(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:895::policy_test.go:TestPrefixCalcurateLengthRange(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -125,8 +125,8 @@ func TestPrefixCalcurateLengthRange(t *testing.T) {
 	assert.Equal(t, true, match3)
 }
 
-func TestPrefixCalcurateNoRangeIPv6(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2993)
+func TestPrefixCalcurateNoRangeIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:896::policy_test.go:TestPrefixCalcurateNoRangeIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -150,8 +150,8 @@ func TestPrefixCalcurateNoRangeIPv6(t *testing.T) {
 	assert.Equal(t, true, match3)
 }
 
-func TestPrefixCalcurateAddressIPv6(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2994)
+func TestPrefixCalcurateAddressIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:897::policy_test.go:TestPrefixCalcurateAddressIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -172,8 +172,8 @@ func TestPrefixCalcurateAddressIPv6(t *testing.T) {
 	assert.Equal(t, true, match2)
 }
 
-func TestPrefixCalcurateLengthIPv6(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2995)
+func TestPrefixCalcurateLengthIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:898::policy_test.go:TestPrefixCalcurateLengthIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -194,8 +194,8 @@ func TestPrefixCalcurateLengthIPv6(t *testing.T) {
 	assert.Equal(t, true, match2)
 }
 
-func TestPrefixCalcurateLengthRangeIPv6(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2996)
+func TestPrefixCalcurateLengthRangeIPv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:899::policy_test.go:TestPrefixCalcurateLengthRangeIPv6(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("2001::192:168:50:1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -219,8 +219,8 @@ func TestPrefixCalcurateLengthRangeIPv6(t *testing.T) {
 	assert.Equal(t, true, match3)
 }
 
-func TestPolicyNotMatch(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2997)
+func TestPolicyNotMatch(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:900::policy_test.go:TestPolicyNotMatch(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -251,8 +251,8 @@ func TestPolicyNotMatch(t *testing.T) {
 	assert.Equal(t, newPath, path)
 }
 
-func TestPolicyMatchAndReject(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2998)
+func TestPolicyMatchAndReject(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:901::policy_test.go:TestPolicyMatchAndReject(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -283,8 +283,8 @@ func TestPolicyMatchAndReject(t *testing.T) {
 	assert.Equal(t, newPath, path)
 }
 
-func TestPolicyMatchAndAccept(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2999)
+func TestPolicyMatchAndAccept(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:902::policy_test.go:TestPolicyMatchAndAccept(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -316,8 +316,8 @@ func TestPolicyMatchAndAccept(t *testing.T) {
 	assert.Equal(t, path, newPath)
 }
 
-func TestPolicyRejectOnlyPrefixSet(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3000)
+func TestPolicyRejectOnlyPrefixSet(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:903::policy_test.go:TestPolicyRejectOnlyPrefixSet(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.1.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -364,8 +364,8 @@ func TestPolicyRejectOnlyPrefixSet(t *testing.T) {
 	assert.Equal(t, newPath2, path2)
 }
 
-func TestPolicyRejectOnlyNeighborSet(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3001)
+func TestPolicyRejectOnlyNeighborSet(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:904::policy_test.go:TestPolicyRejectOnlyNeighborSet(t>>>")
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.1.1")}
 	origin := bgp.NewPathAttributeOrigin(0)
@@ -411,8 +411,8 @@ func TestPolicyRejectOnlyNeighborSet(t *testing.T) {
 	assert.Equal(t, newPath2, path2)
 }
 
-func TestPolicyDifferentRoutefamilyOfPathAndPolicy(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3002)
+func TestPolicyDifferentRoutefamilyOfPathAndPolicy(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:905::policy_test.go:TestPolicyDifferentRoutefamilyOfPathAndPolicy(t>>>")
 	// create path ipv4
 	peerIPv4 := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
 	originIPv4 := bgp.NewPathAttributeOrigin(0)
@@ -466,8 +466,8 @@ func TestPolicyDifferentRoutefamilyOfPathAndPolicy(t *testing.T) {
 	assert.Equal(t, newPath2, pathIPv6)
 }
 
-func TestAsPathLengthConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3003)
+func TestAsPathLengthConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:906::policy_test.go:TestAsPathLengthConditionEvaluate(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -516,8 +516,8 @@ func TestAsPathLengthConditionEvaluate(t *testing.T) {
 	assert.Equal(t, false, c.Evaluate(path, nil))
 }
 
-func TestAsPathLengthConditionWithOtherCondition(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3004)
+func TestAsPathLengthConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:907::policy_test.go:TestAsPathLengthConditionWithOtherCondition(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -565,8 +565,8 @@ func TestAsPathLengthConditionWithOtherCondition(t *testing.T) {
 
 }
 
-func TestAs4PathLengthConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3005)
+func TestAs4PathLengthConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:908::policy_test.go:TestAs4PathLengthConditionEvaluate(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -625,8 +625,8 @@ func TestAs4PathLengthConditionEvaluate(t *testing.T) {
 	assert.Equal(t, false, c.Evaluate(path, nil))
 }
 
-func addPolicy(r *RoutingPolicy, x *Policy) {
-   fmt.Printf("DEJDEJ id:",3006)
+func addPolicy(r *RoutingPolicy, x *Policy) { 
+   fmt.Print("<<<DEJDEJ id:909::policy_test.go:addPolicy(r>>>")
 	for _, s := range x.Statements {
 		for _, c := range s.Conditions {
 			r.validateCondition(c)
@@ -634,8 +634,8 @@ func addPolicy(r *RoutingPolicy, x *Policy) {
 	}
 }
 
-func TestAs4PathLengthConditionWithOtherCondition(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3007)
+func TestAs4PathLengthConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:910::policy_test.go:TestAs4PathLengthConditionWithOtherCondition(t>>>")
 	// setup
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -694,8 +694,8 @@ func TestAs4PathLengthConditionWithOtherCondition(t *testing.T) {
 
 }
 
-func TestAsPathConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3008)
+func TestAsPathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:911::policy_test.go:TestAsPathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -792,8 +792,8 @@ func TestAsPathConditionEvaluate(t *testing.T) {
 	assert.Equal(t, true, p8.Evaluate(path2, nil))
 }
 
-func TestMultipleAsPathConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3009)
+func TestMultipleAsPathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:912::policy_test.go:TestMultipleAsPathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -897,8 +897,8 @@ func TestMultipleAsPathConditionEvaluate(t *testing.T) {
 	assert.Equal(t, false, p9.Evaluate(path1, nil))
 }
 
-func TestAsPathCondition(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3010)
+func TestAsPathCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:913::policy_test.go:TestAsPathCondition(t>>>")
 	type astest struct {
 		path   *Path
 		result bool
@@ -980,8 +980,8 @@ func TestAsPathCondition(t *testing.T) {
 	}
 }
 
-func TestAsPathConditionWithOtherCondition(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3011)
+func TestAsPathConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:914::policy_test.go:TestAsPathConditionWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -1031,8 +1031,8 @@ func TestAsPathConditionWithOtherCondition(t *testing.T) {
 
 }
 
-func TestAs4PathConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3012)
+func TestAs4PathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:915::policy_test.go:TestAs4PathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -1148,8 +1148,8 @@ func TestAs4PathConditionEvaluate(t *testing.T) {
 	assert.Equal(t, true, p8.Evaluate(path2, nil))
 }
 
-func TestMultipleAs4PathConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3013)
+func TestMultipleAs4PathConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:916::policy_test.go:TestMultipleAs4PathConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -1272,8 +1272,8 @@ func TestMultipleAs4PathConditionEvaluate(t *testing.T) {
 	assert.Equal(t, false, p9.Evaluate(path1, nil))
 }
 
-func TestAs4PathConditionWithOtherCondition(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3014)
+func TestAs4PathConditionWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:917::policy_test.go:TestAs4PathConditionWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -1334,8 +1334,8 @@ func TestAs4PathConditionWithOtherCondition(t *testing.T) {
 
 }
 
-func TestAs4PathConditionEvaluateMixedWith2byteAS(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3015)
+func TestAs4PathConditionEvaluateMixedWith2byteAS(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:918::policy_test.go:TestAs4PathConditionEvaluateMixedWith2byteAS(t>>>")
 
 	// setup
 	// create path
@@ -1436,8 +1436,8 @@ func TestAs4PathConditionEvaluateMixedWith2byteAS(t *testing.T) {
 
 }
 
-func TestCommunityConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3016)
+func TestCommunityConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:919::policy_test.go:TestCommunityConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -1584,8 +1584,8 @@ func TestCommunityConditionEvaluate(t *testing.T) {
 
 }
 
-func TestCommunityConditionEvaluateWithOtherCondition(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3017)
+func TestCommunityConditionEvaluateWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:920::policy_test.go:TestCommunityConditionEvaluateWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -1666,8 +1666,8 @@ func TestCommunityConditionEvaluateWithOtherCondition(t *testing.T) {
 
 }
 
-func TestPolicyMatchAndAddCommunities(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3018)
+func TestPolicyMatchAndAddCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:921::policy_test.go:TestPolicyMatchAndAddCommunities(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -1708,8 +1708,8 @@ func TestPolicyMatchAndAddCommunities(t *testing.T) {
 	assert.Equal(t, []uint32{stringToCommunityValue(community)}, newPath.GetCommunities())
 }
 
-func TestPolicyMatchAndReplaceCommunities(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3019)
+func TestPolicyMatchAndReplaceCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:922::policy_test.go:TestPolicyMatchAndReplaceCommunities(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -1753,8 +1753,8 @@ func TestPolicyMatchAndReplaceCommunities(t *testing.T) {
 	assert.Equal(t, []uint32{stringToCommunityValue(community)}, newPath.GetCommunities())
 }
 
-func TestPolicyMatchAndRemoveCommunities(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3020)
+func TestPolicyMatchAndRemoveCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:923::policy_test.go:TestPolicyMatchAndRemoveCommunities(t>>>")
 
 	// create path
 	community1 := "65000:100"
@@ -1798,8 +1798,8 @@ func TestPolicyMatchAndRemoveCommunities(t *testing.T) {
 	assert.Equal(t, []uint32{stringToCommunityValue(community2)}, newPath.GetCommunities())
 }
 
-func TestPolicyMatchAndRemoveCommunitiesRegexp(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3021)
+func TestPolicyMatchAndRemoveCommunitiesRegexp(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:924::policy_test.go:TestPolicyMatchAndRemoveCommunitiesRegexp(t>>>")
 
 	// create path
 	community1 := "65000:100"
@@ -1845,8 +1845,8 @@ func TestPolicyMatchAndRemoveCommunitiesRegexp(t *testing.T) {
 	assert.Equal(t, []uint32{stringToCommunityValue(community2)}, newPath.GetCommunities())
 }
 
-func TestPolicyMatchAndRemoveCommunitiesRegexp2(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3022)
+func TestPolicyMatchAndRemoveCommunitiesRegexp2(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:925::policy_test.go:TestPolicyMatchAndRemoveCommunitiesRegexp2(t>>>")
 
 	// create path
 	community1 := "0:1"
@@ -1892,8 +1892,8 @@ func TestPolicyMatchAndRemoveCommunitiesRegexp2(t *testing.T) {
 	assert.Equal(t, []uint32{stringToCommunityValue(community2)}, newPath.GetCommunities())
 }
 
-func TestPolicyMatchAndClearCommunities(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3023)
+func TestPolicyMatchAndClearCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:926::policy_test.go:TestPolicyMatchAndClearCommunities(t>>>")
 
 	// create path
 	community1 := "65000:100"
@@ -1940,8 +1940,8 @@ func TestPolicyMatchAndClearCommunities(t *testing.T) {
 	//assert.Equal(t, []uint32{}, newPath.GetCommunities())
 }
 
-func TestExtCommunityConditionEvaluate(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3024)
+func TestExtCommunityConditionEvaluate(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:927::policy_test.go:TestExtCommunityConditionEvaluate(t>>>")
 
 	// setup
 	// create path
@@ -2122,8 +2122,8 @@ func TestExtCommunityConditionEvaluate(t *testing.T) {
 
 }
 
-func TestExtCommunityConditionEvaluateWithOtherCondition(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3025)
+func TestExtCommunityConditionEvaluateWithOtherCondition(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:928::policy_test.go:TestExtCommunityConditionEvaluateWithOtherCondition(t>>>")
 
 	// setup
 	// create path
@@ -2251,8 +2251,8 @@ func TestExtCommunityConditionEvaluateWithOtherCondition(t *testing.T) {
 
 }
 
-func TestPolicyMatchAndReplaceMed(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3026)
+func TestPolicyMatchAndReplaceMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:929::policy_test.go:TestPolicyMatchAndReplaceMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2296,8 +2296,8 @@ func TestPolicyMatchAndReplaceMed(t *testing.T) {
 	assert.Equal(t, m, newMed)
 }
 
-func TestPolicyMatchAndAddingMed(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3027)
+func TestPolicyMatchAndAddingMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:930::policy_test.go:TestPolicyMatchAndAddingMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2341,8 +2341,8 @@ func TestPolicyMatchAndAddingMed(t *testing.T) {
 	assert.Equal(t, ma, newMed)
 }
 
-func TestPolicyMatchAndAddingMedOverFlow(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3028)
+func TestPolicyMatchAndAddingMedOverFlow(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:931::policy_test.go:TestPolicyMatchAndAddingMedOverFlow(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2388,8 +2388,8 @@ func TestPolicyMatchAndAddingMedOverFlow(t *testing.T) {
 	assert.Equal(t, ma, newMed)
 }
 
-func TestPolicyMatchAndSubtractMed(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3029)
+func TestPolicyMatchAndSubtractMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:932::policy_test.go:TestPolicyMatchAndSubtractMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2435,8 +2435,8 @@ func TestPolicyMatchAndSubtractMed(t *testing.T) {
 	assert.Equal(t, ma, newMed)
 }
 
-func TestPolicyMatchAndSubtractMedUnderFlow(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3030)
+func TestPolicyMatchAndSubtractMedUnderFlow(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:933::policy_test.go:TestPolicyMatchAndSubtractMedUnderFlow(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2482,8 +2482,8 @@ func TestPolicyMatchAndSubtractMedUnderFlow(t *testing.T) {
 	assert.Equal(t, ma, newMed)
 }
 
-func TestPolicyMatchWhenPathHaveNotMed(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3031)
+func TestPolicyMatchWhenPathHaveNotMed(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:934::policy_test.go:TestPolicyMatchWhenPathHaveNotMed(t>>>")
 
 	// create path
 	peer := &PeerInfo{AS: 65001, Address: net.ParseIP("10.0.0.1")}
@@ -2524,8 +2524,8 @@ func TestPolicyMatchWhenPathHaveNotMed(t *testing.T) {
 	assert.NotNil(t, err)
 }
 
-func TestPolicyAsPathPrepend(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3032)
+func TestPolicyAsPathPrepend(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:935::policy_test.go:TestPolicyAsPathPrepend(t>>>")
 
 	assert := assert.New(t)
 
@@ -2570,8 +2570,8 @@ func TestPolicyAsPathPrepend(t *testing.T) {
 	assert.Equal([]uint32{65002, 65002, 65002, 65002, 65002, 65002, 65002, 65002, 65002, 65002, 65001, 65000}, newPath.GetAsSeqList())
 }
 
-func TestPolicyAsPathPrependLastAs(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3033)
+func TestPolicyAsPathPrependLastAs(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:936::policy_test.go:TestPolicyAsPathPrependLastAs(t>>>")
 
 	assert := assert.New(t)
 	// create path
@@ -2615,8 +2615,8 @@ func TestPolicyAsPathPrependLastAs(t *testing.T) {
 	assert.Equal([]uint32{65002, 65002, 65002, 65002, 65002, 65002, 65001, 65000}, newPath.GetAsSeqList())
 }
 
-func TestPolicyAs4PathPrepend(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3034)
+func TestPolicyAs4PathPrepend(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:937::policy_test.go:TestPolicyAs4PathPrepend(t>>>")
 
 	assert := assert.New(t)
 
@@ -2673,8 +2673,8 @@ func TestPolicyAs4PathPrepend(t *testing.T) {
 	}, newPath.GetAsSeqList())
 }
 
-func TestPolicyAs4PathPrependLastAs(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3035)
+func TestPolicyAs4PathPrependLastAs(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:938::policy_test.go:TestPolicyAs4PathPrependLastAs(t>>>")
 
 	assert := assert.New(t)
 	// create path
@@ -2731,16 +2731,16 @@ func TestPolicyAs4PathPrependLastAs(t *testing.T) {
 	}, newPath.GetAsSeqList())
 }
 
-func TestParseCommunityRegexp(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3036)
+func TestParseCommunityRegexp(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:939::policy_test.go:TestParseCommunityRegexp(t>>>")
 	exp, err := ParseCommunityRegexp("65000:1")
 	assert.Equal(t, nil, err)
 	assert.Equal(t, true, exp.MatchString("65000:1"))
 	assert.Equal(t, false, exp.MatchString("65000:100"))
 }
 
-func TestLocalPrefAction(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3037)
+func TestLocalPrefAction(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:940::policy_test.go:TestLocalPrefAction(t>>>")
 	action, err := NewLocalPrefAction(10)
 	assert.Nil(t, err)
 
@@ -2770,8 +2770,8 @@ func TestLocalPrefAction(t *testing.T) {
 	assert.Equal(t, int(lp.Value), int(10))
 }
 
-func createStatement(name, psname, nsname string, accept bool) config.Statement {
-   fmt.Printf("DEJDEJ id:",3038)
+func createStatement(name, psname, nsname string, accept bool) config.Statement { 
+   fmt.Print("<<<DEJDEJ id:941::policy_test.go:createStatement(name,>>>")
 	c := config.Conditions{
 		MatchPrefixSet: config.MatchPrefixSet{
 			PrefixSet: psname,
@@ -2795,8 +2795,8 @@ func createStatement(name, psname, nsname string, accept bool) config.Statement 
 	return s
 }
 
-func createSetCommunity(operation string, community ...string) config.SetCommunity {
-   fmt.Printf("DEJDEJ id:",3039)
+func createSetCommunity(operation string, community ...string) config.SetCommunity { 
+   fmt.Print("<<<DEJDEJ id:942::policy_test.go:createSetCommunity(operation>>>")
 
 	s := config.SetCommunity{
 		SetCommunityMethod: config.SetCommunityMethod{
@@ -2807,16 +2807,16 @@ func createSetCommunity(operation string, community ...string) config.SetCommuni
 	return s
 }
 
-func stringToCommunityValue(comStr string) uint32 {
-   fmt.Printf("DEJDEJ id:",3040)
+func stringToCommunityValue(comStr string) uint32 { 
+   fmt.Print("<<<DEJDEJ id:943::policy_test.go:stringToCommunityValue(comStr>>>")
 	elem := strings.Split(comStr, ":")
 	asn, _ := strconv.ParseUint(elem[0], 10, 16)
 	val, _ := strconv.ParseUint(elem[1], 10, 16)
 	return uint32(asn<<16 | val)
 }
 
-func createPolicyDefinition(defName string, stmt ...config.Statement) config.PolicyDefinition {
-   fmt.Printf("DEJDEJ id:",3041)
+func createPolicyDefinition(defName string, stmt ...config.Statement) config.PolicyDefinition { 
+   fmt.Print("<<<DEJDEJ id:944::policy_test.go:createPolicyDefinition(defName>>>")
 	pd := config.PolicyDefinition{
 		Name:       defName,
 		Statements: []config.Statement(stmt),
@@ -2824,8 +2824,8 @@ func createPolicyDefinition(defName string, stmt ...config.Statement) config.Pol
 	return pd
 }
 
-func createRoutingPolicy(ds config.DefinedSets, pd ...config.PolicyDefinition) config.RoutingPolicy {
-   fmt.Printf("DEJDEJ id:",3042)
+func createRoutingPolicy(ds config.DefinedSets, pd ...config.PolicyDefinition) config.RoutingPolicy { 
+   fmt.Print("<<<DEJDEJ id:945::policy_test.go:createRoutingPolicy(ds>>>")
 	pl := config.RoutingPolicy{
 		DefinedSets:       ds,
 		PolicyDefinitions: []config.PolicyDefinition(pd),
@@ -2833,8 +2833,8 @@ func createRoutingPolicy(ds config.DefinedSets, pd ...config.PolicyDefinition) c
 	return pl
 }
 
-func createPrefixSet(name string, prefix string, maskLength string) config.PrefixSet {
-   fmt.Printf("DEJDEJ id:",3043)
+func createPrefixSet(name string, prefix string, maskLength string) config.PrefixSet { 
+   fmt.Print("<<<DEJDEJ id:946::policy_test.go:createPrefixSet(name>>>")
 	ps := config.PrefixSet{
 		PrefixSetName: name,
 		PrefixList: []config.Prefix{
@@ -2846,8 +2846,8 @@ func createPrefixSet(name string, prefix string, maskLength string) config.Prefi
 	return ps
 }
 
-func createNeighborSet(name string, addr string) config.NeighborSet {
-   fmt.Printf("DEJDEJ id:",3044)
+func createNeighborSet(name string, addr string) config.NeighborSet { 
+   fmt.Print("<<<DEJDEJ id:947::policy_test.go:createNeighborSet(name>>>")
 	ns := config.NeighborSet{
 		NeighborSetName:  name,
 		NeighborInfoList: []string{addr},
@@ -2855,16 +2855,16 @@ func createNeighborSet(name string, addr string) config.NeighborSet {
 	return ns
 }
 
-func createAs4Value(s string) uint32 {
-   fmt.Printf("DEJDEJ id:",3045)
+func createAs4Value(s string) uint32 { 
+   fmt.Print("<<<DEJDEJ id:948::policy_test.go:createAs4Value(s>>>")
 	v := strings.Split(s, ".")
 	upper, _ := strconv.ParseUint(v[0], 10, 16)
 	lower, _ := strconv.ParseUint(v[1], 10, 16)
 	return uint32(upper<<16 | lower)
 }
 
-func TestPrefixSetOperation(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3046)
+func TestPrefixSetOperation(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:949::policy_test.go:TestPrefixSetOperation(t>>>")
 	// tryp to create prefixset with multiple families
 	p1 := config.Prefix{
 		IpPrefix:        "0.0.0.0/0",
@@ -2896,8 +2896,8 @@ func TestPrefixSetOperation(t *testing.T) {
 	assert.NotNil(t, err)
 }
 
-func TestPrefixSetMatch(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3047)
+func TestPrefixSetMatch(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:950::policy_test.go:TestPrefixSetMatch(t>>>")
 	p1 := config.Prefix{
 		IpPrefix:        "0.0.0.0/0",
 		MasklengthRange: "0..7",
@@ -2954,8 +2954,8 @@ func TestPrefixSetMatch(t *testing.T) {
 	assert.False(t, m.Evaluate(path, nil))
 }
 
-func TestPrefixSetMatchV4withV6Prefix(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3048)
+func TestPrefixSetMatchV4withV6Prefix(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:951::policy_test.go:TestPrefixSetMatchV4withV6Prefix(t>>>")
 	p1 := config.Prefix{
 		IpPrefix:        "c000::/3",
 		MasklengthRange: "3..128",
@@ -2973,8 +2973,8 @@ func TestPrefixSetMatchV4withV6Prefix(t *testing.T) {
 	assert.False(t, m.Evaluate(path, nil))
 }
 
-func TestLargeCommunityMatchAction(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3049)
+func TestLargeCommunityMatchAction(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:952::policy_test.go:TestLargeCommunityMatchAction(t>>>")
 	coms := []*bgp.LargeCommunity{
 		&bgp.LargeCommunity{ASN: 100, LocalData1: 100, LocalData2: 100},
 		&bgp.LargeCommunity{ASN: 100, LocalData1: 200, LocalData2: 200},
@@ -3055,8 +3055,8 @@ func TestLargeCommunityMatchAction(t *testing.T) {
 	assert.Equal(t, m.Evaluate(p, nil), true)
 }
 
-func TestMultipleStatementPolicy(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",3050)
+func TestMultipleStatementPolicy(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:953::policy_test.go:TestMultipleStatementPolicy(t>>>")
 	r := NewRoutingPolicy()
 	rp := config.RoutingPolicy{
 		PolicyDefinitions: []config.PolicyDefinition{config.PolicyDefinition{

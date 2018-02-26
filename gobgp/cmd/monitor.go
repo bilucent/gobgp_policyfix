@@ -27,8 +27,8 @@ import (
 	"github.com/osrg/gobgp/table"
 )
 
-func makeMonitorRouteArgs(p *table.Path, showIdentifier bgp.BGPAddPathMode) []interface{} {
-   fmt.Printf("DEJDEJ id:",3590)
+func makeMonitorRouteArgs(p *table.Path, showIdentifier bgp.BGPAddPathMode) []interface{} { 
+   fmt.Print("<<<DEJDEJ id:44::monitor.go:makeMonitorRouteArgs(p>>>")
 	pathStr := make([]interface{}, 0)
 
 	// Title
@@ -62,8 +62,8 @@ func makeMonitorRouteArgs(p *table.Path, showIdentifier bgp.BGPAddPathMode) []in
 	return pathStr
 }
 
-func monitorRoute(pathList []*table.Path, showIdentifier bgp.BGPAddPathMode) {
-   fmt.Printf("DEJDEJ id:",3591)
+func monitorRoute(pathList []*table.Path, showIdentifier bgp.BGPAddPathMode) { 
+   fmt.Print("<<<DEJDEJ id:45::monitor.go:monitorRoute(pathList>>>")
 	var pathStrs [][]interface{}
 
 	for _, p := range pathList {
@@ -79,8 +79,8 @@ func monitorRoute(pathList []*table.Path, showIdentifier bgp.BGPAddPathMode) {
 	}
 }
 
-func NewMonitorCmd() *cobra.Command {
-   fmt.Printf("DEJDEJ id:",3592)
+func NewMonitorCmd() *cobra.Command { 
+   fmt.Print("<<<DEJDEJ id:46::monitor.go:NewMonitorCmd()>>>")
 
 	var current bool
 

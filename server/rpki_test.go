@@ -31,8 +31,8 @@ import (
 	"github.com/osrg/gobgp/table"
 )
 
-func strToASParam(str string) *bgp.PathAttributeAsPath {
-   fmt.Printf("DEJDEJ id:",66)
+func strToASParam(str string) *bgp.PathAttributeAsPath { 
+   fmt.Print("<<<DEJDEJ id:718::rpki_test.go:strToASParam(str>>>")
 	toList := func(asstr, sep string) []uint32 {
 		as := make([]uint32, 0)
 		l := strings.Split(asstr, sep)
@@ -58,14 +58,14 @@ func strToASParam(str string) *bgp.PathAttributeAsPath {
 	return bgp.NewPathAttributeAsPath([]bgp.AsPathParamInterface{bgp.NewAs4PathParam(atype, as)})
 }
 
-func validateOne(tree *radix.Tree, cidr, aspathStr string) config.RpkiValidationResultType {
-   fmt.Printf("DEJDEJ id:",67)
+func validateOne(tree *radix.Tree, cidr, aspathStr string) config.RpkiValidationResultType { 
+   fmt.Print("<<<DEJDEJ id:719::rpki_test.go:validateOne(tree>>>")
 	r := ValidatePath(65500, tree, cidr, strToASParam(aspathStr))
 	return r.Status
 }
 
-func TestValidate0(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",68)
+func TestValidate0(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:720::rpki_test.go:TestValidate0(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -94,8 +94,8 @@ func TestValidate0(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_INVALID)
 }
 
-func TestValidate1(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",69)
+func TestValidate1(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:721::rpki_test.go:TestValidate1(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -111,8 +111,8 @@ func TestValidate1(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_INVALID)
 }
 
-func TestValidate2(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",70)
+func TestValidate2(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:722::rpki_test.go:TestValidate2(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -127,8 +127,8 @@ func TestValidate2(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_NOT_FOUND)
 }
 
-func TestValidate3(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",71)
+func TestValidate3(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:723::rpki_test.go:TestValidate3(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -151,8 +151,8 @@ func TestValidate3(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_VALID)
 }
 
-func TestValidate4(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",72)
+func TestValidate4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:724::rpki_test.go:TestValidate4(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -168,8 +168,8 @@ func TestValidate4(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_VALID)
 }
 
-func TestValidate5(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",73)
+func TestValidate5(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:725::rpki_test.go:TestValidate5(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -182,8 +182,8 @@ func TestValidate5(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_NOT_FOUND)
 }
 
-func TestValidate6(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",74)
+func TestValidate6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:726::rpki_test.go:TestValidate6(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -201,8 +201,8 @@ func TestValidate6(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_INVALID)
 }
 
-func TestValidate7(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",75)
+func TestValidate7(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:727::rpki_test.go:TestValidate7(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -220,8 +220,8 @@ func TestValidate7(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_NOT_FOUND)
 }
 
-func TestValidate8(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",76)
+func TestValidate8(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:728::rpki_test.go:TestValidate8(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -237,8 +237,8 @@ func TestValidate8(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_INVALID)
 }
 
-func TestValidate9(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",77)
+func TestValidate9(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:729::rpki_test.go:TestValidate9(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)
@@ -254,8 +254,8 @@ func TestValidate9(t *testing.T) {
 	assert.Equal(r, config.RPKI_VALIDATION_RESULT_TYPE_VALID)
 }
 
-func TestValidate10(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",78)
+func TestValidate10(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:730::rpki_test.go:TestValidate10(t>>>")
 	assert := assert.New(t)
 
 	manager, _ := NewROAManager(0)

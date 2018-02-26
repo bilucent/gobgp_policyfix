@@ -23,8 +23,8 @@ type BgpConfigSet struct {
 	DynamicNeighbors  []DynamicNeighbor  `mapstructure:"dynamic-neighbors"`
 }
 
-func ReadConfigfileServe(path, format string, configCh chan *BgpConfigSet) {
-   fmt.Printf("DEJDEJ id:",3457)
+func ReadConfigfileServe(path, format string, configCh chan *BgpConfigSet) { 
+   fmt.Print("<<<DEJDEJ id:298::serve.go:ReadConfigfileServe(path,>>>")
 	sigCh := make(chan os.Signal, 1)
 	signal.Notify(sigCh, syscall.SIGHUP)
 
@@ -77,16 +77,16 @@ func ReadConfigfileServe(path, format string, configCh chan *BgpConfigSet) {
 	}
 }
 
-func ConfigSetToRoutingPolicy(c *BgpConfigSet) *RoutingPolicy {
-   fmt.Printf("DEJDEJ id:",3458)
+func ConfigSetToRoutingPolicy(c *BgpConfigSet) *RoutingPolicy { 
+   fmt.Print("<<<DEJDEJ id:299::serve.go:ConfigSetToRoutingPolicy(c>>>")
 	return &RoutingPolicy{
 		DefinedSets:       c.DefinedSets,
 		PolicyDefinitions: c.PolicyDefinitions,
 	}
 }
 
-func UpdatePeerGroupConfig(curC, newC *BgpConfigSet) ([]PeerGroup, []PeerGroup, []PeerGroup) {
-   fmt.Printf("DEJDEJ id:",3459)
+func UpdatePeerGroupConfig(curC, newC *BgpConfigSet) ([]PeerGroup, []PeerGroup, []PeerGroup) { 
+   fmt.Print("<<<DEJDEJ id:300::serve.go:UpdatePeerGroupConfig(curC,>>>")
 	addedPg := []PeerGroup{}
 	deletedPg := []PeerGroup{}
 	updatedPg := []PeerGroup{}
@@ -113,8 +113,8 @@ func UpdatePeerGroupConfig(curC, newC *BgpConfigSet) ([]PeerGroup, []PeerGroup, 
 	return addedPg, deletedPg, updatedPg
 }
 
-func UpdateNeighborConfig(curC, newC *BgpConfigSet) ([]Neighbor, []Neighbor, []Neighbor) {
-   fmt.Printf("DEJDEJ id:",3460)
+func UpdateNeighborConfig(curC, newC *BgpConfigSet) ([]Neighbor, []Neighbor, []Neighbor) { 
+   fmt.Print("<<<DEJDEJ id:301::serve.go:UpdateNeighborConfig(curC,>>>")
 	added := []Neighbor{}
 	deleted := []Neighbor{}
 	updated := []Neighbor{}
@@ -141,8 +141,8 @@ func UpdateNeighborConfig(curC, newC *BgpConfigSet) ([]Neighbor, []Neighbor, []N
 	return added, deleted, updated
 }
 
-func CheckPolicyDifference(currentPolicy *RoutingPolicy, newPolicy *RoutingPolicy) bool {
-   fmt.Printf("DEJDEJ id:",3461)
+func CheckPolicyDifference(currentPolicy *RoutingPolicy, newPolicy *RoutingPolicy) bool { 
+   fmt.Print("<<<DEJDEJ id:302::serve.go:CheckPolicyDifference(currentPolicy>>>")
 
 	log.WithFields(log.Fields{
 		"Topic": "Config",

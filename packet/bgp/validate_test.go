@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func bgpupdate() *BGPMessage {
-   fmt.Printf("DEJDEJ id:",2019)
+func bgpupdate() *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3014::validate_test.go:bgpupdate()>>>")
 	aspath := []AsPathParamInterface{
 		NewAsPathParam(2, []uint16{65001}),
 	}
@@ -25,8 +25,8 @@ func bgpupdate() *BGPMessage {
 	return NewBGPUpdateMessage(nil, p, n)
 }
 
-func bgpupdateV6() *BGPMessage {
-   fmt.Printf("DEJDEJ id:",2020)
+func bgpupdateV6() *BGPMessage { 
+   fmt.Print("<<<DEJDEJ id:3015::validate_test.go:bgpupdateV6()>>>")
 	aspath := []AsPathParamInterface{
 		NewAsPathParam(2, []uint16{65001}),
 	}
@@ -42,8 +42,8 @@ func bgpupdateV6() *BGPMessage {
 	return NewBGPUpdateMessage(nil, p, nil)
 }
 
-func Test_Validate_CapV4(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2021)
+func Test_Validate_CapV4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3016::validate_test.go:Test_Validate_CapV4(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv6_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -54,8 +54,8 @@ func Test_Validate_CapV4(t *testing.T) {
 	assert.Equal(true, res)
 }
 
-func Test_Validate_CapV6(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2022)
+func Test_Validate_CapV6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3017::validate_test.go:Test_Validate_CapV6(t>>>")
 	assert := assert.New(t)
 	message := bgpupdateV6().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv6_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -66,8 +66,8 @@ func Test_Validate_CapV6(t *testing.T) {
 	assert.Equal(false, res)
 }
 
-func Test_Validate_OK(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2023)
+func Test_Validate_OK(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3018::validate_test.go:Test_Validate_OK(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	res, err := ValidateUpdateMsg(message, map[RouteFamily]BGPAddPathMode{RF_IPv4_UC: BGP_ADD_PATH_BOTH}, false, false)
@@ -76,8 +76,8 @@ func Test_Validate_OK(t *testing.T) {
 
 }
 
-// func Test_Validate_wellknown_but_nontransitive(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2024)
+// func Test_Validate_wellknown_but_nontransitive(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3019::validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -95,8 +95,8 @@ func Test_Validate_OK(t *testing.T) {
 // 	assert.Equal(originBytes, e.Data)
 // }
 
-// func Test_Validate_wellknown_but_partial(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2025)
+// func Test_Validate_wellknown_but_partial(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3020::validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -114,8 +114,8 @@ func Test_Validate_OK(t *testing.T) {
 // 	assert.Equal(originBytes, e.Data)
 // }
 
-// func Test_Validate_optional_nontransitive_but_partial(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2026)
+// func Test_Validate_optional_nontransitive_but_partial(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3021::validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 // 	f := BGP_ATTR_FLAG_OPTIONAL | BGP_ATTR_FLAG_PARTIAL
@@ -133,8 +133,8 @@ func Test_Validate_OK(t *testing.T) {
 // 	assert.Equal(originBytes, e.Data)
 // }
 
-// func Test_Validate_flag_mismatch(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2027)
+// func Test_Validate_flag_mismatch(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3022::validate_test.go:func>>>")
 // 	assert := assert.New(t)
 // 	message := bgpupdate().Body.(*BGPUpdate)
 // 	f := BGP_ATTR_FLAG_OPTIONAL
@@ -153,8 +153,8 @@ func Test_Validate_OK(t *testing.T) {
 // 	assert.Equal(originBytes, e.Data)
 // }
 
-func Test_Validate_duplicate_attribute(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2028)
+func Test_Validate_duplicate_attribute(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3023::validate_test.go:Test_Validate_duplicate_attribute(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	// duplicate origin path attribute
@@ -173,8 +173,8 @@ func Test_Validate_duplicate_attribute(t *testing.T) {
 	assert.Nil(e.Data)
 }
 
-func Test_Validate_mandatory_missing(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2029)
+func Test_Validate_mandatory_missing(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3024::validate_test.go:Test_Validate_mandatory_missing(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	message.PathAttributes = message.PathAttributes[1:]
@@ -189,8 +189,8 @@ func Test_Validate_mandatory_missing(t *testing.T) {
 	assert.Equal(uint64(1), missing)
 }
 
-func Test_Validate_mandatory_missing_nocheck(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2030)
+func Test_Validate_mandatory_missing_nocheck(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3025::validate_test.go:Test_Validate_mandatory_missing_nocheck(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	message.PathAttributes = message.PathAttributes[1:]
@@ -201,8 +201,8 @@ func Test_Validate_mandatory_missing_nocheck(t *testing.T) {
 	assert.NoError(err)
 }
 
-func Test_Validate_invalid_origin(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2031)
+func Test_Validate_invalid_origin(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3026::validate_test.go:Test_Validate_invalid_origin(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 	// origin needs to be well-known
@@ -221,8 +221,8 @@ func Test_Validate_invalid_origin(t *testing.T) {
 	assert.Equal(originBytes, e.Data)
 }
 
-func Test_Validate_invalid_nexthop_zero(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2032)
+func Test_Validate_invalid_nexthop_zero(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3027::validate_test.go:Test_Validate_invalid_nexthop_zero(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -244,8 +244,8 @@ func Test_Validate_invalid_nexthop_zero(t *testing.T) {
 	assert.Equal(nexthopBytes, e.Data)
 }
 
-func Test_Validate_invalid_nexthop_lo(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2033)
+func Test_Validate_invalid_nexthop_lo(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3028::validate_test.go:Test_Validate_invalid_nexthop_lo(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -267,8 +267,8 @@ func Test_Validate_invalid_nexthop_lo(t *testing.T) {
 	assert.Equal(nexthopBytes, e.Data)
 }
 
-func Test_Validate_invalid_nexthop_de(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2034)
+func Test_Validate_invalid_nexthop_de(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3029::validate_test.go:Test_Validate_invalid_nexthop_de(t>>>")
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
 
@@ -291,8 +291,8 @@ func Test_Validate_invalid_nexthop_de(t *testing.T) {
 
 }
 
-func Test_Validate_unrecognized_well_known(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2035)
+func Test_Validate_unrecognized_well_known(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3030::validate_test.go:Test_Validate_unrecognized_well_known(t>>>")
 
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
@@ -312,8 +312,8 @@ func Test_Validate_unrecognized_well_known(t *testing.T) {
 	assert.Equal(unknownBytes, e.Data)
 }
 
-func Test_Validate_aspath(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2036)
+func Test_Validate_aspath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3031::validate_test.go:Test_Validate_aspath(t>>>")
 
 	assert := assert.New(t)
 	message := bgpupdate().Body.(*BGPUpdate)
@@ -382,8 +382,8 @@ func Test_Validate_aspath(t *testing.T) {
 	assert.Equal(true, res)
 }
 
-func Test_Validate_flowspec(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2037)
+func Test_Validate_flowspec(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3032::validate_test.go:Test_Validate_flowspec(t>>>")
 	assert := assert.New(t)
 	cmp := make([]FlowSpecComponentInterface, 0)
 	cmp = append(cmp, NewFlowSpecDestinationPrefix(NewIPAddrPrefix(24, "10.0.0.0")))
@@ -423,8 +423,8 @@ func Test_Validate_flowspec(t *testing.T) {
 	assert.NotNil(err)
 }
 
-func TestValidateLargeCommunities(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2038)
+func TestValidateLargeCommunities(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:3033::validate_test.go:TestValidateLargeCommunities(t>>>")
 	assert := assert.New(t)
 	c1, err := ParseLargeCommunity("10:10:10")
 	assert.Nil(err)

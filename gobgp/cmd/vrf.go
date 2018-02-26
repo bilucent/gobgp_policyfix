@@ -27,8 +27,8 @@ import (
 	"github.com/osrg/gobgp/packet/bgp"
 )
 
-func getVrfs() (vrfs, error) {
-   fmt.Printf("DEJDEJ id:",3692)
+func getVrfs() (vrfs, error) { 
+   fmt.Print("<<<DEJDEJ id:39::vrf.go:getVrfs()>>>")
 	ret, err := client.GetVRF()
 	if err != nil {
 		return nil, err
@@ -37,8 +37,8 @@ func getVrfs() (vrfs, error) {
 	return ret, nil
 }
 
-func showVrfs() error {
-   fmt.Printf("DEJDEJ id:",3693)
+func showVrfs() error { 
+   fmt.Print("<<<DEJDEJ id:40::vrf.go:showVrfs()>>>")
 	maxLens := []int{20, 20, 20, 20, 5}
 	vrfs, err := getVrfs()
 	if err != nil {
@@ -87,13 +87,13 @@ func showVrfs() error {
 	return nil
 }
 
-func showVrf(name string) error {
-   fmt.Printf("DEJDEJ id:",3694)
+func showVrf(name string) error { 
+   fmt.Print("<<<DEJDEJ id:41::vrf.go:showVrf(name>>>")
 	return showNeighborRib(CMD_VRF, name, nil)
 }
 
-func modVrf(typ string, args []string) error {
-   fmt.Printf("DEJDEJ id:",3695)
+func modVrf(typ string, args []string) error { 
+   fmt.Print("<<<DEJDEJ id:42::vrf.go:modVrf(typ>>>")
 	var err error
 	switch typ {
 	case CMD_ADD:
@@ -148,8 +148,8 @@ func modVrf(typ string, args []string) error {
 	return err
 }
 
-func NewVrfCmd() *cobra.Command {
-   fmt.Printf("DEJDEJ id:",3696)
+func NewVrfCmd() *cobra.Command { 
+   fmt.Print("<<<DEJDEJ id:43::vrf.go:NewVrfCmd()>>>")
 
 	ribCmd := &cobra.Command{
 		Use: CMD_RIB,

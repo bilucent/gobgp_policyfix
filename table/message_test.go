@@ -30,8 +30,8 @@ import (
 // expected result:
 //  as-path  : 65000, 4000, 23456, 23456, 40001
 //  as4-path : 65000, 4000, 400000, 300000, 40001
-func TestAsPathAs2Trans1(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2691)
+func TestAsPathAs2Trans1(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1267::message_test.go:TestAsPathAs2Trans1(t>>>")
 	as := []uint32{65000, 4000, 400000, 300000, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -58,8 +58,8 @@ func TestAsPathAs2Trans1(t *testing.T) {
 //  as-path  : 65000, 4000, 40000, 30000, 40001
 // expected result:
 //  as-path  : 65000, 4000, 40000, 30000, 40001
-func TestAsPathAs2Trans2(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2692)
+func TestAsPathAs2Trans2(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1268::message_test.go:TestAsPathAs2Trans2(t>>>")
 	as := []uint32{65000, 4000, 40000, 30000, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAs4PathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -80,8 +80,8 @@ func TestAsPathAs2Trans2(t *testing.T) {
 //  as4-path : 400000, 300000, 40001
 // expected result:
 //  as-path  : 65000, 4000, 400000, 300000, 40001
-func TestAsPathAs4Trans1(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2693)
+func TestAsPathAs4Trans1(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1269::message_test.go:TestAsPathAs4Trans1(t>>>")
 	as := []uint16{65000, 4000, bgp.AS_TRANS, bgp.AS_TRANS, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -106,8 +106,8 @@ func TestAsPathAs4Trans1(t *testing.T) {
 //  as4-path : 400000, 300000, 40001
 // expected result:
 //  as-path  : 65000, 4000, {10, 20, 30}, 400000, 300000, 40001
-func TestAsPathAs4Trans2(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2694)
+func TestAsPathAs4Trans2(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1270::message_test.go:TestAsPathAs4Trans2(t>>>")
 	as1 := []uint16{65000, 4000}
 	param1 := bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as1)
 	as2 := []uint16{10, 20, 30}
@@ -142,8 +142,8 @@ func TestAsPathAs4Trans2(t *testing.T) {
 //  as4-path : 3000, 400000, 300000, 40001
 // expected result:
 //  as-path  : 65000, 4000, 3000, 400000, 300000, 40001
-func TestAsPathAs4Trans3(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2695)
+func TestAsPathAs4Trans3(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1271::message_test.go:TestAsPathAs4Trans3(t>>>")
 	as1 := []uint16{65000, 4000}
 	param1 := bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as1)
 	as2 := []uint16{10, 20, 30}
@@ -174,8 +174,8 @@ func TestAsPathAs4Trans3(t *testing.T) {
 //  as4-path : 400000, 300000, 40001, {10, 20, 30}
 // expected result:
 //  as-path  : 65000, 400000, 300000, 40001, {10, 20, 30}
-func TestAsPathAs4Trans4(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2696)
+func TestAsPathAs4Trans4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1272::message_test.go:TestAsPathAs4Trans4(t>>>")
 	as := []uint16{65000, 4000, bgp.AS_TRANS, bgp.AS_TRANS, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -206,8 +206,8 @@ func TestAsPathAs4Trans4(t *testing.T) {
 //  as4-path : {10, 20, 30} 400000, 300000, 40001
 // expected result:
 //  as-path  : 65000, {10, 20, 30}, 400000, 300000, 40001
-func TestAsPathAs4Trans5(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2697)
+func TestAsPathAs4Trans5(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1273::message_test.go:TestAsPathAs4Trans5(t>>>")
 	as := []uint16{65000, 4000, bgp.AS_TRANS, bgp.AS_TRANS, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -239,8 +239,8 @@ func TestAsPathAs4Trans5(t *testing.T) {
 //  as4-path : 100000, 65000, 4000, 400000, 300000, 40001
 // expected result:
 //  as-path  : 65000, 4000, 23456, 23456, 40001
-func TestAsPathAs4TransInvalid1(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2698)
+func TestAsPathAs4TransInvalid1(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1274::message_test.go:TestAsPathAs4TransInvalid1(t>>>")
 	as := []uint16{65000, 4000, bgp.AS_TRANS, bgp.AS_TRANS, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -266,8 +266,8 @@ func TestAsPathAs4TransInvalid1(t *testing.T) {
 //  as4-path : 300000, 40001
 // expected result:
 //  as-path  : 65000, 4000, 23456, 300000, 40001
-func TestAsPathAs4TransInvalid2(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2699)
+func TestAsPathAs4TransInvalid2(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1275::message_test.go:TestAsPathAs4TransInvalid2(t>>>")
 	as := []uint16{65000, 4000, bgp.AS_TRANS, bgp.AS_TRANS, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -293,8 +293,8 @@ func TestAsPathAs4TransInvalid2(t *testing.T) {
 //  as4-path : nil
 // expected result:
 //  as-path  : 65000, 4000, 23456, 23456, 40001
-func TestAsPathAs4TransInvalid3(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2700)
+func TestAsPathAs4TransInvalid3(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1276::message_test.go:TestAsPathAs4TransInvalid3(t>>>")
 	as := []uint16{65000, 4000, bgp.AS_TRANS, bgp.AS_TRANS, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -316,8 +316,8 @@ func TestAsPathAs4TransInvalid3(t *testing.T) {
 //  as4-path : empty
 // expected result:
 //  as-path  : 65000, 4000, 23456, 23456, 40001
-func TestAsPathAs4TransInvalid4(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2701)
+func TestAsPathAs4TransInvalid4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1277::message_test.go:TestAsPathAs4TransInvalid4(t>>>")
 	as := []uint16{65000, 4000, bgp.AS_TRANS, bgp.AS_TRANS, 40001}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as)}
 	aspath := bgp.NewPathAttributeAsPath(params)
@@ -338,8 +338,8 @@ func TestAsPathAs4TransInvalid4(t *testing.T) {
 	assert.Equal(t, msg.PathAttributes[0].(*bgp.PathAttributeAsPath).Value[0].(*bgp.As4PathParam).AS[4], uint32(40001))
 }
 
-func TestASPathAs4TransMultipleParams(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2702)
+func TestASPathAs4TransMultipleParams(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1278::message_test.go:TestASPathAs4TransMultipleParams(t>>>")
 	as1 := []uint16{17676, 2914, 174, 50607}
 	as2 := []uint16{bgp.AS_TRANS, bgp.AS_TRANS}
 	params := []bgp.AsPathParamInterface{bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as1), bgp.NewAsPathParam(bgp.BGP_ASPATH_ATTR_TYPE_SEQ, as2)}
@@ -359,8 +359,8 @@ func TestASPathAs4TransMultipleParams(t *testing.T) {
 	}
 }
 
-func TestASPathAs4TransMultipleLargeParams(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2703)
+func TestASPathAs4TransMultipleLargeParams(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1279::message_test.go:TestASPathAs4TransMultipleLargeParams(t>>>")
 	as1 := make([]uint16, 0, 255)
 	for i := 0; i < 255-5; i++ {
 		as1 = append(as1, uint16(i+1))
@@ -384,8 +384,8 @@ func TestASPathAs4TransMultipleLargeParams(t *testing.T) {
 	}
 }
 
-func TestAggregator4BytesASes(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2704)
+func TestAggregator4BytesASes(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1280::message_test.go:TestAggregator4BytesASes(t>>>")
 	getAggr := func(msg *bgp.BGPUpdate) *bgp.PathAttributeAggregator {
 		for _, attr := range msg.PathAttributes {
 			switch attr.(type) {
@@ -471,8 +471,8 @@ func TestAggregator4BytesASes(t *testing.T) {
 	assert.Equal(t, getAggr4(msg), (*bgp.PathAttributeAs4Aggregator)(nil))
 }
 
-func TestBMP(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2705)
+func TestBMP(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1281::message_test.go:TestBMP(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAs4PathParam(2, []uint32{1000000}),
 		bgp.NewAs4PathParam(1, []uint32{1000001, 1002}),
@@ -494,8 +494,8 @@ func TestBMP(t *testing.T) {
 	CreateUpdateMsgFromPaths(pList)
 }
 
-func unreachIndex(msgs []*bgp.BGPMessage) int {
-   fmt.Printf("DEJDEJ id:",2706)
+func unreachIndex(msgs []*bgp.BGPMessage) int { 
+   fmt.Print("<<<DEJDEJ id:1282::message_test.go:unreachIndex(msgs>>>")
 	for i, _ := range msgs {
 		for _, a := range msgs[i].Body.(*bgp.BGPUpdate).PathAttributes {
 			if a.GetType() == bgp.BGP_ATTR_TYPE_MP_UNREACH_NLRI {
@@ -507,8 +507,8 @@ func unreachIndex(msgs []*bgp.BGPMessage) int {
 	return -1
 }
 
-func TestMixedMPReachMPUnreach(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2707)
+func TestMixedMPReachMPUnreach(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1283::message_test.go:TestMixedMPReachMPUnreach(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAs4PathParam(2, []uint32{100}),
 	}
@@ -538,8 +538,8 @@ func TestMixedMPReachMPUnreach(t *testing.T) {
 	assert.Equal(t, len(msgs[rIndex].Body.(*bgp.BGPUpdate).PathAttributes), 3)
 }
 
-func TestMixedNLRIAndMPUnreach(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2708)
+func TestMixedNLRIAndMPUnreach(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1284::message_test.go:TestMixedNLRIAndMPUnreach(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAs4PathParam(2, []uint32{100}),
 	}
@@ -570,8 +570,8 @@ func TestMixedNLRIAndMPUnreach(t *testing.T) {
 	assert.Equal(t, len(msgs[rIndex].Body.(*bgp.BGPUpdate).PathAttributes), 3)
 }
 
-func TestMergeV4NLRIs(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2709)
+func TestMergeV4NLRIs(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1285::message_test.go:TestMergeV4NLRIs(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAs4PathParam(2, []uint32{100}),
 	}
@@ -612,8 +612,8 @@ func TestMergeV4NLRIs(t *testing.T) {
 	}
 }
 
-func TestNotMergeV4NLRIs(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2710)
+func TestNotMergeV4NLRIs(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1286::message_test.go:TestNotMergeV4NLRIs(t>>>")
 	paths := make([]*Path, 0, 2)
 
 	aspath1 := []bgp.AsPathParamInterface{
@@ -645,8 +645,8 @@ func TestNotMergeV4NLRIs(t *testing.T) {
 	assert.Equal(t, len(msgs), 2)
 }
 
-func TestMergeV4Withdraw(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",2711)
+func TestMergeV4Withdraw(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:1287::message_test.go:TestMergeV4Withdraw(t>>>")
 	nr := 1024
 	paths := make([]*Path, 0, nr)
 	addrs := make([]string, 0, nr)

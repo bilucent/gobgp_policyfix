@@ -70,8 +70,8 @@ var ProtocolNameMap = map[Protocol]string{
 	SCTP:    "sctp",
 }
 
-func (p Protocol) String() string {
-   fmt.Printf("DEJDEJ id:",2667)
+func (p Protocol) String() string { 
+   fmt.Print("<<<DEJDEJ id:3700::constant.go:String>>>")
 	name, ok := ProtocolNameMap[p]
 	if !ok {
 		return fmt.Sprintf("%d", p)
@@ -117,8 +117,8 @@ var TCPSortedFlags = []TCPFlag{
 	TCP_FLAG_CWR,
 }
 
-func (f TCPFlag) String() string {
-   fmt.Printf("DEJDEJ id:",2668)
+func (f TCPFlag) String() string { 
+   fmt.Print("<<<DEJDEJ id:3701::constant.go:String>>>")
 	flags := make([]string, 0, len(TCPSortedFlags))
 	for _, v := range TCPSortedFlags {
 		if f&v > 0 {
@@ -162,8 +162,8 @@ var BitmaskFlagOpValueMap = map[string]BitmaskFlagOp{
 	"E":  BITMASK_FLAG_OP_END,
 }
 
-func (f BitmaskFlagOp) String() string {
-   fmt.Printf("DEJDEJ id:",2669)
+func (f BitmaskFlagOp) String() string { 
+   fmt.Print("<<<DEJDEJ id:3702::constant.go:String>>>")
 	ops := make([]string, 0)
 	if f&BITMASK_FLAG_OP_AND > 0 {
 		ops = append(ops, BitmaskFlagOpNameMap[BITMASK_FLAG_OP_AND])
@@ -207,8 +207,8 @@ var FragmentSortedFlags = []FragmentFlag{
 	FRAG_FLAG_LAST,
 }
 
-func (f FragmentFlag) String() string {
-   fmt.Printf("DEJDEJ id:",2670)
+func (f FragmentFlag) String() string { 
+   fmt.Print("<<<DEJDEJ id:3703::constant.go:String>>>")
 	flags := make([]string, 0, len(FragmentSortedFlags))
 	for _, v := range FragmentSortedFlags {
 		if f&v > 0 {
@@ -267,8 +267,8 @@ var DECNumOpValueMap = map[string]DECNumOp{
 	"E":     DEC_NUM_OP_END,
 }
 
-func (f DECNumOp) String() string {
-   fmt.Printf("DEJDEJ id:",2671)
+func (f DECNumOp) String() string { 
+   fmt.Print("<<<DEJDEJ id:3704::constant.go:String>>>")
 	ops := make([]string, 0)
 	logicFlag := DECNumOp(f & 0xc0) // higher 2 bits
 	if logicFlag&DEC_NUM_OP_AND > 0 {
@@ -324,8 +324,8 @@ var EthernetTypeNameMap = map[EthernetType]string{
 	LOOPBACK:        "loopback",
 }
 
-func (t EthernetType) String() string {
-   fmt.Printf("DEJDEJ id:",2672)
+func (t EthernetType) String() string { 
+   fmt.Print("<<<DEJDEJ id:3705::constant.go:String>>>")
 	if name, ok := EthernetTypeNameMap[t]; ok {
 		return name
 	}

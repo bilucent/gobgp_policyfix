@@ -24,8 +24,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func showRPKIServer(args []string) error {
-   fmt.Printf("DEJDEJ id:",3633)
+func showRPKIServer(args []string) error { 
+   fmt.Print("<<<DEJDEJ id:107::rpki.go:showRPKIServer(args>>>")
 	servers, err := client.GetRPKI()
 	if err != nil {
 		fmt.Println(err)
@@ -72,8 +72,8 @@ func showRPKIServer(args []string) error {
 	return nil
 }
 
-func showRPKITable(args []string) error {
-   fmt.Printf("DEJDEJ id:",3634)
+func showRPKITable(args []string) error { 
+   fmt.Print("<<<DEJDEJ id:108::rpki.go:showRPKITable(args>>>")
 	family, err := checkAddressFamily(bgp.RouteFamily(0))
 	if err != nil {
 		exitWithError(err)
@@ -101,8 +101,8 @@ func showRPKITable(args []string) error {
 	return nil
 }
 
-func NewRPKICmd() *cobra.Command {
-   fmt.Printf("DEJDEJ id:",3635)
+func NewRPKICmd() *cobra.Command { 
+   fmt.Print("<<<DEJDEJ id:109::rpki.go:NewRPKICmd()>>>")
 	rpkiCmd := &cobra.Command{
 		Use: CMD_RPKI,
 	}

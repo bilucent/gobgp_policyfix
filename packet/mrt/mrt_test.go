@@ -26,8 +26,8 @@ import (
 	"time"
 )
 
-func TestMrtHdr(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1971)
+func TestMrtHdr(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2877::mrt_test.go:TestMrtHdr(t>>>")
 	h1, err := NewMRTHeader(10, TABLE_DUMPv2, RIB_IPV4_MULTICAST, 20)
 	if err != nil {
 		t.Fatal(err)
@@ -44,8 +44,8 @@ func TestMrtHdr(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(h1, h2), true)
 }
 
-func TestMrtHdrTime(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1972)
+func TestMrtHdrTime(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2878::mrt_test.go:TestMrtHdrTime(t>>>")
 	h1, err := NewMRTHeader(10, TABLE_DUMPv2, RIB_IPV4_MULTICAST, 20)
 	if err != nil {
 		t.Fatal(err)
@@ -56,8 +56,8 @@ func TestMrtHdrTime(t *testing.T) {
 	assert.Equal(t, h1.GetTime(), ttime)
 }
 
-func testPeer(t *testing.T, p1 *Peer) {
-   fmt.Printf("DEJDEJ id:",1973)
+func testPeer(t *testing.T, p1 *Peer) { 
+   fmt.Print("<<<DEJDEJ id:2879::mrt_test.go:testPeer(t>>>")
 	b1, err := p1.Serialize()
 	if err != nil {
 		t.Fatal(err)
@@ -71,26 +71,26 @@ func testPeer(t *testing.T, p1 *Peer) {
 	assert.Equal(t, reflect.DeepEqual(p1, p2), true)
 }
 
-func TestMrtPeer(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1974)
+func TestMrtPeer(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2880::mrt_test.go:TestMrtPeer(t>>>")
 	p := NewPeer("192.168.0.1", "10.0.0.1", 65000, false)
 	testPeer(t, p)
 }
 
-func TestMrtPeerv6(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1975)
+func TestMrtPeerv6(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2881::mrt_test.go:TestMrtPeerv6(t>>>")
 	p := NewPeer("192.168.0.1", "2001::1", 65000, false)
 	testPeer(t, p)
 }
 
-func TestMrtPeerAS4(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1976)
+func TestMrtPeerAS4(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2882::mrt_test.go:TestMrtPeerAS4(t>>>")
 	p := NewPeer("192.168.0.1", "2001::1", 135500, true)
 	testPeer(t, p)
 }
 
-func TestMrtPeerIndexTable(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1977)
+func TestMrtPeerIndexTable(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2883::mrt_test.go:TestMrtPeerIndexTable(t>>>")
 	p1 := NewPeer("192.168.0.1", "10.0.0.1", 65000, false)
 	p2 := NewPeer("192.168.0.1", "2001::1", 65000, false)
 	p3 := NewPeer("192.168.0.1", "2001::1", 135500, true)
@@ -107,8 +107,8 @@ func TestMrtPeerIndexTable(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(pt1, pt2), true)
 }
 
-func TestMrtRibEntry(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1978)
+func TestMrtRibEntry(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2884::mrt_test.go:TestMrtRibEntry(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -138,8 +138,8 @@ func TestMrtRibEntry(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(e1, e2), true)
 }
 
-func TestMrtRibEntryWithAddPath(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1979)
+func TestMrtRibEntryWithAddPath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2885::mrt_test.go:TestMrtRibEntryWithAddPath(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -168,8 +168,8 @@ func TestMrtRibEntryWithAddPath(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(e1, e2), true)
 }
 
-func TestMrtRib(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1980)
+func TestMrtRib(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2886::mrt_test.go:TestMrtRib(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -203,8 +203,8 @@ func TestMrtRib(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(r1, r2), true)
 }
 
-func TestMrtRibWithAddPath(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1981)
+func TestMrtRibWithAddPath(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2887::mrt_test.go:TestMrtRibWithAddPath(t>>>")
 	aspath1 := []bgp.AsPathParamInterface{
 		bgp.NewAsPathParam(2, []uint16{1000}),
 		bgp.NewAsPathParam(1, []uint16{1001, 1002}),
@@ -239,8 +239,8 @@ func TestMrtRibWithAddPath(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(r1, r2), true)
 }
 
-func TestMrtGeoPeerTable(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1982)
+func TestMrtGeoPeerTable(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2888::mrt_test.go:TestMrtGeoPeerTable(t>>>")
 	p1 := NewGeoPeer("192.168.0.1", 28.031157, 86.899684)
 	p2 := NewGeoPeer("192.168.0.1", 35.360556, 138.727778)
 	pt1 := NewGeoPeerTable("192.168.0.1", 12.345678, 98.765432, []*GeoPeer{p1, p2})
@@ -256,8 +256,8 @@ func TestMrtGeoPeerTable(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(pt1, pt2), true)
 }
 
-func TestMrtBgp4mpStateChange(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1983)
+func TestMrtBgp4mpStateChange(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2889::mrt_test.go:TestMrtBgp4mpStateChange(t>>>")
 	c1 := NewBGP4MPStateChange(65000, 65001, 1, "192.168.0.1", "192.168.0.2", false, ACTIVE, ESTABLISHED)
 	b1, err := c1.Serialize()
 	if err != nil {
@@ -275,8 +275,8 @@ func TestMrtBgp4mpStateChange(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(c1, c2), true)
 }
 
-func TestMrtBgp4mpMessage(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1984)
+func TestMrtBgp4mpMessage(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2890::mrt_test.go:TestMrtBgp4mpMessage(t>>>")
 	msg := bgp.NewBGPKeepAliveMessage()
 	m1 := NewBGP4MPMessage(65000, 65001, 1, "192.168.0.1", "192.168.0.2", false, msg)
 	b1, err := m1.Serialize()
@@ -291,8 +291,8 @@ func TestMrtBgp4mpMessage(t *testing.T) {
 	assert.Equal(t, reflect.DeepEqual(m1, m2), true)
 }
 
-func TestMrtSplit(t *testing.T) {
-   fmt.Printf("DEJDEJ id:",1985)
+func TestMrtSplit(t *testing.T) { 
+   fmt.Print("<<<DEJDEJ id:2891::mrt_test.go:TestMrtSplit(t>>>")
 	var b bytes.Buffer
 	numwrite, numread := 10, 0
 	for i := 0; i < numwrite; i++ {

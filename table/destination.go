@@ -70,13 +70,13 @@ var BestPathReasonStringMap = map[BestPathReason]string{
 	BPR_NON_LLGR_STALE:     "no LLGR Stale",
 }
 
-func (r *BestPathReason) String() string {
-   fmt.Printf("DEJDEJ id:",2941)
+func (r *BestPathReason) String() string { 
+   fmt.Print("<<<DEJDEJ id:827::destination.go:String>>>")
 	return BestPathReasonStringMap[*r]
 }
 
-func IpToRadixkey(b []byte, max uint8) string {
-   fmt.Printf("DEJDEJ id:",2942)
+func IpToRadixkey(b []byte, max uint8) string { 
+   fmt.Print("<<<DEJDEJ id:828::destination.go:IpToRadixkey(b>>>")
 	var buffer bytes.Buffer
 	for i := 0; i < len(b) && i < int(max); i++ {
 		fmt.Fprintf(&buffer, "%08b", b[i])
@@ -84,15 +84,15 @@ func IpToRadixkey(b []byte, max uint8) string {
 	return buffer.String()[:max]
 }
 
-func CidrToRadixkey(cidr string) string {
-   fmt.Printf("DEJDEJ id:",2943)
+func CidrToRadixkey(cidr string) string { 
+   fmt.Print("<<<DEJDEJ id:829::destination.go:CidrToRadixkey(cidr>>>")
 	_, n, _ := net.ParseCIDR(cidr)
 	ones, _ := n.Mask.Size()
 	return IpToRadixkey(n.IP, uint8(ones))
 }
 
-func AddrToRadixkey(addr bgp.AddrPrefixInterface) string {
-   fmt.Printf("DEJDEJ id:",2944)
+func AddrToRadixkey(addr bgp.AddrPrefixInterface) string { 
+   fmt.Print("<<<DEJDEJ id:830::destination.go:AddrToRadixkey(addr>>>")
 	var (
 		ip   net.IP
 		size uint8
@@ -123,8 +123,8 @@ type PeerInfo struct {
 	Confederation           bool
 }
 
-func (lhs *PeerInfo) Equal(rhs *PeerInfo) bool {
-   fmt.Printf("DEJDEJ id:",2945)
+func (lhs *PeerInfo) Equal(rhs *PeerInfo) bool { 
+   fmt.Print("<<<DEJDEJ id:831::destination.go:Equal>>>")
 	if lhs == rhs {
 		return true
 	}
@@ -139,8 +139,8 @@ func (lhs *PeerInfo) Equal(rhs *PeerInfo) bool {
 	return false
 }
 
-func (i *PeerInfo) String() string {
-   fmt.Printf("DEJDEJ id:",2946)
+func (i *PeerInfo) String() string { 
+   fmt.Print("<<<DEJDEJ id:832::destination.go:String>>>")
 	if i.Address == nil {
 		return "local"
 	}
@@ -155,8 +155,8 @@ func (i *PeerInfo) String() string {
 	return s.String()
 }
 
-func NewPeerInfo(g *config.Global, p *config.Neighbor) *PeerInfo {
-   fmt.Printf("DEJDEJ id:",2947)
+func NewPeerInfo(g *config.Global, p *config.Neighbor) *PeerInfo { 
+   fmt.Print("<<<DEJDEJ id:833::destination.go:NewPeerInfo(g>>>")
 	id := net.ParseIP(string(p.RouteReflector.Config.RouteReflectorClusterId)).To4()
 	// exclude zone info
 	naddr, _ := net.ResolveIPAddr("ip", p.State.NeighborAddress)
@@ -183,8 +183,8 @@ type Destination struct {
 	localIdMap       *Bitmap
 }
 
-func NewDestination(nlri bgp.AddrPrefixInterface, mapSize int, known ...*Path) *Destination {
-   fmt.Printf("DEJDEJ id:",2948)
+func NewDestination(nlri bgp.AddrPrefixInterface, mapSize int, known ...*Path) *Destination { 
+   fmt.Print("<<<DEJDEJ id:834::destination.go:NewDestination(nlri>>>")
 	d := &Destination{
 		routeFamily:   bgp.AfiSafiToRouteFamily(nlri.AFI(), nlri.SAFI()),
 		nlri:          nlri,
@@ -204,33 +204,33 @@ func NewDestination(nlri bgp.AddrPrefixInterface, mapSize int, known ...*Path) *
 	return d
 }
 
-func (dd *Destination) Family() bgp.RouteFamily {
-   fmt.Printf("DEJDEJ id:",2949)
+func (dd *Destination) Family() bgp.RouteFamily { 
+   fmt.Print("<<<DEJDEJ id:835::destination.go:Family>>>")
 	return dd.routeFamily
 }
 
-func (dd *Destination) setRouteFamily(routeFamily bgp.RouteFamily) {
-   fmt.Printf("DEJDEJ id:",2950)
+func (dd *Destination) setRouteFamily(routeFamily bgp.RouteFamily) { 
+   fmt.Print("<<<DEJDEJ id:836::destination.go:setRouteFamily>>>")
 	dd.routeFamily = routeFamily
 }
 
-func (dd *Destination) GetNlri() bgp.AddrPrefixInterface {
-   fmt.Printf("DEJDEJ id:",2951)
+func (dd *Destination) GetNlri() bgp.AddrPrefixInterface { 
+   fmt.Print("<<<DEJDEJ id:837::destination.go:GetNlri>>>")
 	return dd.nlri
 }
 
-func (dd *Destination) setNlri(nlri bgp.AddrPrefixInterface) {
-   fmt.Printf("DEJDEJ id:",2952)
+func (dd *Destination) setNlri(nlri bgp.AddrPrefixInterface) { 
+   fmt.Print("<<<DEJDEJ id:838::destination.go:setNlri>>>")
 	dd.nlri = nlri
 }
 
-func (dd *Destination) GetAllKnownPathList() []*Path {
-   fmt.Printf("DEJDEJ id:",2953)
+func (dd *Destination) GetAllKnownPathList() []*Path { 
+   fmt.Print("<<<DEJDEJ id:839::destination.go:GetAllKnownPathList>>>")
 	return dd.knownPathList
 }
 
-func (dd *Destination) GetKnownPathList(id string) []*Path {
-   fmt.Printf("DEJDEJ id:",2954)
+func (dd *Destination) GetKnownPathList(id string) []*Path { 
+   fmt.Print("<<<DEJDEJ id:840::destination.go:GetKnownPathList>>>")
 	list := make([]*Path, 0, len(dd.knownPathList))
 	for _, p := range dd.knownPathList {
 		if p.Filtered(id) == POLICY_DIRECTION_NONE {
@@ -240,8 +240,8 @@ func (dd *Destination) GetKnownPathList(id string) []*Path {
 	return list
 }
 
-func getBestPath(id string, pathList *paths) *Path {
-   fmt.Printf("DEJDEJ id:",2955)
+func getBestPath(id string, pathList *paths) *Path { 
+   fmt.Print("<<<DEJDEJ id:841::destination.go:getBestPath(id>>>")
 	for _, p := range *pathList {
 		if p.Filtered(id) == POLICY_DIRECTION_NONE && !p.IsNexthopInvalid {
 			return p
@@ -250,13 +250,13 @@ func getBestPath(id string, pathList *paths) *Path {
 	return nil
 }
 
-func (dd *Destination) GetBestPath(id string) *Path {
-   fmt.Printf("DEJDEJ id:",2956)
+func (dd *Destination) GetBestPath(id string) *Path { 
+   fmt.Print("<<<DEJDEJ id:842::destination.go:GetBestPath>>>")
 	return getBestPath(id, &dd.knownPathList)
 }
 
-func getMultiBestPath(id string, pathList *paths) []*Path {
-   fmt.Printf("DEJDEJ id:",2957)
+func getMultiBestPath(id string, pathList *paths) []*Path { 
+   fmt.Print("<<<DEJDEJ id:843::destination.go:getMultiBestPath(id>>>")
 	list := make([]*Path, 0, len(*pathList))
 	var best *Path
 	for _, p := range *pathList {
@@ -272,13 +272,13 @@ func getMultiBestPath(id string, pathList *paths) []*Path {
 	return list
 }
 
-func (dd *Destination) GetMultiBestPath(id string) []*Path {
-   fmt.Printf("DEJDEJ id:",2958)
+func (dd *Destination) GetMultiBestPath(id string) []*Path { 
+   fmt.Print("<<<DEJDEJ id:844::destination.go:GetMultiBestPath>>>")
 	return getMultiBestPath(id, &dd.knownPathList)
 }
 
-func (dd *Destination) GetAddPathChanges(id string) []*Path {
-   fmt.Printf("DEJDEJ id:",2959)
+func (dd *Destination) GetAddPathChanges(id string) []*Path { 
+   fmt.Print("<<<DEJDEJ id:845::destination.go:GetAddPathChanges>>>")
 	l := make([]*Path, 0, len(dd.newPathList)+len(dd.withdrawList))
 	for _, p := range dd.newPathList {
 		l = append(l, p)
@@ -289,8 +289,8 @@ func (dd *Destination) GetAddPathChanges(id string) []*Path {
 	return l
 }
 
-func (dd *Destination) GetChanges(id string, peerDown bool) (*Path, *Path, []*Path) {
-   fmt.Printf("DEJDEJ id:",2960)
+func (dd *Destination) GetChanges(id string, peerDown bool) (*Path, *Path, []*Path) { 
+   fmt.Print("<<<DEJDEJ id:846::destination.go:GetChanges>>>")
 	best, old := func(id string) (*Path, *Path) {
 		old := getBestPath(id, &dd.oldKnownPathList)
 		best := dd.GetBestPath(id)
@@ -352,20 +352,20 @@ func (dd *Destination) GetChanges(id string, peerDown bool) (*Path, *Path, []*Pa
 	return best, old, multi
 }
 
-func (dd *Destination) AddWithdraw(withdraw *Path) {
-   fmt.Printf("DEJDEJ id:",2961)
+func (dd *Destination) AddWithdraw(withdraw *Path) { 
+   fmt.Print("<<<DEJDEJ id:847::destination.go:AddWithdraw>>>")
 	dd.validatePath(withdraw)
 	dd.withdrawList = append(dd.withdrawList, withdraw)
 }
 
-func (dd *Destination) AddNewPath(newPath *Path) {
-   fmt.Printf("DEJDEJ id:",2962)
+func (dd *Destination) AddNewPath(newPath *Path) { 
+   fmt.Print("<<<DEJDEJ id:848::destination.go:AddNewPath>>>")
 	dd.validatePath(newPath)
 	dd.newPathList = append(dd.newPathList, newPath)
 }
 
-func (dd *Destination) validatePath(path *Path) {
-   fmt.Printf("DEJDEJ id:",2963)
+func (dd *Destination) validatePath(path *Path) { 
+   fmt.Print("<<<DEJDEJ id:849::destination.go:validatePath>>>")
 	if path == nil || path.GetRouteFamily() != dd.routeFamily {
 
 		log.WithFields(log.Fields{
@@ -381,8 +381,8 @@ func (dd *Destination) validatePath(path *Path) {
 //
 // Modifies destination's state related to stored paths. Removes withdrawn
 // paths from known paths. Also, adds new paths to known paths.
-func (dest *Destination) Calculate() *Destination {
-   fmt.Printf("DEJDEJ id:",2964)
+func (dest *Destination) Calculate() *Destination { 
+   fmt.Print("<<<DEJDEJ id:850::destination.go:Calculate>>>")
 	oldKnownPathList := dest.knownPathList
 	newPathList := dest.newPathList
 	// First remove the withdrawn paths.
@@ -431,8 +431,8 @@ func (dest *Destination) Calculate() *Destination {
 // we can receive withdraws for such paths and withdrawals may not be
 // stopped by the same policies.
 //
-func (dest *Destination) explicitWithdraw() paths {
-   fmt.Printf("DEJDEJ id:",2965)
+func (dest *Destination) explicitWithdraw() paths { 
+   fmt.Print("<<<DEJDEJ id:851::destination.go:explicitWithdraw>>>")
 
 	// If we have no withdrawals, we have nothing to do.
 	if len(dest.withdrawList) == 0 {
@@ -506,8 +506,8 @@ func (dest *Destination) explicitWithdraw() paths {
 //
 // Known paths will no longer have paths whose new version is present in
 // new paths.
-func (dest *Destination) implicitWithdraw() paths {
-   fmt.Printf("DEJDEJ id:",2966)
+func (dest *Destination) implicitWithdraw() paths { 
+   fmt.Print("<<<DEJDEJ id:852::destination.go:implicitWithdraw>>>")
 	newKnownPaths := make([]*Path, 0, len(dest.knownPathList))
 	implicitWithdrawn := make([]*Path, 0, len(dest.knownPathList))
 	for _, path := range dest.knownPathList {
@@ -542,8 +542,8 @@ func (dest *Destination) implicitWithdraw() paths {
 	return implicitWithdrawn
 }
 
-func (dest *Destination) computeKnownBestPath() (*Path, BestPathReason, error) {
-   fmt.Printf("DEJDEJ id:",2967)
+func (dest *Destination) computeKnownBestPath() (*Path, BestPathReason, error) { 
+   fmt.Print("<<<DEJDEJ id:853::destination.go:computeKnownBestPath>>>")
 	if SelectionOptions.DisableBestPathSelection {
 		log.WithFields(log.Fields{
 			"Topic": "Table",
@@ -584,18 +584,18 @@ func (dest *Destination) computeKnownBestPath() (*Path, BestPathReason, error) {
 
 type paths []*Path
 
-func (p paths) Len() int {
-   fmt.Printf("DEJDEJ id:",2968)
+func (p paths) Len() int { 
+   fmt.Print("<<<DEJDEJ id:854::destination.go:Len>>>")
 	return len(p)
 }
 
-func (p paths) Swap(i, j int) {
-   fmt.Printf("DEJDEJ id:",2969)
+func (p paths) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:855::destination.go:Swap>>>")
 	p[i], p[j] = p[j], p[i]
 }
 
-func (p paths) Less(i, j int) bool {
-   fmt.Printf("DEJDEJ id:",2970)
+func (p paths) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:856::destination.go:Less>>>")
 
 	//Compares given paths and returns best path.
 	//
@@ -704,8 +704,8 @@ func (p paths) Less(i, j int) bool {
 	return false
 }
 
-func compareByLLGRStaleCommunity(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2971)
+func compareByLLGRStaleCommunity(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:857::destination.go:compareByLLGRStaleCommunity(path1,>>>")
 	p1 := path1.IsLLGRStale()
 	p2 := path2.IsLLGRStale()
 	if p1 == p2 {
@@ -716,8 +716,8 @@ func compareByLLGRStaleCommunity(path1, path2 *Path) *Path {
 	return path1
 }
 
-func compareByReachableNexthop(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2972)
+func compareByReachableNexthop(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:858::destination.go:compareByReachableNexthop(path1,>>>")
 	//	Compares given paths and selects best path based on reachable next-hop.
 	//
 	//	If no path matches this criteria, return nil.
@@ -735,8 +735,8 @@ func compareByReachableNexthop(path1, path2 *Path) *Path {
 	return nil
 }
 
-func compareByHighestWeight(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2973)
+func compareByHighestWeight(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:859::destination.go:compareByHighestWeight(path1,>>>")
 	//	Selects a path with highest weight.
 	//
 	//	Weight is BGPS specific parameter. It is local to the router on which it
@@ -749,8 +749,8 @@ func compareByHighestWeight(path1, path2 *Path) *Path {
 	return nil
 }
 
-func compareByLocalPref(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2974)
+func compareByLocalPref(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:860::destination.go:compareByLocalPref(path1,>>>")
 	//	Selects a path with highest local-preference.
 	//
 	//	Unlike the weight attribute, which is only relevant to the local
@@ -774,8 +774,8 @@ func compareByLocalPref(path1, path2 *Path) *Path {
 	}
 }
 
-func compareByLocalOrigin(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2975)
+func compareByLocalOrigin(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:861::destination.go:compareByLocalOrigin(path1,>>>")
 
 	// Select locally originating path as best path.
 	// Locally originating routes are network routes, redistributed routes,
@@ -802,8 +802,8 @@ func compareByLocalOrigin(path1, path2 *Path) *Path {
 	return nil
 }
 
-func compareByASPath(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2976)
+func compareByASPath(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:862::destination.go:compareByASPath(path1,>>>")
 	// Calculated the best-paths by comparing as-path lengths.
 	//
 	// Shortest as-path length is preferred. If both path have same lengths,
@@ -846,8 +846,8 @@ func compareByASPath(path1, path2 *Path) *Path {
 	}
 }
 
-func compareByOrigin(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2977)
+func compareByOrigin(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:863::destination.go:compareByOrigin(path1,>>>")
 	//	Select the best path based on origin attribute.
 	//
 	//	IGP is preferred over EGP; EGP is preferred over Incomplete.
@@ -884,8 +884,8 @@ func compareByOrigin(path1, path2 *Path) *Path {
 	}
 }
 
-func compareByMED(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2978)
+func compareByMED(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:864::destination.go:compareByMED(path1,>>>")
 	//	Select the path based with lowest MED value.
 	//
 	//	If both paths have same MED, return None.
@@ -949,8 +949,8 @@ func compareByMED(path1, path2 *Path) *Path {
 	}
 }
 
-func compareByASNumber(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2979)
+func compareByASNumber(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:865::destination.go:compareByASNumber(path1,>>>")
 
 	//Select the path based on source (iBGP/eBGP) peer.
 	//
@@ -978,8 +978,8 @@ func compareByASNumber(path1, path2 *Path) *Path {
 	return nil
 }
 
-func compareByIGPCost(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2980)
+func compareByIGPCost(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:866::destination.go:compareByIGPCost(path1,>>>")
 	//	Select the route with the lowest IGP cost to the next hop.
 	//
 	//	Return None if igp cost is same.
@@ -990,8 +990,8 @@ func compareByIGPCost(path1, path2 *Path) *Path {
 	return nil
 }
 
-func compareByRouterID(path1, path2 *Path) (*Path, error) {
-   fmt.Printf("DEJDEJ id:",2981)
+func compareByRouterID(path1, path2 *Path) (*Path, error) { 
+   fmt.Print("<<<DEJDEJ id:867::destination.go:compareByRouterID(path1,>>>")
 	//	Select the route received from the peer with the lowest BGP router ID.
 	//
 	//	If both paths are eBGP paths, then we do not do any tie breaking, i.e we do
@@ -1032,8 +1032,8 @@ func compareByRouterID(path1, path2 *Path) (*Path, error) {
 	}
 }
 
-func compareByAge(path1, path2 *Path) *Path {
-   fmt.Printf("DEJDEJ id:",2982)
+func compareByAge(path1, path2 *Path) *Path { 
+   fmt.Print("<<<DEJDEJ id:868::destination.go:compareByAge(path1,>>>")
 	if !path1.IsIBGP() && !path2.IsIBGP() && !SelectionOptions.ExternalCompareRouterId {
 		age1 := path1.GetTimestamp().UnixNano()
 		age2 := path2.GetTimestamp().UnixNano()
@@ -1047,8 +1047,8 @@ func compareByAge(path1, path2 *Path) *Path {
 	return nil
 }
 
-func (dest *Destination) String() string {
-   fmt.Printf("DEJDEJ id:",2983)
+func (dest *Destination) String() string { 
+   fmt.Print("<<<DEJDEJ id:869::destination.go:String>>>")
 	return fmt.Sprintf("Destination NLRI: %s", dest.nlri.String())
 }
 
@@ -1060,13 +1060,13 @@ type DestinationSelectOption struct {
 	MultiPath bool
 }
 
-func (d *Destination) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",2984)
+func (d *Destination) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:870::destination.go:MarshalJSON>>>")
 	return json.Marshal(d.GetAllKnownPathList())
 }
 
-func (old *Destination) Select(option ...DestinationSelectOption) *Destination {
-   fmt.Printf("DEJDEJ id:",2985)
+func (old *Destination) Select(option ...DestinationSelectOption) *Destination { 
+   fmt.Print("<<<DEJDEJ id:871::destination.go:Select>>>")
 	id := GLOBAL_RIB_NAME
 	var vrf *Vrf
 	adj := false
@@ -1129,18 +1129,18 @@ func (old *Destination) Select(option ...DestinationSelectOption) *Destination {
 
 type destinations []*Destination
 
-func (d destinations) Len() int {
-   fmt.Printf("DEJDEJ id:",2986)
+func (d destinations) Len() int { 
+   fmt.Print("<<<DEJDEJ id:872::destination.go:Len>>>")
 	return len(d)
 }
 
-func (d destinations) Swap(i, j int) {
-   fmt.Printf("DEJDEJ id:",2987)
+func (d destinations) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:873::destination.go:Swap>>>")
 	d[i], d[j] = d[j], d[i]
 }
 
-func (d destinations) Less(i, j int) bool {
-   fmt.Printf("DEJDEJ id:",2988)
+func (d destinations) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:874::destination.go:Less>>>")
 	switch d[i].routeFamily {
 	case bgp.RF_FS_IPv4_UC, bgp.RF_FS_IPv6_UC, bgp.RF_FS_IPv4_VPN, bgp.RF_FS_IPv6_VPN, bgp.RF_FS_L2_VPN:
 		var s, t *bgp.FlowSpecNLRI

@@ -58,8 +58,8 @@ const (
 	ROUTE_TYPE_REJECT
 )
 
-func (t RouteType) String() string {
-   fmt.Printf("DEJDEJ id:",3051)
+func (t RouteType) String() string { 
+   fmt.Print("<<<DEJDEJ id:1039::policy.go:String>>>")
 	switch t {
 	case ROUTE_TYPE_NONE:
 		return "continue"
@@ -80,8 +80,8 @@ const (
 	POLICY_DIRECTION_EXPORT
 )
 
-func (d PolicyDirection) String() string {
-   fmt.Printf("DEJDEJ id:",3052)
+func (d PolicyDirection) String() string { 
+   fmt.Print("<<<DEJDEJ id:1040::policy.go:String>>>")
 	switch d {
 	case POLICY_DIRECTION_IN:
 		return "in"
@@ -101,8 +101,8 @@ const (
 	MATCH_OPTION_INVERT
 )
 
-func (o MatchOption) String() string {
-   fmt.Printf("DEJDEJ id:",3053)
+func (o MatchOption) String() string { 
+   fmt.Print("<<<DEJDEJ id:1041::policy.go:String>>>")
 	switch o {
 	case MATCH_OPTION_ANY:
 		return "any"
@@ -115,8 +115,8 @@ func (o MatchOption) String() string {
 	}
 }
 
-func (o MatchOption) ConvertToMatchSetOptionsRestrictedType() config.MatchSetOptionsRestrictedType {
-   fmt.Printf("DEJDEJ id:",3054)
+func (o MatchOption) ConvertToMatchSetOptionsRestrictedType() config.MatchSetOptionsRestrictedType { 
+   fmt.Print("<<<DEJDEJ id:1042::policy.go:ConvertToMatchSetOptionsRestrictedType>>>")
 	switch o {
 	case MATCH_OPTION_ANY:
 		return config.MATCH_SET_OPTIONS_RESTRICTED_TYPE_ANY
@@ -172,8 +172,8 @@ const (
 	ACTION_LARGE_COMMUNITY
 )
 
-func NewMatchOption(c interface{}) (MatchOption, error) {
-   fmt.Printf("DEJDEJ id:",3055)
+func NewMatchOption(c interface{}) (MatchOption, error) { 
+   fmt.Print("<<<DEJDEJ id:1043::policy.go:NewMatchOption(c>>>")
 	switch t := c.(type) {
 	case config.MatchSetOptionsType:
 		t = t.DefaultAsNeeded()
@@ -208,8 +208,8 @@ const (
 	ATTRIBUTE_LE
 )
 
-func (c AttributeComparison) String() string {
-   fmt.Printf("DEJDEJ id:",3056)
+func (c AttributeComparison) String() string { 
+   fmt.Print("<<<DEJDEJ id:1044::policy.go:String>>>")
 	switch c {
 	case ATTRIBUTE_EQ:
 		return "="
@@ -239,18 +239,18 @@ type DefinedSetMap map[DefinedType]map[string]DefinedSet
 
 type DefinedSetList []DefinedSet
 
-func (l DefinedSetList) Len() int {
-   fmt.Printf("DEJDEJ id:",3057)
+func (l DefinedSetList) Len() int { 
+   fmt.Print("<<<DEJDEJ id:1045::policy.go:Len>>>")
 	return len(l)
 }
 
-func (l DefinedSetList) Swap(i, j int) {
-   fmt.Printf("DEJDEJ id:",3058)
+func (l DefinedSetList) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:1046::policy.go:Swap>>>")
 	l[i], l[j] = l[j], l[i]
 }
 
-func (l DefinedSetList) Less(i, j int) bool {
-   fmt.Printf("DEJDEJ id:",3059)
+func (l DefinedSetList) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:1047::policy.go:Less>>>")
 	if l[i].Type() != l[j].Type() {
 		return l[i].Type() < l[j].Type()
 	}
@@ -264,8 +264,8 @@ type Prefix struct {
 	MasklengthRangeMin uint8
 }
 
-func (p *Prefix) Match(path *Path) bool {
-   fmt.Printf("DEJDEJ id:",3060)
+func (p *Prefix) Match(path *Path) bool { 
+   fmt.Print("<<<DEJDEJ id:1048::policy.go:Match>>>")
 	rf := path.GetRouteFamily()
 	if rf != p.AddressFamily {
 		return false
@@ -287,8 +287,8 @@ func (p *Prefix) Match(path *Path) bool {
 	return (p.MasklengthRangeMin <= pMasklen && pMasklen <= p.MasklengthRangeMax) && p.Prefix.Contains(pAddr)
 }
 
-func (lhs *Prefix) Equal(rhs *Prefix) bool {
-   fmt.Printf("DEJDEJ id:",3061)
+func (lhs *Prefix) Equal(rhs *Prefix) bool { 
+   fmt.Print("<<<DEJDEJ id:1049::policy.go:Equal>>>")
 	if lhs == rhs {
 		return true
 	}
@@ -298,8 +298,8 @@ func (lhs *Prefix) Equal(rhs *Prefix) bool {
 	return lhs.Prefix.String() == rhs.Prefix.String() && lhs.MasklengthRangeMin == rhs.MasklengthRangeMin && lhs.MasklengthRangeMax == rhs.MasklengthRangeMax
 }
 
-func (p *Prefix) PrefixString() string {
-   fmt.Printf("DEJDEJ id:",3062)
+func (p *Prefix) PrefixString() string { 
+   fmt.Print("<<<DEJDEJ id:1050::policy.go:PrefixString>>>")
 	isZeros := func(p net.IP) bool {
 		for i := 0; i < len(p); i++ {
 			if p[i] != 0 {
@@ -317,8 +317,8 @@ func (p *Prefix) PrefixString() string {
 	return p.Prefix.String()
 }
 
-func NewPrefix(c config.Prefix) (*Prefix, error) {
-   fmt.Printf("DEJDEJ id:",3063)
+func NewPrefix(c config.Prefix) (*Prefix, error) { 
+   fmt.Print("<<<DEJDEJ id:1051::policy.go:NewPrefix(c>>>")
 	_, prefix, err := net.ParseCIDR(c.IpPrefix)
 	if err != nil {
 		return nil, err
@@ -364,18 +364,18 @@ type PrefixSet struct {
 	family bgp.RouteFamily
 }
 
-func (s *PrefixSet) Name() string {
-   fmt.Printf("DEJDEJ id:",3064)
+func (s *PrefixSet) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1052::policy.go:Name>>>")
 	return s.name
 }
 
-func (s *PrefixSet) Type() DefinedType {
-   fmt.Printf("DEJDEJ id:",3065)
+func (s *PrefixSet) Type() DefinedType { 
+   fmt.Print("<<<DEJDEJ id:1053::policy.go:Type>>>")
 	return DEFINED_TYPE_PREFIX
 }
 
-func (lhs *PrefixSet) Append(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3066)
+func (lhs *PrefixSet) Append(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1054::policy.go:Append>>>")
 	rhs, ok := arg.(*PrefixSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -406,8 +406,8 @@ func (lhs *PrefixSet) Append(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *PrefixSet) Remove(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3067)
+func (lhs *PrefixSet) Remove(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1055::policy.go:Remove>>>")
 	rhs, ok := arg.(*PrefixSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -442,8 +442,8 @@ func (lhs *PrefixSet) Remove(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *PrefixSet) Replace(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3068)
+func (lhs *PrefixSet) Replace(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1056::policy.go:Replace>>>")
 	rhs, ok := arg.(*PrefixSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -453,8 +453,8 @@ func (lhs *PrefixSet) Replace(arg DefinedSet) error {
 	return nil
 }
 
-func (s *PrefixSet) List() []string {
-   fmt.Printf("DEJDEJ id:",3069)
+func (s *PrefixSet) List() []string { 
+   fmt.Print("<<<DEJDEJ id:1057::policy.go:List>>>")
 	var list []string
 	s.tree.Walk(func(s string, v interface{}) bool {
 		ps := v.([]*Prefix)
@@ -466,8 +466,8 @@ func (s *PrefixSet) List() []string {
 	return list
 }
 
-func (s *PrefixSet) ToConfig() *config.PrefixSet {
-   fmt.Printf("DEJDEJ id:",3070)
+func (s *PrefixSet) ToConfig() *config.PrefixSet { 
+   fmt.Print("<<<DEJDEJ id:1058::policy.go:ToConfig>>>")
 	list := make([]config.Prefix, 0, s.tree.Len())
 	s.tree.Walk(func(s string, v interface{}) bool {
 		ps := v.([]*Prefix)
@@ -482,18 +482,18 @@ func (s *PrefixSet) ToConfig() *config.PrefixSet {
 	}
 }
 
-func (s *PrefixSet) String() string {
-   fmt.Printf("DEJDEJ id:",3071)
+func (s *PrefixSet) String() string { 
+   fmt.Print("<<<DEJDEJ id:1059::policy.go:String>>>")
 	return strings.Join(s.List(), "\n")
 }
 
-func (s *PrefixSet) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3072)
+func (s *PrefixSet) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1060::policy.go:MarshalJSON>>>")
 	return json.Marshal(s.ToConfig())
 }
 
-func NewPrefixSetFromApiStruct(name string, prefixes []*Prefix) (*PrefixSet, error) {
-   fmt.Printf("DEJDEJ id:",3073)
+func NewPrefixSetFromApiStruct(name string, prefixes []*Prefix) (*PrefixSet, error) { 
+   fmt.Print("<<<DEJDEJ id:1061::policy.go:NewPrefixSetFromApiStruct(name>>>")
 	if name == "" {
 		return nil, fmt.Errorf("empty prefix set name")
 	}
@@ -521,8 +521,8 @@ func NewPrefixSetFromApiStruct(name string, prefixes []*Prefix) (*PrefixSet, err
 	}, nil
 }
 
-func NewPrefixSet(c config.PrefixSet) (*PrefixSet, error) {
-   fmt.Printf("DEJDEJ id:",3074)
+func NewPrefixSet(c config.PrefixSet) (*PrefixSet, error) { 
+   fmt.Print("<<<DEJDEJ id:1062::policy.go:NewPrefixSet(c>>>")
 	name := c.PrefixSetName
 	if name == "" {
 		if len(c.PrefixList) == 0 {
@@ -563,18 +563,18 @@ type NeighborSet struct {
 	list []net.IPNet
 }
 
-func (s *NeighborSet) Name() string {
-   fmt.Printf("DEJDEJ id:",3075)
+func (s *NeighborSet) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1063::policy.go:Name>>>")
 	return s.name
 }
 
-func (s *NeighborSet) Type() DefinedType {
-   fmt.Printf("DEJDEJ id:",3076)
+func (s *NeighborSet) Type() DefinedType { 
+   fmt.Print("<<<DEJDEJ id:1064::policy.go:Type>>>")
 	return DEFINED_TYPE_NEIGHBOR
 }
 
-func (lhs *NeighborSet) Append(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3077)
+func (lhs *NeighborSet) Append(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1065::policy.go:Append>>>")
 	rhs, ok := arg.(*NeighborSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -583,8 +583,8 @@ func (lhs *NeighborSet) Append(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *NeighborSet) Remove(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3078)
+func (lhs *NeighborSet) Remove(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1066::policy.go:Remove>>>")
 	rhs, ok := arg.(*NeighborSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -606,8 +606,8 @@ func (lhs *NeighborSet) Remove(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *NeighborSet) Replace(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3079)
+func (lhs *NeighborSet) Replace(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1067::policy.go:Replace>>>")
 	rhs, ok := arg.(*NeighborSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -616,8 +616,8 @@ func (lhs *NeighborSet) Replace(arg DefinedSet) error {
 	return nil
 }
 
-func (s *NeighborSet) List() []string {
-   fmt.Printf("DEJDEJ id:",3080)
+func (s *NeighborSet) List() []string { 
+   fmt.Print("<<<DEJDEJ id:1068::policy.go:List>>>")
 	list := make([]string, 0, len(s.list))
 	for _, n := range s.list {
 		list = append(list, n.String())
@@ -625,34 +625,34 @@ func (s *NeighborSet) List() []string {
 	return list
 }
 
-func (s *NeighborSet) ToConfig() *config.NeighborSet {
-   fmt.Printf("DEJDEJ id:",3081)
+func (s *NeighborSet) ToConfig() *config.NeighborSet { 
+   fmt.Print("<<<DEJDEJ id:1069::policy.go:ToConfig>>>")
 	return &config.NeighborSet{
 		NeighborSetName:  s.name,
 		NeighborInfoList: s.List(),
 	}
 }
 
-func (s *NeighborSet) String() string {
-   fmt.Printf("DEJDEJ id:",3082)
+func (s *NeighborSet) String() string { 
+   fmt.Print("<<<DEJDEJ id:1070::policy.go:String>>>")
 	return strings.Join(s.List(), "\n")
 }
 
-func (s *NeighborSet) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3083)
+func (s *NeighborSet) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1071::policy.go:MarshalJSON>>>")
 	return json.Marshal(s.ToConfig())
 }
 
-func NewNeighborSetFromApiStruct(name string, list []net.IPNet) (*NeighborSet, error) {
-   fmt.Printf("DEJDEJ id:",3084)
+func NewNeighborSetFromApiStruct(name string, list []net.IPNet) (*NeighborSet, error) { 
+   fmt.Print("<<<DEJDEJ id:1072::policy.go:NewNeighborSetFromApiStruct(name>>>")
 	return &NeighborSet{
 		name: name,
 		list: list,
 	}, nil
 }
 
-func NewNeighborSet(c config.NeighborSet) (*NeighborSet, error) {
-   fmt.Printf("DEJDEJ id:",3085)
+func NewNeighborSet(c config.NeighborSet) (*NeighborSet, error) { 
+   fmt.Print("<<<DEJDEJ id:1073::policy.go:NewNeighborSet(c>>>")
 	name := c.NeighborSetName
 	if name == "" {
 		if len(c.NeighborInfoList) == 0 {
@@ -699,13 +699,13 @@ type singleAsPathMatch struct {
 	mode singleAsPathMatchMode
 }
 
-func (lhs *singleAsPathMatch) Equal(rhs *singleAsPathMatch) bool {
-   fmt.Printf("DEJDEJ id:",3086)
+func (lhs *singleAsPathMatch) Equal(rhs *singleAsPathMatch) bool { 
+   fmt.Print("<<<DEJDEJ id:1074::policy.go:Equal>>>")
 	return lhs.asn == rhs.asn && lhs.mode == rhs.mode
 }
 
-func (lhs *singleAsPathMatch) String() string {
-   fmt.Printf("DEJDEJ id:",3087)
+func (lhs *singleAsPathMatch) String() string { 
+   fmt.Print("<<<DEJDEJ id:1075::policy.go:String>>>")
 	switch lhs.mode {
 	case INCLUDE:
 		return fmt.Sprintf("_%d_", lhs.asn)
@@ -719,8 +719,8 @@ func (lhs *singleAsPathMatch) String() string {
 	return ""
 }
 
-func (m *singleAsPathMatch) Match(aspath []uint32) bool {
-   fmt.Printf("DEJDEJ id:",3088)
+func (m *singleAsPathMatch) Match(aspath []uint32) bool { 
+   fmt.Print("<<<DEJDEJ id:1076::policy.go:Match>>>")
 	if len(aspath) == 0 {
 		return false
 	}
@@ -747,8 +747,8 @@ func (m *singleAsPathMatch) Match(aspath []uint32) bool {
 	return false
 }
 
-func NewSingleAsPathMatch(arg string) *singleAsPathMatch {
-   fmt.Printf("DEJDEJ id:",3089)
+func NewSingleAsPathMatch(arg string) *singleAsPathMatch { 
+   fmt.Print("<<<DEJDEJ id:1077::policy.go:NewSingleAsPathMatch(arg>>>")
 	leftMostRe := regexp.MustCompile("$\\^([0-9]+)_^")
 	originRe := regexp.MustCompile("^_([0-9]+)\\$$")
 	includeRe := regexp.MustCompile("^_([0-9]+)_$")
@@ -789,18 +789,18 @@ type AsPathSet struct {
 	singleList []*singleAsPathMatch
 }
 
-func (s *AsPathSet) Name() string {
-   fmt.Printf("DEJDEJ id:",3090)
+func (s *AsPathSet) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1078::policy.go:Name>>>")
 	return s.name
 }
 
-func (s *AsPathSet) Type() DefinedType {
-   fmt.Printf("DEJDEJ id:",3091)
+func (s *AsPathSet) Type() DefinedType { 
+   fmt.Print("<<<DEJDEJ id:1079::policy.go:Type>>>")
 	return s.typ
 }
 
-func (lhs *AsPathSet) Append(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3092)
+func (lhs *AsPathSet) Append(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1080::policy.go:Append>>>")
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -809,8 +809,8 @@ func (lhs *AsPathSet) Append(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *AsPathSet) Remove(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3093)
+func (lhs *AsPathSet) Remove(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1081::policy.go:Remove>>>")
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -845,8 +845,8 @@ func (lhs *AsPathSet) Remove(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *AsPathSet) Replace(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3094)
+func (lhs *AsPathSet) Replace(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1082::policy.go:Replace>>>")
 	rhs, ok := arg.(*AsPathSet)
 	if !ok {
 		return fmt.Errorf("type cast failed")
@@ -856,8 +856,8 @@ func (lhs *AsPathSet) Replace(arg DefinedSet) error {
 	return nil
 }
 
-func (s *AsPathSet) List() []string {
-   fmt.Printf("DEJDEJ id:",3095)
+func (s *AsPathSet) List() []string { 
+   fmt.Print("<<<DEJDEJ id:1083::policy.go:List>>>")
 	list := make([]string, 0, len(s.list)+len(s.singleList))
 	for _, exp := range s.singleList {
 		list = append(list, exp.String())
@@ -868,26 +868,26 @@ func (s *AsPathSet) List() []string {
 	return list
 }
 
-func (s *AsPathSet) ToConfig() *config.AsPathSet {
-   fmt.Printf("DEJDEJ id:",3096)
+func (s *AsPathSet) ToConfig() *config.AsPathSet { 
+   fmt.Print("<<<DEJDEJ id:1084::policy.go:ToConfig>>>")
 	return &config.AsPathSet{
 		AsPathSetName: s.name,
 		AsPathList:    s.List(),
 	}
 }
 
-func (s *AsPathSet) String() string {
-   fmt.Printf("DEJDEJ id:",3097)
+func (s *AsPathSet) String() string { 
+   fmt.Print("<<<DEJDEJ id:1085::policy.go:String>>>")
 	return strings.Join(s.List(), "\n")
 }
 
-func (s *AsPathSet) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3098)
+func (s *AsPathSet) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1086::policy.go:MarshalJSON>>>")
 	return json.Marshal(s.ToConfig())
 }
 
-func NewAsPathSet(c config.AsPathSet) (*AsPathSet, error) {
-   fmt.Printf("DEJDEJ id:",3099)
+func NewAsPathSet(c config.AsPathSet) (*AsPathSet, error) { 
+   fmt.Print("<<<DEJDEJ id:1087::policy.go:NewAsPathSet(c>>>")
 	name := c.AsPathSetName
 	if name == "" {
 		if len(c.AsPathList) == 0 {
@@ -922,18 +922,18 @@ type regExpSet struct {
 	list []*regexp.Regexp
 }
 
-func (s *regExpSet) Name() string {
-   fmt.Printf("DEJDEJ id:",3100)
+func (s *regExpSet) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1088::policy.go:Name>>>")
 	return s.name
 }
 
-func (s *regExpSet) Type() DefinedType {
-   fmt.Printf("DEJDEJ id:",3101)
+func (s *regExpSet) Type() DefinedType { 
+   fmt.Print("<<<DEJDEJ id:1089::policy.go:Type>>>")
 	return s.typ
 }
 
-func (lhs *regExpSet) Append(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3102)
+func (lhs *regExpSet) Append(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1090::policy.go:Append>>>")
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -954,8 +954,8 @@ func (lhs *regExpSet) Append(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *regExpSet) Remove(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3103)
+func (lhs *regExpSet) Remove(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1091::policy.go:Remove>>>")
 	if lhs.Type() != arg.Type() {
 		return fmt.Errorf("can't append to different type of defined-set")
 	}
@@ -989,8 +989,8 @@ func (lhs *regExpSet) Remove(arg DefinedSet) error {
 	return nil
 }
 
-func (lhs *regExpSet) Replace(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3104)
+func (lhs *regExpSet) Replace(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1092::policy.go:Replace>>>")
 	switch c := arg.(type) {
 	case *CommunitySet:
 		lhs.list = c.list
@@ -1008,8 +1008,8 @@ type CommunitySet struct {
 	regExpSet
 }
 
-func (s *CommunitySet) List() []string {
-   fmt.Printf("DEJDEJ id:",3105)
+func (s *CommunitySet) List() []string { 
+   fmt.Print("<<<DEJDEJ id:1093::policy.go:List>>>")
 	list := make([]string, 0, len(s.list))
 	for _, exp := range s.list {
 		list = append(list, exp.String())
@@ -1017,26 +1017,26 @@ func (s *CommunitySet) List() []string {
 	return list
 }
 
-func (s *CommunitySet) ToConfig() *config.CommunitySet {
-   fmt.Printf("DEJDEJ id:",3106)
+func (s *CommunitySet) ToConfig() *config.CommunitySet { 
+   fmt.Print("<<<DEJDEJ id:1094::policy.go:ToConfig>>>")
 	return &config.CommunitySet{
 		CommunitySetName: s.name,
 		CommunityList:    s.List(),
 	}
 }
 
-func (s *CommunitySet) String() string {
-   fmt.Printf("DEJDEJ id:",3107)
+func (s *CommunitySet) String() string { 
+   fmt.Print("<<<DEJDEJ id:1095::policy.go:String>>>")
 	return strings.Join(s.List(), "\n")
 }
 
-func (s *CommunitySet) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3108)
+func (s *CommunitySet) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1096::policy.go:MarshalJSON>>>")
 	return json.Marshal(s.ToConfig())
 }
 
-func ParseCommunity(arg string) (uint32, error) {
-   fmt.Printf("DEJDEJ id:",3109)
+func ParseCommunity(arg string) (uint32, error) { 
+   fmt.Print("<<<DEJDEJ id:1097::policy.go:ParseCommunity(arg>>>")
 	i, err := strconv.ParseUint(arg, 10, 32)
 	if err == nil {
 		return uint32(i), nil
@@ -1056,8 +1056,8 @@ func ParseCommunity(arg string) (uint32, error) {
 	return 0, fmt.Errorf("failed to parse %s as community", arg)
 }
 
-func ParseExtCommunity(arg string) (bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3110)
+func ParseExtCommunity(arg string) (bgp.ExtendedCommunityInterface, error) { 
+   fmt.Print("<<<DEJDEJ id:1098::policy.go:ParseExtCommunity(arg>>>")
 	var subtype bgp.ExtendedCommunityAttrSubType
 	var value string
 	elems := strings.SplitN(arg, ":", 2)
@@ -1088,8 +1088,8 @@ func ParseExtCommunity(arg string) (bgp.ExtendedCommunityInterface, error) {
 	return bgp.ParseExtendedCommunity(subtype, value)
 }
 
-func ParseCommunityRegexp(arg string) (*regexp.Regexp, error) {
-   fmt.Printf("DEJDEJ id:",3111)
+func ParseCommunityRegexp(arg string) (*regexp.Regexp, error) { 
+   fmt.Print("<<<DEJDEJ id:1099::policy.go:ParseCommunityRegexp(arg>>>")
 	i, err := strconv.ParseUint(arg, 10, 32)
 	if err == nil {
 		return regexp.MustCompile(fmt.Sprintf("^%d:%d$", i>>16, i&0x0000ffff)), nil
@@ -1109,8 +1109,8 @@ func ParseCommunityRegexp(arg string) (*regexp.Regexp, error) {
 	return exp, nil
 }
 
-func ParseExtCommunityRegexp(arg string) (bgp.ExtendedCommunityAttrSubType, *regexp.Regexp, error) {
-   fmt.Printf("DEJDEJ id:",3112)
+func ParseExtCommunityRegexp(arg string) (bgp.ExtendedCommunityAttrSubType, *regexp.Regexp, error) { 
+   fmt.Print("<<<DEJDEJ id:1100::policy.go:ParseExtCommunityRegexp(arg>>>")
 	var subtype bgp.ExtendedCommunityAttrSubType
 	elems := strings.SplitN(arg, ":", 2)
 	if len(elems) < 2 {
@@ -1128,8 +1128,8 @@ func ParseExtCommunityRegexp(arg string) (bgp.ExtendedCommunityAttrSubType, *reg
 	return subtype, exp, err
 }
 
-func NewCommunitySet(c config.CommunitySet) (*CommunitySet, error) {
-   fmt.Printf("DEJDEJ id:",3113)
+func NewCommunitySet(c config.CommunitySet) (*CommunitySet, error) { 
+   fmt.Print("<<<DEJDEJ id:1101::policy.go:NewCommunitySet(c>>>")
 	name := c.CommunitySetName
 	if name == "" {
 		if len(c.CommunityList) == 0 {
@@ -1159,8 +1159,8 @@ type ExtCommunitySet struct {
 	subtypeList []bgp.ExtendedCommunityAttrSubType
 }
 
-func (s *ExtCommunitySet) List() []string {
-   fmt.Printf("DEJDEJ id:",3114)
+func (s *ExtCommunitySet) List() []string { 
+   fmt.Print("<<<DEJDEJ id:1102::policy.go:List>>>")
 	list := make([]string, 0, len(s.list))
 	f := func(idx int, arg string) string {
 		switch s.subtypeList[idx] {
@@ -1180,26 +1180,26 @@ func (s *ExtCommunitySet) List() []string {
 	return list
 }
 
-func (s *ExtCommunitySet) ToConfig() *config.ExtCommunitySet {
-   fmt.Printf("DEJDEJ id:",3115)
+func (s *ExtCommunitySet) ToConfig() *config.ExtCommunitySet { 
+   fmt.Print("<<<DEJDEJ id:1103::policy.go:ToConfig>>>")
 	return &config.ExtCommunitySet{
 		ExtCommunitySetName: s.name,
 		ExtCommunityList:    s.List(),
 	}
 }
 
-func (s *ExtCommunitySet) String() string {
-   fmt.Printf("DEJDEJ id:",3116)
+func (s *ExtCommunitySet) String() string { 
+   fmt.Print("<<<DEJDEJ id:1104::policy.go:String>>>")
 	return strings.Join(s.List(), "\n")
 }
 
-func (s *ExtCommunitySet) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3117)
+func (s *ExtCommunitySet) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1105::policy.go:MarshalJSON>>>")
 	return json.Marshal(s.ToConfig())
 }
 
-func NewExtCommunitySet(c config.ExtCommunitySet) (*ExtCommunitySet, error) {
-   fmt.Printf("DEJDEJ id:",3118)
+func NewExtCommunitySet(c config.ExtCommunitySet) (*ExtCommunitySet, error) { 
+   fmt.Print("<<<DEJDEJ id:1106::policy.go:NewExtCommunitySet(c>>>")
 	name := c.ExtCommunitySetName
 	if name == "" {
 		if len(c.ExtCommunityList) == 0 {
@@ -1227,8 +1227,8 @@ func NewExtCommunitySet(c config.ExtCommunitySet) (*ExtCommunitySet, error) {
 	}, nil
 }
 
-func (s *ExtCommunitySet) Append(arg DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3119)
+func (s *ExtCommunitySet) Append(arg DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1107::policy.go:Append>>>")
 	err := s.regExpSet.Append(arg)
 	if err != nil {
 		return err
@@ -1242,8 +1242,8 @@ type LargeCommunitySet struct {
 	regExpSet
 }
 
-func (s *LargeCommunitySet) List() []string {
-   fmt.Printf("DEJDEJ id:",3120)
+func (s *LargeCommunitySet) List() []string { 
+   fmt.Print("<<<DEJDEJ id:1108::policy.go:List>>>")
 	list := make([]string, 0, len(s.list))
 	for _, exp := range s.list {
 		list = append(list, exp.String())
@@ -1251,26 +1251,26 @@ func (s *LargeCommunitySet) List() []string {
 	return list
 }
 
-func (s *LargeCommunitySet) ToConfig() *config.LargeCommunitySet {
-   fmt.Printf("DEJDEJ id:",3121)
+func (s *LargeCommunitySet) ToConfig() *config.LargeCommunitySet { 
+   fmt.Print("<<<DEJDEJ id:1109::policy.go:ToConfig>>>")
 	return &config.LargeCommunitySet{
 		LargeCommunitySetName: s.name,
 		LargeCommunityList:    s.List(),
 	}
 }
 
-func (s *LargeCommunitySet) String() string {
-   fmt.Printf("DEJDEJ id:",3122)
+func (s *LargeCommunitySet) String() string { 
+   fmt.Print("<<<DEJDEJ id:1110::policy.go:String>>>")
 	return strings.Join(s.List(), "\n")
 }
 
-func (s *LargeCommunitySet) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3123)
+func (s *LargeCommunitySet) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1111::policy.go:MarshalJSON>>>")
 	return json.Marshal(s.ToConfig())
 }
 
-func ParseLargeCommunityRegexp(arg string) (*regexp.Regexp, error) {
-   fmt.Printf("DEJDEJ id:",3124)
+func ParseLargeCommunityRegexp(arg string) (*regexp.Regexp, error) { 
+   fmt.Print("<<<DEJDEJ id:1112::policy.go:ParseLargeCommunityRegexp(arg>>>")
 	if regexp.MustCompile("\\d+:\\d+:\\d+").MatchString(arg) {
 		return regexp.MustCompile(fmt.Sprintf("^%s$", arg)), nil
 	}
@@ -1281,8 +1281,8 @@ func ParseLargeCommunityRegexp(arg string) (*regexp.Regexp, error) {
 	return exp, nil
 }
 
-func NewLargeCommunitySet(c config.LargeCommunitySet) (*LargeCommunitySet, error) {
-   fmt.Printf("DEJDEJ id:",3125)
+func NewLargeCommunitySet(c config.LargeCommunitySet) (*LargeCommunitySet, error) { 
+   fmt.Print("<<<DEJDEJ id:1113::policy.go:NewLargeCommunitySet(c>>>")
 	name := c.LargeCommunitySetName
 	if name == "" {
 		if len(c.LargeCommunityList) == 0 {
@@ -1319,26 +1319,26 @@ type PrefixCondition struct {
 	option MatchOption
 }
 
-func (c *PrefixCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3126)
+func (c *PrefixCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1114::policy.go:Type>>>")
 	return CONDITION_PREFIX
 }
 
-func (c *PrefixCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3127)
+func (c *PrefixCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1115::policy.go:Set>>>")
 	return c.set
 }
 
-func (c *PrefixCondition) Option() MatchOption {
-   fmt.Printf("DEJDEJ id:",3128)
+func (c *PrefixCondition) Option() MatchOption { 
+   fmt.Print("<<<DEJDEJ id:1116::policy.go:Option>>>")
 	return c.option
 }
 
 // compare prefixes in this condition and nlri of path and
 // subsequent comparison is skipped if that matches the conditions.
 // If PrefixList's length is zero, return true.
-func (c *PrefixCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3129)
+func (c *PrefixCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1117::policy.go:Evaluate>>>")
 	var key string
 	var masklen uint8
 	keyf := func(ip net.IP, ones int) string {
@@ -1381,11 +1381,12 @@ func (c *PrefixCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 	return result
 }
 
-func (c *PrefixCondition) Name() string { return c.set.name }
-   fmt.Printf("DEJDEJ id:",3130)
+func (c *PrefixCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1118::policy.go:Name>>>")
+return c.set.name }
 
-func NewPrefixCondition(c config.MatchPrefixSet) (*PrefixCondition, error) {
-   fmt.Printf("DEJDEJ id:",3131)
+func NewPrefixCondition(c config.MatchPrefixSet) (*PrefixCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1119::policy.go:NewPrefixCondition(c>>>")
 	if c.PrefixSet == "" {
 		return nil, nil
 	}
@@ -1406,26 +1407,26 @@ type NeighborCondition struct {
 	option MatchOption
 }
 
-func (c *NeighborCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3132)
+func (c *NeighborCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1120::policy.go:Type>>>")
 	return CONDITION_NEIGHBOR
 }
 
-func (c *NeighborCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3133)
+func (c *NeighborCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1121::policy.go:Set>>>")
 	return c.set
 }
 
-func (c *NeighborCondition) Option() MatchOption {
-   fmt.Printf("DEJDEJ id:",3134)
+func (c *NeighborCondition) Option() MatchOption { 
+   fmt.Print("<<<DEJDEJ id:1122::policy.go:Option>>>")
 	return c.option
 }
 
 // compare neighbor ipaddress of this condition and source address of path
 // and, subsequent comparisons are skipped if that matches the conditions.
 // If NeighborList's length is zero, return true.
-func (c *NeighborCondition) Evaluate(path *Path, options *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3135)
+func (c *NeighborCondition) Evaluate(path *Path, options *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1123::policy.go:Evaluate>>>")
 	if len(c.set.list) == 0 {
 		log.WithFields(log.Fields{
 			"Topic": "Policy",
@@ -1456,11 +1457,12 @@ func (c *NeighborCondition) Evaluate(path *Path, options *PolicyOptions) bool {
 	return result
 }
 
-func (c *NeighborCondition) Name() string { return c.set.name }
-   fmt.Printf("DEJDEJ id:",3136)
+func (c *NeighborCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1124::policy.go:Name>>>")
+return c.set.name }
 
-func NewNeighborCondition(c config.MatchNeighborSet) (*NeighborCondition, error) {
-   fmt.Printf("DEJDEJ id:",3137)
+func NewNeighborCondition(c config.MatchNeighborSet) (*NeighborCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1125::policy.go:NewNeighborCondition(c>>>")
 	if c.NeighborSet == "" {
 		return nil, nil
 	}
@@ -1481,23 +1483,23 @@ type AsPathCondition struct {
 	option MatchOption
 }
 
-func (c *AsPathCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3138)
+func (c *AsPathCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1126::policy.go:Type>>>")
 	return CONDITION_AS_PATH
 }
 
-func (c *AsPathCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3139)
+func (c *AsPathCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1127::policy.go:Set>>>")
 	return c.set
 }
 
-func (c *AsPathCondition) Option() MatchOption {
-   fmt.Printf("DEJDEJ id:",3140)
+func (c *AsPathCondition) Option() MatchOption { 
+   fmt.Print("<<<DEJDEJ id:1128::policy.go:Option>>>")
 	return c.option
 }
 
-func (c *AsPathCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3141)
+func (c *AsPathCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1129::policy.go:Evaluate>>>")
 	if len(c.set.singleList) > 0 {
 		aspath := path.GetAsSeqList()
 		for _, m := range c.set.singleList {
@@ -1534,11 +1536,12 @@ func (c *AsPathCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 	return true
 }
 
-func (c *AsPathCondition) Name() string { return c.set.name }
-   fmt.Printf("DEJDEJ id:",3142)
+func (c *AsPathCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1130::policy.go:Name>>>")
+return c.set.name }
 
-func NewAsPathCondition(c config.MatchAsPathSet) (*AsPathCondition, error) {
-   fmt.Printf("DEJDEJ id:",3143)
+func NewAsPathCondition(c config.MatchAsPathSet) (*AsPathCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1131::policy.go:NewAsPathCondition(c>>>")
 	if c.AsPathSet == "" {
 		return nil, nil
 	}
@@ -1559,23 +1562,23 @@ type CommunityCondition struct {
 	option MatchOption
 }
 
-func (c *CommunityCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3144)
+func (c *CommunityCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1132::policy.go:Type>>>")
 	return CONDITION_COMMUNITY
 }
 
-func (c *CommunityCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3145)
+func (c *CommunityCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1133::policy.go:Set>>>")
 	return c.set
 }
 
-func (c *CommunityCondition) Option() MatchOption {
-   fmt.Printf("DEJDEJ id:",3146)
+func (c *CommunityCondition) Option() MatchOption { 
+   fmt.Print("<<<DEJDEJ id:1134::policy.go:Option>>>")
 	return c.option
 }
 
-func (c *CommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3147)
+func (c *CommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1135::policy.go:Evaluate>>>")
 	cs := path.GetCommunities()
 	result := false
 	for _, x := range c.set.list {
@@ -1599,11 +1602,12 @@ func (c *CommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 	return result
 }
 
-func (c *CommunityCondition) Name() string { return c.set.name }
-   fmt.Printf("DEJDEJ id:",3148)
+func (c *CommunityCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1136::policy.go:Name>>>")
+return c.set.name }
 
-func NewCommunityCondition(c config.MatchCommunitySet) (*CommunityCondition, error) {
-   fmt.Printf("DEJDEJ id:",3149)
+func NewCommunityCondition(c config.MatchCommunitySet) (*CommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1137::policy.go:NewCommunityCondition(c>>>")
 	if c.CommunitySet == "" {
 		return nil, nil
 	}
@@ -1626,23 +1630,23 @@ type ExtCommunityCondition struct {
 	option MatchOption
 }
 
-func (c *ExtCommunityCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3150)
+func (c *ExtCommunityCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1138::policy.go:Type>>>")
 	return CONDITION_EXT_COMMUNITY
 }
 
-func (c *ExtCommunityCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3151)
+func (c *ExtCommunityCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1139::policy.go:Set>>>")
 	return c.set
 }
 
-func (c *ExtCommunityCondition) Option() MatchOption {
-   fmt.Printf("DEJDEJ id:",3152)
+func (c *ExtCommunityCondition) Option() MatchOption { 
+   fmt.Print("<<<DEJDEJ id:1140::policy.go:Option>>>")
 	return c.option
 }
 
-func (c *ExtCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3153)
+func (c *ExtCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1141::policy.go:Evaluate>>>")
 	es := path.GetExtCommunities()
 	result := false
 	for _, x := range es {
@@ -1671,11 +1675,12 @@ func (c *ExtCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 	return result
 }
 
-func (c *ExtCommunityCondition) Name() string { return c.set.name }
-   fmt.Printf("DEJDEJ id:",3154)
+func (c *ExtCommunityCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1142::policy.go:Name>>>")
+return c.set.name }
 
-func NewExtCommunityCondition(c config.MatchExtCommunitySet) (*ExtCommunityCondition, error) {
-   fmt.Printf("DEJDEJ id:",3155)
+func NewExtCommunityCondition(c config.MatchExtCommunitySet) (*ExtCommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1143::policy.go:NewExtCommunityCondition(c>>>")
 	if c.ExtCommunitySet == "" {
 		return nil, nil
 	}
@@ -1698,23 +1703,23 @@ type LargeCommunityCondition struct {
 	option MatchOption
 }
 
-func (c *LargeCommunityCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3156)
+func (c *LargeCommunityCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1144::policy.go:Type>>>")
 	return CONDITION_LARGE_COMMUNITY
 }
 
-func (c *LargeCommunityCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3157)
+func (c *LargeCommunityCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1145::policy.go:Set>>>")
 	return c.set
 }
 
-func (c *LargeCommunityCondition) Option() MatchOption {
-   fmt.Printf("DEJDEJ id:",3158)
+func (c *LargeCommunityCondition) Option() MatchOption { 
+   fmt.Print("<<<DEJDEJ id:1146::policy.go:Option>>>")
 	return c.option
 }
 
-func (c *LargeCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3159)
+func (c *LargeCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1147::policy.go:Evaluate>>>")
 	result := false
 	cs := path.GetLargeCommunities()
 	for _, x := range c.set.list {
@@ -1738,11 +1743,12 @@ func (c *LargeCommunityCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 	return result
 }
 
-func (c *LargeCommunityCondition) Name() string { return c.set.name }
-   fmt.Printf("DEJDEJ id:",3160)
+func (c *LargeCommunityCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1148::policy.go:Name>>>")
+return c.set.name }
 
-func NewLargeCommunityCondition(c config.MatchLargeCommunitySet) (*LargeCommunityCondition, error) {
-   fmt.Printf("DEJDEJ id:",3161)
+func NewLargeCommunityCondition(c config.MatchLargeCommunitySet) (*LargeCommunityCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1149::policy.go:NewLargeCommunityCondition(c>>>")
 	if c.LargeCommunitySet == "" {
 		return nil, nil
 	}
@@ -1765,15 +1771,15 @@ type AsPathLengthCondition struct {
 	operator AttributeComparison
 }
 
-func (c *AsPathLengthCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3162)
+func (c *AsPathLengthCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1150::policy.go:Type>>>")
 	return CONDITION_AS_PATH_LENGTH
 }
 
 // compare AS_PATH length in the message's AS_PATH attribute with
 // the one in condition.
-func (c *AsPathLengthCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3163)
+func (c *AsPathLengthCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1151::policy.go:Evaluate>>>")
 
 	length := uint32(path.GetAsPathLen())
 	result := false
@@ -1789,21 +1795,22 @@ func (c *AsPathLengthCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 	return result
 }
 
-func (c *AsPathLengthCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3164)
+func (c *AsPathLengthCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1152::policy.go:Set>>>")
 	return nil
 }
 
-func (c *AsPathLengthCondition) Name() string { return "" }
-   fmt.Printf("DEJDEJ id:",3165)
+func (c *AsPathLengthCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1153::policy.go:Name>>>")
+return "" }
 
-func (c *AsPathLengthCondition) String() string {
-   fmt.Printf("DEJDEJ id:",3166)
+func (c *AsPathLengthCondition) String() string { 
+   fmt.Print("<<<DEJDEJ id:1154::policy.go:String>>>")
 	return fmt.Sprintf("%s%d", c.operator, c.length)
 }
 
-func NewAsPathLengthCondition(c config.AsPathLength) (*AsPathLengthCondition, error) {
-   fmt.Printf("DEJDEJ id:",3167)
+func NewAsPathLengthCondition(c config.AsPathLength) (*AsPathLengthCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1155::policy.go:NewAsPathLengthCondition(c>>>")
 	if c.Value == 0 && c.Operator == "" {
 		return nil, nil
 	}
@@ -1825,31 +1832,32 @@ type RpkiValidationCondition struct {
 	result config.RpkiValidationResultType
 }
 
-func (c *RpkiValidationCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3168)
+func (c *RpkiValidationCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1156::policy.go:Type>>>")
 	return CONDITION_RPKI
 }
 
-func (c *RpkiValidationCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3169)
+func (c *RpkiValidationCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1157::policy.go:Evaluate>>>")
 	return c.result == path.ValidationStatus()
 }
 
-func (c *RpkiValidationCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3170)
+func (c *RpkiValidationCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1158::policy.go:Set>>>")
 	return nil
 }
 
-func (c *RpkiValidationCondition) Name() string { return "" }
-   fmt.Printf("DEJDEJ id:",3171)
+func (c *RpkiValidationCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1159::policy.go:Name>>>")
+return "" }
 
-func (c *RpkiValidationCondition) String() string {
-   fmt.Printf("DEJDEJ id:",3172)
+func (c *RpkiValidationCondition) String() string { 
+   fmt.Print("<<<DEJDEJ id:1160::policy.go:String>>>")
 	return string(c.result)
 }
 
-func NewRpkiValidationCondition(c config.RpkiValidationResultType) (*RpkiValidationCondition, error) {
-   fmt.Printf("DEJDEJ id:",3173)
+func NewRpkiValidationCondition(c config.RpkiValidationResultType) (*RpkiValidationCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1161::policy.go:NewRpkiValidationCondition(c>>>")
 	if c == config.RpkiValidationResultType("") || c == config.RPKI_VALIDATION_RESULT_TYPE_NONE {
 		return nil, nil
 	}
@@ -1862,13 +1870,13 @@ type RouteTypeCondition struct {
 	typ config.RouteType
 }
 
-func (c *RouteTypeCondition) Type() ConditionType {
-   fmt.Printf("DEJDEJ id:",3174)
+func (c *RouteTypeCondition) Type() ConditionType { 
+   fmt.Print("<<<DEJDEJ id:1162::policy.go:Type>>>")
 	return CONDITION_ROUTE_TYPE
 }
 
-func (c *RouteTypeCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3175)
+func (c *RouteTypeCondition) Evaluate(path *Path, _ *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1163::policy.go:Evaluate>>>")
 	switch c.typ {
 	case config.ROUTE_TYPE_LOCAL:
 		return path.IsLocal()
@@ -1880,21 +1888,22 @@ func (c *RouteTypeCondition) Evaluate(path *Path, _ *PolicyOptions) bool {
 	return false
 }
 
-func (c *RouteTypeCondition) Set() DefinedSet {
-   fmt.Printf("DEJDEJ id:",3176)
+func (c *RouteTypeCondition) Set() DefinedSet { 
+   fmt.Print("<<<DEJDEJ id:1164::policy.go:Set>>>")
 	return nil
 }
 
-func (c *RouteTypeCondition) Name() string { return "" }
-   fmt.Printf("DEJDEJ id:",3177)
+func (c *RouteTypeCondition) Name() string { 
+   fmt.Print("<<<DEJDEJ id:1165::policy.go:Name>>>")
+return "" }
 
-func (c *RouteTypeCondition) String() string {
-   fmt.Printf("DEJDEJ id:",3178)
+func (c *RouteTypeCondition) String() string { 
+   fmt.Print("<<<DEJDEJ id:1166::policy.go:String>>>")
 	return string(c.typ)
 }
 
-func NewRouteTypeCondition(c config.RouteType) (*RouteTypeCondition, error) {
-   fmt.Printf("DEJDEJ id:",3179)
+func NewRouteTypeCondition(c config.RouteType) (*RouteTypeCondition, error) { 
+   fmt.Print("<<<DEJDEJ id:1167::policy.go:NewRouteTypeCondition(c>>>")
 	if string(c) == "" || c == config.ROUTE_TYPE_NONE {
 		return nil, nil
 	}
@@ -1916,21 +1925,21 @@ type RoutingAction struct {
 	AcceptRoute bool
 }
 
-func (a *RoutingAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3180)
+func (a *RoutingAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1168::policy.go:Type>>>")
 	return ACTION_ROUTING
 }
 
-func (a *RoutingAction) Apply(path *Path, _ *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3181)
+func (a *RoutingAction) Apply(path *Path, _ *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1169::policy.go:Apply>>>")
 	if a.AcceptRoute {
 		return path
 	}
 	return nil
 }
 
-func (a *RoutingAction) String() string {
-   fmt.Printf("DEJDEJ id:",3182)
+func (a *RoutingAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1170::policy.go:String>>>")
 	action := "reject"
 	if a.AcceptRoute {
 		action = "accept"
@@ -1938,8 +1947,8 @@ func (a *RoutingAction) String() string {
 	return action
 }
 
-func NewRoutingAction(c config.RouteDisposition) (*RoutingAction, error) {
-   fmt.Printf("DEJDEJ id:",3183)
+func NewRoutingAction(c config.RouteDisposition) (*RoutingAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1171::policy.go:NewRoutingAction(c>>>")
 	var accept bool
 	switch c {
 	case config.RouteDisposition(""), config.ROUTE_DISPOSITION_NONE:
@@ -1962,8 +1971,8 @@ type CommunityAction struct {
 	removeList []*regexp.Regexp
 }
 
-func RegexpRemoveCommunities(path *Path, exps []*regexp.Regexp) {
-   fmt.Printf("DEJDEJ id:",3184)
+func RegexpRemoveCommunities(path *Path, exps []*regexp.Regexp) { 
+   fmt.Print("<<<DEJDEJ id:1172::policy.go:RegexpRemoveCommunities(path>>>")
 	comms := path.GetCommunities()
 	newComms := make([]uint32, 0, len(comms))
 	for _, comm := range comms {
@@ -1982,8 +1991,8 @@ func RegexpRemoveCommunities(path *Path, exps []*regexp.Regexp) {
 	path.SetCommunities(newComms, true)
 }
 
-func RegexpRemoveExtCommunities(path *Path, exps []*regexp.Regexp, subtypes []bgp.ExtendedCommunityAttrSubType) {
-   fmt.Printf("DEJDEJ id:",3185)
+func RegexpRemoveExtCommunities(path *Path, exps []*regexp.Regexp, subtypes []bgp.ExtendedCommunityAttrSubType) { 
+   fmt.Print("<<<DEJDEJ id:1173::policy.go:RegexpRemoveExtCommunities(path>>>")
 	comms := path.GetExtCommunities()
 	newComms := make([]bgp.ExtendedCommunityInterface, 0, len(comms))
 	for _, comm := range comms {
@@ -2006,8 +2015,8 @@ func RegexpRemoveExtCommunities(path *Path, exps []*regexp.Regexp, subtypes []bg
 	path.SetExtCommunities(newComms, true)
 }
 
-func RegexpRemoveLargeCommunities(path *Path, exps []*regexp.Regexp) {
-   fmt.Printf("DEJDEJ id:",3186)
+func RegexpRemoveLargeCommunities(path *Path, exps []*regexp.Regexp) { 
+   fmt.Print("<<<DEJDEJ id:1174::policy.go:RegexpRemoveLargeCommunities(path>>>")
 	comms := path.GetLargeCommunities()
 	newComms := make([]*bgp.LargeCommunity, 0, len(comms))
 	for _, comm := range comms {
@@ -2026,13 +2035,13 @@ func RegexpRemoveLargeCommunities(path *Path, exps []*regexp.Regexp) {
 	path.SetLargeCommunities(newComms, true)
 }
 
-func (a *CommunityAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3187)
+func (a *CommunityAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1175::policy.go:Type>>>")
 	return ACTION_COMMUNITY
 }
 
-func (a *CommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3188)
+func (a *CommunityAction) Apply(path *Path, _ *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1176::policy.go:Apply>>>")
 	switch a.action {
 	case config.BGP_SET_COMMUNITY_OPTION_TYPE_ADD:
 		path.SetCommunities(a.list, false)
@@ -2044,8 +2053,8 @@ func (a *CommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
 	return path
 }
 
-func (a *CommunityAction) ToConfig() *config.SetCommunity {
-   fmt.Printf("DEJDEJ id:",3189)
+func (a *CommunityAction) ToConfig() *config.SetCommunity { 
+   fmt.Print("<<<DEJDEJ id:1177::policy.go:ToConfig>>>")
 	cs := make([]string, 0, len(a.list)+len(a.removeList))
 	for _, comm := range a.list {
 		c := fmt.Sprintf("%d:%d", comm>>16, comm&0x0000ffff)
@@ -2060,21 +2069,21 @@ func (a *CommunityAction) ToConfig() *config.SetCommunity {
 	}
 }
 
-func (a *CommunityAction) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3190)
+func (a *CommunityAction) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1178::policy.go:MarshalJSON>>>")
 	return json.Marshal(a.ToConfig())
 }
 
-func (a *CommunityAction) String() string {
-   fmt.Printf("DEJDEJ id:",3191)
+func (a *CommunityAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1179::policy.go:String>>>")
 	list := a.ToConfig().SetCommunityMethod.CommunitiesList
 	exp := regexp.MustCompile("[\\^\\$]")
 	l := exp.ReplaceAllString(strings.Join(list, ", "), "")
 	return fmt.Sprintf("%s[%s]", a.action, l)
 }
 
-func NewCommunityAction(c config.SetCommunity) (*CommunityAction, error) {
-   fmt.Printf("DEJDEJ id:",3192)
+func NewCommunityAction(c config.SetCommunity) (*CommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1180::policy.go:NewCommunityAction(c>>>")
 	a, ok := CommunityOptionValueMap[strings.ToLower(c.Options)]
 	if !ok {
 		if len(c.SetCommunityMethod.CommunitiesList) == 0 {
@@ -2118,13 +2127,13 @@ type ExtCommunityAction struct {
 	subtypeList []bgp.ExtendedCommunityAttrSubType
 }
 
-func (a *ExtCommunityAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3193)
+func (a *ExtCommunityAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1181::policy.go:Type>>>")
 	return ACTION_EXT_COMMUNITY
 }
 
-func (a *ExtCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3194)
+func (a *ExtCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1182::policy.go:Apply>>>")
 	switch a.action {
 	case config.BGP_SET_COMMUNITY_OPTION_TYPE_ADD:
 		path.SetExtCommunities(a.list, false)
@@ -2136,8 +2145,8 @@ func (a *ExtCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
 	return path
 }
 
-func (a *ExtCommunityAction) ToConfig() *config.SetExtCommunity {
-   fmt.Printf("DEJDEJ id:",3195)
+func (a *ExtCommunityAction) ToConfig() *config.SetExtCommunity { 
+   fmt.Print("<<<DEJDEJ id:1183::policy.go:ToConfig>>>")
 	cs := make([]string, 0, len(a.list)+len(a.removeList))
 	f := func(idx int, arg string) string {
 		switch a.subtypeList[idx] {
@@ -2165,21 +2174,21 @@ func (a *ExtCommunityAction) ToConfig() *config.SetExtCommunity {
 	}
 }
 
-func (a *ExtCommunityAction) String() string {
-   fmt.Printf("DEJDEJ id:",3196)
+func (a *ExtCommunityAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1184::policy.go:String>>>")
 	list := a.ToConfig().SetExtCommunityMethod.CommunitiesList
 	exp := regexp.MustCompile("[\\^\\$]")
 	l := exp.ReplaceAllString(strings.Join(list, ", "), "")
 	return fmt.Sprintf("%s[%s]", a.action, l)
 }
 
-func (a *ExtCommunityAction) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3197)
+func (a *ExtCommunityAction) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1185::policy.go:MarshalJSON>>>")
 	return json.Marshal(a.ToConfig())
 }
 
-func NewExtCommunityAction(c config.SetExtCommunity) (*ExtCommunityAction, error) {
-   fmt.Printf("DEJDEJ id:",3198)
+func NewExtCommunityAction(c config.SetExtCommunity) (*ExtCommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1186::policy.go:NewExtCommunityAction(c>>>")
 	a, ok := CommunityOptionValueMap[strings.ToLower(c.Options)]
 	if !ok {
 		if len(c.SetExtCommunityMethod.CommunitiesList) == 0 {
@@ -2227,13 +2236,13 @@ type LargeCommunityAction struct {
 	removeList []*regexp.Regexp
 }
 
-func (a *LargeCommunityAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3199)
+func (a *LargeCommunityAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1187::policy.go:Type>>>")
 	return ACTION_LARGE_COMMUNITY
 }
 
-func (a *LargeCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3200)
+func (a *LargeCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1188::policy.go:Apply>>>")
 	switch a.action {
 	case config.BGP_SET_COMMUNITY_OPTION_TYPE_ADD:
 		path.SetLargeCommunities(a.list, false)
@@ -2245,8 +2254,8 @@ func (a *LargeCommunityAction) Apply(path *Path, _ *PolicyOptions) *Path {
 	return path
 }
 
-func (a *LargeCommunityAction) ToConfig() *config.SetLargeCommunity {
-   fmt.Printf("DEJDEJ id:",3201)
+func (a *LargeCommunityAction) ToConfig() *config.SetLargeCommunity { 
+   fmt.Print("<<<DEJDEJ id:1189::policy.go:ToConfig>>>")
 	cs := make([]string, 0, len(a.list)+len(a.removeList))
 	for _, comm := range a.list {
 		cs = append(cs, comm.String())
@@ -2260,21 +2269,21 @@ func (a *LargeCommunityAction) ToConfig() *config.SetLargeCommunity {
 	}
 }
 
-func (a *LargeCommunityAction) String() string {
-   fmt.Printf("DEJDEJ id:",3202)
+func (a *LargeCommunityAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1190::policy.go:String>>>")
 	list := a.ToConfig().SetLargeCommunityMethod.CommunitiesList
 	exp := regexp.MustCompile("[\\^\\$]")
 	l := exp.ReplaceAllString(strings.Join(list, ", "), "")
 	return fmt.Sprintf("%s[%s]", a.action, l)
 }
 
-func (a *LargeCommunityAction) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3203)
+func (a *LargeCommunityAction) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1191::policy.go:MarshalJSON>>>")
 	return json.Marshal(a.ToConfig())
 }
 
-func NewLargeCommunityAction(c config.SetLargeCommunity) (*LargeCommunityAction, error) {
-   fmt.Printf("DEJDEJ id:",3204)
+func NewLargeCommunityAction(c config.SetLargeCommunity) (*LargeCommunityAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1192::policy.go:NewLargeCommunityAction(c>>>")
 	a, ok := CommunityOptionValueMap[strings.ToLower(string(c.Options))]
 	if !ok {
 		if len(c.SetLargeCommunityMethod.CommunitiesList) == 0 {
@@ -2317,13 +2326,13 @@ type MedAction struct {
 	action MedActionType
 }
 
-func (a *MedAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3205)
+func (a *MedAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1193::policy.go:Type>>>")
 	return ACTION_MED
 }
 
-func (a *MedAction) Apply(path *Path, _ *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3206)
+func (a *MedAction) Apply(path *Path, _ *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1194::policy.go:Apply>>>")
 	var err error
 	switch a.action {
 	case MED_ACTION_MOD:
@@ -2342,26 +2351,26 @@ func (a *MedAction) Apply(path *Path, _ *PolicyOptions) *Path {
 	return path
 }
 
-func (a *MedAction) ToConfig() config.BgpSetMedType {
-   fmt.Printf("DEJDEJ id:",3207)
+func (a *MedAction) ToConfig() config.BgpSetMedType { 
+   fmt.Print("<<<DEJDEJ id:1195::policy.go:ToConfig>>>")
 	if a.action == MED_ACTION_MOD && a.value > 0 {
 		return config.BgpSetMedType(fmt.Sprintf("+%d", a.value))
 	}
 	return config.BgpSetMedType(fmt.Sprintf("%d", a.value))
 }
 
-func (a *MedAction) String() string {
-   fmt.Printf("DEJDEJ id:",3208)
+func (a *MedAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1196::policy.go:String>>>")
 	return string(a.ToConfig())
 }
 
-func (a *MedAction) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3209)
+func (a *MedAction) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1197::policy.go:MarshalJSON>>>")
 	return json.Marshal(a.ToConfig())
 }
 
-func NewMedAction(c config.BgpSetMedType) (*MedAction, error) {
-   fmt.Printf("DEJDEJ id:",3210)
+func NewMedAction(c config.BgpSetMedType) (*MedAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1198::policy.go:NewMedAction(c>>>")
 	if string(c) == "" {
 		return nil, nil
 	}
@@ -2382,8 +2391,8 @@ func NewMedAction(c config.BgpSetMedType) (*MedAction, error) {
 	}, nil
 }
 
-func NewMedActionFromApiStruct(action MedActionType, value int64) *MedAction {
-   fmt.Printf("DEJDEJ id:",3211)
+func NewMedActionFromApiStruct(action MedActionType, value int64) *MedAction { 
+   fmt.Print("<<<DEJDEJ id:1199::policy.go:NewMedActionFromApiStruct(action>>>")
 	return &MedAction{action: action, value: value}
 }
 
@@ -2391,34 +2400,34 @@ type LocalPrefAction struct {
 	value uint32
 }
 
-func (a *LocalPrefAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3212)
+func (a *LocalPrefAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1200::policy.go:Type>>>")
 	return ACTION_LOCAL_PREF
 }
 
-func (a *LocalPrefAction) Apply(path *Path, _ *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3213)
+func (a *LocalPrefAction) Apply(path *Path, _ *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1201::policy.go:Apply>>>")
 	path.setPathAttr(bgp.NewPathAttributeLocalPref(a.value))
 	return path
 }
 
-func (a *LocalPrefAction) ToConfig() uint32 {
-   fmt.Printf("DEJDEJ id:",3214)
+func (a *LocalPrefAction) ToConfig() uint32 { 
+   fmt.Print("<<<DEJDEJ id:1202::policy.go:ToConfig>>>")
 	return a.value
 }
 
-func (a *LocalPrefAction) String() string {
-   fmt.Printf("DEJDEJ id:",3215)
+func (a *LocalPrefAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1203::policy.go:String>>>")
 	return fmt.Sprintf("%d", a.value)
 }
 
-func (a *LocalPrefAction) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3216)
+func (a *LocalPrefAction) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1204::policy.go:MarshalJSON>>>")
 	return json.Marshal(a.ToConfig())
 }
 
-func NewLocalPrefAction(value uint32) (*LocalPrefAction, error) {
-   fmt.Printf("DEJDEJ id:",3217)
+func NewLocalPrefAction(value uint32) (*LocalPrefAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1205::policy.go:NewLocalPrefAction(value>>>")
 	if value == 0 {
 		return nil, nil
 	}
@@ -2433,13 +2442,13 @@ type AsPathPrependAction struct {
 	repeat      uint8
 }
 
-func (a *AsPathPrependAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3218)
+func (a *AsPathPrependAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1206::policy.go:Type>>>")
 	return ACTION_AS_PATH_PREPEND
 }
 
-func (a *AsPathPrependAction) Apply(path *Path, option *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3219)
+func (a *AsPathPrependAction) Apply(path *Path, option *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1207::policy.go:Apply>>>")
 	var asn uint32
 	if a.useLeftMost {
 		aspath := path.GetAsSeqList()
@@ -2468,8 +2477,8 @@ func (a *AsPathPrependAction) Apply(path *Path, option *PolicyOptions) *Path {
 	return path
 }
 
-func (a *AsPathPrependAction) ToConfig() *config.SetAsPathPrepend {
-   fmt.Printf("DEJDEJ id:",3220)
+func (a *AsPathPrependAction) ToConfig() *config.SetAsPathPrepend { 
+   fmt.Print("<<<DEJDEJ id:1208::policy.go:ToConfig>>>")
 	return &config.SetAsPathPrepend{
 		RepeatN: uint8(a.repeat),
 		As: func() string {
@@ -2481,21 +2490,21 @@ func (a *AsPathPrependAction) ToConfig() *config.SetAsPathPrepend {
 	}
 }
 
-func (a *AsPathPrependAction) String() string {
-   fmt.Printf("DEJDEJ id:",3221)
+func (a *AsPathPrependAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1209::policy.go:String>>>")
 	c := a.ToConfig()
 	return fmt.Sprintf("prepend %s %d times", c.As, c.RepeatN)
 }
 
-func (a *AsPathPrependAction) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3222)
+func (a *AsPathPrependAction) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1210::policy.go:MarshalJSON>>>")
 	return json.Marshal(a.ToConfig())
 }
 
 // NewAsPathPrependAction creates AsPathPrependAction object.
 // If ASN cannot be parsed, nil will be returned.
-func NewAsPathPrependAction(action config.SetAsPathPrepend) (*AsPathPrependAction, error) {
-   fmt.Printf("DEJDEJ id:",3223)
+func NewAsPathPrependAction(action config.SetAsPathPrepend) (*AsPathPrependAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1211::policy.go:NewAsPathPrependAction(action>>>")
 	a := &AsPathPrependAction{
 		repeat: action.RepeatN,
 	}
@@ -2522,13 +2531,13 @@ type NexthopAction struct {
 	self  bool
 }
 
-func (a *NexthopAction) Type() ActionType {
-   fmt.Printf("DEJDEJ id:",3224)
+func (a *NexthopAction) Type() ActionType { 
+   fmt.Print("<<<DEJDEJ id:1212::policy.go:Type>>>")
 	return ACTION_NEXTHOP
 }
 
-func (a *NexthopAction) Apply(path *Path, options *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3225)
+func (a *NexthopAction) Apply(path *Path, options *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1213::policy.go:Apply>>>")
 	if a.self {
 		if options != nil && options.Info != nil && options.Info.LocalAddress != nil {
 			path.SetNexthop(options.Info.LocalAddress)
@@ -2539,26 +2548,26 @@ func (a *NexthopAction) Apply(path *Path, options *PolicyOptions) *Path {
 	return path
 }
 
-func (a *NexthopAction) ToConfig() config.BgpNextHopType {
-   fmt.Printf("DEJDEJ id:",3226)
+func (a *NexthopAction) ToConfig() config.BgpNextHopType { 
+   fmt.Print("<<<DEJDEJ id:1214::policy.go:ToConfig>>>")
 	if a.self {
 		return config.BgpNextHopType("self")
 	}
 	return config.BgpNextHopType(a.value.String())
 }
 
-func (a *NexthopAction) String() string {
-   fmt.Printf("DEJDEJ id:",3227)
+func (a *NexthopAction) String() string { 
+   fmt.Print("<<<DEJDEJ id:1215::policy.go:String>>>")
 	return string(a.ToConfig())
 }
 
-func (a *NexthopAction) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3228)
+func (a *NexthopAction) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1216::policy.go:MarshalJSON>>>")
 	return json.Marshal(a.ToConfig())
 }
 
-func NewNexthopAction(c config.BgpNextHopType) (*NexthopAction, error) {
-   fmt.Printf("DEJDEJ id:",3229)
+func NewNexthopAction(c config.BgpNextHopType) (*NexthopAction, error) { 
+   fmt.Print("<<<DEJDEJ id:1217::policy.go:NewNexthopAction(c>>>")
 	switch strings.ToLower(string(c)) {
 	case "":
 		return nil, nil
@@ -2584,8 +2593,8 @@ type Statement struct {
 }
 
 // evaluate each condition in the statement according to MatchSetOptions
-func (s *Statement) Evaluate(p *Path, options *PolicyOptions) bool {
-   fmt.Printf("DEJDEJ id:",3230)
+func (s *Statement) Evaluate(p *Path, options *PolicyOptions) bool { 
+   fmt.Print("<<<DEJDEJ id:1218::policy.go:Evaluate>>>")
 	for _, c := range s.Conditions {
 		if !c.Evaluate(p, options) {
 			return false
@@ -2594,8 +2603,8 @@ func (s *Statement) Evaluate(p *Path, options *PolicyOptions) bool {
 	return true
 }
 
-func (s *Statement) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) {
-   fmt.Printf("DEJDEJ id:",3231)
+func (s *Statement) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) { 
+   fmt.Print("<<<DEJDEJ id:1219::policy.go:Apply>>>")
 	result := s.Evaluate(path, options)
 	if result {
 		if len(s.ModActions) != 0 {
@@ -2618,8 +2627,8 @@ func (s *Statement) Apply(path *Path, options *PolicyOptions) (RouteType, *Path)
 	return ROUTE_TYPE_NONE, path
 }
 
-func (s *Statement) ToConfig() *config.Statement {
-   fmt.Printf("DEJDEJ id:",3232)
+func (s *Statement) ToConfig() *config.Statement { 
+   fmt.Print("<<<DEJDEJ id:1220::policy.go:ToConfig>>>")
 	return &config.Statement{
 		Name: s.Name,
 		Conditions: func() config.Conditions {
@@ -2692,8 +2701,8 @@ func (s *Statement) ToConfig() *config.Statement {
 	}
 }
 
-func (s *Statement) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3233)
+func (s *Statement) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1221::policy.go:MarshalJSON>>>")
 	return json.Marshal(s.ToConfig())
 }
 
@@ -2705,8 +2714,8 @@ const (
 	REPLACE
 )
 
-func (lhs *Statement) mod(op opType, rhs *Statement) error {
-   fmt.Printf("DEJDEJ id:",3234)
+func (lhs *Statement) mod(op opType, rhs *Statement) error { 
+   fmt.Print("<<<DEJDEJ id:1222::policy.go:mod>>>")
 	cs := make([]Condition, len(lhs.Conditions))
 	copy(cs, lhs.Conditions)
 	ra := lhs.RouteAction
@@ -2805,23 +2814,23 @@ func (lhs *Statement) mod(op opType, rhs *Statement) error {
 	return nil
 }
 
-func (lhs *Statement) Add(rhs *Statement) error {
-   fmt.Printf("DEJDEJ id:",3235)
+func (lhs *Statement) Add(rhs *Statement) error { 
+   fmt.Print("<<<DEJDEJ id:1223::policy.go:Add>>>")
 	return lhs.mod(ADD, rhs)
 }
 
-func (lhs *Statement) Remove(rhs *Statement) error {
-   fmt.Printf("DEJDEJ id:",3236)
+func (lhs *Statement) Remove(rhs *Statement) error { 
+   fmt.Print("<<<DEJDEJ id:1224::policy.go:Remove>>>")
 	return lhs.mod(REMOVE, rhs)
 }
 
-func (lhs *Statement) Replace(rhs *Statement) error {
-   fmt.Printf("DEJDEJ id:",3237)
+func (lhs *Statement) Replace(rhs *Statement) error { 
+   fmt.Print("<<<DEJDEJ id:1225::policy.go:Replace>>>")
 	return lhs.mod(REPLACE, rhs)
 }
 
-func NewStatement(c config.Statement) (*Statement, error) {
-   fmt.Printf("DEJDEJ id:",3238)
+func NewStatement(c config.Statement) (*Statement, error) { 
+   fmt.Print("<<<DEJDEJ id:1226::policy.go:NewStatement(c>>>")
 	if c.Name == "" {
 		return nil, fmt.Errorf("empty statement name")
 	}
@@ -2921,8 +2930,8 @@ type Policy struct {
 // Compare path with a policy's condition in stored order in the policy.
 // If a condition match, then this function stops evaluation and
 // subsequent conditions are skipped.
-func (p *Policy) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) {
-   fmt.Printf("DEJDEJ id:",3239)
+func (p *Policy) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) { 
+   fmt.Print("<<<DEJDEJ id:1227::policy.go:Apply>>>")
 	for _, stmt := range p.Statements {
 		var result RouteType
 		result, path = stmt.Apply(path, options)
@@ -2933,8 +2942,8 @@ func (p *Policy) Apply(path *Path, options *PolicyOptions) (RouteType, *Path) {
 	return ROUTE_TYPE_NONE, path
 }
 
-func (p *Policy) ToConfig() *config.PolicyDefinition {
-   fmt.Printf("DEJDEJ id:",3240)
+func (p *Policy) ToConfig() *config.PolicyDefinition { 
+   fmt.Print("<<<DEJDEJ id:1228::policy.go:ToConfig>>>")
 	ss := make([]config.Statement, 0, len(p.Statements))
 	for _, s := range p.Statements {
 		ss = append(ss, *s.ToConfig())
@@ -2945,8 +2954,8 @@ func (p *Policy) ToConfig() *config.PolicyDefinition {
 	}
 }
 
-func (p *Policy) FillUp(m map[string]*Statement) error {
-   fmt.Printf("DEJDEJ id:",3241)
+func (p *Policy) FillUp(m map[string]*Statement) error { 
+   fmt.Print("<<<DEJDEJ id:1229::policy.go:FillUp>>>")
 	stmts := make([]*Statement, 0, len(p.Statements))
 	for _, x := range p.Statements {
 		y, ok := m[x.Name]
@@ -2959,14 +2968,14 @@ func (p *Policy) FillUp(m map[string]*Statement) error {
 	return nil
 }
 
-func (lhs *Policy) Add(rhs *Policy) error {
-   fmt.Printf("DEJDEJ id:",3242)
+func (lhs *Policy) Add(rhs *Policy) error { 
+   fmt.Print("<<<DEJDEJ id:1230::policy.go:Add>>>")
 	lhs.Statements = append(lhs.Statements, rhs.Statements...)
 	return nil
 }
 
-func (lhs *Policy) Remove(rhs *Policy) error {
-   fmt.Printf("DEJDEJ id:",3243)
+func (lhs *Policy) Remove(rhs *Policy) error { 
+   fmt.Print("<<<DEJDEJ id:1231::policy.go:Remove>>>")
 	stmts := make([]*Statement, 0, len(lhs.Statements))
 	for _, x := range lhs.Statements {
 		found := false
@@ -2984,19 +2993,19 @@ func (lhs *Policy) Remove(rhs *Policy) error {
 	return nil
 }
 
-func (lhs *Policy) Replace(rhs *Policy) error {
-   fmt.Printf("DEJDEJ id:",3244)
+func (lhs *Policy) Replace(rhs *Policy) error { 
+   fmt.Print("<<<DEJDEJ id:1232::policy.go:Replace>>>")
 	lhs.Statements = rhs.Statements
 	return nil
 }
 
-func (p *Policy) MarshalJSON() ([]byte, error) {
-   fmt.Printf("DEJDEJ id:",3245)
+func (p *Policy) MarshalJSON() ([]byte, error) { 
+   fmt.Print("<<<DEJDEJ id:1233::policy.go:MarshalJSON>>>")
 	return json.Marshal(p.ToConfig())
 }
 
-func NewPolicy(c config.PolicyDefinition) (*Policy, error) {
-   fmt.Printf("DEJDEJ id:",3246)
+func NewPolicy(c config.PolicyDefinition) (*Policy, error) { 
+   fmt.Print("<<<DEJDEJ id:1234::policy.go:NewPolicy(c>>>")
 	if c.Name == "" {
 		return nil, fmt.Errorf("empty policy name")
 	}
@@ -3023,18 +3032,18 @@ func NewPolicy(c config.PolicyDefinition) (*Policy, error) {
 
 type Policies []*Policy
 
-func (p Policies) Len() int {
-   fmt.Printf("DEJDEJ id:",3247)
+func (p Policies) Len() int { 
+   fmt.Print("<<<DEJDEJ id:1235::policy.go:Len>>>")
 	return len(p)
 }
 
-func (p Policies) Swap(i, j int) {
-   fmt.Printf("DEJDEJ id:",3248)
+func (p Policies) Swap(i, j int) { 
+   fmt.Print("<<<DEJDEJ id:1236::policy.go:Swap>>>")
 	p[i], p[j] = p[j], p[i]
 }
 
-func (p Policies) Less(i, j int) bool {
-   fmt.Printf("DEJDEJ id:",3249)
+func (p Policies) Less(i, j int) bool { 
+   fmt.Print("<<<DEJDEJ id:1237::policy.go:Less>>>")
 	return p[i].Name < p[j].Name
 }
 
@@ -3055,8 +3064,8 @@ type RoutingPolicy struct {
 	mu            sync.RWMutex
 }
 
-func (r *RoutingPolicy) ApplyPolicy(id string, dir PolicyDirection, before *Path, options *PolicyOptions) *Path {
-   fmt.Printf("DEJDEJ id:",3250)
+func (r *RoutingPolicy) ApplyPolicy(id string, dir PolicyDirection, before *Path, options *PolicyOptions) *Path { 
+   fmt.Print("<<<DEJDEJ id:1238::policy.go:ApplyPolicy>>>")
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3088,8 +3097,8 @@ func (r *RoutingPolicy) ApplyPolicy(id string, dir PolicyDirection, before *Path
 	}
 }
 
-func (r *RoutingPolicy) getPolicy(id string, dir PolicyDirection) []*Policy {
-   fmt.Printf("DEJDEJ id:",3251)
+func (r *RoutingPolicy) getPolicy(id string, dir PolicyDirection) []*Policy { 
+   fmt.Print("<<<DEJDEJ id:1239::policy.go:getPolicy>>>")
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		return nil
@@ -3106,8 +3115,8 @@ func (r *RoutingPolicy) getPolicy(id string, dir PolicyDirection) []*Policy {
 	}
 }
 
-func (r *RoutingPolicy) getDefaultPolicy(id string, dir PolicyDirection) RouteType {
-   fmt.Printf("DEJDEJ id:",3252)
+func (r *RoutingPolicy) getDefaultPolicy(id string, dir PolicyDirection) RouteType { 
+   fmt.Print("<<<DEJDEJ id:1240::policy.go:getDefaultPolicy>>>")
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		return ROUTE_TYPE_NONE
@@ -3125,8 +3134,8 @@ func (r *RoutingPolicy) getDefaultPolicy(id string, dir PolicyDirection) RouteTy
 
 }
 
-func (r *RoutingPolicy) setPolicy(id string, dir PolicyDirection, policies []*Policy) error {
-   fmt.Printf("DEJDEJ id:",3253)
+func (r *RoutingPolicy) setPolicy(id string, dir PolicyDirection, policies []*Policy) error { 
+   fmt.Print("<<<DEJDEJ id:1241::policy.go:setPolicy>>>")
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		a = &Assignment{}
@@ -3143,8 +3152,8 @@ func (r *RoutingPolicy) setPolicy(id string, dir PolicyDirection, policies []*Po
 	return nil
 }
 
-func (r *RoutingPolicy) setDefaultPolicy(id string, dir PolicyDirection, typ RouteType) error {
-   fmt.Printf("DEJDEJ id:",3254)
+func (r *RoutingPolicy) setDefaultPolicy(id string, dir PolicyDirection, typ RouteType) error { 
+   fmt.Print("<<<DEJDEJ id:1242::policy.go:setDefaultPolicy>>>")
 	a, ok := r.assignmentMap[id]
 	if !ok {
 		a = &Assignment{}
@@ -3161,8 +3170,8 @@ func (r *RoutingPolicy) setDefaultPolicy(id string, dir PolicyDirection, typ Rou
 	return nil
 }
 
-func (r *RoutingPolicy) getAssignmentFromConfig(dir PolicyDirection, a config.ApplyPolicy) ([]*Policy, RouteType, error) {
-   fmt.Printf("DEJDEJ id:",3255)
+func (r *RoutingPolicy) getAssignmentFromConfig(dir PolicyDirection, a config.ApplyPolicy) ([]*Policy, RouteType, error) { 
+   fmt.Print("<<<DEJDEJ id:1243::policy.go:getAssignmentFromConfig>>>")
 	var names []string
 	var cdef config.DefaultPolicyType
 	def := ROUTE_TYPE_ACCEPT
@@ -3199,8 +3208,8 @@ func (r *RoutingPolicy) getAssignmentFromConfig(dir PolicyDirection, a config.Ap
 	return ps, def, nil
 }
 
-func (r *RoutingPolicy) validateCondition(v Condition) (err error) {
-   fmt.Printf("DEJDEJ id:",3256)
+func (r *RoutingPolicy) validateCondition(v Condition) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1244::policy.go:validateCondition>>>")
 	switch v.Type() {
 	case CONDITION_PREFIX:
 		m := r.definedSetMap[DEFINED_TYPE_PREFIX]
@@ -3256,8 +3265,8 @@ func (r *RoutingPolicy) validateCondition(v Condition) (err error) {
 	return nil
 }
 
-func (r *RoutingPolicy) inUse(d DefinedSet) bool {
-   fmt.Printf("DEJDEJ id:",3257)
+func (r *RoutingPolicy) inUse(d DefinedSet) bool { 
+   fmt.Print("<<<DEJDEJ id:1245::policy.go:inUse>>>")
 	name := d.Name()
 	for _, p := range r.policyMap {
 		for _, s := range p.Statements {
@@ -3271,8 +3280,8 @@ func (r *RoutingPolicy) inUse(d DefinedSet) bool {
 	return false
 }
 
-func (r *RoutingPolicy) statementInUse(x *Statement) bool {
-   fmt.Printf("DEJDEJ id:",3258)
+func (r *RoutingPolicy) statementInUse(x *Statement) bool { 
+   fmt.Print("<<<DEJDEJ id:1246::policy.go:statementInUse>>>")
 	for _, p := range r.policyMap {
 		for _, y := range p.Statements {
 			if x.Name == y.Name {
@@ -3283,8 +3292,8 @@ func (r *RoutingPolicy) statementInUse(x *Statement) bool {
 	return false
 }
 
-func (r *RoutingPolicy) reload(c config.RoutingPolicy) error {
-   fmt.Printf("DEJDEJ id:",3259)
+func (r *RoutingPolicy) reload(c config.RoutingPolicy) error { 
+   fmt.Print("<<<DEJDEJ id:1247::policy.go:reload>>>")
 	dmap := make(map[DefinedType]map[string]DefinedSet)
 	dmap[DEFINED_TYPE_PREFIX] = make(map[string]DefinedSet)
 	d := c.DefinedSets
@@ -3406,8 +3415,8 @@ func (r *RoutingPolicy) reload(c config.RoutingPolicy) error {
 	return nil
 }
 
-func (r *RoutingPolicy) GetDefinedSet(typ DefinedType, name string) (*config.DefinedSets, error) {
-   fmt.Printf("DEJDEJ id:",3260)
+func (r *RoutingPolicy) GetDefinedSet(typ DefinedType, name string) (*config.DefinedSets, error) { 
+   fmt.Print("<<<DEJDEJ id:1248::policy.go:GetDefinedSet>>>")
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3447,8 +3456,8 @@ func (r *RoutingPolicy) GetDefinedSet(typ DefinedType, name string) (*config.Def
 	return sets, nil
 }
 
-func (r *RoutingPolicy) AddDefinedSet(s DefinedSet) error {
-   fmt.Printf("DEJDEJ id:",3261)
+func (r *RoutingPolicy) AddDefinedSet(s DefinedSet) error { 
+   fmt.Print("<<<DEJDEJ id:1249::policy.go:AddDefinedSet>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3466,8 +3475,8 @@ func (r *RoutingPolicy) AddDefinedSet(s DefinedSet) error {
 	return nil
 }
 
-func (r *RoutingPolicy) DeleteDefinedSet(a DefinedSet, all bool) (err error) {
-   fmt.Printf("DEJDEJ id:",3262)
+func (r *RoutingPolicy) DeleteDefinedSet(a DefinedSet, all bool) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1250::policy.go:DeleteDefinedSet>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3491,8 +3500,8 @@ func (r *RoutingPolicy) DeleteDefinedSet(a DefinedSet, all bool) (err error) {
 	return err
 }
 
-func (r *RoutingPolicy) ReplaceDefinedSet(a DefinedSet) (err error) {
-   fmt.Printf("DEJDEJ id:",3263)
+func (r *RoutingPolicy) ReplaceDefinedSet(a DefinedSet) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1251::policy.go:ReplaceDefinedSet>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3508,8 +3517,8 @@ func (r *RoutingPolicy) ReplaceDefinedSet(a DefinedSet) (err error) {
 	return err
 }
 
-func (r *RoutingPolicy) GetStatement() []*config.Statement {
-   fmt.Printf("DEJDEJ id:",3264)
+func (r *RoutingPolicy) GetStatement() []*config.Statement { 
+   fmt.Print("<<<DEJDEJ id:1252::policy.go:GetStatement>>>")
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3520,8 +3529,8 @@ func (r *RoutingPolicy) GetStatement() []*config.Statement {
 	return l
 }
 
-func (r *RoutingPolicy) AddStatement(st *Statement) (err error) {
-   fmt.Printf("DEJDEJ id:",3265)
+func (r *RoutingPolicy) AddStatement(st *Statement) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1253::policy.go:AddStatement>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3541,8 +3550,8 @@ func (r *RoutingPolicy) AddStatement(st *Statement) (err error) {
 	return err
 }
 
-func (r *RoutingPolicy) DeleteStatement(st *Statement, all bool) (err error) {
-   fmt.Printf("DEJDEJ id:",3266)
+func (r *RoutingPolicy) DeleteStatement(st *Statement, all bool) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1254::policy.go:DeleteStatement>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3564,8 +3573,8 @@ func (r *RoutingPolicy) DeleteStatement(st *Statement, all bool) (err error) {
 	return err
 }
 
-func (r *RoutingPolicy) ReplaceStatement(st *Statement) (err error) {
-   fmt.Printf("DEJDEJ id:",3267)
+func (r *RoutingPolicy) ReplaceStatement(st *Statement) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1255::policy.go:ReplaceStatement>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3579,8 +3588,8 @@ func (r *RoutingPolicy) ReplaceStatement(st *Statement) (err error) {
 	return err
 }
 
-func (r *RoutingPolicy) GetAllPolicy() []*config.PolicyDefinition {
-   fmt.Printf("DEJDEJ id:",3268)
+func (r *RoutingPolicy) GetAllPolicy() []*config.PolicyDefinition { 
+   fmt.Print("<<<DEJDEJ id:1256::policy.go:GetAllPolicy>>>")
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3591,8 +3600,8 @@ func (r *RoutingPolicy) GetAllPolicy() []*config.PolicyDefinition {
 	return l
 }
 
-func (r *RoutingPolicy) AddPolicy(x *Policy, refer bool) (err error) {
-   fmt.Printf("DEJDEJ id:",3269)
+func (r *RoutingPolicy) AddPolicy(x *Policy, refer bool) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1257::policy.go:AddPolicy>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3628,8 +3637,8 @@ func (r *RoutingPolicy) AddPolicy(x *Policy, refer bool) (err error) {
 	return err
 }
 
-func (r *RoutingPolicy) DeletePolicy(x *Policy, all, preserve bool, activeId []string) (err error) {
-   fmt.Printf("DEJDEJ id:",3270)
+func (r *RoutingPolicy) DeletePolicy(x *Policy, all, preserve bool, activeId []string) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1258::policy.go:DeletePolicy>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3681,8 +3690,8 @@ func (r *RoutingPolicy) DeletePolicy(x *Policy, all, preserve bool, activeId []s
 	return err
 }
 
-func (r *RoutingPolicy) ReplacePolicy(x *Policy, refer, preserve bool) (err error) {
-   fmt.Printf("DEJDEJ id:",3271)
+func (r *RoutingPolicy) ReplacePolicy(x *Policy, refer, preserve bool) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1259::policy.go:ReplacePolicy>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3732,8 +3741,8 @@ func (r *RoutingPolicy) ReplacePolicy(x *Policy, refer, preserve bool) (err erro
 	return err
 }
 
-func (r *RoutingPolicy) GetPolicyAssignment(id string, dir PolicyDirection) (RouteType, []*config.PolicyDefinition, error) {
-   fmt.Printf("DEJDEJ id:",3272)
+func (r *RoutingPolicy) GetPolicyAssignment(id string, dir PolicyDirection) (RouteType, []*config.PolicyDefinition, error) { 
+   fmt.Print("<<<DEJDEJ id:1260::policy.go:GetPolicyAssignment>>>")
 	r.mu.RLock()
 	defer r.mu.RUnlock()
 
@@ -3747,8 +3756,8 @@ func (r *RoutingPolicy) GetPolicyAssignment(id string, dir PolicyDirection) (Rou
 	return rt, l, nil
 }
 
-func (r *RoutingPolicy) AddPolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, def RouteType) (err error) {
-   fmt.Printf("DEJDEJ id:",3273)
+func (r *RoutingPolicy) AddPolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, def RouteType) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1261::policy.go:AddPolicyAssignment>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3788,8 +3797,8 @@ func (r *RoutingPolicy) AddPolicyAssignment(id string, dir PolicyDirection, poli
 	return err
 }
 
-func (r *RoutingPolicy) DeletePolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, all bool) (err error) {
-   fmt.Printf("DEJDEJ id:",3274)
+func (r *RoutingPolicy) DeletePolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, all bool) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1262::policy.go:DeletePolicyAssignment>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3840,8 +3849,8 @@ func (r *RoutingPolicy) DeletePolicyAssignment(id string, dir PolicyDirection, p
 	return err
 }
 
-func (r *RoutingPolicy) ReplacePolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, def RouteType) (err error) {
-   fmt.Printf("DEJDEJ id:",3275)
+func (r *RoutingPolicy) ReplacePolicyAssignment(id string, dir PolicyDirection, policies []*config.PolicyDefinition, def RouteType) (err error) { 
+   fmt.Print("<<<DEJDEJ id:1263::policy.go:ReplacePolicyAssignment>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3868,8 +3877,8 @@ func (r *RoutingPolicy) ReplacePolicyAssignment(id string, dir PolicyDirection, 
 	return err
 }
 
-func (r *RoutingPolicy) Reset(rp *config.RoutingPolicy, ap map[string]config.ApplyPolicy) error {
-   fmt.Printf("DEJDEJ id:",3276)
+func (r *RoutingPolicy) Reset(rp *config.RoutingPolicy, ap map[string]config.ApplyPolicy) error { 
+   fmt.Print("<<<DEJDEJ id:1264::policy.go:Reset>>>")
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
@@ -3899,8 +3908,8 @@ func (r *RoutingPolicy) Reset(rp *config.RoutingPolicy, ap map[string]config.App
 	return nil
 }
 
-func NewRoutingPolicy() *RoutingPolicy {
-   fmt.Printf("DEJDEJ id:",3277)
+func NewRoutingPolicy() *RoutingPolicy { 
+   fmt.Print("<<<DEJDEJ id:1265::policy.go:NewRoutingPolicy()>>>")
 	return &RoutingPolicy{
 		definedSetMap: make(map[DefinedType]map[string]DefinedSet),
 		policyMap:     make(map[string]*Policy),
@@ -3909,8 +3918,8 @@ func NewRoutingPolicy() *RoutingPolicy {
 	}
 }
 
-func CanImportToVrf(v *Vrf, path *Path) bool {
-   fmt.Printf("DEJDEJ id:",3278)
+func CanImportToVrf(v *Vrf, path *Path) bool { 
+   fmt.Print("<<<DEJDEJ id:1266::policy.go:CanImportToVrf(v>>>")
 	f := func(arg []bgp.ExtendedCommunityInterface) []string {
 		ret := make([]string, 0, len(arg))
 		for _, a := range arg {
