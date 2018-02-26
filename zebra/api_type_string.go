@@ -9,7 +9,6 @@ const _API_TYPE_name = "FRR_INTERFACE_ADDINTERFACE_ADDINTERFACE_DELETEINTERFACE_
 var _API_TYPE_index = [...]uint16{0, 17, 30, 46, 67, 91, 103, 117, 131, 148, 162, 179, 195, 214, 238, 265, 284, 303, 321, 339, 355, 368, 384, 400, 405, 429, 443, 464, 480, 498, 512, 523, 542, 567, 592, 617, 642, 660, 671, 685, 709, 732, 757, 783, 811, 836, 855, 877, 897, 920, 940, 963, 983, 1008, 1027, 1050, 1060, 1073, 1083, 1095, 1115}
 
 func (i API_TYPE) String() string {
-   fmt.Printf("DEJDEJ id:",3496)
 	if i >= API_TYPE(len(_API_TYPE_index)-1) {
 		return fmt.Sprintf("API_TYPE(%d)", i)
 	}

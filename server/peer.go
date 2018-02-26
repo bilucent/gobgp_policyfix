@@ -39,7 +39,6 @@ type PeerGroup struct {
 }
 
 func NewPeerGroup(c *config.PeerGroup) *PeerGroup {
-   fmt.Printf("DEJDEJ id:",271)
 	return &PeerGroup{
 		Conf:             c,
 		members:          make(map[string]config.Neighbor, 0),
@@ -48,22 +47,18 @@ func NewPeerGroup(c *config.PeerGroup) *PeerGroup {
 }
 
 func (pg *PeerGroup) AddMember(c config.Neighbor) {
-   fmt.Printf("DEJDEJ id:",272)
 	pg.members[c.State.NeighborAddress] = c
 }
 
 func (pg *PeerGroup) DeleteMember(c config.Neighbor) {
-   fmt.Printf("DEJDEJ id:",273)
 	delete(pg.members, c.State.NeighborAddress)
 }
 
 func (pg *PeerGroup) AddDynamicNeighbor(c *config.DynamicNeighbor) {
-   fmt.Printf("DEJDEJ id:",274)
 	pg.dynamicNeighbors[c.Config.Prefix] = c
 }
 
 func newDynamicPeer(g *config.Global, neighborAddress string, pg *config.PeerGroup, loc *table.TableManager, policy *table.RoutingPolicy) *Peer {
-   fmt.Printf("DEJDEJ id:",275)
 	conf := config.Neighbor{
 		Config: config.NeighborConfig{
 			PeerGroup: pg.Config.PeerGroupName,
@@ -108,7 +103,6 @@ type Peer struct {
 }
 
 func NewPeer(g *config.Global, conf *config.Neighbor, loc *table.TableManager, policy *table.RoutingPolicy) *Peer {
-   fmt.Printf("DEJDEJ id:",276)
 	peer := &Peer{
 		outgoing:          channels.NewInfiniteChannel(),
 		localRib:          loc,
@@ -127,42 +121,34 @@ func NewPeer(g *config.Global, conf *config.Neighbor, loc *table.TableManager, p
 }
 
 func (peer *Peer) AS() uint32 {
-   fmt.Printf("DEJDEJ id:",277)
 	return peer.fsm.pConf.State.PeerAs
 }
 
 func (peer *Peer) ID() string {
-   fmt.Printf("DEJDEJ id:",278)
 	return peer.fsm.pConf.State.NeighborAddress
 }
 
 func (peer *Peer) TableID() string {
-   fmt.Printf("DEJDEJ id:",279)
 	return peer.tableId
 }
 
 func (peer *Peer) isIBGPPeer() bool {
-   fmt.Printf("DEJDEJ id:",280)
 	return peer.fsm.pConf.State.PeerAs == peer.fsm.gConf.Config.As
 }
 
 func (peer *Peer) isRouteServerClient() bool {
-   fmt.Printf("DEJDEJ id:",281)
 	return peer.fsm.pConf.RouteServer.Config.RouteServerClient
 }
 
 func (peer *Peer) isRouteReflectorClient() bool {
-   fmt.Printf("DEJDEJ id:",282)
 	return peer.fsm.pConf.RouteReflector.Config.RouteReflectorClient
 }
 
 func (peer *Peer) isGracefulRestartEnabled() bool {
-   fmt.Printf("DEJDEJ id:",283)
 	return peer.fsm.pConf.GracefulRestart.State.Enabled
 }
 
 func (peer *Peer) getAddPathMode(family bgp.RouteFamily) bgp.BGPAddPathMode {
-   fmt.Printf("DEJDEJ id:",284)
 	if mode, y := peer.fsm.rfMap[family]; y {
 		return mode
 	}
@@ -170,22 +156,18 @@ func (peer *Peer) getAddPathMode(family bgp.RouteFamily) bgp.BGPAddPathMode {
 }
 
 func (peer *Peer) isAddPathReceiveEnabled(family bgp.RouteFamily) bool {
-   fmt.Printf("DEJDEJ id:",285)
 	return (peer.getAddPathMode(family) & bgp.BGP_ADD_PATH_RECEIVE) > 0
 }
 
 func (peer *Peer) isAddPathSendEnabled(family bgp.RouteFamily) bool {
-   fmt.Printf("DEJDEJ id:",286)
 	return (peer.getAddPathMode(family) & bgp.BGP_ADD_PATH_SEND) > 0
 }
 
 func (peer *Peer) isDynamicNeighbor() bool {
-   fmt.Printf("DEJDEJ id:",287)
 	return peer.fsm.pConf.Config.NeighborAddress == "" && peer.fsm.pConf.Config.NeighborInterface == ""
 }
 
 func (peer *Peer) recvedAllEOR() bool {
-   fmt.Printf("DEJDEJ id:",288)
 	for _, a := range peer.fsm.pConf.AfiSafis {
 		if s := a.MpGracefulRestart.State; s.Enabled && !s.EndOfRibReceived {
 			return false
@@ -195,13 +177,11 @@ func (peer *Peer) recvedAllEOR() bool {
 }
 
 func (peer *Peer) configuredRFlist() []bgp.RouteFamily {
-   fmt.Printf("DEJDEJ id:",289)
 	rfs, _ := config.AfiSafis(peer.fsm.pConf.AfiSafis).ToRfList()
 	return rfs
 }
 
 func (peer *Peer) toGlobalFamilies(families []bgp.RouteFamily) []bgp.RouteFamily {
-   fmt.Printf("DEJDEJ id:",290)
 	if peer.fsm.pConf.Config.Vrf != "" {
 		fs := make([]bgp.RouteFamily, 0, len(families))
 		for _, f := range families {
@@ -225,7 +205,6 @@ func (peer *Peer) toGlobalFamilies(families []bgp.RouteFamily) []bgp.RouteFamily
 }
 
 func classifyFamilies(all, part []bgp.RouteFamily) ([]bgp.RouteFamily, []bgp.RouteFamily) {
-   fmt.Printf("DEJDEJ id:",291)
 	a := []bgp.RouteFamily{}
 	b := []bgp.RouteFamily{}
 	for _, f := range all {
@@ -245,7 +224,6 @@ func classifyFamilies(all, part []bgp.RouteFamily) ([]bgp.RouteFamily, []bgp.Rou
 }
 
 func (peer *Peer) forwardingPreservedFamilies() ([]bgp.RouteFamily, []bgp.RouteFamily) {
-   fmt.Printf("DEJDEJ id:",292)
 	list := []bgp.RouteFamily{}
 	for _, a := range peer.fsm.pConf.AfiSafis {
 		if s := a.MpGracefulRestart.State; s.Enabled && s.Received {
@@ -256,7 +234,6 @@ func (peer *Peer) forwardingPreservedFamilies() ([]bgp.RouteFamily, []bgp.RouteF
 }
 
 func (peer *Peer) llgrFamilies() ([]bgp.RouteFamily, []bgp.RouteFamily) {
-   fmt.Printf("DEJDEJ id:",293)
 	list := []bgp.RouteFamily{}
 	for _, a := range peer.fsm.pConf.AfiSafis {
 		if a.LongLivedGracefulRestart.State.Enabled {
@@ -267,7 +244,6 @@ func (peer *Peer) llgrFamilies() ([]bgp.RouteFamily, []bgp.RouteFamily) {
 }
 
 func (peer *Peer) isLLGREnabledFamily(family bgp.RouteFamily) bool {
-   fmt.Printf("DEJDEJ id:",294)
 	if !peer.fsm.pConf.GracefulRestart.Config.LongLivedEnabled {
 		return false
 	}
@@ -281,7 +257,6 @@ func (peer *Peer) isLLGREnabledFamily(family bgp.RouteFamily) bool {
 }
 
 func (peer *Peer) llgrRestartTime(family bgp.RouteFamily) uint32 {
-   fmt.Printf("DEJDEJ id:",295)
 	for _, a := range peer.fsm.pConf.AfiSafis {
 		if a.State.Family == family {
 			return a.LongLivedGracefulRestart.State.PeerRestartTime
@@ -291,7 +266,6 @@ func (peer *Peer) llgrRestartTime(family bgp.RouteFamily) uint32 {
 }
 
 func (peer *Peer) llgrRestartTimerExpired(family bgp.RouteFamily) bool {
-   fmt.Printf("DEJDEJ id:",296)
 	all := true
 	for _, a := range peer.fsm.pConf.AfiSafis {
 		if a.State.Family == family {
@@ -306,7 +280,6 @@ func (peer *Peer) llgrRestartTimerExpired(family bgp.RouteFamily) bool {
 }
 
 func (peer *Peer) markLLGRStale(fs []bgp.RouteFamily) []*table.Path {
-   fmt.Printf("DEJDEJ id:",297)
 	paths := peer.adjRibIn.PathList(fs, true)
 	for i, p := range paths {
 		doStale := true
@@ -327,7 +300,6 @@ func (peer *Peer) markLLGRStale(fs []bgp.RouteFamily) []*table.Path {
 }
 
 func (peer *Peer) stopPeerRestarting() {
-   fmt.Printf("DEJDEJ id:",298)
 	peer.fsm.pConf.GracefulRestart.State.PeerRestarting = false
 	for _, ch := range peer.llgrEndChs {
 		close(ch)
@@ -337,12 +309,10 @@ func (peer *Peer) stopPeerRestarting() {
 }
 
 func (peer *Peer) getAccepted(rfList []bgp.RouteFamily) []*table.Path {
-   fmt.Printf("DEJDEJ id:",299)
 	return peer.adjRibIn.PathList(rfList, true)
 }
 
 func (peer *Peer) filterpath(path, old *table.Path) *table.Path {
-   fmt.Printf("DEJDEJ id:",300)
 	// special handling for RTC nlri
 	// see comments in (*Destination).Calculate()
 	if path != nil && path.GetRouteFamily() == bgp.RF_RTC_UC && !path.IsWithdraw {
@@ -426,7 +396,6 @@ func (peer *Peer) filterpath(path, old *table.Path) *table.Path {
 }
 
 func (peer *Peer) getBestFromLocal(rfList []bgp.RouteFamily) ([]*table.Path, []*table.Path) {
-   fmt.Printf("DEJDEJ id:",301)
 	pathList := []*table.Path{}
 	filtered := []*table.Path{}
 	for _, family := range peer.toGlobalFamilies(rfList) {
@@ -453,7 +422,6 @@ func (peer *Peer) getBestFromLocal(rfList []bgp.RouteFamily) ([]*table.Path, []*
 }
 
 func (peer *Peer) processOutgoingPaths(paths, olds []*table.Path) []*table.Path {
-   fmt.Printf("DEJDEJ id:",302)
 	if peer.fsm.state != bgp.BGP_FSM_ESTABLISHED {
 		return nil
 	}
@@ -480,7 +448,6 @@ func (peer *Peer) processOutgoingPaths(paths, olds []*table.Path) []*table.Path 
 }
 
 func (peer *Peer) handleRouteRefresh(e *FsmMsg) []*table.Path {
-   fmt.Printf("DEJDEJ id:",303)
 	m := e.MsgData.(*bgp.BGPMessage)
 	rr := m.Body.(*bgp.BGPRouteRefresh)
 	rf := bgp.AfiSafiToRouteFamily(rr.AFI, rr.SAFI)
@@ -509,7 +476,6 @@ func (peer *Peer) handleRouteRefresh(e *FsmMsg) []*table.Path {
 }
 
 func (peer *Peer) doPrefixLimit(k bgp.RouteFamily, c *config.PrefixLimitConfig) *bgp.BGPMessage {
-   fmt.Printf("DEJDEJ id:",304)
 	if maxPrefixes := int(c.MaxPrefixes); maxPrefixes > 0 {
 		count := peer.adjRibIn.Count([]bgp.RouteFamily{k})
 		pct := int(c.ShutdownThresholdPct)
@@ -535,7 +501,6 @@ func (peer *Peer) doPrefixLimit(k bgp.RouteFamily, c *config.PrefixLimitConfig) 
 }
 
 func (peer *Peer) updatePrefixLimitConfig(c []config.AfiSafi) error {
-   fmt.Printf("DEJDEJ id:",305)
 	x := peer.fsm.pConf.AfiSafis
 	y := c
 	if len(x) != len(y) {
@@ -569,7 +534,6 @@ func (peer *Peer) updatePrefixLimitConfig(c []config.AfiSafi) error {
 }
 
 func (peer *Peer) handleUpdate(e *FsmMsg) ([]*table.Path, []bgp.RouteFamily, *bgp.BGPMessage) {
-   fmt.Printf("DEJDEJ id:",306)
 	m := e.MsgData.(*bgp.BGPMessage)
 	update := m.Body.(*bgp.BGPUpdate)
 	log.WithFields(log.Fields{
@@ -612,17 +576,14 @@ func (peer *Peer) handleUpdate(e *FsmMsg) ([]*table.Path, []bgp.RouteFamily, *bg
 }
 
 func (peer *Peer) startFSMHandler(incoming *channels.InfiniteChannel, stateCh chan *FsmMsg) {
-   fmt.Printf("DEJDEJ id:",307)
 	peer.fsm.h = NewFSMHandler(peer.fsm, incoming, stateCh, peer.outgoing)
 }
 
 func (peer *Peer) StaleAll(rfList []bgp.RouteFamily) {
-   fmt.Printf("DEJDEJ id:",308)
 	peer.adjRibIn.StaleAll(rfList)
 }
 
 func (peer *Peer) PassConn(conn *net.TCPConn) {
-   fmt.Printf("DEJDEJ id:",309)
 	select {
 	case peer.fsm.connCh <- conn:
 	default:
@@ -635,7 +596,6 @@ func (peer *Peer) PassConn(conn *net.TCPConn) {
 }
 
 func (peer *Peer) ToConfig(getAdvertised bool) *config.Neighbor {
-   fmt.Printf("DEJDEJ id:",310)
 	// create copy which can be access to without mutex
 	conf := *peer.fsm.pConf
 
@@ -688,12 +648,10 @@ func (peer *Peer) ToConfig(getAdvertised bool) *config.Neighbor {
 }
 
 func (peer *Peer) DropAll(rfList []bgp.RouteFamily) {
-   fmt.Printf("DEJDEJ id:",311)
 	peer.adjRibIn.Drop(rfList)
 }
 
 func (peer *Peer) stopFSM() error {
-   fmt.Printf("DEJDEJ id:",312)
 	failed := false
 	addr := peer.fsm.pConf.State.NeighborAddress
 	t1 := time.AfterFunc(time.Minute*5, func() {

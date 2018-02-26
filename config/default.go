@@ -25,7 +25,6 @@ var forcedOverwrittenConfig = []string{
 var configuredFields map[string]interface{}
 
 func RegisterConfiguredFields(addr string, n interface{}) {
-   fmt.Printf("DEJDEJ id:",3463)
 	if configuredFields == nil {
 		configuredFields = make(map[string]interface{}, 0)
 	}
@@ -33,7 +32,6 @@ func RegisterConfiguredFields(addr string, n interface{}) {
 }
 
 func defaultAfiSafi(typ AfiSafiType, enable bool) AfiSafi {
-   fmt.Printf("DEJDEJ id:",3464)
 	return AfiSafi{
 		Config: AfiSafiConfig{
 			AfiSafiName: typ,
@@ -47,7 +45,6 @@ func defaultAfiSafi(typ AfiSafiType, enable bool) AfiSafi {
 }
 
 func SetDefaultNeighborConfigValues(n *Neighbor, pg *PeerGroup, g *Global) error {
-   fmt.Printf("DEJDEJ id:",3465)
 	// Determines this function is called against the same Neighbor struct,
 	// and if already called, returns immediately.
 	if n.State.LocalAs != 0 {
@@ -58,7 +55,6 @@ func SetDefaultNeighborConfigValues(n *Neighbor, pg *PeerGroup, g *Global) error
 }
 
 func setDefaultNeighborConfigValuesWithViper(v *viper.Viper, n *Neighbor, g *Global, pg *PeerGroup) error {
-   fmt.Printf("DEJDEJ id:",3466)
 	if n == nil {
 		return fmt.Errorf("neighbor config is nil")
 	}
@@ -252,7 +248,6 @@ func setDefaultNeighborConfigValuesWithViper(v *viper.Viper, n *Neighbor, g *Glo
 }
 
 func SetDefaultGlobalConfigValues(g *Global) error {
-   fmt.Printf("DEJDEJ id:",3467)
 	if len(g.AfiSafis) == 0 {
 		g.AfiSafis = []AfiSafi{}
 		for k, _ := range AfiSafiTypeToIntMap {
@@ -271,12 +266,10 @@ func SetDefaultGlobalConfigValues(g *Global) error {
 }
 
 func SetDefaultConfigValues(b *BgpConfigSet) error {
-   fmt.Printf("DEJDEJ id:",3468)
 	return setDefaultConfigValuesWithViper(nil, b)
 }
 
 func setDefaultPolicyConfigValuesWithViper(v *viper.Viper, p *PolicyDefinition) error {
-   fmt.Printf("DEJDEJ id:",3469)
 	stmts, err := extractArray(v.Get("policy.statements"))
 	if err != nil {
 		return err
@@ -294,7 +287,6 @@ func setDefaultPolicyConfigValuesWithViper(v *viper.Viper, p *PolicyDefinition) 
 }
 
 func setDefaultConfigValuesWithViper(v *viper.Viper, b *BgpConfigSet) error {
-   fmt.Printf("DEJDEJ id:",3470)
 	if v == nil {
 		v = viper.New()
 	}
@@ -394,7 +386,6 @@ func setDefaultConfigValuesWithViper(v *viper.Viper, b *BgpConfigSet) error {
 }
 
 func OverwriteNeighborConfigWithPeerGroup(c *Neighbor, pg *PeerGroup) error {
-   fmt.Printf("DEJDEJ id:",3471)
 	v := viper.New()
 
 	val, ok := configuredFields[c.Config.NeighborAddress]
@@ -427,7 +418,6 @@ func OverwriteNeighborConfigWithPeerGroup(c *Neighbor, pg *PeerGroup) error {
 }
 
 func overwriteConfig(c, pg interface{}, tagPrefix string, v *viper.Viper) {
-   fmt.Printf("DEJDEJ id:",3472)
 	nValue := reflect.Indirect(reflect.ValueOf(c))
 	nType := reflect.Indirect(nValue).Type()
 	pgValue := reflect.Indirect(reflect.ValueOf(pg))

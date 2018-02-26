@@ -10,7 +10,6 @@ import (
 
 // Validator for BGPUpdate
 func ValidateUpdateMsg(m *BGPUpdate, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) {
-   fmt.Printf("DEJDEJ id:",2673)
 	var strongestError error
 
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
@@ -82,7 +81,6 @@ func ValidateUpdateMsg(m *BGPUpdate, rfs map[RouteFamily]BGPAddPathMode, isEBGP 
 }
 
 func ValidateAttribute(a PathAttributeInterface, rfs map[RouteFamily]BGPAddPathMode, isEBGP bool, isConfed bool) (bool, error) {
-   fmt.Printf("DEJDEJ id:",2674)
 	var strongestError error
 
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
@@ -230,7 +228,6 @@ func ValidateAttribute(a PathAttributeInterface, rfs map[RouteFamily]BGPAddPathM
 
 // validator for PathAttribute
 func validatePathAttributeFlags(t BGPAttrType, flags BGPAttrFlag) string {
-   fmt.Printf("DEJDEJ id:",2675)
 
 	/*
 	 * RFC 4271 P.17 For well-known attributes, the Transitive bit MUST be set to 1.
@@ -263,7 +260,6 @@ func validatePathAttributeFlags(t BGPAttrType, flags BGPAttrFlag) string {
 }
 
 func validateAsPathValueBytes(data []byte) (bool, error) {
-   fmt.Printf("DEJDEJ id:",2676)
 	eCode := uint8(BGP_ERROR_UPDATE_MESSAGE_ERROR)
 	eSubCode := uint8(BGP_ERROR_SUB_MALFORMED_AS_PATH)
 	if len(data)%2 != 0 {
@@ -310,7 +306,6 @@ func validateAsPathValueBytes(data []byte) (bool, error) {
 }
 
 func ValidateBGPMessage(m *BGPMessage) error {
-   fmt.Printf("DEJDEJ id:",2677)
 	if m.Header.Len > BGP_MAX_MESSAGE_LENGTH {
 		buf := make([]byte, 2)
 		binary.BigEndian.PutUint16(buf, m.Header.Len)
@@ -321,7 +316,6 @@ func ValidateBGPMessage(m *BGPMessage) error {
 }
 
 func ValidateOpenMsg(m *BGPOpen, expectedAS uint32) (uint32, error) {
-   fmt.Printf("DEJDEJ id:",2678)
 	if m.Version != 4 {
 		return 0, NewMessageError(BGP_ERROR_OPEN_MESSAGE_ERROR, BGP_ERROR_SUB_UNSUPPORTED_VERSION_NUMBER, nil, fmt.Sprintf("unsupported version %d", m.Version))
 	}

@@ -29,7 +29,6 @@ type Vrf struct {
 }
 
 func (v *Vrf) Clone() *Vrf {
-   fmt.Printf("DEJDEJ id:",3279)
 	f := func(rt []bgp.ExtendedCommunityInterface) []bgp.ExtendedCommunityInterface {
 		l := make([]bgp.ExtendedCommunityInterface, 0, len(rt))
 		for _, v := range rt {
@@ -47,7 +46,6 @@ func (v *Vrf) Clone() *Vrf {
 }
 
 func isLastTargetUser(vrfs map[string]*Vrf, target bgp.ExtendedCommunityInterface) bool {
-   fmt.Printf("DEJDEJ id:",3280)
 	for _, vrf := range vrfs {
 		for _, rt := range vrf.ImportRt {
 			if target.String() == rt.String() {

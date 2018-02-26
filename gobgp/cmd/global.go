@@ -86,7 +86,6 @@ var ExtCommValueMap = map[string]ExtCommType{
 }
 
 func rateLimitParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3636)
 	exp := regexp.MustCompile(fmt.Sprintf("^(%s|(%s) (\\d+)(\\.(\\d+))?)( as (\\d+))?$", ExtCommNameMap[DISCARD], ExtCommNameMap[RATE]))
 	elems := exp.FindStringSubmatch(strings.Join(args, " "))
 	if len(elems) != 8 {
@@ -112,7 +111,6 @@ func rateLimitParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func redirectParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3637)
 	if len(args) < 2 || args[0] != ExtCommNameMap[REDIRECT] {
 		return nil, fmt.Errorf("invalid redirect")
 	}
@@ -138,7 +136,6 @@ func redirectParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func markParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3638)
 	if len(args) < 2 || args[0] != ExtCommNameMap[MARK] {
 		return nil, fmt.Errorf("invalid mark")
 	}
@@ -150,7 +147,6 @@ func markParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func actionParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3639)
 	if len(args) < 2 || args[0] != ExtCommNameMap[ACTION] {
 		return nil, fmt.Errorf("invalid action")
 	}
@@ -171,7 +167,6 @@ func actionParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func rtParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3640)
 	if len(args) < 2 || args[0] != ExtCommNameMap[RT] {
 		return nil, fmt.Errorf("invalid rt")
 	}
@@ -187,7 +182,6 @@ func rtParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func encapParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3641)
 	if len(args) < 2 || args[0] != ExtCommNameMap[ENCAP] {
 		return nil, fmt.Errorf("invalid encap")
 	}
@@ -216,7 +210,6 @@ func encapParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func esiLabelParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3642)
 	if len(args) < 2 || args[0] != ExtCommNameMap[ESI_LABEL] {
 		return nil, fmt.Errorf("invalid esi-label")
 	}
@@ -243,7 +236,6 @@ func esiLabelParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func routerMacParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3643)
 	if len(args) < 2 || args[0] != ExtCommNameMap[ROUTER_MAC] {
 		return nil, fmt.Errorf("invalid router's mac")
 	}
@@ -256,7 +248,6 @@ func routerMacParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
 }
 
 func defaultGatewayParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3644)
 	if len(args) < 1 || args[0] != ExtCommNameMap[DEFAULT_GATEWAY] {
 		return nil, fmt.Errorf("invalid default-gateway")
 	}
@@ -264,7 +255,6 @@ func defaultGatewayParser(args []string) ([]bgp.ExtendedCommunityInterface, erro
 }
 
 func validationParser(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3645)
 	if len(args) < 1 {
 		return nil, fmt.Errorf("invalid validation state")
 	}
@@ -300,7 +290,6 @@ var ExtCommParserMap = map[ExtCommType]func([]string) ([]bgp.ExtendedCommunityIn
 }
 
 func ParseExtendedCommunities(args []string) ([]bgp.ExtendedCommunityInterface, error) {
-   fmt.Printf("DEJDEJ id:",3646)
 	idxs := make([]struct {
 		t ExtCommType
 		i int
@@ -340,7 +329,6 @@ func ParseExtendedCommunities(args []string) ([]bgp.ExtendedCommunityInterface, 
 }
 
 func ParseFlowSpecArgs(rf bgp.RouteFamily, args []string) (bgp.AddrPrefixInterface, []string, error) {
-   fmt.Printf("DEJDEJ id:",3647)
 	// Format:
 	// match <rule>... [then <action>...] [rd <rd>] [rt <rt>...]
 	req := 3 // match <key1> <arg1> [<key2> <arg2>...]
@@ -401,7 +389,6 @@ func ParseFlowSpecArgs(rf bgp.RouteFamily, args []string) (bgp.AddrPrefixInterfa
 }
 
 func ParseEvpnEthernetAutoDiscoveryArgs(args []string) (bgp.AddrPrefixInterface, []string, error) {
-   fmt.Printf("DEJDEJ id:",3648)
 	// Format:
 	// esi <esi> etag <etag> label <label> rd <rd> [rt <rt>...] [encap <encap type>] [esi-label <esi-label> [single-active | all-active]]
 	req := 8
@@ -460,7 +447,6 @@ func ParseEvpnEthernetAutoDiscoveryArgs(args []string) (bgp.AddrPrefixInterface,
 }
 
 func ParseEvpnMacAdvArgs(args []string) (bgp.AddrPrefixInterface, []string, error) {
-   fmt.Printf("DEJDEJ id:",3649)
 	// Format:
 	// <mac address> <ip address> [esi <esi>] etag <etag> label <label> rd <rd> [rt <rt>...] [encap <encap type>] [default-gateway]
 	// or
@@ -569,7 +555,6 @@ func ParseEvpnMacAdvArgs(args []string) (bgp.AddrPrefixInterface, []string, erro
 }
 
 func ParseEvpnMulticastArgs(args []string) (bgp.AddrPrefixInterface, []string, error) {
-   fmt.Printf("DEJDEJ id:",3650)
 	// Format:
 	// <ip address> etag <etag> rd <rd> [rt <rt>...] [encap <encap type>]
 	// or
@@ -637,7 +622,6 @@ func ParseEvpnMulticastArgs(args []string) (bgp.AddrPrefixInterface, []string, e
 }
 
 func ParseEvpnEthernetSegmentArgs(args []string) (bgp.AddrPrefixInterface, []string, error) {
-   fmt.Printf("DEJDEJ id:",3651)
 	// Format:
 	// <ip address> esi <esi> rd <rd> [rt <rt>...] [encap <encap type>]
 	req := 5
@@ -695,7 +679,6 @@ func ParseEvpnEthernetSegmentArgs(args []string) (bgp.AddrPrefixInterface, []str
 }
 
 func ParseEvpnIPPrefixArgs(args []string) (bgp.AddrPrefixInterface, []string, error) {
-   fmt.Printf("DEJDEJ id:",3652)
 	// Format:
 	// <ip prefix> [gw <gateway>] [esi <esi>] etag <etag> [label <label>] rd <rd> [rt <rt>...] [encap <encap type>]
 	req := 5
@@ -773,7 +756,6 @@ func ParseEvpnIPPrefixArgs(args []string) (bgp.AddrPrefixInterface, []string, er
 }
 
 func ParseEvpnArgs(args []string) (bgp.AddrPrefixInterface, []string, error) {
-   fmt.Printf("DEJDEJ id:",3653)
 	if len(args) < 1 {
 		return nil, nil, fmt.Errorf("lack of args. need 1 but %d", len(args))
 	}
@@ -795,7 +777,6 @@ func ParseEvpnArgs(args []string) (bgp.AddrPrefixInterface, []string, error) {
 }
 
 func extractOrigin(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3654)
 	typ := bgp.BGP_ORIGIN_ATTR_TYPE_INCOMPLETE
 	for idx, arg := range args {
 		if arg == "origin" && len(args) > (idx+1) {
@@ -816,7 +797,6 @@ func extractOrigin(args []string) ([]string, bgp.PathAttributeInterface, error) 
 }
 
 func toAs4Value(s string) (uint32, error) {
-   fmt.Printf("DEJDEJ id:",3655)
 	if strings.Contains(s, ".") {
 		v := strings.Split(s, ".")
 		upper, err := strconv.ParseUint(v[0], 10, 16)
@@ -837,7 +817,6 @@ func toAs4Value(s string) (uint32, error) {
 }
 
 func newAsPath(aspath string) (bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3656)
 	// For the first step, parses "aspath" into a list of uint32 list.
 	// e.g.) "10 20 {30,40} 50" -> [][]uint32{{10, 20}, {30, 40}, {50}}
 	exp := regexp.MustCompile("[{}]")
@@ -873,7 +852,6 @@ func newAsPath(aspath string) (bgp.PathAttributeInterface, error) {
 }
 
 func extractAsPath(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3657)
 	for idx, arg := range args {
 		if arg == "aspath" && len(args) > (idx+1) {
 			attr, err := newAsPath(args[idx+1])
@@ -888,7 +866,6 @@ func extractAsPath(args []string) ([]string, bgp.PathAttributeInterface, error) 
 }
 
 func extractNexthop(rf bgp.RouteFamily, args []string) ([]string, string, error) {
-   fmt.Printf("DEJDEJ id:",3658)
 	afi, _ := bgp.RouteFamilyToAfiSafi(rf)
 	nexthop := "0.0.0.0"
 	if afi == bgp.AFI_IP6 {
@@ -908,7 +885,6 @@ func extractNexthop(rf bgp.RouteFamily, args []string) ([]string, string, error)
 }
 
 func extractLocalPref(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3659)
 	for idx, arg := range args {
 		if arg == "local-pref" && len(args) > (idx+1) {
 			metric, err := strconv.ParseUint(args[idx+1], 10, 32)
@@ -923,7 +899,6 @@ func extractLocalPref(args []string) ([]string, bgp.PathAttributeInterface, erro
 }
 
 func extractMed(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3660)
 	for idx, arg := range args {
 		if arg == "med" && len(args) > (idx+1) {
 			med, err := strconv.ParseUint(args[idx+1], 10, 32)
@@ -938,7 +913,6 @@ func extractMed(args []string) ([]string, bgp.PathAttributeInterface, error) {
 }
 
 func extractCommunity(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3661)
 	for idx, arg := range args {
 		if arg == "community" && len(args) > (idx+1) {
 			elems := strings.Split(args[idx+1], ",")
@@ -958,7 +932,6 @@ func extractCommunity(args []string) ([]string, bgp.PathAttributeInterface, erro
 }
 
 func extractLargeCommunity(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3662)
 	for idx, arg := range args {
 		if arg == "large-community" && len(args) > (idx+1) {
 			elems := strings.Split(args[idx+1], ",")
@@ -978,7 +951,6 @@ func extractLargeCommunity(args []string) ([]string, bgp.PathAttributeInterface,
 }
 
 func extractPmsiTunnel(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3663)
 	for idx, arg := range args {
 		if arg == "pmsi" {
 			pmsi, err := bgp.ParsePmsiTunnel(args[idx+1:])
@@ -995,7 +967,6 @@ func extractPmsiTunnel(args []string) ([]string, bgp.PathAttributeInterface, err
 }
 
 func extractAigp(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3664)
 	for idx, arg := range args {
 		if arg == "aigp" {
 			if len(args) < (idx + 3) {
@@ -1019,7 +990,6 @@ func extractAigp(args []string) ([]string, bgp.PathAttributeInterface, error) {
 }
 
 func extractAggregator(args []string) ([]string, bgp.PathAttributeInterface, error) {
-   fmt.Printf("DEJDEJ id:",3665)
 	for idx, arg := range args {
 		if arg == "aggregator" {
 			if len(args) < (idx + 1) {
@@ -1041,7 +1011,6 @@ func extractAggregator(args []string) ([]string, bgp.PathAttributeInterface, err
 }
 
 func extractRouteDistinguisher(args []string) ([]string, bgp.RouteDistinguisherInterface, error) {
-   fmt.Printf("DEJDEJ id:",3666)
 	for idx, arg := range args {
 		if arg == "rd" {
 			if len(args) < (idx + 1) {
@@ -1058,7 +1027,6 @@ func extractRouteDistinguisher(args []string) ([]string, bgp.RouteDistinguisherI
 }
 
 func ParsePath(rf bgp.RouteFamily, args []string) (*table.Path, error) {
-   fmt.Printf("DEJDEJ id:",3667)
 	var nlri bgp.AddrPrefixInterface
 	var extcomms []string
 	var err error
@@ -1241,12 +1209,10 @@ func ParsePath(rf bgp.RouteFamily, args []string) (*table.Path, error) {
 }
 
 func showGlobalRib(args []string) error {
-   fmt.Printf("DEJDEJ id:",3668)
 	return showNeighborRib(CMD_GLOBAL, "", args)
 }
 
 func modPath(resource string, name, modtype string, args []string) error {
-   fmt.Printf("DEJDEJ id:",3669)
 	rf, err := checkAddressFamily(bgp.RF_IPv4_UC)
 	if err != nil {
 		return err
@@ -1427,7 +1393,6 @@ usage: %s rib %s key <KEY> [value <VALUE>]`,
 }
 
 func showGlobalConfig() error {
-   fmt.Printf("DEJDEJ id:",3670)
 	g, err := client.GetServer()
 	if err != nil {
 		return err
@@ -1449,7 +1414,6 @@ func showGlobalConfig() error {
 }
 
 func modGlobalConfig(args []string) error {
-   fmt.Printf("DEJDEJ id:",3671)
 	m := extractReserved(args, []string{"as", "router-id", "listen-port",
 		"listen-addresses", "use-multipath"})
 
@@ -1493,7 +1457,6 @@ func modGlobalConfig(args []string) error {
 }
 
 func NewGlobalCmd() *cobra.Command {
-   fmt.Printf("DEJDEJ id:",3672)
 	globalCmd := &cobra.Command{
 		Use: CMD_GLOBAL,
 		Run: func(cmd *cobra.Command, args []string) {

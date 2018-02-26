@@ -9,7 +9,6 @@ const _LINK_TYPE_name = "LINK_TYPE_UNKNOWNLINK_TYPE_ETHERLINK_TYPE_EETHERLINK_TY
 var _LINK_TYPE_index = [...]uint16{0, 17, 32, 48, 62, 78, 95, 111, 129, 143, 156, 174, 192, 207, 227, 241, 256, 271, 287, 302, 317, 331, 344, 357, 372, 386, 403, 417, 432, 446, 460, 478, 496, 510, 523, 538, 553, 569, 585, 600, 616, 630, 644, 658, 672, 690, 710, 729, 757, 777, 801}
 
 func (i LINK_TYPE) String() string {
-   fmt.Printf("DEJDEJ id:",3579)
 	if i >= LINK_TYPE(len(_LINK_TYPE_index)-1) {
 		return fmt.Sprintf("LINK_TYPE(%d)", i)
 	}

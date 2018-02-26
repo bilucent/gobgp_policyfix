@@ -24,7 +24,6 @@ type BgpConfigSet struct {
 }
 
 func ReadConfigfileServe(path, format string, configCh chan *BgpConfigSet) {
-   fmt.Printf("DEJDEJ id:",3457)
 	sigCh := make(chan os.Signal, 1)
 	signal.Notify(sigCh, syscall.SIGHUP)
 
@@ -78,7 +77,6 @@ func ReadConfigfileServe(path, format string, configCh chan *BgpConfigSet) {
 }
 
 func ConfigSetToRoutingPolicy(c *BgpConfigSet) *RoutingPolicy {
-   fmt.Printf("DEJDEJ id:",3458)
 	return &RoutingPolicy{
 		DefinedSets:       c.DefinedSets,
 		PolicyDefinitions: c.PolicyDefinitions,
@@ -86,7 +84,6 @@ func ConfigSetToRoutingPolicy(c *BgpConfigSet) *RoutingPolicy {
 }
 
 func UpdatePeerGroupConfig(curC, newC *BgpConfigSet) ([]PeerGroup, []PeerGroup, []PeerGroup) {
-   fmt.Printf("DEJDEJ id:",3459)
 	addedPg := []PeerGroup{}
 	deletedPg := []PeerGroup{}
 	updatedPg := []PeerGroup{}
@@ -114,7 +111,6 @@ func UpdatePeerGroupConfig(curC, newC *BgpConfigSet) ([]PeerGroup, []PeerGroup, 
 }
 
 func UpdateNeighborConfig(curC, newC *BgpConfigSet) ([]Neighbor, []Neighbor, []Neighbor) {
-   fmt.Printf("DEJDEJ id:",3460)
 	added := []Neighbor{}
 	deleted := []Neighbor{}
 	updated := []Neighbor{}
@@ -142,7 +138,6 @@ func UpdateNeighborConfig(curC, newC *BgpConfigSet) ([]Neighbor, []Neighbor, []N
 }
 
 func CheckPolicyDifference(currentPolicy *RoutingPolicy, newPolicy *RoutingPolicy) bool {
-   fmt.Printf("DEJDEJ id:",3461)
 
 	log.WithFields(log.Fields{
 		"Topic": "Config",
